@@ -27,39 +27,44 @@
 <body class="flex flex-col h-screen">
   <nav class="bg-white p-4 z-10">
     <div class="container mx-auto flex justify-between items-center">
-        <div class="text-black text-lg font-semibold">Logo NU</div>
+        <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="h-8 w-auto">
         <div class="hidden sm:flex space-x-4">
           <div class="relative group flex items-center">
-            <a href="#" class="text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded inline-flex items-center">
+            <a href="#" class="text-black  hover:text-black px-3 py-2 rounded inline-flex items-center">
                 Tentang
                 <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="ml-1 h-4 w-4">
             </a>
             <div class="absolute hidden group-hover:block bg-gray-100 text-black mt-44 rounded shadow-lg z-4  ">
-                <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-black">Subitem 1</a>
-                <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-black">Subitem 2</a>
+                <a href="#" class="block px-4 py-2  hover:text-green-500">Subitem 1</a>
+                <a href="#" class="block px-4 py-2  hover:text-green-500">Subitem 2</a>
             </div>
         </div>
         
             <div class="relative group">
-                <a href="#" class="block text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded">Campaign</a>
+                <a href="#" class="block text-black  hover:text-green-500 px-3 py-2 rounded">Campaign</a>
             </div>
 
             <div class="relative group">
-                <a href="#" class="block text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded">Berita</a>
-                
+                <a href="#" class="block text-black  hover:text-green-500 px-3 py-2 rounded">Berita</a>
             </div>
 
             <div class="hidden sm:flex space-x-4">
               <div class="relative group flex items-center">
-                <a href="#" class="text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded inline-flex items-center">
+                <a href="#" class="text-black  hover:text-black px-3 py-2 rounded inline-flex items-center">
                     layanan
                     <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="ml-1 h-4 w-4">
                 </a>
                 <div class="absolute hidden group-hover:block bg-gray-100 text-black mt-44 rounded shadow-lg ">
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-black">Subitem 1</a>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-black">Subitem 2</a>
+                    <a href="#" class="block px-4 py-2  hover:text-green-500">Subitem 1</a>
+                    <a href="#" class="block px-4 py-2  hover:text-green-500">Subitem 2</a>
                 </div>
             </div>
+            <div class="relative group">
+              <a href="#" class="block text-white bg-green-500 hover:border-green-500 hover:bg-white hover:text-green-500 border px-3 py-2 rounded">Masuk</a>
+          </div>
+          <div class="relative group">
+              <a href="#" class="block text-green-500 border border-green-500 hover:bg-green-500 hover:text-white px-3 py-2 rounded">Daftar</a>
+        </div>
         </div>
         <div class="sm:hidden flex items-center">
             <button id="menu-btn" class="text-gray-300 hover:text-black focus:outline-none">
@@ -161,22 +166,40 @@
           </p>
           <button class="rounded-lg text-white bg-green-500 px-4 py-2 ">Baca Selengkap</button>
         </div>
-        
-</div>
+    </div>
 
-
-    
+    {{-- zakat --}}
+    <div class="flex flex-col items-center py-10  bg-white mt-4 w-full bg-cover bg-center shadow-sm" style="background-image: url('{{ asset('images/zakat_bg.png') }}');">
+      <!-- Title -->
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold text-green-500">Apakah Anda masih bingung dengan cara berzakat?</h2>
+      </div>
+      
+      <!-- Container for items -->
+      <div class="flex items-start justify-around w-full max-w-4xl mx-20 space-x-20 relative" style="margin-top: -20px;">
         
+        <!-- Overlay container for content -->
+        <div class=" flex items-start justify-center w-full  mx-14">
+          <!-- Item 1 -->
+          <div class="  items-center p-4 rounded-lg">
+             <a href="" class="text-white bg-green-500 px-4 py-2 rounded-lg"> Konsultasi Zakat</a>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="  items-center p-4 rounded-lg">
+          <a href="" class="text-white bg-green-500 px-4 py-2 rounded-lg"> Kalkulator Zakat</a>
+        </div>
+
+          <!-- Item 3 -->
+          <div class="  items-center p-4 rounded-lg">
+         <a href="" class="text-white bg-green-500 px-4 py-2 rounded-lg"> Konfirmasi Zakat</a>
+        </div>
       </div>
     </div>
-    
-    
-  </div>
-  
-
-
     </div>
-  </div>
+
+
+    
 
 
 
