@@ -7,10 +7,11 @@
     <title>Document</title>
     @vite('resources/css/app.css')
 </head>
-<body>
-    <div class="flex flex-col justify-center min-h-full px-6 py-12 lg:px-8">
-        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img class="w-auto h-24 mx-auto" src="{{ asset('images/logo_lazisnu.png') }}" alt="Your Company">
+<body class="bg-gray-100">
+    <div class="flex items-center justify-center min-h-screen px-6 py-12 lg:px-8">
+        <div class="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
+            <div class="text-center">
+            {{-- <img class="w-auto h-24 mx-auto" src="{{ asset('images/logo_lazisnu.png') }}" alt="Your Company"> --}}
             <h2 class="mt-3 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">Daftar</h2>
             <p class="text-xl font-bold leading-9 tracking-tight text-center text-gray-900 ">Silahkan lengkapi data di bawah</p>
         </div>
