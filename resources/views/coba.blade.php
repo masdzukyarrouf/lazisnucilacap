@@ -25,7 +25,7 @@
 
 </head>
 <body class="flex flex-col h-screen">
-  <nav class="bg-white p-4">
+  <nav class="bg-white p-4 z-10">
     <div class="container mx-auto flex justify-between items-center">
         <div class="text-black text-lg font-semibold">Logo NU</div>
         <div class="hidden sm:flex space-x-4">
@@ -34,7 +34,7 @@
                 Tentang
                 <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="ml-1 h-4 w-4">
             </a>
-            <div class="absolute hidden group-hover:block bg-gray-100 text-black mt-44 rounded shadow-lg">
+            <div class="absolute hidden group-hover:block bg-gray-100 text-black mt-44 rounded shadow-lg z-4  ">
                 <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-black">Subitem 1</a>
                 <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-black">Subitem 2</a>
             </div>
@@ -46,10 +46,7 @@
 
             <div class="relative group">
                 <a href="#" class="block text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded">Berita</a>
-                <div class="absolute hidden group-hover:block bg-gray-100 text-black mt-2 rounded shadow-lg">
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-black">Subitem 1</a>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-black">Subitem 2</a>
-                </div>
+                
             </div>
 
             <div class="hidden sm:flex space-x-4">
@@ -58,7 +55,7 @@
                     layanan
                     <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="ml-1 h-4 w-4">
                 </a>
-                <div class="absolute hidden group-hover:block bg-gray-100 text-black mt-44 rounded shadow-lg">
+                <div class="absolute hidden group-hover:block bg-gray-100 text-black mt-44 rounded shadow-lg ">
                     <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-black">Subitem 1</a>
                     <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-black">Subitem 2</a>
                 </div>
@@ -91,43 +88,99 @@
     </div>
   </div>
 
-  <div class="flex-grow flex items-center justify-center mt-1">
-    <img src="{{ asset('images/anak_yatim.png') }}" alt="Anak Yatim" class="object-cover w-full h-full">
+  <div class="relative flex-grow flex items-center justify-center mt-1">
+    <!-- Arrow  left -->
+    <img src="{{ asset('images/arrowX.png') }}" alt="Arrow Left" class="absolute left-0 h-8 w-8 object-cover">
+  
+    <div class="relative z-0 bg-white">
+      <img src="{{ asset('images/anak_yatim.png') }}" alt="Anak Yatim" class="object-cover w-full h-full">
+    </div>
+  
+    <!-- Arrow  right -->
+    <img src="{{ asset('images/arrowX.png') }}" alt="Arrow Right" class="absolute right-0 h-8 w-8 object-cover transform -scale-x-100">
   </div>
+  
 
-  <div class=" flex items-center justify-around rounded-3xl  py-10 mx-20 bg-white" style="margin-top: -120px">
-
-      <!-- Individual item -->
+  <div class="relative z-10">
+    <div class="absolute top-0 left-0 right-0 flex items-center justify-around rounded-3xl py-10 mx-20 bg-white shadow-lg" style="margin-top: -120px">
+      <!-- Item -->
       <div class="flex flex-col items-center">
         <img src="{{ asset('images/penerima_manfaat.png') }}" alt="Image 1" class="w-24 h-24 object-cover mb-2">
         <p class="text-green-500 font-semibold mb-1">5000</p>
         <p class="text-gray-700">Penerima Manfaat</p>
       </div>
   
-      <!-- Individual item -->
+      <!-- Item -->
       <div class="flex flex-col items-center">
         <img src="{{ asset('images/penghimpunan.png') }}" alt="Image 2" class="w-24 h-24 object-cover mb-2">
         <p class="text-green-500 font-semibold mb-1">Rp 2.000.000.000.000</p>
         <p class="text-gray-700">Penghimpunan</p>
       </div>
   
-      <!-- Individual item -->
+      <!-- Item -->
       <div class="flex flex-col items-center">
         <img src="{{ asset('images/penyaluran.png') }}" alt="Image 3" class="w-24 h-24 object-cover mb-2">
         <p class="text-green-500 font-semibold mb-1">Rp 2.000.000.000.000</p>
         <p class="text-gray-700">Penyaluran</p>
       </div>
   
-      <!-- Individual item -->
+      <!-- Item -->
       <div class="flex flex-col items-center">
         <img src="{{ asset('images/donatur.png') }}" alt="Image 4" class="w-24 h-24 object-cover mb-2">
         <p class="text-green-500 font-semibold mb-1">5000</p>
         <p class="text-gray-700">Donatur</p>
       </div>
+    </div>
+  </div>
+  
 
+    {{-- tentang --}}
+    <div class="flex flex-col items-center py-10 bg-white mt-36">
+      <!-- Title -->
+      <div class="mb-8">
+        <h2 class="text-xl font-semibold text-black">Tentang</h2>
+        <div class="relative pt-4 mt-2 px-8">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-white via-green-700 to-white"></div>
+        </div>
+      </div>
+      
+      <!-- Container for items -->
+      <div class="flex items-start justify-between w-full max-w-4xl mx-20 space-x-20">
+        <!-- Item 1 -->
+          <div class="flex flex-col items-center flex-1">
+            <img src="{{ asset('images/tentang.png') }}" alt="Image 1" class="w-128 h-128 object-cover mb-4">
+          </div>
+
+        <!-- Item 2 -->
+        <div class="flex flex-col flex-1 items-start text-justify">
+          <p class="text-black font-extrabold text-xl mb-4">Sekilas NU Care-LAZISNU Cilacap</p>
+          <p class="text-gray-700 text-sm mb-4">
+            NU Care-LAZISNU adalah rebranding dan/atau sebagai pintu masuk agar masyarakat global mengenal Lembaga Amil Zakat, Infak, dan Sedekah Nahdlatul Ulama (LAZISNU) sebagai lembaga filantropi NU. NU Care-LAZISNU berdiri pada tahun 2004 sebagai sarana untuk membantu masyarakat, sesuai amanat muktamar NU yang ke-31 di Asrama Haji Donohudan, Boyolali, Jawa Tengah. LAZISNU secara yuridis-formal dikukuhkan oleh SK Menteri Agama RI No. 65/2005 untuk melakukan penghimpunan Zakat, Infak, dan Sedekah (ZIS) kepada masyarakat luas.
+            <br><br>
+            NU Care-LAZISNU merupakan lembaga nirlaba milik perkumpulan Nahdlatul Ulama (NU) yang bertujuan untuk berkhidmat dalam rangka membantu kesejahteraan dan kemandirian umat; mengangkat harkat sosial dengan mendayagunakan dana Zakat, Infak, Sedekah (ZIS) dan dana sosial-keagamaan lainnya (DSKL).
+          </p>
+          <button class="rounded-lg text-white bg-green-500 px-4 py-2 ">Baca Selengkap</button>
+        </div>
+        
+</div>
+
+
+    
+        
+      </div>
+    </div>
+    
+    
+  </div>
+  
+
+
+    </div>
   </div>
 
-  
+
+
+
   
   
 
