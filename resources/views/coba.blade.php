@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>NU Cilacap</title>
     @vite('resources/css/app.css')
     <style>
       .sidebar {
@@ -95,9 +95,39 @@
     <img src="{{ asset('images/anak_yatim.png') }}" alt="Anak Yatim" class="object-cover w-full h-full">
   </div>
 
-  <div class="flex-grow flex items-center justify-center rounded-lg outline  p-40 mx-20" style="margin-top: -120px">
-asd
+  <div class=" flex items-center justify-evenly rounded-lg outline py-10 mx-20" style="margin-top: -120px">
+    <div class="flex space-x-8">
+      <!-- Individual item -->
+      <div class="flex flex-col items-center">
+        <img src="{{ asset('images/penerima_manfaat.png') }}" alt="Image 1" class="w-32 h-32 object-cover mb-2">
+        <p class="text-green-500 font-semibold mb-1">Green Text 1</p>
+        <p class="text-gray-700">Regular Text 1</p>
+      </div>
+  
+      <!-- Individual item -->
+      <div class="flex flex-col items-center">
+        <img src="{{ asset('images/penerima_manfaat.png') }}" alt="Image 2" class="w-32 h-32 object-cover mb-2">
+        <p class="text-green-500 font-semibold mb-1">Green Text 2</p>
+        <p class="text-gray-700">Regular Text 2</p>
+      </div>
+  
+      <!-- Individual item -->
+      <div class="flex flex-col items-center">
+        <img src="{{ asset('images/penyaluran.png') }}" alt="Image 3" class="w-32 h-32 object-cover mb-2">
+        <p class="text-green-500 font-semibold mb-1">Green Text 3</p>
+        <p class="text-gray-700">Regular Text 3</p>
+      </div>
+  
+      <!-- Individual item -->
+      <div class="flex flex-col items-center">
+        <img src="path-to-image4.jpg" alt="Image 4" class="w-32 h-32 object-cover mb-2">
+        <p class="text-green-500 font-semibold mb-1">Green Text 4</p>
+        <p class="text-gray-700">Regular Text 4</p>
+      </div>
+    </div>
   </div>
+  
+  
 
   <script>
     document.getElementById('menu-btn').addEventListener('click', function() {
