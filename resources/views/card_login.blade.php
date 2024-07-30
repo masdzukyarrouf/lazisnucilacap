@@ -12,7 +12,7 @@
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <img class="w-auto h-24 mx-auto" src="{{ asset('images/logo_lazisnu.png') }}" alt="Your Company">
             <h2 class="mt-3 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">MASUK</h2>
-            <p class="text-xl font-bold leading-9 tracking-tight text-center text-gray-900 ">Belum memiliki akun? <a href="http://" class="text-green-500">Daftar</a></p>
+            <p class="text-xl font-bold leading-9 tracking-tight text-center text-gray-900 ">Belum memiliki akun? <a href="/daftar" class="text-green-500">Daftar</a></p>
         </div>
             
 
