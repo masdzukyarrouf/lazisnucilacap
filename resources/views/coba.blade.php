@@ -95,37 +95,39 @@
     <img src="{{ asset('images/anak_yatim.png') }}" alt="Anak Yatim" class="object-cover w-full h-full">
   </div>
 
-  <div class=" flex items-center justify-evenly rounded-lg outline py-10 mx-20" style="margin-top: -120px">
-    <div class="flex space-x-8">
+  <div class=" flex items-center justify-around rounded-3xl  py-10 mx-20 bg-white" style="margin-top: -120px">
+
       <!-- Individual item -->
       <div class="flex flex-col items-center">
-        <img src="{{ asset('images/penerima_manfaat.png') }}" alt="Image 1" class="w-32 h-32 object-cover mb-2">
-        <p class="text-green-500 font-semibold mb-1">Green Text 1</p>
-        <p class="text-gray-700">Regular Text 1</p>
+        <img src="{{ asset('images/penerima_manfaat.png') }}" alt="Image 1" class="w-24 h-24 object-cover mb-2">
+        <p class="text-green-500 font-semibold mb-1">5000</p>
+        <p class="text-gray-700">Penerima Manfaat</p>
       </div>
   
       <!-- Individual item -->
       <div class="flex flex-col items-center">
-        <img src="{{ asset('images/penerima_manfaat.png') }}" alt="Image 2" class="w-32 h-32 object-cover mb-2">
-        <p class="text-green-500 font-semibold mb-1">Green Text 2</p>
-        <p class="text-gray-700">Regular Text 2</p>
+        <img src="{{ asset('images/penghimpunan.png') }}" alt="Image 2" class="w-24 h-24 object-cover mb-2">
+        <p class="text-green-500 font-semibold mb-1">Rp 2.000.000.000.000</p>
+        <p class="text-gray-700">Penghimpunan</p>
       </div>
   
       <!-- Individual item -->
       <div class="flex flex-col items-center">
-        <img src="{{ asset('images/penyaluran.png') }}" alt="Image 3" class="w-32 h-32 object-cover mb-2">
-        <p class="text-green-500 font-semibold mb-1">Green Text 3</p>
-        <p class="text-gray-700">Regular Text 3</p>
+        <img src="{{ asset('images/penyaluran.png') }}" alt="Image 3" class="w-24 h-24 object-cover mb-2">
+        <p class="text-green-500 font-semibold mb-1">Rp 2.000.000.000.000</p>
+        <p class="text-gray-700">Penyaluran</p>
       </div>
   
       <!-- Individual item -->
       <div class="flex flex-col items-center">
-        <img src="path-to-image4.jpg" alt="Image 4" class="w-32 h-32 object-cover mb-2">
-        <p class="text-green-500 font-semibold mb-1">Green Text 4</p>
-        <p class="text-gray-700">Regular Text 4</p>
+        <img src="{{ asset('images/donatur.png') }}" alt="Image 4" class="w-24 h-24 object-cover mb-2">
+        <p class="text-green-500 font-semibold mb-1">5000</p>
+        <p class="text-gray-700">Donatur</p>
       </div>
-    </div>
+
   </div>
+
+  
   
   
 
