@@ -130,53 +130,50 @@
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Card 1 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src="{{ asset('images/campaign_1.png') }}" alt="Picture" class="w-full object-cover">
-                <div class="p-4">
-                    <h2 class="text-xl font-semibold text-gray-800">Title 1</h2>
-                    <p class="text-gray-600 mt-1">Location 1</p>
-                    <div class="mt-4">
-                        <div class="bg-gray-200 rounded-full h-2">
-                            <div class="bg-green-500 h-2 rounded-full" style="width: 60%;"></div>
-                        </div>
-                        <p class="mt-2 text-gray-700">6.000</p>
-                    </div>
-                    <button class="mt-4 w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">Donate</button>
-                </div>
-            </div>
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src="{{ asset('images/campaign_1.png') }}" alt="Picture" class="w-full object-cover">
-                <div class="p-4">
-                    <h2 class="text-xl font-semibold text-gray-800">Title 1</h2>
-                    <p class="text-gray-600 mt-1">Location 1</p>
-                    <div class="mt-4">
-                        <div class="bg-gray-200 rounded-full h-2">
-                            <div class="bg-green-500 h-2 rounded-full" style="width: 60%;"></div>
-                        </div>
-                        <p class="mt-2 text-gray-700">6.000</p>
-                    </div>
-                    <button class="mt-4 w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">Donate</button>
-                </div>
-            </div>
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src="{{ asset('images/campaign_1.png') }}" alt="Picture" class="w-full object-cover">
-                <div class="p-4">
-                    <h2 class="text-xl font-semibold text-gray-800">Title 1</h2>
-                    <p class="text-gray-600 mt-1">Location 1</p>
-                    <div class="mt-4">
-                        <div class="bg-gray-200 rounded-full h-2">
-                            <div class="bg-green-500 h-2 rounded-full" style="width: 60%;"></div>
-                        </div>
-                        <p class="mt-2 text-gray-700">6.000</p>
-                    </div>
-                    <button class="mt-4 w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">Donate</button>
-                </div>
-            </div>
-            
-            
+            <x-campaign-card />
+            <x-campaign-card />
+            <x-campaign-card />
+            <x-campaign-card />
+            <x-campaign-card />
+            <x-campaign-card />
+        </div>
+        <div class="mt-12">
+            <button class="rounded-lg text-white bg-green-500 px-4 py-2 ">Campaign Lainya</button>
+        </div>
+    </div>
+
+    div class="flex flex-col items-center py-10  bg-white mt-4 w-full bg-cover bg-center shadow-md"
+        style="background-image: url('{{ asset('images/zakat_bg.png') }}');">
+        <!-- Title -->
+        <div class="mb-8">
+            <h2 class="text-3xl font-bold text-green-500">Apakah Anda masih bingung dengan cara berzakat?</h2>
         </div>
 
+        <!-- Container for items -->
+        <div class="flex items-start justify-around w-full max-w-4xl mx-20 space-x-20 relative"
+            style="margin-top: -20px;">
+
+            <!-- Overlay container for content -->
+            <div class=" flex items-start justify-center w-full  mx-14">
+                <!-- Item 1 -->
+                <div class="  items-center p-4 rounded-lg">
+                    <a href="" class="text-white bg-green-500 px-4 py-2 rounded-lg"> Konsultasi Zakat</a>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="  items-center p-4 rounded-lg">
+                    <a href="" class="text-white bg-green-500 px-4 py-2 rounded-lg"> Kalkulator Zakat</a>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="  items-center p-4 rounded-lg">
+                    <a href="" class="text-white bg-green-500 px-4 py-2 rounded-lg"> Konfirmasii Zakat</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+
 
 
 
