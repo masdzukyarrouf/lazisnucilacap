@@ -12,6 +12,6 @@
             </div>
             <div class="text-right"><p class="mt-2 text-gray-700">rp</p></div>
         </div>
-        <button class="w-full py-2 mt-4 text-white bg-green-500 rounded-lg hover:bg-green-600">Donate</button>
+        <button class="w-1/3 py-2 mt-4 text-white bg-green-500 rounded-lg hover:bg-green-600">Donate</button>
     </div>
 </div>
