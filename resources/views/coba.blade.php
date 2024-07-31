@@ -107,6 +107,7 @@
                 </svg>
             </button>
         </div>
+
         <div class="p-4 space-y-4">
             <a href="#" class="block text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded">Home</a>
             <a href="#" class="block text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded">About</a>
@@ -227,7 +228,7 @@
 
                     <!-- Item 3 -->
                     <div class="  items-center p-4 rounded-lg">
-                        <a href="" class="text-white bg-green-500 px-4 py-2 rounded-lg"> Konfirmasi Zakat</a>
+                        <a href="" class="text-white bg-green-500 px-4 py-2 rounded-lg"> Konfirmasii Zakat</a>
                     </div>
                 </div>
             </div>
