@@ -1,5 +1,5 @@
 <div class="overflow-hidden bg-white  shadow-lg">
-    <img src="{{ asset('images/image.png') }}" alt="Picture" class="object-cover w-full">
+    <img src="{{ asset('images/berita_1.png') }}" alt="Picture" class="object-cover w-full">
     <div class="p-4">
         <h2 class="text-sm font-semibold text-gray-800">Program Ramadhan 2024, Nu Care-Lazisnu Cilacap Berhasil Menyalurkan Kepada 54.000 Penerima Manfaat</h2>
         <div class="flex items-center mt-1">

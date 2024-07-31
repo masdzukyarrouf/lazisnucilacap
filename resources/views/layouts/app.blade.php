@@ -30,5 +30,12 @@
     <body class="flex flex-col h-screen">
         {{ $slot }}
     </body>
-    
+    <footer>
+        <div>
+            <div>
+                
+            </div>
+        </div>
+    </footer>
+
 </html>

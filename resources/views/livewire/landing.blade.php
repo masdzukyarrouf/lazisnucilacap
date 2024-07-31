@@ -147,7 +147,7 @@
         style="background-image: url('{{ asset('images/berita_bg.png') }}');">
         <!-- Title -->
         <div class="mb-8">
-            <h2 class="text-xl font-semibold text-black">Mari Mulai Berdonasi</h2>
+            <h2 class="text-xl font-semibold text-black">Berita</h2>
             <div class="relative pt-4 mt-2 px-8">
                 <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-white via-green-700 to-white">
                 </div>
