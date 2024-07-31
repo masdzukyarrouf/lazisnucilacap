@@ -138,38 +138,31 @@
             <x-campaign-card />
         </div>
         <div class="mt-12">
-            <button class="rounded-lg text-white bg-green-500 px-4 py-2 ">Campaign Lainya</button>
+            <button class="rounded-md text-white bg-green-500 px-4 py-2 ">Campaign Lainnya</button>
         </div>
     </div>
 
+    {{-- berita --}}
     <div class="flex flex-col items-center py-10  bg-white mt-4 w-full bg-cover bg-center shadow-md"
-        style="background-image: url('{{ asset('images/zakat_bg.png') }}');">
+        style="background-image: url('{{ asset('images/berita_bg.png') }}');">
         <!-- Title -->
         <div class="mb-8">
-            <h2 class="text-3xl font-bold text-green-500">Apakah Anda masih bingung dengan cara berzakat?</h2>
-        </div>
-
-        <!-- Container for items -->
-        <div class="flex items-start justify-around w-full max-w-4xl mx-20 space-x-20 relative"
-            style="margin-top: -20px;">
-
-            <!-- Overlay container for content -->
-            <div class=" flex items-start justify-center w-full  mx-14">
-                <!-- Item 1 -->
-                <div class="  items-center p-4 rounded-lg">
-                    <a href="" class="text-white bg-green-500 px-4 py-2 rounded-lg"> Konsultasi Zakat</a>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="  items-center p-4 rounded-lg">
-                    <a href="" class="text-white bg-green-500 px-4 py-2 rounded-lg"> Kalkulator Zakat</a>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="  items-center p-4 rounded-lg">
-                    <a href="" class="text-white bg-green-500 px-4 py-2 rounded-lg"> Konfirmasii Zakat</a>
+            <h2 class="text-xl font-semibold text-black">Mari Mulai Berdonasi</h2>
+            <div class="relative pt-4 mt-2 px-8">
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-white via-green-700 to-white">
                 </div>
             </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mx-10">
+            <!-- Card 1 -->
+            <x-berita-card />
+            <x-berita-card />
+            <x-berita-card />
+            
+        </div>
+        <div class="mt-12">
+            <button class="rounded-md text-white bg-green-500 px-4 py-2 ">Berita Lainnya</button>
         </div>
     </div>
 
