@@ -22,5 +22,9 @@ Route::get('/campaign', function () {
     return view('campaign');
 });
 
+Route::get('/berita', function () {
+    return view('berita');
+});
+
 
 Route::get('/', App\Livewire\Landing::class);
