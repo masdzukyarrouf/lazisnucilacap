@@ -50,8 +50,11 @@
                     </div>
                     <div
                         class="absolute right-0 hidden mt-1 text-black bg-gray-100 border border-gray-300 rounded shadow-lg top-full group-hover:block">
-                        <a href="#" class="block px-4 py-2 hover:text-green-500">Subitem 1</a>
-                        <a href="#" class="block px-4 py-2 hover:text-green-500">Subitem 2</a>
+                        <a href="#" class="block px-4 py-2 hover:text-green-500">Ramadhan</a>
+                        <a href="#" class="block px-4 py-2 hover:text-green-500">Ekonomi</a>
+                        <a href="#" class="block px-4 py-2 hover:text-green-500">Sosial & Keagamaan</a>
+                        <a href="#" class="block px-4 py-2 hover:text-green-500">Kesehatan</a>
+                        <a href="#" class="block px-4 py-2 hover:text-green-500">Pendidikan</a>
                     </div>
                 </div>
             </div>
