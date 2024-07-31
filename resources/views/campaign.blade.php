@@ -92,6 +92,30 @@
         <a href="#" class="block px-3 py-2 text-black rounded hover:bg-gray-100 hover:text-black">Contact</a>
     </div>
   </div>
-    <div class="flex items-center justify-center min-h-screen px-6 py-12 lg:px-8">
-        <div class="w-full h-full p-8 space-y-8 bg-white rounded-lg shadow-md" style="background-image: url('{{ asset('images/bg_campaign.png') }}'); background-repeat: no-repeat; background-position: bottom  right;">
-            <div class="text-center">
+
+  <div class="flex items-center justify-center px-6 py-12 lg:px-8">
+    <div class="p-8 mx-5 space-y-8 bg-white rounded-lg shadow-md" style="background-image: url('{{ asset('images/bg_campaign.png') }}'); background-repeat: no-repeat; background-position: bottom right; height: 1689px; width: 1449px;">
+        <div class="flex items-center justify-between">
+            <p class="text-3xl font-bold text-green-600">
+                Wujudkan Perubahan Sekarang!
+            </p>
+            <div class="relative flex items-center mx-5 border rounded-lg group">
+                <div class="pr-20">
+                    <a href="#" class="inline-flex items-center px-3 py-2 text-black rounded hover:text-black">
+                    Pilih Kategori
+                </a>
+                </div>
+                    <div class="px-3 pl-20">
+                        <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="w-4 h-4 ml-1">
+                    </div>
+                <div class="absolute right-0 hidden mt-1 text-black bg-gray-100 border border-gray-300 rounded shadow-lg top-full group-hover:block">
+                    <a href="#" class="block px-4 py-2 hover:text-green-500">Subitem 1</a>
+                    <a href="#" class="block px-4 py-2 hover:text-green-500">Subitem 2</a>
+                </div>
+            </div>
+        </div>
+            <div class="flex items-start justify-center w-1/3 overflow-hidden bg-white shadow-md h-1/3 rounded-3xl">
+                <img src="{{ asset('images/campaign_1.png') }}" alt="pict_campaign" class="w-full h-auto">
+            </div>
+    </div>
+</div>
