@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,15 @@
             transform: translateX(-100%);
             transition: transform 0.3s ease-in-out;
         }
+
         .sidebar-open {
             transform: translateX(0);
         }
+
         body {
             font-family: 'Inter', sans-serif;
         }
+
         nav {
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
@@ -30,16 +34,16 @@
             <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="h-8 w-auto">
             <div class="hidden sm:flex space-x-4">
                 <div class="relative group flex items-center">
-                    <a href="#" class="text-black  hover:text-black px-3 py-2 rounded inline-flex items-center">
+                    <a href="#"
+                        class="text-black  hover:text-black px-3 py-2 rounded inline-flex items-center">
                         Tentang
                         <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="ml-1 h-4 w-4">
                     </a>
-                    <div class="absolute hidden group-hover:block bg-gray-100 text-black mt-44 rounded shadow-lg z-4  ">
+                    <div class="absolute hidden group-hover:block bg-gray-100 text-black mt-44 rounded shadow-lg ">
                         <a href="#" class="block px-4 py-2  hover:text-green-500">Subitem 1</a>
                         <a href="#" class="block px-4 py-2  hover:text-green-500">Subitem 2</a>
                     </div>
                 </div>
-
                 <div class="relative group">
                     <a href="#" class="block text-black  hover:text-green-500 px-3 py-2 rounded">Campaign</a>
                 </div>
