@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-1 gap-6 pt-1  sm:grid-cols-2 lg:grid-cols-3 mx-10">
+            <div class="grid grid-cols-1 gap-6 pt-1 mx-10 sm:grid-cols-2 lg:grid-cols-3">
                 <x-campaign-card></x-campaign-card>
                 <div>
                     <x-campaign-card></x-campaign-card>
@@ -63,5 +63,37 @@
                 <div>
                     <x-campaign-card></x-campaign-card>
                 </div>
+                <div>
+                    <x-campaign-card></x-campaign-card>
+                </div>
+                <div>
+                    <x-campaign-card></x-campaign-card>
+                </div>
+                <div>
+                    <x-campaign-card></x-campaign-card>
+                </div>
+                <div>
+                    <x-campaign-card></x-campaign-card>
+                </div>
+                <div>
+                    <x-campaign-card></x-campaign-card>
+                </div>
+                <div>
+                    <x-campaign-card></x-campaign-card>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <div class="flex items-center space-x-2">
+                <button class="flex items-center justify-center w-10 h-10 text-gray-700 bg-gray-200 rounded-full hover:bg-gray-300 disabled:opacity-50" disabled>
+                    &lt;
+                </button>
+                
+                <button class="flex items-center justify-center w-10 h-10 text-white bg-green-600 rounded-full">1</button>
+                <button class="flex items-center justify-center w-10 h-10 text-gray-700 bg-gray-200 rounded-full hover:bg-gray-300">2</button>
+                
+                <button class="flex items-center justify-center w-10 h-10 text-gray-700 bg-gray-200 rounded-full hover:bg-gray-300">
+                    &gt;
+                </button>
+            </div>
             </div>
         </div>

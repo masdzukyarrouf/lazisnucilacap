@@ -1,6 +1,8 @@
 <nav class="z-10 p-4 bg-white">
     <div class="container flex items-center justify-between px-20 mx-auto">
+        <a href="/">
         <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="w-auto h-8">
+        </a>
         <div class="hidden space-x-4 sm:flex">
             <div class="relative flex items-center group">
                 <a href="#"
@@ -14,7 +16,7 @@
                 </div>
             </div>
             <div class="relative group">
-                <a href="#" class="block px-3 py-2 text-black rounded hover:text-green-500">Campaign</a>
+                <a href="/campaign" class="block px-3 py-2 text-black rounded hover:text-green-500">Campaign</a>
             </div>
 
             <div class="relative group">
@@ -34,11 +36,11 @@
                     </div>
                 </div>
                 <div class="relative group">
-                    <a href="#"
+                    <a href="/login"
                         class="block px-3 py-2 text-white bg-green-500 border rounded hover:border-green-500 hover:bg-white hover:text-green-500">Masuk</a>
                 </div>
                 <div class="relative group">
-                    <a href="#"
+                    <a href="/daftar"
                         class="block px-3 py-2 text-green-500 border border-green-500 rounded hover:bg-green-500 hover:text-white">Daftar</a>
                 </div>
             </div>
