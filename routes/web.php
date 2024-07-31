@@ -17,3 +17,7 @@ Route::get('/login', function () {
 Route::get('/daftar', function () {
     return view('card_daftar');
 });
+
+Route::get('/campaign', function () {
+    return view('campaign');
+});
