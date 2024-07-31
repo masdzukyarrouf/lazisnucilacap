@@ -128,7 +128,7 @@
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mx-10">
             <!-- Card 1 -->
             <x-campaign-card />
             <x-campaign-card />
@@ -142,7 +142,7 @@
         </div>
     </div>
 
-    div class="flex flex-col items-center py-10  bg-white mt-4 w-full bg-cover bg-center shadow-md"
+    <div class="flex flex-col items-center py-10  bg-white mt-4 w-full bg-cover bg-center shadow-md"
         style="background-image: url('{{ asset('images/zakat_bg.png') }}');">
         <!-- Title -->
         <div class="mb-8">
