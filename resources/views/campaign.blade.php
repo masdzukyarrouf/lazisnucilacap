@@ -47,8 +47,13 @@
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid grid-cols-1 gap-6 pt-1 pl-14 sm:grid-cols-2 lg:grid-cols-3">
             <x-campaign-card></x-campaign-card>
-            <div></div>
+            <div>
+                <x-campaign-card></x-campaign-card>
+            </div>
+            <div>
+                <x-campaign-card></x-campaign-card>
+            </div>
     </div>
 </div>
