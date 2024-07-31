@@ -20,7 +20,7 @@
             </div>
 
             <div class="relative group">
-                <a href="#" class="block px-3 py-2 text-black rounded hover:text-green-500">Berita</a>
+                <a href="/berita" class="block px-3 py-2 text-black rounded hover:text-green-500">Berita</a>
             </div>
 
             <div class="hidden space-x-4 sm:flex">
