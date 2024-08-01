@@ -165,6 +165,35 @@
             <button class="rounded-md text-white bg-green-500 px-4 py-2 ">Berita Lainnya</button>
         </div>
     </div>
+    {{-- mitra --}}
+    <div class="flex flex-col items-center py-10  bg-white mt-4 w-full bg-cover bg-center shadow-md">
+        <!-- Title -->
+        <div class="mb-8">
+            <h2 class="text-xl font-semibold text-black">Mitra Kami</h2>
+            <div class="relative pt-4 mt-2 px-8">
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-white via-green-700 to-white">
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="space-x-8 space-y-8 flex flex-wrap justify-center items-center">
+            <x-mitra-logo/>
+            <x-mitra-logo/>
+            <x-mitra-logo/>
+            <x-mitra-logo/>
+            <x-mitra-logo/>
+            <x-mitra-logo/>
+            <x-mitra-logo/>
+            <x-mitra-logo/>
+            <x-mitra-logo/>
+            <x-mitra-logo/>
+            <x-mitra-logo/>
+        </div>
+        <div class="mt-12">
+            <button class="rounded-md text-white bg-green-500 px-4 py-2 ">Berita Lainnya</button>
+        </div>
+    </div>
 
 
 

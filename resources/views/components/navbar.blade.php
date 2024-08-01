@@ -1,23 +1,23 @@
 <nav class="z-10 p-4 bg-white">
-    <div class="container flex items-center justify-between px-20 mx-auto">
+    <div class="container flex items-center justify-between px-30 mx-auto">
         <a href="/">
         <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="w-auto h-8">
         </a>
-        <div class="hidden space-x-4 sm:flex">
+        <div class="hidden sm:flex block inline">
             <div class="relative flex items-center group">
                 <a href="#"
                     class="inline-flex items-center px-3 py-2 text-black rounded hover:text-black">
                     Lazisnu Cilacap
-                    <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="w-4 h-4 ml-1">
+                    <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="w-4 h-4">
                 </a>
-                <div class="absolute z-10 hidden text-black bg-gray-100 rounded shadow-lg group-hover:block mt-44">
-                    <a href="#" class="block px-4 py-2 hover:text-green-500">Visi & Misi</a>
-                    <a href="#" class="block px-4 py-2 hover:text-green-500">Profil & Jajaran Pengurus</a>
-                    <a href="#" class="block px-4 py-2 hover:text-green-500">Sejarah</a>
-                    <a href="#" class="block px-4 py-2 hover:text-green-500">Legalitas</a>
-                    <a href="#" class="block px-4 py-2 hover:text-green-500">Standar Layanan (MANTAP)</a>
-                    <a href="#" class="block px-4 py-2 hover:text-green-500">Laporan & Publikasi</a>
-                    <a href="#" class="block px-4 py-2 hover:text-green-500">Mitra</a>
+                <div class="absolute z-10 hidden text-black bg-gray-100 rounded shadow-lg group-hover:block mt-44 space-x-4 space-y-2">
+                    <a href="#" class="block hover:text-green-500">Visi & Misi</a>
+                    <a href="#" class="block hover:text-green-500">Profil & Jajaran Pengurus</a>
+                    <a href="#" class="block hover:text-green-500">Sejarah</a>
+                    <a href="#" class="block hover:text-green-500">Legalitas</a>
+                    <a href="#" class="block hover:text-green-500">Standar Layanan (MANTAP)</a>
+                    <a href="#" class="block hover:text-green-500">Laporan & Publikasi</a>
+                    <a href="#" class="block hover:text-green-500">Mitra</a>
                 </div>
             </div>
             <div class="relative flex items-center group">
