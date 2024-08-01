@@ -14,8 +14,8 @@
             class="absolute right-0 h-8 w-8 object-cover transform -scale-x-100">
     </div>
     <div class="relative z-10">
-        <div class="absolute top-0 left-0 right-0 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 rounded-3xl py-10 mx-20 bg-white shadow-lg"
-            style="margin-top: -120px">
+        <div class="absolute top-0 left-0 right-0 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 -mt-32 rounded-3xl py-10 mx-20 bg-white shadow-lg"
+            >
             <!-- Item -->
             <div class="flex flex-col items-center">
                 <img src="{{ asset('images/penerima_manfaat.png') }}" alt="Image 1"
@@ -194,23 +194,21 @@
         </div>
     </div>
 
-{{-- sticky bottom --}}
-<div class="fixed bottom-0 left-0 right-0 text-white p-4 text-center  z-40">
-    <div class="grid grid-cols-3  rounded-3xl py-10 mx-20 bg-white shadow-2xl"
-        >
-        <!-- Item -->
-        <div class="flex flex-col items-center ">
-            <div class="w-16 h-16 bg-gray-100 rounded-full items-center flex-col">
-                <img src="{{ asset('images/logo_pnc.png') }}" alt="">
-                <img src="{{ asset('images/logo_pnc.png') }}" alt="">
-                <img src="{{ asset('images/logo_pnc.png') }}" alt="">
-              </div>
-              
+    {{-- sticky bottom --}}
+    <div class="flex justify-center fixed bottom-0 left-0 right-0 z-40 md:hidden">
+        <div class="rounded-3xl bg-white shadow-2xl inline-flex px-8 py-4">
+            <!-- Item -->
+            <div class="flex justify-center items-center space-x-5 ">
+                <div class="w-16 h-16 bg-gray-100 rounded-full items-center ">
+                    <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                </div>
+                <div class="w-16 h-16 bg-gray-100 rounded-full items-center ">
+                    <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                </div>
+                <div class="w-16 h-16 bg-gray-100 rounded-full items-center ">
+                    <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-
-
-
 </div>
