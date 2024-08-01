@@ -97,7 +97,7 @@
             <div class="w-3/12 mb-4 md:mb-0">
                 <h2 class="mb-4 text-lg font-semibold text-gray-800">NU Care-Lazisnu Cilacap</h2>
                 <div class="h-auto bg-white rounded-lg w-75">
-                    <img src="{{ asset('images/map.png')}}" alt="">
+                    <img src="{{ asset('images/map2.png')}}" alt="">
                 </div>
             </div>
             <div class="w-full h-px mt-8 bg-gray-300 ">
