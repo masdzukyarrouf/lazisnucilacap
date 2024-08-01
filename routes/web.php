@@ -18,9 +18,9 @@ Route::get('/daftar', function () {
     return view('card_daftar');
 });
 
-Route::get('/campaign', function () {
-    return view('campaign');
-});
+// Route::get('/campaign', function () {
+//     return view('campaign');
+// });
 
 Route::get('/berita', function () {
     return view('berita');
@@ -28,3 +28,5 @@ Route::get('/berita', function () {
 
 
 Route::get('/', App\Livewire\Landing::class);
+
+Route::get('/campaign', App\Livewire\Campaign::class);
