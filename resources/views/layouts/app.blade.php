@@ -41,7 +41,7 @@
                     dan Shadaqah Nahdlatul Ulama (LAZISNU) Kabupaten Cilacap. Saran dan kritik :
                     nucarelazisnukabupatencilacap@gmail.com</p>
                 <ul class="flex space-x-8">
-                    <li><img src="{{ asset('images/phone.png') }}" alt="" class="hover:scale-125"></li>
+                    <li><img src="{{ asset('images/whatsapp.png') }}" alt="" class="hover:scale-125"></li>
                     <li><img src="{{ asset('images/youtube.png') }}" alt="" class="hover:scale-125"></li>
                     <li><img src="{{ asset('images/facebook.png') }}" alt="" class="hover:scale-125"></li>
                     <li><img src="{{ asset('images/instagram.png') }}" alt="" class="hover:scale-125"></li>
