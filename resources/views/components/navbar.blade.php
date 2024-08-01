@@ -1,5 +1,5 @@
-<nav class="z-10 p-4 bg-white">
-    <div class="container flex items-center justify-between px-30 mx-auto">
+<nav class="z-10 p-4 bg-white sticky">
+    <div class="container flex items-center justify-between px-30 mx-8">
         <a href="/">
             <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="w-auto h-8">
         </a>
@@ -38,10 +38,10 @@
 
 
             <x-nav-link title="Campaign" url="/campaign" />
-            
+
             <x-nav-link title="Berita" url="/berita" />
 
-            <div class="hidden space-x-4 sm:flex">
+            <div class="hidden space-x-4 sm:flex md:hidden">
                 <div class="relative group">
                     <a href="/login"
                         class="block px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">Masuk</a>

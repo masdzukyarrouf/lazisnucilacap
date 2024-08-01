@@ -21,6 +21,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
+            margin: 0;
         }
 
         nav {
@@ -101,7 +102,7 @@
             </div>
             <div class="w-full h-px bg-gray-300 mt-8 ">
             </div>
-            <div class="w-full mt-4">
+            <div class="w-full mt-4 mb-20 md:mb-0">
                 <h2 class="text-sm text-gray-600 text-center">Copyright © 2024 - NU Care Lazisnu Cilacap</h2>
             </div>
 
