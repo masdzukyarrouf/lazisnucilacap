@@ -64,13 +64,13 @@
             <!-- Column 2 -->
             <div class="w-2/12   mb-4 md:mb-0">
                 <h2 class="text-gray-800 text-xl font-semibold mb-4">Informasi</h2>
-                <ul class="">
-                    <li><a href="#" class="text-gray-800 hover:text-lg text-sm">Lazisnu Cilacap</a></li>
-                    <li><a href="#" class="text-gray-800 hover:text-lg text-sm">Pilar & Program</a></li>
-                    <li><a href="#" class="text-gray-800 hover:text-lg text-sm">Layanan</a></li>
-                    <li><a href="#" class="text-gray-800 hover:text-lg text-sm">Ziswaf</a></li>
-                    <li><a href="#" class="text-gray-800 hover:text-lg text-sm">Campaign</a></li>
-                    <li><a href="#" class="text-gray-800 hover:text-lg text-sm">Berita</a></li>
+                <ul class="text-sm">
+                    <li><a href="#" class="text-gray-800 hover:text-lg ">Lazisnu Cilacap</a></li>
+                    <li><a href="#" class="text-gray-800 hover:text-lg ">Pilar & Program</a></li>
+                    <li><a href="#" class="text-gray-800 hover:text-lg ">Layanan</a></li>
+                    <li><a href="#" class="text-gray-800 hover:text-lg ">Ziswaf</a></li>
+                    <li><a href="#" class="text-gray-800 hover:text-lg ">Campaign</a></li>
+                    <li><a href="#" class="text-gray-800 hover:text-lg ">Berita</a></li>
                 </ul>
             </div>
             <!-- Column 3 -->

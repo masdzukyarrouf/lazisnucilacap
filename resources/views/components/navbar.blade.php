@@ -28,6 +28,7 @@
                 ['href' => '#', 'text' => 'Layanan Mobisnu'],
                 ['href' => '#', 'text' => 'Gocap'],
             ]" isDropdown="true" />
+
             <x-nav-link title="Ziswaf" url="#" :links="[
                 ['href' => '#', 'text' => 'Zakat'],
                 ['href' => '#', 'text' => 'Wakaf'],
@@ -37,6 +38,7 @@
 
 
             <x-nav-link title="Campaign" url="/campaign" />
+            
             <x-nav-link title="Berita" url="/berita" />
 
             <div class="hidden space-x-4 sm:flex">
