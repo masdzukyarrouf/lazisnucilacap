@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>NU Cilacap</title>
+    {{-- kirim title lewat class, default app name di env--}}
+    <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
+
     @vite('resources/css/app.css')
     <style>
         .sidebar {
