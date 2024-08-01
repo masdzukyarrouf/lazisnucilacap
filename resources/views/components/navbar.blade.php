@@ -10,7 +10,7 @@
                     Lazisnu Cilacap
                     <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="w-4 h-4">
                 </a>
-                <div class="absolute z-10 hidden text-black bg-gray-100 rounded shadow-lg group-hover:block mt-44 space-x-4 space-y-2">
+                <div class="absolute z-10 hidden text-black bg-gray-100 rounded shadow-lg group-hover:block  space-x-4 space-y-2">
                     <a href="#" class="block hover:text-green-500">Visi & Misi</a>
                     <a href="#" class="block hover:text-green-500">Profil & Jajaran Pengurus</a>
                     <a href="#" class="block hover:text-green-500">Sejarah</a>
@@ -23,15 +23,15 @@
             <div class="relative flex items-center group">
                     <a href="#"
                         class="inline-flex items-center px-3 py-2 text-black rounded hover:text-black">
-                        layanan
+                        Pilar & Program
                         <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="w-4 h-4 ml-1">
                     </a>
-                    <div class="absolute z-10 hidden text-black bg-gray-100 rounded shadow-lg group-hover:block mt-44">
-                        <a href="#" class="block px-4 py-2 hover:text-green-500">NU Care Berdaya (Ekonomi)</a>
-                        <a href="#" class="block px-4 py-2 hover:text-green-500">NU Care Cerdas (Pendidikan)</a>
-                        <a href="#" class="block px-4 py-2 hover:text-green-500">NU Care Sehat (Kesehatan)</a>
-                        <a href="#" class="block px-4 py-2 hover:text-green-500">NU Care Damai (Dakwah & Kemanusiaan)</a>
-                        <a href="#" class="block px-4 py-2 hover:text-green-500">NU Care Hijau (Lingkungan Hidup & Kebencanaan)</a>
+                    <div class="absolute z-10 hidden text-black bg-gray-100 rounded shadow-lg group-hover:block space-x-4 space-y-2 ">
+                        <a href="#" class="block  hover:text-green-500">NU Care Berdaya (Ekonomi)</a>
+                        <a href="#" class="block  hover:text-green-500">NU Care Cerdas (Pendidikan)</a>
+                        <a href="#" class="block  hover:text-green-500">NU Care Sehat (Kesehatan)</a>
+                        <a href="#" class="block  hover:text-green-500">NU Care Damai (Dakwah & Kemanusiaan)</a>
+                        <a href="#" class="block  hover:text-green-500">NU Care Hijau (Lingkungan Hidup & Kebencanaan)</a>
                     </div>
                 </div>
                 <div class="relative flex items-center group">
@@ -50,7 +50,7 @@
                 <div class="relative flex items-center group">
                     <a href="#"
                         class="inline-flex items-center px-3 py-2 text-black rounded hover:text-black">
-                        layanan
+                        Ziswaf
                         <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="w-4 h-4 ml-1">
                     </a>
                     <div class="absolute z-10 hidden text-black bg-gray-100 rounded shadow-lg group-hover:block mt-44">
