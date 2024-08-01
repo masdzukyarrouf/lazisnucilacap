@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{-- kirim title lewat class, default app name di env--}}
+    {{-- kirim title lewat class, default app name di env --}}
     <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
 
     @vite('resources/css/app.css')
@@ -43,10 +43,22 @@
                     dan Shadaqah Nahdlatul Ulama (LAZISNU) Kabupaten Cilacap. Saran dan kritik :
                     nucarelazisnukabupatencilacap@gmail.com</p>
                 <ul class="flex space-x-8">
-                    <li><img src="{{ asset('images/whatsapp.png') }}" alt="" class="hover:scale-125"></li>
-                    <li><img src="{{ asset('images/youtube.png') }}" alt="" class="hover:scale-125"></li>
-                    <li><img src="{{ asset('images/facebook.png') }}" alt="" class="hover:scale-125"></li>
-                    <li><img src="{{ asset('images/instagram.png') }}" alt="" class="hover:scale-125"></li>
+                    <li><a href="/" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ asset('images/whatsapp.png') }}" alt="" class="hover:scale-125">
+                        </a>
+                    </li>
+                    <li><a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ asset('images/youtube.png') }}" alt="" class="hover:scale-125">
+                        </a>
+                    </li>
+                    <li><a href="/" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ asset('images/facebook.png') }}" alt="" class="hover:scale-125">
+                        </a>
+                    </li>
+                    <li><a href="/" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ asset('images/instagram.png') }}" alt="" class="hover:scale-125">
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- Column 2 -->
