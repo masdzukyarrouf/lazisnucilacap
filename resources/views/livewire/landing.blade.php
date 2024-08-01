@@ -1,5 +1,6 @@
 <div>
     <x-navbar></x-navbar>
+
     <div class="relative flex-grow flex items-center justify-center mt-1">
         <!-- Arrow  left -->
         <img src="{{ asset('images/arrowX.png') }}" alt="Arrow Left" class="absolute z-10 left-0 h-8 w-8 object-cover">
@@ -159,7 +160,7 @@
             <x-berita-card />
             <x-berita-card />
             <x-berita-card />
-            
+
         </div>
         <div class="mt-12">
             <button class="rounded-md text-white bg-green-500 px-4 py-2 ">Berita Lainnya</button>
@@ -176,16 +177,16 @@
             </div>
         </div>
         <div class="space-x-8 mt-4  flex flex-wrap justify-center block inline">
-            <x-mitra-logo/>
-            <x-mitra-logo/>
-            <x-mitra-logo/>
-            <x-mitra-logo/>
-            <x-mitra-logo/>
-            <x-mitra-logo/>
-            <x-mitra-logo/>
-            <x-mitra-logo/>
-            <x-mitra-logo/>
-            <x-mitra-logo/>
+            <x-mitra-logo />
+            <x-mitra-logo />
+            <x-mitra-logo />
+            <x-mitra-logo />
+            <x-mitra-logo />
+            <x-mitra-logo />
+            <x-mitra-logo />
+            <x-mitra-logo />
+            <x-mitra-logo />
+            <x-mitra-logo />
 
         </div>
         <div class="mt-12">
@@ -193,6 +194,21 @@
         </div>
     </div>
 
+{{-- sticky bottom --}}
+<div class="fixed bottom-0 left-0 right-0 text-white p-4 text-center  z-40">
+    <div class="grid grid-cols-3  rounded-3xl py-10 mx-20 bg-white shadow-2xl"
+        >
+        <!-- Item -->
+        <div class="flex flex-col items-center ">
+            <div class="w-16 h-16 bg-gray-100 rounded-full items-center flex-col">
+                <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+              </div>
+              
+        </div>
+    </div>
+</div>
 
 
 
