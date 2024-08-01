@@ -7,23 +7,13 @@
                     Wujudkan Perubahan Sekarang!
                 </p>
                 <div class="relative flex items-center mx-5 border rounded-lg group">
-                    <div class="pr-20">
-                        <a href="#"
-                            class="inline-flex items-center px-3 py-2 text-black rounded hover:text-black">
-                            Pilih Kategori
-                        </a>
-                    </div>
-                    <div class="px-3 pl-20">
-                        <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="w-4 h-4 ml-1">
-                    </div>
-                    <div
-                        class="absolute right-0 hidden mt-1 text-black bg-gray-100 border border-gray-300 rounded shadow-lg top-full group-hover:block">
-                        <a href="#" class="block px-4 py-2 hover:text-green-500">Ramadhan</a>
-                        <a href="#" class="block px-4 py-2 hover:text-green-500">Ekonomi</a>
-                        <a href="#" class="block px-4 py-2 hover:text-green-500">Sosial & Keagamaan</a>
-                        <a href="#" class="block px-4 py-2 hover:text-green-500">Kesehatan</a>
-                        <a href="#" class="block px-4 py-2 hover:text-green-500">Pendidikan</a>
-                    </div>
+                    <x-nav-link title="Pilih Kategori" url="#" :links="[
+                ['href' => '#', 'text' => 'Ramadhan'],
+                ['href' => '#', 'text' => 'Ekonomi'],
+                ['href' => '#', 'text' => 'Sosial & Keagamaan'],
+                ['href' => '#', 'text' => 'Kesehatan'],
+                ['href' => '#', 'text' => 'Pendidikan'],
+            ]" isDropdown="true" />
                 </div>
             </div>
             <div class="grid grid-cols-1 gap-6 pt-1 mx-10 sm:grid-cols-2 lg:grid-cols-3">
