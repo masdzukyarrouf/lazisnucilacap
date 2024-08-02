@@ -34,13 +34,13 @@
 <body class="flex flex-col h-screen">
     {{ $slot }}
 </body>
-<footer class="bg-gray-200 text-white py-8">
-    <div class="max-w-7xl mx-auto px-4">
+<footer class="py-8 text-white bg-gray-200">
+    <div class="px-4 mx-auto max-w-7xl">
         <div class="flex flex-wrap ">
             <!-- Column 1 -->
-            <div class="w-4/12   mb-4 md:mb-0">
+            <div class="w-4/12 mb-4 md:mb-0">
                 <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="w-auto h-12">
-                <p class="text-gray-700 text-sm mb-8">Lazisnucilacap.com adalah situs resmi Lembaga Amil Zakat, Infaq
+                <p class="mb-8 text-sm text-gray-700">Lazisnucilacap.com adalah situs resmi Lembaga Amil Zakat, Infaq
                     dan Shadaqah Nahdlatul Ulama (LAZISNU) Kabupaten Cilacap. Saran dan kritik :
                     nucarelazisnukabupatencilacap@gmail.com</p>
                 <ul class="flex space-x-8">
@@ -63,8 +63,8 @@
                 </ul>
             </div>
             <!-- Column 2 -->
-            <div class="w-2/12   mb-4 md:mb-0">
-                <h2 class="text-gray-800 text-xl font-semibold mb-4">Informasi</h2>
+            <div class="w-2/12 mb-4 md:mb-0">
+                <h2 class="mb-4 text-xl font-semibold text-gray-800">Informasi</h2>
                 <ul class="text-sm">
                     <li><a href="#" class="text-gray-800 hover:text-lg ">Lazisnu Cilacap</a></li>
                     <li><a href="#" class="text-gray-800 hover:text-lg ">Pilar & Program</a></li>
@@ -75,9 +75,9 @@
                 </ul>
             </div>
             <!-- Column 3 -->
-            <div class="w-3/12   mb-4 md:mb-0">
-                <h2 class="text-lg text-gray-800 font-semibold mb-4">Alamat</h2>
-                <p class="text-gray-700 text-sm mb-4">Jl. Masjid No. 09 Sidanegara
+            <div class="w-3/12 mb-4 md:mb-0">
+                <h2 class="mb-4 text-lg font-semibold text-gray-800">Alamat</h2>
+                <p class="mb-4 text-sm text-gray-700">Jl. Masjid No. 09 Sidanegara
                     <br>
                     Cilacap Tengah-Cilacap
                     <br>
@@ -89,21 +89,21 @@
                 </p>
 
                 <div class="">
-                    <button class="rounded-md text-white bg-green-500 px-4 py-2 ">Berita Lainnya</button>
+                    <button class="px-4 py-2 text-white bg-green-500 rounded-md ">Berita Lainnya</button>
                 </div>
 
             </div>
             <!-- Column 4 -->
             <div class="w-3/12 mb-4 md:mb-0">
-                <h2 class="text-lg text-gray-800 font-semibold mb-4">NU Care-Lazisnu Cilacap</h2>
-                <div class="w-40 bg-white h-40 rounded-lg">
-                    map
+                <h2 class="mb-4 text-lg font-semibold text-gray-800">NU Care-Lazisnu Cilacap</h2>
+                <div class="h-auto bg-white rounded-lg w-75">
+                    <img src="{{ asset('images/map2.png')}}" alt="">
                 </div>
             </div>
-            <div class="w-full h-px bg-gray-300 mt-8 ">
+            <div class="w-full h-px mt-8 bg-gray-300 ">
             </div>
             <div class="w-full mt-4 mb-20 md:mb-0">
-                <h2 class="text-sm text-gray-600 text-center">Copyright © 2024 - NU Care Lazisnu Cilacap</h2>
+                <h2 class="text-sm text-center text-gray-600">Copyright © 2024 - NU Care Lazisnu Cilacap</h2>
             </div>
 
         </div>

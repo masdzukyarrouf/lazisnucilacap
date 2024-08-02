@@ -1,9 +1,9 @@
-<nav class="z-10 p-4 bg-white sticky">
-    <div class="container flex items-center justify-between px-30 mx-8">
+<nav class="sticky z-10 p-4 bg-white">
+    <div class="container flex items-center justify-between px-20 mx-8">
         <a href="/">
             <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="w-auto h-8">
         </a>
-        <div class="hidden sm:flex block inline">
+        <div class="hidden block inline sm:flex">
             <x-nav-link title="Lazisnu Cilacap"  :links="[
                 ['href' => '#', 'text' => 'Visi & Misi'],
                 ['href' => '#', 'text' => 'Profil & Jajaran Pengurus'],

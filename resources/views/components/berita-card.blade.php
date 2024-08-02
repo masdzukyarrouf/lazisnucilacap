@@ -7,6 +7,6 @@
             <p class="pl-1 text-sm text-gray-600">Tanggal ea</p>
         </div>
         
-        <button class="px-4 py-2 mt-4 text-sm text-left text-white bg-green-500  hover:bg-green-600">Baca Selengkapnya ...</button>
+        <button class="px-4 py-2 mt-4 text-sm text-left text-white bg-green-500 hover:bg-green-600">Baca Selengkapnya ...</button>
     </div>
 </div>
