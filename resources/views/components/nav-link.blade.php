@@ -6,7 +6,7 @@
         @endif
     </a>
     @if (!empty($links))
-        <div class="absolute z-10 hidden text-black bg-gray-100 rounded shadow-lg group-hover:block mt-2">
+        <div class="absolute z-200 hidden text-black bg-gray-100 rounded shadow-lg group-hover:block mt-2">
             @foreach ($links as $link)
                 <a href="{{ $link['href'] }}" class="block px-4 py-2 hover:text-green-500">{{ $link['text'] }}</a>
             @endforeach
