@@ -13,7 +13,48 @@
         <img src="{{ asset('images/arrowX.png') }}" alt="Arrow Right"
             class="absolute right-0 h-8 w-8 object-cover transform -scale-x-100">
     </div>
-    <div class="relative z-10">
+
+    <div class="relative z-12">
+        <div class="h-auto relative flex flex-wrap space-x-16 items-center justify-center -mt-32 rounded-3xl py-10 mx-20">
+            
+            <!-- Wrapper for Left Ornament and Item 1 -->
+            <div class="relative flex items-center">
+                <img src="{{ asset('images/fknleaf.png') }}" alt="Left Ornament" class="z-0 transform -scale-x-100 -scale-y-100 w-auto h-auto object-cover absolute -left-28 top-1/2 transform -translate-y-1/2 z-0 mb-2">
+                
+                <div class="flex flex-col items-center bg-white rounded-lg shadow-2xl p-8 relative z-10">
+                    <img src="{{ asset('images/talk.png') }}" alt="Image 1" class="w-24 h-24 object-cover mb-2 relative z-10">
+                    <p class="text-gray-800 font-semibold relative z-10">Zakat</p>
+                </div>
+            </div>
+    
+            <!-- Item 2 -->
+            <div class="flex flex-col items-center bg-white rounded-lg shadow-2xl p-8 relative z-10">
+                <img src="{{ asset('images/calculator.png') }}" alt="Image 2" class="w-24 h-24 object-cover mb-2 relative z-10">
+                <p class="text-gray-800 font-semibold relative z-10">Zakat</p>
+            </div>
+    
+            <!-- Item 3 -->
+            <div class="flex flex-col items-center bg-white rounded-lg shadow-2xl p-8 relative z-10">
+                <img src="{{ asset('images/mastercard.png') }}" alt="Image 3" class="w-24 h-24 object-cover mb-2 relative z-10">
+                <p class="text-gray-800 font-semibold relative z-10">Zakat</p>
+            </div>
+    
+            <!-- Wrapper for Right Ornament and Item 4 -->
+            <div class="relative flex items-center">
+                <img src="{{ asset('images/fknleaf.png') }}" alt="Right Ornament" class="z-0 w-auto h-auto object-cover absolute -right-28 top-1/2 transform -translate-y-1/2 z-0 mb-2">
+                
+                <div class="flex flex-col items-center bg-white rounded-lg shadow-2xl p-8 relative z-10">
+                    <img src="{{ asset('images/qr.png') }}" alt="Image 4" class="w-24 h-24 object-cover mb-2 relative z-10">
+                    <p class="text-gray-800 font-semibold relative z-10">Zakat</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+    {{-- <div class="relative z-10">
         <div class="absolute top-0 left-0 right-0 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 -mt-32 rounded-3xl py-10 mx-20 bg-white shadow-lg"
             >
             <!-- Item -->
@@ -23,21 +64,18 @@
                 <p class="text-green-500 font-semibold mb-1">5000</p>
                 <p class="text-gray-700">Penerima Manfaat</p>
             </div>
-
             <!-- Item -->
             <div class="flex flex-col items-center">
                 <img src="{{ asset('images/penghimpunan.png') }}" alt="Image 2" class="w-24 h-24 object-cover mb-2">
                 <p class="text-green-500 font-semibold mb-1">Rp 2.000.000.000.000</p>
                 <p class="text-gray-700">Penghimpunan</p>
             </div>
-
             <!-- Item -->
             <div class="flex flex-col items-center">
                 <img src="{{ asset('images/penyaluran.png') }}" alt="Image 3" class="w-24 h-24 object-cover mb-2">
                 <p class="text-green-500 font-semibold mb-1">Rp 2.000.000.000.000</p>
                 <p class="text-gray-700">Penyaluran</p>
             </div>
-
             <!-- Item -->
             <div class="flex flex-col items-center">
                 <img src="{{ asset('images/donatur.png') }}" alt="Image 4" class="w-24 h-24 object-cover mb-2">
@@ -45,7 +83,7 @@
                 <p class="text-gray-700">Donatur</p>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
 
