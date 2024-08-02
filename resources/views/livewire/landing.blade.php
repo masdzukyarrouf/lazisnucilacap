@@ -3,15 +3,14 @@
 
     <div class="relative flex-grow flex items-center justify-center mt-1">
         <!-- Arrow  left -->
-        <img src="{{ asset('images/arrowX.png') }}" alt="Arrow Left" class="absolute z-10 left-0 h-8 w-8 object-cover">
+        {{-- <img src="{{ asset('images/arrowX.png') }}" alt="Arrow Left" class="absolute z-10 left-0 h-8 w-8 object-cover"> --}}
 
         <div class="relative z-0 bg-white">
             <img src="{{ asset('images/anak_yatim.png') }}" alt="Anak Yatim" class="object-cover w-full h-full">
         </div>
 
         <!-- Arrow  right -->
-        <img src="{{ asset('images/arrowX.png') }}" alt="Arrow Right"
-            class="absolute right-0 h-8 w-8 object-cover transform -scale-x-100">
+        {{-- <img src="{{ asset('images/arrowX.png') }}" alt="Arrow Right" class="absolute right-0 h-8 w-8 object-cover transform -scale-x-100"> --}}
     </div>
 
     <div class="relative z-12">
@@ -21,31 +20,31 @@
             <div class="relative flex items-center">
                 <img src="{{ asset('images/fknleaf.png') }}" alt="Left Ornament" class="z-0 transform -scale-x-100 -scale-y-100 w-auto h-auto object-cover absolute -left-28 top-1/2 transform -translate-y-1/2 z-0 mb-2">
                 
-                <div class="flex flex-col items-center bg-white rounded-lg shadow-2xl p-8 relative z-10">
-                    <img src="{{ asset('images/talk.png') }}" alt="Image 1" class="w-24 h-24 object-cover mb-2 relative z-10">
-                    <p class="text-gray-800 font-semibold relative z-10">Zakat</p>
+                <div class="flex flex-col items-center bg-white rounded-lg shadow-2xl p-8 relative ">
+                    <img src="{{ asset('images/talk.png') }}" alt="Image 1" class="w-24 h-24 object-cover mb-2 relative ">
+                    <p class="text-gray-800 font-semibold relative ">Konsultasi</p>
                 </div>
             </div>
     
             <!-- Item 2 -->
-            <div class="flex flex-col items-center bg-white rounded-lg shadow-2xl p-8 relative z-10">
-                <img src="{{ asset('images/calculator.png') }}" alt="Image 2" class="w-24 h-24 object-cover mb-2 relative z-10">
-                <p class="text-gray-800 font-semibold relative z-10">Zakat</p>
+            <div class="flex flex-col items-center bg-white rounded-lg shadow-2xl p-8 relative ">
+                <img src="{{ asset('images/calculator.png') }}" alt="Image 2" class="w-24 h-24 object-cover mb-2 relative ">
+                <p class="text-gray-800 font-semibold relative ">Kalkulator Zakat</p>
             </div>
     
             <!-- Item 3 -->
-            <div class="flex flex-col items-center bg-white rounded-lg shadow-2xl p-8 relative z-10">
-                <img src="{{ asset('images/mastercard.png') }}" alt="Image 3" class="w-24 h-24 object-cover mb-2 relative z-10">
-                <p class="text-gray-800 font-semibold relative z-10">Zakat</p>
+            <div class="flex flex-col items-center bg-white rounded-lg shadow-2xl p-8 relative ">
+                <img src="{{ asset('images/mastercard.png') }}" alt="Image 3" class="w-24 h-24 object-cover mb-2 relative ">
+                <p class="text-gray-800 font-semibold relative ">Rekenign Donasi</p>
             </div>
     
             <!-- Wrapper for Right Ornament and Item 4 -->
             <div class="relative flex items-center">
                 <img src="{{ asset('images/fknleaf.png') }}" alt="Right Ornament" class="z-0 w-auto h-auto object-cover absolute -right-28 top-1/2 transform -translate-y-1/2 z-0 mb-2">
                 
-                <div class="flex flex-col items-center bg-white rounded-lg shadow-2xl p-8 relative z-10">
-                    <img src="{{ asset('images/qr.png') }}" alt="Image 4" class="w-24 h-24 object-cover mb-2 relative z-10">
-                    <p class="text-gray-800 font-semibold relative z-10">Zakat</p>
+                <div class="flex flex-col items-center bg-white rounded-lg shadow-2xl p-8 relative ">
+                    <img src="{{ asset('images/qr.png') }}" alt="Image 4" class="w-24 h-24 object-cover mb-2 relative ">
+                    <p class="text-gray-800 font-semibold relative ">QR Donasi</p>
                 </div>
             </div>
         </div>
@@ -87,46 +86,10 @@
 
 
 
-    {{-- tentang --}}
-    <div class="flex flex-col items-center py-10 bg-white mt-28">
-        <!-- Title -->
-        <div class="mb-8">
-            <h2 class="text-xl font-semibold text-black">Tentang</h2>
-            <div class="relative pt-4 mt-2 px-8">
-                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-white via-green-700 to-white">
-                </div>
-            </div>
-        </div>
-
-        <!-- Container for items -->
-        <div class="flex items-start justify-between w-full max-w-4xl mx-20 space-x-20">
-            <!-- Item 1 -->
-            <div class="flex flex-col items-center flex-1">
-                <img src="{{ asset('images/tentang.png') }}" alt="Image 1" class="w-128 h-128 object-cover mb-4">
-            </div>
-
-            <!-- Item 2 -->
-            <div class="flex flex-col flex-1 items-start text-justify">
-                <p class="text-black font-extrabold text-xl mb-4">Sekilas NU Care-LAZISNU Cilacap</p>
-                <p class="text-gray-700 text-sm mb-4">
-                    NU Care-LAZISNU adalah rebranding dan/atau sebagai pintu masuk agar masyarakat global mengenal
-                    Lembaga Amil Zakat, Infak, dan Sedekah Nahdlatul Ulama (LAZISNU) sebagai lembaga filantropi NU. NU
-                    Care-LAZISNU berdiri pada tahun 2004 sebagai sarana untuk membantu masyarakat, sesuai amanat
-                    muktamar NU yang ke-31 di Asrama Haji Donohudan, Boyolali, Jawa Tengah. LAZISNU secara
-                    yuridis-formal dikukuhkan oleh SK Menteri Agama RI No. 65/2005 untuk melakukan penghimpunan Zakat,
-                    Infak, dan Sedekah (ZIS) kepada masyarakat luas.
-                    <br><br>
-                    NU Care-LAZISNU merupakan lembaga nirlaba milik perkumpulan Nahdlatul Ulama (NU) yang bertujuan
-                    untuk berkhidmat dalam rangka membantu kesejahteraan dan kemandirian umat; mengangkat harkat sosial
-                    dengan mendayagunakan dana Zakat, Infak, Sedekah (ZIS) dan dana sosial-keagamaan lainnya (DSKL).
-                </p>
-                <button class="rounded-lg text-white bg-green-500 px-4 py-2 ">Baca Selengkap</button>
-            </div>
-        </div>
-    </div>
+    
 
     {{-- zakat --}}
-    <div class="flex flex-col items-center py-10  bg-white mt-4 w-full bg-cover bg-center shadow-md"
+    {{-- <div class="flex flex-col items-center py-10  bg-white mt-4 w-full bg-cover bg-center shadow-md"
         style="background-image: url('{{ asset('images/zakat_bg.png') }}');">
         <!-- Title -->
         <div class="mb-8">
@@ -155,7 +118,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- campaign --}}
     <div class="flex flex-col items-center py-10 bg-white">
@@ -202,6 +165,43 @@
         </div>
         <div class="mt-12">
             <button class="rounded-md text-white bg-green-500 px-4 py-2 ">Berita Lainnya</button>
+        </div>
+    </div>
+    {{-- tentang --}}
+    <div class="flex flex-col items-center py-10 bg-white mt-28">
+        <!-- Title -->
+        <div class="mb-8">
+            <h2 class="text-xl font-semibold text-black">Tentang</h2>
+            <div class="relative pt-4 mt-2 px-8">
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-white via-green-700 to-white">
+                </div>
+            </div>
+        </div>
+
+        <!-- Container for items -->
+        <div class="flex items-start justify-between w-full max-w-4xl mx-20 space-x-20">
+            <!-- Item 1 -->
+            {{-- <div class="flex flex-col items-center flex-1">
+                <img src="{{ asset('images/tentang.png') }}" alt="Image 1" class="w-128 h-128 object-cover mb-4">
+            </div> --}}
+
+            <!-- Item 2 -->
+            <div class="flex flex-col flex-1 items-start text-justify">
+                <p class="text-black font-extrabold text-xl mb-4">Sekilas NU Care-LAZISNU Cilacap</p>
+                <p class="text-gray-700 text-sm mb-4">
+                    NU Care-LAZISNU adalah rebranding dan/atau sebagai pintu masuk agar masyarakat global mengenal
+                    Lembaga Amil Zakat, Infak, dan Sedekah Nahdlatul Ulama (LAZISNU) sebagai lembaga filantropi NU. NU
+                    Care-LAZISNU berdiri pada tahun 2004 sebagai sarana untuk membantu masyarakat, sesuai amanat
+                    muktamar NU yang ke-31 di Asrama Haji Donohudan, Boyolali, Jawa Tengah. LAZISNU secara
+                    yuridis-formal dikukuhkan oleh SK Menteri Agama RI No. 65/2005 untuk melakukan penghimpunan Zakat,
+                    Infak, dan Sedekah (ZIS) kepada masyarakat luas.
+                    <br><br>
+                    NU Care-LAZISNU merupakan lembaga nirlaba milik perkumpulan Nahdlatul Ulama (NU) yang bertujuan
+                    untuk berkhidmat dalam rangka membantu kesejahteraan dan kemandirian umat; mengangkat harkat sosial
+                    dengan mendayagunakan dana Zakat, Infak, Sedekah (ZIS) dan dana sosial-keagamaan lainnya (DSKL).
+                </p>
+                <button class="rounded-lg text-white bg-green-500 px-4 py-2 ">Baca Selengkap</button>
+            </div>
         </div>
     </div>
     {{-- mitra --}}
