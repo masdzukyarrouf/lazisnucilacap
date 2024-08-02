@@ -34,7 +34,7 @@
 <body class="flex flex-col h-screen">
     {{ $slot }}
 </body>
-<footer class="py-8 text-white bg-gray-200">
+<footer class="hidden py-8 text-white bg-gray-200 md:block">
     <div class="px-4 mx-auto max-w-7xl">
         <div class="flex flex-wrap ">
             <!-- Column 1 -->
@@ -97,7 +97,9 @@
             <div class="w-3/12 mb-4 md:mb-0">
                 <h2 class="mb-4 text-lg font-semibold text-gray-800">NU Care-Lazisnu Cilacap</h2>
                 <div class="h-auto bg-white rounded-lg w-75">
-                    <img src="{{ asset('images/map2.png')}}" alt="">
+                    <a href="https://maps.app.goo.gl/3ZVUjzq2MxBruu318">
+                        <img src="{{ asset('images/map2.png') }}" alt="map">
+                    </a>
                 </div>
             </div>
             <div class="w-full h-px mt-8 bg-gray-300 ">

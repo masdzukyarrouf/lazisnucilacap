@@ -38,3 +38,5 @@ Route::get('/berita', App\Livewire\Berita::class);
 // Route::get('/login', App\Livewire\Login::class);
 
 Route::get('/detail-berita', App\Livewire\DetailBerita::class);
+
+Route::get('/landing-mobile', App\Livewire\LandingMobile::class);
