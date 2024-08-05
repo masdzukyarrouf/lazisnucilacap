@@ -19,19 +19,10 @@
 <!-- Sidebar -->
 <div id="sidebar"
     class="fixed inset-0 bg-white z-20 transform -translate-x-full transition-transform md:w-full md:relative md:translate-x-0 md:flex md:items-center md:justify-between md:bg-transparent md:shadow-none md:p-0">
-    
-    <!-- Close Button -->
-    <div class="absolute top-4 right-4">
-        <button id="close-btn" class="text-gray-500 hover:text-black md:hidden">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
-    </div>
 
     <!-- Main Content -->
-    <div class="flex flex-col md:flex-row w-full p-4 items-center md:items-start md:justify-between space-y-4 md:space-y-0">
+    <div
+        class="flex flex-col md:flex-row w-full py-4 items-center md:items-start md:justify-between space-y-4 md:space-y-0">
         <!-- Logo -->
         <a href="/" class="flex-shrink-0">
             <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="Logo" class="w-auto h-8">
@@ -74,8 +65,21 @@
             <x-navlink title="Campaign" url="/campaign" />
             <x-navlink title="Berita" url="/berita" />
 
-            <a href="/login" class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">Masuk</a>
-            <a href="/daftar" class="px-6 py-2 text-green-600 border rounded-xl border-green-600 hover:bg-green-600 hover:text-white">Daftar</a>
+            <a href="/login"
+                class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">Masuk</a>
+            <a href="/daftar"
+                class="px-6 py-2 text-green-600 border rounded-xl border-green-600 hover:bg-green-600 hover:text-white">Daftar</a>
+
+            <!-- Close Button -->
+            <div class="absolute top-4 right-4">
+                <button id="close-btn" class="text-gray-500 hover:text-black md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -83,14 +87,13 @@
 
 
 <script>
-document.getElementById('menu-btn').addEventListener('click', function() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('-translate-x-full');
-});
+    document.getElementById('menu-btn').addEventListener('click', function() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('-translate-x-full');
+    });
 
-document.getElementById('close-btn').addEventListener('click', function() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.add('-translate-x-full');
-});
-
+    document.getElementById('close-btn').addEventListener('click', function() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.add('-translate-x-full');
+    });
 </script>
