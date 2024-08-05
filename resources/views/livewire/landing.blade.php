@@ -58,12 +58,15 @@
             <!-- Title -->
             <div class="mb-8 w-full flex items-center justify-between">
                 <div class="relative px-12 flex flex-col justify-between">
-                    <h2 class="text-lg font-semibold text-green-600">Campaign Lazisnu Cilacap</h2>
-                    <h2 class="text-sm text-black">Berikut merupakan campaign terbaru Lazisnu Cilacap</h2>
+                    <h2 class="text-md md:text-lg font-semibold text-green-600">Campaign Lazisnu Cilacap</h2>
+                    <h2 class="text-xs md:text-sm text-black">Berikut merupakan campaign terbaru Lazisnu Cilacap</h2>
                 </div>
-                <button class="relative px-4 mr-12 py-2 text-white rounded-md bg-green-500 hover:bg-green-600">
-                    Campaign Lainya
-                </button>
+                <div>
+                    <a class="md:hidden mr-14 text-sm text-right text-green-500 hover:text-green-600 hover:cursor-pointer">Campaign Lainnya ></a>
+                    <button class="hidden md:block relative px-4 mr-12 py-2 text-white rounded-md bg-green-500 hover:bg-green-600">
+                        Campaign Lainya
+                    </button>
+                </div>
             </div>
             <div class="w-auto flex flex-col justify-center md:w-auto md:grid gap-6 mx-10  md:grid-cols-3">
                 <!-- Card 1 -->
@@ -84,9 +87,12 @@
                     <h2 class="text-lg font-semibold text-green-600">Berita Lazisnu Cilacap</h2>
                     <h2 class="text-sm text-black">Berikut merupakan berita terbaru Lazisnu Cilacap</h2>
                 </div>
-                <button class="relative px-4 mr-12 py-2 text-white rounded-md bg-green-500 hover:bg-green-600">
-                    Berita Lainya
-                </button>
+                <div>
+                    <a class="md:hidden mr-14 text-sm text-right text-green-500 hover:text-green-600 hover:cursor-pointer">Berita Lainnya ></a>
+                    <button class="hidden md:block relative px-4 mr-12 py-2 text-white rounded-md bg-green-500 hover:bg-green-600">
+                        Berita Lainya
+                    </button>
+                </div>
             </div>
 
             <div class="grid grid-cols-1 gap-6 mx-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -185,3 +191,30 @@
             </div>
         </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const itemsContainer = document.getElementById('items-container');
+        const items = Array.from(itemsContainer.children);
+    
+        const showItems = () => {
+            const width = window.innerWidth;
+            if (width < 768) { // Adjust this value based on your breakpoint
+                // Show only the first 3 items on small screens
+                items.forEach((item, index) => {
+                    item.style.display = index < 3 ? 'flex' : 'none';
+                });
+            } else {
+                // Show all items on medium screens and larger
+                items.forEach(item => item.style.display = 'flex');
+            }
+        };
+    
+        // Initial call to adjust visibility
+        showItems();
+    
+        // Adjust visibility on window resize
+        window.addEventListener('resize', showItems);
+    });
+    </script>
+    
