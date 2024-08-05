@@ -65,7 +65,7 @@
                     Campaign Lainya
                 </button>
             </div>
-            <div class="grid grid-cols-1 gap-6 mx-10 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="w-auto flex flex-col justify-center md:w-auto md:grid gap-6 mx-10  md:grid-cols-3">
                 <!-- Card 1 -->
                 <x-campaign-card />
                 <x-campaign-card />
