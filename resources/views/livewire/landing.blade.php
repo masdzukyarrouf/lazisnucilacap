@@ -143,7 +143,7 @@
                     </p>
                     <div class="flex flex-row justify-center ">
                     <div
-                        class="relative flex flex-col items-center w-24 h-24 p-4 md:w-64 md:h-auto md:p-8">
+                        class="relative flex flex-col items-center w-24 h-24 p-4 md:w-60 md:h-auto md:p-8">
                         <img src="{{ asset('images/talk.png') }}" alt="Image 1"
                             class="relative w-8 h-8 md:w-16 md:h-16 mb-2">
                         <p class="relative text-sm md:text-md font-semibold text-green-600 text-center">41.124 muzakki
@@ -151,7 +151,7 @@
                             NU Care Lazisnu Cilacap</p>
                     </div>
                     <div
-                        class="relative flex flex-col items-center w-24 h-24 p-4 md:w-64 md:h-auto md:p-8">
+                        class="relative flex flex-col items-center w-24 h-24 p-4 md:w-60 md:h-auto md:p-8">
                         <img src="{{ asset('images/talk.png') }}" alt="Image 1"
                             class="relative w-8 h-8 md:w-16 md:h-16 mb-2">
                         <p class="relative text-sm md:text-md font-semibold text-green-600 text-center">64.712 Munfiq
