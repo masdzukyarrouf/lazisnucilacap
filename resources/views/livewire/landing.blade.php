@@ -16,7 +16,7 @@
                     <img src="{{ asset('images/fknleaf.png') }}" alt="Left Ornament"
                         class="absolute z-0 object-cover w-16 h-auto md:w-auto md:h-auto mb-2 transform -translate-y-1/2 -scale-x-100 -scale-y-100 -left-8 md:-left-28 top-1/2">
                     <div
-                        class="relative flex flex-col items-center w-24 h-28 p-4 md:w-auto md:h-auto md:p-8 bg-white rounded-lg shadow-2xl">
+                        class="relative flex flex-col items-center w-24 h-28 p-4 md:w-48 md:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
                         <img src="{{ asset('images/talk.png') }}" alt="Image 1"
                             class="relative object-cover w-8 h-8 md:w-24 md:h-24 mb-2">
                         <p class="relative text-sm md:text-lg text-gray-800 text-center">Konsultasi</p>
@@ -25,7 +25,7 @@
 
                 <!-- Item 2 -->
                 <div
-                    class="relative flex flex-col items-center w-24 h-28 p-4 md:w-auto md:h-auto md:p-8 bg-white rounded-lg shadow-2xl">
+                    class="relative flex flex-col items-center w-24 h-28 p-4 md:w-48 md:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
                     <img src="{{ asset('images/mastercard.png') }}" alt="Image 2"
                         class="relative object-cover w-8 h-8 md:w-24 md:h-24 mb-2">
                     <p class="relative text-sm md:text-lg text-gray-800 text-center">Kalkulator Zakat</p>
@@ -33,7 +33,7 @@
 
                 <!-- Item 3 -->
                 <div
-                    class="relative flex flex-col items-center w-24 h-28 p-4 md:w-auto md:h-auto md:p-8 bg-white rounded-lg shadow-2xl">
+                    class="relative flex flex-col items-center w-24 h-28 p-4 md:w-48 md:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
                     <img src="{{ asset('images/mastercard.png') }}" alt="Image 3"
                         class="relative object-cover w-8 h-8 md:w-24 md:h-24 mb-2">
                     <p class="relative text-sm md:text-lg text-gray-800 text-center">Rekenign Donasi</p>
@@ -44,7 +44,7 @@
                     <img src="{{ asset('images/fknleaf.png') }}" alt="Right Ornament"
                         class="absolute z-0 object-cover w-16 h-auto md:w-auto md:h-auto mb-2 transform -translate-y-1/2 -right-8 md:-right-28 top-1/2">
                     <div
-                        class="relative flex flex-col items-center w-24 h-28 p-4 md:w-auto md:h-auto md:p-8 bg-white rounded-lg shadow-2xl">
+                        class="relative flex flex-col items-center w-24 h-28 p-4 md:w-48 md:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
                         <img src="{{ asset('images/qr.png') }}" alt="Image 4"
                             class="relative object-cover w-8 h-8 md:w-24 md:h-24 mb-2">
                         <p class="relative text-sm md:text-lg text-gray-800 text-center">QR Donasi</p>
