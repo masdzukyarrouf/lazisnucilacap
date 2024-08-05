@@ -5,7 +5,7 @@
         <!-- Arrow  left -->
         {{-- <img src="{{ asset('images/arrowX.png') }}" alt="Arrow Left" class="absolute z-10 left-0 h-8 w-8 object-cover"> --}}
 
-        <div class="relative z-0 bg-white">
+        <div class="relative z-0 bg-white w-full">
             <img src="{{ asset('images/anak_yatim.png') }}" alt="Anak Yatim" class="object-cover w-full h-full">
         </div>
 
