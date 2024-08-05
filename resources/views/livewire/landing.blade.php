@@ -1,4 +1,4 @@
-<div>
+<div >
     <x-navbar></x-navbar>
 
 
