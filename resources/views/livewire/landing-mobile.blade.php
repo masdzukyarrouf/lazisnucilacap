@@ -14,42 +14,44 @@
             class="absolute right-0 object-cover w-8 h-8 transform -scale-x-100">
     </div>
 
+    {{-- stuff --}}
     <div class="relative z-12">
-        <div class="relative flex flex-wrap items-center justify-center h-auto py-10 mx-20 -mt-32 space-x-16 rounded-3xl">
+        <div class="relative flex flex-wrap items-center justify-center h-auto py-10 md:py-20 mx-4 md:mx-20 -mt-32 space-y-8 md:space-y-0 md:space-x-16 rounded-3xl">
             
             <!-- Wrapper for Left Ornament and Item 1 -->
-            <div class="relative flex items-center">
-                <img src="{{ asset('images/fknleaf.png') }}" alt="Left Ornament" class="absolute z-0 object-cover w-auto h-auto mb-2 transform -translate-y-1/2 -scale-x-100 -scale-y-100 -left-28 top-1/2">
+            <div class="relative flex items-center w-full md:w-auto">
+                <img src="{{ asset('images/fknleaf.png') }}" alt="Left Ornament" class="absolute z-0 object-cover w-1/4 h-auto mb-2 transform -translate-y-1/2 -scale-x-100 -scale-y-100 -left-8 md:-left-28 top-1/2">
                 
-                <div class="relative z-10 flex flex-col items-center p-8 bg-white rounded-lg shadow-2xl">
-                    <img src="{{ asset('images/talk.png') }}" alt="Image 1" class="relative z-10 object-cover w-24 h-24 mb-2">
+                <div class="relative z-10 flex flex-col items-center p-4 md:p-8 bg-white rounded-lg shadow-2xl">
+                    <img src="{{ asset('images/talk.png') }}" alt="Image 1" class="relative z-10 object-cover w-1/2 md:w-24 h-auto mb-2">
                     <p class="relative z-10 font-semibold text-gray-800">Zakat</p>
                 </div>
             </div>
     
             <!-- Item 2 -->
-            <div class="relative z-10 flex flex-col items-center p-8 bg-white rounded-lg shadow-2xl">
-                <img src="{{ asset('images/calculator.png') }}" alt="Image 2" class="relative z-10 object-cover w-24 h-24 mb-2">
+            <div class="relative z-10 flex flex-col items-center p-4 md:p-8 bg-white rounded-lg shadow-2xl w-full md:w-auto">
+                <img src="{{ asset('images/talk.png') }}" alt="Image 2" class="relative z-10 object-cover w-1/2 md:w-24 h-auto mb-2">
                 <p class="relative z-10 font-semibold text-gray-800">Zakat</p>
             </div>
     
             <!-- Item 3 -->
-            <div class="relative z-10 flex flex-col items-center p-8 bg-white rounded-lg shadow-2xl">
-                <img src="{{ asset('images/mastercard.png') }}" alt="Image 3" class="relative z-10 object-cover w-24 h-24 mb-2">
+            <div class="relative z-10 flex flex-col items-center p-4 md:p-8 bg-white rounded-lg shadow-2xl w-full md:w-auto">
+                <img src="{{ asset('images/mastercard.png') }}" alt="Image 3" class="relative z-10 object-cover w-1/2 md:w-24 h-auto mb-2">
                 <p class="relative z-10 font-semibold text-gray-800">Zakat</p>
             </div>
     
             <!-- Wrapper for Right Ornament and Item 4 -->
-            <div class="relative flex items-center">
-                <img src="{{ asset('images/fknleaf.png') }}" alt="Right Ornament" class="absolute z-0 object-cover w-auto h-auto mb-2 transform -translate-y-1/2 -right-28 top-1/2">
+            <div class="relative flex items-center w-full md:w-auto">
+                <img src="{{ asset('images/fknleaf.png') }}" alt="Right Ornament" class="absolute z-0 object-cover w-1/4 h-auto mb-2 transform -translate-y-1/2 -right-8 md:-right-28 top-1/2">
                 
-                <div class="relative z-10 flex flex-col items-center p-8 bg-white rounded-lg shadow-2xl">
-                    <img src="{{ asset('images/qr.png') }}" alt="Image 4" class="relative z-10 object-cover w-24 h-24 mb-2">
+                <div class="relative z-10 flex flex-col items-center p-4 md:p-8 bg-white rounded-lg shadow-2xl">
+                    <img src="{{ asset('images/qr.png') }}" alt="Image 4" class="relative z-10 object-cover w-1/2 md:w-24 h-auto mb-2">
                     <p class="relative z-10 font-semibold text-gray-800">Zakat</p>
                 </div>
             </div>
         </div>
     </div>
+    
     
     
     
