@@ -1,4 +1,4 @@
-<div>
+<div >
     <x-navbar></x-navbar>
 
 
@@ -8,7 +8,7 @@
             </div>
         </div>
 
-        <div class="relative z-12 w-screen flex flex-wrap items-center justify-center">
+        <div class="relative z-12 w-full flex flex-wrap items-center justify-center">
             <div
                 class="relative flex flex-wrap items-center justify-center h-auto py-10 md:mx-20 -mt-24 md:-mt-32 space-x-2 md:space-x-16 rounded-3xl">
                 <!-- Wrapper for Left Ornament and Item 1 -->
@@ -16,7 +16,7 @@
                     <img src="{{ asset('images/fknleaf.png') }}" alt="Left Ornament"
                         class="absolute z-0 object-cover w-16 h-auto md:w-auto md:h-auto mb-2 transform -translate-y-1/2 -scale-x-100 -scale-y-100 -left-8 md:-left-28 top-1/2">
                     <div
-                        class="relative flex flex-col items-center w-24 h-28 p-4 md:w-auto md:h-auto md:p-8 bg-white rounded-lg shadow-2xl">
+                        class="relative flex flex-col items-center w-24 h-28 p-4 md:w-48 md:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
                         <img src="{{ asset('images/talk.png') }}" alt="Image 1"
                             class="relative object-cover w-8 h-8 md:w-24 md:h-24 mb-2">
                         <p class="relative text-sm md:text-lg text-gray-800 text-center">Konsultasi</p>
@@ -25,7 +25,7 @@
 
                 <!-- Item 2 -->
                 <div
-                    class="relative flex flex-col items-center w-24 h-28 p-4 md:w-auto md:h-auto md:p-8 bg-white rounded-lg shadow-2xl">
+                    class="relative flex flex-col items-center w-24 h-28 p-4 md:w-48 md:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
                     <img src="{{ asset('images/mastercard.png') }}" alt="Image 2"
                         class="relative object-cover w-8 h-8 md:w-24 md:h-24 mb-2">
                     <p class="relative text-sm md:text-lg text-gray-800 text-center">Kalkulator Zakat</p>
@@ -33,7 +33,7 @@
 
                 <!-- Item 3 -->
                 <div
-                    class="relative flex flex-col items-center w-24 h-28 p-4 md:w-auto md:h-auto md:p-8 bg-white rounded-lg shadow-2xl">
+                    class="relative flex flex-col items-center w-24 h-28 p-4 md:w-48 md:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
                     <img src="{{ asset('images/mastercard.png') }}" alt="Image 3"
                         class="relative object-cover w-8 h-8 md:w-24 md:h-24 mb-2">
                     <p class="relative text-sm md:text-lg text-gray-800 text-center">Rekenign Donasi</p>
@@ -44,7 +44,7 @@
                     <img src="{{ asset('images/fknleaf.png') }}" alt="Right Ornament"
                         class="absolute z-0 object-cover w-16 h-auto md:w-auto md:h-auto mb-2 transform -translate-y-1/2 -right-8 md:-right-28 top-1/2">
                     <div
-                        class="relative flex flex-col items-center w-24 h-28 p-4 md:w-auto md:h-auto md:p-8 bg-white rounded-lg shadow-2xl">
+                        class="relative flex flex-col items-center w-24 h-28 p-4 md:w-48 md:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
                         <img src="{{ asset('images/qr.png') }}" alt="Image 4"
                             class="relative object-cover w-8 h-8 md:w-24 md:h-24 mb-2">
                         <p class="relative text-sm md:text-lg text-gray-800 text-center">QR Donasi</p>
@@ -58,14 +58,17 @@
             <!-- Title -->
             <div class="mb-8 w-full flex items-center justify-between">
                 <div class="relative px-12 flex flex-col justify-between">
-                    <h2 class="text-lg font-semibold text-green-600">Campaign Lazisnu Cilacap</h2>
-                    <h2 class="text-sm text-black">Berikut merupakan campaign terbaru Lazisnu Cilacap</h2>
+                    <h2 class="text-md md:text-lg font-semibold text-green-600">Campaign Lazisnu Cilacap</h2>
+                    <h2 class="text-xs md:text-sm text-black">Berikut merupakan campaign terbaru Lazisnu Cilacap</h2>
                 </div>
-                <button class="relative px-4 mr-12 py-2 text-white rounded-md bg-green-500 hover:bg-green-600">
-                    Campaign Lainya
-                </button>
+                <div>
+                    <a class="md:hidden mr-14 text-sm text-right text-green-500 hover:text-green-600 hover:cursor-pointer">Campaign Lainnya ></a>
+                    <button class="hidden md:block relative px-4 mr-12 py-2 text-white rounded-md bg-green-500 hover:bg-green-600">
+                        Campaign Lainya
+                    </button>
+                </div>
             </div>
-            <div class="grid grid-cols-1 gap-6 mx-10 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="w-auto flex flex-col justify-center md:w-auto md:grid gap-6 mx-10  md:grid-cols-3">
                 <!-- Card 1 -->
                 <x-campaign-card />
                 <x-campaign-card />
@@ -84,9 +87,12 @@
                     <h2 class="text-lg font-semibold text-green-600">Berita Lazisnu Cilacap</h2>
                     <h2 class="text-sm text-black">Berikut merupakan berita terbaru Lazisnu Cilacap</h2>
                 </div>
-                <button class="relative px-4 mr-12 py-2 text-white rounded-md bg-green-500 hover:bg-green-600">
-                    Berita Lainya
-                </button>
+                <div>
+                    <a class="md:hidden mr-14 text-sm text-right text-green-500 hover:text-green-600 hover:cursor-pointer">Berita Lainnya ></a>
+                    <button class="hidden md:block relative px-4 mr-12 py-2 text-white rounded-md bg-green-500 hover:bg-green-600">
+                        Berita Lainya
+                    </button>
+                </div>
             </div>
 
             <div class="grid grid-cols-1 gap-6 mx-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -98,15 +104,15 @@
         </div>
 
         <!-- Tentang Section -->
-        <div class="flex flex-col items-center py-10 bg-white mt-28">
+        <div class="flex flex-col items-center py-10 bg-white mt-4 shadow-lg">
             <!-- Title -->
-            <div class="mb-8">
+            {{-- <div class="mb-8">
                 <h2 class="text-xl font-semibold text-black">Tentang</h2>
                 <div class="relative px-8 pt-4 mt-2">
                     <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-white via-green-700 to-white">
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Container for items left -->
             <div class="flex items-start justify-between w-full max-w-4xl mx-20 space-x-20">
@@ -164,24 +170,27 @@
                 <x-mitra-logo />
                 <x-mitra-logo />
             </div>
-            <div class="mt-12">
-                <button class="px-4 py-2 text-white bg-green-500 rounded-md">Berita Lainnya</button>
-            </div>
+            
         </div>
         <!-- Sticky Bottom -->
-        <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center md:hidden">
-            <div class="inline-flex px-8 py-4 bg-white shadow-2xl rounded-3xl">
-                <div class="flex items-center justify-center space-x-5">
-                    <div class="items-center w-16 h-16 bg-gray-100 rounded-full">
+        <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center  bg-white shadow-md md:hidden">
+            <div class="flex px-8 py-4 bg-white shadow-2xl rounded-3xl w-full items-center justify-center space-x-12">
+                
+                    <div class="items-center bg-gray-300 w-16 h-16 bg-gray-100 rounded-lg">
                         <img src="{{ asset('images/logo_pnc.png') }}" alt="">
                     </div>
-                    <div class="items-center w-16 h-16 bg-gray-100 rounded-full">
+                    <div class="items-center bg-gray-300 w-16 h-16 bg-gray-100 rounded-lg">
                         <img src="{{ asset('images/logo_pnc.png') }}" alt="">
                     </div>
-                    <div class="items-center w-16 h-16 bg-gray-100 rounded-full">
+                    <div class="items-center bg-gray-300 w-16 h-16 bg-gray-100 rounded-lg">
                         <img src="{{ asset('images/logo_pnc.png') }}" alt="">
                     </div>
-                </div>
+                    <div class="items-center bg-gray-300 w-16 h-16 bg-gray-100 rounded-lg">
+                        <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                    </div>
             </div>
         </div>
 </div>
+
+
+    
