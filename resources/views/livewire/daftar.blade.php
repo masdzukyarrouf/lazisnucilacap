@@ -1,4 +1,6 @@
-<div class="flex items-center justify-center min-h-screen px-6 py-12 lg:px-8">
+<div>
+    <x-navbar></x-navbar>
+    <div class="flex items-center justify-center min-h-screen px-6 py-12 lg:px-8">
         <div class="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
             <div class="text-center">
             {{-- <img class="w-auto h-24 mx-auto" src="{{ asset('images/logo_lazisnu.png') }}" alt="Your Company"> --}}
@@ -50,3 +52,5 @@
         </form>
     </div>
     </div>
+</div>
+</div>
