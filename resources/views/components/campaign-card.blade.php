@@ -10,16 +10,18 @@
             <div class="h-2 bg-gray-200 rounded-full">
                 <div class="h-2 bg-green-500 rounded-full" style="width: 60%;"></div>
             </div>
+
             <div class="flex items-center justify-between">
-                <div class="text-right">
-                    <p class="mt-2 text-gray-700">Raised</p>
-                </div>
                 <div class="text-left">
-                    <p class="mt-2 text-gray-700">rp</p>
+                    <p class="mt-2 text-gray-700">Raised</p>
+                    <p class="mt-2 text-green-600">Rp9.000.000,-</p>
+                </div>
+                <div class="text-right">
+                    <p class="mt-2 text-gray-700">90</p>
+                    <p class="mt-2 text-gray-700">Hari lagi</p>
                 </div>
             </div>
 
         </div>
-        <button class="w-1/3 py-2 mt-4 text-white bg-green-500 rounded-lg hover:bg-green-600">Donate</button>
     </div>
 </div>
