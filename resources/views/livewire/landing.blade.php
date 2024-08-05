@@ -8,7 +8,7 @@
             </div>
         </div>
 
-        <div class="relative z-12 w-screen flex flex-wrap items-center justify-center">
+        <div class="relative z-12 w-full flex flex-wrap items-center justify-center">
             <div
                 class="relative flex flex-wrap items-center justify-center h-auto py-10 md:mx-20 -mt-24 md:-mt-32 space-x-2 md:space-x-16 rounded-3xl">
                 <!-- Wrapper for Left Ornament and Item 1 -->
@@ -104,15 +104,15 @@
         </div>
 
         <!-- Tentang Section -->
-        <div class="flex flex-col items-center py-10 bg-white mt-28">
+        <div class="flex flex-col items-center py-10 bg-white mt-4 shadow-lg">
             <!-- Title -->
-            <div class="mb-8">
+            {{-- <div class="mb-8">
                 <h2 class="text-xl font-semibold text-black">Tentang</h2>
                 <div class="relative px-8 pt-4 mt-2">
                     <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-white via-green-700 to-white">
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Container for items left -->
             <div class="flex items-start justify-between w-full max-w-4xl mx-20 space-x-20">
@@ -170,51 +170,27 @@
                 <x-mitra-logo />
                 <x-mitra-logo />
             </div>
-            <div class="mt-12">
-                <button class="px-4 py-2 text-white bg-green-500 rounded-md">Berita Lainnya</button>
-            </div>
+            
         </div>
         <!-- Sticky Bottom -->
-        <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center md:hidden">
-            <div class="inline-flex px-8 py-4 bg-white shadow-2xl rounded-3xl">
-                <div class="flex items-center justify-center space-x-5">
-                    <div class="items-center w-16 h-16 bg-gray-100 rounded-full">
+        <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center  bg-white shadow-md md:hidden">
+            <div class="flex px-8 py-4 bg-white shadow-2xl rounded-3xl w-full items-center justify-center space-x-12">
+                
+                    <div class="items-center bg-gray-300 w-16 h-16 bg-gray-100 rounded-lg">
                         <img src="{{ asset('images/logo_pnc.png') }}" alt="">
                     </div>
-                    <div class="items-center w-16 h-16 bg-gray-100 rounded-full">
+                    <div class="items-center bg-gray-300 w-16 h-16 bg-gray-100 rounded-lg">
                         <img src="{{ asset('images/logo_pnc.png') }}" alt="">
                     </div>
-                    <div class="items-center w-16 h-16 bg-gray-100 rounded-full">
+                    <div class="items-center bg-gray-300 w-16 h-16 bg-gray-100 rounded-lg">
                         <img src="{{ asset('images/logo_pnc.png') }}" alt="">
                     </div>
-                </div>
+                    <div class="items-center bg-gray-300 w-16 h-16 bg-gray-100 rounded-lg">
+                        <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                    </div>
             </div>
         </div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const itemsContainer = document.getElementById('items-container');
-        const items = Array.from(itemsContainer.children);
-    
-        const showItems = () => {
-            const width = window.innerWidth;
-            if (width < 768) { // Adjust this value based on your breakpoint
-                // Show only the first 3 items on small screens
-                items.forEach((item, index) => {
-                    item.style.display = index < 3 ? 'flex' : 'none';
-                });
-            } else {
-                // Show all items on medium screens and larger
-                items.forEach(item => item.style.display = 'flex');
-            }
-        };
-    
-        // Initial call to adjust visibility
-        showItems();
-    
-        // Adjust visibility on window resize
-        window.addEventListener('resize', showItems);
-    });
-    </script>
+
     
