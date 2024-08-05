@@ -11,13 +11,15 @@ class navlink extends Component
     public $url;
     public $links;
     public $isDropdown;
+    public $class;
 
-    public function __construct($title, $url = '#', $links = [], $isDropdown = false)
+    public function __construct($title, $url = '#', $links = [], $isDropdown = false , $class = '')
     {
         $this->title = $title;
         $this->url = $url;
         $this->links = $links;
         $this->isDropdown = $isDropdown;
+        $this->class = $class;
     }
 
     public function render()
