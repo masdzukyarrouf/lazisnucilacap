@@ -1,6 +1,6 @@
 <div class="relative flex items-center group">
     <a wire:navigate.hover href="{{ $url }}" 
-       class="inline-flex items-center px-3 py-2 text-black rounded hover:text-green-500 {{ $class ? $class : '' }}">
+       class="inline-flex items-center px-2 py-2 text-black rounded hover:text-green-500 {{ $class ? $class : '' }}">
         {{ $title }}
         @if ($isDropdown)
             <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="w-4 h-4 ml-1">
