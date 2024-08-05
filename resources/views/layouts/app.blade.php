@@ -64,8 +64,8 @@
             </div>
             <!-- Column 2 -->
             <div class="w-2/12 mb-4 md:mb-0">
-                <h2 class="mb-4 text-xl font-semibold text-gray-800">Informasi</h2>
-                <ul class="text-sm">
+                <h2 class="mb-4 text-xl font-semibold text-gray-800 ">Informasi</h2>
+                <ul class="text-sm space-y-4">
                     <li><a href="#" class="text-gray-800 hover:text-lg ">Lazisnu Cilacap</a></li>
                     <li><a href="#" class="text-gray-800 hover:text-lg ">Pilar & Program</a></li>
                     <li><a href="#" class="text-gray-800 hover:text-lg ">Layanan</a></li>
