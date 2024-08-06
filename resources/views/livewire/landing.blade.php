@@ -115,35 +115,35 @@
             </div> --}}
 
             <!-- Container for items left -->
-            <div class="flex items-start justify-between w-full max-w-4xl mx-20 space-x-20">
+            <div class="flex items-start justify-between w-full h-auto max-w-4xl mx-20 space-x-20">
                 <!-- Item 1 -->
-                <div class="flex flex-col items-center flex-1">
+                <div class="hidden md:block flex flex-col items-center flex-1">
                     <img src="{{ asset('images/tentang.png') }}" alt="Image 1" class="object-cover mb-4 w-128 h-128">
                 </div>
 
                 <!-- Item 2 -->
-                <div class="flex flex-col items-start flex-1 text-justify">
+                <div class="flex flex-col items-start flex-1 text-justify items-center mb-4 -ml-8 md:ml-0">
                     <div>
-                        <p class="mb-4 text-xl font-extrabold text-green-600">Sekilas NU Care-LAZISNU Cilacap</p>
-                        <p class="mb-4 text-md text-gray-700">
+                        <p class=" text-md md:text-xl font-extrabold text-green-600">Sekilas NU Care-LAZISNU Cilacap</p>
+                        <p class=" text-sm md:text-md mr-8 md:mr-0 text-gray-700">
                             Terima kasih banyak kami ucapkan kepada para muzakki, munfiq, donatur atas semua zakat,
                             infaq,
                             sedekah atas donasinya yang telah diamanatkan melalui NU Care Lazisnu Cilacap.
                         </p>
                     </div>
-                    <div class="w-full flex flex-col justify-center">
-                        <p class="mb-4 text-lg font-semibold text-black text-center">Terima kasih kepada Sejumlah</p>
+                    <div class="w-full flex flex-col justify-center -ml-8 md:ml-0">
+                        <p class="mt-4 mb-4 text-lg font-semibold text-black text-center">Terima kasih kepada Sejumlah</p>
                         <div class="flex flex-row justify-center">
-                            <div class="relative flex flex-col items-center w-24 h-24 p-4 md:w-60 md:h-auto md:p-8">
+                            <div class="relative flex flex-col items-center w-40 h-24 p-4 md:w-60  md:p-8">
                                 <img src="{{ asset('images/talk.png') }}" alt="Image 1"
                                     class="relative w-8 h-8 md:w-16 md:h-16 mb-2">
-                                <p class="relative text-sm md:text-md font-semibold text-green-600 text-center">41.124
+                                <p class="relative text-xs md:text-md font-semibold text-green-600 text-center">41.124
                                     muzakki<br>NU Care Lazisnu Cilacap</p>
                             </div>
-                            <div class="relative flex flex-col items-center w-24 h-24 p-4 md:w-60 md:h-auto md:p-8">
+                            <div class="relative flex flex-col items-center w-40 h-24 p-4 md:w-60  md:p-8">
                                 <img src="{{ asset('images/talk.png') }}" alt="Image 1"
                                     class="relative w-8 h-8 md:w-16 md:h-16 mb-2">
-                                <p class="relative text-sm md:text-md font-semibold text-green-600 text-center">64.712
+                                <p class="relative text-xs md:text-md font-semibold text-green-600 text-center">64.712
                                     Munfiq<br>NU Care Lazisnu Cilacap</p>
                             </div>
                         </div>
