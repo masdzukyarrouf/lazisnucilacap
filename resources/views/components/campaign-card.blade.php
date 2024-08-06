@@ -1,5 +1,5 @@
-<div class="flex flex-grow md:flex-col bg-white rounded-lg shadow-lg ">
-    <div class="relative group flex items-center w-36 md:h-auto md:w-auto">
+<div class="z-10 flex flex-grow md:flex-col bg-white rounded-lg shadow-lg outline-4 outline-gray-700 ">
+    <div class="z-0 relative group flex items-center w-36 md:h-auto md:w-auto">
         <img src="{{ asset('images/campaign_1.png') }}" alt="Picture"
             class="object-cover h-full w-full hover:cursor-pointer">
         <div
