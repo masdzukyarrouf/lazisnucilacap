@@ -1,7 +1,7 @@
 <div>
     <x-navbar></x-navbar>
-    <div class="flex items-center justify-center px-6 py-12 lg:px-8">
-        <div class="p-8 mx-5 space-y-8 bg-white rounded-lg shadow-md"
+    <div class="flex items-center justify-center px-2 md:px-6 py-12 lg:px-8">
+        <div class="p-2 md:p-8 md:mx-5 space-y-8 bg-white rounded-lg shadow-md"
             style="background-image: url('{{ asset('images/bg_campaign.png') }}'); background-repeat: no-repeat; background-position: bottom right; height: 1689px; width: 1449px;">
             <div class="flex items-center justify-between">
                 <p class="text-3xl font-bold text-green-600">
@@ -18,30 +18,30 @@
                 </div>
             </div>
             <div class="grid grid-cols-1 gap-6 pt-1 mx-10 sm:grid-cols-2 lg:grid-cols-3">
-                <x-campaign-card></x-campaign-card>
+                <x-campaign-card/>
                 <div>
-                    <x-campaign-card></x-campaign-card>
+                    <x-campaign-card/>
                 </div>
                 <div>
-                    <x-campaign-card></x-campaign-card>
+                    <x-campaign-card/>
                 </div>
                 <div>
-                    <x-campaign-card></x-campaign-card>
+                    <x-campaign-card/>
                 </div>
                 <div>
-                    <x-campaign-card></x-campaign-card>
+                    <x-campaign-card/>
                 </div>
                 <div>
-                    <x-campaign-card></x-campaign-card>
+                    <x-campaign-card/>
                 </div>
                 <div>
-                    <x-campaign-card></x-campaign-card>
+                    <x-campaign-card/>
                 </div>
                 <div>
-                    <x-campaign-card></x-campaign-card>
+                    <x-campaign-card/>
                 </div>
                 <div>
-                    <x-campaign-card></x-campaign-card>
+                    <x-campaign-card/>
                 </div>
             </div>
             <div class="flex justify-center">
