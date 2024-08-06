@@ -15,6 +15,7 @@ return new class extends Migration
             $table->integer('id_staf')->autoIncrement()->primary();
             $table->string('name');
             $table->integer('id_position');
+            $table->timestamps();
         });
     }
 

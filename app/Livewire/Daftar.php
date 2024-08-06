@@ -15,12 +15,13 @@ class Daftar extends Component
 
     public function simpan()
     {
+        \Log::info('Simpan method called');
         $this->validate([
             'username' => 'required|unique:users',
             'first_name' => 'required',
             'last_name' => 'required',
             'no_telp' => 'required',
-            'password' => 'required|confirmed',
+            'password' => 'required',
         ]);
 
         $user = User::create([
@@ -37,7 +38,8 @@ class Daftar extends Component
             session()->flash('success', 'Registrasi Berhasil');
             return redirect()->route('login');
         }else{
-            dd($user);
+            session()->flash('success', 'Registrasi Gagal');
+            
         }
     }
 

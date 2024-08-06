@@ -15,6 +15,7 @@ return new class extends Migration
             $table->integer('id_partner')->autoIncrement()->primary();
             $table->string('partner_name');
             $table->string('logo');
+            $table->timestamps();
         });
     }
 

@@ -29,10 +29,12 @@
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    @livewireStyles
 </head>
 
 <body class="flex flex-col h-screen">
     {{ $slot }}
+    @livewireScripts
 </body>
 <footer class="hidden py-8 text-white bg-gray-200 md:block">
     <div class="px-4 mx-auto max-w-7xl">

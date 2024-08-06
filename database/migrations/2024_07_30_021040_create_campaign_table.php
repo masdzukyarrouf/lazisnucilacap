@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('min_donation');
             $table->string('lokasi');
             $table->string('picture');
+            $table->timestamps();
         });
     }
 

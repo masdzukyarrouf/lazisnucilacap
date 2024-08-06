@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->integer('jumlah_donasi');
             $table->integer('campaign_id');
+            $table->timestamps();
         });
     }
 
