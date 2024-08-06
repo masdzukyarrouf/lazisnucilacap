@@ -31,11 +31,11 @@ Route::get('/', App\Livewire\Landing::class);
 
 Route::get('/campaign', App\Livewire\Campaign::class);
 
-Route::get('/berita', App\Livewire\Berita::class);
+Route::get('/berita', App\Livewire\Berita::class)->name('berita');
 
 Route::get('/daftar', App\Livewire\Daftar::class);
 
-Route::get('/login', App\Livewire\Login::class);
+Route::get('/login', App\Livewire\Login::class)->name('login');
 
 Route::get('/detail-berita', App\Livewire\DetailBerita::class);
 
