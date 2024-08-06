@@ -28,13 +28,16 @@ class Daftar extends Component
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'password' => bcrypt($this->password),
-            'no_telp' => $this->no_telp
+            'no_telp' => $this->no_telp,
+            'role' => 'admin'
         ]);
 
         if($user)
         {
             session()->flash('success', 'Registrasi Berhasil');
             return redirect()->route('login');
+        }else{
+            dd($user);
         }
     }
 
