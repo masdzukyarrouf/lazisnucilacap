@@ -14,6 +14,7 @@ Route::get('/welcome', function () {
 Route::middleware('auth')->group(function () {
 
     Route::get('/admin', App\Livewire\Admin\Index::class)->name('admin');
+    Route::get('/user', App\Livewire\User\Index::class)->name('user');
 });
 
 
