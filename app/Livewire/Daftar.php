@@ -45,6 +45,6 @@ class Daftar extends Component
 
     public function render()
     {
-        return view('livewire.daftar');
+        return view('livewire.daftar')->layout('layouts.none');
     }
 }
