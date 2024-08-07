@@ -27,18 +27,18 @@
             </div>
             <div class="">
                 <ul class=" flex  space-x-1">
-                    <x-navlink title="Home" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
-                    <x-navlink title="Admin" url="/admin" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
-                    <x-navlink title="User" url="/user" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
-                    <x-navlink title="Donasi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
-                    <x-navlink title="Campaign" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
-                    <x-navlink title="Berita" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
-                    <x-navlink title="Mitra" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
-                    <x-navlink title="Misi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
-                    <x-navlink title="Visi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
+                    <x-navlink title="Home" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
+                    <x-navlink title="Admin" url="/admin" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
+                    <x-navlink title="User" url="/user" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
+                    <x-navlink title="Donasi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
+                    <x-navlink title="Campaign" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
+                    <x-navlink title="Berita" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
+                    <x-navlink title="Mitra" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
+                    <x-navlink title="Misi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
+                    <x-navlink title="Visi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class="bg-green-400 bg-black rounded-lg px-3 py-1 hover:bg-green-600">Logout</button>
+                        <button type="submit" class=" rounded-lg px-3 py-1 sm:hover:text-white">Logout</button>
                     </form>
                 </ul>
             </div>

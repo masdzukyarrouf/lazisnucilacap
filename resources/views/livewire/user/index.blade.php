@@ -20,31 +20,57 @@
                     <div class="p-4">
                         <form wire:submit.prevent="submitForm">
                             <div class="mb-4">
-                                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                                <input type="text" id="name" wire:model="name" name="name"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                @error('name')
+                                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                                <input type="text" id="username" wire:model="username" name="username"
+                                    class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
+                                @error('username')
                                     <span class="text-red-500 text-sm">{{ $message }}</span>
                                 @enderror
                             </div>
-
                             <div class="mb-4">
-                                <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
-                                <input type="text" id="role" wire:model="role" name="role"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                @error('role')
+                                <label for="first_name" class="block text-sm font-medium text-gray-700">Nama Depan</label>
+                                <input type="text" id="first_name" wire:model="first_name" name="first_name"
+                                    class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
+                                @error('first_name')
                                     <span class="text-red-500 text-sm">{{ $message }}</span>
                                 @enderror
                             </div>
-
+                            <div class="mb-4">
+                                <label for="last_name" class="block text-sm font-medium text-gray-700">Nama Belakang</label>
+                                <input type="text" id="last_name" wire:model="last_name" name="last_name"
+                                    class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
+                                @error('last_name')
+                                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
+                            </div>
                             <div class="mb-4">
                                 <label for="no_telp" class="block text-sm font-medium text-gray-700">No Telp</label>
                                 <input type="text" id="no_telp" wire:model="no_telp" name="no_telp"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                    class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
                                 @error('no_telp')
                                     <span class="text-red-500 text-sm">{{ $message }}</span>
                                 @enderror
                             </div>
+                            <div class="mb-4">
+                                <label for="passowrd" class="block text-sm font-medium text-gray-700">Password</label>
+                                <input type="text" id="passowrd" wire:model="passowrd" name="passowrd"
+                                    class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
+                                @error('passowrd')
+                                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="mb-4">
+                                <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
+                                <select id="role" wire:model="role" name="role" class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
+                                    <option value="">Select a role</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="donatur">Donatur</option>
+                                </select>
+                                @error('role')
+                                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            
                         </form>
                     </div>
 
