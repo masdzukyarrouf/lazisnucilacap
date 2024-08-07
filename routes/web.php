@@ -10,9 +10,12 @@ Route::get('/welcome', function () {
 //     return view('landing');
 // });
 
-// Route::get('/login', function () {
-//     return view('card_login');
-// });
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/admin', App\Livewire\Admin\Index::class)->name('admin');
+});
+
 
 Route::get('/', App\Livewire\Landing::class);
 
@@ -22,10 +25,13 @@ Route::get('/berita', App\Livewire\Berita::class)->name('berita');
 
 Route::get('/daftar', App\Livewire\Daftar::class);
 
-Route::get('/login', App\Livewire\Login::class)->name('login');
+Route::get('/login', App\Livewire\Login::class)->name('login')->middleware('guest');
 
 Route::get('/detail-berita', App\Livewire\DetailBerita::class);
 
 Route::get('/landing-mobile', App\Livewire\LandingMobile::class);
 
 Route::get('/detail-campaign', App\Livewire\DetailCampaign::class);
+
+Route::post('logout', App\Http\Controllers\logout::class)->name('logout');
+
