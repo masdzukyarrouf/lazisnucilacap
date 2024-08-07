@@ -1,6 +1,6 @@
 <div>
     <x-navbar></x-navbar>
-    <div class="flex items-center justify-center min-h-screen px-6 py-12 lg:px-8">
+    <div class="flex items-center justify-center -mt-8  px-6 py-12 lg:px-8">
         <div class="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
             <div class="text-center">
                 <h2 class="mt-3 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">Daftar</h2>
