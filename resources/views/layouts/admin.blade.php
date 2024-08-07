@@ -19,7 +19,7 @@
 </head>
 
 <body class="flex flex-col h-screen ">
-    <nav class="bg-green-400 p-4 shadow-2xl z-10">
+    <nav class="bg-gray-800 p-4 shadow-2xl z-10">
         <div class="container flex items-center justify-between">
             <div>
                 <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt=""
@@ -27,17 +27,18 @@
             </div>
             <div class="">
                 <ul class=" flex  space-x-1">
-                    <x-navlink title="Home" url="/" class="rounded-lg py-2 px-4 sm:hover:text-green-500 bg-white" />
-                    <x-navlink title="User" url="/user" class="rounded-lg py-2 px-4 sm:hover:text-green-500 bg-white" />
-                    <x-navlink title="Donasi" url="/" class="rounded-lg py-2 px-4 sm:hover:text-green-500 bg-white" />
-                    <x-navlink title="Campaign" url="/" class="rounded-lg py-2 px-4 sm:hover:text-green-500 bg-white" />
-                    <x-navlink title="Berita" url="/" class="rounded-lg py-2 px-4 sm:hover:text-green-500 bg-white" />
-                    <x-navlink title="Mitra" url="/" class="rounded-lg py-2 px-4 sm:hover:text-green-500 bg-white" />
-                    <x-navlink title="Misi" url="/" class="rounded-lg py-2 px-4 sm:hover:text-green-500 bg-white" />
-                    <x-navlink title="Visi" url="/" class="rounded-lg py-2 px-4 sm:hover:text-green-500 bg-white" />
+                    <x-navlink title="Home" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
+                    <x-navlink title="Admin" url="/admin" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
+                    <x-navlink title="User" url="/user" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
+                    <x-navlink title="Donasi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
+                    <x-navlink title="Campaign" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
+                    <x-navlink title="Berita" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
+                    <x-navlink title="Mitra" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
+                    <x-navlink title="Misi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
+                    <x-navlink title="Visi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-black sm:hover:bg-green-600 bg-green-400" />
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class="bg-white text-black rounded-lg py-2 px-4 hover:text-green-500">Logout</button>
+                        <button type="submit" class="bg-green-400 bg-black rounded-lg px-3 py-1 hover:bg-green-600">Logout</button>
                     </form>
                 </ul>
             </div>
