@@ -15,9 +15,9 @@
 </nav>
 
 <!-- Sidebar -->
-<div id="sidebar" class="fixed inset-0 bg-white z-20 transform -translate-x-full transition-transform md:w-full md:relative md:translate-x-0 md:flex md:items-center md:justify-between md:bg-transparent md:shadow-none md:p-0">
+<div id="sidebar" class="md:sticky md:top-0 fixed inset-0 bg-white z-20 transform -translate-x-full transition-transform md:w-full md:translate-x-0 md:flex md:items-center md:justify-between md:bg-transparent md:shadow-none md:p-0">
     <!-- Main Content -->
-    <div class="container mx-auto flex flex-col md:flex-row w-full py-4 items-center md:items-start md:justify-between space-y-4 md:space-y-0 px-4">
+    <div class=" sticky top-0 bg-white  flex flex-col md:flex-row w-full py-4 items-center  md:justify-between space-y-4 md:space-y-0 px-8">
         <!-- Logo -->
         <a href="/" class="flex-shrink-0">
             <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="Logo" class="w-auto h-8">
