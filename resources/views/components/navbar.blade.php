@@ -24,7 +24,7 @@
         </a>
 
         <!-- Navigation Links and Buttons -->
-        <div class="flex flex-col md:flex-row md:space-x-0 md:space-y-0 space-y-4 md:ml-auto">
+        <div class="flex flex-col md:flex-row md:space-x-4 md:space-y-0 space-y-4 md:ml-auto">
             <x-navlink title="Lazisnu Cilacap" :links="[
                 ['href' => '#', 'text' => 'Visi & Misi'],
                 ['href' => '#', 'text' => 'Profil & Jajaran Pengurus'],
@@ -60,8 +60,8 @@
             <x-navlink title="Campaign" url="/campaign" />
             <x-navlink title="Berita" url="/berita" />
 
-            <a href="/login" class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">Masuk</a>
-            <a href="/daftar" class="px-6 py-2 text-green-600 border rounded-xl border-green-600 hover:bg-green-600 hover:text-white">Daftar</a>
+                <a href="/login" class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">Masuk</a>
+                <a href="/daftar" class="px-6 py-2 text-green-600 border rounded-xl border-green-600 hover:bg-green-600 hover:text-white">Daftar</a>
 
             <!-- Close Button -->
             <div class="absolute top-4 right-4">
