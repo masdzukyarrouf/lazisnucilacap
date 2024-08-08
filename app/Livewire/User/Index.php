@@ -5,31 +5,20 @@ namespace App\Livewire\User;
 use Livewire\Component;
 use App\Models\User;
 use Auth;
-use Livewire\Attributes\Rule;
+use Livewire\Attributes\On;
 
 
 class Index extends Component
 {
-    
-    public function store(){
-
-        $validatedData = $this->validate([
-            'username' => 'required|string',
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
-            'role' => 'required|string',
-            'no_telp' => 'required|string',
-            'password' => 'required|string',
-        ]);
-
-        $user = Auth::user(); 
-        $validated = $this->validate();
-        $post = $user->posts()->create(
-            $validated
-        );
-        $this->reset();
-        session()->flash('Post Created','success');
+    public Create $form;
+ 
+    #[On('postCreated')]
+    public function handlePostCreated()
+    {
+        session()->flash('message', 'Post Created Successfully');
     }
+    
+    
     public function render()
     {
         
