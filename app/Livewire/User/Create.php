@@ -10,7 +10,6 @@ use Livewire\Attributes\Rule;
 class Create extends Component
 {
     #[Rule(['required','string'])]
-
     public string $username = "";
     #[Rule(['required','string'])]
     public string $first_name = "";

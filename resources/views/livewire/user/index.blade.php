@@ -20,7 +20,7 @@
     <table class="min-w-full bg-white border border-gray-300 mt-8 mx-2">
         <thead>
             <tr class="w-full bg-gray-800 text-white">
-                <th scope="col" class="px-6 py-3 border-b border-gray-300">Id</th>
+                <th scope="col" class="px-6 py-3 border-b border-gray-300">#</th>
                 <th scope="col" class="px-6 py-3 border-b border-gray-300">Name</th>
                 <th scope="col" class="px-6 py-3 border-b border-gray-300">Role</th>
                 <th scope="col" class="px-6 py-3 border-b border-gray-300">No Telp</th>
@@ -36,11 +36,14 @@
                     <td class="px-6 py-4 border-b border-gray-300">{{ $user->role }}</td>
                     <td class="px-6 py-4 border-b border-gray-300">{{ $user->no_telp }}</td>
                     <td class="px-6 py-4 border-b border-gray-300">{{ $user->created_at->format('d/m/Y') }}</td>
-                    <td class="px-6 py-4 border-b border-gray-300">
-                        <a href="#"
-                            class="inline-block bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700">Edit</a>
-                        <button
-                            class="inline-block bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700">Delete</button>
+                    <td class="px-6 py-4 border-b border-gray-300 flex space-x-2">
+
+                        
+                            <livewire:user.edit :id_user="$user->id_user"/>
+                            
+                            <button
+                            class="inline-block bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700" wire:click="destroy({{$user->id_user}})">Delete</button>
+                        
                     </td>
                 </tr>
             @endforeach
