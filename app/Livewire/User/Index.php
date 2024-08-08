@@ -4,6 +4,7 @@ namespace App\Livewire\User;
 
 use Livewire\Component;
 use App\Models\User;
+use Livewire\Attributes\Lazy;
 use Auth;
 use Livewire\Attributes\On;
 
@@ -11,7 +12,16 @@ use Livewire\Attributes\On;
 class Index extends Component
 {
     public Create $form;
+ 
+    public function mount(){
 
+        sleep(3);
+        $this->users = User::query()
+            ->orderByRaw("CASE WHEN role = 'admin' THEN 0 ELSE 1 END")
+            ->latest()
+            ->paginate(10);
+
+    }
     #[On('postCreated')]
     public function handlePostCreated()
     {
@@ -37,15 +47,12 @@ class Index extends Component
 
     public function render()
     {
-
-        $users = User::query()
-            ->orderByRaw("CASE WHEN role = 'admin' THEN 0 ELSE 1 END")
-            ->latest()
-            ->paginate(10);
-
+    
         return view('livewire.user.index', [
-            'users' => $users
+            'users' => $this->users
 
         ])->layout('layouts.admin');
+
     }
+
 }
