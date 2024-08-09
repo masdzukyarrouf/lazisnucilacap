@@ -6,7 +6,7 @@
                 <div id="flash-message"
                     class="bg-green-500 text-white p-4 rounded mb-4 mt-8 mx-12 flex justify-between items-center">
                     <span>{{ session('message') }}</span>
-                    <button onclick="document.getElementById('flash-message').style.display='none'"
+                    <button class="p-1"  onclick="document.getElementById('flash-message').style.display='none'"
                         class="text-white font-bold">
                         &times;
                     </button>
@@ -32,30 +32,28 @@
             
             
                 @foreach ($users as $user)
-                    <tr wire:key="{{ $user->id_user }}" class="bg-gray-100 even:bg-gray-200">
+                    <tr wire:key="user-{{ $user->id_user }}" class="bg-gray-100 even:bg-gray-200">
                         <td class="px-6 py-4 border-b border-gray-300">{{ $loop->index + $users->firstItem() }}</td>
                         <td class="px-6 py-4 border-b border-gray-300">{{ $user->username }}</td>
                         <td class="px-6 py-4 border-b border-gray-300">{{ $user->role }}</td>
                         <td class="px-6 py-4 border-b border-gray-300">{{ $user->no_telp }}</td>
                         <td class="px-6 py-4 border-b border-gray-300">{{ $user->created_at->format('d/m/Y') }}</td>
                         <td class="px-6 py-4 border-b border-gray-300 flex space-x-2">
-
-
-                            <livewire:user.edit :id_user="$user->id_user"/>
-
+                            <livewire:user.edit :id_user="$user->id_user" />
                             <button class="inline-block bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700"
                                 wire:click="destroy({{ $user->id_user }})">Delete</button>
 
                         </td>
                     </tr>
                 @endforeach
+                            {{-- <livewire:user.edit :id_user="$user->id_user" /> --}}
             
         </tbody>
     </table>
 
     <!-- Pagination Controls -->
     <div class="mt-4 text-center py-8">
-        {{ $users->links('pagination::tailwind') }}
+        {{-- {{ $users->links('pagination::tailwind') }} --}}
     </div>
 
 

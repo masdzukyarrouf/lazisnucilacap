@@ -7,11 +7,11 @@ use App\Models\User;
 use Livewire\Attributes\Rule;
 use App\Livewire\User\Edit;
 use Livewire\Attributes\Lazy;
-#[Lazy]
+
 class EditForm extends Component
 {
 
-    public int $id_user = 0;
+    public int $id_user;
     #[Rule(['required', 'string'])]
     public string $username = "";
     #[Rule(['required', 'string'])]

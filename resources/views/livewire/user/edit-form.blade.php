@@ -70,7 +70,7 @@
                     <div class="flex justify-end p-4 bg-gray-200 rounded-b-lg">
                         <button type="button" wire:click="clear({{$id_user}})" @click="isOpen = false" 
                             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Close</button>
-                        <button type="submit"
+                        <button type="submit" @click="isOpen = false"
                             class="ml-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Submit</button>
                     </div>
                 </form>
