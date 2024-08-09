@@ -7,17 +7,21 @@
 
         <!-- Mobile Menu Button -->
         <button id="menu-btn" class="text-gray-300 hover:text-black focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
             </svg>
         </button>
     </div>
 </nav>
 
 <!-- Sidebar -->
-<div id="sidebar" class="md:sticky md:top-0 fixed inset-0 bg-white z-20 transform -translate-x-full transition-transform md:w-full md:translate-x-0 md:flex md:items-center md:justify-between md:bg-transparent md:shadow-none md:p-0">
+<div id="sidebar"
+    class="md:sticky md:top-0 fixed inset-0 bg-white z-20 transform -translate-x-full transition-transform md:w-full md:translate-x-0 md:flex md:items-center md:justify-between md:bg-transparent md:shadow-none md:p-0">
     <!-- Main Content -->
-    <div class=" sticky top-0 bg-white  flex flex-col md:flex-row w-full py-4 items-center  md:justify-between space-y-4 md:space-y-0 px-8">
+    <div
+        class=" sticky top-0 bg-white  flex flex-col md:flex-row w-full py-4 items-center  md:justify-between space-y-4 md:space-y-0 px-8">
         <!-- Logo -->
         <a href="/" class="flex-shrink-0">
             <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="Logo" class="w-auto h-8">
@@ -60,14 +64,23 @@
             <x-navlink title="Campaign" url="/campaign" />
             <x-navlink title="Berita" url="/berita" />
 
-                <a href="/login" class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">Masuk</a>
-                <a href="/daftar" class="px-6 py-2 text-green-600 border rounded-xl border-green-600 hover:bg-green-600 hover:text-white">Daftar</a>
+            @if (Auth::user()->role == 'admin')
+                <a href="/admin"
+                    class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">Admin</a>
+            @else
+                <a href="/login"
+                    class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">Masuk</a>
+            @endif
+            <a href="/daftar"
+                class="px-6 py-2 text-green-600 border rounded-xl border-green-600 hover:bg-green-600 hover:text-white">Daftar</a>
 
             <!-- Close Button -->
             <div class="absolute top-4 right-4">
                 <button id="close-btn" class="text-gray-500 hover:text-black md:hidden">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                 </button>
             </div>

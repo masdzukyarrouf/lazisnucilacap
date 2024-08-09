@@ -24,7 +24,6 @@ class Create extends Component
 
     public function save(){
         $validatedData = $this->validate();
-        
         $user = User::create([
             'username' => $validatedData['username'],
             'first_name' => $validatedData['first_name'],
@@ -33,12 +32,12 @@ class Create extends Component
             'no_telp' => $validatedData['no_telp'],
             'password' => bcrypt($validatedData['password']),
         ]);
-
+        
+        // dd($user);
         $this->reset();
         
 
         $this->dispatch('postCreated');
-        return $user;
     }
     public function render()
     {

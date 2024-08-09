@@ -13,20 +13,8 @@ class Index extends Component
 {
     public Create $form;
  
-    public function mount(){
 
-        sleep(3);
-        $this->users = User::query()
-            ->orderByRaw("CASE WHEN role = 'admin' THEN 0 ELSE 1 END")
-            ->latest()
-            ->paginate(10);
-
-    }
-    #[On('postCreated')]
-    public function handlePostCreated()
-    {
-        session()->flash('message', 'User Created Successfully');
-    }
+    
     #[On('postUpdated')]
     public function handlePostEdited()
     {
@@ -44,11 +32,19 @@ class Index extends Component
         session()->flash('message', 'User Destroyed Successfully');
         return redirect()->route('user');
     }
-
+    #[On('postCreated')]
+    public function handlePostCreated()
+    {
+        session()->flash('message', 'User Created Successfully');
+    }
     public function render()
     {
     
         return view('livewire.user.index', [
+            $this->users = User::query()
+            ->orderByRaw("CASE WHEN role = 'admin' THEN 0 ELSE 1 END")
+            ->latest()
+            ->paginate(10),
             'users' => $this->users
 
         ])->layout('layouts.admin');
