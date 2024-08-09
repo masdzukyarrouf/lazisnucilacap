@@ -46,14 +46,13 @@
                         </td>
                     </tr>
                 @endforeach
-                            {{-- <livewire:user.edit :id_user="$user->id_user" /> --}}
             
         </tbody>
     </table>
 
     <!-- Pagination Controls -->
     <div class="mt-4 text-center py-8">
-        {{-- {{ $users->links('pagination::tailwind') }} --}}
+        {{ $users->links('pagination::tailwind') }}
     </div>
 
 
