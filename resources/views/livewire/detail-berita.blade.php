@@ -1,4 +1,5 @@
-<x-navbar></x-navbar>
+<div>
+    <x-navbar></x-navbar>
     <div class="flex items-center justify-center px-6 py-12 lg:px-8">
         <div class="p-8 mx-5 space-y-8 bg-white rounded-lg shadow-md"
             style="background-image: url('{{ asset('images/bg_campaign.png') }}'); background-repeat: no-repeat; background-position: bottom right; height: 2000px; width: 1449px;">
@@ -34,3 +35,4 @@
             </div>
         </div>
     </div>
+</div>
