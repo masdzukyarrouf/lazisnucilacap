@@ -20,7 +20,6 @@ class Index extends Component
     public function handlePostEdited()
     {
         session()->flash('message', 'User Updated Successfully ');
-        $this->dispatch('refresh');
 
     }
 
@@ -31,7 +30,6 @@ class Index extends Component
             $user->delete();
         }
         session()->flash('message', 'User Destroyed Successfully ');
-        $this->dispatch('refresh');
 
 
     }
@@ -40,18 +38,12 @@ class Index extends Component
     public function handlePostCreated()
     {
         session()->flash('message', 'User Created Successfully ');
-        $this->dispatch('refresh');
 
     }
-    #[on('refresh')]
-    public function refresh(){
 
-        sleep(2);
-        return redirect()->route('user');
-    }
     public function render()
     {
-    
+
 
         return view('livewire.user.index', [
             $this->users = User::query()

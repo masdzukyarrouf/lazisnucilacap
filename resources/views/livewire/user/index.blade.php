@@ -39,7 +39,7 @@
                         <td class="px-6 py-4 border-b border-gray-300">{{ $user->no_telp }}</td>
                         <td class="px-6 py-4 border-b border-gray-300">{{ $user->created_at->format('d/m/Y') }}</td>
                         <td class="px-6 py-4 border-b border-gray-300 flex space-x-2">
-                            <livewire:user.edit :id_user="$user->id_user" />
+                            <livewire:user.edit :id_user="$user->id_user" wire:key="user-{{ $user->id_user }}"/>
                             <button class="inline-block bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700"
                                 wire:click="destroy({{ $user->id_user }})">Delete</button>
 

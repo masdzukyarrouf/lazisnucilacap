@@ -1,9 +1,6 @@
 <div>
-    <!-- Modal Background -->
     <div x-show="isOpen" class="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50">
-        <!-- Modal Content -->
         <div class="bg-white rounded-lg shadow-lg w-1/2">
-            <!-- Modal Header -->
             <div class="flex justify-between items-center bg-gray-200 p-4 rounded-t-lg">
                 <h3 class="text-xl font-semibold">Edit User</h3>
                 <button @click="isOpen=false" class="text-gray-600 hover:text-gray-900">&times;</button>
