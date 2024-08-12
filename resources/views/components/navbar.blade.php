@@ -64,7 +64,7 @@
             <x-navlink title="Campaign" url="/campaign" />
             <x-navlink title="Berita" url="/berita" />
 
-            @if (Auth::user()->role == 'admin')
+            @if (Auth::check() && Auth::user()->role == 'admin')
                 <a href="/admin"
                     class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">Admin</a>
             @else

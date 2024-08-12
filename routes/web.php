@@ -15,6 +15,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin', App\Livewire\Admin\Index::class)->name('admin');
     Route::get('/user', App\Livewire\User\Index::class)->name('user');
+    Route::get('/admin-campaign', App\Livewire\Campaign\Index::class)->name('admin-campaign');
+    Route::get('/user/create', App\Livewire\User\Create::class)->name('user');
 });
 
 

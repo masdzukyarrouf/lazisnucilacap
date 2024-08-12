@@ -21,7 +21,9 @@ return new class extends Migration
             $table->date('end_date');
             $table->integer('min_donation');
             $table->string('lokasi');
-            $table->string('picture');
+            $table->string('main_picture');
+            $table->string('second_picture')->nullable();
+            $table->string('last_picture')->nullable();
             $table->timestamps();
         });
     }

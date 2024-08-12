@@ -14,6 +14,7 @@
             margin: 0;
         }
     </style>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     @livewireStyles
 </head>
@@ -31,7 +32,7 @@
                     <x-navlink title="Admin" url="/admin" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="User" url="/user" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Donasi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
-                    <x-navlink title="Campaign" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
+                    <x-navlink title="Campaign" url="/admin-campaign" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Berita" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Mitra" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Misi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
