@@ -11,8 +11,8 @@ use App\Models\Campaign;
 class Index extends Component
 {
 
-    #[On('postUpdated')]
-    public function handlePostEdited()
+    #[On('campaignUpdated')]
+    public function handleCampaignEdited()
     {
         session()->flash('message', 'Campaign Updated Successfully ');
 
@@ -29,8 +29,8 @@ class Index extends Component
 
     }
 
-    #[On('postCreated')]
-    public function handlePostCreated()
+    #[On('campaignCreated')]
+    public function handleCampaignCreated()
     {
         session()->flash('message', 'Campaign Created Successfully ');
 
