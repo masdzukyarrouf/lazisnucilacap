@@ -36,4 +36,4 @@ Route::get('/detail-campaign', App\Livewire\DetailCampaign::class);
 
 Route::post('logout', App\Http\Controllers\logout::class)->name('logout');
 
-Route::get('/tambah_berita', App\Livewire\Berita\Create::class)->name('tambah_berita');
+Route::get('/tambah_berita', App\Livewire\Berita\Index::class)->name('tambah_berita');
