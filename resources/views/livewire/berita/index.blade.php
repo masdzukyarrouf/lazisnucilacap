@@ -1,6 +1,6 @@
 <div class="mx-5 shadow-2xl">
     <div class="flex justify-between mx-4 mt-12">
-        <h1 class="text-2xl font-bold ">User Table</h1>
+        <h1 class="text-2xl font-bold ">berita Table</h1>
         <div>
             @if (session()->has('message'))
                 <div id="flash-message"
@@ -14,34 +14,34 @@
             @endif
         </div>
         <!-- Modal Form -->
-        <livewire:user.create />
+        <livewire:berita.create />
     </div>
 
     <table class="min-w-full mx-2 mt-8 bg-white border border-gray-300">
         <thead>
             <tr class="w-full text-white bg-gray-800">
                 <th scope="col" class="px-6 py-3 border-b border-gray-300">#</th>
-                <th scope="col" class="px-6 py-3 border-b border-gray-300">Name</th>
-                <th scope="col" class="px-6 py-3 border-b border-gray-300">Role</th>
-                <th scope="col" class="px-6 py-3 border-b border-gray-300">No Telp</th>
-                <th scope="col" class="px-6 py-3 border-b border-gray-300">Created At</th>
+                <th scope="col" class="px-6 py-3 border-b border-gray-300">judul</th>
+                <th scope="col" class="px-6 py-3 border-b border-gray-300">isi</th>
+                <th scope="col" class="px-6 py-3 border-b border-gray-300">tanggal</th>
+                <th scope="col" class="px-6 py-3 border-b border-gray-300">gambar</th>
                 <th scope="col" class="px-6 py-3 border-b border-gray-300">Actions</th>
             </tr>
         </thead>
         <tbody>
             
             
-                @foreach ($users as $user)
-                    <tr wire:key="user-{{ $user->id_user }}" class="bg-gray-100 even:bg-gray-200">
-                        <td class="px-6 py-4 border-b border-gray-300">{{ $loop->index + $users->firstItem() }}</td>
-                        <td class="px-6 py-4 border-b border-gray-300">{{ $user->username }}</td>
-                        <td class="px-6 py-4 border-b border-gray-300">{{ $user->role }}</td>
-                        <td class="px-6 py-4 border-b border-gray-300">{{ $user->no_telp }}</td>
-                        <td class="px-6 py-4 border-b border-gray-300">{{ $user->created_at->format('d/m/Y') }}</td>
+                @foreach ($beritas as $berita)
+                    <tr wire:key="berita-{{ $berita->id_berita }}" class="bg-gray-100 even:bg-gray-200">
+                        <td class="px-6 py-4 border-b border-gray-300">{{ $loop->index + $berita->firstItem() }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300">{{ $berita->title_berita }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300">{{ $berita->description }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300">{{ $berita->tanggal->format('d/m/Y') }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300">{{ $berita->picture }}</td>
                         <td class="flex px-6 py-4 space-x-2 border-b border-gray-300">
-                            <livewire:user.edit :id_user="$user->id_user" wire:key="user-{{ $user->id_user }}"/>
+                            <livewire:berita.edit :id_berita="$berita->id_berita" wire:key="berita-{{ $berita->id_berita }}"/>
                             <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700"
-                                wire:click="destroy({{ $user->id_user }})">Delete</button>
+                                wire:click="destroy({{ $berita->id_berita }})">Delete</button>
 
                         </td>
                     </tr>
@@ -52,7 +52,7 @@
 
     <!-- Pagination Controls -->
     <div class="py-8 mt-4 text-center">
-        {{ $users->links('pagination::tailwind') }}
+        {{ $beritas->links('pagination::tailwind') }}
     </div>
 
 
