@@ -24,8 +24,6 @@ Route::get('/', App\Livewire\Landing::class);
 
 Route::get('/campaign', App\Livewire\Campaign::class);
 
-Route::get('/berita', App\Livewire\Berita::class)->name('berita');
-
 Route::get('/daftar', App\Livewire\Daftar::class);
 
 Route::get('/login', App\Livewire\Login::class)->name('login')->middleware('guest');
@@ -38,3 +36,4 @@ Route::get('/detail-campaign', App\Livewire\DetailCampaign::class);
 
 Route::post('logout', App\Http\Controllers\logout::class)->name('logout');
 
+Route::get('/tambah_berita', App\Livewire\Berita\Create::class)->name('tambah_berita');
