@@ -4,9 +4,12 @@ namespace App\Livewire\Berita;
 
 use App\Models\Berita;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class FormEdit extends Component
 {
+    use WithFileUploads;
+    
     public string $id_berita = "";
     public string $title_berita = "";
     public string $description = "";
@@ -71,13 +74,15 @@ class FormEdit extends Component
     {
         $validatedData = $this->validate();
 
+        $path = $this->picture->store('pictures', 'public');
+
         $berita = berita::find($this->id_berita);
         if ($berita) {
 
             $berita->update([
                 'title_berita' => $validatedData['title_berita'],
                 'tanggal' => $validatedData['tanggal'],
-                'picture' => $validatedData['picture'],
+                'picture' => $path,
                 'description' => $validatedData['description'],
             ]);
         }

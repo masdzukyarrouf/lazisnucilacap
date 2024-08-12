@@ -1,0 +1,27 @@
+<div x-data="{ isOpen: false }" @modal-closed.window="isOpen = false">
+    <!-- Button to open the modal -->
+    <button @click="isOpen=true"
+        class="px-4 py-2 mx-2 font-bold text-white bg-green-500 rounded hover:bg-blue-700">View</button>
+
+    <!-- Modal Background -->
+    <div x-show="isOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-75">
+        <!-- Modal Content -->
+        <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-3/4 max-h-[100vh] overflow-y-auto">
+
+            <div class="sticky top-0 flex items-center justify-between p-4 bg-gray-200 rounded-t-lg">
+                <h3 class="text-xl font-semibold">View Detail</h3>
+                <button @click="isOpen=false" class="text-gray-600 hover:text-gray-900">&times;</button>
+            </div>
+            <div class="p-4">
+                <h1 class="text-2xl font-bold">{{ $berita->title_berita }}</h1>
+                <p class="mt-2">Start: {{ $berita->tanggal }}</p>
+
+                <!-- Menampilkan gambar utama -->
+                <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="block mx-auto mt-2 mb-2 h-96">
+
+
+                <p>{!! nl2br(e($berita->description)) !!}</p>
+            </div>
+        </div>
+    </div>
+</div>
