@@ -1,7 +1,7 @@
 <div x-data="{ isOpen: false }" @modal-closed.window="isOpen = false">
     <!-- Button to open the modal -->
     <button @click="isOpen=true"
-        class="bg-blue-500 hover:bg-blue-700 text-white text-center font-bold py-2 pl-4 pr-4 rounded ">Edit</button>
+        class="inline-block px-3 py-1 text-white text-center bg-blue-500 rounded hover:bg-blue-700">Edit</button>
 
     <!-- Modal Background -->
     <div x-show="isOpen" class="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50">
@@ -10,7 +10,8 @@
             <!-- Modal Header -->
             <div class="flex justify-between items-center bg-gray-200 p-4 rounded-t-lg">
                 <h3 class="text-xl font-semibold">Edit User</h3>
-                <button @click="isOpen=false" class="text-gray-600 hover:text-gray-900">&times;</button>
+                <button @click="isOpen=false" wire:click="clear({{ $id_campaign }})"
+                    class="text-gray-600 hover:text-gray-900">&times;</button>
             </div>
             <div class="p-4">
                 <form wire:submit="update">
@@ -42,31 +43,21 @@
                     </div>
                     <div class="mb-4">
                         <label for="start_date" class="block text-sm font-medium text-gray-700">Start date</label>
-                        <input 
-                            type="date" 
-                            id="start_date" 
-                            wire:model="start_date" 
-                            name="start_date"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 bg-gray-200 py-2 sm:text-sm"
-                        >
+                        <input type="date" id="start_date" wire:model="start_date" name="start_date"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 bg-gray-200 py-2 sm:text-sm">
                         @error('start_date')
                             <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="mb-4">
                         <label for="end_date" class="block text-sm font-medium text-gray-700">End date</label>
-                        <input 
-                            type="date" 
-                            id="end_date" 
-                            wire:model="end_date" 
-                            name="end_date"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 bg-gray-200 py-2 sm:text-sm"
-                        >
+                        <input type="date" id="end_date" wire:model="end_date" name="end_date"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 bg-gray-200 py-2 sm:text-sm">
                         @error('end_date')
                             <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                         @enderror
                     </div>
-                    
+
                     <div class="mb-4">
                         <label for="min_donation" class="block text-sm font-medium text-gray-700">Min donation</label>
                         <input type="text" id="min_donation" wire:model="min_donation" name="min_donation"
@@ -75,7 +66,7 @@
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                     </div>
-                    
+
                     <div class="mb-4">
                         <label for="lokasi" class="block text-sm font-medium text-gray-700">Lokasi</label>
                         <input type="text" id="lokasi" wire:model="lokasi" name="lokasi"
@@ -88,21 +79,30 @@
 
                     <div class="mb-4">
                         <label for="edit_main_picture" class="block text-sm font-medium text-gray-700">Image 1</label>
-                        <input type="file" id="edit_main_picture" class="border border-gray-300 p-2 w-full rounded-lg" wire:model="main_picture">
-                        @error('main_picture') <span class="text-red-600">{{ $message }}</span> @enderror
+                        <input type="file" id="edit_main_picture"
+                            class="border border-gray-300 p-2 w-full rounded-lg" wire:model="main_picture">
+                        @error('main_picture')
+                            <span class="text-red-600">{{ $message }}</span>
+                        @enderror
                     </div>
-                    
+
                     <div class="mb-4">
                         <label for="edit_second_picture" class="block text-sm font-medium text-gray-700">Image 2</label>
-                        <input type="file" id="edit_second_picture" class="border border-gray-300 p-2 w-full rounded-lg" wire:model="second_picture">
-                        @error('second_picture') <span class="text-red-600">{{ $message }}</span> @enderror
+                        <input type="file" id="edit_second_picture"
+                            class="border border-gray-300 p-2 w-full rounded-lg" wire:model="second_picture">
+                        @error('second_picture')
+                            <span class="text-red-600">{{ $message }}</span>
+                        @enderror
                     </div>
-                    
+
                     <div class="mb-4">
                         <label for="edit_last_picture" class="block text-sm font-medium text-gray-700">Image 3</label>
-                        <input type="file" id="edit_last_picture" class="border border-gray-300 p-2 w-full rounded-lg" wire:model="last_picture">
-                        @error('last_picture') <span class="text-red-600">{{ $message }}</span> @enderror
-                    </div>                    
+                        <input type="file" id="edit_last_picture"
+                            class="border border-gray-300 p-2 w-full rounded-lg" wire:model="last_picture">
+                        @error('last_picture')
+                            <span class="text-red-600">{{ $message }}</span>
+                        @enderror
+                    </div>
 
                     <!-- Submit Button inside the form -->
                     <div class="flex justify-between p-4 bg-gray-200 rounded-b-lg">
@@ -114,10 +114,16 @@
                             <!-- This content will be hidden while a Livewire request is processing -->
                         </div>
                         <div>
-                            <button type="button" @click="isOpen = false"
-                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Close</button>
-                            <button type="submit" 
-                            class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Update</button>
+                            <button type="button" @click="isOpen = false" wire:click="clear({{ $id_campaign }})"
+                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Close</button>
+                            {{-- <button type="submit"
+                                class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Update</button> --}}
+                            <button type="submit" @click="isOpen = false" wire:loading.attr="disabled"
+                                wire:loading.class="bg-blue-300 cursor-not-allowed"
+                                class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-all duration-300">
+                                Update
+                            </button>
+
                         </div>
                     </div>
                 </form>
@@ -144,5 +150,3 @@
         }
     }
 </script> --}}
-
-

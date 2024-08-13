@@ -75,8 +75,12 @@ class Create extends Component
         
         $this->reset();
         session()->flash('message', 'Campaign Created successfully.');
+        $this->dispatch('campaignCreated');
+        return $campaign;
 
-        // $this->dispatch('campaignCreated');
+    }
+    public function abc(){
+        dd('dsa');
     }
 
     protected function uploadImage($image)
