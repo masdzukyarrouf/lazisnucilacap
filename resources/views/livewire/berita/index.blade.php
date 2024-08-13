@@ -19,13 +19,12 @@
 
         <table class="min-w-full mt-4 bg-white border border-gray-200">
             <thead>
-                <tr class="w-full text-white bg-gray-800">
-                    <th class="px-4 py-2 text-left">judul</th>
-                    <th class="px-4 py-2 text-left">isi</th>
-                    <th class="px-4 py-2 text-left">tanggal</th>
-                    <th class="px-4 py-2 text-left">gambar</th>
-                    <th class="px-4 py-2 text-left">action</th>
-                    {{-- <th class="px-4 py-2 text-left">Last Picture</th> --}}
+                <tr class="items-center w-full text-white align-middle bg-gray-800">
+                    <th class="px-4 py-2 text-center">judul</th>
+                    <th class="px-4 py-2 text-center">isi</th>
+                    <th class="px-4 py-2 text-center">tanggal</th>
+                    <th class="px-4 py-2 text-center">gambar</th>
+                    <th class="px-4 py-2 text-center">action</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,7 +38,7 @@
                         <td class="px-4 py-2">
                             <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="block w-24 mx-auto mt-2 mb-2">
                         </td>
-                        <td>
+                        <td class="px-4 py-2">
                             <div class="flex flex-col items-center space-y-2">
                                 <div class="flex space-x-2">
                                     <livewire:berita.show :id_berita="$berita->id_berita" wire:key="show-berita-{{ $berita->id_berita }}" />
@@ -48,7 +47,6 @@
                                 <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
                                         wire:click="destroy({{ $berita->id_berita }})">Delete</button>
                             </div>
-                        </td>
                         </td>
                     </tr>
                 @endforeach
