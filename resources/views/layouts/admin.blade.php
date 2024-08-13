@@ -55,31 +55,31 @@
 </head>
 
 <body class="flex flex-col h-screen ">
-    <nav class="bg-gray-800 p-4 shadow-2xl z-10">
+    <nav class="z-10 p-4 bg-gray-800 shadow-2xl">
         <div class="container flex items-center justify-between">
             <div>
                 <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt=""
                     class="w-30">
             </div>
             <div class="">
-                <ul class=" flex  space-x-1">
+                <ul class="flex space-x-1 ">
                     <x-navlink title="Home" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Admin" url="/admin" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="User" url="/user" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Donasi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Campaign" url="/admin-campaign" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
-                    <x-navlink title="Berita" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
+                    <x-navlink title="Berita" url="/tambah_berita" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Mitra" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Misi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Visi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class=" rounded-lg px-3 py-1 sm:hover:text-white">Logout</button>
+                        <button type="submit" class="px-3 py-1 rounded-lg sm:hover:text-white">Logout</button>
                     </form>
                 </ul>
             </div>
         </div>
-        <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+        <button id="menu-toggle" class="text-white md:hidden focus:outline-none">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">

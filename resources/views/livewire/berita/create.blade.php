@@ -8,13 +8,25 @@
         <div class="w-1/2 bg-white rounded-lg shadow-lg">
             <!-- Modal Header -->
             <div class="flex items-center justify-between p-4 bg-gray-200 rounded-t-lg">
-                <h3 class="text-xl font-semibold">tambah berita</h3>
+                <h3 class="text-xl font-semibold">Tambah Berita</h3>
                 <button @click="isOpen=false" class="text-gray-600 hover:text-gray-900">&times;</button>
             </div>
             <div class="p-4">
+                <div class="px-64">
+                    @if (session()->has('message'))
+                        <div class="flex items-center justify-center p-4 mb-4 text-lg font-bold rounded shadow-md"
+                            :class="{
+                                'bg-green-500 text-white': '{{ session('message-type') }}' === 'success',
+                                'bg-red-500 text-white': '{{ session('message-type') }}' === 'error',
+                            }">
+                            <span class="ml-2">{{ session('message') }}</span>
+                        </div>
+                    @endif
+                </div>
+
                 <form wire:submit.prevent="save">
                     <div class="mb-4">
-                        <label for="title_berita" class="block text-sm font-medium text-gray-700">judul berita</label>
+                        <label for="title_berita" class="block text-sm font-medium text-gray-700">Judul Berita</label>
                         <input type="text" id="title_berita" wire:model="title_berita" name="title_berita"
                             class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('title_berita')
@@ -22,7 +34,7 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="tanggal" class="block text-sm font-medium text-gray-700">tanggal</label>
+                        <label for="tanggal" class="block text-sm font-medium text-gray-700">Tanggal</label>
                         <input type="date" id="tanggal" wire:model="tanggal" name="tanggal"
                             class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('tanggal')
@@ -30,15 +42,15 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="description" class="block text-sm font-medium text-gray-700">isi berita</label>
-                        <textarea id="description" wire:model="description" name="description" rows="5"
+                        <label for="description" class="block text-sm font-medium text-gray-700">Isi Berita</label>
+                        <textarea id="description" wire:model="description" name="description" rows="20"
                             class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm"></textarea>
                         @error('description')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="picture" class="block text-sm font-medium text-gray-700">gambar</label>
+                        <label for="picture" class="block text-sm font-medium text-gray-700">Gambar</label>
                         <input type="file" id="picture" wire:model="picture" name="picture"
                             class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('picture')
@@ -50,7 +62,7 @@
                     <div class="flex justify-end p-4 bg-gray-200 rounded-b-lg">
                         <button type="button" @click="isOpen = false"
                             class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700">Close</button>
-                        <button type="submit"
+                        <button type="submit" @click="isOpen = false"
                             class="px-4 py-2 ml-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">Submit</button>
                     </div>
                 </form>

@@ -1,8 +1,5 @@
-<div class="mx-5 shadow-2xl">
-    <div class="flex justify-between mx-4 mt-12">
-        <h1 class="text-2xl font-bold ">berita Table</h1>
-        <div>
-            @if (session()->has('message'))
+<div class="flex flex-col justify-between mx-4 mt-12">
+        @if (session()->has('message'))
                 <div id="flash-message"
                     class="flex items-center justify-between p-4 mx-12 mt-8 mb-4 text-white bg-green-500 rounded">
                     <span>{{ session('message') }}</span>
@@ -12,48 +9,49 @@
                     </button>
                 </div>
             @endif
-        </div>
-        <!-- Modal Form -->
-        <livewire:berita.create />
-    </div>
+    <div class="mt-4">
 
-    <table class="min-w-full mx-2 mt-8 bg-white border border-gray-300">
-        <thead>
-            <tr class="w-full text-white bg-gray-800">
-                <th scope="col" class="px-6 py-3 border-b border-gray-300">#</th>
-                <th scope="col" class="px-6 py-3 border-b border-gray-300">judul</th>
-                <th scope="col" class="px-6 py-3 border-b border-gray-300">isi</th>
-                <th scope="col" class="px-6 py-3 border-b border-gray-300">tanggal</th>
-                <th scope="col" class="px-6 py-3 border-b border-gray-300">gambar</th>
-                <th scope="col" class="px-6 py-3 border-b border-gray-300">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-            
+        <livewire:berita.create />
+
+        <table class="min-w-full mt-4 bg-white border border-gray-200">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="px-4 py-2 text-left">judul</th>
+                    <th class="px-4 py-2 text-left">isi</th>
+                    <th class="px-4 py-2 text-left">tanggal</th>
+                    <th class="px-4 py-2 text-left">gambar</th>
+                    <th class="px-4 py-2 text-left">action</th>
+                    {{-- <th class="px-4 py-2 text-left">Last Picture</th> --}}
+                </tr>
+            </thead>
+            <tbody>
                 @foreach ($beritas as $berita)
-                    <tr wire:key="berita-{{ $berita->id_berita }}" class="bg-gray-100 even:bg-gray-200">
-                        <td class="px-6 py-4 border-b border-gray-300">{{ $loop->index + $berita->firstItem() }}</td>
-                        <td class="px-6 py-4 border-b border-gray-300">{{ $berita->title_berita }}</td>
-                        <td class="px-6 py-4 border-b border-gray-300">{{ $berita->description }}</td>
-                        <td class="px-6 py-4 border-b border-gray-300">{{ $berita->tanggal->format('d/m/Y') }}</td>
-                        <td class="px-6 py-4 border-b border-gray-300">{{ $berita->picture }}</td>
-                        <td class="flex px-6 py-4 space-x-2 border-b border-gray-300">
+                    <tr class="border-t">
+                        <td class="px-4 py-2">{{ $berita->title_berita }}</td>
+                        <td class="px-4 py-2">
+                            {{ \Illuminate\Support\Str::limit($berita->description, 30, '...') }}
+                        </td>
+                        <td class="px-4 py-2">{{ $berita->tanggal }}</td>
+                        <td class="px-4 py-2">
+                            <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="block w-24 mx-auto mt-2 mb-2">
+                        </td>
+                        <td>
+                            <livewire:berita.show :id_berita="$berita->id_berita" wire:key="berita-{{ $berita->id_berita }}" />
                             <livewire:berita.edit :id_berita="$berita->id_berita" wire:key="berita-{{ $berita->id_berita }}"/>
                             <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700"
-                                wire:click="destroy({{ $berita->id_berita }})">Delete</button>
+                            wire:click="destroy({{ $berita->id_berita }})">Delete</button>
 
+                        </td>
                         </td>
                     </tr>
                 @endforeach
-            
-        </tbody>
-    </table>
 
-    <!-- Pagination Controls -->
-    <div class="py-8 mt-4 text-center">
-        {{ $beritas->links('pagination::tailwind') }}
+            </tbody>
+        </table>
+        <!-- Pagination Controls -->
+        <div class="py-8 mt-4 text-center">
+            {{ $beritas->links('pagination::tailwind') }}
+        </div>
     </div>
-
 
 </div>

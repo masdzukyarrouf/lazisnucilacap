@@ -16,7 +16,7 @@ class Edit extends Component
 {
     public $isOpen = false;
 
-    public int $id_user = 0;
+    public int $id_berita = 0;
 
 
     public function placeholder()

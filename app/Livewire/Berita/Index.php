@@ -1,22 +1,18 @@
 <?php
 
-namespace App\Livewire\berita;
+namespace App\Livewire\Berita;
 
 use Livewire\Component;
-use App\Models\berita;
-use Livewire\Attributes\Lazy;
-use Auth;
 use Livewire\Attributes\On;
+use App\Models\Berita;
+
 
 
 class Index extends Component
 {
-    public Create $form;
 
-
-
-    #[On('postUpdated')]
-    public function handlePostEdited()
+    #[On('beritaUpdated')]
+    public function handleberitaEdited()
     {
         session()->flash('message', 'berita Updated Successfully ');
 
@@ -24,7 +20,7 @@ class Index extends Component
 
     public function destroy($id_berita)
     {
-        $berita = Berita::find($id_berita);
+        $berita = berita::find($id_berita);
         if ($berita) {
             $berita->delete();
         }
@@ -33,25 +29,20 @@ class Index extends Component
 
     }
 
-    #[On('postCreated')]
-    public function handlePostCreated()
+    #[On('beritaCreated')]
+    public function handleberitaCreated()
     {
         session()->flash('message', 'berita Created Successfully ');
 
     }
-
     public function render()
     {
-
 
         return view('livewire.berita.index', [
             $this->beritas = berita::query()
                 ->latest()
                 ->paginate(10),
             'beritas' => $this->beritas
-
         ])->layout('layouts.admin');
-
     }
-
 }

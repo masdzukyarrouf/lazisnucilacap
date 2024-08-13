@@ -34,18 +34,17 @@ class Create extends Component
         $path = $this->picture->store('pictures', 'public'); // Simpan di storage/public
 
         // Simpan data ke database
-        Berita::create([
+        $berita = Berita::create([
             'title_berita' => $validatedData['title_berita'],
             'description' => $validatedData['description'],
             'tanggal' => $validatedData['tanggal'],
             'picture' => $path, // Simpan path gambar
         ]);
 
-        // Reset input fields
         $this->reset();
 
-        // Dispatch event
-        $this->dispatch('postCreated');
+        $this->dispatch('beritaCreated');
+
     }
 
     public function render()
