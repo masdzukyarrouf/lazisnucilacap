@@ -22,11 +22,17 @@ class Index extends Component
     {
         $berita = berita::find($id_berita);
         if ($berita) {
+            // Hapus gambar terkait jika ada
+            if ($berita->picture) {
+                \Storage::disk('public')->delete($berita->picture);
+            }
+
+            // Hapus data berita
             $berita->delete();
+
+            // Tampilkan pesan sukses
+            session()->flash('message', 'Berita destroyed successfully.');
         }
-        session()->flash('message', 'berita Destroyed Successfully ');
-
-
     }
 
     #[On('beritaCreated')]
