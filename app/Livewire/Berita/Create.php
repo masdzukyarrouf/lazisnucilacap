@@ -31,7 +31,7 @@ class Create extends Component
         $validatedData = $this->validate();
 
         // Simpan file gambar dan ambil path-nya
-        $path = $this->picture->store('pictures', 'public'); // Simpan di storage/public
+        $path = $this->picture->store('images/berita', 'public'); // Simpan di storage/public
 
         // Simpan data ke database
         $berita = Berita::create([

@@ -66,14 +66,13 @@ class FormEdit extends Component
             $this->id_berita = $berita->id_berita;
             $this->title_berita = $berita->title_berita;
             $this->tanggal = $berita->tanggal;
-            $this->picture = $berita->picture;
             $this->description = $berita->description;
         }
         return $berita;
     }
     public function update()
     {
-        // Validasi data input
+
         $validatedData = $this->validate([
             'title_berita' => 'required|string',
             'description' => 'required|string',
@@ -90,7 +89,7 @@ class FormEdit extends Component
                     \Storage::disk('public')->delete($berita->picture);
                 }
                 // Unggah gambar baru dan simpan path-nya
-                $path = $this->picture->store('pictures', 'public');
+                $path = $this->picture->store('images/berita', 'public');
                 $berita->picture = $path;
             }
 

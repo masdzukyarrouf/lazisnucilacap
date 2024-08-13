@@ -12,17 +12,6 @@
                 <button @click="isOpen=false" class="text-gray-600 hover:text-gray-900">&times;</button>
             </div>
             <div class="p-4">
-                <div class="px-64">
-                    @if (session()->has('message'))
-                        <div class="flex items-center justify-center p-4 mb-4 text-lg font-bold rounded shadow-md"
-                            :class="{
-                                'bg-green-500 text-white': '{{ session('message-type') }}' === 'success',
-                                'bg-red-500 text-white': '{{ session('message-type') }}' === 'error',
-                            }">
-                            <span class="ml-2">{{ session('message') }}</span>
-                        </div>
-                    @endif
-                </div>
 
                 <form wire:submit.prevent="save">
                     <div class="mb-4">
@@ -43,7 +32,7 @@
                     </div>
                     <div class="mb-4">
                         <label for="description" class="block text-sm font-medium text-gray-700">Isi Berita</label>
-                        <textarea id="description" wire:model="description" name="description" rows="20"
+                        <textarea id="description" wire:model="description" name="description" rows="16"
                             class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm"></textarea>
                         @error('description')
                             <span class="text-sm text-red-500">{{ $message }}</span>

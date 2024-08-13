@@ -26,7 +26,7 @@
                     </div>
                     <div class="mb-4">
                         <label for="description" class="block text-sm font-medium text-gray-700">isi berita</label>
-                        <textarea id="description" wire:model="description" name="description" rows="5"
+                        <textarea id="description" wire:model="description" name="description" rows="16"
                             class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm"></textarea>
                         @error('description')
                             <span class="text-sm text-red-500">{{ $message }}</span>
