@@ -18,9 +18,6 @@ class Index extends Component
 
     }
 
-
-
-
     
     #[On('campaignCreated')]
     public function handleCampaignCreated()
