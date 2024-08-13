@@ -5,6 +5,7 @@ namespace App\Livewire\Berita;
 use App\Models\Berita;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class FormEdit extends Component
 {
@@ -22,7 +23,7 @@ class FormEdit extends Component
             'title_berita' => 'required|string',
             'description' => 'required|string',
             'tanggal' => 'required|date',
-            'picture' => 'required|image|max:1024', // Validasi gambar
+            'picture' => 'nullable|image|max:1024', // Validasi gambar
         ];
     }
 
@@ -72,26 +73,44 @@ class FormEdit extends Component
     }
     public function update()
     {
-        $validatedData = $this->validate();
+        // Validasi data input
+        $validatedData = $this->validate([
+            'title_berita' => 'required|string',
+            'description' => 'required|string',
+            'tanggal' => 'required|date',
+            'picture' => 'nullable|image|max:1024', // Tidak wajib jika tidak ingin mengubah gambar
+        ]);
 
-        $path = $this->picture->store('pictures', 'public');
-
-        $berita = berita::find($this->id_berita);
+        $berita = Berita::find($this->id_berita);
         if ($berita) {
+            // Jika ada gambar baru yang diupload
+            if ($this->picture) {
+                // Hapus gambar lama jika ada
+                if ($berita->picture) {
+                    // \Storage::disk('public')->delete($berita->picture);
+                    \Storage::disk('public')->delete($berita->picture);
+                }
+                // Unggah gambar baru dan simpan path-nya
+                $path = $this->picture->store('pictures', 'public');
+                $berita->picture = $path;
+            }
 
+            // Update data berita lainnya
             $berita->update([
                 'title_berita' => $validatedData['title_berita'],
                 'tanggal' => $validatedData['tanggal'],
-                'picture' => $path,
                 'description' => $validatedData['description'],
+                'picture' => $berita->picture, // Update gambar baru jika ada
             ]);
         }
 
+        // Reset form dan dispatch event
         $this->reset();
-        $this->dispatch('postUpdated');
+        $this->dispatch('beritaUpdated');
         return $berita;
     }
-    
+
+
     public function render()
     {
         return view('livewire.berita.form-edit');

@@ -41,21 +41,10 @@ class Create extends Component
             'picture' => $path, // Simpan path gambar
         ]);
 
-        if ($berita) {
-            // Reset input fields
-            $this->reset();
+        $this->reset();
 
-            // Dispatch event
-            $this->dispatch('postCreated');
+        $this->dispatch('beritaCreated');
 
-            // Set success notification
-            session()->flash('message', 'Berita berhasil disimpan!');
-            session()->flash('message-type', 'success');
-        } else {
-            // Set failure notification
-            session()->flash('message', 'Gagal menyimpan berita.');
-            session()->flash('message-type', 'error');
-        }
     }
 
     public function render()
