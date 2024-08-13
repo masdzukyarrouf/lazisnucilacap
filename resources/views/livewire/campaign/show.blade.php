@@ -1,7 +1,7 @@
 <div x-data="{ isOpen: false }" @modal-closed.window="isOpen = false">
     <!-- Button to open the modal -->
     <button @click="isOpen=true"
-        class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-2 rounded">View</button>
+        class="inline-block px-3 py-1 text-white text-center bg-green-500 rounded hover:bg-green-700">View</button>
 
     <!-- Modal Background -->
     <div x-show="isOpen" class="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50">

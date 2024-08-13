@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', App\Livewire\Landing::class);
 
-Route::get('/campaign', App\Livewire\Campaign::class);
+// Route::get('/campaign', App\Livewire\Campaign::class);
 
 Route::get('/daftar', App\Livewire\Daftar::class);
 

@@ -6,12 +6,13 @@ use Livewire\Attributes\Rule;
 use Livewire\WithFileUploads;
 use App\Models\Campaign;
 use Illuminate\Support\Str;
+use Livewire\Attributes\On;
+
 
 class Edit extends Component
 {
     use WithFileUploads;
 
-    #[Rule('required|integer')]
     public $id_campaign;
 
     #[Rule('required|string')]
@@ -38,13 +39,13 @@ class Edit extends Component
     #[Rule('required|integer')]
     public $min_donation;
 
-    #[Rule('nullable|image|max:1024', message: 'File Harus Gambar')]
+    #[Rule('nullable|image', message: 'File Harus Gambar')]
     public $main_picture;
 
-    #[Rule('nullable|image|max:1024', message: 'File Harus Gambar')]
+    #[Rule('nullable|image', message: 'File Harus Gambar')]
     public $second_picture;
 
-    #[Rule('nullable|image|max:1024', message: 'File Harus Gambar')]
+    #[Rule('nullable|image', message: 'File Harus Gambar')]
     public $last_picture;
 
     public function mount(Campaign $campaign)
@@ -97,11 +98,11 @@ class Edit extends Component
         }
 
         $campaign->save();
-        // session()->flash('message', 'Campaign updated successfully.');
+        session()->flash('message', 'Campaign updated successfully.');
         $this->reset();
-        $this->dispatch('campaignUpdated');
+        $this->dispatch('postUpdated');
+        return $campaign;
     }
-
 
     protected function uploadImage($image)
     {
@@ -111,9 +112,29 @@ class Edit extends Component
         return $filename;
 
     }
+    public function clear($id_campaign)
+    {
+        $this->reset();
+        $this->dispatch('refreshComponent');
+        $campaign = Campaign::find($id_campaign);
+        if ($campaign) {
+            $this->id_campaign = $campaign->id_campaign;
+        $this->title = $campaign->title;
+        $this->description = $campaign->description;
+        $this->start_date = $campaign->start_date;
+        $this->end_date = $campaign->end_date;
+        $this->raised = $campaign->raised;
+        $this->goal = $campaign->goal;
+        $this->lokasi = $campaign->lokasi;
+        $this->min_donation = $campaign->min_donation;
+        }
 
+    }
+    protected $listeners = ['refreshComponent' => '$refresh'];
 
-
+    public function abc(){
+        dd('dsa');
+    }
     public function render()
     {
         return view('livewire.campaign.edit');
