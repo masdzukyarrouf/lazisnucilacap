@@ -14,7 +14,7 @@
             </div>
             <div class="p-4">
                 <h1 class="text-2xl font-bold ">{{ $campaign->title }}</h1>
-                <img src="{{ asset('images/campaign/' . $campaign->main_picture) }}" alt="main picture"
+                <img src="{{ asset('storage/images/campaign/' . $campaign->main_picture) }}" alt="main picture"
                     class="h-96 mb-2 mt-2 mx-auto block">
                 <p>{{ $campaign->description }}</p>
                 <p class="mt-2">Goal : {{ $campaign->goal }}</p>
@@ -23,10 +23,10 @@
                 <p class="mt-2">End : {{ $campaign->end_date }}</p>
                 <p class="mt-2">Minimum: {{ $campaign->min_donation }}</p>
                 <p class="mt-2">Lokasi : {{ $campaign->lokasi }}</p>
-                <img src="{{ asset('images/campaign/' . $campaign->second_picture) }}" alt="second picture"
-                    class="h-96 mb-2 mt-2 mx-auto block">
-                <img src="{{ asset('images/campaign/' . $campaign->last_picture) }}" alt="last picture"
-                    class="h-96 mb-2 mt-2 mx-auto block">
+                <img src="{{ asset('storage/images/campaign/' . $campaign->second_picture) }}" alt="second picture"
+                    class="h-96 mb-2 mt-2 border border-1 block">
+                <img src="{{ asset('storage/images/campaign/' . $campaign->last_picture) }}" alt="last picture"
+                    class="h-96 mb-2 mt-2 border border-1 block">
             </div>
 
         </div>

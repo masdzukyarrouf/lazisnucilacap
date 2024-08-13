@@ -25,9 +25,9 @@ class CampaignFactory extends Factory
             'end_date' => fake()->dateTimeBetween('+3 month', '+6 month'),
             'min_donation' => fake()->numberBetween(5000, 10000),
             'lokasi' => fake()->city(),
-            'main_picture' => 'campaign_1.png',
-            'second_picture' => 'campaign_1.png',
-            'last_picture' => 'campaign_1.png',
+            'main_picture' => '0qISfOvKwo2EJa9U6BoSeJLuNgAFZGfyXy4gHuNR.jpg',
+            'second_picture' => '0qISfOvKwo2EJa9U6BoSeJLuNgAFZGfyXy4gHuNR.jpg',
+            'last_picture' => '0qISfOvKwo2EJa9U6BoSeJLuNgAFZGfyXy4gHuNR.jpg',
 
         ];
     }

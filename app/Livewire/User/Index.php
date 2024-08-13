@@ -11,7 +11,6 @@ use Livewire\Attributes\On;
 
 class Index extends Component
 {
-    public Create $form;
 
 
 

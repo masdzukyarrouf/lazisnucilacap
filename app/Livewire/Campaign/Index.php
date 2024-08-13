@@ -10,7 +10,20 @@ use App\Models\Campaign;
 
 class Index extends Component
 {
+    public Create $form;
 
+
+    public function processDescription()
+    {
+        $desc = $this->article->desc;
+
+        // Replace placeholders with actual image HTML
+        $desc = str_replace('[img1]', '<img src="' . asset('images/campaign/' . $this->article->pic1) . '" class="article-image" style="width: 200px; height: auto;" />', $desc);
+        $desc = str_replace('[img2]', '<img src="' . asset('images/campaign/' . $this->article->pic2) . '" class="article-image" style="width: 200px; height: auto;" />', $desc);
+        $desc = str_replace('[img3]', '<img src="' . asset('images/campaign/' . $this->article->pic3) . '" class="article-image" style="width: 200px; height: auto;" />', $desc);
+
+        $this->processedDesc = $desc;
+    }
     #[On('campaignUpdated')]
     public function handleCampaignEdited()
     {

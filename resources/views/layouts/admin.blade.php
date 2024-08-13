@@ -13,6 +13,41 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
         }
+        .spinner-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px; /* Adjust as needed */
+        background-color: rgba(0, 0, 0, 0.1); /* Light gray background for contrast */
+        border-radius: 8px; /* Rounded corners */
+        padding: 20px;
+        position: fixed; /* Fixed position to cover the entire viewport */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center the spinner */
+        z-index: 1000; /* Ensure it appears above other content */
+    }
+
+    .spinner {
+        border: 5px solid rgba(0, 0, 0, 0.2); /* Light border for background */
+        border-radius: 50%;
+        border-top: 5px solid #3498db; /* Blue border for spinner */
+        width: 42px; /* Increased size for visibility */
+        height: 42px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .spinner-text {
+        margin-top: 15px; /* Spacing between spinner and text */
+        font-size: 18px; /* Larger text for better readability */
+        font-weight: bold; /* Bold text for emphasis */
+        color: #333; /* Dark color for high contrast */
+    }
     </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">

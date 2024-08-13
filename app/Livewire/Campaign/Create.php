@@ -8,69 +8,62 @@ use Livewire\WithFileUploads;
 use Livewire\Component;
 use Livewire\Attributes\Rule;
 
-
 class Create extends Component
 {
     use WithFileUploads;
 
-    #[Rule(['required','string'])]
+    #[Rule('required|string')]
     public $title;
     
-    #[Rule(['required','string'])]
+    #[Rule('required|string')]
     public $description;
 
-    #[Rule(['required','string'])]
+    #[Rule('required|date')]
     public $start_date;
 
-    #[Rule(['required','date'])]
+    #[Rule('required|date')]
     public $end_date;
 
-    #[Rule(['required','string'])]
+    #[Rule('nullable|integer')]
     public $raised;
 
-    #[Rule(['required','string'])]
+    #[Rule('required|integer')]
     public $goal;
 
-    #[Rule(['required','string'])]
+    #[Rule('required|string')]
     public $lokasi;
 
-    #[Rule(['required','string'])]
+    #[Rule('required|integer')]
     public $min_donation;
 
-
-    #[Rule('required', message: 'Masukkan Gambar Post')]
-    #[Rule('image', message: 'File Harus Gambar')]
-    #[Rule('max:1024', message: 'Ukuran File Maksimal 1MB')]
+    #[Rule('required|image|max:1024', message: 'File Harus Gambar')]
     public $main_picture;
-
-    #[Rule('required', message: 'Masukkan Gambar Post')]
-    #[Rule('image', message: 'File Harus Gambar')]
-    #[Rule('max:1024', message: 'Ukuran File Maksimal 1MB')]
+    
+    #[Rule('nullable|image|max:1024', message: 'File Harus Gambar')]
     public $second_picture;
-
-    #[Rule('required', message: 'Masukkan Gambar Post')]
-    #[Rule('image', message: 'File Harus Gambar')]
-    #[Rule('max:1024', message: 'Ukuran File Maksimal 1MB')]
+    
+    #[Rule('nullable|image|max:1024', message: 'File Harus Gambar')]
     public $last_picture;
 
     public function save()
-{
-    $this->validate();
+    {
+        $this->validate();
 
-    // Ensure files are correctly handled
-    $mainPicturePath = $this->uploadImage($this->main_picture);
-    $secondPicturePath = $this->uploadImage($this->second_picture);
-    $lastPicturePath = $this->uploadImage($this->last_picture);
+        // try {
+        //     $this->validate();
+        // } catch (\Illuminate\Validation\ValidationException $e) {
+        //     dd($e->errors());
+        // }
 
-    // Check paths
-    // dd($mainPicturePath, $secondPicturePath, $lastPicturePath);
+        $mainPicturePath = $this->uploadImage($this->main_picture);
+        $secondPicturePath = $this->uploadImage($this->second_picture);
+        $lastPicturePath = $this->uploadImage($this->last_picture);
 
-    
         $campaign = Campaign::create([
             'title' => $this->title,
             'description' => $this->description,
             'goal' => $this->goal,
-            'raised' => '0',
+            'raised' => $this->raised ?? 0,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
             'min_donation' => $this->min_donation,
@@ -79,22 +72,20 @@ class Create extends Component
             'second_picture' => $secondPicturePath,
             'last_picture' => $lastPicturePath,
         ]);
+        
         $this->reset();
+        session()->flash('message', 'Campaign Created successfully.');
 
+        // $this->dispatch('campaignCreated');
     }
-
-
 
     protected function uploadImage($image)
     {
         if ($image) {
             $filename = Str::random(40) . '.' . $image->getClientOriginalExtension();
-
-            $path = $image->storeAs('public/images/campaign', $filename);
-
-            return basename($path);
+            $image->storeAs('public/images/campaign', $filename);
+            return basename($filename);
         }
-
         return null;
     }
 

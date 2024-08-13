@@ -27,6 +27,8 @@
         nav {
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
+
+       
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     @livewireStyles
