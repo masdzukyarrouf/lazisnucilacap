@@ -87,7 +87,6 @@ class FormEdit extends Component
             if ($this->picture) {
                 // Hapus gambar lama jika ada
                 if ($berita->picture) {
-                    // \Storage::disk('public')->delete($berita->picture);
                     \Storage::disk('public')->delete($berita->picture);
                 }
                 // Unggah gambar baru dan simpan path-nya
