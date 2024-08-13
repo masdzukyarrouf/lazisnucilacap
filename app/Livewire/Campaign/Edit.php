@@ -99,6 +99,7 @@ class Edit extends Component
 
         $campaign->save();
         session()->flash('message', 'Campaign updated successfully.');
+        $this->clear($this->id_campaign);
         $this->reset();
         $this->dispatch('postUpdated');
         return $campaign;

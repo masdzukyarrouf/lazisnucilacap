@@ -8,9 +8,9 @@
             </div>
         </div>
 
-        <div class="relative z-12 w-full flex flex-wrap items-center justify-center">
+        <div class="relative z-12 w-full flex flex-wrap items-center justify-center mt-12">
             <div
-                class="relative flex flex-wrap items-center justify-center h-auto py-10 md:mx-20 -mt-24 md:-mt-32 space-x-2 md:space-x-16 rounded-3xl">
+                class="relative flex flex-wrap items-center justify-center h-auto md:mx-20 -mt-24 md:-mt-32 space-x-2 md:space-x-16 rounded-3xl">
                 <!-- Wrapper for Left Ornament and Item 1 -->
                 <div class="relative flex items-center">
                     <img src="{{ asset('images/fknleaf.png') }}" alt="Left Ornament"
@@ -62,25 +62,23 @@
                     <h2 class="text-xs md:text-sm text-black">Berikut merupakan campaign terbaru Lazisnu Cilacap</h2>
                 </div>
                 <div>
-                    <a class="md:hidden mr-14 text-sm text-right text-green-500 hover:text-green-600 hover:cursor-pointer">Campaign Lainnya ></a>
+                    <a class="md:hidden mr-14 text-sm text-left text-green-500 hover:text-green-600 hover:cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis">Selengkapnya ></a>
+
                     <button class="hidden md:block relative px-4 mr-12 py-2 text-white rounded-md bg-green-500 hover:bg-green-600">
                         Campaign Lainya
                     </button>
                 </div>
             </div>
-            <div class="w-auto flex flex-col justify-center md:w-auto md:grid gap-6 mx-10  md:grid-cols-3">
+            <div class="w-full px-10 flex flex-col -space-y-5 justify-center md:w-auto md:grid gap-6  md:grid-cols-3">
                 <!-- Card 1 -->
-                <x-campaign-card />
-                <x-campaign-card />
-                <x-campaign-card />
-                <x-campaign-card />
-                <x-campaign-card />
-                <x-campaign-card />
+                @foreach ($campaigns as $campaign)
+                <x-campaign-card :campaign="$campaign" wire:key="{{ $campaign->id_campaign }}"/>                    
+                @endforeach
             </div>
         </div>
 
         <!-- Berita Section -->
-        <div class="flex flex-col items-center w-full py-10 mt-4 bg-gray-50 bg-opacity-90 bg-center bg-cover shadow-md">
+        <div class="flex flex-col items-center w-full pb-4 mt-4 bg-gray-50 bg-opacity-90 bg-center bg-cover shadow-md">
             <!-- Title -->
             <div class="mb-8 w-full flex items-center justify-between">
                 <div class="relative px-12 flex flex-col justify-between">
@@ -88,7 +86,7 @@
                     <h2 class="text-sm text-black">Berikut merupakan berita terbaru Lazisnu Cilacap</h2>
                 </div>
                 <div>
-                    <a class="md:hidden mr-14 text-sm text-right text-green-500 hover:text-green-600 hover:cursor-pointer">Berita Lainnya ></a>
+                    <a class="md:hidden mr-14 text-sm text-left text-green-500 hover:text-green-600 hover:cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis">Selengkapnya ></a>
                     <button class="hidden md:block relative px-4 mr-12 py-2 text-white rounded-md bg-green-500 hover:bg-green-600">
                         Berita Lainya
                     </button>
