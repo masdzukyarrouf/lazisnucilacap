@@ -69,7 +69,7 @@
                     <x-navlink title="Donasi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Campaign" url="/admin-campaign" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Berita" url="/tambah_berita" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
-                    <x-navlink title="Mitra" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
+                    <x-navlink title="Mitra" url="/mitra" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Misi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <x-navlink title="Visi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
                     <form action="{{ route('logout') }}" method="POST">

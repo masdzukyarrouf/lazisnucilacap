@@ -15,8 +15,8 @@
         </div>
         <!-- Modal Form -->
         <livewire:berita.create />
+        
     </div>
-
         <table class="min-w-full mt-4 bg-white border border-gray-200">
             <thead>
                 <tr class="items-center w-full text-white align-middle bg-gray-800">
@@ -42,7 +42,7 @@
                             <div class="flex flex-col items-center space-y-2">
                                 <div class="flex space-x-2">
                                     <livewire:berita.show :id_berita="$berita->id_berita" wire:key="show-{{ $berita->id_berita }}" />
-                                    <livewire:berita.edit :id_berita="$berita->id_berita" wire:key="edit-{{ $berita->id_berita }}" />
+                                    <livewire:berita.form-edit :id_berita="$berita->id_berita" wire:key="edit-{{ $berita->id_berita }}" />
                                 </div>
                                 <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
                                         wire:click="destroy({{ $berita->id_berita }})">Delete</button>
