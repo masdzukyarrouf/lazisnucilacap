@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome', function () {
@@ -17,6 +18,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/user', App\Livewire\User\Index::class)->name('user');
     Route::get('/admin-campaign', App\Livewire\Campaign\Index::class)->name('admin-campaign');
     Route::get('/user/create', App\Livewire\User\Create::class)->name('user');
+    Route::get('/admin-berita', App\Livewire\Berita\Index::class)->name('admin-berita');
+    Route::get('/admin-mitra', App\Livewire\Mitra\Index::class)->name('admin-mitra');
 });
 
 
@@ -28,14 +31,11 @@ Route::get('/daftar', App\Livewire\Daftar::class);
 
 Route::get('/login', App\Livewire\Login::class)->name('login')->middleware('guest');
 
-Route::get('/detail-berita', App\Livewire\DetailBerita::class);
-
+Route::get('/detail-berita/{id_berita}', App\Livewire\DetailBerita::class)->name('detail-berita');
 Route::get('/landing-mobile', App\Livewire\LandingMobile::class);
 
 Route::get('/detail-campaign', App\Livewire\DetailCampaign::class);
 
 Route::post('logout', App\Http\Controllers\logout::class)->name('logout');
 
-Route::get('/tambah_berita', App\Livewire\Berita\Index::class)->name('tambah_berita');
-
-Route::get('/mitra', App\Livewire\Mitra\Index::class)->name('mitra');
+Route::get('/berita', App\Livewire\UserBerita::class)->name('berita');
