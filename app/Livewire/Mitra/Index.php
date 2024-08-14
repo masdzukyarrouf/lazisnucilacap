@@ -10,6 +10,7 @@ use App\Models\Mitra;
 
 class Index extends Component
 {
+    public $search = '';
 
     #[On('mitraUpdated')]
     public function handlemitraEdited()
@@ -47,11 +48,13 @@ class Index extends Component
     public function render()
     {
 
+        $mitras = Mitra::query()
+            ->where('partner_name', 'like', '%' . $this->search . '%')
+            ->latest()
+            ->paginate(10);
+
         return view('livewire.mitra.index', [
-            $this->mitras = mitra::query()
-                ->latest()
-                ->paginate(10),
-            'mitras' => $this->mitras
+            'mitras' => $mitras,
         ])->layout('layouts.admin');
     }
 }

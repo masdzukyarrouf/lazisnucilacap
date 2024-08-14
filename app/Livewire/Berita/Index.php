@@ -5,22 +5,23 @@ namespace App\Livewire\Berita;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\Berita;
-
-
+use Livewire\WithPagination;
 
 class Index extends Component
 {
+    use WithPagination;
+
+    public $search = '';
 
     #[On('beritaUpdated')]
     public function handleberitaEdited()
     {
-        session()->flash('message', 'berita Updated Successfully ');
-
+        session()->flash('message', 'Berita Updated Successfully');
     }
 
     public function destroy($id_berita)
     {
-        $berita = berita::find($id_berita);
+        $berita = Berita::find($id_berita);
         if ($berita) {
             // Hapus gambar terkait jika ada
             if ($berita->picture) {
@@ -32,26 +33,26 @@ class Index extends Component
 
             // Tampilkan pesan sukses
             session()->flash('message', 'Berita destroyed successfully.');
-
         }
     }
-
 
     #[On('beritaCreated')]
     public function handleberitaCreated()
     {
-        session()->flash('message', 'berita Created Successfully ');
-
-
+        session()->flash('message', 'Berita Created Successfully');
     }
+
     public function render()
     {
+        $beritas = Berita::query()
+            ->where('title_berita', 'like', '%' . $this->search . '%')
+            ->orWhere('description', 'like', '%' . $this->search . '%')
+            ->orWhere('tanggal', 'like', '%' . $this->search . '%')
+            ->latest()
+            ->paginate(10);
 
         return view('livewire.berita.index', [
-            $this->beritas = berita::query()
-                ->latest()
-                ->paginate(10),
-            'beritas' => $this->beritas
+            'beritas' => $beritas,
         ])->layout('layouts.admin');
     }
 }

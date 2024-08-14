@@ -14,6 +14,7 @@
             @endif
         </div>
         <!-- Modal Form -->
+        <input type="text" wire:model.live="search" placeholder="Search..." class="border-gray-300 rounded shadow-sm ">
         <livewire:mitra.create />
     </div>
 
