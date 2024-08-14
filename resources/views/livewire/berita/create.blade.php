@@ -13,7 +13,7 @@
             </div>
             <div class="p-4">
 
-                <form wire:submit.prevent="save">
+                <form wire:submit="save">
                     <div class="mb-4">
                         <label for="title_berita" class="block text-sm font-medium text-gray-700">Judul Berita</label>
                         <input type="text" id="title_berita" wire:model="title_berita" name="title_berita"

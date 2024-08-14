@@ -45,6 +45,8 @@ class Create extends Component
 
         $this->dispatch('beritaCreated');
 
+        return $berita;
+
     }
 
     public function render()

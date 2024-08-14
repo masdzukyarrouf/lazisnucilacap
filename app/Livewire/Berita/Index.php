@@ -32,13 +32,16 @@ class Index extends Component
 
             // Tampilkan pesan sukses
             session()->flash('message', 'Berita destroyed successfully.');
+
         }
     }
+
 
     #[On('beritaCreated')]
     public function handleberitaCreated()
     {
         session()->flash('message', 'berita Created Successfully ');
+
 
     }
     public function render()

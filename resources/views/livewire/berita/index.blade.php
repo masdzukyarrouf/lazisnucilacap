@@ -29,7 +29,7 @@
             </thead>
             <tbody>
                 @foreach ($beritas as $berita)
-                    <tr class="border-t">
+                    <tr class="border-t" wire:key="berita-{{ $berita->id_berita }}">
                         <td class="max-w-xs px-4 py-2 break-words">{{ $berita->title_berita }}</td>
                         <td class="px-4 py-2">
                             {{ \Illuminate\Support\Str::limit($berita->description, 30, '...') }}
@@ -41,8 +41,8 @@
                         <td class="px-4 py-2">
                             <div class="flex flex-col items-center space-y-2">
                                 <div class="flex space-x-2">
-                                    <livewire:berita.show :id_berita="$berita->id_berita" wire:key="show-berita-{{ $berita->id_berita }}" />
-                                    <livewire:berita.edit :id_berita="$berita->id_berita" wire:key="edit-berita-{{ $berita->id_berita }}" />
+                                    <livewire:berita.show :id_berita="$berita->id_berita" wire:key="show-{{ $berita->id_berita }}" />
+                                    <livewire:berita.edit :id_berita="$berita->id_berita" wire:key="edit-{{ $berita->id_berita }}" />
                                 </div>
                                 <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
                                         wire:click="destroy({{ $berita->id_berita }})">Delete</button>
