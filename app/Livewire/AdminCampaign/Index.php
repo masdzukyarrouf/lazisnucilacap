@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Campaign;
+namespace App\Livewire\AdminCampaign;
 
 use Livewire\Component;
 use Livewire\Attributes\On;
@@ -41,7 +41,7 @@ class Index extends Component
     public function render()
     {
 
-        return view('livewire.campaign.index', [
+        return view('livewire.admincampaign.index', [
             $this->campaigns = Campaign::query()
                 ->latest()
                 ->paginate(10),

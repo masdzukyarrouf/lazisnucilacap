@@ -16,7 +16,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin', App\Livewire\Admin\Index::class)->name('admin');
     Route::get('/user', App\Livewire\User\Index::class)->name('user');
-    Route::get('/admin-campaign', App\Livewire\Campaign\Index::class)->name('admin-campaign');
+    Route::get('/admin-campaign', App\Livewire\AdminCampaign\Index::class)->name('admin-campaign');
     Route::get('/user/create', App\Livewire\User\Create::class)->name('user');
     Route::get('/admin-berita', App\Livewire\Berita\Index::class)->name('admin-berita');
     Route::get('/admin-mitra', App\Livewire\Mitra\Index::class)->name('admin-mitra');
@@ -27,7 +27,9 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', App\Livewire\Landing::class)->name('landing');
 
-Route::get('/campaigns', App\Livewire\Campaigns::class)->name('campaign');
+Route::get('/campaigns', App\Livewire\Campaigns\Index::class)->name('campaign');
+Route::get('/kategori', App\Livewire\Campaigns\Kategori::class)->name('kategori');
+Route::get('/campaigns/{campaign}', App\Livewire\Campaigns\Show::class)->name('campaigns.show');
 
 Route::get('/daftar', App\Livewire\Daftar::class);
 

@@ -1,5 +1,5 @@
 <?php
-namespace App\Livewire\Campaign;
+namespace App\Livewire\AdminCampaign;
 
 use Livewire\Component;
 use Livewire\Attributes\Rule;
@@ -138,6 +138,6 @@ class Edit extends Component
     }
     public function render()
     {
-        return view('livewire.campaign.edit');
+        return view('livewire.admincampaign.edit');
     }
 }

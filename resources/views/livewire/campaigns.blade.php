@@ -1,6 +1,7 @@
 <div>
     <div class="w-full h-96 max-w-[414px] mx-auto bg-white">
-        <x-nav-mobile2 title="Campaign"/>
+        <x-nav-mobile2 title="Campaign" />
+
         <div class="flex items-center justify-center  w-full">
             <div class="w-full ">
                 <!-- Kategori and Filter Buttons -->

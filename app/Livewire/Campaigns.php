@@ -7,7 +7,7 @@ use App\Models\Campaign;
 
 class Campaigns extends Component
 {
-    public $campaignCount = 9;
+    public $campaignCount = 1;
     public $campaigns;
 
     public function mount()

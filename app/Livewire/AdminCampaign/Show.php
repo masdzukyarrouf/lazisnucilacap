@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Campaign;
+namespace App\Livewire\AdminCampaign;
 
 use Livewire\Component;
 use App\Models\Campaign;
@@ -32,7 +32,7 @@ class Show extends Component
     }
     public function render()
     {
-        return view('livewire.campaign.show',[
+        return view('livewire.admincampaign.show',[
             'processedDesc' => $this->processedDesc,
         ]);
     }

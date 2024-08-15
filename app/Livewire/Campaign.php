@@ -6,7 +6,7 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 
 #[Title('Campaign')]
-class Campaignn extends Component
+class Campaign extends Component
 {
     public function render()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Campaign;
+namespace App\Livewire\AdminCampaign;
 
 use App\Models\Campaign;
 use Illuminate\Support\Str;
@@ -95,6 +95,6 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.campaign.create');
+        return view('livewire.admincampaign.create');
     }
 }
