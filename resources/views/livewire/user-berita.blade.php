@@ -1,14 +1,14 @@
 <div class="flex justify-center">
-    <div class="flex justify-center p-2 space-y-8 bg-white rounded-lg shadow-md md:p-8 md:mx-5" style="width: 414px;">
-        <x-nav-mobile2></x-nav-mobile2>
-        <div class="flex flex-col gap-3">
+    <div class="flex flex-col justify-center bg-white rounded-lg shadow-md" style="width: 414px;">
+        <x-nav-mobile2 title="Berita Lazisnu Cilacap" />
+        <div class="flex flex-col gap-3 p-4">
             @foreach($latestBerita->take(3) as $berita)
             <a href="{{ route('detail-berita', ['id_berita' => $berita->id_berita]) }}">
-                <div class="flex bg-white rounded-lg shadow-lg md:flex-col">
-                    <div class="relative flex items-center px-3 py-2 group w-80 md:h-auto md:w-auto">
+                <div class="flex flex-col bg-white rounded-lg shadow-lg">
+                    <div class="relative flex items-center px-3 py-2 group w-80">
                         <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-full h-full rounded-md">
                     </div>
-                    <div class="px-3 py-2 md:p-4">
+                    <div class="px-3 py-2">
                         <h2 class="text-sm font-semibold text-gray-800 md:text-xl">
                             {{ $berita->title_berita}}
                         </h2>
@@ -43,7 +43,7 @@
                     </a>
                     @endforeach
                 </div>
-                <div class="mb-20">
+                <div class="mb-24">
                     
                 </div>
             </div>
