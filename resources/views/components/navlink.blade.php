@@ -7,7 +7,7 @@
         @endif
     </a>
     @if ($isDropdown && !empty($links))
-        <div class="absolute z-10 hidden text-black bg-gray-100 rounded shadow-lg group-hover:block top-full left-0 w-max">
+        <div class="absolute z-10 hidden text-xs md:text-lg text-black bg-gray-100 rounded shadow-lg group-hover:block top-full left-0 w-max">
             @foreach ($links as $link)
                 <a href="{{ $link['href'] }}" class="block px-4 py-2 hover:text-green-500">{{ $link['text'] }}</a>
             @endforeach
