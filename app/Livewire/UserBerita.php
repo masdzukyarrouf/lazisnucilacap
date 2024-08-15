@@ -18,6 +18,6 @@ class UserBerita extends Component
         return view('livewire.user-berita', [
             'latestBerita' => $latestBerita,
             'otherBerita' => $otherBerita,
-        ]);
+        ])->layout('layouts.mobile');
     }
 }

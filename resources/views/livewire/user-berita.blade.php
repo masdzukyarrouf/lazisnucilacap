@@ -1,5 +1,6 @@
 <div class="flex justify-center">
     <div class="flex justify-center p-2 space-y-8 bg-white rounded-lg shadow-md md:p-8 md:mx-5" style="width: 414px;">
+        <x-nav-mobile2></x-nav-mobile2>
         <div class="flex flex-col gap-3">
             @foreach($latestBerita->take(3) as $berita)
             <a href="{{ route('detail-berita', ['id_berita' => $berita->id_berita]) }}">
@@ -41,6 +42,9 @@
                         </div>
                     </a>
                     @endforeach
+                </div>
+                <div class="mb-20">
+                    
                 </div>
             </div>
         </div>
