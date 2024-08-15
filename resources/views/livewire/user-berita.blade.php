@@ -43,7 +43,7 @@
                     </a>
                     @endforeach
                 </div>
-                <div class="mb-24">
+                <div class="mb-16">
                     
                 </div>
             </div>

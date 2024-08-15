@@ -40,22 +40,22 @@
 </body>
 <footer>
     <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center">
-        <div class="flex items-center justify-center px-8 py-4 space-x-12 bg-white shadow-2xl rounded-3xl"  style="width: 414px">
+        <div class="flex items-center justify-center px-8 py-4 space-x-8 bg-white shadow-2xl rounded-3xl"  style="width: 414px; height: 67px">
                         
             <div class="items-center w-16 h-auto rounded-lg">
-                <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                <img src="{{ asset('images/Frame 1.png') }}" alt="">
             </div>
             <div class="items-center w-16 h-auto rounded-lg">
-                <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                <img src="{{ asset('images/Frame 2.png') }}" alt="">
             </div>
             <div class="items-center w-16 h-auto rounded-lg">
-                <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                <img src="{{ asset('images/Frame 3.png') }}" alt="">
             </div>
             <div class="items-center w-16 h-auto rounded-lg">
-                <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                <img src="{{ asset('images/Frame 5.png') }}" alt="">
             </div>
             <div class="items-center w-16 h-auto rounded-lg">
-                <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                <img src="{{ asset('images/Frame 4.png') }}" alt="">
             </div>
         </div>
     </div>
