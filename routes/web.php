@@ -43,3 +43,5 @@ Route::get('/detail-campaign', App\Livewire\DetailCampaign::class);
 Route::post('logout', App\Http\Controllers\logout::class)->name('logout');
 
 Route::get('/berita', App\Livewire\UserBerita::class)->name('berita');
+
+Route::get('/ziwaf', App\Livewire\Ziwaf::class)->name('ziwaf');

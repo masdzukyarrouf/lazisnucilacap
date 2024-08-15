@@ -8,6 +8,6 @@ class Ziwaf extends Component
 {
     public function render()
     {
-        return view('livewire.ziwaf');
+        return view('livewire.ziwaf')->layout('layouts.mobile');
     }
 }
