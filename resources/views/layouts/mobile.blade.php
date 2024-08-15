@@ -42,16 +42,19 @@
     <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center">
         <div class="flex items-center justify-center px-8 py-4 space-x-12 bg-white shadow-2xl rounded-3xl"  style="width: 414px">
                         
-            <div class="items-center w-16 h-16 bg-gray-100 bg-gray-300 rounded-lg">
+            <div class="items-center w-16 h-auto rounded-lg">
                 <img src="{{ asset('images/logo_pnc.png') }}" alt="">
             </div>
-            <div class="items-center w-16 h-16 bg-gray-100 bg-gray-300 rounded-lg">
+            <div class="items-center w-16 h-auto rounded-lg">
                 <img src="{{ asset('images/logo_pnc.png') }}" alt="">
             </div>
-            <div class="items-center w-16 h-16 bg-gray-100 bg-gray-300 rounded-lg">
+            <div class="items-center w-16 h-auto rounded-lg">
                 <img src="{{ asset('images/logo_pnc.png') }}" alt="">
             </div>
-            <div class="items-center w-16 h-16 bg-gray-100 bg-gray-300 rounded-lg">
+            <div class="items-center w-16 h-auto rounded-lg">
+                <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+            </div>
+            <div class="items-center w-16 h-auto rounded-lg">
                 <img src="{{ asset('images/logo_pnc.png') }}" alt="">
             </div>
         </div>

@@ -10,7 +10,7 @@ class NavMobile2 extends Component
 {
     public $title;
     /**
-     * Create a new component instance.
+     * Create a new component instance.ddd
      */
     public function __construct($title)
     {
