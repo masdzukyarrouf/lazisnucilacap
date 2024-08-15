@@ -40,24 +40,40 @@
 </body>
 <footer>
     <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center">
-        <div class="flex items-center justify-center px-8 py-4 space-x-8 bg-white shadow-2xl rounded-3xl"  style="width: 414px; height: 67px">
-                        
+        <div class="flex items-center justify-center px-8 py-4 space-x-8 bg-white shadow-xl" style="width: 414px; height: 67px">
+            
             <div class="items-center w-16 h-auto rounded-lg">
-                <img src="{{ asset('images/Frame 1.png') }}" alt="">
+                <a wire:navigate.hover href="{{ route('landing') }}">
+                    <img src="{{ Request::is('/') ? asset('images/Frame 1-active.png') : asset('images/Frame 1.png') }}" alt="">
+                </a>
             </div>
             <div class="items-center w-16 h-auto rounded-lg">
-                <img src="{{ asset('images/Frame 2.png') }}" alt="">
+                <a wire:navigate.hover href="{{ route('campaign') }}">
+                    <img src="{{ Request::is('campaigns') ? asset('images/Frame 2-active.png') : asset('images/Frame 2.png') }}" alt="">
+                </a>
             </div>
             <div class="items-center w-16 h-auto rounded-lg">
-                <img src="{{ asset('images/Frame 3.png') }}" alt="">
-            </div>
-            <div class="items-center w-16 h-auto rounded-lg">
-                <img src="{{ asset('images/Frame 5.png') }}" alt="">
-            </div>
-            <div class="items-center w-16 h-auto rounded-lg">
-                <img src="{{ asset('images/Frame 4.png') }}" alt="">
+                <a wire:navigate.hover href="{{ route('berita') }}">
+                    <img src="{{ Request::is('berita') ? asset('images/Frame 3-active.png') : asset('images/Frame 3.png') }}" alt="">
+                </a>
             </div>
         </div>
+    </div>
+        {{-- <div class="items-center w-16 h-auto rounded-lg">
+            <a href="{{ route('route4') }}">
+                <img src="{{ asset('images/Frame 5.png') }}" alt="">
+                    class="@if(Request::is('route4*')) border-green-500 @endif">
+            </a>
+        </div> 
+            <div class="items-center w-16 h-auto rounded-lg">
+            <a href="{{ route('route5') }}">
+                <img src="{{ asset('images/Frame 4.png') }}" alt="">
+                    class="@if(Request::is('route5*')) border-green-500 @endif">
+            </a>
+        </div> --}}
+    </div>
+</div>
+
     </div>
 </footer>
 

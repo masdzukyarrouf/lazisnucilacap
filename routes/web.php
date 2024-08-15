@@ -25,9 +25,9 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/', App\Livewire\Landing::class);
+Route::get('/', App\Livewire\Landing::class)->name('landing');
 
-Route::get('/campaigns', App\Livewire\Campaigns::class);
+Route::get('/campaigns', App\Livewire\Campaigns::class)->name('campaign');
 
 Route::get('/daftar', App\Livewire\Daftar::class);
 
