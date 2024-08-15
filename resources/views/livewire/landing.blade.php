@@ -10,32 +10,32 @@
 
         <div class="relative z-12 w-full flex flex-wrap items-center justify-center mt-12">
             <div
-                class="relative flex flex-wrap items-center justify-center h-auto md:mx-20 -mt-24 md:-mt-32 space-x-2 md:space-x-16 rounded-3xl">
+                class="relative flex flex-wrap items-center justify-center h-auto md:mx-20 -mt-24 md:-mt-32 space-x-2 md:space-x-4 lg:space-x-8 rounded-3xl">
                 <!-- Wrapper for Left Ornament and Item 1 -->
                 <div class="relative flex items-center">
                     <img src="{{ asset('images/fknleaf.png') }}" alt="Left Ornament"
                         class="absolute z-0 object-cover w-16 h-auto md:w-auto md:h-auto mb-2 transform -translate-y-1/2 -scale-x-100 -scale-y-100 -left-8 md:-left-28 top-1/2">
                     <div
-                        class="relative flex flex-col items-center w-24 h-28 p-4 md:w-48 md:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
+                        class="relative flex flex-col items-center w-24 h-28 p-4 md:w-36 md:h-42 lg:w-48 lg:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
                         <img src="{{ asset('images/talk.png') }}" alt="Image 1"
-                            class="relative object-cover w-8 h-8 md:w-24 md:h-24 mb-2">
+                            class="relative object-cover w-8 h-8 md:w-16 md:h-16 lg:w-24 lg:h-24 mb-2">
                         <p class="relative text-sm md:text-lg text-gray-800 text-center">Konsultasi</p>
                     </div>
                 </div>
 
                 <!-- Item 2 -->
                 <div
-                    class="relative flex flex-col items-center w-24 h-28 p-4 md:w-48 md:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
+                    class="relative flex flex-col items-center w-24 h-28 p-4 md:w-36 md:h-42 lg:w-48 lg:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
                     <img src="{{ asset('images/mastercard.png') }}" alt="Image 2"
-                        class="relative object-cover w-8 h-8 md:w-24 md:h-24 mb-2">
+                        class="relative object-cover w-8 h-8 md:w-16 md:h-16 lg:w-24 lg:h-24 mb-2">
                     <p class="relative text-sm md:text-lg text-gray-800 text-center">Kalkulator Zakat</p>
                 </div>
 
                 <!-- Item 3 -->
                 <div
-                    class="relative flex flex-col items-center w-24 h-28 p-4 md:w-48 md:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
+                    class="relative flex flex-col items-center w-24 h-28 p-4 md:w-36 md:h-42 lg:w-48 lg:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
                     <img src="{{ asset('images/mastercard.png') }}" alt="Image 3"
-                        class="relative object-cover w-8 h-8 md:w-24 md:h-24 mb-2">
+                        class="relative object-cover w-8 h-8 md:w-16 md:h-16 lg:w-24 lg:h-24 mb-2">
                     <p class="relative text-sm md:text-lg text-gray-800 text-center">Rekenign Donasi</p>
                 </div>
 
@@ -44,9 +44,9 @@
                     <img src="{{ asset('images/fknleaf.png') }}" alt="Right Ornament"
                         class="absolute z-0 object-cover w-16 h-auto md:w-auto md:h-auto mb-2 transform -translate-y-1/2 -right-8 md:-right-28 top-1/2">
                     <div
-                        class="relative flex flex-col items-center w-24 h-28 p-4 md:w-48 md:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
+                        class="relative flex flex-col items-center w-24 h-28 p-4 md:w-36 md:h-42 lg:w-48 lg:h-52 md:p-8 bg-white rounded-lg shadow-2xl">
                         <img src="{{ asset('images/qr.png') }}" alt="Image 4"
-                            class="relative object-cover w-8 h-8 md:w-24 md:h-24 mb-2">
+                            class="relative object-cover w-8 h-8 md:w-16 md:h-16 lg:w-24 lg:h-24 mb-2">
                         <p class="relative text-sm md:text-lg text-gray-800 text-center">QR Donasi</p>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                     </button>
                 </div>
             </div>
-            <div class="w-full px-10 flex flex-col -space-y-5 justify-center md:w-auto md:grid gap-6  md:grid-cols-3">
+            <div class="w-full px-10 flex flex-col  md:space-y-0 md:space-x-4 justify-center md:w-auto md:grid   md:grid-cols-3">
                 <!-- Card 1 -->
                 @foreach ($campaigns as $campaign)
                 <x-campaign-card :campaign="$campaign" wire:key="{{ $campaign->id_campaign }}"/>                    

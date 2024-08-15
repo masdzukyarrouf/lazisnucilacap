@@ -20,12 +20,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/create', App\Livewire\User\Create::class)->name('user');
     Route::get('/admin-berita', App\Livewire\Berita\Index::class)->name('admin-berita');
     Route::get('/admin-mitra', App\Livewire\Mitra\Index::class)->name('admin-mitra');
+    // Route::get('/user/create', App\Livewire\User\Create::class)->name('user');
+
 });
 
 
 Route::get('/', App\Livewire\Landing::class);
 
-// Route::get('/campaign', App\Livewire\Campaign::class);
+Route::get('/campaigns', App\Livewire\Campaigns::class);
 
 Route::get('/daftar', App\Livewire\Daftar::class);
 

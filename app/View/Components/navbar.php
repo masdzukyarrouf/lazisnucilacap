@@ -8,7 +8,7 @@ use Illuminate\View\Component;
 use App\Models\User;
 use Auth;
 
-class navbarAdmin extends Component
+class navbar extends Component
 {
     /**
      * Create a new component instance.

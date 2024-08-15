@@ -1,4 +1,4 @@
-<nav class="sticky top-0 z-10 p-4 bg-white shadow-md md:hidden">
+<nav class="sticky top-0 z-10 p-4 bg-white shadow-2xl md:hidden">
     <div class="container mx-auto flex items-center justify-between px-4">
         <!-- Logo -->
         <a href="/" class="flex-shrink-0">
@@ -61,7 +61,7 @@
                 ['href' => '#', 'text' => 'Qurban'],
             ]" isDropdown="true" />
 
-            <x-navlink title="Campaign" url="/campaign" />
+            <x-navlink title="Campaign" url="/campaigns" />
             <x-navlink title="Berita" url="/berita" />
 
             @if (Auth::check() && Auth::user()->role == 'admin')
