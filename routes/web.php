@@ -45,3 +45,7 @@ Route::post('logout', App\Http\Controllers\logout::class)->name('logout');
 Route::get('/berita', App\Livewire\UserBerita::class)->name('berita');
 
 Route::get('/zakat', App\Livewire\Ziwaf::class)->name('zakat');
+
+Route::get('/infak', App\Livewire\Infak::class)->name('infak');
+
+Route::get('/wakaf', App\Livewire\Wakaf::class)->name('wakaf');

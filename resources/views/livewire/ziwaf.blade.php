@@ -4,17 +4,17 @@
         <div class="flex py-4 bg-white">
             <div class="rounded-lg">
                 <a wire:navigate.hover href="{{ route('zakat') }}">
-                    <img src="{{ Request::is('zakat') ? asset('images/zakat on.png') : asset('images/zakat off.png') }}" alt="" style="width: 138px; height: 38px">
+                    <img src="{{ $selectedOption === '' || $selectedOption === 'maal' || $selectedOption === 'profesi' ? asset('images/zakat on.png') : asset('images/zakat off.png') }}" alt="" style="width: 138px; height: 38px">
                 </a>
             </div>
             <div class="rounded-lg">
-                <a wire:navigate.hover href="{{ route('campaign') }}">
-                    <img src="{{ Request::is('campaigns') ? asset('images/infak on.png') : asset('images/infak off.png') }}" alt="" style="width: 138px; height: 38px">
+                <a wire:navigate.hover href="{{ route('infak') }}">
+                    <img src="{{ Request::is('infak') ? asset('images/infak on.png') : asset('images/infak off.png') }}" alt="" style="width: 138px; height: 38px">
                 </a>
             </div>
             <div class="rounded-lg">
-                <a wire:navigate.hover href="{{ route('berita') }}">
-                    <img src="{{ Request::is('berita') ? asset('images/wakaf on.png') : asset('images/wakaf off.png') }}" alt="" style="width: 138px; height: 38px">
+                <a wire:navigate.hover href="{{ route('wakaf') }}">
+                    <img src="{{ Request::is('wakaf') ? asset('images/wakaf on.png') : asset('images/wakaf off.png') }}" alt="" style="width: 138px; height: 38px">
                 </a>
             </div>
         </div>
@@ -69,7 +69,7 @@
             </div>
         @endif
         <div class="flex items-center justify-center mt-5">
-            <button wire:click="submitZakat" class="px-4 py-2 text-white bg-green-500 rounded w-96">
+            <button wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
                 Zakat Sekarang
             </button>
         </div>

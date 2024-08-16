@@ -56,13 +56,12 @@
                     <img src="{{ Request::is('berita') ? asset('images/Frame 3-active.png') : asset('images/Frame 3.png') }}" alt="">
                 </a>
             </div>
-            {{-- <div class="items-center w-16 h-auto rounded-lg">
-                <a href="{{ route('route4') }}">
-                    <img src="{{ asset('images/Frame 5.png') }}" alt="">
-                        class="@if(Request::is('route4*')) border-green-500 @endif">
+            <div class="items-center w-16 h-auto rounded-lg">
+                <a wire:navigate.hover href="{{ route('zakat') }}">
+                    <img src="{{ request()->is('zakat') || request()->is('infak') || request()->is('wakaf') ? asset('images/Frame 5-active.png') : asset('images/Frame 5.png') }}" alt="">
                 </a>
             </div> 
-                <div class="items-center w-16 h-auto rounded-lg">
+                {{--<div class="items-center w-16 h-auto rounded-lg">
                 <a href="{{ route('route5') }}">
                     <img src="{{ asset('images/Frame 4.png') }}" alt="">
                         class="@if(Request::is('route5*')) border-green-500 @endif">
