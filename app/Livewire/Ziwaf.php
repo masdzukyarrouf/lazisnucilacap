@@ -7,9 +7,52 @@ use Illuminate\Support\Facades\Request;
 
 class Ziwaf extends Component
 {
+
+    public $deposito = '';
+    public $properti = '';
+    public $saham = '';
+    public $hutang = '';
+    public $zakatNominal = '';
+
+    public $gaji = '';
+    public $gaji2 = '';
+    public $cicilan = '';
+    public $zakatProfesi = '';
+
     public $selectedOption = '';
 
-    // public $activeCategory = 'ziwaf';
+    public function calculateZakat()
+    {
+        // Menghapus format sebelum digunakan untuk kalkulasi
+        $deposito = !empty($this->deposito) ? (float) str_replace('.', '', $this->deposito) : 0;
+        $properti = !empty($this->properti) ? (float) str_replace('.', '', $this->properti) : 0;
+        $saham = !empty($this->saham) ? (float) str_replace('.', '', $this->saham) : 0;
+        $hutang = !empty($this->hutang) ? (float) str_replace('.', '', $this->hutang) : 0;
+
+        $gaji = !empty($this->gaji) ? (float) str_replace('.', '', $this->gaji) : 0;
+        $gaji2 = !empty($this->gaji2) ? (float) str_replace('.', '', $this->gaji2) : 0;
+        $cicilan = !empty($this->cicilan) ? (float) str_replace('.', '', $this->cicilan) : 0;
+
+        // Kalkulasi Zakat Maal
+        $totalHarta = $deposito + $properti + $saham;
+        $totalHarta -= $hutang;
+
+        $nisab = 85 * 1000000; // Contoh nilai nisab
+
+        if ($totalHarta >= $nisab) {
+            $this->zakatNominal = $totalHarta * 0.025;
+        } else {
+            $this->zakatNominal = '';
+        }
+
+        // Kalkulasi Zakat Profesi
+        $totalPendapatan = $gaji + $gaji2;
+        $totalPendapatan -= $cicilan;
+
+        $this->zakatProfesi = $totalPendapatan * 0.025;
+    }
+
+
 
     public function mount()
     {
@@ -20,6 +63,7 @@ class Ziwaf extends Component
             $this->selectedOption = 'profesi';
         }
     }
+
 
     public function submitZakat()
     {

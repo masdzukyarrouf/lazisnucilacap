@@ -49,3 +49,7 @@ Route::get('/zakat', App\Livewire\Ziwaf::class)->name('zakat');
 Route::get('/infak', App\Livewire\Infak::class)->name('infak');
 
 Route::get('/wakaf', App\Livewire\Wakaf::class)->name('wakaf');
+
+Route::get('/pembayaran_zakat', App\Livewire\ZakatBayar::class)->name('pembayaran-zakat');
+
+Route::get('/pembayaran_infaq&wakaf', App\Livewire\InfaqwakafBayar::class)->name('pembayaran-infaq&wakaf');

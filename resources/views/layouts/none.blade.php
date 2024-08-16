@@ -18,7 +18,7 @@
     @livewireStyles
 </head>
 
-<body class="flex flex-col h-screen bg-gray-200 bg-opacity-80">
+<body class="flex flex-col h-screen bg-gray-200">
     {{ $slot }}
     @livewireScripts
 </body>
