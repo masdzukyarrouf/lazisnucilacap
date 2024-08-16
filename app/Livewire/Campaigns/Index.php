@@ -14,7 +14,9 @@ class Index extends Component
     public function mount()
     {
         $this->loadCampaigns();
+
     }
+    
 
     public function loadCampaigns()
     {
@@ -22,6 +24,7 @@ class Index extends Component
             ->latest()
             // ->take($this->campaignCount)
             ->get();
+
     }
 
     public function moreCampaigns()
@@ -31,6 +34,8 @@ class Index extends Component
     }
     public function render()
     {
-        return view('livewire.campaigns.index',[])->layout('layouts.mobile');
+        return view('livewire.campaigns.index',[
+
+        ])->layout('layouts.mobile');
     }
 }

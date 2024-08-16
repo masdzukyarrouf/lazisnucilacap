@@ -30,7 +30,7 @@
                 </div>
                 <div class="text-xs text-left">
                     <p class=" text-gray-700 mt-2">Sisa Hari</p>
-                    <p class=" text-gray-700 mt-2 font-bold">90</p>
+                    <p class=" text-gray-700 mt-2 font-bold text-right">{{$dayLeft}}</p>
                 </div>
             </div>
 
