@@ -38,34 +38,103 @@
             <div class="p-4">
                 <!-- Form untuk input Zakat Maal -->
                 <label>Nilai Deposito/Tabungan/Giro</label>
-                <input type="text" class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" placeholder="Rp." />
+                <input 
+                    oninput="formatMoney(this)"
+                    type="text" 
+                    id="deposito" 
+                    wire:model.lazy="deposito" 
+                    wire:input="calculateZakat" 
+                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                    placeholder="Masukkan nilai" 
+                />
 
                 <label>Nilai Properti & Kendaraan</label>
-                <input type="text" class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" placeholder="Rp." />
+                <input 
+                    oninput="formatMoney(this)"
+                    type="text" 
+                    id="properti" 
+                    wire:model.lazy="properti" 
+                    wire:input="calculateZakat" 
+                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                    placeholder="Masukkan nilai" 
+                />
 
                 <label>Saham, piutang, dan surat-surat berharga lainnya</label>
-                <input type="text" class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" placeholder="Rp." />
+                <input 
+                    oninput="formatMoney(this)"
+                    type="text" 
+                    id="saham" 
+                    wire:model.lazy="saham" 
+                    wire:input="calculateZakat" 
+                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                    placeholder="Masukkan nilai" 
+                />
 
                 <label>Hutang pribadi yang jatuh tempo tahun ini</label>
-                <input type="text" class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" placeholder="Rp." />
+                <input 
+                    oninput="formatMoney(this)"
+                    type="text" 
+                    id="hutang" 
+                    wire:model.lazy="hutang" 
+                    wire:input="calculateZakat" 
+                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                    placeholder="Masukkan nilai" 
+                />
 
                 <label>Nominal Zakat Kamu</label>
-                <input type="text" class="w-full px-2 py-1 border border-gray-300 rounded" placeholder="Rp. 0" readonly />
+                <input 
+                    type="text" 
+                    value="{{ $zakatNominal !== '' ? number_format($zakatNominal, 0, ',', '.') : 'Rp. 0' }}" 
+                    class="w-full px-2 py-1 border border-gray-300 rounded" 
+                    placeholder="Rp. 0" 
+                    readonly 
+                />
             </div>
+
         @elseif($selectedOption === 'profesi')
             <div class="p-4">
-                <!-- Form untuk input Zakat profesi -->
+                <!-- Form untuk input Zakat Maal -->
                 <label>Penghasilan Perbulan</label>
-                <input type="text" class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" placeholder="Rp." />
+                <input 
+                    oninput="formatMoney(this)"
+                    type="text" 
+                    id="gaji" 
+                    wire:model.lazy="gaji" 
+                    wire:input="calculateZakat" 
+                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                    placeholder="Masukkan nilai" 
+                />
 
-                <label>Pendapatan Perbulan Lainnya</label>
-                <input type="text" class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" placeholder="Rp." />
+                <label>Pednapatan Perbulan Lainnya</label>
+                <input 
+                    oninput="formatMoney(this)"
+                    type="text" 
+                    id="gaji2" 
+                    wire:model.lazy="gaji2" 
+                    wire:input="calculateZakat" 
+                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                    placeholder="Masukkan nilai" 
+                />
 
-                <label>Utang / Cicilan</label>
-                <input type="text" class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" placeholder="Rp." />
+                <label>Hutang/Cicilan</label>
+                <input 
+                    oninput="formatMoney(this)"
+                    type="text" 
+                    id="cicilan" 
+                    wire:model.lazy="cicilan" 
+                    wire:input="calculateZakat" 
+                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                    placeholder="Masukkan nilai" 
+                />
 
                 <label>Nominal Zakat Kamu</label>
-                <input type="text" class="w-full px-2 py-1 border border-gray-300 rounded" placeholder="Rp. 0" readonly />
+                <input 
+                    type="text" 
+                    value="{{ $zakatProfesi !== '' ? number_format($zakatProfesi, 0, ',', '.') : 'Rp. 0' }}" 
+                    class="w-full px-2 py-1 border border-gray-300 rounded" 
+                    placeholder="Rp. 0" 
+                    readonly 
+                />
             </div>
         @endif
         <div class="flex items-center justify-center mt-5">
@@ -74,4 +143,12 @@
             </button>
         </div>
     </div>
+    <!-- Tambahkan script untuk format angka dengan titik setiap 3 digit -->
+    <script>
+        function formatMoney(input) {
+            let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Add dots for thousands
+            input.value = value;
+        }
+    </script>
 </div>
