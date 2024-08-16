@@ -39,11 +39,8 @@ class Ziwaf extends Component
 
         $nisab = 85 * 1000000; // Contoh nilai nisab
 
-        if ($totalHarta >= $nisab) {
-            $this->zakatNominal = $totalHarta * 0.025;
-        } else {
-            $this->zakatNominal = '';
-        }
+        $this->zakatNominal = $totalHarta * 0.025;
+    
 
         // Kalkulasi Zakat Profesi
         $totalPendapatan = $gaji + $gaji2;
