@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Campaign;
+use App\Models\Donasi;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,8 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(100)->create();
-        Campaign::factory(100)->create();
+        // User::factory(50)->create();
+        // Campaign::factory(50)->create();
+        Donasi::factory(150)->create();
 
         // User::factory()->create([
         //     'name' => 'Test User',

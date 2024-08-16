@@ -21,13 +21,21 @@ class CampaignFactory extends Factory
             'description' => fake()->paragraph(),
             'goal' => fake()->numberBetween(7000000, 10000000),
             'raised' => fake()->numberBetween(1000000, 10000000),
+            'kategori' => fake()->randomElement([
+                'Bencana Alam',
+                'Pendidikan',
+                'Sosial & Keagamaan',
+                'Ekonomi',
+                'Ramadhan',
+                'Kesehatan',
+            ]),
             'start_date' => fake()->dateTimeBetween('-3 month', 'now'),
             'end_date' => fake()->dateTimeBetween('+3 month', '+6 month'),
             'min_donation' => fake()->numberBetween(5000, 10000),
             'lokasi' => fake()->city(),
-            'main_picture' => '0qISfOvKwo2EJa9U6BoSeJLuNgAFZGfyXy4gHuNR.jpg',
-            'second_picture' => '0qISfOvKwo2EJa9U6BoSeJLuNgAFZGfyXy4gHuNR.jpg',
-            'last_picture' => '0qISfOvKwo2EJa9U6BoSeJLuNgAFZGfyXy4gHuNR.jpg',
+            'main_picture' => '2lNcAJLKMgQSJpdbEPL72LN3EwvAlEDqkFGjglKb.png',
+            'second_picture' => '2lNcAJLKMgQSJpdbEPL72LN3EwvAlEDqkFGjglKb.png',
+            'last_picture' => '2lNcAJLKMgQSJpdbEPL72LN3EwvAlEDqkFGjglKb.png',
 
         ];
     }

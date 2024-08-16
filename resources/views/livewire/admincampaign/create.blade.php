@@ -34,7 +34,7 @@
                     </div>
                     <div class="mb-4">
                         <label for="goal" class="block text-sm font-medium text-gray-700">Goal</label>
-                        <input type="number" id="goal" wire:model="goal" name="goal"
+                        <input type="text" id="goal" wire:model="goal" name="goal"
                             class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
                         @error('goal')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
@@ -139,3 +139,11 @@
         reader.readAsDataURL(event.target.files[0]);
     }
 </script> --}}
+{{-- format uang --}}
+<script>
+    function formatMoney(input) {
+        let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Add dots for thousands
+        input.value = value;
+    }
+    </script>

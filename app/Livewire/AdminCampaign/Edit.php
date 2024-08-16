@@ -59,6 +59,7 @@ class Edit extends Component
         $this->goal = $campaign->goal;
         $this->lokasi = $campaign->lokasi;
         $this->min_donation = $campaign->min_donation;
+        
     }
 
     public function update()
@@ -130,11 +131,6 @@ class Edit extends Component
         $this->min_donation = $campaign->min_donation;
         }
 
-    }
-    protected $listeners = ['refreshComponent' => '$refresh'];
-
-    public function abc(){
-        dd('dsa');
     }
     public function render()
     {

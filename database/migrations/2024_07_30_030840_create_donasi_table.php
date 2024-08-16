@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('donasi', function (Blueprint $table) {
-            $table->integer('donasi_id')->autoIncrement()->primary();
-            $table->integer('user_id');
+            $table->integer('id_donasi')->autoIncrement()->primary();
+            $table->integer('id_user');
             $table->integer('jumlah_donasi');
-            $table->integer('campaign_id');
+            $table->integer('id_campaign');
             $table->timestamps();
         });
     }
