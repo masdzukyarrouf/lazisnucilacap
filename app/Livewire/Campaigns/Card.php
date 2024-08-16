@@ -2,11 +2,11 @@
 
 namespace App\Livewire\Campaigns;
 
-use App\Models\Campaign;
 use Livewire\Component;
-use carbon\Carbon;
+use App\Models\Campaign;
+use Carbon\Carbon;
 
-class Show extends Component
+class Card extends Component
 {
     public Campaign $campaign;
 
@@ -14,28 +14,16 @@ class Show extends Component
     {
         $this->campaign = Campaign::find($this->campaign->id_campaign);
         // dd($this->campaign);
-        $this->processDescription();
         $this->processProgress();
         $this->dayLeft();
-
     }
-
-    public function processDescription()
+    public function processProgress()
     {
-        $desc = $this->campaign->description;
-
-        $desc = str_replace('[img1]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->main_picture) . '" class="w-full h-auto"  <p>', $desc);
-        $desc = str_replace('[img2]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->second_picture) . '" class="w-full h-auto"  <p>', $desc);
-        $desc = str_replace('[img3]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->last_picture) . '" class="w-full h-auto"  <p>', $desc);
-
-        $this->processedDesc = $desc;
-    }
-    public function processProgress(){
 
         $raised = $this->campaign->raised;
         $goal = $this->campaign->goal;
         $progress = $raised / $goal * 100;
-        if($progress > 100){
+        if ($progress > 100) {
             $progress = 100;
         }
         $this->progress = $progress;
@@ -52,12 +40,9 @@ class Show extends Component
         
         $this->dayLeft = $dayLeft;
     }
-
-
     public function render()
     {
-        return view('livewire.campaigns.show',[
-            'processedDesc' => $this->processedDesc,
+        return view('livewire.campaigns.card', [
             'progress' => $this->progress,
             'dayLeft' => $this->dayLeft,
 

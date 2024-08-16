@@ -22,7 +22,8 @@
             <div class="flex items-center justify-center grid grid-cols-1 h-auto w-full" wire:loading.remove>
                 @foreach ($campaigns as $campaign)
                     <div class=" border border-transparent border-b-gray-300 py-2 px-4">
-                        <x-campaign-card-mobile :campaign="$campaign" wire:key="{{ $campaign->id_campaign }}" />
+                        <livewire:campaigns.card :campaign="$campaign" wire:key="{{ $campaign->id_campaign }}"
+                            :progress="62" />
                     </div>
                 @endforeach
             </div>
