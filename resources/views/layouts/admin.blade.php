@@ -110,6 +110,7 @@
                         class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
                     <x-navlink title="Misi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
                     <x-navlink title="Visi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
+                    {{-- alalal --}}
                     <button id="logoutButton" class="px-3 py-1 rounded-lg sm:hover:text-green">Logout</button>
                 </ul>
             </div>
