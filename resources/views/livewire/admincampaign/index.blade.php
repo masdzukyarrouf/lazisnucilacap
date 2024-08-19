@@ -27,6 +27,7 @@
                     <th class="px-4 py-2 border-b border-gray-300 text-left">End Date</th>
                     <th class="px-4 py-2 border-b border-gray-300 text-left">Min Donation</th>
                     <th class="px-4 py-2 border-b border-gray-300 text-left">Lokasi</th>
+                    <th class="px-4 py-2 border-b border-gray-300 text-left">Kategori</th>
                     <th class="px-4 py-2 border-b border-gray-300 text-left">Main Picture</th>
                     <th class="px-4 py-2 border-b border-gray-300 text-left">Action</th>
                     {{-- <th class="px-4 py-2 text-left">Last Picture</th> --}}
@@ -34,35 +35,26 @@
             </thead>
             <tbody>
                 @foreach ($campaigns as $campaign)
-                    <tr class="border-t" wire:key="campaign-{{ $campaign->id_campaign }}">
+                    <tr class="border-t" wire:key="row-{{ $campaign->id_campaign }}">
                         <td class="px-4 py-2">{{ \Illuminate\Support\Str::limit($campaign->title, 10, '...') }}</td>
-                        {{-- <td class="px-4 py-2">{{ \Illuminate\Support\Str::limit($campaign->description, 30, '...') }} --}}
-                        </td>
                         <td class="px-4 py-2">{{ $campaign->goal }}</td>
                         <td class="px-4 py-2">{{ $campaign->raised }}</td>
                         <td class="px-4 py-2">{{ $campaign->start_date }}</td>
                         <td class="px-4 py-2">{{ $campaign->end_date }}</td>
                         <td class="px-4 py-2">{{ $campaign->min_donation }}</td>
                         <td class="px-4 py-2">{{ $campaign->lokasi }}</td>
+                        <td class="px-4 py-2">{{ $campaign->kategori }}</td>
                         <td class="px-4 py-2">
                             <img src="{{ asset('storage/images/campaign/' . $campaign->main_picture) }}"
                                 alt="Main Picture" class="w-16 h-16 object-cover">
                         </td>
                         <td class="flex px-4 py-2 space-x-1">
-                            <livewire:admincampaign.edit :campaign="$campaign" wire:key="{{ $campaign->id_campaign }}" />
-                            <livewire:admincampaign.show :id_campaign="$campaign->id_campaign"
-                                wire:key="campaign-{{ $campaign->id_campaign }}" />
+                            <livewire:admincampaign.edit :campaign="$campaign" wire:key="edit-{{ rand().$campaign->id_campaign }}" />
+                            <livewire:admincampaign.show :id_campaign="$campaign->id_campaign" wire:key="show-{{ rand().$campaign->id_campaign }}" />
                             <button
                                 class="inline-block px-3 py-1 text-white text-center bg-red-500 rounded hover:bg-red-700"
-                                wire:click="destroy({{$campaign->id_campaign}})">Delete</button>
-                                
+                                wire:click="destroy({{ $campaign->id_campaign }})">Delete</button>
                         </td>
-                        {{-- <td class="px-4 py-2">
-                        <img src="{{ asset('images/campaign/' . $campaign->second_picture) }}" alt="Second Picture" class="w-16 h-16 object-cover">
-                    </td>
-                    <td class="px-4 py-2">
-                        <img src="{{ asset('images/campaign/' . $campaign->last_picture) }}" alt="Last Picture" class="w-16 h-16 object-cover">
-                    </td> --}}
                     </tr>
                 @endforeach
             </tbody>

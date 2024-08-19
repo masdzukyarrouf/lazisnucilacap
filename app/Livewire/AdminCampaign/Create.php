@@ -17,6 +17,8 @@ class Create extends Component
     
     #[Rule('required|string')]
     public $description;
+    #[Rule('required|string')]
+    public $kategori;
 
     #[Rule('required|date')]
     public $start_date;
@@ -36,13 +38,13 @@ class Create extends Component
     #[Rule('required|integer')]
     public $min_donation;
 
-    #[Rule('required|image|max:1024', message: 'File Harus Gambar')]
+    #[Rule('required|image')]
     public $main_picture;
     
-    #[Rule('nullable|image|max:1024', message: 'File Harus Gambar')]
+    #[Rule('nullable|image')]
     public $second_picture;
     
-    #[Rule('nullable|image|max:1024', message: 'File Harus Gambar')]
+    #[Rule('nullable|image')]
     public $last_picture;
 
     public function save()
@@ -64,6 +66,7 @@ class Create extends Component
             'description' => $this->description,
             'goal' => $this->goal,
             'raised' => $this->raised ?? 0,
+            'kategori' => $this->kategori,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
             'min_donation' => $this->min_donation,

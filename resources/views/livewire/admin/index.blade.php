@@ -12,5 +12,14 @@
     <p class="px-2 py-4 text-xl font-semibold ml-4">Jumlah User</p>
     <p class="px-2 py-4 text-xl font-semibold ml-4">{{$jumlah_user}}</p>
 </div>
+<div class="shadow-2xl bg-gray-200 rounded-2xl">
+    <p class="px-2 py-4 text-xl font-semibold ml-4">Banyak Donasi</p>
+    <p class="px-2 py-4 text-xl font-semibold ml-4">{{$banyak_donasi}}</p>
+</div>
+<div class="shadow-2xl bg-gray-200 rounded-2xl">
+    <p class="px-2 py-4 text-xl font-semibold ml-4">Jumlah Donasi Terkumpul</p>
+    <p class="px-2 py-4 text-xl font-semibold ml-4">Rp. {{ number_format($jumlah_donasi, 0, ',', '.') }}</p>
+
+</div>
     </div>
 </div>

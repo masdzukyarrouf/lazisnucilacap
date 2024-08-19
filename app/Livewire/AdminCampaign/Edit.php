@@ -19,7 +19,9 @@ class Edit extends Component
     public $title;
 
     #[Rule('required|string')]
-    public $description;
+    public $description;    
+    #[Rule('required|string')]
+    public $kategori;
 
     #[Rule('required|date')]
     public $start_date;
@@ -58,6 +60,7 @@ class Edit extends Component
         $this->raised = $campaign->raised;
         $this->goal = $campaign->goal;
         $this->lokasi = $campaign->lokasi;
+        $this->kategori = $campaign->kategori;
         $this->min_donation = $campaign->min_donation;
         
     }
@@ -74,6 +77,7 @@ class Edit extends Component
         $campaign->end_date = $this->end_date;
         $campaign->raised = $this->raised;
         $campaign->goal = $this->goal;
+        $campaign->kategori = $this->kategori;
         $campaign->lokasi = $this->lokasi;
         $campaign->min_donation = $this->min_donation;
 
