@@ -7,7 +7,13 @@
             </h2>
                 <div class="flex items-center px-3 py-3 mr-5 bg-white rounded-lg shadow-md">
                     <h2 class="mr-5">Rp.</h2>
-                    <h2>x</h2>
+                    <input 
+                        type="text" 
+                        value="{{ $waif !== '' ? $waif : '0' }}" 
+                        class="w-full px-2 py-1 border border-gray-300 rounded" 
+                        placeholder="Rp. 0" 
+                        readonly  
+                    />
                 </div>
                 <div class="mt-5">
                     <h2 class="font-semibold">

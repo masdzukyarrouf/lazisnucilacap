@@ -35,7 +35,7 @@
             </thead>
             <tbody>
                 @foreach ($campaigns as $campaign)
-                    <tr class="border-t" >
+                    <tr class="border-t" wire:key="row-{{ $campaign->id_campaign }}">
                         <td class="px-4 py-2">{{ \Illuminate\Support\Str::limit($campaign->title, 10, '...') }}</td>
                         <td class="px-4 py-2">{{ $campaign->goal }}</td>
                         <td class="px-4 py-2">{{ $campaign->raised }}</td>
@@ -49,10 +49,8 @@
                                 alt="Main Picture" class="w-16 h-16 object-cover">
                         </td>
                         <td class="flex px-4 py-2 space-x-1">
-                            <livewire:admincampaign.edit :campaign="$campaign"
-                                wire:key="campaign-edit{{ $campaign->id_campaign }}" />
-                            <livewire:admincampaign.show :id_campaign="$campaign->id_campaign"
-                                 />
+                            <livewire:admincampaign.edit :campaign="$campaign" wire:key="edit-{{ rand().$campaign->id_campaign }}" />
+                            <livewire:admincampaign.show :id_campaign="$campaign->id_campaign" wire:key="show-{{ rand().$campaign->id_campaign }}" />
                             <button
                                 class="inline-block px-3 py-1 text-white text-center bg-red-500 rounded hover:bg-red-700"
                                 wire:click="destroy({{ $campaign->id_campaign }})">Delete</button>

@@ -18,6 +18,8 @@ class Ziwaf extends Component
     public $gaji2 = '';
     public $cicilan = '';
     public $zakatProfesi = '';
+    public $totalHarta1;
+
 
     public $selectedOption = '';
 
@@ -34,8 +36,10 @@ class Ziwaf extends Component
         $cicilan = !empty($this->cicilan) ? (float) str_replace('.', '', $this->cicilan) : 0;
 
         // Kalkulasi Zakat Maal
-        $totalHarta = $deposito + $properti + $saham;
-        $totalHarta -= $hutang;
+        $this->totalHarta1 = $deposito + $properti + $saham;
+        $totalHarta = $this->totalHarta1 - $hutang;
+
+        $this->totalHarta1 = number_format($this->totalHarta1, 0, ',', '.');
 
         $nisab = 85 * 1000000; // Contoh nilai nisab
 
@@ -43,8 +47,8 @@ class Ziwaf extends Component
     
 
         // Kalkulasi Zakat Profesi
-        $totalPendapatan = $gaji + $gaji2;
-        $totalPendapatan -= $cicilan;
+        $totalPendapatan1 = $gaji + $gaji2;
+        $totalPendapatan = $totalPendapatan1-$cicilan;
 
         $this->zakatProfesi = $totalPendapatan * 0.025;
     }
@@ -64,8 +68,11 @@ class Ziwaf extends Component
 
     public function submitZakat()
     {
-        // Logika untuk zakat sekarang
-        // Aksi saat tombol "Zakat Sekarang" diklik
+        return redirect()->route('pembayaran_zakat', [
+            'totalHarta1' => $this->totalHarta1,
+            'hutang' => $this->hutang,
+            'zakatNominal' => $this->zakatNominal,
+        ]);
     }
 
     public function handleDropdownChange()

@@ -23,14 +23,28 @@
                 <h2 class="mb-2 font-semibold">Mari Wakaf Tunai Bersama Kami</h2>
                 <div class="relative w-96">
                     <label class="font-semibold text-green-500">Nominal Wakaf Kamu</label>
-                    <input type="text" class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" placeholder="Rp." />
+                    <input 
+                        oninput="formatMoney(this)" 
+                        id="waif" 
+                        wire:model.lazy="waif" 
+                        type="text" 
+                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        placeholder="Rp." 
+                    />
                 </div>
             </div>
         </div>
         <div class="flex items-center justify-center mt-5">
-            <button wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
-                Infaq Sekarang
+            <button wire:click="submitwaif" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                wakaf Sekarang
             </button>
         </div>
     </div>
+    <script>
+        function formatMoney(input) {
+            let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Add dots for thousands
+            input.value = value;
+        }
+    </script>
 </div>

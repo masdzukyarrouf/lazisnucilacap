@@ -4,27 +4,31 @@ namespace App\Livewire\Campaigns;
 
 use Livewire\Component;
 use App\Models\Campaign;
+use Livewire\Attributes\On;
+
 
 class Index extends Component
 {
-    public $campaignCount = 9;
+    public $kategori = "all";
 
     public $campaigns;
 
     public function mount()
     {
+        $this->kategori = session('kategori', 'all');
         $this->loadCampaigns();
 
     }
-    
 
     public function loadCampaigns()
     {
-        $this->campaigns = Campaign::query()
-            ->latest()
-            // ->take($this->campaignCount)
-            ->get();
-
+        $query = Campaign::query();
+    
+        if ($this->kategori !== "all") {
+            $query->where('kategori', $this->kategori);
+        }
+    
+        $this->campaigns = $query->latest()->get();
     }
 
     public function moreCampaigns()

@@ -32,6 +32,8 @@
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     @livewireStyles
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
 </head>
 
 <body class="flex flex-col h-screen">
@@ -69,7 +71,7 @@
             <!-- Column 2 -->
             <div class="w-2/12 mb-4 md:mb-0">
                 <h2 class="mb-4 text-xl font-semibold text-gray-800 ">Informasi</h2>
-                <ul class="text-sm space-y-4">
+                <ul class="space-y-4 text-sm">
                     <li><a href="#" class="text-gray-800 hover:text-lg ">Lazisnu Cilacap</a></li>
                     <li><a href="#" class="text-gray-800 hover:text-lg ">Pilar & Program</a></li>
                     <li><a href="#" class="text-gray-800 hover:text-lg ">Layanan</a></li>
