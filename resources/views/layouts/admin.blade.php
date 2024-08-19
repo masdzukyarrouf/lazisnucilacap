@@ -55,7 +55,21 @@
 </head>
 
 <body class="flex flex-col h-screen ">
-    <nav class="z-10 p-4 bg-gray-800 shadow-2xl">
+    <nav class="z-10 p-4 bg-white-800 shadow-xl">
+         <!-- Modal -->
+    <div id="logoutModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
+            <h2 class="text-lg font-semibold mb-4">Confirm Logout</h2>
+            <p class="mb-4">Apakah Kamu Yakin ingin keluar?</p>
+            <div class="flex justify-end">
+                <button id="cancelButton" class="px-4 py-2 bg-gray-300 rounded-lg mr-2">Cancel</button>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
         <div class="container flex items-center justify-between">
             <div>
                 <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt=""
@@ -63,19 +77,18 @@
             </div>
             <div class="">
                 <ul class="flex space-x-1 ">
-                    <x-navlink title="Home" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
-                    <x-navlink title="Admin" url="/admin" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
-                    <x-navlink title="User" url="/user" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
-                    <x-navlink title="Donasi" url="/admin-donasi" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
-                    <x-navlink title="Campaign" url="/admin-campaign" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
-                    <x-navlink title="Berita" url="/admin-berita" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
-                    <x-navlink title="Mitra" url="/admin-mitra" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
-                    <x-navlink title="Misi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
-                    <x-navlink title="Visi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-white" />
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="px-3 py-1 rounded-lg sm:hover:text-white">Logout</button>
-                    </form>
+                    {{-- Remove Home in Navbar--}}
+                    {{-- <x-navlink title="Home" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" /> --}}
+                    {{-- Change Admin to Home --}}
+                    <x-navlink title="Home" url="/admin" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
+                    <x-navlink title="User" url="/user" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
+                    <x-navlink title="Donasi" url="/admin-donasi" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
+                    <x-navlink title="Campaign" url="/admin-campaign" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
+                    <x-navlink title="Berita" url="/admin-berita" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
+                    <x-navlink title="Mitra" url="/admin-mitra" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
+                    <x-navlink title="Misi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
+                    <x-navlink title="Visi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
+                    <button id="logoutButton" class="px-3 py-1 rounded-lg sm:hover:text-green">Logout</button>
                 </ul>
             </div>
         </div>
@@ -93,6 +106,19 @@
 
         </main>
     <script>
+        
+        const logoutButton = document.getElementById('logoutButton');
+        const logoutModal = document.getElementById('logoutModal');
+        const cancelButton = document.getElementById('cancelButton');
+        // Show the modal when the logout button is clicked
+        logoutButton.addEventListener('click', () => {
+            logoutModal.classList.remove('hidden');
+        });
+
+        // Hide the modal when the cancel button is clicked
+        cancelButton.addEventListener('click', () => {
+            logoutModal.classList.add('hidden');
+        });
         document.getElementById('menu-toggle').addEventListener('click', function() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('-translate-x-full');
