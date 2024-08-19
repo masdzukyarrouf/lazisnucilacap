@@ -163,7 +163,7 @@
                 logoWidth: 20, 
                 visibleLogos: 5, 
                 logoCount: {{ $mitras->count() }}, 
-                slideWidth: 100 / 20, 
+                slideWidth: 100 / 5, 
                 slideInterval: 3000, // Time in milliseconds for each slide
                 interval: null 
             }"
@@ -178,16 +178,20 @@
                 <div class="flex transition-transform duration-500" :style="'transform: translateX(-' + offset + '%)'">
                     <!-- Loop through logos -->
                     @foreach ($mitras as $mitra)
-                        <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture" class="justify-start mx-10 bg-gray-100 rounded-lg h-36 w-36"/>
+                        <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture" class="justify-start w-1/5 h-auto mx-10 bg-gray-100 rounded-lg"/>
                     @endforeach
                 </div>
                 <!-- Navigation Buttons -->
-                <button @click="offset = (offset - slideWidth + (100 / (logoCount - visibleLogos) * logoCount)) % (100 / (logoCount - visibleLogos) * logoCount)"
+                <button @click="offset = (offset - slideWidth + (100 / (logoCount - visibleLogos) * logoCount)) % (10   0 / (logoCount - visibleLogos) * logoCount)"
                         class="absolute left-0 p-2 text-white transform -translate-y-1/2 bg-gray-700 rounded-full top-1/2">‹</button>
                 <button @click="offset = (offset + slideWidth) % (100 / (logoCount - visibleLogos) * logoCount)"
                         class="absolute right-0 p-2 text-white transform -translate-y-1/2 bg-gray-700 rounded-full top-1/2">›</button>
             </div>
-            
+            <button class="flex items-center justify-center px-6 py-3 mt-4 bg-green-500 rounded-xl">
+                <a href="{{ route('mitra') }}">
+                    Lihat Semua
+                </a>
+            </button>
         </div>
         <!-- Sticky Bottom -->
         <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white shadow-md md:hidden">
