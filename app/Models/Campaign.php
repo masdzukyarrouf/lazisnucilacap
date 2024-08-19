@@ -24,6 +24,7 @@ class Campaign extends Authenticatable
         'description',
         'goal',
         'raised',
+        'kategori',
         'start_date',
         'end_date',
         'min_donation',
