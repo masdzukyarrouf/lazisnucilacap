@@ -13,13 +13,13 @@ class Edit extends Component
 
     public string $id_partner = "";
     public string $partner_name = "";
-    public $logo; // Pastikan ini bukan string
+    public $logo; // Make sure this is not a string
 
     protected function rules()
     {
         return [
             'partner_name' => 'required|string',
-            'picture' => 'nullable|image|max:1024', // Validasi gambar
+            'logo' => 'nullable|image|max:1024', // Validate image
         ];
     }
 
@@ -31,11 +31,12 @@ class Edit extends Component
         if ($mitra) {
             $this->id_partner = $mitra->id_partner;
             $this->partner_name = $mitra->partner_name;
-            $this->logo = $mitra->logo;
+            $this->logo = $mitra->logo; // Fetch the current logo
         }
-
     }
+
     protected $listeners = ['refreshComponent' => '$refresh'];
+
     public function placeholder()
     {
         return <<<'BLADE'
@@ -51,49 +52,45 @@ class Edit extends Component
         </div>
         BLADE;
     }
+
     public function mount($id_partner)
     {
         $mitra = Mitra::find($id_partner);
         if ($mitra) {
             $this->id_partner = $mitra->id_partner;
             $this->partner_name = $mitra->partner_name;
+            $this->logo = $mitra->logo; // Fetch the current logo
         }
-        return $mitra;
     }
+
     public function update()
     {
-
-        $validatedData = $this->validate([
-            'partner_name' => 'required|string',
-            'logo' => 'nullable|image|max:1024', // Tidak wajib jika tidak ingin mengubah gambar
-        ]);
+        $validatedData = $this->validate();
 
         $mitra = Mitra::find($this->id_partner);
         if ($mitra) {
-            // Jika ada gambar baru yang diupload
+            // If a new image is uploaded
             if ($this->logo) {
-                // Hapus gambar lama jika ada
+                // Delete the old image if exists
                 if ($mitra->logo) {
-                    \Storage::disk('public')->delete($mitra->picture);
+                    Storage::disk('public')->delete($mitra->logo);
                 }
-                // Unggah gambar baru dan simpan path-nya
-                $path = $this->picture->store('images/mitra', 'public');
-                $mitra->picture = $path;
+                // Upload the new image and save its path
+                $path = $this->logo->store('images/mitra', 'public');
+                $mitra->logo = $path;
             }
 
-            // Update data berita lainnya
+            // Update other details
             $mitra->update([
                 'partner_name' => $validatedData['partner_name'],
-                'logo' => $mitra->logo, // Update gambar baru jika ada
+                // The 'logo' field is updated above if a new image is uploaded
             ]);
         }
 
-        // Reset form dan dispatch event
+        // Reset form and dispatch event
         $this->reset();
         $this->dispatch('mitraUpdated');
-        return $mitra;
     }
-
 
     public function render()
     {

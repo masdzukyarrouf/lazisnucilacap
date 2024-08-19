@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 use App\Models\Berita;
@@ -23,6 +24,6 @@ class DetailBerita extends Component
 
         return view('livewire.detail-berita', [
             'otherBerita' => $otherBerita
-        ]);
+        ])->layout('layouts.mobile');
     }
 }
