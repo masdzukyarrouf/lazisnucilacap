@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Donasi;
 
 class Campaign extends Authenticatable
 {
@@ -53,5 +54,17 @@ class Campaign extends Authenticatable
         return [
 
         ];
+    }
+    public static function updateRaisedValues()
+    {
+        $campaigns = self::all(); // Fetch all campaigns
+
+        foreach ($campaigns as $campaign) {
+            $raisedAmount = Donasi::where('id_campaign', $campaign->id_campaign)
+                ->sum('jumlah_donasi');
+
+            $campaign->raised = $raisedAmount;
+            $campaign->save();
+        }
     }
 }
