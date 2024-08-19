@@ -12,7 +12,7 @@
     
     <div class="py-2 px-3  w-4/5 ">
         <h2 class="text-sm  font-semibold text-gray-800">
-            {{ \Illuminate\Support\Str::limit($campaign->title, 25, '...') }}
+            {{ \Illuminate\Support\Str::limit($campaign->kategori, 25, '...') }}
         </h2>
         <div class="flex items-center mt-2">
             <img src="{{ asset('images/icon_location.png') }}" alt="pinpoint" class="w-3 h-3">
@@ -26,7 +26,7 @@
             <div class="flex items-center justify-between">
                 <div class="text-xs text-left">
                     <p class=" text-gray-700 mt-2">Raised</p>
-                    <p class=" text-green-600 mt-2 font-bold">Rp. {{ $campaign->raised }}</p>
+                    <p class=" text-green-600 mt-2 font-bold">Rp. {{ number_format($campaign->raised, 0, ',', '.') }}</p>
                 </div>
                 <div class="text-xs text-left">
                     <p class=" text-gray-700 mt-2">Sisa Hari</p>

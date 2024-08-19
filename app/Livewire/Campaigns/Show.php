@@ -5,6 +5,8 @@ namespace App\Livewire\Campaigns;
 use App\Models\Campaign;
 use Livewire\Component;
 use carbon\Carbon;
+use App\Models\Donasi;
+use App\Models\Doa;
 
 class Show extends Component
 {
@@ -13,6 +15,8 @@ class Show extends Component
     public function mount()
     {
         $this->campaign = Campaign::find($this->campaign->id_campaign);
+        $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)->get();
+        $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)->get();
         // dd($this->campaign);
         $this->processDescription();
         $this->processProgress();
@@ -60,6 +64,8 @@ class Show extends Component
             'processedDesc' => $this->processedDesc,
             'progress' => $this->progress,
             'dayLeft' => $this->dayLeft,
+            'donasis' => $this->donasis,
+            'doas' => $this->doa,
 
         ])->layout('layouts.mobile');
     }

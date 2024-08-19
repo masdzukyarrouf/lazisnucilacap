@@ -17,7 +17,7 @@
                 <div class="flex items-center justify-between ">
                     <div class="text-xs text-left space-y-1">
                         <p class=" text-gray-700">Raised</p>
-                        <p class=" text-green-600 font-extrabold">Rp. {{ $campaign->raised }}</p>
+                        <p class=" text-green-600 font-extrabold">Rp. {{ number_format($campaign->raised, 0, ',', '.') }}</p>
                     </div>
                     <div class="text-xs text-left space-y-1">
                         <p class=" text-gray-700 text-right font-extrabold">{{ $dayLeft }}</p>
@@ -36,7 +36,7 @@
             <p wire:key="campaign-{{ $campaign->id_campaign }}">{!! $processedDesc !!}</p>
         </div>
         <a href="#" id="details-expand-link"
-           class="absolute bottom-0 left-0 px-3 pt-4 w-full text-left bg-gradient-to-t from-white via-white to-transparent">
+            class="absolute bottom-0 left-0 px-3 pt-4 w-full text-left bg-gradient-to-t from-white via-white to-transparent">
             <div class="py-2 font-bold text-green-500">
                 Baca Selengkapnya...
             </div>
@@ -51,7 +51,7 @@
             <p wire:key="campaign-{{ $campaign->id_campaign }}">{!! $processedDesc !!}</p>
         </div>
         <a href="#" id="update-expand-link"
-           class="absolute bottom-0 left-0 px-3 pt-4 w-full text-left bg-gradient-to-t from-white via-white to-transparent">
+            class="absolute bottom-0 left-0 px-3 pt-4 w-full text-left bg-gradient-to-t from-white via-white to-transparent">
             <div class="py-2 font-bold text-green-500">
                 Baca Selengkapnya...
             </div>
@@ -60,7 +60,34 @@
     <div class="py-1 w-full bg-gray-200">
         {{-- empty --}}
     </div>
-    
+    <div class="relative">
+        <div class="flex justify-between items-center">
+            <p class="mt-4 ml-4 text-md font-semibold text-green-500">Donatur</p>
+            <p class="mt-4 mr-4 text-right font-semibold text-green-500">Lihat Semua></p>
+
+        </div>
+        <div class="px-3 w-full py-4">
+            @foreach ($donasis as $donasi)
+                <livewire:campaigns.card-donasi :id_donasi="$donasi->id_donasi" wire:key="{{ $donasi->id_donasi }}" />
+            @endforeach
+        </div>
+    </div>
+    <div class="py-1 w-full bg-gray-200">
+        {{-- empty --}}
+    </div>
+    <div class="relative">
+        <div class="flex justify-between items-center">
+            <p class="mt-4 ml-4 text-md font-semibold text-green-500">Doa Doa Orang Baik</p>
+            <p class="mt-4 mr-4 text-right font-semibold text-green-500">Lihat Semua></p>
+
+        </div>
+        <div class="px-3 w-full py-4 space-y-4">
+            @foreach ($doas as $doa)
+                <livewire:campaigns.card-doa :id_doa="$doa->id_doa" wire:key="{{ $doa->id_doa }}"/>
+            @endforeach
+        </div>
+    </div>
+
 
 
 
@@ -73,7 +100,7 @@
         function setupExpandableContainer(containerId, expandLinkId) {
             const container = document.getElementById(containerId);
             const expandLink = document.getElementById(expandLinkId);
-    
+
             // Function to check if content overflows
             function checkOverflow() {
                 if (container.scrollHeight > container.clientHeight) {
@@ -82,26 +109,26 @@
                     expandLink.style.display = 'none'; // Hide the link if no overflow
                 }
             }
-    
+
             // Function to expand the container
             function expandContainer() {
                 container.classList.remove('max-h-[174px]');
                 container.classList.add('max-h-none'); // Remove height restriction
                 expandLink.style.display = 'none'; // Hide the link
             }
-    
+
             // Initial check for overflow
             checkOverflow();
-    
+
             // Event listener for the expand link
             expandLink.addEventListener('click', function(e) {
                 e.preventDefault();
                 expandContainer();
             });
         }
-    
+
         // Setup expandable containers
         setupExpandableContainer('details-container', 'details-expand-link');
         setupExpandableContainer('update-container', 'update-expand-link');
     });
-    </script>
+</script>

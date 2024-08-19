@@ -20,7 +20,7 @@ class CampaignFactory extends Factory
             'title' => fake()->sentence(),
             'description' => fake()->paragraph(),
             'goal' => fake()->numberBetween(7000000, 10000000),
-            'raised' => fake()->numberBetween(1000000, 10000000),
+            'raised' => 0,
             'kategori' => fake()->randomElement([
                 'Bencana Alam',
                 'Pendidikan',
