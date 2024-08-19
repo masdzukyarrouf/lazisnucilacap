@@ -1,5 +1,5 @@
 <nav class="sticky top-0 z-10 p-4 bg-white shadow-2xl md:hidden">
-    <div class="container mx-auto flex items-center justify-between px-4">
+    <div class="container flex items-center justify-between px-4 mx-auto">
         <!-- Logo -->
         <a href="/" class="flex-shrink-0">
             <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="Logo" class="w-auto h-8">
@@ -18,17 +18,17 @@
 
 <!-- Sidebar -->
 <div id="sidebar"
-    class="md:sticky md:top-0 fixed inset-0 bg-white z-20 transform -translate-x-full transition-transform md:w-full md:translate-x-0 md:flex md:items-center md:justify-between md:bg-transparent md:shadow-none md:p-0">
+    class="fixed inset-0 z-20 transition-transform transform -translate-x-full bg-white md:sticky md:top-0 md:w-full md:translate-x-0 md:flex md:items-center md:justify-between md:bg-transparent md:shadow-none md:p-0">
     <!-- Main Content -->
     <div
-        class=" sticky top-0 bg-white  flex flex-col md:flex-row w-full py-4 items-center  md:justify-between space-y-4 md:space-y-0 px-8">
+        class="sticky top-0 flex flex-col items-center w-full px-8 py-4 space-y-4 bg-white md:flex-row md:justify-between md:space-y-0">
         <!-- Logo -->
         <a href="/" class="flex-shrink-0">
             <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="Logo" class="w-auto h-8">
         </a>
 
         <!-- Navigation Links and Buttons -->
-        <div class="flex flex-col md:flex-row md:space-x-4 md:space-y-0 space-y-4 md:ml-auto">
+        <div class="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0 md:ml-auto">
             <x-navlink title="Lazisnu Cilacap" :links="[
                 ['href' => '#', 'text' => 'Visi & Misi'],
                 ['href' => '#', 'text' => 'Profil & Jajaran Pengurus'],
@@ -54,12 +54,7 @@
                 ['href' => '#', 'text' => 'Gocap'],
             ]" isDropdown="true" />
 
-            <x-navlink title="Ziswaf" :links="[
-                ['href' => '#', 'text' => 'Zakat'],
-                ['href' => '#', 'text' => 'Wakaf'],
-                ['href' => '#', 'text' => 'Fidyah'],
-                ['href' => '#', 'text' => 'Qurban'],
-            ]" isDropdown="true" />
+            <x-navlink title="Ziswaf" url="/zakat"/>
 
             <x-navlink title="Campaign" url="/campaigns" />
             <x-navlink title="Berita" url="/berita" />
@@ -72,7 +67,7 @@
                     class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">Masuk</a>
             @endif
             <a href="/daftar"
-                class="px-6 py-2 text-green-600 border rounded-xl border-green-600 hover:bg-green-600 hover:text-white">Daftar</a>
+                class="px-6 py-2 text-green-600 border border-green-600 rounded-xl hover:bg-green-600 hover:text-white">Daftar</a>
 
             <!-- Close Button -->
             <div class="absolute top-4 right-4">
