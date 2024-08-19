@@ -16,6 +16,7 @@ class Index extends Component
     public function mount()
     {
         $this->kategori = session('kategori', 'all');
+        Campaign::updateRaisedValues();
         $this->loadCampaigns();
 
     }
