@@ -22,7 +22,8 @@
                 <div class="flex items-center justify-between ">
                     <div class=" text-left ">
                         <p class=" text-gray-700 text-[10px]">Raised</p>
-                        <p class=" text-green-600 text-[12px] font-extrabold">Rp. {{ number_format($campaign->raised, 0, ',', '.') }}</p>
+                        <p class=" text-green-600 text-[12px] font-extrabold">Rp.
+                            {{ number_format($campaign->raised, 0, ',', '.') }}</p>
                     </div>
                     <div class=" text-left ">
                         <p class=" text-gray-700 text-right text-[12px] font-extrabold">{{ $dayLeft }}</p>
@@ -72,9 +73,18 @@
 
         </div>
         <div class="px-3 w-full py-4">
-            @foreach ($donasis as $donasi)
-                <livewire:campaigns.card-donasi :id_donasi="$donasi->id_donasi" wire:key="{{ $donasi->id_donasi }}" />
-            @endforeach
+            @if ($donasis->isEmpty())
+                <div class="px-4 py-2 border border-transparent border-b-gray-300 h-[100px] text-center ">
+                    <p>
+                        Belum Ada Donasi
+                    </p>
+                    <a href="#" class="text-green-500 text-sm">Donasi Sekarang</a>
+                </div>
+            @else
+                @foreach ($donasis as $donasi)
+                    <livewire:campaigns.card-donasi :id_donasi="$donasi->id_donasi" wire:key="{{ $donasi->id_donasi }}" />
+                @endforeach
+            @endif
         </div>
     </div>
     <div class="py-1 w-full bg-gray-200">
@@ -87,16 +97,34 @@
 
         </div>
         <div class="px-3 w-full py-4 space-y-4">
-            @foreach ($doas as $doa)
-                <livewire:campaigns.card-doa :id_doa="$doa->id_doa" wire:key="{{ $doa->id_doa }}"/>
-            @endforeach
+            @if ($doas->isEmpty())
+                <div class="px-4 py-2 border border-transparent border-b-gray-300 h-[100px] text-center ">
+                    <p>
+                        Belum Ada Doa
+                    </p>
+                    <a href="#" class="text-green-500 text-sm">Donasi Sekarang</a>
+                </div>
+            @else
+                @foreach ($doas as $doa)
+                    <livewire:campaigns.card-doa :id_doa="$doa->id_doa" wire:key="{{ $doa->id_doa }}" />
+                @endforeach
+            @endif
         </div>
     </div>
-
-
-
-
-    <div style="height: 67px"></div>
+    <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center">
+        <div class="flex items-center justify-center px-4 py-4 space-x-4 bg-white"
+            style="width: 414px; height: 67px; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -2px rgba(0, 0, 0, 0.1);">
+            <a onclick="copyToClipboard()"
+                class="items-center px-6 py-2 rounded-lg flex space-x-1 border border-gray-300 text-[12px] hover:cursor-pointer">
+                <img src="{{ asset('images/share.png') }}" alt="Share">
+                <p>Bagikan</p>
+            </a>
+            <a wire:navigate.hover href="{{ route('donasi.index', $campaign->id_campaign) }}"
+                class="text-[12px] bg-green-600 px-16 py-2 items-center text-white rounded-lg">
+                Donasi Sekarang
+            </a>
+        </div>
+    </div>
 </div>
 
 
