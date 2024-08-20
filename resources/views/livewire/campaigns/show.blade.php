@@ -3,11 +3,16 @@
     <div>
         <img src="{{ asset('storage/images/campaign/' . $campaign->main_picture) }}" alt="Main Picture"
             class="w-full object-cover" style="height: 205px">
-        <p class="mt-4 px-4 py-2 font-bold text-md w-full text-justify">{{ $campaign->title }}</p>
+        <p class="mt-4 px-4 py-2 font-bold text-[20px] w-full text-justify">{{ $campaign->title }}</p>
         <div class="px-3 w-full">
-            <div class="flex items-center mt-1">
-                <img src="{{ asset('images/icon_location.png') }}" alt="pinpoint" class="w-3 h-3">
-                <p class="pl-1 text-xs text-gray-600">{{ $campaign->lokasi }}</p>
+            <div class="flex justify-between w-fullitems-center mt-1">
+                <div class="flex items-center">
+                    <img src="{{ asset('images/icon_location.png') }}" alt="pinpoint" class="w-3 h-3">
+                    <p class="pl-1 text-[12px] text-gray-600">{{ $campaign->lokasi }}</p>
+                </div>
+                <div>
+                    <p class="pl-1 text-[12px] text-green-600">{{ $campaign->kategori }}</p>
+                </div>
             </div>
             <div class="py-4">
                 <div class="mb-2 h-1  bg-gray-200 rounded-full">
@@ -15,13 +20,13 @@
                 </div>
 
                 <div class="flex items-center justify-between ">
-                    <div class="text-xs text-left space-y-1">
-                        <p class=" text-gray-700">Raised</p>
-                        <p class=" text-green-600 font-extrabold">Rp. {{ number_format($campaign->raised, 0, ',', '.') }}</p>
+                    <div class=" text-left ">
+                        <p class=" text-gray-700 text-[10px]">Raised</p>
+                        <p class=" text-green-600 text-[12px] font-extrabold">Rp. {{ number_format($campaign->raised, 0, ',', '.') }}</p>
                     </div>
-                    <div class="text-xs text-left space-y-1">
-                        <p class=" text-gray-700 text-right font-extrabold">{{ $dayLeft }}</p>
-                        <p class=" text-gray-700">Hari lagi</p>
+                    <div class=" text-left ">
+                        <p class=" text-gray-700 text-right text-[12px] font-extrabold">{{ $dayLeft }}</p>
+                        <p class=" text-gray-700 text-[10px]">Hari lagi</p>
                     </div>
                 </div>
             </div>
@@ -31,13 +36,13 @@
         {{-- empty --}}
     </div>
     <div id="details-container" class="relative max-h-[174px] overflow-hidden transition-all duration-300">
-        <p class="mt-4 ml-4 text-lg font-semibold text-green-500">Detail Donasi</p>
-        <div id="details-content" class="px-3 w-full py-4">
-            <p wire:key="campaign-{{ $campaign->id_campaign }}">{!! $processedDesc !!}</p>
+        <p class="mt-4 ml-4 text-[16px] font-semibold text-green-500">Detail Donasi</p>
+        <div id="details-content" class="px-5 w-full py-4">
+            <p wire:key="campaign-{{ $campaign->id_campaign }}" class="text-[12px]">{!! $processedDesc !!}</p>
         </div>
         <a href="#" id="details-expand-link"
             class="absolute bottom-0 left-0 px-3 pt-4 w-full text-left bg-gradient-to-t from-white via-white to-transparent">
-            <div class="py-2 font-bold text-green-500">
+            <div class="py-2 font-bold text-green-500 text-[12px]">
                 Baca Selengkapnya...
             </div>
         </a>
@@ -46,13 +51,13 @@
         {{-- empty --}}
     </div>
     <div id="update-container" class="relative max-h-[174px] overflow-hidden transition-all duration-300">
-        <p class="mt-4 ml-4 text-lg font-semibold text-green-500">Update Donasi</p>
+        <p class="mt-4 ml-4 text-[16px] font-semibold text-green-500">Update Donasi</p>
         <div id="update-content" class="px-3 w-full py-4">
-            <p wire:key="campaign-{{ $campaign->id_campaign }}">{!! $processedDesc !!}</p>
+            <p wire:key="campaign-{{ $campaign->id_campaign }}" class="text-[12px]">{!! $processedDesc !!}</p>
         </div>
         <a href="#" id="update-expand-link"
             class="absolute bottom-0 left-0 px-3 pt-4 w-full text-left bg-gradient-to-t from-white via-white to-transparent">
-            <div class="py-2 font-bold text-green-500">
+            <div class="py-2 font-bold text-green-500 text-[12px]">
                 Baca Selengkapnya...
             </div>
         </a>
@@ -62,8 +67,8 @@
     </div>
     <div class="relative">
         <div class="flex justify-between items-center">
-            <p class="mt-4 ml-4 text-md font-semibold text-green-500">Donatur</p>
-            <p class="mt-4 mr-4 text-right font-semibold text-green-500">Lihat Semua></p>
+            <p class="mt-4 ml-4 text-md font-semibold text-green-500 text-[16px]">Donatur</p>
+            <p class="mt-4 mr-4 text-right font-semibold text-green-500 text-[12px]">Lihat Semua></p>
 
         </div>
         <div class="px-3 w-full py-4">
@@ -77,8 +82,8 @@
     </div>
     <div class="relative">
         <div class="flex justify-between items-center">
-            <p class="mt-4 ml-4 text-md font-semibold text-green-500">Doa Doa Orang Baik</p>
-            <p class="mt-4 mr-4 text-right font-semibold text-green-500">Lihat Semua></p>
+            <p class="mt-4 ml-4 text-md font-semibold text-green-500 text-[16px]">Doa Doa Orang Baik</p>
+            <p class="mt-4 mr-4 text-right font-semibold text-green-500 text-[12px]">Lihat Semua></p>
 
         </div>
         <div class="px-3 w-full py-4 space-y-4">

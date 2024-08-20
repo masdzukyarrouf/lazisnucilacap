@@ -54,7 +54,7 @@
         </div>
 
         <!-- Campaign Section -->
-        <div class="flex flex-col items-center py-10 bg-white">
+        <div class="flex flex-col items-center py-10 bg-white mt-8">
             <!-- Title -->
             <div class="flex items-center justify-between w-full mb-8">
                 <div class="relative flex flex-col justify-between px-12">
@@ -62,14 +62,14 @@
                     <h2 class="text-xs text-black md:text-sm">Berikut merupakan campaign terbaru Lazisnu Cilacap</h2>
                 </div>
                 <div>
-                    <a class="overflow-hidden text-sm text-left text-green-500 md:hidden mr-14 hover:text-green-600 hover:cursor-pointer whitespace-nowrap text-ellipsis">Selengkapnya ></a>
+                    <a href="{{ route('campaign') }}" class="overflow-hidden text-sm text-left text-green-500 md:hidden mr-14 hover:text-green-600 hover:cursor-pointer whitespace-nowrap text-ellipsis">Selengkapnya ></a>
 
-                    <button class="relative hidden px-4 py-2 mr-12 text-white bg-green-500 rounded-md md:block hover:bg-green-600">
+                    <a href="{{ route('campaign') }}" class="relative hidden px-4 py-2 mr-12 text-white bg-green-500 rounded-md md:block hover:bg-green-600">
                         Campaign Lainya
-                    </button>
+                    </a>
                 </div>
             </div>
-            <div class="flex flex-col justify-center w-full px-10 md:space-y-0 md:space-x-4 md:w-auto md:grid md:grid-cols-3">
+            <div class="flex flex-col justify-center w-full px-10 md:space-y-0 md:shadow-lg pb-4 md:space-x-4 md:w-auto md:grid md:grid-cols-3">
                 <!-- Card 1 -->
                 @foreach ($campaigns as $campaign)
                 <x-campaign-card :campaign="$campaign" wire:key="{{ $campaign->id_campaign }}"/>                    
