@@ -61,7 +61,7 @@
                     <img src="{{ request()->is('zakat') || request()->is('infak') || request()->is('wakaf') ? asset('images/Frame 5-active.png') : asset('images/Frame 5.png') }}" alt="">
                 </a>
             </div> 
-                <div class="items-center w-16 h-auto rounded-lg">
+            <div class="items-center w-16 h-auto rounded-lg">
                 <a wire:navigate.hover href="{{ route('profil') }}">
                     <img src="{{ Request::is('profil') ? asset('images/Frame 4-active.png') : asset('images/Frame 4.png') }}" alt="">
                 </a>
