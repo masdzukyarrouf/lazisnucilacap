@@ -19,6 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin-campaign', App\Livewire\AdminCampaign\Index::class)->name('admin-campaign');
     Route::get('/user/create', App\Livewire\User\Create::class)->name('user');
     Route::get('/admin-berita', App\Livewire\Berita\Index::class)->name('admin-berita');
+    Route::get('/gambar_landing', App\Livewire\GambarLanding\Index::class)->name('gambar_landing');
     Route::get('/admin-mitra', App\Livewire\Mitra\Index::class)->name('admin-mitra');
     Route::get('/admin-donasi', App\Livewire\AdminDonasi\Index::class)->name('admin-donasi');
     // Route::get('/user/create', App\Livewire\User\Create::class)->name('user');

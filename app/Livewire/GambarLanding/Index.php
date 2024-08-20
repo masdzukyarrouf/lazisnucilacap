@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Livewire\GambarLanding;
+
+use Livewire\Component;
+use Livewire\Attributes\On;
+use Livewire\WithPagination;
+use App\Models\gambar_landing;
+
+class Index extends Component
+{
+    use WithPagination;
+
+    public $search = '';
+
+    public function destroy($id_gambar)
+    {
+        $landing = gambar_landing::find($id_gambar);
+        if ($landing) {
+            // Hapus gambar terkait jika ada
+            if ($landing->gambar) {
+                \Storage::disk('public')->delete($landing->gambar);
+            }
+
+            // Hapus data berita
+            $landing->delete();
+
+            // Tampilkan pesan sukses
+            session()->flash('message', 'Gambar Landing destroyed successfully.');
+        }
+    }
+
+    #[On('gambarCreated')]
+    public function handleberitaCreated()
+    {
+        session()->flash('message', 'Gambar Landing Created Successfully');
+    }
+
+    public function render()
+    {
+        // Ambil data dari model gambar_landing
+        $landings = gambar_landing::paginate(10);
+
+        // Kembalikan view dengan data yang dibutuhkan
+        return view('livewire.gambar-landing.index', [
+            'landings' => $landings,
+        ])->layout('layouts.admin');
+    }
+}
