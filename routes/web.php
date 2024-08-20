@@ -59,3 +59,7 @@ Route::get('/pembayaran_infaq&wakaf', App\Livewire\InfaqwakafBayar::class)->name
 Route::get('/mitra', App\Livewire\UserMitra::class)->name('mitra');
 
 Route::get('/profil', App\Livewire\Profil::class)->name('profil');
+
+Route::get('/akun', App\Livewire\Akun::class)->name('akun');
+
+Route::get('/riwayat', App\Livewire\Riwayat::class)->name('riwayat');

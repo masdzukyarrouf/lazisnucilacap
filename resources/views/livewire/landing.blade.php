@@ -180,7 +180,7 @@
         <!-- Mitra Section -->
         <div class="flex flex-col items-center px-4 py-4 mt-4 mb-2 bg-white bg-center bg-cover shadow-md w-max-screen">
             <!-- Title -->
-            <div class="mb-4 ">
+            <div class="mb-8">
                 <h2 class="text-xl font-semibold text-green-600">Mitra Kami</h2>
             </div>
             <div x-data="{ 
@@ -210,7 +210,9 @@
                     @endforeach
                 </div> 
             </div>
-            
+            <div class="mb-16">
+                
+            </div>
         <!-- Sticky Bottom -->
         <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white shadow-md md:hidden">
             <div class="flex items-center justify-center w-full px-8 py-4 space-x-12 bg-white shadow-2xl rounded-3xl">
