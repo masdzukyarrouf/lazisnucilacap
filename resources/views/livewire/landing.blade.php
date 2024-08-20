@@ -4,7 +4,32 @@
 
         <div class="relative flex items-center justify-center mt-1">
             <div class="relative z-0 w-full bg-white">
-                <img src="{{ asset('images/anak_yatim.png') }}" alt="Anak Yatim" class="object-cover w-full h-full">
+                <div x-data="{ 
+                    offset: 0, 
+                    logoWidth: 100, // Lebar setiap logo dalam %
+                    visibleLogos: 1, // Menampilkan 5 logo sekaligus
+                    logoCount: {{ $landings->count() }},
+                    slideWidth: 100.71, // Menggeser sesuai dengan lebar satu logo
+                    slideInterval: 3000, // Waktu dalam milidetik untuk setiap slide
+                    interval: null 
+                }"
+                x-init="
+                    interval = setInterval(() => {
+                        if (offset < (logoCount - visibleLogos) * slideWidth) {
+                            offset += slideWidth;
+                        } else {
+                            offset = 0; // Mulai dari awal lagi
+                        }
+                    }, slideInterval);
+                "
+                class="relative w-full overflow-hidden">
+                    <!-- Carousel Container -->
+                    <div class="flex transition-transform duration-500" :style="'transform: translateX(-' + offset + '%)'">
+                        @foreach ($landings as $landing)
+                        <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture" class=" h-[80%] bg-gray-100 rounded-lg mx-1" style="width: 1550px"/>
+                        @endforeach
+                    </div> 
+                </div>
             </div>
         </div>
 
@@ -168,14 +193,14 @@
                 interval: null 
             }"
             x-init="
-                interval = setInterval(() => {
-                    if (offset < (logoCount - visibleLogos) * slideWidth) {
-                        offset += slideWidth;
-                    } else {
-                        clearInterval(interval); // Stop at the last logo
-                    }
-                }, slideInterval);
-            "
+                    interval = setInterval(() => {
+                        if (offset < (logoCount - visibleLogos) * slideWidth) {
+                            offset += slideWidth;
+                        } else {
+                            offset = 0; // Mulai dari awal lagi
+                        }
+                    }, slideInterval);
+                "
             class="relative w-full overflow-hidden">
                 <!-- Carousel Container -->
                 <div class="flex transition-transform duration-500 w-[{{ $mitras->count() * 10 }}%]" :style="'transform: translateX(-' + offset + '%)'">
@@ -183,9 +208,9 @@
                     @foreach ($mitras as $mitra)
                         <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture" class="w-[10%] h-auto bg-gray-100 rounded-lg" style="margin-left: 75px; margin-right:75px"/>
                     @endforeach
-                </div>
-                    
-</div>
+                </div> 
+            </div>
+            
         <!-- Sticky Bottom -->
         <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white shadow-md md:hidden">
             <div class="flex items-center justify-center w-full px-8 py-4 space-x-12 bg-white shadow-2xl rounded-3xl">

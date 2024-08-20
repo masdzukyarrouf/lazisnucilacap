@@ -74,17 +74,17 @@
 </head>
 
 <body class="flex flex-col h-screen ">
-    <nav class="z-10 p-4 bg-white-800 shadow-xl">
+    <nav class="z-10 p-4 shadow-xl bg-white-800">
         <!-- Modal -->
-        <div id="logoutModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
-                <h2 class="text-lg font-semibold mb-4">Confirm Logout</h2>
+        <div id="logoutModal" class="fixed inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
+            <div class="w-1/3 p-6 bg-white rounded-lg shadow-lg">
+                <h2 class="mb-4 text-lg font-semibold">Confirm Logout</h2>
                 <p class="mb-4">Apakah Kamu Yakin ingin keluar?</p>
                 <div class="flex justify-end">
-                    <button id="cancelButton" class="px-4 py-2 bg-gray-300 rounded-lg mr-2">Cancel</button>
+                    <button id="cancelButton" class="px-4 py-2 mr-2 bg-gray-300 rounded-lg">Cancel</button>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg">Logout</button>
+                        <button type="submit" class="px-4 py-2 text-white bg-green-600 rounded-lg">Logout</button>
                     </form>
                 </div>
             </div>
@@ -107,6 +107,8 @@
                     <x-navlink title="Berita" url="/admin-berita"
                         class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
                     <x-navlink title="Mitra" url="/admin-mitra"
+                        class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
+                    <x-navlink title="Gambar Landing" url="/gambar_landing"
                         class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
                     <x-navlink title="Misi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
                     <x-navlink title="Visi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />

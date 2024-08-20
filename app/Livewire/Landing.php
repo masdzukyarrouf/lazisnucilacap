@@ -6,7 +6,7 @@ use App\Models\Mitra;
 use Livewire\Component;
 use App\Models\Campaign;
 use App\Models\Berita;
-
+use App\Models\gambar_landing;
 
 class Landing extends Component
 {
@@ -20,6 +20,10 @@ class Landing extends Component
             ->latest()
             ->get();
 
+        $this->landings = gambar_landing::query()
+            ->latest()
+            ->get();
+
         $this->beritas = Berita::query()
             ->latest()
             ->take(3)
@@ -30,6 +34,7 @@ class Landing extends Component
         return view('livewire.landing', [
             'campaigns' => $this->campaigns,
             'mitras' => $this->mitras,
+            'landings' => $this->landings,
             'beritas' => $this->beritas,
         ]);
     }
