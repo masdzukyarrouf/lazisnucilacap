@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Livewire;
 
 use Livewire\Component;
@@ -13,36 +14,44 @@ class Login extends Component
 
     public function render()
     {
-        
         return view('livewire.login')->layout('layouts.none');
     }
 
     public function login()
     {
-        // Validasi input
+        // Validate input
         $validatedData = $this->validate([
             'username' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        // Cek jika username ada
+        // Check if username exists
         $user = User::where('username', $validatedData['username'])->first();
 
         if ($user) {
-            
-            if (Auth::attempt([
-                'username' => $validatedData['username'],
-                'password' => $validatedData['password']
-            ])) {
-                return redirect()->route('admin');
+            // Attempt to log in the user
+            if (
+                Auth::attempt([
+                    'username' => $validatedData['username'],
+                    'password' => $validatedData['password']
+                ])
+            ) {
+                // Redirect based on user role
+                if ($user->role === 'admin') {
+                    return redirect()->route('admin');
+                } elseif ($user->role === 'donatur') {
+                    return redirect()->route('landing');
+                } else {
+                    return redirect()->route('home');
+                }
             } else {
-                
+                // Incorrect password
                 throw ValidationException::withMessages([
                     'password' => 'Password salah.',
                 ]);
             }
         } else {
-            // Username tidak ada
+            // Username not found
             throw ValidationException::withMessages([
                 'username' => 'Username salah.',
             ]);

@@ -16,7 +16,7 @@ class Create extends Component
     #[Rule(['required','string'])]
     public string $last_name = "";
     #[Rule(['required','string'])]
-    public string $role = "";
+    public $role = 'admin'; // Default role set to 'admin'
     #[Rule(['required','string'])]
     public string $no_telp = "";
     #[Rule(['required','string'])]

@@ -30,7 +30,7 @@ class Daftar extends Component
             'last_name' => $this->last_name,
             'password' => bcrypt($this->password),
             'no_telp' => $this->no_telp,
-            'role' => 'admin'
+            'role' => 'donatur'
         ]);
 
         if($user)

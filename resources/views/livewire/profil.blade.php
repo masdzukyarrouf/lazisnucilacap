@@ -28,7 +28,10 @@
             </a>
         </div>
         <div class="border border-gray-200 shadow-lg">
-            <a href="#" wire:click.prevent="logout" class="flex items-center justify-between px-4 py-3 text-gray-900 cursor-pointer">
+            <a href="#" 
+            x-data 
+            @click.prevent="if (confirm('Apakah Anda yakin ingin keluar?')) { $wire.logout() }" 
+            class="flex items-center justify-between px-4 py-3 text-gray-900 cursor-pointer">
                 <span>Keluar</span>
                 <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>

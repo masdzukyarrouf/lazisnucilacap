@@ -8,7 +8,13 @@ use Illuminate\Support\Facades\Auth;
 class Profil extends Component
 {
     public $users;
+    public $showModal = false;
 
+    public function showLogoutConfirmation()
+    {
+        $this->showModal = true;
+    }
+    
     public function mount()
     {
         $this->users = Auth::user();
@@ -17,7 +23,7 @@ class Profil extends Component
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('landing');
     }
 
     public function render()

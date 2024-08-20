@@ -59,12 +59,23 @@
             <x-navlink title="Campaign" url="/campaigns" />
             <x-navlink title="Berita" url="/berita" />
 
-            @if (Auth::check() && Auth::user()->role == 'admin')
-                <a href="/admin"
-                    class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">Admin</a>
+            @if (Auth::check())
+                @if (Auth::user()->role == 'admin')
+                    <a href="/admin"
+                        class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
+                        Admin
+                    </a>
+                @elseif (Auth::user()->role == 'donatur')
+                    <a href="/profil"
+                        class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
+                        profil
+                    </a>
+                @endif
             @else
                 <a href="/login"
-                    class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">Masuk</a>
+                    class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
+                    Login
+                </a>
             @endif
             <a href="/daftar"
                 class="px-6 py-2 text-green-600 border border-green-600 rounded-xl hover:bg-green-600 hover:text-white">Daftar</a>
