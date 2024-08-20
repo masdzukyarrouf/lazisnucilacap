@@ -32,6 +32,7 @@ Route::get('/', App\Livewire\Landing::class)->name('landing');
 Route::get('/campaigns', App\Livewire\Campaigns\Index::class)->name('campaign');
 // Route::get('/kategori', App\Livewire\Campaigns\Kategori::class)->name('kategori');
 Route::get('/campaigns/{campaign}', App\Livewire\Campaigns\Show::class)->name('campaigns.show');
+Route::get('/{campaign}', App\Livewire\Donasi\Index::class)->name('donasi.index');
 
 Route::get('/daftar', App\Livewire\Daftar::class);
 

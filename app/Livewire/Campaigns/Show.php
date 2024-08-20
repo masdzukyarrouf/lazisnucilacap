@@ -67,6 +67,6 @@ class Show extends Component
             'donasis' => $this->donasis,
             'doas' => $this->doa,
 
-        ])->layout('layouts.mobile');
+        ])->layout('layouts.mobile')->layout('layouts.none');
     }
 }
