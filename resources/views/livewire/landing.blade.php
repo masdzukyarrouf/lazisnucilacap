@@ -163,7 +163,7 @@
                 logoWidth: 10, // Lebar setiap logo 10%
                 visibleLogos: 5, // Menampilkan 5 logo sekaligus
                 logoCount: {{ $mitras->count() }}, 
-                slideWidth: 20.75, // Menggeser sesuai dengan lebar satu logo
+                slideWidth: 20.10, // Menggeser sesuai dengan lebar satu logo
                 slideInterval: 3000, // Waktu dalam milidetik untuk setiap slide
                 interval: null 
             }"
@@ -181,7 +181,7 @@
                 <div class="flex transition-transform duration-500 w-[{{ $mitras->count() * 10 }}%]" :style="'transform: translateX(-' + offset + '%)'">
                     <!-- Loop through logos -->
                     @foreach ($mitras as $mitra)
-                        <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture" class="w-[10%] h-auto bg-gray-100 rounded-lg mx-20"/>
+                        <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture" class="w-[10%] h-auto bg-gray-100 rounded-lg" style="margin-left: 75px; margin-right:75px"/>
                     @endforeach
                 </div>
                     
