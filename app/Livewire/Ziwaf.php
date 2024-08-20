@@ -40,18 +40,17 @@ class Ziwaf extends Component
 
         // Kalkulasi Zakat Maal
         $this->totalHarta1 = $deposito + $properti + $saham;
-        $totalHarta = $this->totalHarta1 - $hutang;
+        $totalHarta = max(0, $this->totalHarta1 - $hutang);
 
         $this->totalHarta1 = number_format($this->totalHarta1, 0, ',', '.');
 
-        $nisab = 85 * 1000000; // Contoh nilai nisab
 
         $this->zakatNominal = $totalHarta * 0.025;
     
 
         // Kalkulasi Zakat Profesi
         $this->totalPendapatan1 = $gaji + $gaji2;
-        $totalPendapatan = $this->totalPendapatan1-$cicilan;
+        $totalPendapatan = max(0, $this->totalPendapatan1-$cicilan);
 
         $this->totalPendapatan1 = number_format($this->totalPendapatan1, 0, ',', '.');
 
