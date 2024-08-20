@@ -1,6 +1,6 @@
-<div class="flex justify-center">
-    <div class="flex flex-col bg-white rounded-lg shadow-md" style="width: 414px; height: 736px">
-        <x-nav-mobile2 title="Pembayaran" />
+<div class="flex flex-col items-center justify-center">
+    <x-nav-mobile2 title="Pembayaran" />
+    <div class="flex flex-col bg-white shadow-md" style="width: 414px; height: 736px">
         <div class="mt-5 ml-5">
             <h2 class="font-semibold">
                 Total Pembayaran

@@ -1,6 +1,6 @@
-<div class="flex justify-center">
+<div class="flex flex-col items-center justify-center">
+    <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
     <div class="flex flex-col bg-white rounded-lg shadow-md" style="width: 414px; height: 736px">
-        <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
         <div class="flex py-4 bg-white">
             <div class="rounded-lg">
                 <a wire:navigate.hover href="{{ route('zakat') }}">

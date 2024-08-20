@@ -1,4 +1,5 @@
 <div class="flex flex-grow h-full bg-white rounded-md shadow-2xl z-5 md:flex-col">
+    <a href="{{ route('detail-berita', $berita->id_berita) }}" class="text-sm text-green-500 md:text-base hover:text-green-600 hover:cursor-pointer">
     <div class="relative z-0 flex items-center group w-44 h-28 md:h-80 md:w-auto">
 
         <img src="{{ asset('storage/' . $berita->picture) }}" alt="Picture"
@@ -10,8 +11,7 @@
             <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
             <p class="pl-1 text-xs text-gray-600 md:text-sm">{{$berita->tanggal}}</p>
         </div>
-        <a href="{{ route('detail-berita', $berita->id_berita) }}" class="text-sm text-green-500 md:text-base hover:text-green-600 hover:cursor-pointer">
             Baca Selengkapnya ...
-        </a>
-    </div>
+        </div>
+    </a>
 </div>

@@ -2,27 +2,27 @@
     <div class="w-full h-96 max-w-[414px] mx-auto bg-white">
         <x-nav-mobile2 title="Campaign" />
 
-        <div class="flex items-center justify-center  w-full">
+        <div class="flex items-center justify-center w-full">
             <div class="w-full ">
                 <!-- Kategori and Filter Buttons -->
                 <div class="flex items-center justify-between">
                     <!-- Kategori Button -->
-                    <a class="flex items-center justify-center py-2 border border-transparent border-b-gray-200 border-r-gray-200 space-x-2 w-1/2 hover:cursor-pointer">
+                    <a class="flex items-center justify-center w-1/2 py-2 space-x-2 border border-transparent border-b-gray-200 border-r-gray-200 hover:cursor-pointer">
                         <img src="{{ asset('images/kategori.png') }}" alt="Kategori" class="w-auto h-4">
                         <h1 class="text-base">Kategori</h1>
                     </a>
 
                     <a href="/"
-                        class="flex justify-center items-center py-2 border border-transparent border-b-gray-200 border-l-gray-200 space-x-2 w-1/2 ">
+                        class="flex items-center justify-center w-1/2 py-2 space-x-2 border border-transparent border-b-gray-200 border-l-gray-200 ">
                         <img src="{{ asset('images/filter.png') }}" alt="Filter" class="w-auto h-4">
                         <h1 class="text-base">Filter</h1>
                     </a>
                 </div>
 
                 <!-- Campaign Cards Grid -->
-                <div class="grid grid-cols-1  w-full">
+                <div class="grid w-full grid-cols-1">
                     @foreach ($campaigns as $campaign)
-                        <div class=" border border-transparent border-b-gray-300 py-2 px-4">
+                        <div class="px-4 py-2 border border-transparent border-b-gray-300">
                             <x-campaign-card-mobile :campaign="$campaign" wire:key="{{ $campaign->id_campaign }}" />
                         </div>
                     @endforeach
@@ -38,9 +38,9 @@
             </div>
         </div>
         {{-- <div
-        class="block md:hidden bg-green-500 sticky top-0 z-20  flex justify-start items-center w-full py-4 space-y-4 md:space-y-0 px-8">
+        class="sticky top-0 z-20 flex items-center justify-start block w-full px-8 py-4 space-y-4 bg-green-500 md:hidden md:space-y-0">
         <!-- Logo -->
-        <div class="flex-shrink-0 flex items-center space-x-2">
+        <div class="flex items-center flex-shrink-0 space-x-2">
             <a href="/">
                 <img src="{{ asset('images/titleBar.png') }}" alt="Logo" class="w-auto h-4">
             </a>

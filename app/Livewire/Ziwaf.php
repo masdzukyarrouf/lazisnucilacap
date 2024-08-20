@@ -19,6 +19,9 @@ class Ziwaf extends Component
     public $cicilan = '';
     public $zakatProfesi = '';
     public $totalHarta1;
+    public $totalPendapatan1;
+
+
 
 
     public $selectedOption = '';
@@ -47,8 +50,10 @@ class Ziwaf extends Component
     
 
         // Kalkulasi Zakat Profesi
-        $totalPendapatan1 = $gaji + $gaji2;
-        $totalPendapatan = $totalPendapatan1-$cicilan;
+        $this->totalPendapatan1 = $gaji + $gaji2;
+        $totalPendapatan = $this->totalPendapatan1-$cicilan;
+
+        $this->totalPendapatan1 = number_format($this->totalPendapatan1, 0, ',', '.');
 
         $this->zakatProfesi = $totalPendapatan * 0.025;
     }
@@ -72,6 +77,9 @@ class Ziwaf extends Component
             'totalHarta1' => $this->totalHarta1,
             'hutang' => $this->hutang,
             'zakatNominal' => $this->zakatNominal,
+            'totalPendapatan1' => $this->totalPendapatan1,
+            'cicilan' => $this->cicilan,
+            'zakatProfesi' => $this->zakatProfesi,
         ]);
     }
 

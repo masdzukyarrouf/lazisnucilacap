@@ -197,18 +197,32 @@
         <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white shadow-md md:hidden">
             <div class="flex items-center justify-center w-full px-8 py-4 space-x-12 bg-white shadow-2xl rounded-3xl">
                 
-                    <div class="items-center w-16 h-16 bg-gray-100 bg-gray-300 rounded-lg">
-                        <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                    <div class="items-center w-16 h-auto rounded-lg">
+                        <a wire:navigate.hover href="{{ route('landing') }}">
+                            <img src="{{ Request::is('/') ? asset('images/Frame 1-active.png') : asset('images/Frame 1.png') }}" alt="">
+                        </a>
                     </div>
-                    <div class="items-center w-16 h-16 bg-gray-100 bg-gray-300 rounded-lg">
-                        <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                    <div class="items-center w-16 h-auto rounded-lg">
+                        <a wire:navigate.hover href="{{ route('campaign') }}">
+                            <img src="{{ Request::is('campaigns') ? asset('images/Frame 2-active.png') : asset('images/Frame 2.png') }}" alt="">
+                        </a>
                     </div>
-                    <div class="items-center w-16 h-16 bg-gray-100 bg-gray-300 rounded-lg">
-                        <img src="{{ asset('images/logo_pnc.png') }}" alt="">
+                    <div class="items-center w-16 h-auto rounded-lg">
+                        <a wire:navigate.hover href="{{ route('berita') }}">
+                            <img src="{{ Request::is('berita') ? asset('images/Frame 3-active.png') : asset('images/Frame 3.png') }}" alt="">
+                        </a>
                     </div>
-                    <div class="items-center w-16 h-16 bg-gray-100 bg-gray-300 rounded-lg">
-                        <img src="{{ asset('images/logo_pnc.png') }}" alt="">
-                    </div>
+                    <div class="items-center w-16 h-auto rounded-lg">
+                        <a wire:navigate.hover href="{{ route('zakat') }}">
+                            <img src="{{ request()->is('zakat') || request()->is('infak') || request()->is('wakaf') ? asset('images/Frame 5-active.png') : asset('images/Frame 5.png') }}" alt="">
+                        </a>
+                    </div> 
+                        {{--<div class="items-center w-16 h-auto rounded-lg">
+                        <a href="{{ route('route5') }}">
+                            <img src="{{ asset('images/Frame 4.png') }}" alt="">
+                                class="@if(Request::is('route5*')) border-green-500 @endif">
+                        </a>
+                    </div> --}}
             </div>
         </div>
 </div>

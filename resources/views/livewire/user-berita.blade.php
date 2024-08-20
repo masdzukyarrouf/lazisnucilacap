@@ -1,6 +1,6 @@
-<div class="flex justify-center">
+<div class="flex flex-col items-center justify-center">
+    <x-nav-mobile2 title="Berita Lazisnu Cilacap" />
     <div class="flex flex-col justify-center bg-white rounded-lg shadow-md" style="width: 414px;">
-        <x-nav-mobile2 title="Berita Lazisnu Cilacap" />
         <div class="flex flex-col gap-3 p-4">
             @foreach($latestBerita->take(3) as $berita)
             <a href="{{ route('detail-berita', ['id_berita' => $berita->id_berita]) }}">
