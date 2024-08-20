@@ -1,11 +1,11 @@
 <div>
     <x-navbar></x-navbar>
-    <div class="flex items-center justify-center  px-6 py-4 lg:px-8">
-        <div class="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md ">
+    <div class="flex items-center justify-center px-6 py-4 lg:px-8">
+        <div class="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
             <div class="text-center">
                 <img class="w-auto h-24 mx-auto" src="{{ asset('images/logo_lazisnu.png') }}" alt="Your Company">
                 {{-- <h2 class="mt-3 text-2xl font-bold leading-9 tracking-tight text-gray-900">MASUK</h2> --}}
-                <p class="text-xl font-bold leading-9 tracking-tight text-gray-900 mt-12">Belum memiliki akun? 
+                <p class="mt-12 text-xl font-bold leading-9 tracking-tight text-gray-900">Belum memiliki akun? 
                     <a href="/daftar" class="text-green-500">Daftar</a>
                 </p>
             </div>
