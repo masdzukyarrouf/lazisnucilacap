@@ -1,7 +1,7 @@
 <div>
-    <x-navbar></x-navbar>
-    <div class="flex items-center justify-center px-6 py-4 lg:px-8">
-        <div class="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
+    <x-nav-mobile2 title="Login" />
+    <div class="flex items-center justify-center px-6 lg:px-8">
+        <div class="w-full max-w-md p-8 space-y-8 bg-white shadow-md" style="width: 414px; height: 700px">
             <div class="text-center">
                 <img class="w-auto h-24 mx-auto" src="{{ asset('images/logo_lazisnu.png') }}" alt="Your Company">
                 {{-- <h2 class="mt-3 text-2xl font-bold leading-9 tracking-tight text-gray-900">MASUK</h2> --}}
