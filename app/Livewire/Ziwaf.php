@@ -44,8 +44,13 @@ class Ziwaf extends Component
 
         $this->totalHarta1 = number_format($this->totalHarta1, 0, ',', '.');
 
+        $nisab = 85 * 1000000;
 
-        $this->zakatNominal = $totalHarta * 0.025;
+        if ($totalHarta >= $nisab) {
+            $this->zakatNominal = $totalHarta * 0.025;
+        } else {
+            $this->zakatNominal = 0;
+        }
     
 
         // Kalkulasi Zakat Profesi
