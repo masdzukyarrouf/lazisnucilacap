@@ -49,12 +49,15 @@
                 </div>
 
                 <!-- Item 2 -->
-                <div
-                    class="relative flex flex-col items-center w-24 p-4 bg-white rounded-lg shadow-2xl h-28 md:w-36 md:h-42 lg:w-48 lg:h-52 md:p-8">
-                    <img src="{{ asset('images/mastercard.png') }}" alt="Image 2"
-                        class="relative object-cover w-8 h-8 mb-2 md:w-16 md:h-16 lg:w-24 lg:h-24">
-                    <p class="relative text-sm text-center text-gray-800 md:text-lg">Kalkulator Zakat</p>
-                </div>
+                <a href="/zakat">
+                    <div class="relative flex flex-col items-center w-24 p-4 bg-white rounded-lg shadow-2xl h-28 md:w-36 md:h-42 lg:w-48 lg:h-52 md:p-8">
+                        <div class="px-4 py-4 bg-green-500 rounded-full">
+                            <img src="{{ asset('images/calculator.png') }}" alt="Image 1"
+                            class="flex items-center justify-center w-8 h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
+                        </div>
+                        <p class="relative text-sm text-center text-gray-800 md:text-lg">Kalkulator Zakat</p>
+                    </div>
+                </a>
 
                 <!-- Item 3 -->
                 <div
