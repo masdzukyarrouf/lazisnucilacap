@@ -14,7 +14,7 @@
             @endif
         </div>
         <!-- Modal Form -->
-        <input type="text" wire:model.live="search" placeholder="Search..." class="ml-4 border-gray-300 rounded shadow-sm">
+        <input type="text" wire:model.live="search" placeholder="   Search" class="ml-4 border border-gray-300 rounded-lg">
         <livewire:berita.create />
     </div>
     <table class="min-w-full mt-4 bg-white border border-gray-200">

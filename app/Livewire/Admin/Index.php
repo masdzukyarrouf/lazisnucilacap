@@ -7,6 +7,8 @@ use App\Models\Campaign;
 use App\Models\Berita;
 use App\Models\User;
 use App\Models\Donasi;
+use App\Models\Mitra;
+
 
 class Index extends Component
 {
@@ -16,6 +18,7 @@ class Index extends Component
         $this->jumlah_user = User::count();
         $this->banyak_donasi = Donasi::count();
         $this->jumlah_donasi = Donasi::sum('jumlah_donasi');
+        $this->banyak_mitra = Mitra::count();
     }
     public function render()
     {
@@ -25,6 +28,7 @@ class Index extends Component
             'jumlah_user' => $this->jumlah_user,
             'banyak_donasi' => $this->banyak_donasi,
             'jumlah_donasi' => $this->jumlah_donasi,
+            'banyak_mitra' => $this->banyak_mitra,
             
         ])->layout('layouts.admin');
     }

@@ -91,27 +91,61 @@
         </div>
         <div class="container flex items-center justify-between">
             <div>
-                <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="w-30">
+                <a href="/">
+                    <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="w-30">
+                </a>
             </div>
             <div class="">
                 <ul class="flex space-x-1 ">
                     {{-- Remove Home in Navbar --}}
                     {{-- <x-navlink title="Home" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" /> --}}
                     {{-- Change Admin to Home --}}
-                    <x-navlink title="Home" url="/admin" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
-                    <x-navlink title="User" url="/user" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
-                    <x-navlink title="Donasi" url="/admin-donasi"
-                        class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
-                    <x-navlink title="Campaign" url="/admin-campaign"
-                        class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
-                    <x-navlink title="Berita" url="/admin-berita"
-                        class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
-                    <x-navlink title="Mitra" url="/admin-mitra"
-                        class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
-                    <x-navlink title="Gambar Landing" url="/gambar_landing"
-                        class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
-                    <x-navlink title="Misi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
-                    <x-navlink title="Visi" url="/" class="rounded-lg md:px-3 md:py-1 sm:hover:text-green" />
+                    <x-navlink 
+                        title="Home" 
+                        url="/admin" 
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('admin') ? 'text-green-500' : '' }} sm:hover:text-green" 
+                    />
+                    <x-navlink 
+                        title="User" 
+                        url="/user" 
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('user') ? 'text-green-500' : '' }} sm:hover:text-green" 
+                    />
+                    <x-navlink 
+                        title="Donasi" 
+                        url="/admin-donasi" 
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('admin-donasi') ? 'text-green-500' : '' }} sm:hover:text-green" 
+                    />
+                    <x-navlink 
+                        title="Campaign" 
+                        url="/admin-campaign" 
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('admin-campaign') ? 'text-green-500' : '' }} sm:hover:text-green" 
+                    />
+                    <x-navlink 
+                        title="Berita" 
+                        url="/admin-berita" 
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('admin-berita') ? 'text-green-500' : '' }} sm:hover:text-green" 
+                    />
+                    <x-navlink 
+                        title="Mitra" 
+                        url="/admin-mitra" 
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('admin-mitra') ? 'text-green-500' : '' }} sm:hover:text-green" 
+                    />
+                    <x-navlink 
+                        title="Gambar Landing" 
+                        url="/gambar_landing" 
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('gambar_landing') ? 'text-green-500' : '' }} sm:hover:text-green" 
+                    />
+                    <x-navlink 
+                        title="Misi" 
+                        url="/" 
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('/') ? 'text-green-500' : '' }} sm:hover:text-green" 
+                    />
+                    <x-navlink 
+                        title="Visi" 
+                        url="/" 
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('/') ? 'text-green-500' : '' }} sm:hover:text-green" 
+                    />
+
                     {{-- alalal --}}
                     <button id="logoutButton" class="px-3 py-1 rounded-lg sm:hover:text-green">Logout</button>
                 </ul>
