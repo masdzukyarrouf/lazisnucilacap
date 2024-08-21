@@ -65,3 +65,4 @@ Route::get('/akun', App\Livewire\Akun::class)->name('akun');
 Route::get('/riwayat', App\Livewire\Riwayat::class)->name('riwayat');
 
 Route::get('/{campaign}', App\Livewire\Donasi\Index::class)->name('donasi.index');
+Route::get('/pembayaran/{campaign}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');

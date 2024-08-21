@@ -53,7 +53,7 @@
                             <livewire:admincampaign.show :id_campaign="$campaign->id_campaign" wire:key="show-{{ rand().$campaign->id_campaign }}" />
                             <button
                                 class="inline-block px-3 py-1 text-white text-center bg-red-500 rounded hover:bg-red-700"
-                                wire:click="destroy({{ $campaign->id_campaign }})">Delete</button>
+                                wire:click="destroy({{ $campaign->id_campaign }})" wire:confirm="Are you sure?">Delete</button>
                         </td>
                     </tr>
                 @endforeach
