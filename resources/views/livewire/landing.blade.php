@@ -164,13 +164,13 @@
                         <p class="mt-4 mb-4 text-lg font-semibold text-center text-black">Terima kasih kepada Sejumlah</p>
                         <div class="flex flex-row justify-center">
                             <div class="relative flex flex-col items-center w-40 h-24 p-4 md:w-60 md:p-8">
-                                <img src="{{ asset('images/talk.png') }}" alt="Image 1"
+                                <img src="{{ asset('images/tikum.png') }}" alt="Image 1"
                                     class="relative w-8 h-8 mb-2 md:w-16 md:h-16">
                                 <p class="relative text-xs font-semibold text-center text-green-600 md:text-md">41.124
                                     muzakki<br>NU Care Lazisnu Cilacap</p>
                             </div>
                             <div class="relative flex flex-col items-center w-40 h-24 p-4 md:w-60 md:p-8">
-                                <img src="{{ asset('images/talk.png') }}" alt="Image 1"
+                                <img src="{{ asset('images/tikum.png') }}" alt="Image 1"
                                     class="relative w-8 h-8 mb-2 md:w-16 md:h-16">
                                 <p class="relative text-xs font-semibold text-center text-green-600 md:text-md">64.712
                                     Munfiq<br>NU Care Lazisnu Cilacap</p>
