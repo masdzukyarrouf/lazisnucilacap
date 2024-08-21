@@ -38,12 +38,12 @@
                 class="relative flex flex-wrap items-center justify-center h-auto -mt-24 space-x-2 md:mx-20 md:-mt-32 md:space-x-4 lg:space-x-8 rounded-3xl">
                 <!-- Wrapper for Left Ornament and Item 1 -->
                 <div class="relative flex items-center">
+                    <img src="{{ asset('images/fknleaf.png') }}" alt="Left Ornament"
+                        class="absolute z-0 object-cover w-16 h-auto mb-2 transform -translate-y-1/2 md:w-auto md:h-auto -scale-x-100 -scale-y-100 -left-8 md:-left-28 top-1/2">
                     <div
                         class="relative flex flex-col items-center w-24 p-4 bg-white rounded-lg shadow-2xl h-28 md:w-36 md:h-42 lg:w-48 lg:h-52 md:p-8">
-                        <div class="px-4 py-4 bg-green-500 rounded-full">
-                            <img src="{{ asset('images/Phone Message.png') }}" alt="Image 1"
-                            class="flex items-center justify-center w-8 h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
-                        </div>
+                        <img src="{{ asset('images/talk.png') }}" alt="Image 1"
+                            class="relative object-cover w-8 h-8 mb-2 md:w-16 md:h-16 lg:w-24 lg:h-24">
                         <p class="relative text-sm text-center text-gray-800 md:text-lg">Konsultasi</p>
                     </div>
                 </div>
@@ -51,31 +51,27 @@
                 <!-- Item 2 -->
                 <div
                     class="relative flex flex-col items-center w-24 p-4 bg-white rounded-lg shadow-2xl h-28 md:w-36 md:h-42 lg:w-48 lg:h-52 md:p-8">
-                    <div class="px-4 py-4 bg-green-500 rounded-full">
-                        <img src="{{ asset('images/calculator.png') }}" alt="Image 1"
-                        class="flex items-center justify-center w-8 h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
-                    </div>
+                    <img src="{{ asset('images/mastercard.png') }}" alt="Image 2"
+                        class="relative object-cover w-8 h-8 mb-2 md:w-16 md:h-16 lg:w-24 lg:h-24">
                     <p class="relative text-sm text-center text-gray-800 md:text-lg">Kalkulator Zakat</p>
                 </div>
 
                 <!-- Item 3 -->
                 <div
                     class="relative flex flex-col items-center w-24 p-4 bg-white rounded-lg shadow-2xl h-28 md:w-36 md:h-42 lg:w-48 lg:h-52 md:p-8">
-                    <div class="px-4 py-4 bg-green-500 rounded-full">
-                        <img src="{{ asset('images/Buy With Card.png') }}" alt="Image 1"
-                        class="flex items-center justify-center w-8 h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
-                    </div>
+                    <img src="{{ asset('images/mastercard.png') }}" alt="Image 3"
+                        class="relative object-cover w-8 h-8 mb-2 md:w-16 md:h-16 lg:w-24 lg:h-24">
                     <p class="relative text-sm text-center text-gray-800 md:text-lg">Rekenign Donasi</p>
                 </div>
 
                 <!-- Wrapper for Right Ornament and Item 4 -->
                 <div class="relative flex items-center">
+                    <img src="{{ asset('images/fknleaf.png') }}" alt="Right Ornament"
+                        class="absolute z-0 object-cover w-16 h-auto mb-2 transform -translate-y-1/2 md:w-auto md:h-auto -right-8 md:-right-28 top-1/2">
                     <div
                         class="relative flex flex-col items-center w-24 p-4 bg-white rounded-lg shadow-2xl h-28 md:w-36 md:h-42 lg:w-48 lg:h-52 md:p-8">
-                        <div class="px-4 py-4 bg-green-500 rounded-full">
-                            <img src="{{ asset('images/Qr Code.png') }}" alt="Image 1"
-                            class="flex items-center justify-center w-8 h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
-                        </div>
+                        <img src="{{ asset('images/qr.png') }}" alt="Image 4"
+                            class="relative object-cover w-8 h-8 mb-2 md:w-16 md:h-16 lg:w-24 lg:h-24">
                         <p class="relative text-sm text-center text-gray-800 md:text-lg">QR Donasi</p>
                     </div>
                 </div>
@@ -83,7 +79,7 @@
         </div>
 
         <!-- Campaign Section -->
-        <div class="flex flex-col items-center py-10 mt-8 bg-white">
+        <div class="flex flex-col items-center py-10 bg-white mt-8">
             <!-- Title -->
             <div class="flex items-center justify-between w-full mb-8">
                 <div class="relative flex flex-col justify-between px-12">
@@ -98,7 +94,7 @@
                     </a>
                 </div>
             </div>
-            <div class="flex flex-col justify-center w-full px-10 pb-4 md:space-y-0 md:shadow-lg md:space-x-4 md:w-auto md:grid md:grid-cols-3">
+            <div class="flex flex-col justify-center w-full px-10 md:space-y-0 md:shadow-lg pb-4 md:space-x-4 md:w-auto md:grid md:grid-cols-3">
                 <!-- Card 1 -->
                 @foreach ($campaigns as $campaign)
                 <x-campaign-card :campaign="$campaign" wire:key="{{ $campaign->id_campaign }}"/>                    
@@ -164,13 +160,13 @@
                         <p class="mt-4 mb-4 text-lg font-semibold text-center text-black">Terima kasih kepada Sejumlah</p>
                         <div class="flex flex-row justify-center">
                             <div class="relative flex flex-col items-center w-40 h-24 p-4 md:w-60 md:p-8">
-                                <img src="{{ asset('images/tikum.png') }}" alt="Image 1"
+                                <img src="{{ asset('images/talk.png') }}" alt="Image 1"
                                     class="relative w-8 h-8 mb-2 md:w-16 md:h-16">
                                 <p class="relative text-xs font-semibold text-center text-green-600 md:text-md">41.124
                                     muzakki<br>NU Care Lazisnu Cilacap</p>
                             </div>
                             <div class="relative flex flex-col items-center w-40 h-24 p-4 md:w-60 md:p-8">
-                                <img src="{{ asset('images/tikum.png') }}" alt="Image 1"
+                                <img src="{{ asset('images/talk.png') }}" alt="Image 1"
                                     class="relative w-8 h-8 mb-2 md:w-16 md:h-16">
                                 <p class="relative text-xs font-semibold text-center text-green-600 md:text-md">64.712
                                     Munfiq<br>NU Care Lazisnu Cilacap</p>
@@ -210,7 +206,7 @@
                 <div class="flex transition-transform duration-500 w-[{{ $mitras->count() * 10 }}%]" :style="'transform: translateX(-' + offset + '%)'">
                     <!-- Loop through logos -->
                     @foreach ($mitras as $mitra)
-                        <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture" class="w-[10%] h-auto" style="margin-left: 75px; margin-right:75px"/>
+                        <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture" class="w-[10%] h-auto bg-gray-100 rounded-lg" style="margin-left: 75px; margin-right:75px"/>
                     @endforeach
                 </div> 
             </div>

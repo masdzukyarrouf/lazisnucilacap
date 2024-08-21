@@ -111,6 +111,8 @@
             @endif
         </div>
     </div>
+    <div style="height: 67px "></div>
+
     <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center">
         <div class="flex items-center justify-center px-4 py-4 space-x-4 bg-white"
             style="width: 414px; height: 67px; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -2px rgba(0, 0, 0, 0.1);">
