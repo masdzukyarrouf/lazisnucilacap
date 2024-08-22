@@ -24,9 +24,9 @@
                 "
                 class="relative w-full overflow-hidden">
                     <!-- Carousel Container -->
-                    <div class="flex transition-transform duration-500" :style="'transform: translateX(-' + offset + '%)'">
+                    <div class="flex w-full transition-transform duration-500" :style="'transform: translateX(-' + offset + '%)'">
                         @foreach ($landings as $landing)
-                        <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture" class=" h-[80%] bg-gray-100 rounded-lg mx-1" style="width: 1550px"/>
+                        <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture" class="min-w-full mx-1 bg-gray-100 rounded-lg"/>
                         @endforeach
                     </div> 
                 </div>
@@ -82,7 +82,7 @@
         </div>
 
         <!-- Campaign Section -->
-        <div class="flex flex-col items-center py-10 bg-white mt-8">
+        <div class="flex flex-col items-center py-10 mt-8 bg-white">
             <!-- Title -->
             <div class="flex items-center justify-between w-full mb-8">
                 <div class="relative flex flex-col justify-between px-12">
@@ -97,7 +97,7 @@
                     </a>
                 </div>
             </div>
-            <div class="flex flex-col justify-center w-full px-10 md:space-y-0 md:shadow-lg pb-4 md:space-x-4 md:w-auto md:grid md:grid-cols-3">
+            <div class="flex flex-col justify-center w-full px-10 pb-4 md:space-y-0 md:shadow-lg md:space-x-4 md:w-auto md:grid md:grid-cols-3">
                 <!-- Card 1 -->
                 @foreach ($campaigns as $campaign)
                 <x-campaign-card :campaign="$campaign" wire:key="{{ $campaign->id_campaign }}"/>                    
