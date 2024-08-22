@@ -11,7 +11,7 @@ class DoaList extends Component
 
     public function mount(){
         $this->campaign = Campaign::find($this->campaign->id_campaign);
-        $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)->take(3)->get();
+        $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)->get();
 
     }
     public function render()

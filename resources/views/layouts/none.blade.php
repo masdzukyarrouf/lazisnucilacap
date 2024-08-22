@@ -13,6 +13,13 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
         }
+    input:checked ~ .dot {
+        transform: translateX(100%);
+        background-color: #ffffff; /* Change the color when checked */
+    }
+    input:checked ~ .block {
+        background-color: #4F46E5; /* Change the background color when checked */
+    }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     @livewireStyles

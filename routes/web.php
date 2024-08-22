@@ -67,6 +67,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/{campaign}', App\Livewire\Donasi\Index::class)->name('donasi.index');
-Route::get('/pembayaran/{campaign}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
-Route::get('/donasi/{campaign}', App\Livewire\Campaigns\DonasiList::class)->name('campaigns.donasiList');
+Route::get('/donasi/{campaign}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
+Route::get('/pembayaran/{campaign}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
+Route::get('/list_donasi/{campaign}', App\Livewire\Campaigns\DonasiList::class)->name('campaigns.donasiList');
 Route::get('/doa/{campaign}', App\Livewire\Campaigns\DoaList::class)->name('campaigns.doaList');

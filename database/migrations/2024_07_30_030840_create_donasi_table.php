@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('id_campaign');
             $table->string('username');
             $table->string('no_telp');
-            $table->string('email')->unique()->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

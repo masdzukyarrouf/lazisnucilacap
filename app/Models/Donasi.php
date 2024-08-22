@@ -16,6 +16,7 @@ class Donasi extends Model
         'id_user',
         'username',
         'no_telp',
+        'email',
         'jumlah_donasi',
         'id_campaign',
 
