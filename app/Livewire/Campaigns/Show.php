@@ -15,12 +15,14 @@ class Show extends Component
     public function mount()
     {
         $this->campaign = Campaign::find($this->campaign->id_campaign);
-        $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)->get();
-        $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)->get();
+        $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)->take(3)->get();
+        $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)->take(3)->get();
         // dd($this->campaign);
         $this->processDescription();
         $this->processProgress();
         $this->dayLeft();
+        Campaign::updateRaisedValues();
+
 
     }
 
@@ -34,12 +36,13 @@ class Show extends Component
 
         $this->processedDesc = $desc;
     }
-    public function processProgress(){
+    public function processProgress()
+    {
 
         $raised = $this->campaign->raised;
         $goal = $this->campaign->goal;
         $progress = $raised / $goal * 100;
-        if($progress > 100){
+        if ($progress > 100) {
             $progress = 100;
         }
         $this->progress = $progress;
@@ -48,19 +51,19 @@ class Show extends Component
     {
         $end_date = Carbon::parse($this->campaign->end_date);
         $dayLeft = floor($end_date->diffInDays(Carbon::now(), false));
-                if ($dayLeft< 0) {
+        if ($dayLeft < 0) {
             $dayLeft = -$dayLeft;
-        }else if ($dayLeft> 0) {
+        } else if ($dayLeft > 0) {
             $dayLeft = 0;
         }
-        
+
         $this->dayLeft = $dayLeft;
     }
 
 
     public function render()
     {
-        return view('livewire.campaigns.show',[
+        return view('livewire.campaigns.show', [
             'processedDesc' => $this->processedDesc,
             'progress' => $this->progress,
             'dayLeft' => $this->dayLeft,

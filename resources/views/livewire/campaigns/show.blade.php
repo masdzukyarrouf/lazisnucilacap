@@ -69,7 +69,7 @@
     <div class="relative">
         <div class="flex justify-between items-center">
             <p class="mt-4 ml-4 text-md font-semibold text-green-500 text-[16px]">Donatur</p>
-            <p class="mt-4 mr-4 text-right font-semibold text-green-500 text-[12px]">Lihat Semua></p>
+            <a href="{{ route('campaigns.donasiList', $campaign->id_campaign) }}" class="mt-4 mr-4 text-right font-semibold text-green-500 text-[12px]">Lihat Semua></a>
 
         </div>
         <div class="px-3 w-full py-4">
@@ -78,7 +78,7 @@
                     <p>
                         Belum Ada Donasi
                     </p>
-                    <a href="#" class="text-green-500 text-sm">Donasi Sekarang</a>
+                    <a href="{{ route('donasi.index', $campaign->id_campaign) }}" class="text-green-500 text-sm">Donasi Sekarang</a>
                 </div>
             @else
                 @foreach ($donasis as $donasi)
@@ -93,7 +93,7 @@
     <div class="relative">
         <div class="flex justify-between items-center">
             <p class="mt-4 ml-4 text-md font-semibold text-green-500 text-[16px]">Doa Doa Orang Baik</p>
-            <p class="mt-4 mr-4 text-right font-semibold text-green-500 text-[12px]">Lihat Semua></p>
+            <a href="{{ route('campaigns.doaList', $campaign->id_campaign) }}" class="mt-4 mr-4 text-right font-semibold text-green-500 text-[12px]">Lihat Semua></a>
 
         </div>
         <div class="px-3 w-full py-4 space-y-4">
@@ -102,7 +102,7 @@
                     <p>
                         Belum Ada Doa
                     </p>
-                    <a href="#" class="text-green-500 text-sm">Donasi Sekarang</a>
+                    <a href="{{ route('donasi.index', $campaign->id_campaign) }}" class="text-green-500 text-sm">Donasi Sekarang</a>
                 </div>
             @else
                 @foreach ($doas as $doa)
