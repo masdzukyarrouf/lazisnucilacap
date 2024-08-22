@@ -29,7 +29,7 @@
             <tbody>
                 @foreach ($mitras as $mitra)
                     <tr class="border-t" wire:key="mitra-{{ $mitra->id_partner }}">
-                        <td class="max-w-xs px-4 py-2 break-words">{{ $mitra->partner_name }}</td>
+                        <td class="flex justify-center px-4 py-2 break-words">{{ $mitra->partner_name }}</td>
                         <td class="px-4 py-2">
                             <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Main Picture" class="block w-24 mx-auto mt-2 mb-2">
                         </td>
