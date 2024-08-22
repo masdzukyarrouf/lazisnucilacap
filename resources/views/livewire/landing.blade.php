@@ -85,21 +85,22 @@
         </div>
 
         <div class="flex flex-col justify-between mt-8 px-60">
-            <div class="flex flex-col items-center flex-1">
-                <h2 class="mb-3 text-lg font-semibold text-center text-green-500">Sekilas NU-Care Lazisnu Cilacap</h2>
-            </div>
-            <div class="flex flex-col items-start mt-4">
-                <h2 class="font-semibold text-left text-green-500">Visi</h2>
-                @foreach($visis as $visi)
-                    <p>{!! nl2br(e($visi->visi)) !!}</p>
-                @endforeach
-                <h2 class="mt-4 font-semibold text-left text-green-500">Misi</h2>
-                @foreach($misis as $Misi)
-                    <p>{!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}</p>
-                @endforeach
-                <div class="mt-4">
-                    <livewire:visi-misi />
+            <div id="details-container" class="relative max-h-[1000px] overflow-hidden transition-all duration-300">
+                <p class="mt-4 ml-4 text-[16px] font-semibold text-green-500 justify-center items-center flex">Sekilas NU-Care Lazisnu Cilacap</p>
+                <div id="details-content" class="w-full px-5 py-4">
+                    <h2 class="font-semibold text-left text-green-500">Visi</h2>
+                    @foreach($visis as $visi)
+                        <p>{!! nl2br(e($visi->visi)) !!}</p>
+                    @endforeach
+                    <h2 class="mt-4 font-semibold text-left text-green-500">Misi</h2>
+                    @foreach($misis as $Misi)
+                        <p>{!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}</p>
+                    @endforeach
                 </div>
+                <a href="#" id="details-expand-link"
+                    class="absolute bottom-0 left-0 w-full px-3 pt-4 text-left bg-gradient-to-t from-white via-white to-transparent">
+                        <livewire:visi-misi />
+                </a>
             </div>
         </div>
 
