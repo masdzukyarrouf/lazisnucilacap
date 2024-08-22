@@ -7,6 +7,8 @@ use Livewire\Component;
 use App\Models\Campaign;
 use App\Models\Berita;
 use App\Models\gambar_landing;
+use App\Models\visi;
+use App\Models\misi;
 
 class Landing extends Component
 {
@@ -28,6 +30,14 @@ class Landing extends Component
             ->latest()
             ->take(3)
             ->get();
+
+        $this->visis = visi::query()
+            ->latest()
+            ->get();
+
+        $this->misis = misi::query()
+            ->latest()
+            ->get();
     }
     public function render()
     {
@@ -36,6 +46,8 @@ class Landing extends Component
             'mitras' => $this->mitras,
             'landings' => $this->landings,
             'beritas' => $this->beritas,
+            'visis' => $this->visis,
+            'misis' => $this->misis
         ]);
     }
 }
