@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('like', function (Blueprint $table) {
             $table->integer('id_like')->autoIncrement()->primary();
-            $table->integer('id_user');
+            $table->integer('id_user')->nullable();
             $table->integer('id_doa');
+            $table->string('ip_address', 45)->nullable();
             $table->timestamps();
         });
     }

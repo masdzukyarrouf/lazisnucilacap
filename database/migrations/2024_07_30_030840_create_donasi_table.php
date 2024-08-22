@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('donasi', function (Blueprint $table) {
             $table->integer('id_donasi')->autoIncrement()->primary();
-            $table->integer('id_user');
+            $table->enum('hide_name', ['yes', 'no'])->default('no');
+            $table->integer('id_user')->nullable();
             $table->integer('jumlah_donasi');
             $table->integer('id_campaign');
+            $table->string('username');
+            $table->string('no_telp');
+            $table->string('email')->unique()->nullable();
             $table->timestamps();
         });
     }

@@ -22,6 +22,8 @@
             <tr class="w-full text-white bg-gray-800">
                 <th scope="col" class="px-6 py-3 border-b border-gray-300">#</th>
                 <th scope="col" class="px-6 py-3 border-b border-gray-300">Id_user</th>
+                <th scope="col" class="px-6 py-3 border-b border-gray-300">Name</th>
+                <th scope="col" class="px-6 py-3 border-b border-gray-300">Telp</th>
                 <th scope="col" class="px-6 py-3 border-b border-gray-300">Jumlah Donasi</th>
                 <th scope="col" class="px-6 py-3 border-b border-gray-300">Id Campaign</th>
                 <th scope="col" class="px-6 py-3 border-b border-gray-300">Created At</th>
@@ -33,6 +35,8 @@
                     <tr wire:key="donasi-{{ $donasi->id_donasi }}" class="bg-gray-100 even:bg-gray-200">
                         <td class="px-6 py-4 border-b border-gray-300">{{ $loop->index + $donasis->firstItem() }}</td>
                         <td class="px-6 py-4 border-b border-gray-300">{{ $donasi->id_user }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300">{{ $donasi->username }}</td>
+                        <td class="px-6 py-4 border-b border-gray-300">{{ $donasi->no_telp }}</td>
                         <td class="px-6 py-4 border-b border-gray-300">{{ $donasi->jumlah_donasi }}</td>
                         <td class="px-6 py-4 border-b border-gray-300">{{ $donasi->id_campaign }}</td>
                         <td class="px-6 py-4 border-b border-gray-300">{{ $donasi->created_at->format('d/m/Y') }}</td>

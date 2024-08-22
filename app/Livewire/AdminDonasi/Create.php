@@ -5,6 +5,7 @@ namespace App\Livewire\AdminDonasi;
 use Livewire\Component;
 use Livewire\Attributes\Rule;
 use App\Models\Donasi;
+use App\Models\User;
 
 
 class Create extends Component
@@ -21,10 +22,15 @@ class Create extends Component
     public function save()
     {
         $this->validate();
+
+        $user = User::find($this->id_user);
+
         $donasi = Donasi::create([
             'id_user' => $this->id_user,
             'jumlah_donasi' => $this->jumlah_donasi,
             'id_campaign' => $this->id_campaign,
+            'username' => $user->username,
+            'no_telp' => $user->no_telp,
         ]);
 
         $donasi->save();

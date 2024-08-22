@@ -14,6 +14,8 @@ class Donasi extends Model
     protected $primaryKey = 'id_donasi';
     protected $fillable = [
         'id_user',
+        'username',
+        'no_telp',
         'jumlah_donasi',
         'id_campaign',
 
