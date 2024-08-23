@@ -11,6 +11,8 @@ class Doa extends Model
     protected $table = 'doa';
     protected $primaryKey = 'id_doa';
     protected $fillable = [
+        'username',
+        'id_user',
         'doa',
         'jumlah_likes',
         'id_campaign',

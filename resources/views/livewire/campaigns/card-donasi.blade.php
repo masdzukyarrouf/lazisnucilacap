@@ -4,7 +4,7 @@
     </div>
     <div class="w-full bg-white mx-2 text-black flex flex-col justify-center pl-2">
         <div>
-            <p class="font-bold text-lg text-[12px]">{{ $donatur }}</p>
+            <p class="font-bold text-lg text-[12px]">{{ $donasi->username }}</p>
         </div>
         <div class="flex items-center text-[11px] -mt-1">
             <p>Berdonasi Sebesar</p>

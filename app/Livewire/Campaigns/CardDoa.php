@@ -14,14 +14,13 @@ class CardDoa extends Component
     public function mount($id_doa)
     {
         $this->doa = Doa::find($id_doa);
-        $user = User::find($this->doa->id_user);
-        $this->pendoa = $user ? $user->username : 'Hamba Allah';
+        if($this->doa->username == null){
+            $this->doa->username = 'Hamba Allah';
+        }
     }
     public function render()
     {
         return view('livewire.campaigns.card-doa',[
-            'pendoa' => $this->pendoa,
-            'doa' => $this->doa,
         ]);
     }
 }

@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         // Donasi::factory(300)->create();
         Like::factory(300)->create();
         Campaign::factory(50)->create();
-        Doa::factory(150)->create();
+        // Doa::factory(150)->create();
         Berita::factory(50)->create();
 
         // User::factory()->create([

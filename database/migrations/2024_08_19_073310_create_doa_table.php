@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('doa', function (Blueprint $table) {
             $table->integer('id_doa')->autoIncrement()->primary();
+            $table->string('username')->nullable();
+            $table->integer('id_user')->nullable();
             $table->text('doa');
             $table->integer('jumlah_likes');
             $table->integer('id_campaign');

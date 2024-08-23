@@ -39,13 +39,15 @@ class Pembayaran extends Component
         } else {
             return redirect()->route('donasi.index', $this->campaign->id_campaign);
         }
+
     }
     public function donasi()
     {
+        
         $user = Auth::user();
         if ($user) {
             $this->id_user = $user->id_user;
-        }else{
+        } else {
             $this->id_user = null;
         }
         $donasi = Donasi::create([
@@ -57,7 +59,10 @@ class Pembayaran extends Component
             'email' => $this->email,
         ]);
         if ($this->doa) {
-            Doa::create([
+
+            $doaaaa = Doa::create([
+                'username' => $this->username,
+                'id_user' => $this->id_user,
                 'doa' => $this->doa,
                 'jumlah_likes' => 0,
                 'id_campaign' => $this->campaign->id_campaign,
