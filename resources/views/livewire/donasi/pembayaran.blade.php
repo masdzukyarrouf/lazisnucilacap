@@ -108,7 +108,7 @@
                             <input type="hidden" wire:model="no_telp">
                             <input type="hidden" wire:model="email">
                             <input type="hidden" wire:model="doa">
-                            <button wire:click="donasi" class="text-[12px] bg-green-600 w-full py-2 items-center text-white rounded-lg">
+                            <button type="submit" class="text-[12px] bg-green-600 w-full py-2 items-center text-white rounded-lg">
                                 Donasi Sekarang
                             </button>
                         </form>
