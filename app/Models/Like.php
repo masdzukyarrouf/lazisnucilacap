@@ -13,6 +13,7 @@ class Like extends Model
     protected $fillable = [
         'id_user',
         'id_doa',
+        'ip_address',
 
     ];
 }

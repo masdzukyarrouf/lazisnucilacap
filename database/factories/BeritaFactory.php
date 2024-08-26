@@ -18,7 +18,7 @@ class BeritaFactory extends Factory
     {
         return [
             'title_berita' => fake()->sentence(),
-            'description' => fake()->paragraph(),
+            'description' => fake()->paragraph(5),
             'tanggal' => fake()->dateTimeBetween('-3 month', 'now'),
             'picture' => '2lNcAJLKMgQSJpdbEPL72LN3EwvAlEDqkFGjglKb.png',
         ];
