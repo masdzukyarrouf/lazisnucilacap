@@ -14,6 +14,7 @@ class Landing extends Component
 {
     public function mount()
     {
+        Campaign::updateRaisedValues();
         $this->campaigns = Campaign::query()
             ->latest()
             ->paginate(3);
@@ -38,6 +39,16 @@ class Landing extends Component
         $this->misis = misi::query()
             ->latest()
             ->get();
+        foreach ($this->campaigns as $campaign) {
+            $raised = $campaign->raised;
+            $goal = $campaign->goal;
+            $progress = $raised / $goal * 100;
+            if ($progress > 100) {
+                $progress = 100;
+            }
+            $campaign->progress = $progress;
+        }
+
     }
     public function render()
     {
@@ -47,7 +58,8 @@ class Landing extends Component
             'landings' => $this->landings,
             'beritas' => $this->beritas,
             'visis' => $this->visis,
-            'misis' => $this->misis
+            'misis' => $this->misis,
+
         ]);
     }
 }

@@ -18,7 +18,7 @@
             </div>
             <div class="mt-1">
                 <div class="mb-2 h-1 md:h-2 bg-gray-200 rounded-full">
-                    <div class="h-1 md:h-2 bg-green-500 rounded-full" style="width: 60%;"></div>
+                    <div class="h-1 md:h-2 bg-green-500 rounded-full" style="width: {{$campaign->progress}}%;"></div>
                 </div>
 
                 <div class="flex items-center justify-between">
