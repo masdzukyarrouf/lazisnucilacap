@@ -36,7 +36,7 @@
                 class="relative flex flex-wrap items-center justify-center h-auto -mt-24 space-x-2 md:mx-20 md:-mt-32 md:space-x-4 lg:space-x-8 rounded-3xl">
                 <!-- Wrapper for Left Ornament and Item 1 -->
                 <div class="relative flex items-center">
-                    <a href="https://wa.me/6283863536205?text=Assalamualaikum,%20saya%20ingin%20berkonsultasi%20mengenai%20zakat">
+                    <a href="https://wa.me/62895392167815?text=Assalamualaikum,%20saya%20ingin%20berkonsultasi%20mengenai%20zakat">
                         <div class="relative flex flex-col items-center w-24 p-4 bg-white rounded-lg shadow-2xl h-28 md:w-36 md:h-42 lg:w-48 lg:h-52 md:p-8">
                             <div class="px-4 py-4 bg-green-500 rounded-full">
                                 <img src="{{ asset('images/Phone Message.png') }}" alt="Image 1"
@@ -237,7 +237,7 @@
                     @endforeach
                 </div> 
             </div>
-            <div class="mb-16">
+            <div class="mb-16 md:hidden">
                 
             </div>
         <!-- Sticky Bottom -->
@@ -271,7 +271,7 @@
                     </div>
             </div>
         </div>
+    </div>
 </div>
-
 
     
