@@ -3,17 +3,17 @@
         <h1 class="text-2xl font-bold ">Mitra Table</h1>
         <div>
             @if (session()->has('message'))
-                <div id="flash-message"
-                    class="flex items-center justify-between p-4 mx-12 mt-8 mb-4 text-white bg-green-500 rounded">
-                    <span>{{ session('message') }}</span>
-                    <button class="p-1"  onclick="document.getElementById('flash-message').style.display='none'"
-                        class="font-bold text-white">
-                        &times;
-                    </button>
-                </div>
-            @endif
+            <div id="flash-message"
+            class="flex items-center justify-between p-4 mx-12 mt-8 mb-4 text-white bg-green-500 rounded">
+            <span>{{ session('message') }}</span>
+            <button class="p-1"  onclick="document.getElementById('flash-message').style.display='none'"
+            class="font-bold text-white">
+            &times;
+            </button>
         </div>
-        <!-- Modal Form -->
+        @endif
+    </div>
+    <!-- Modal Form -->
         <input type="text" wire:model.live="search" placeholder="   Search" class="ml-4 border border-gray-300 rounded-lg">
         <livewire:mitra.create />
     </div>

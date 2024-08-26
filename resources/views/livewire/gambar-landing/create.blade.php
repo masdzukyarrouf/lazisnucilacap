@@ -9,7 +9,9 @@
             <!-- Modal Header -->
             <div class="flex items-center justify-between p-4 bg-gray-200 rounded-t-lg">
                 <h3 class="text-xl font-semibold">Tambah Gambar Landing</h3>
-                <button @click="isOpen=false" class="text-gray-600 hover:text-gray-900">&times;</button>
+                <div @click="isOpen=false" class="px-3 rounded-sm shadow hover:bg-red-500">
+                    <button class="text-gray-900">&times;</button>
+                </div>
             </div>
             <div class="p-4">
 
