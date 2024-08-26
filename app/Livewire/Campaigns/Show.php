@@ -14,6 +14,7 @@ class Show extends Component
 
     public function mount()
     {
+        Campaign::updateRaisedValues();
         $this->campaign = Campaign::find($this->campaign->id_campaign);
         $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)->take(3)->get();
         $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)->take(3)->get();
@@ -21,7 +22,6 @@ class Show extends Component
         $this->processDescription();
         $this->processProgress();
         $this->dayLeft();
-        Campaign::updateRaisedValues();
 
 
     }

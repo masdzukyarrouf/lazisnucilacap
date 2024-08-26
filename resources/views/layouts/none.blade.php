@@ -28,6 +28,8 @@
 <body class="flex flex-col h-screen bg-gray-200">
     {{ $slot }}
     @livewireScripts
+    <script src="//unpkg.com/alpinejs" defer></script>
+
 </body>
 
 </html>

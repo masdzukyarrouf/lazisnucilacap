@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="flex items-center w-full">
-                        <form>
+                        <form class="flex items-center w-full">
                             <input type="hidden" wire:model="nominal">
                             <input type="hidden" wire:model="username">
                             <input type="hidden" wire:model="no_telp">

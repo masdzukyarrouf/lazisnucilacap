@@ -1,7 +1,5 @@
 <div >
     <x-navbar></x-navbar>
-
-
         <div class="relative flex items-center justify-center mt-1">
             <div class="relative z-0 w-full bg-white">
                 <div x-data="{ 
