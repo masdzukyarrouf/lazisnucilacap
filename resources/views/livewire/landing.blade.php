@@ -233,7 +233,7 @@
                 <div class="flex transition-transform duration-500 w-[{{ $mitras->count() * 10 }}%] items-center flex" :style="'transform: translateX(-' + offset + '%)'">
                     <!-- Loop through logos -->
                     @foreach ($mitras as $mitra)
-                        <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture" class="w-[10%] h-[5%] bg-gray-100 rounded-lg" style="margin-left: 75px; margin-right:75px"/>
+                        <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture" class="w-[10%] h-[5%]" style="margin-left: 75px; margin-right:75px"/>
                     @endforeach
                 </div> 
             </div>
