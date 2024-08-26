@@ -1,4 +1,4 @@
-<div class="w-full max-w-[414px] mx-auto bg-white">
+<div class="w-full max-w-[414px] mx-auto bg-white h-full">
     <x-nav-mobile2 title="List Doa Campaign" />
     @if ($doas->isEmpty())
         <div class="px-4 py-40  text-center ">

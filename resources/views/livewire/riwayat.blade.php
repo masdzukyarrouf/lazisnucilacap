@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="w-full max-w-[414px] mx-auto h-full">
     <x-nav-mobile2 title="Riwayat" />
-    <div class="flex flex-col bg-gray-200 shadow-md" style="width: 414px;">
+    <div class="flex flex-col bg-gray-200 shadow-md h-full" style="width: 414px;">
         <div>
             @if ($donasis->isEmpty())
                 <p>No donations found for this user.</p>

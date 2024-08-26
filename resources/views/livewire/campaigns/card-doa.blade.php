@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="w-full bg-white mt-2 text-black border-t">
-        <a onclick="handleLike({{ $doa->id_doa }})" wire:click="like({{ $doa->id_doa }})" class="cursor-pointer flex justify-center py-2 w-full space-x-1 items-center text-xs font-medium {{ $liked ? 'text-rose-600' : 'text-gray-400' }}" id="like-button-{{ $doa->id_doa }}">
+        <a onclick="handleLike({{ $doa->id_doa }})" wire:click="like({{ $doa->id_doa }})" class="cursor-pointer flex justify-center py-2 w-full space-x-1 items-center text-xs font-medium {{ $liked ? 'text-rose-600' : 'text-black' }}" id="like-button-{{ $doa->id_doa }}">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current {{ $liked ? 'text-red-400' : '' }}" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

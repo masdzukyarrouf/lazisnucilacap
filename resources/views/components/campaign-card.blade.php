@@ -1,6 +1,5 @@
-<div class="z-5 flex flex-grow md:flex-col bg-white md:shadow-2xl md:rounded-lg  h-full">
-    <a href="{{ route('campaigns.show', $campaign->id_campaign) }}">
-
+<div class="z-5  md:flex-col bg-white md:shadow-2xl md:rounded-lg h-full border border-transparent border-b-gray-300">
+    <a href="{{ route('campaigns.show', $campaign->id_campaign) }}" class="flex flex-row md:flex-col md:flex">
         <div class="z-0 relative group flex items-center w-44 h-28 md:h-80 md:w-auto md:rounded-lg">
 
             <img src="{{ asset('storage/images/campaign/' . $campaign->main_picture) }}" alt="Picture"
