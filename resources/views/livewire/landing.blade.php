@@ -38,14 +38,15 @@
                 class="relative flex flex-wrap items-center justify-center h-auto -mt-24 space-x-2 md:mx-20 md:-mt-32 md:space-x-4 lg:space-x-8 rounded-3xl">
                 <!-- Wrapper for Left Ornament and Item 1 -->
                 <div class="relative flex items-center">
-                    <div
-                        class="relative flex flex-col items-center w-24 p-4 bg-white rounded-lg shadow-2xl h-28 md:w-36 md:h-42 lg:w-48 lg:h-52 md:p-8">
-                        <div class="px-4 py-4 bg-green-500 rounded-full">
-                            <img src="{{ asset('images/Phone Message.png') }}" alt="Image 1"
-                            class="flex items-center justify-center w-8 h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
+                    <a href="https://wa.me/6283863536205?text=Assalamualaikum,%20saya%20ingin%20berkonsultasi%20mengenai%20zakat">
+                        <div class="relative flex flex-col items-center w-24 p-4 bg-white rounded-lg shadow-2xl h-28 md:w-36 md:h-42 lg:w-48 lg:h-52 md:p-8">
+                            <div class="px-4 py-4 bg-green-500 rounded-full">
+                                <img src="{{ asset('images/Phone Message.png') }}" alt="Image 1"
+                                class="flex items-center justify-center w-8 h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
+                            </div>
+                            <p class="relative text-sm text-center text-gray-800 md:text-lg">Konsultasi</p>
                         </div>
-                        <p class="relative text-sm text-center text-gray-800 md:text-lg">Konsultasi</p>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- Item 2 -->
