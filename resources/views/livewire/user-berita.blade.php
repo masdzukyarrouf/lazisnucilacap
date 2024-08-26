@@ -16,9 +16,9 @@
                             <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
                             <p class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal}}</p>
                         </div>
-                        <a href="#" class="text-sm text-green-500 md:text-base hover:text-green-600 hover:cursor-pointer">
+                        <div class="text-sm text-green-500 md:text-base hover:text-green-600 hover:cursor-pointer">
                             Baca Selengkapnya ...
-                        </a>
+                        </div>
                     </div>
                 </div>
             </a>

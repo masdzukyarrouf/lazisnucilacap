@@ -20,7 +20,7 @@
         </div>
         <div class="flex justify-center py-4">
             <div class="flex flex-col">
-                <h2 class="mb-2 font-semibold">Silahkan Isi Jumlah Infaq Kamu. Insya Allah Berkah</h2>
+                <h2 class="mb-2 font-semibold">Silahkan Isi Jumlah Infaq Kamu</h2>
                 <div class="relative w-96">
                     <label class="font-semibold text-green-500">Nominal Infaq Kamu</label>
                     <input 

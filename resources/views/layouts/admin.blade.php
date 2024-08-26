@@ -138,12 +138,12 @@
                     <x-navlink 
                         title="Misi" 
                         url="/misi" 
-                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('/misi') ? 'text-green-500' : '' }} sm:hover:text-green" 
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('misi') ? 'text-green-500' : '' }} sm:hover:text-green" 
                     />
                     <x-navlink 
                         title="Visi" 
                         url="/visi" 
-                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('/visi') ? 'text-green-500' : '' }} sm:hover:text-green" 
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('visi') ? 'text-green-500' : '' }} sm:hover:text-green" 
                     />
 
                     {{-- alalal --}}
