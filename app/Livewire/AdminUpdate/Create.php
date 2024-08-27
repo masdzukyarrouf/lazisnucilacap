@@ -7,6 +7,7 @@ use Livewire\WithFileUploads;
 use Livewire\Attributes\Rule;
 use App\Models\update_campaign;
 use Illuminate\Support\Str;
+use App\Models\Campaign;
 
 class Create extends Component
 {
@@ -19,6 +20,12 @@ class Create extends Component
 
     #[Rule('required|image')]
     public $picture;
+    public $campaigns= [];
+
+    public function mount()
+    {
+        $this->campaigns = Campaign::all();
+    }
 
     public function save()
     {
@@ -48,7 +55,7 @@ class Create extends Component
         }
         return null;
     }
-    
+   
     public function render()
     {
         return view('livewire.admin-update.create');

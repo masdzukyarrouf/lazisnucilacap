@@ -25,15 +25,22 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="id_campaign" class="block text-sm font-medium text-gray-700">Min donation</label>
-                        <input type="number" id="id_campaign" wire:model="id_campaign" name="id_campaign"
+                        <label for="id_campaign" class="block text-sm font-medium text-gray-700">Campaign</label>
+                        <select id="id_campaign" wire:model="id_campaign" name="id_campaign"
                             class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
+                            <option value="">Select a Campaign</option>
+                            @foreach($campaigns as $campaign)
+                                <option value="{{ $campaign->id_campaign }}">{{ $campaign->title }}</option>
+                            @endforeach
+                        </select>
                         @error('id_campaign')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                     </div>
+                    
+                    
                     <div class="mb-4">
-                        <label for="picture" class="block text-sm font-medium text-gray-700">Image 1</label>
+                        <label for="picture" class="block text-sm font-medium text-gray-700">Image</label>
                         <input type="file" id="picture" class="border border-gray-300 p-2 w-full rounded-lg"
                             wire:model="picture">
                         @error('picture')
@@ -62,23 +69,16 @@
         </div>
     </div>
 </div>
-{{-- img preview --}}
-{{-- <script>
-    function previewImage(event, previewId) {
-        const reader = new FileReader();
-        reader.onload = function() {
-            const output = document.getElementById(previewId);
-            output.src = reader.result;
-            output.style.display = 'block';
-        }
-        reader.readAsDataURL(event.target.files[0]);
-    }
-</script> --}}
-{{-- format uang --}}
 <script>
-    function formatMoney(input) {
-        let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
-        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Add dots for thousands
-        input.value = value;
-    }
-    </script>
+    document.addEventListener('livewire:load', function () {
+        $('#id_campaign').select2();
+
+        $('#id_campaign').on('change', function (e) {
+            var data = $('#id_campaign').select2("val");
+            @this.set('id_campaign', data);
+        });
+    });
+</script>
+
+
+

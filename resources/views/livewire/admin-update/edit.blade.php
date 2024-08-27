@@ -27,15 +27,20 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="id_campaign" class="block text-sm font-medium text-gray-700">Min donation</label>
-                        <input type="text" id="id_campaign" wire:model="id_campaign" name="id_campaign"
+                        <label for="id_campaign" class="block text-sm font-medium text-gray-700">Campaign</label>
+                        <select id="id_campaign" wire:model="id_campaign" name="id_campaign"
                             class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
+                            <option value="">Select a Campaign</option>
+                            @foreach($campaigns as $campaign)
+                                <option value="{{ $campaign->id_campaign }}">{{ $campaign->title }}</option>
+                            @endforeach
+                        </select>
                         @error('id_campaign')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="edit_picture" class="block text-sm font-medium text-gray-700">Image 1</label>
+                        <label for="edit_picture" class="block text-sm font-medium text-gray-700">Image</label>
                         <input type="file" id="edit_picture"
                             class="border border-gray-300 p-2 w-full rounded-lg" wire:model="picture">
                         @error('picture')

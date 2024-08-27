@@ -7,7 +7,8 @@ use Livewire\Attributes\Rule;
 use Livewire\WithFileUploads;
 use App\Models\update_campaign;
 use Illuminate\Support\Str;
-use Livewire\Attributes\On;
+use App\Models\Campaign;
+
 
 class Edit extends Component
 {
@@ -21,6 +22,7 @@ class Edit extends Component
 
     #[Rule('nullable|image')]
     public $picture;
+    public $campaigns= [];
 
 
     public function mount(update_campaign $update_campaign)
@@ -28,6 +30,8 @@ class Edit extends Component
         $this->id_update_campaign = $update_campaign->id_update_campaign;
         $this->id_campaign = $update_campaign->id_campaign;
         $this->description = $update_campaign->description;
+        $this->campaigns = Campaign::all();
+
 
 
     }
