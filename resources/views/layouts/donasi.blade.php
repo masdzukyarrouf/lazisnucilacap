@@ -61,14 +61,10 @@
     </script>
 </body>
 <footer>
-    <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center">
+    <div class="fixed bottom-0 left-0 right-0 z-50 flex justify-center">
         <div class="flex items-center justify-center px-4 py-4 space-x-4 bg-white"
             style="width: 414px; height: 67px; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -2px rgba(0, 0, 0, 0.1);">
-            <a onclick="copyToClipboard()"
-                class="items-center px-6 py-2 rounded-lg flex space-x-1 border border-gray-300 text-[12px] hover:cursor-pointer">
-                <img src="{{ asset('images/share.png') }}" alt="Share">
-                <p>Bagikan</p>
-            </a>
+            <livewire:campaigns.share />
             <a wire:navigate.hover href="{{ route('donasi.index', $campaign->id_campaign) }}"
                 class="text-[12px] bg-green-600 px-16 py-2 items-center text-white rounded-lg">
                 Donasi Sekarang
