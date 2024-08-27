@@ -79,7 +79,7 @@
                             <span class="text-gray-600">Rp.</span>
                             <input type="number"
                                 class="ml-2 w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-                                wire:model="nominal" placeholder="Masukkan nominal donasi">
+                                wire:model="nominal" placeholder="Minimal donasi {{$this->campaign->min_donation}}">
                         </div>
                         @error('nominal')
                             <span class="text-red-500 text-xs mt-2">{{ $message }}</span>

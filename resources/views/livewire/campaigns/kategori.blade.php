@@ -8,7 +8,7 @@
     <!-- The Popup Modal -->
     <div id="modalOverlay" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex justify-center items-end">
         <!-- Modal Content -->
-        <div id="categoryModal" class="w-full max-w-[414px] bg-white shadow-lg rounded-t-lg">
+        <div id="categoryModal" class="w-full max-w-[414px] bg-white shadow-lg rounded-t-lg pb-[67px]">
             <div class="p-4 border-b border-gray-200">
                 <div class="flex justify-between items-center">
                     <h2 class="text-lg font-bold text-gray-900">Pilih Kategori Campaign</h2>

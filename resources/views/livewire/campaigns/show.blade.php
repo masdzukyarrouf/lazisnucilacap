@@ -51,25 +51,28 @@
     <div class="py-1 w-full bg-gray-200">
         {{-- empty --}}
     </div>
-    <div id="update-container" class="relative max-h-[174px] overflow-hidden transition-all duration-300">
-        <p class="mt-4 ml-4 text-[16px] font-semibold text-green-500">Update Donasi</p>
-        <div id="update-content" class="px-3 w-full py-4 break-words">
-            <p wire:key="campaign-{{ $campaign->id_campaign }}" class="text-[12px]">{!! $processedUpdate !!}</p>
-        </div>
-        <a href="#" id="update-expand-link"
-            class="absolute bottom-0 left-0 px-3 pt-4 w-full text-left bg-gradient-to-t from-white via-white to-transparent">
-            <div class="py-2 font-bold text-green-500 text-[12px]">
-                Baca Selengkapnya...
+    @if ($processedUpdate)
+        <div id="update-container" class="relative max-h-[174px] overflow-hidden transition-all duration-300">
+            <p class="mt-4 ml-4 text-[16px] font-semibold text-green-500">Update Donasi</p>
+            <div id="update-content" class="px-3 w-full py-4 break-words">
+                <p wire:key="campaign-{{ $campaign->id_campaign }}" class="text-[12px]">{!! $processedUpdate !!}</p>
             </div>
-        </a>
-    </div>
-    <div class="py-1 w-full bg-gray-200">
-        {{-- empty --}}
-    </div>
+            <a href="#" id="update-expand-link"
+                class="absolute bottom-0 left-0 px-3 pt-4 w-full text-left bg-gradient-to-t from-white via-white to-transparent">
+                <div class="py-2 font-bold text-green-500 text-[12px]">
+                    Baca Selengkapnya...
+                </div>
+            </a>
+        </div>
+        <div class="py-1 w-full bg-gray-200">
+            {{-- empty --}}
+        </div>
+    @endif
     <div class="relative">
         <div class="flex justify-between items-center">
             <p class="mt-4 ml-4 text-md font-semibold text-green-500 text-[16px]">Donatur</p>
-            <a href="{{ route('campaigns.donasiList', $campaign->id_campaign) }}" class="mt-4 mr-4 text-right font-semibold text-green-500 text-[12px]">Lihat Semua></a>
+            <a href="{{ route('campaigns.donasiList', $campaign->id_campaign) }}"
+                class="mt-4 mr-4 text-right font-semibold text-green-500 text-[12px]">Lihat Semua></a>
 
         </div>
         <div class="px-3 w-full py-4">
@@ -78,7 +81,8 @@
                     <p>
                         Belum Ada Donasi
                     </p>
-                    <a href="{{ route('donasi.index', $campaign->id_campaign) }}" class="text-green-500 text-sm">Donasi Sekarang</a>
+                    <a href="{{ route('donasi.index', $campaign->id_campaign) }}" class="text-green-500 text-sm">Donasi
+                        Sekarang</a>
                 </div>
             @else
                 @foreach ($donasis as $donasi)
@@ -93,7 +97,8 @@
     <div class="relative">
         <div class="flex justify-between items-center">
             <p class="mt-4 ml-4 text-md font-semibold text-green-500 text-[16px]">Doa Doa Orang Baik</p>
-            <a href="{{ route('campaigns.doaList', $campaign->id_campaign) }}" class="mt-4 mr-4 text-right font-semibold text-green-500 text-[12px]">Lihat Semua></a>
+            <a href="{{ route('campaigns.doaList', $campaign->id_campaign) }}"
+                class="mt-4 mr-4 text-right font-semibold text-green-500 text-[12px]">Lihat Semua></a>
 
         </div>
         <div class="px-3 w-full py-4 space-y-4">
@@ -102,7 +107,8 @@
                     <p>
                         Belum Ada Doa
                     </p>
-                    <a href="{{ route('donasi.index', $campaign->id_campaign) }}" class="text-green-500 text-sm">Donasi Sekarang</a>
+                    <a href="{{ route('donasi.index', $campaign->id_campaign) }}" class="text-green-500 text-sm">Donasi
+                        Sekarang</a>
                 </div>
             @else
                 @foreach ($doas as $doa)
@@ -112,15 +118,11 @@
         </div>
     </div>
     <div style="height: 67px "></div>
-
-    <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center">
+    <div class="fixed bottom-0 left-0 right-0 z-50 flex justify-center">
         <div class="flex items-center justify-center px-4 py-4 space-x-4 bg-white"
             style="width: 414px; height: 67px; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -2px rgba(0, 0, 0, 0.1);">
-            <a onclick="copyToClipboard()"
-                class="items-center px-6 py-2 rounded-lg flex space-x-1 border border-gray-300 text-[12px] hover:cursor-pointer">
-                <img src="{{ asset('images/share.png') }}" alt="Share">
-                <p>Bagikan</p>
-            </a>
+            <livewire:campaigns.share />
+    
             <a wire:navigate.hover href="{{ route('donasi.index', $campaign->id_campaign) }}"
                 class="text-[12px] bg-green-600 px-16 py-2 items-center text-white rounded-lg">
                 Donasi Sekarang
@@ -165,5 +167,19 @@
         // Setup expandable containers
         setupExpandableContainer('details-container', 'details-expand-link');
         setupExpandableContainer('update-container', 'update-expand-link');
+    });
+    document.getElementById('openModal').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('modalOverlay').classList.remove('hidden');
+    });
+
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('modalOverlay').classList.add('hidden');
+    });
+
+    document.getElementById('modalOverlay').addEventListener('click', function(event) {
+        if (event.target === event.currentTarget) {
+            document.getElementById('modalOverlay').classList.add('hidden');
+        }
     });
 </script>

@@ -12,6 +12,7 @@ use App\Models\update_campaign;
 class Show extends Component
 {
     public Campaign $campaign;
+    public $processedUpdate = null;
 
     public function mount()
     {
@@ -20,9 +21,10 @@ class Show extends Component
         $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)->take(3)->get();
         $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)->take(3)->get();
         $this->update_campaign = update_campaign::where('id_campaign', $this->campaign->id_campaign)->latest('updated_at')->first();
-        // dd($this->campaign);
         $this->processDescription();
-        $this->processUpdate();
+        if ($this->update_campaign) {
+            $this->processUpdate();
+        }
         $this->processProgress();
         $this->dayLeft();
 
@@ -49,7 +51,6 @@ class Show extends Component
     }
     public function processProgress()
     {
-
         $raised = $this->campaign->raised;
         $goal = $this->campaign->goal;
         $progress = $raised / $goal * 100;

@@ -1,7 +1,7 @@
 <div class="flex flex-col items-center justify-center">
     <x-nav-mobile2 title="Campaign" />
-    <div class=" w-full max-w-[414px] mx-auto bg-white">
-        <div class="w-full ">
+    <div class=" w-full max-w-[414px] mx-auto bg-white min-h-screen">
+        <div class="w-full sticky ">
             <!-- Kategori and Filter Buttons -->
             <div class="flex items-center justify-between">
                 <!-- Kategori Button -->
@@ -38,7 +38,7 @@
             <!-- Campaign Cards Grid -->
             <div class="flex grid items-center justify-center w-full h-auto grid-cols-1" wire:loading.remove>
                 @if ($campaigns->isEmpty())
-                    <div class="px-4 py-2 border border-transparent border-b-gray-300 h-[100px] text-center">
+                    <div class="px-4 py-2  text-center">
                         Belum Ada Campaign
                     </div>
                 @else
@@ -51,13 +51,22 @@
                 @endif
             </div>
 
-            <!-- Load More Button -->
-            {{-- <div class="flex justify-center mt-8">
-                <button class="flex items-center justify-center p-2 text-white bg-green-600 rounded-md"
-                    wire:click="moreCampaigns">
-                    Campaign lainnya
-                </button>
-            </div> --}}
+            <div wire:loading class="px-4 py-2 border border-transparent space-y-2">
+                @for ($i = 0; $i < 5; $i++)
+                    <div class="z-5 flex flex-grow  h-[100px] animate-pulse">
+                        <div class="z-0 relative w-[220px] h-full overflow-hidden">
+                            <div class="h-[100px] bg-gray-200  dark:bg-gray-700 w-48 mb-4"></div>
+                        </div>
+                        <div class="py-2 px-3  w-4/5 ">
+                            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-44 mb-4"></div>
+                            <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5 w-48"></div>
+                            <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5 w-48"></div>
+                            <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5 w-48"></div>
+                            <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5 w-48"></div>
+                        </div>
+                    </div>
+                @endfor
+            </div>
             <div style="height: 67px "></div>
         </div>
     </div>
