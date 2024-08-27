@@ -145,8 +145,13 @@
                         url="/visi" 
                         class="rounded-lg md:px-3 md:py-1 {{ request()->is('visi') ? 'text-green-500' : '' }} sm:hover:text-green" 
                     />
+                    <x-navlink 
+                        title="Update" 
+                        url="/update-campaign" 
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('visi') ? 'text-green-500' : '' }} sm:hover:text-green" 
+                    />
 
-                    {{-- alalal --}}
+
                     <button id="logoutButton" class="px-3 py-1 rounded-lg sm:hover:text-green">Logout</button>
                 </ul>
             </div>

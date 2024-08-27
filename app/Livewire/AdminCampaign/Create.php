@@ -82,9 +82,7 @@ class Create extends Component
         return $campaign;
 
     }
-    public function abc(){
-        dd('dsa');
-    }
+
 
     protected function uploadImage($image)
     {
