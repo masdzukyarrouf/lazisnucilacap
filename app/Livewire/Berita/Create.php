@@ -13,6 +13,7 @@ class Create extends Component
     public string $title_berita = "";
     public string $description = "";
     public string $tanggal = "";
+    public string $kategori = "";
     public $picture; // Pastikan ini bukan string
 
     protected function rules()
@@ -21,6 +22,7 @@ class Create extends Component
             'title_berita' => 'required|string',
             'description' => 'required|string',
             'tanggal' => 'required|date',
+            'kategori' => 'required|string',
             'picture' => 'required|image|max:1024', // Validasi gambar
         ];
     }
@@ -38,6 +40,7 @@ class Create extends Component
             'title_berita' => $validatedData['title_berita'],
             'description' => $validatedData['description'],
             'tanggal' => $validatedData['tanggal'],
+            'kategori' => $validatedData['kategori'],
             'picture' => $path, // Simpan path gambar
         ]);
 

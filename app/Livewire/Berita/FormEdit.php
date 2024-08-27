@@ -15,6 +15,7 @@ class FormEdit extends Component
     public string $title_berita = "";
     public string $description = "";
     public string $tanggal = "";
+    public string $kategori = "";
     public $picture; // Pastikan ini bukan string
 
     protected function rules()
@@ -23,6 +24,7 @@ class FormEdit extends Component
             'title_berita' => 'required|string',
             'description' => 'required|string',
             'tanggal' => 'required|date',
+            'kategori' => 'required|string',
             'picture' => 'nullable|image|max:1024', // Validasi gambar
         ];
     }
@@ -36,6 +38,7 @@ class FormEdit extends Component
             $this->id_berita = $berita->id_berita;
             $this->title_berita = $berita->title_berita;
             $this->tanggal = $berita->tanggal;
+            $this->kategori = $berita->kategori;
             $this->picture = $berita->picture;
             $this->description = $berita->description;
         }
@@ -66,6 +69,7 @@ class FormEdit extends Component
             $this->id_berita = $berita->id_berita;
             $this->title_berita = $berita->title_berita;
             $this->tanggal = $berita->tanggal;
+            $this->kategori = $berita->kategori;
             $this->description = $berita->description;
         }
         return $berita;
@@ -77,6 +81,7 @@ class FormEdit extends Component
             'title_berita' => 'required|string',
             'description' => 'required|string',
             'tanggal' => 'required|date',
+            'kategori' => 'required|string',
             'picture' => 'nullable|image|max:1024', // Tidak wajib jika tidak ingin mengubah gambar
         ]);
 
@@ -97,6 +102,7 @@ class FormEdit extends Component
             $berita->update([
                 'title_berita' => $validatedData['title_berita'],
                 'tanggal' => $validatedData['tanggal'],
+                'kategori' => $validatedData['kategori'],
                 'description' => $validatedData['description'],
                 'picture' => $berita->picture, // Update gambar baru jika ada
             ]);

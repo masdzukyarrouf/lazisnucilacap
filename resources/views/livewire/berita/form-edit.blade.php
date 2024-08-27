@@ -31,6 +31,22 @@
                         @enderror
                     </div>
                     <div class="mb-4">
+                        <label for="kategori" class="block text-sm font-medium text-gray-700">Kategori</label>
+                        <select id="kategori" wire:model="kategori" name="kategori"
+                            class="block w-full py-2 mt-1 bg-gray-200 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 sm:text-sm">
+                            <option value="" disabled selected>Select</option>
+                            <option value="Bencana Alam">Bencana Alam</option>
+                            <option value="Pendidikan">Pendidikan</option>
+                            <option value="Sosial & Keagamaan">Sosial & Keagamaan</option>
+                            <option value="Ekonomi">Ekonomi</option>
+                            <option value="Ramadhan">Ramadhan</option>
+                            <option value="Kesehatan">Kesehatan</option>
+                        </select>
+                        @error('kategori')
+                            <span class="mt-1 text-sm text-red-500">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-4">
                         <label for="description" class="block text-sm font-medium text-gray-700">isi berita</label>
                         <textarea id="description" wire:model="description" name="description" rows="16"
                             class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm"></textarea>
