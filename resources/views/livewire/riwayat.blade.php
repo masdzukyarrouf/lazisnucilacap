@@ -1,9 +1,10 @@
 <div class="w-full max-w-[414px] mx-auto h-full">
     <x-nav-mobile2 title="Riwayat" />
     <div class="flex flex-col bg-gray-200 shadow-md h-full" style="width: 414px;">
-        <div>
+        <div class="w-full pt-12 flex flex-col items-center">
             @if ($donasis->isEmpty())
-                <p>No donations found for this user.</p>
+                <p class="text-center ">Pengguna ini belum berdonasi</p>
+                <a href="{{ route('campaign') }}" class="text-center text-green-500 ">Donasi Sekarang</a>
             @else
                 <ul>
                     <div class="pt-4 bg-white">
