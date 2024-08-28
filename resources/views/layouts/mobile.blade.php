@@ -53,7 +53,7 @@
             </div>
             <div class="items-center w-16 h-auto rounded-lg">
                 <a wire:navigate.hover href="{{ route('berita') }}">
-                    <img src="{{ Request::is('berita') ? asset('images/Frame 3-active.png') : asset('images/Frame 3.png') }}" alt="">
+                    <img src="{{ Request::is('berita') || Request::is('detail-berita/*') ? asset('images/Frame 3-active.png') : asset('images/Frame 3.png') }}" alt="">
                 </a>
             </div>
             <div class="items-center w-16 h-auto rounded-lg">

@@ -40,7 +40,7 @@
                                         <h2 class="text-sm font-semibold text-gray-800">
                                             {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
                                         </h2>
-                                        <div class="flex items-center justify-between mt-5">
+                                        <div class="flex items-center justify-between pt-4">
                                             <div class="flex items-center">
                                                 <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
                                                 <h1 class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}</h1>
