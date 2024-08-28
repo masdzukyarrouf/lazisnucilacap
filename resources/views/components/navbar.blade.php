@@ -6,7 +6,7 @@
         </a>
 
         <!-- User Menu Button -->
-        <button id="user-menu-btn" class="relative flex items-center p-2  text-black rounded-full">
+        <button id="user-menu-btn" class="relative flex items-center p-2 text-black rounded-full">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -20,7 +20,7 @@
 <!-- User Menu Pop-up -->
 <div>
     <div id="user-menu"
-        class="fixed top-12 right-0 z-30 inset-y-0 w-48 px-4 py-2 bg-white shadow-lg rounded-lg hidden">
+        class="fixed inset-y-0 right-0 z-30 hidden w-48 px-4 py-2 bg-white rounded-lg shadow-lg top-12">
         <div class="flex flex-col">
             <x-navlink title="Lazisnu Cilacap" :links="[
                 ['href' => '#', 'text' => 'Visi & Misi'],
@@ -29,7 +29,7 @@
                 ['href' => '#', 'text' => 'Legalitas'],
                 ['href' => '#', 'text' => 'Standar Layanan (MANTAP)'],
                 ['href' => '#', 'text' => 'Laporan & Publikasi'],
-                ['href' => '#', 'text' => 'Mitra'],
+                ['href' => '/mitra', 'text' => 'Mitra'],
             ]" isDropdown="true" />
             <x-navlink title="Pilar & Program" :links="[
                 ['href' => '#', 'text' => 'NU Care Berdaya (Ekonomi)'],
@@ -65,7 +65,7 @@
                 @endif
             @else
                 <a href="/login"
-                    class="px-6 py-2 z-30 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
+                    class="z-30 px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
                     Login
                 </a>
             @endif
@@ -80,11 +80,11 @@
         class="fixed inset-0 right-0 z-30 w-2/4 transition-transform transform -translate-x-full bg-white md:sticky md:top-0 md:w-full md:translate-x-0 md:flex md:items-center md:justify-between md:bg-transparent md:shadow-none md:p-0">
         <!-- Main Content -->
         <div
-            class="sticky right-0 top-0 flex flex-col items-center w-full px-8 py-4 space-y-4 bg-white md:flex-row md:justify-between md:space-y-0">
+            class="sticky top-0 right-0 flex flex-col items-center w-full px-8 py-4 space-y-4 bg-white md:flex-row md:justify-between md:space-y-0">
             <!-- Logo -->
             <a href="/" class="flex-shrink-0">
                 <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="Logo"
-                    class="hidden md:block w-auto h-8">
+                    class="hidden w-auto h-8 md:block">
             </a>
 
             <!-- Navigation Links and Buttons -->
@@ -96,7 +96,7 @@
                     ['href' => '#', 'text' => 'Legalitas'],
                     ['href' => '#', 'text' => 'Standar Layanan (MANTAP)'],
                     ['href' => '#', 'text' => 'Laporan & Publikasi'],
-                    ['href' => '#', 'text' => 'Mitra'],
+                    ['href' => '/mitra', 'text' => 'Mitra'],
                 ]" isDropdown="true" />
 
                 <x-navlink title="Pilar & Program" :links="[
@@ -133,7 +133,7 @@
                     @endif
                 @else
                     <a href="/login"
-                        class="px-6 py-2 z-30 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
+                        class="z-30 px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
                         Login
                     </a>
                 @endif
