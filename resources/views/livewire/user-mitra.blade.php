@@ -3,7 +3,7 @@
     <div class="flex flex-col min-h-screen px-4 py-4 pb-20 mb-8 bg-gray-100 shadow-md" style="width: 414px;">
         <h2 class="pb-5 font-semibold text-green-500">Mitra Kami</h2>
         <div class="border-4 border-green-500 rounded-xl ">
-            <div class="grid grid-cols-1 gap-2 mx-10 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="grid grid-cols-5">
                 @foreach ($mitras as $mitra)
                     <div class="flex items-center">
                         <div class="px-2 py-2">

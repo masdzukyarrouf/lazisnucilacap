@@ -40,7 +40,7 @@ Route::get('/daftar', App\Livewire\Daftar::class);
 
 Route::get('/login', App\Livewire\Login::class)->name('login')->middleware('guest');
 
-Route::get('/detail-berita/{id_berita}', App\Livewire\DetailBerita::class)->name('detail-berita');
+Route::get('/detail-berita/{id_berita}', App\Livewire\UserBerita\Show::class)->name('detail-berita');
 Route::get('/landing-mobile', App\Livewire\LandingMobile::class);
 
 Route::get('/detail-campaign', App\Livewire\DetailCampaign::class);
