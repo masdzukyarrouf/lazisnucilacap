@@ -24,15 +24,15 @@
         <div class="flex flex-col">
             <x-navlink title="Lazisnu Cilacap" :links="[
                 ['href' => '#', 'text' => 'Visi & Misi'],
-                ['href' => '#', 'text' => 'Profil & Jajaran Pengurus'],
+                ['href' => '/profil&jajaran', 'text' => 'Profil & Jajaran Pengurus'],
                 ['href' => '#', 'text' => 'Sejarah'],
                 ['href' => '#', 'text' => 'Legalitas'],
-                ['href' => '#', 'text' => 'Standar Layanan (MANTAP)'],
+                ['href' => '/kebijakan', 'text' => 'Standar Layanan (MANTAP)'],
                 ['href' => '#', 'text' => 'Laporan & Publikasi'],
                 ['href' => '/mitra', 'text' => 'Mitra'],
             ]" isDropdown="true" />
             <x-navlink title="Pilar & Program" :links="[
-                ['href' => '#', 'text' => 'NU Care Berdaya (Ekonomi)'],
+                ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
                 ['href' => '#', 'text' => 'NU Care Cerdas (Pendidikan)'],
                 ['href' => '#', 'text' => 'NU Care Sehat (Kesehatan)'],
                 ['href' => '#', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
@@ -91,16 +91,16 @@
             <div class="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0 md:ml-auto">
                 <x-navlink title="Lazisnu Cilacap" :links="[
                     ['href' => '#', 'text' => 'Visi & Misi'],
-                    ['href' => '#', 'text' => 'Profil & Jajaran Pengurus'],
+                    ['href' => '/profil&jajaran', 'text' => 'Profil & Jajaran Pengurus'],
                     ['href' => '#', 'text' => 'Sejarah'],
                     ['href' => '#', 'text' => 'Legalitas'],
-                    ['href' => '#', 'text' => 'Standar Layanan (MANTAP)'],
+                    ['href' => '/kebijakan', 'text' => 'Standar Layanan (MANTAP)'],
                     ['href' => '#', 'text' => 'Laporan & Publikasi'],
                     ['href' => '/mitra', 'text' => 'Mitra'],
                 ]" isDropdown="true" />
 
                 <x-navlink title="Pilar & Program" :links="[
-                    ['href' => '#', 'text' => 'NU Care Berdaya (Ekonomi)'],
+                    ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
                     ['href' => '#', 'text' => 'NU Care Cerdas (Pendidikan)'],
                     ['href' => '#', 'text' => 'NU Care Sehat (Kesehatan)'],
                     ['href' => '#', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],

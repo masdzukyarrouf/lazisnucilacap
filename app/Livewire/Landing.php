@@ -39,6 +39,7 @@ class Landing extends Component
         $this->misis = misi::query()
             ->latest()
             ->get();
+            
         foreach ($this->campaigns as $campaign) {
             $raised = $campaign->raised;
             $goal = $campaign->goal;

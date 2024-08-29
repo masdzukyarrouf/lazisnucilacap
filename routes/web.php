@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckAdmin;
+use App\Livewire\KebijakanMutu;
 use App\Models\visi;
 
 Route::get('/welcome', function () {
@@ -27,6 +28,7 @@ Route::middleware([CheckAdmin::class])->group(function () {
     // Route::get('/user/create', App\Livewire\User\Create::class)->name('user');
     Route::get('/visi', App\Livewire\Visi\Index::class)->name('visi');
     Route::get('/misi', App\Livewire\Misi\Index::class)->name('misi');
+    Route::get('/admin-kebijakan', App\Livewire\KebijakanAdmin\Index::class)->name('admin-kebijakan');
 
 });
 
@@ -60,6 +62,16 @@ Route::get('/pembayaran_zakat', App\Livewire\ZakatBayar::class)->name('pembayara
 Route::get('/pembayaran_infaq&wakaf', App\Livewire\InfaqwakafBayar::class)->name('pembayaran-infaq&wakaf');
 
 Route::get('/mitra', App\Livewire\UserMitra::class)->name('mitra');
+
+Route::get('/profil&jajaran', App\Livewire\ProfilJajaran::class)->name('profil&jajaran');
+
+Route::get('/penghargaan', App\Livewire\Penghargaan::class)->name('penghargaan');
+
+Route::get('/kebijakan', App\Livewire\KebijakanMutu::class)->name('kebijakan');
+
+Route::get('/berdaya', App\Livewire\Berdaya::class)->name('berdaya');
+
+Route::get('/cerdas', App\Livewire\Cerdas::class)->name('cerdas');
 
 
 
