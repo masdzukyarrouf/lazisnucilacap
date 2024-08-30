@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center justify-center">
     <!-- Navigation Component -->
-    <x-nav-mobile2 title="NU Care Cerdas" />
+    <x-nav-mobile2 title="NU Care Damai" />
     
     <!-- Main Content Wrapper -->
     <div class="flex flex-col h-full min-h-screen bg-white shadow-md" style="width: 414px;">
@@ -9,24 +9,24 @@
         <div class="flex flex-col shadow-lg">
             <div x-data="{ expanded: false }" class="flex flex-col shadow-lg">
                 <h1 class="mt-2 text-sm font-semibold text-center text-green-500" :class="!expanded ? 'hidden' : 'block'">
-                    NU Care Cerdas (Pendidikan)
+                    NU Care Damai (Dakwah dan Kemanusiaan)
                 </h1>
-                <div class="flex py-4">
+                <div class="flex p-4">
                     <!-- Main Images -->
                     <div :class="expanded ? 'w-96 h-[300px]' : 'w-96'" class="flex items-center">
-                        <img :src="expanded ? '{{ asset('images/expand-cerdas.png') }}' : '{{ asset('images/cerdas.png') }}'" alt="Main Image" class="w-full h-full">
+                        <img :src="expanded ? '{{ asset('images/damai1.png') }}' : '{{ asset('images/damai2.png') }}'" alt="Main Image" class="w-full h-full">
                     </div>
                     <!-- Title and Description -->
-                    <div :class="expanded ? ' w-2/3' : ' w-1/3'" class="flex flex-col justify-between pr-4">
+                    <div :class="expanded ? 'ml-2 w-2/3' : 'ml-2 w-1/3'" class="flex flex-col justify-between pr-4">
                         <h1 class="text-sm font-semibold text-green-500" :class="expanded ? 'hidden' : 'block'">
-                            NU Care Cerdas (Pendidikan)
+                            NU Care Damai (Dakwah dan Kemanusiaan)
                         </h1>
                         <p class="text-xs text-gray-700">
                             <span x-show="!expanded">
-                                program untuk meningkatkan kualitas sumber daya manusia (SDM) melalui penyediaan beasiswa, pelatihan, dan memperkuat fasilitas pend...
+                                program untuk meningkatkan layanan sosial dengan semangat dakwah Islam Ahlussunnah Wal Jama’a...
                             </span>
                             <span x-show="expanded">
-                                program untuk meningkatkan kualitas sumber daya manusia (SDM) melalui penyediaan beasiswa, pelatihan, dan memperkuat fasilitas pendidikan baik di tingkat sekolah dasar, menengah, & perguruan tinggi. program ini bertujuan untuk menjamin akses pendidikan berkualitas yang merata, serta membuka kesempatan belajar bagi semua orang, khususnya bagi siswa yatim-dhuafa dan berprestasi.
+                                program untuk meningkatkan layanan sosial dengan semangat dakwah Islam Ahlussunnah Wal Jama’ah dan misi kemanusiaan, baik dalam bentuk kebencanaan maupun bantuan sosial lainnya yang dilakukan secara sistematik dan melibatkan mitra internal dan eksternal NU.
                             </span>
                         </p>
                         <!-- Baca Selengkapnya Button -->

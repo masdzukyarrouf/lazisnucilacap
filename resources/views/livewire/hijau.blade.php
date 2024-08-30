@@ -1,15 +1,18 @@
 <div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="NU Care Berdaya" />
+    <x-nav-mobile2 title="NU Care Hijau" />
     <div class="flex flex-col h-full min-h-screen bg-white shadow-md" style="width: 414px;">
-        <div class="flex h-56 shadow-lg">
+        <div class="flex h-64 shadow-lg">
             <div class="flex px-4 pt-4 pb-6">
-                <img src="{{ asset('images/berdaya.png') }}" alt="" class="pr-2">
+                <img src="{{ asset('images/hijau.png') }}" alt="" class="w-56 pr-2">
                 <div class="flex flex-col">
                     <h1 class="text-sm font-semibold text-green-500">
-                        NU Care Berdaya (Ekonomi) 
+                        NU Care Hijau (Lingkungan Hidup dan Kebencanaan) 
                     </h1>
                     <h1 class="mt-2 text-xs">
-                        program untuk memdorong kemandirian dan meningkatkan pendapat, kesejahteraan serta semangat kewirausahaan melalui kegiatan ekonomi dan pembentukan usaha
+                        program yang diarahkan untuk memelihara lingkungan dan sumber daya alam serta pemanfaatannya secara bijaksana dan
+                    </h1>
+                    <h1 class="mt-1 text-xs">
+                        mendorong keberlanjutan alam sebagai sumber penghidupan masyarakat.
                     </h1>
                     <img src="{{ asset('images/0.png') }}" alt="" class="w-6 mt-1">
                 </div>

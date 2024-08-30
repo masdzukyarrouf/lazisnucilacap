@@ -1,15 +1,18 @@
 <div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="NU Care Berdaya" />
+    <x-nav-mobile2 title="NU Care Sehat" />
     <div class="flex flex-col h-full min-h-screen bg-white shadow-md" style="width: 414px;">
         <div class="flex h-56 shadow-lg">
             <div class="flex px-4 pt-4 pb-6">
-                <img src="{{ asset('images/berdaya.png') }}" alt="" class="pr-2">
+                <img src="{{ asset('images/sehat.png') }}" alt="" class="pr-2">
                 <div class="flex flex-col">
                     <h1 class="text-sm font-semibold text-green-500">
-                        NU Care Berdaya (Ekonomi) 
+                        NU Care Sehat (Kesehatan) 
                     </h1>
                     <h1 class="mt-2 text-xs">
-                        program untuk memdorong kemandirian dan meningkatkan pendapat, kesejahteraan serta semangat kewirausahaan melalui kegiatan ekonomi dan pembentukan usaha
+                        Program untuk meningkatkan layanan di bidang kesehatan masyarakat, khususnya dikalangan keluarga kurang mampu melalui
+                    </h1>
+                    <h1 class="mt-1 text-xs">
+                        tindakan kuratif maupun kegiatan preventif.
                     </h1>
                     <img src="{{ asset('images/0.png') }}" alt="" class="w-6 mt-1">
                 </div>

@@ -33,10 +33,10 @@
             ]" isDropdown="true" />
             <x-navlink title="Pilar & Program" :links="[
                 ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
-                ['href' => '#', 'text' => 'NU Care Cerdas (Pendidikan)'],
-                ['href' => '#', 'text' => 'NU Care Sehat (Kesehatan)'],
-                ['href' => '#', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
-                ['href' => '#', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
+                ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
+                ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
+                ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
+                ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
             ]" isDropdown="true" />
 
             <x-navlink title="Layanan" :links="[
@@ -101,10 +101,10 @@
 
                 <x-navlink title="Pilar & Program" :links="[
                     ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
-                    ['href' => '#', 'text' => 'NU Care Cerdas (Pendidikan)'],
-                    ['href' => '#', 'text' => 'NU Care Sehat (Kesehatan)'],
-                    ['href' => '#', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
-                    ['href' => '#', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
+                    ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
+                    ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
+                    ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
+                    ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
                 ]" isDropdown="true" />
 
                 <x-navlink title="Layanan" :links="[

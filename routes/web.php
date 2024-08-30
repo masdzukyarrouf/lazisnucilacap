@@ -73,6 +73,12 @@ Route::get('/berdaya', App\Livewire\Berdaya::class)->name('berdaya');
 
 Route::get('/cerdas', App\Livewire\Cerdas::class)->name('cerdas');
 
+Route::get('/sehat', App\Livewire\Sehat::class)->name('sehat');
+
+Route::get('/damai', App\Livewire\Damai::class)->name('damai');
+
+Route::get('/hijau', App\Livewire\Hijau::class)->name('hijau');
+
 
 
 Route::middleware('auth')->group(function () {
