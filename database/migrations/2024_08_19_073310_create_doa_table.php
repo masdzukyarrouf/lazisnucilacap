@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('doa');
             $table->integer('jumlah_likes');
             $table->integer('id_campaign');
+            $table->integer('id_transaction')->nullable();
             $table->timestamps();
         });
     }

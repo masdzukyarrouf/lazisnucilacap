@@ -18,8 +18,20 @@ class Show extends Component
     {
         Campaign::updateRaisedValues();
         $this->campaign = Campaign::find($this->campaign->id_campaign);
-        $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)->take(3)->get();
-        $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)->take(3)->get();
+
+        $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)
+            ->whereHas('transaction', function ($query) {
+                $query->where('status', 'settlement');
+            })
+            ->take(3)->get();
+
+
+        $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)
+            ->whereHas('transaction', function ($query) {
+                $query->where('status', 'settlement');
+            })
+            ->take(3)->get();
+
         $this->update_campaign = update_campaign::where('id_campaign', $this->campaign->id_campaign)->latest('updated_at')->first();
         $this->processDescription();
         if ($this->update_campaign) {

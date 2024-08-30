@@ -13,7 +13,12 @@ class DonasiList extends Component
     public function mount()
     {
         $this->campaign = Campaign::find($this->campaign->id_campaign);
-        $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)->get();
+        $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)
+        ->whereHas('transaction', function ($query) {
+            $query->where('status', 'settlement');
+        })
+        ->get();
+    
 
     }
     public function render()

@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('donasi', function (Blueprint $table) {
-            $table->integer('id_donasi')->autoIncrement()->primary();
-            $table->enum('hide_name', ['yes', 'no'])->default('no');
-            $table->integer('id_user')->nullable();
-            $table->integer('jumlah_donasi');
-            $table->integer('id_campaign');
+        Schema::create('transaction', function (Blueprint $table) {
+            $table->integer('id_transaction')->autoIncrement()->primary();
             $table->string('username');
             $table->string('no_telp');
             $table->string('email')->nullable();
-            $table->integer('id_transaction')->nullable();
+            $table->integer('nominal');
+            $table->string('snap_token')->nullable();
+            $table->integer('order_id')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('donasi');
+        Schema::dropIfExists('transaction');
     }
 };

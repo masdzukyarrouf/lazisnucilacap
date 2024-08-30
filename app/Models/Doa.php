@@ -16,6 +16,8 @@ class Doa extends Model
         'doa',
         'jumlah_likes',
         'id_campaign',
+        'id_transaction',
+
 
     ];
     public static function updateLike()
@@ -30,4 +32,10 @@ class Doa extends Model
             $doa->save();
         }
     }
+
+    public function transaction()
+{
+    return $this->belongsTo(Transaction::class, 'id_transaction');
+}
+
 }

@@ -62,13 +62,13 @@
                                     : {{ $this->no_telp }}
                                 </p>
                                 @if ($this->email)
-                                <p class="text-[12px]  text-black">
-                                    : {{ $this->email }}
-                                </p>     
+                                    <p class="text-[12px]  text-black">
+                                        : {{ $this->email }}
+                                    </p>
                                 @else
                                     : -
                                 @endif
-                                
+
                             </div>
                         </div>
                     </div>
@@ -92,15 +92,8 @@
                         <h2 class="font-semibold">
                             Metode Pembayaran
                         </h2>
-                        <div class="mr-5 w-full">
-                            <img src="{{ asset('images/gopay.png') }}" alt="gopay" class="my-2">
-                            <img src="{{ asset('images/shopee.png') }}" alt="shopee" class="my-2">
-                            <img src="{{ asset('images/VA bni.png') }}" alt="bni" class="my-2">
-                            <img src="{{ asset('images/VA permatabank.png') }}" alt="permatabank" class="my-2">
-                            <img src="{{ asset('images/mandiri.png') }}" alt="mandiri" class="my-2">
-                            <img src="{{ asset('images/tf.png') }}" alt="transfer" class="my-2">
-                        </div>
                     </div>
+                    <div id="snap-container" class="w-full"></div>
                     <div class="flex items-center w-full">
                         <form class="flex items-center w-full">
                             <input type="hidden" wire:model="nominal">
@@ -108,12 +101,22 @@
                             <input type="hidden" wire:model="no_telp">
                             <input type="hidden" wire:model="email">
                             <input type="hidden" wire:model="doa">
-                            <button wire:click="donasi" class="text-[12px] bg-green-600 w-full py-2 items-center text-white rounded-lg">
+                            {{-- <button id="pay-button"
+                                class="text-[12px] bg-green-600 w-full py-2 items-center text-white rounded-lg">
                                 Donasi Sekarang
-                            </button>
+                            </button> --}}
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        window.onload = function() {
+                window.snap.embed('{{ $this->token }}', {
+                    embedId: 'snap-container'
+                });
+        };
+    </script>
+    

@@ -13,16 +13,21 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
         }
-    input:checked ~ .dot {
-        transform: translateX(100%);
-        background-color: #ffffff; /* Change the color when checked */
-    }
-    input:checked ~ .block {
-        background-color: #4F46E5; /* Change the background color when checked */
-    }
+
+        input:checked~.dot {
+            transform: translateX(100%);
+            background-color: #ffffff;
+            /* Change the color when checked */
+        }
+
+        input:checked~.block {
+            background-color: #4F46E5;
+            /* Change the background color when checked */
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     @livewireStyles
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="env('MIDTRANS_CLIENT_KEY')"></script>
 </head>
 
 <body class="flex flex-col h-screen bg-gray-200">

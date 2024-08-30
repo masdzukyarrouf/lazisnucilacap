@@ -58,13 +58,17 @@ class Campaign extends Authenticatable
     public static function updateRaisedValues()
     {
         $campaigns = self::all(); // Fetch all campaigns
-
+    
         foreach ($campaigns as $campaign) {
             $raisedAmount = Donasi::where('id_campaign', $campaign->id_campaign)
+                ->whereHas('transaction', function ($query) {
+                    $query->where('status', 'settlement');
+                })
                 ->sum('jumlah_donasi');
-
+    
             $campaign->raised = $raisedAmount;
             $campaign->save();
         }
     }
+    
 }

@@ -19,6 +19,12 @@ class Donasi extends Model
         'email',
         'jumlah_donasi',
         'id_campaign',
+        'id_transaction',
 
     ];
+
+    public function transaction()
+    {
+        return $this->belongsTo(Transaction::class, 'id_transaction');
+    }
 }
