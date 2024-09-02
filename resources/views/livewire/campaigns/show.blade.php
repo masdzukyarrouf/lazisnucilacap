@@ -71,7 +71,7 @@
     <div class="relative">
         <div class="flex justify-between items-center">
             <p class="mt-4 ml-4 text-md font-semibold text-green-500 text-[16px]">Donatur</p>
-            <a href="{{ route('campaigns.donasiList', $campaign->id_campaign) }}"
+            <a href="{{ route('campaigns.donasiList', $campaign->title) }}"
                 class="mt-4 mr-4 text-right font-semibold text-green-500 text-[12px]">Lihat Semua></a>
 
         </div>
@@ -97,7 +97,7 @@
     <div class="relative">
         <div class="flex justify-between items-center">
             <p class="mt-4 ml-4 text-md font-semibold text-green-500 text-[16px]">Doa Doa Orang Baik</p>
-            <a href="{{ route('campaigns.doaList', $campaign->id_campaign) }}"
+            <a href="{{ route('campaigns.doaList', $campaign->title) }}"
                 class="mt-4 mr-4 text-right font-semibold text-green-500 text-[12px]">Lihat Semua></a>
 
         </div>
@@ -123,7 +123,7 @@
             style="width: 414px; height: 67px; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -2px rgba(0, 0, 0, 0.1);">
             <livewire:campaigns.share />
     
-            <a wire:navigate.hover href="{{ route('donasi.index', $campaign->id_campaign) }}"
+            <a wire:navigate.hover href="{{ route('donasi.index', $campaign->title) }}"
                 class="text-[12px] bg-green-600 px-16 py-2 items-center text-white rounded-lg">
                 Donasi Sekarang
             </a>

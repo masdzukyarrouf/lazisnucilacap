@@ -1,7 +1,7 @@
 <div class="w-full max-w-[414px] mx-auto h-full">
     <x-nav-mobile2 title="Riwayat" />
-    <div class="flex flex-col bg-gray-200 shadow-md h-full" style="width: 414px;">
-        <div class="w-full pt-12 flex flex-col items-center">
+    <div class="flex flex-col bg-white shadow-md h-full" style="width: 414px;">
+        <div class="w-full pt-2 flex flex-col items-center">
             @if ($donasis->isEmpty())
                 <p class="text-center ">Pengguna ini belum berdonasi</p>
                 <a href="{{ route('campaign') }}" class="text-center text-green-500 ">Donasi Sekarang</a>
@@ -35,8 +35,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <div class="py-1 w-full bg-gray-200">
-                                {{-- empty --}}
+                            <div class="h-[1px] w-full bg-gray-200">
                             </div>
                         @endforeach
                     </div>

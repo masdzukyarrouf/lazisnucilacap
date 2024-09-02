@@ -4,35 +4,29 @@ namespace App\Livewire\Campaigns;
 
 use Livewire\Component;
 use App\Models\Campaign;
-use Livewire\Attributes\On;
-
 
 class Index extends Component
 {
     public $kategori = "";
     public $filter = "soon";
-
+    public $search = ''; 
     public $campaigns;
-
 
     public function mount()
     {
         $this->kategori = session('kategori', 'all');
         Campaign::updateRaisedValues();
         $this->loadCampaigns();
-
     }
 
-    public function saring($filter){
-        // dd($filter);
-        if($filter == 'newest'){
-            $this->filter = 'newest';
-        }else if($filter == 'soon'){
-            $this->filter = 'soon';
-        }else if($filter == 'urgent'){
-            $this->filter = 'urgent';
-        }
+    public function saring($filter)
+    {
+        $this->filter = $filter;
+        $this->loadCampaigns();
+    }
 
+    public function updatedSearch()
+    {
         $this->loadCampaigns();
     }
 
@@ -41,42 +35,27 @@ class Index extends Component
         $query = Campaign::query();
         $query->where('end_date', '>', now());
 
-    if ($this->kategori !== 'all') {   
-        if ($this->filter == 'newest') {
-            $query->where('kategori', $this->kategori)->latest(); 
-        } 
-        else if ($this->filter == 'soon') {
-            $query->where('kategori', $this->kategori)->orderBy('end_date', 'asc');
-        } 
-        else if ($this->filter == 'urgent') {
-            $query->where('kategori', $this->kategori)->where('title', 'like', '!%')->latest(); 
-        } 
-        else {
-            $query->where('kategori', $this->kategori)->latest();
+        if (!empty($this->search)) {
+            $query->where('title', 'like', '%' . $this->search . '%');
         }
-    }else{
-        if ($this->filter == 'newest') {
-            $query->latest(); 
-        } 
-        else if ($this->filter == 'soon') {
-            $query->orderBy('end_date', 'asc');
-        } 
-        else if ($this->filter == 'urgent') {
-            $query->where('title', 'like', '!%')->latest(); 
-        } 
-        else {
-            $query->latest();
-        }
-    }
-        
-    $this->campaigns = $query->get();
 
+        if ($this->kategori !== 'all') {
+            $query->where('kategori', $this->kategori);
+        }
+
+        if ($this->filter == 'newest') {
+            $query->latest();
+        } elseif ($this->filter == 'soon') {
+            $query->orderBy('end_date', 'asc');
+        } elseif ($this->filter == 'urgent') {
+            $query->where('title', 'like', '!%')->latest();
+        }
+
+        $this->campaigns = $query->get();
     }
 
     public function render()
     {
-        return view('livewire.campaigns.index', [
-
-        ])->layout('layouts.mobile');
+        return view('livewire.campaigns.index')->layout('layouts.mobile');
     }
 }

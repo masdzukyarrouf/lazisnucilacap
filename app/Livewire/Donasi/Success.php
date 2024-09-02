@@ -11,12 +11,12 @@ class Success extends Component
     public $orderId;
     public $statusCode;
     public $transactionStatus;
-    public $id_campaign;
+    public $title;
 
     public function mount()
     {
         $this->orderId = request()->query('order_id');
-        $this->id_campaign = request()->query('id_campaign');
+        $this->title = request()->query('title');
         $this->statusCode = request()->query('status_code');
         $this->transactionStatus = request()->query('transaction_status');
         $user = Auth::user();
@@ -41,7 +41,7 @@ class Success extends Component
 
     public function goCampaign()
     {
-        return redirect()->route('campaigns.show', $this->id_campaign);
+        return redirect()->route('campaigns.show', $this->title);
     }
 
     public function render()

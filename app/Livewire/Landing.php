@@ -9,6 +9,7 @@ use App\Models\Berita;
 use App\Models\gambar_landing;
 use App\Models\visi;
 use App\Models\misi;
+use App\Models\Donasi;
 
 class Landing extends Component
 {
@@ -49,6 +50,9 @@ class Landing extends Component
             }
             $campaign->progress = $progress;
         }
+        $this->banyak_donasi = Donasi::whereHas('transaction', function ($query) {
+            $query->where('status', 'settlement');
+        })->count();
 
     }
     public function render()
