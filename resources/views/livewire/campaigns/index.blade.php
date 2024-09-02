@@ -2,6 +2,9 @@
     <x-nav-mobile2 title="Campaign" />
     <div class=" w-full max-w-[414px] mx-auto bg-white min-h-screen">
         <div class="w-full sticky ">
+            <input type="text" placeholder="Search Campaigns..." wire:model.live="search"
+                class="px-4 py-2 border border-gray-300 rounded w-full" />
+
             <!-- Kategori and Filter Buttons -->
             <div class="flex items-center justify-between">
                 <!-- Kategori Button -->
