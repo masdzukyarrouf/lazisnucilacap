@@ -1,13 +1,13 @@
 <div>
     <x-nav-mobile2 title="Daftar" />
-    <div class="flex items-center justify-center px-6 -mt-8 lg:px-8"> 
-        <div class="w-full max-w-md p-8 space-y-8 bg-white shadow-md" style="width: 414px">
+    <div class="flex items-center justify-center px-6  lg:px-8"> 
+        <div class="w-full max-w-md px-8 bg-white shadow-md" style="width: 414px">
             <div class="text-center">
                 <h2 class="mt-3 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">Daftar</h2>
                 <p class="text-xl font-bold leading-9 tracking-tight text-center text-gray-900">Silahkan lengkapi data di bawah</p>
             </div>
 
-            <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm py-1">
                 <form wire:submit.prevent='simpan'>
                     <div class="space-y-6">
                         <div>
@@ -51,6 +51,8 @@
                     </div>
                 </form>
             </div>
+    <div style="height: 67px "></div>
+
         </div>
     </div>
 </div>
