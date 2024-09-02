@@ -54,8 +54,8 @@
     @if ($processedUpdate)
         <div id="update-container" class="relative max-h-[174px] overflow-hidden transition-all duration-300">
             <p class="mt-4 ml-4 text-[16px] font-semibold text-green-500">Update Donasi</p>
-            <div id="update-content" class="px-3 w-full py-4 break-words">
-                <p wire:key="campaign-{{ $campaign->id_campaign }}" class="text-[12px]">{!! $processedUpdate !!}</p>
+            <div id="update-content" class="px-5 w-full py-4 text-[12px] break-words">
+                <p wire:key="campaign-{{ $campaign->id_campaign }}" >{!! $processedUpdate !!}</p>
             </div>
             <a href="#" id="update-expand-link"
                 class="absolute bottom-0 left-0 px-3 pt-4 w-full text-left bg-gradient-to-t from-white via-white to-transparent">
