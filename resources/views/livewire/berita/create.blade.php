@@ -43,6 +43,8 @@
                             <option value="Ekonomi">Ekonomi</option>
                             <option value="Ramadhan">Ramadhan</option>
                             <option value="Kesehatan">Kesehatan</option>
+                            <option value="Penghargaan">Penghargaan</option>
+                            <option value="Laporan & Publikasi">Laporan & Publikasi</option>
                         </select>
                         @error('kategori')
                             <span class="mt-1 text-sm text-red-500">{{ $message }}</span>
