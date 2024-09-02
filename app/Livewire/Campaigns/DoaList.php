@@ -13,14 +13,12 @@ class DoaList extends Component
         $decodedTitle = urldecode($title);
 
         $this->campaign = Campaign::where('title', $decodedTitle)->firstOrFail();
-        
+
         $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)
         ->whereHas('transaction', function ($query) {
             $query->where('status', 'settlement');
         })
         ->get();
-    
-
     }
     public function render()
     {
