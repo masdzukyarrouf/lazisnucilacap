@@ -78,6 +78,8 @@ Route::get('/donasi/{campaign}', App\Livewire\Donasi\Donatur::class)->name('dona
 Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');
 Route::get('/pembayaran/{campaign}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
 
+Route::get('/pengajuan', App\Livewire\Pengajuan::class)->name('laporan');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profil', App\Livewire\Profil::class)->name('profil');
     Route::get('/akun', App\Livewire\Akun::class)->name('akun');
