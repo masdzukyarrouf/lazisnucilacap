@@ -1,7 +1,7 @@
 <div class="flex flex-col items-center justify-center">
     <x-nav-mobile2 title="Penghargaan" />
     <div class="flex flex-col h-full min-h-screen bg-white shadow-md" style="width: 414px;">
-        <div class="flex flex-col px-6 py-4 ">
+        <div class="flex flex-col py-4 px-[24px]">
             <div>
                 @if (session()->has('message'))
                     <div id="flash-message"
@@ -96,8 +96,11 @@
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <button type="submit"
-                            class="px-4 py-2 ml-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">Submit</button>
+                <div class="py-4">
+                    <button type="submit" class="px-4 py-2 ml-64 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                        Submit
+                    </button>
+                </div>
             </form>    
         </div>
     </div>
