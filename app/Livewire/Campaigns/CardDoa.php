@@ -44,7 +44,6 @@ class CardDoa extends Component
         $this->liked = !$this->liked;
         $this->dispatch('processLike', $this->prosesLike($id_doa));
         
-        // uncomment jika update like global per klik
         Doa::updateLike();
         $this->mount($id_doa);
 
