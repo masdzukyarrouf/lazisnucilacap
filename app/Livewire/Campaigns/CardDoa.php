@@ -15,29 +15,30 @@ class CardDoa extends Component
     public $pendoa;
     public $liked = false;
 
-    public function mount($id_doa)
-    {
-        $this->doa = Doa::find($id_doa);
-        if ($this->doa->username == null) {
-            $this->doa->username = 'Hamba Allah';
-        }
-        $user = Auth::user();
-        $userId = $user->id_user ?? null;
-        $ipAddress = request()->ip();
+        public function mount($id_doa)
+        {
+            $this->doa = Doa::find($id_doa);
+            if ($this->doa->username == null) {
+                $this->doa->username = 'Hamba Allah';
+            }
+            $user = Auth::user();
+            $userId = $user->id_user ?? null;
+            $ipAddress = request()->ip();
 
-        if ($user) {
-            if (Like::where('id_user', $userId)->where('id_doa', $id_doa)->exists()) {
-                $this->liked = true;
-            } else {
-                $this->liked = false;
+            if ($user) {
+                if (Like::where('id_user', $userId)->where('id_doa', $id_doa)->exists()) {
+                    $this->liked = true;
+                } else {
+                    $this->liked = false;
+                }
+            }elseif ($user == null) {
+                if (Like::where('ip_address', $ipAddress)->where('id_doa', $id_doa)->exists()) {
+                    $this->liked = true;
+                }
             }
-        }elseif ($user == null) {
-            if (Like::where('ip_address', $ipAddress)->where('id_doa', $id_doa)->exists()) {
-                $this->liked = true;
-            }
+            sleep(1); //delay supaya frontend tidak bentrok
+            Doa::updateLike();
         }
-        Doa::updateLike();
-    }
     public function like($id_doa)
     {
         $this->liked = !$this->liked;
