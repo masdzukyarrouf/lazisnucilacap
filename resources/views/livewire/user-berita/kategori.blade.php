@@ -72,6 +72,20 @@
                                 <span class="text-sm font-semibold text-center">Kesehatan</span>
                             </a>
                         </div>
+                        <div class="flex flex-col items-center">
+                            <a class="flex flex-col items-center" wire:click="kategori('Penghargaan')">
+                                <!-- Placeholder for Icon -->
+                                <div class="w-10 h-10 mb-2 bg-green-500 rounded-full"></div>
+                                <span class="text-sm font-semibold text-center">Penghargaan</span>
+                            </a>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a class="flex flex-col items-center" wire:click="kategori('Laporan & Publikasi')">
+                                <!-- Placeholder for Icon -->
+                                <div class="w-10 h-10 mb-2 bg-green-500 rounded-full"></div>
+                                <span class="text-sm font-semibold text-center">Laporan & Publikasi</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

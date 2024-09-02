@@ -111,6 +111,8 @@
                         class="rounded-lg md:px-3 md:py-1 {{ request()->is('admin-donasi') ? 'text-green-500' : '' }} sm:hover:text-green" />
                     <x-navlink title="Campaign" url="/admin-campaign"
                         class="rounded-lg md:px-3 md:py-1 {{ request()->is('admin-campaign') ? 'text-green-500' : '' }} sm:hover:text-green" />
+                    <x-navlink title="Konfirmasi" url="/admin-konfirmasi"
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('admin-konfirmasi') ? 'text-green-500' : '' }} sm:hover:text-green" />
                     <x-navlink title="Berita" url="/admin-berita"
                         class="rounded-lg md:px-3 md:py-1 {{ request()->is('admin-berita') ? 'text-green-500' : '' }} sm:hover:text-green" />
                     <x-navlink title="Mitra" url="/admin-mitra"

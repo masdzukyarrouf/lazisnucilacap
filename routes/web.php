@@ -24,6 +24,7 @@ Route::middleware([CheckAdmin::class])->group(function () {
     Route::get('/visi', App\Livewire\Visi\Index::class)->name('visi');
     Route::get('/misi', App\Livewire\Misi\Index::class)->name('misi');
     Route::get('/admin-kebijakan', App\Livewire\KebijakanAdmin\Index::class)->name('admin-kebijakan');
+    Route::get('/admin-konfirmasi', App\Livewire\AdminKonfirmasi::class)->name('admin-konfirmasi');
 
 });
 
@@ -84,6 +85,8 @@ Route::get('/damai', App\Livewire\Damai::class)->name('damai');
 Route::get('/hijau', App\Livewire\Hijau::class)->name('hijau');
 
 Route::get('/laporan', App\Livewire\Laporan::class)->name('laporan');
+
+Route::get('/konfirmasi', App\Livewire\UserKonfirmasi::class)->name('user-konfirmasi');
 
 Route::get('/donasi/{campaign}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
 Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');

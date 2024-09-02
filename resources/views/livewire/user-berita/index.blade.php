@@ -3,11 +3,11 @@
     <div class="flex flex-col min-h-screen bg-white shadow-md" style="width: 414px;">
         <livewire:user-berita.kategori />
         <div class="flex flex-col gap-3 p-4">
-            @if($latestBerita->isEmpty() && $otherBerita->isEmpty())
+            @if($Beritas->isEmpty())
                 <p class="text-center text-gray-600">Tidak ada berita untuk kategori ini.</p>
             @else
                 @if($kategori === 'all')
-                    @foreach($latestBerita->take(3) as $berita)
+                    @foreach($Beritas->take(3) as $berita)
                     <a href="{{ route('detail-berita', ['id_berita' => $berita->id_berita]) }}">
                         <div class="flex flex-col bg-white rounded-lg shadow-lg">
                             <div class="relative flex items-center px-3 py-2 group w-80">
@@ -32,7 +32,7 @@
                     <div class="mt-5">
                         <p class="mb-3 font-semibold text-green-500 text-md">Berita Lainnya</p>
                         <div class="flex flex-col gap-3">
-                            @foreach ($otherBerita->skip(3) as $berita)
+                            @foreach ($Beritas->skip(3) as $berita)
                             <a href="{{ route('detail-berita', ['id_berita' => $berita->id_berita]) }}">
                                 <div class="flex items-center bg-white rounded-lg shadow-md">
                                     <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-24 h-24 rounded-md">
@@ -55,27 +55,27 @@
                     </div>
                 @else
                     <!-- Display berita for specific category -->
-                    @foreach($latestBerita as $berita)
-                    <a href="{{ route('detail-berita', ['id_berita' => $berita->id_berita]) }}">
-                        <div class="flex flex-col bg-white rounded-lg shadow-lg">
-                            <div class="relative flex items-center px-3 py-2 group w-80">
-                                <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-full h-full rounded-md">
-                            </div>
-                            <div class="px-3 py-2">
-                                <h2 class="text-sm font-semibold text-gray-800 md:text-xl">
-                                    {{ $berita->title_berita }}
-                                </h2>
-                                <div class="flex items-center mt-1">
-                                    <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
-                                    <p class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}</p>
+                    <div class="flex flex-col gap-3">
+                            @foreach ($Beritas as $berita)
+                            <a href="{{ route('detail-berita', ['id_berita' => $berita->id_berita]) }}">
+                                <div class="flex items-center bg-white rounded-lg shadow-md">
+                                    <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-24 h-24 rounded-md">
+                                    <div class="flex flex-col pl-2">
+                                        <h2 class="text-sm font-semibold text-gray-800">
+                                            {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
+                                        </h2>
+                                        <div class="flex items-center justify-between pt-4">
+                                            <div class="flex items-center">
+                                                <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
+                                                <h1 class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}</h1>
+                                            </div>
+                                            <h1 class="pl-4 text-xs text-green-500 md:text-sm">{{ $berita->kategori }}</h1>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="text-sm text-green-500 md:text-base hover:text-green-600 hover:cursor-pointer">
-                                    Baca Selengkapnya ...
-                                </div>
-                            </div>
+                            </a>
+                            @endforeach
                         </div>
-                    </a>
-                    @endforeach
                 @endif
             @endif
         </div>
