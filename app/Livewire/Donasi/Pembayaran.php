@@ -52,44 +52,39 @@ class Pembayaran extends Component
         return redirect($this->redirectUrl);
     }
 
-    public function success($id_transaction)
-    {
-        $user = Auth::user();
+    // public function success($id_transaction)
+    // {
+    //     $user = Auth::user();
 
-        if ($user) {
-            $this->id_user = $user->id_user;
-        } else {
-            $this->id_user = null;
-        }
-        $donasi = Donasi::create([
-            'id_user' => $this->id_user,
-            'jumlah_donasi' => $this->nominal,
-            'id_campaign' => $this->campaign->id_campaign,
-            'username' => $this->username,
-            'no_telp' => $this->no_telp,
-            'email' => $this->email,
-            'id_transaction' => $id_transaction
-        ]);
-        if ($this->doa) {
+    //     if ($user) {
+    //         $this->id_user = $user->id_user;
+    //     } else {
+    //         $this->id_user = null;
+    //     }
+    //     $donasi = Donasi::create([
+    //         'id_user' => $this->id_user,
+    //         'jumlah_donasi' => $this->nominal,
+    //         'id_campaign' => $this->campaign->id_campaign,
+    //         'username' => $this->username,
+    //         'no_telp' => $this->no_telp,
+    //         'email' => $this->email,
+    //         'id_transaction' => $id_transaction
+    //     ]);
+    //     if ($this->doa) {
 
-            $doa = Doa::create([
-                'username' => $this->username,
-                'id_user' => $this->id_user,
-                'doa' => $this->doa,
-                'jumlah_likes' => 0,
-                'id_campaign' => $this->campaign->id_campaign,
-                'id_transaction' => $id_transaction
-            ]);
-        };
-        return redirect()->route('campaigns.show', $this->campaign->id_campaign);
+    //         $doa = Doa::create([
+    //             'username' => $this->username,
+    //             'id_user' => $this->id_user,
+    //             'doa' => $this->doa,
+    //             'jumlah_likes' => 0,
+    //             'id_campaign' => $this->campaign->id_campaign,
+    //             'id_transaction' => $id_transaction
+    //         ]);
+    //     };
+    //     return redirect()->route('campaigns.show', $this->campaign->id_campaign);
 
-    }
-    public function unfinished()
-    {
-    }
-    public function failed()
-    {
-    }
+    // }
+
     public function render()
     {
         return view(

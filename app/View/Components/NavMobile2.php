@@ -9,12 +9,14 @@ use Illuminate\View\Component;
 class NavMobile2 extends Component
 {
     public $title;
+    public $backUrl;
     /**
      * Create a new component instance.ddd
      */
-    public function __construct($title)
+    public function __construct($title,$backUrl=null)
     {
         $this->title = $title;
+        $this->backUrl = $backUrl;
     }
 
     /**

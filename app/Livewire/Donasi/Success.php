@@ -22,19 +22,25 @@ class Success extends Component
         $user = Auth::user();
 
 
-        if($this->statusCode == 200){
-        $transaction = Transaction::where('order_id', $this->orderId)->first();
-        if($transaction){
-            $transaction->status = $this->transactionStatus;
-            $transaction->save();
-        }else{
-            return redirect()->route('campaign');
+        if ($this->statusCode == 200) {
+            $transaction = Transaction::where('order_id', $this->orderId)->first();
+            if ($transaction) {
+                if ($transaction->status == 'pending') {
+                    $transaction->status = $this->transactionStatus;
+                    $transaction->save();
+                }
+                else {
+                    return redirect()->route('campaign');
+                }
+            } else {
+                return redirect()->route('campaign');
+            }
         }
-        }
-        
+
     }
 
-    public function goCampaign(){
+    public function goCampaign()
+    {
         return redirect()->route('campaigns.show', $this->id_campaign);
     }
 

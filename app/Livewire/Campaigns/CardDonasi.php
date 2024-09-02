@@ -13,6 +13,9 @@ class CardDonasi extends Component
     public function mount($id_donasi)
     {
         $this->donasi = Donasi::find($id_donasi);
+        if($this->donasi->hide_name == 'yes'){
+            $this->donasi->username = 'Hamba Allah';
+        }
         $value = \Carbon\Carbon::parse($this->donasi->created_at)->diffInDays();
         $this->waktu_donasi = floor($value);
     }

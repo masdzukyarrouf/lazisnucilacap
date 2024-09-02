@@ -39,6 +39,7 @@ class Index extends Component
     public function loadCampaigns()
     {
         $query = Campaign::query();
+        $query->where('end_date', '>', now());
 
     if ($this->kategori !== 'all') {   
         if ($this->filter == 'newest') {
