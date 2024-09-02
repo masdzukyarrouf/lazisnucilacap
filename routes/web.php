@@ -83,6 +83,8 @@ Route::get('/damai', App\Livewire\Damai::class)->name('damai');
 
 Route::get('/hijau', App\Livewire\Hijau::class)->name('hijau');
 
+Route::get('/laporan', App\Livewire\Laporan::class)->name('laporan');
+
 Route::get('/donasi/{campaign}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
 Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');
 Route::get('/pembayaran/{campaign}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');

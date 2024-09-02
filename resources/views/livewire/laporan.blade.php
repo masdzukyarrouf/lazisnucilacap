@@ -1,29 +1,9 @@
 <div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Penghargaan" />
+    <x-nav-mobile2 title="Laporan & Publikasi" />
     <div class="flex flex-col h-full min-h-screen bg-white shadow-md" style="width: 414px;">
-        <div class="flex h-56 bg-green-100 shadow-lg">
-            <div class="flex px-4 pt-4 pb-6">
-                <img src="{{ asset('images/penghargaan.png') }}" alt="" class="pr-4">
-                <div class="flex flex-col">
-                    <h1 class="text-xs">
-                        Terima kasih kami ucapkan kepada seluruh pihak yang telah mendukung kami
-                    </h1>
-                    <h1 class="mt-2 text-xs">
-                        NU Care LAZISNU kembali Meraih Predikat 
-                    </h1>
-                    <h1 class="mt-2 text-sm font-semibold text-green-500">
-                        Opini Wajar Tanpa Pengecualian (WTP) 
-                    </h1>
-                    <h1 class="mt-2 text-xs">
-                        Dari Kantor Akuntan Publik
-                        Pada pelaporan keuangan tahun 2022 
-                    </h1>
-                </div>
-            </div>
-        </div>
         <div class="flex flex-col px-4 py-4 shadow-lg">
             <div id="details-container" class="relative max-h-[1000px] overflow-hidden transition-all duration-300">
-                <p class="text-[16px] font-semibold text-green-500 items-center flex pb-2">Penghargaan NU-Care Lazisnu Cilacap</p>
+                <p class="text-[16px] font-semibold text-green-500 items-center flex pb-2">Laporan & Publikasi NU-Care Lazisnu Cilacap</p>
                 <div class="flex flex-col gap-3">
                     @foreach ($latestBerita->take(3) as $berita)
                         <a href="{{ route('detail-berita', ['id_berita' => $berita->id_berita]) }}">

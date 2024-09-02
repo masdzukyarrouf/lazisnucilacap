@@ -26,17 +26,19 @@ class Index extends Component
     public function loadBerita()
     {
         $query = Berita::query();
+        $query2 = Berita::query();
 
         if ($this->kategori !== 'all') {
             // Filter berita based on selected category
             $query->where('kategori', $this->kategori);
+            $query2->where('kategori', $this->kategori);
         }
 
         // Fetch the latest 3 berita for the selected category or all
         $this->latestBerita = $query->latest()->take(3)->get();
 
         // Fetch the remaining berita for the selected category or all
-        $this->otherBerita = $query->latest()->skip(3)->paginate(10);
+        $this->otherBerita = $query2->latest()->get();
     }
 
     public function render()
