@@ -21,7 +21,11 @@ class Riwayat extends Component
     
         $this->user = User::find($this->id_user);
     
-        $this->donasis = Donasi::where('id_user', $this->id_user)->get();
+        $this->donasis = Donasi::where('id_user', $this->id_user)
+            ->whereHas('transaction', function ($query) {
+                $query->where('status', 'settlement');
+            })
+            ->get();
 
         foreach ($this->donasis as $donasi) {
             $value = \Carbon\Carbon::parse($donasi->created_at)->diffInDays();
