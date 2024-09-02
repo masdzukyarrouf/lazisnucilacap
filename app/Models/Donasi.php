@@ -20,6 +20,7 @@ class Donasi extends Model
         'jumlah_donasi',
         'id_campaign',
         'id_transaction',
+        'hide_name',
 
     ];
 

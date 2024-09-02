@@ -42,7 +42,7 @@ class Donatur extends Component
     }
     public function pembayaran()
     {
-        if ($this->toggleValue) {
+        if ($this->toggleValue == true) {
             $hide_name = 'yes';
         } else {
             $hide_name = 'no';
@@ -104,6 +104,7 @@ class Donatur extends Component
 
         $user = Auth::user();
 
+        // dd($hide_name);
         $donasi = Donasi::create([
             'id_user' => $user->id_user ?? null,
             'jumlah_donasi' => $this->nominal,
