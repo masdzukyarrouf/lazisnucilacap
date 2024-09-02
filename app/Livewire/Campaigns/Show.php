@@ -1,10 +1,9 @@
 <?php
-
 namespace App\Livewire\Campaigns;
 
 use App\Models\Campaign;
 use Livewire\Component;
-use carbon\Carbon;
+use Carbon\Carbon;
 use App\Models\Donasi;
 use App\Models\Doa;
 use App\Models\update_campaign;
@@ -13,18 +12,22 @@ class Show extends Component
 {
     public Campaign $campaign;
     public $processedUpdate = null;
+    public $donasis;
+    public $doa;
+    public $update_campaign;
+    public $progress;
+    public $dayLeft;
 
-    public function mount()
+    public function mount($title)
     {
         Campaign::updateRaisedValues();
-        $this->campaign = Campaign::find($this->campaign->id_campaign);
+        $this->campaign = Campaign::where('title', urldecode($title))->firstOrFail();
 
         $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)
             ->whereHas('transaction', function ($query) {
                 $query->where('status', 'settlement');
             })
             ->take(3)->get();
-
 
         $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)
             ->whereHas('transaction', function ($query) {
@@ -39,8 +42,6 @@ class Show extends Component
         }
         $this->processProgress();
         $this->dayLeft();
-
-
     }
 
     public function processDescription()
@@ -53,6 +54,7 @@ class Show extends Component
 
         $this->processedDesc = $desc;
     }
+    
     public function processUpdate()
     {
         $desc = $this->update_campaign->description;
@@ -61,6 +63,7 @@ class Show extends Component
 
         $this->processedUpdate = $desc;
     }
+    
     public function processProgress()
     {
         $raised = $this->campaign->raised;
@@ -71,6 +74,7 @@ class Show extends Component
         }
         $this->progress = $progress;
     }
+    
     public function dayLeft()
     {
         $end_date = Carbon::parse($this->campaign->end_date);
@@ -84,7 +88,6 @@ class Show extends Component
         $this->dayLeft = $dayLeft;
     }
 
-
     public function render()
     {
         return view('livewire.campaigns.show', [
@@ -94,7 +97,6 @@ class Show extends Component
             'dayLeft' => $this->dayLeft,
             'donasis' => $this->donasis,
             'doas' => $this->doa,
-
-        ])->layout('layouts.mobile')->layout('layouts.none');
+        ])->layout('layouts.none');
     }
 }

@@ -10,11 +10,11 @@ use Auth;
 use Livewire\Attributes\Rule;
 use App\Models\Transaction;
 
-
 class Donatur extends Component
 {
     public Campaign $campaign;
     public $nominal;
+    public $min_donation;
 
     #[Rule('required|string')]
     public $username;
@@ -27,10 +27,18 @@ class Donatur extends Component
     public $toggleValue = false;
     public $donatur;
 
-    public function mount($nominal = null)
+    public function mount($title, $nominal = null)
     {
-        $this->nominal = session('nominal', 'none');
-        $this->goBack();
+        // Decode the title from URL encoding
+        $decodedTitle = urldecode($title);
+
+        // Find the campaign by the decoded title
+        $this->campaign = Campaign::where('title', $decodedTitle)->firstOrFail();
+
+        // Set the nominal amount
+        $this->nominal = $nominal ?? session('nominal', 'none');
+
+        // Set user details if authenticated
         $user = Auth::user();
         if ($user) {
             $this->username = $user->username;
@@ -38,15 +46,14 @@ class Donatur extends Component
             $this->email = $user->email;
         }
 
-
+        // Redirect if nominal is 'none'
+        $this->goBack();
     }
+
     public function pembayaran()
     {
-        if ($this->toggleValue == true) {
-            $hide_name = 'yes';
-        } else {
-            $hide_name = 'no';
-        }
+        $hide_name = $this->toggleValue ? 'yes' : 'no';
+
         $this->donatur = [
             'username' => $this->username,
             'nominal' => $this->nominal,
@@ -66,17 +73,12 @@ class Donatur extends Component
             'username' => $this->username,
             'no_telp' => $this->no_telp,
             'email' => $this->email,
-
         ]);
 
-
-        // Set your Merchant Server Key
+        // Configure Midtrans
         \Midtrans\Config::$serverKey = config('midtrans.serverKey');
-        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = false;
-        // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
-        // Set 3DS transaction for credit card to true
         \Midtrans\Config::$is3ds = true;
 
         $params = array(
@@ -90,7 +92,7 @@ class Donatur extends Component
                 'no_telp' => $this->no_telp,
             ),
             'callbacks' => [
-                'finish' => route('donasi.success', ['id_campaign' => $this->campaign->id_campaign]),
+                'finish' => route('donasi.success', ['title' => urlencode($this->campaign->title)]),
                 'unfinish' => route('zakat'),
                 'error' => route('wakaf'),
             ]
@@ -99,12 +101,10 @@ class Donatur extends Component
         $this->redirectUrl = "https://app.sandbox.midtrans.com/snap/v2/vtweb/{$snapToken}";
 
         $this->transaction->snap_token = $snapToken;
-
         $this->transaction->save();
 
         $user = Auth::user();
 
-        // dd($hide_name);
         $donasi = Donasi::create([
             'id_user' => $user->id_user ?? null,
             'jumlah_donasi' => $this->nominal,
@@ -116,32 +116,29 @@ class Donatur extends Component
             'id_transaction' => $this->transaction->id_transaction
         ]);
         if ($this->doa) {
-            $doa = Doa::create([
+            Doa::create([
                 'username' => $this->username,
                 'id_user' => $user->id_user ?? null,
                 'doa' => $this->doa,
                 'jumlah_likes' => 0,
                 'id_campaign' => $this->campaign->id_campaign,
                 'id_transaction' => $this->transaction->id_transaction
-
             ]);
-        };
-        return redirect()->route('donasi.pembayaran', [$this->campaign->id_campaign, $snapToken])
-            ->with('donatur', $this->donatur);
+        }
 
+        return redirect()->route('donasi.pembayaran', ['title' => urlencode($this->campaign->title), 'token' => $snapToken])
+            ->with('donatur', $this->donatur);
     }
+
     public function goBack()
     {
         if ($this->nominal == 'none') {
-            return redirect()->route('donasi.index', $this->campaign->id_campaign);
+            return redirect()->route('donasi.index', ['title' => urlencode($this->campaign->title)]);
         }
     }
 
     public function render()
     {
-
-        return view('livewire.donasi.donatur', [
-
-        ])->layout('layouts.none');
+        return view('livewire.donasi.donatur')->layout('layouts.none');
     }
 }

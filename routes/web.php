@@ -51,21 +51,7 @@ Route::get('/pembayaran_infaq&wakaf', App\Livewire\InfaqwakafBayar::class)->name
 
 Route::get('/mitra', App\Livewire\UserMitra::class)->name('mitra');
 
-Route::get('/profil&jajaran', App\Livewire\ProfilJajaran::class)->name('profil&jajaran');
 
-Route::get('/penghargaan', App\Livewire\Penghargaan::class)->name('penghargaan');
-
-Route::get('/kebijakan', App\Livewire\KebijakanMutu::class)->name('kebijakan');
-
-Route::get('/berdaya', App\Livewire\Berdaya::class)->name('berdaya');
-
-Route::get('/cerdas', App\Livewire\Cerdas::class)->name('cerdas');
-
-Route::get('/sehat', App\Livewire\Sehat::class)->name('sehat');
-
-Route::get('/damai', App\Livewire\Damai::class)->name('damai');
-
-Route::get('/hijau', App\Livewire\Hijau::class)->name('hijau');
 
 Route::get('/profil&jajaran', App\Livewire\ProfilJajaran::class)->name('profil&jajaran');
 
@@ -85,23 +71,19 @@ Route::get('/hijau', App\Livewire\Hijau::class)->name('hijau');
 
 Route::get('/laporan', App\Livewire\Laporan::class)->name('laporan');
 
-Route::get('/donasi/{campaign}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
-Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');
-Route::get('/pembayaran/{campaign}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profil', App\Livewire\Profil::class)->name('profil');
     Route::get('/akun', App\Livewire\Akun::class)->name('akun');
     Route::get('/riwayat', App\Livewire\Riwayat::class)->name('riwayat');
 });
 
-Route::get('/donasi/{campaign}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
+Route::get('/donasi/{title}', App\Livewire\Donasi\Index::class)->name('donasi.index');
+Route::get('/donasi/data/{title}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
 Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');
-Route::get('/pembayaran/{campaign}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
+Route::get('/pembayaran/{title}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
 Route::post('/midtrans/notification', [App\Http\Controllers\TransactionListener::class, 'handleNotification']);
 
-Route::get('/list_donasi/{campaign}', App\Livewire\Campaigns\DonasiList::class)->name('campaigns.donasiList');
+Route::get('/list_donasi/{title}', App\Livewire\Campaigns\DonasiList::class)->name('campaigns.donasiList');
 Route::get('/campaigns', App\Livewire\Campaigns\Index::class)->name('campaign');
-Route::get('/campaigns/{campaign}', App\Livewire\Campaigns\Show::class)->name('campaigns.show');
-Route::get('/doa/{campaign}', App\Livewire\Campaigns\DoaList::class)->name('campaigns.doaList');
-Route::get('/{campaign}', App\Livewire\Donasi\Index::class)->name('donasi.index');
+Route::get('/campaigns/{title}', App\Livewire\Campaigns\Show::class)->name('campaigns.show');
+Route::get('/doa/{title}', App\Livewire\Campaigns\DoaList::class)->name('campaigns.doaList');

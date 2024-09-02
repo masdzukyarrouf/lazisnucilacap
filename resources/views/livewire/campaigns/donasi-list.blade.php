@@ -1,7 +1,7 @@
-<div class="w-full max-w-[414px] mx-auto bg-white h-full">
+<div class="w-full max-w-[414px] mx-auto bg-white h-auto">
     <x-nav-mobile2 title="List Donasi Campaign" />
     @if ($donasis->isEmpty())
-        <div class="px-4 py-40 text-center ">
+        <div class="px-4 py-60 text-center ">
             <p>
                 Belum Ada Donasi
             </p>

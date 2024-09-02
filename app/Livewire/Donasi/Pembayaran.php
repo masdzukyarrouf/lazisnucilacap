@@ -11,11 +11,13 @@ use Livewire\Attributes\Rule;
 use Auth;
 use Exception;
 
-
 class Pembayaran extends Component
 {
     public Campaign $campaign;
     public $nominal;
+    public $transaction;
+    public $token;
+    public $redirectUrl;
 
     #[Rule('required|string')]
     public $username;
@@ -25,12 +27,15 @@ class Pembayaran extends Component
     public $email;
     #[Rule('nullable|email')]
     public $doa;
-    public $transaction;
-    public $token;
-    public $redirectUrl;
 
-    public function mount()
+    public function mount($title)
     {
+        // Decode the title from URL encoding
+        $decodedTitle = urldecode($title);
+
+        // Find the campaign by the decoded title
+        $this->campaign = Campaign::where('title', $decodedTitle)->firstOrFail();
+
         $this->donatur = session('donatur');
 
         if ($this->donatur) {
@@ -40,58 +45,19 @@ class Pembayaran extends Component
             $this->email = $this->donatur['email'];
             $this->doa = $this->donatur['doa'];
         } else {
-            return redirect()->route('donasi.index', $this->campaign->id_campaign);
+            return redirect()->route('donasi.index', ['title' => urlencode($this->campaign->title)]);
         }
-
-
-       
-
     }
+
     public function donasi()
     {
         return redirect($this->redirectUrl);
     }
 
-    // public function success($id_transaction)
-    // {
-    //     $user = Auth::user();
-
-    //     if ($user) {
-    //         $this->id_user = $user->id_user;
-    //     } else {
-    //         $this->id_user = null;
-    //     }
-    //     $donasi = Donasi::create([
-    //         'id_user' => $this->id_user,
-    //         'jumlah_donasi' => $this->nominal,
-    //         'id_campaign' => $this->campaign->id_campaign,
-    //         'username' => $this->username,
-    //         'no_telp' => $this->no_telp,
-    //         'email' => $this->email,
-    //         'id_transaction' => $id_transaction
-    //     ]);
-    //     if ($this->doa) {
-
-    //         $doa = Doa::create([
-    //             'username' => $this->username,
-    //             'id_user' => $this->id_user,
-    //             'doa' => $this->doa,
-    //             'jumlah_likes' => 0,
-    //             'id_campaign' => $this->campaign->id_campaign,
-    //             'id_transaction' => $id_transaction
-    //         ]);
-    //     };
-    //     return redirect()->route('campaigns.show', $this->campaign->id_campaign);
-
-    // }
-
     public function render()
     {
-        return view(
-            'livewire.donasi.pembayaran',
-            [
-                'transaction' => $this->transaction
-            ]
-        )->layout('layouts.none');
+        return view('livewire.donasi.pembayaran', [
+            'transaction' => $this->transaction
+        ])->layout('layouts.none');
     }
 }
