@@ -26,7 +26,7 @@
                 <p class="text-[16px] font-semibold text-green-500 items-center flex pb-2">Penghargaan NU-Care Lazisnu Cilacap</p>
                 <div class="flex flex-col gap-3">
                     @foreach ($latestBerita->take(3) as $berita)
-                        <a href="{{ route('detail-berita', ['id_berita' => $berita->id_berita]) }}">
+                        <a href="{{ route('user-berita.show', ['id_berita' => $berita->id_berita]) }}">
                             <div class="flex items-center bg-white rounded-lg shadow-md">
                                 <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-24 h-24 rounded-md">
                                 <div class="flex flex-col pl-2">
