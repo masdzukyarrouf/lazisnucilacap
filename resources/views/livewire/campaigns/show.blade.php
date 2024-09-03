@@ -1,5 +1,5 @@
 <div class="w-full max-w-[414px] mx-auto bg-white">
-    <x-nav-mobile2 title="{{ \Illuminate\Support\Str::limit($campaign->title, 35, '...') }}" />
+    <x-nav-mobile2 title="{{ \Illuminate\Support\Str::limit($campaign->title, 35, '...') }}" :backUrl="route('campaign')"/>
 
     <div>
         <img src="{{ asset('storage/images/campaign/' . $campaign->main_picture) }}" alt="Main Picture"
@@ -82,7 +82,7 @@
                     <p>
                         Belum Ada Donasi
                     </p>
-                    <a href="{{ route('donasi.index', $campaign->id_campaign) }}" class="text-green-500 text-sm">Donasi
+                    <a href="{{ route('donasi.index', $campaign->title) }}" class="text-green-500 text-sm">Donasi
                         Sekarang</a>
                 </div>
             @elseif($donasis)
@@ -124,7 +124,7 @@
                     <p>
                         Belum Ada Doa
                     </p>
-                    <a href="{{ route('donasi.index', $campaign->id_campaign) }}" class="text-green-500 text-sm">Donasi
+                    <a href="{{ route('donasi.index', $campaign->title) }}" class="text-green-500 text-sm">Donasi
                         Sekarang</a>
                 </div>
             @elseif($doas)

@@ -5,7 +5,7 @@
             <p>
                 Belum Ada Doa
             </p>
-            <a href="{{ route('donasi.index', $campaign->id_campaign) }}" class="text-green-500 text-sm">Donasi
+            <a href="{{ route('donasi.index', $campaign->title) }}" class="text-green-500 text-sm">Donasi
                 Sekarang</a>
         </div>
     @else
