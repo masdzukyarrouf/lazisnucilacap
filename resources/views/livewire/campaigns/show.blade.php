@@ -1,9 +1,9 @@
 <div class="w-full max-w-[414px] mx-auto bg-white">
-    <x-nav-mobile2 title="{{ \Illuminate\Support\Str::limit($campaign->title, 35, '...') }}" :backUrl="route('campaign')"/>
+    <x-nav-mobile2 title="{{ \Illuminate\Support\Str::limit($this->title, 35, '...') }}" :backUrl="route('campaign')" />
 
     <div>
         <img src="{{ asset('storage/images/campaign/' . $campaign->main_picture) }}" alt="Main Picture"
-            class="w-full object-cover" style="height: 205px">
+            class="w-full object-cover" style="height: 205px" >
         <p class="mt-4 px-4 py-2 font-bold text-[20px] w-full text-justify">{{ $campaign->title }}</p>
         <div class="px-3 w-full">
             <div class="flex justify-between w-fullitems-center mt-1">

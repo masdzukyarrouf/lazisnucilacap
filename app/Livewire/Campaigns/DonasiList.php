@@ -17,11 +17,16 @@ class DonasiList extends Component
 
         $this->campaign = Campaign::where('title', $decodedTitle)->firstOrFail();
 
+        
+    }
+    public function loadDonasis()
+    {
         $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)
             ->whereHas('transaction', function ($query) {
                 $query->where('status', 'settlement');
             })
             ->get();
+            
     }
     public function render()
     {

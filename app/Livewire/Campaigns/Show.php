@@ -18,19 +18,15 @@ class Show extends Component
     public $update_campaign;
     public $progress;
     public $dayLeft;
+    public $title;
 
     public function mount($title)
     {
         Campaign::updateRaisedValues();
-        $this->campaign = Campaign::where('title', urldecode($title))->firstOrFail();
-        $this->update_campaign = update_campaign::where('id_campaign', $this->campaign->id_campaign)->latest('updated_at')->first();
-
-        $this->processDescription();
-        if ($this->update_campaign) {
-            $this->processUpdate();
-        }
-        $this->processProgress();
-        $this->dayLeft();
+        $this->title = $title;
+        sleep(1);
+        $this->loadCampaign();
+        
     }
 
     public function loadDonasis()
@@ -53,7 +49,19 @@ class Show extends Component
             ->take(3)
             ->get();
     }
+    
+    public function loadCampaign()
+    {
+        $this->campaign = Campaign::where('title', urldecode($this->title))->firstOrFail();
+        $this->update_campaign = update_campaign::where('id_campaign', $this->campaign->id_campaign)->latest('updated_at')->first();
 
+        $this->processDescription();
+        if ($this->update_campaign) {
+            $this->processUpdate();
+        }
+        $this->processProgress();
+        $this->dayLeft();
+    }
     public function processDescription()
     {
         $desc = $this->campaign->description;
