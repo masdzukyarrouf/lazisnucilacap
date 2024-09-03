@@ -10,6 +10,7 @@ Route::get('/welcome', function () {
 });
 
 
+
 Route::middleware([CheckAdmin::class])->group(function () {
 
     Route::get('/admin', App\Livewire\Admin\Index::class)->name('admin');
@@ -81,7 +82,8 @@ Route::get('/donasi/{title}', App\Livewire\Donasi\Donatur::class)->name('donasi.
 Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');
 Route::get('/pembayaran/{title}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
 
-Route::get('/pengajuan', App\Livewire\Pengajuan::class)->name('laporan');
+Route::get('/pengajuan', App\Livewire\Pengajuan\Index::class)->name('pengajuan.index');
+Route::get('/pengajuan/success', App\Livewire\Pengajuan\Success::class)->name('pengajuan.success');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profil', App\Livewire\Profil::class)->name('profil');

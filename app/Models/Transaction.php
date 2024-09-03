@@ -19,5 +19,6 @@ class Transaction extends Model
         'username',
         'no_telp',
         'email',
+        'alamat',
     ];
 }
