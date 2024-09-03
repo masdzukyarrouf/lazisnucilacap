@@ -8,13 +8,13 @@ use App\Models\Berita;
 
 class Show extends Component
 {
-    public $id_berita;
+    // public $title_berita;
     public $berita;
 
-    public function mount($id_berita)
+    public function mount($title_berita)
     {
-        $this->id_berita = $id_berita;
-        $this->berita = berita::find($id_berita);
+        $this->berita = Berita::where('title_berita', $title_berita)->firstOrFail();
+        // dd($this->berita);
     }
 
     public function render()
