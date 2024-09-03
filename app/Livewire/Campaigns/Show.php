@@ -12,8 +12,9 @@ class Show extends Component
 {
     public Campaign $campaign;
     public $processedUpdate = null;
-    public $donasis;
-    public $doa;
+    public $processedDesc;
+    public $donasis = null;
+    public $doa = null;
     public $update_campaign;
     public $progress;
     public $dayLeft;
@@ -22,26 +23,35 @@ class Show extends Component
     {
         Campaign::updateRaisedValues();
         $this->campaign = Campaign::where('title', urldecode($title))->firstOrFail();
-
-        $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)
-            ->whereHas('transaction', function ($query) {
-                $query->where('status', 'settlement');
-            })
-            ->take(3)->get();
-
-        $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)
-            ->whereHas('transaction', function ($query) {
-                $query->where('status', 'settlement');
-            })
-            ->take(3)->get();
-
         $this->update_campaign = update_campaign::where('id_campaign', $this->campaign->id_campaign)->latest('updated_at')->first();
+
         $this->processDescription();
         if ($this->update_campaign) {
             $this->processUpdate();
         }
         $this->processProgress();
         $this->dayLeft();
+    }
+
+    public function loadDonasis()
+    {
+        $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)
+            ->whereHas('transaction', function ($query) {
+                $query->where('status', 'settlement');
+            })
+            ->take(3)
+            ->get();
+            
+    }
+
+    public function loadDoas()
+    {
+        $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)
+            ->whereHas('transaction', function ($query) {
+                $query->where('status', 'settlement');
+            })
+            ->take(3)
+            ->get();
     }
 
     public function processDescription()
@@ -54,7 +64,7 @@ class Show extends Component
 
         $this->processedDesc = $desc;
     }
-    
+
     public function processUpdate()
     {
         $desc = $this->update_campaign->description;
@@ -63,7 +73,7 @@ class Show extends Component
 
         $this->processedUpdate = $desc;
     }
-    
+
     public function processProgress()
     {
         $raised = $this->campaign->raised;
@@ -74,7 +84,7 @@ class Show extends Component
         }
         $this->progress = $progress;
     }
-    
+
     public function dayLeft()
     {
         $end_date = Carbon::parse($this->campaign->end_date);

@@ -79,7 +79,7 @@ Route::get('/pengajuan-mobiznu', App\Livewire\PengajuanMobiznu::class)->name('pe
 
 Route::get('/donasi/{campaign}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
 Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');
-Route::get('/pembayaran/{campaign}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
+Route::get('/pembayaran/{title}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
 
 Route::get('/pengajuan', App\Livewire\Pengajuan::class)->name('laporan');
 

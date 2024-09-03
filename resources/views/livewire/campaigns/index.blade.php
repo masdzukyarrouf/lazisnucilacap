@@ -41,8 +41,8 @@
             <!-- Campaign Cards Grid -->
             <div class="flex grid items-center justify-center w-full h-auto grid-cols-1" wire:loading.remove>
                 @if ($campaigns->isEmpty())
-                    <div class="px-4 py-2  text-center">
-                        Belum Ada Campaign
+                    <div class="px-4 py-20  text-center">
+                        Campaign Tidak Ditemukan
                     </div>
                 @else
                     @foreach ($campaigns as $campaign)

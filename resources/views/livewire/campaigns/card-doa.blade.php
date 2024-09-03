@@ -23,7 +23,6 @@
 </div>
 
 <script>
-    // let countLike = {{$doa->jumlah_likes}};
     function handleLike(doaId) {
         // Get elements
         const likeCountElem = document.getElementById(`like-count-${doaId}`);

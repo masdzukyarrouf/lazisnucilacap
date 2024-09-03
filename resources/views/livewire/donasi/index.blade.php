@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center ">
-    <x-nav-mobile2 title="Nominal Donasi" :backUrl="route('campaign')"/>
+    <x-nav-mobile2 title="Nominal Donasi" :backUrl="route('campaigns.show', $campaign->title)"/>
     <div class=" w-full max-w-[414px] mx-auto bg-gray-100 py-4">
         <div class="w-full ">
             <!-- Kategori and Filter Buttons -->

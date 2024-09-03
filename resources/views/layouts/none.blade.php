@@ -34,6 +34,24 @@
     {{ $slot }}
     @livewireScripts
     <script src="//unpkg.com/alpinejs" defer></script>
+    <script>
+            function handleLike(doaId) {
+        // Get elements
+        const likeCountElem = document.getElementById(`like-count-${doaId}`);
+        const likeButtonElem = document.getElementById(`like-button-${doaId}`);
+
+        // Toggle like state and update UI immediately
+        const liked = likeButtonElem.classList.toggle('text-rose-600');
+        likeButtonElem.querySelector('svg').classList.toggle('text-red-400');
+
+        // Update the like count
+        let likeCount = parseInt(likeCountElem.textContent);
+        likeCountElem.textContent = liked ? `${likeCount + 1} orang` : `${likeCount - 1} orang`;
+
+        // Trigger Livewire like function
+        // Livewire.dispatch('like', doaId);
+    }
+    </script>
 
 </body>
 
