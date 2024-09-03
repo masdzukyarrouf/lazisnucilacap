@@ -1,7 +1,12 @@
 <div class="flex flex-col items-center justify-center">
     <x-nav-mobile2 title="Berita Lazisnu Cilacap" />
     <div class="flex flex-col min-h-screen bg-white shadow-md" style="width: 414px;">
-        <livewire:user-berita.kategori />
+        <div class="flex">
+            <livewire:user-berita.kategori />
+            <input type="text" placeholder="Search Berita..." wire:model.live="search"
+                class="w-full px-4 py-2 border border-gray-300" />
+        </div>
+
         <div class="flex flex-col gap-3 p-4">
             @if($Beritas->isEmpty())
                 <p class="text-center text-gray-600">Tidak ada berita untuk kategori ini.</p>
@@ -10,7 +15,7 @@
                     @foreach($Beritas->take(3) as $berita)
                     <a href="{{ route('user-berita.show', $berita->title_berita) }}">
                         <div class="flex flex-col bg-white rounded-lg shadow-lg">
-                            <div class="relative flex items-center px-3 py-2 group w-80">
+                            <div class="relative flex items-center justify-center px-3 py-2 group w-80">
                                 <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-full h-full rounded-md">
                             </div>
                             <div class="px-3 py-2">
@@ -34,7 +39,7 @@
                         <div class="flex flex-col gap-3">
                             @foreach ($Beritas->skip(3) as $berita)
                             <a href="{{ route('user-berita.show',$berita->title_berita )}}">
-                                <div class="flex items-center bg-white rounded-lg shadow-md">
+                                <div class="flex items-center justify-center bg-white rounded-lg shadow-md">
                                     <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-24 h-24 rounded-md">
                                     <div class="flex flex-col pl-2">
                                         <h2 class="text-sm font-semibold text-gray-800">
@@ -80,23 +85,5 @@
             @endif
         </div>
     </div>
-    <div class="mb-16">
-    </div>
+    <div class="mb-16"></div>
 </div>
-
-<script>
-    document.getElementById('openModal').addEventListener('click', function(event) {
-        event.preventDefault();
-        document.getElementById('modalOverlay').classList.remove('hidden');
-    });
-
-    document.getElementById('closeModal').addEventListener('click', function() {
-        document.getElementById('modalOverlay').classList.add('hidden');
-    });
-
-    document.getElementById('modalOverlay').addEventListener('click', function(event) {
-        if (event.target === event.currentTarget) {
-            document.getElementById('modalOverlay').classList.add('hidden');
-        }
-    });
-</script>

@@ -8,6 +8,8 @@ use App\Models\Berita;
 class Index extends Component
 {
     public $kategori = "all"; // Add this property to manage the selected category
+    public $search = ''; // Add this property for search input
+    public $Beritas;
 
     public function mount()
     {
@@ -23,6 +25,12 @@ class Index extends Component
         $this->loadBerita();
     }
 
+    public function updatedSearch()
+    {
+        // Reload berita with search term
+        $this->loadBerita();
+    }
+
     public function loadBerita()
     {
         $query = Berita::query();
@@ -32,13 +40,17 @@ class Index extends Component
             $query->where('kategori', $this->kategori);
         }
 
+        if (!empty($this->search)) {
+            // Filter berita based on search term
+            $query->where('title_berita', 'like', '%' . $this->search . '%');
+        }
 
         $this->Beritas = $query->latest()->get();
     }
 
     public function render()
     {
-        // Load berita based on the current category
+        // Load berita based on the current category and search term
         $this->loadBerita();
 
         return view('livewire.user-berita.index', [
@@ -46,3 +58,4 @@ class Index extends Component
         ])->layout('layouts.mobile');
     }
 }
+    
