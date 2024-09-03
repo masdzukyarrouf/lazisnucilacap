@@ -75,6 +75,9 @@ Route::get('/laporan', App\Livewire\Laporan::class)->name('laporan');
 
 Route::get('/konfirmasi', App\Livewire\UserKonfirmasi::class)->name('user-konfirmasi');
 
+Route::get('/pengajuan-mobiznu', App\Livewire\PengajuanMobiznu::class)->name('pengajuan-mobiznu');
+
+
 Route::get('/donasi/{title}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
 Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');
 Route::get('/pembayaran/{title}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
