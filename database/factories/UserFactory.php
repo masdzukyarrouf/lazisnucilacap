@@ -28,6 +28,7 @@ class UserFactory extends Factory
             'first_name' => fake()->name(),
             'last_name' => fake()->name(),
             'no_telp' => fake()->phoneNumber(),
+            'alamat' => fake()->address(),
             'password' => static::$password ??= Hash::make('123'),
             'role' => 'donatur',
         ];

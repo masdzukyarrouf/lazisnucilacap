@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Campaign" />
+    <x-nav-mobile2 title="Campaign" :backUrl="route('landing')"/>
     <div class=" w-full max-w-[414px] mx-auto bg-white min-h-screen">
         <div class="w-full sticky ">
             <input type="text" placeholder="Search Campaigns..." wire:model.live="search"

@@ -29,16 +29,12 @@ class Donatur extends Component
 
     public function mount($title, $nominal = null)
     {
-        // Decode the title from URL encoding
         $decodedTitle = urldecode($title);
 
-        // Find the campaign by the decoded title
         $this->campaign = Campaign::where('title', $decodedTitle)->firstOrFail();
 
-        // Set the nominal amount
         $this->nominal = $nominal ?? session('nominal', 'none');
 
-        // Set user details if authenticated
         $user = Auth::user();
         if ($user) {
             $this->username = $user->username;
@@ -46,7 +42,6 @@ class Donatur extends Component
             $this->email = $user->email;
         }
 
-        // Redirect if nominal is 'none'
         $this->goBack();
     }
 
@@ -72,6 +67,7 @@ class Donatur extends Component
             'snap_token' => null,
             'username' => $this->username,
             'no_telp' => $this->no_telp,
+            'alamat' => 'temp',
             'email' => $this->email,
         ]);
 
@@ -113,6 +109,7 @@ class Donatur extends Component
             'no_telp' => $this->no_telp,
             'email' => $this->email,
             'hide_name' => $hide_name,
+            'alamat' => 'temp',
             'id_transaction' => $this->transaction->id_transaction
         ]);
         if ($this->doa) {

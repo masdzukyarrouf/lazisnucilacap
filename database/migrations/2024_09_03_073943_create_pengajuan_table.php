@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transaction', function (Blueprint $table) {
-            $table->integer('id_transaction')->autoIncrement()->primary();
+        Schema::create('pengajuan', function (Blueprint $table) {
+            $table->integer('id_pengajuan')->autoIncrement()->primary();
+            $table->integer('id_user')->nullable();
             $table->string('username');
             $table->string('no_telp');
-            $table->string('email')->nullable();
+            $table->string('jenis_pemohon');
+            $table->text('keterangan');
             $table->integer('nominal');
-            $table->string('snap_token')->nullable();
-            $table->integer('order_id')->nullable();
-            $table->string('status');
-            $table->text('alamat');
+            $table->integer('jumlah_penerima');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transaction');
+        Schema::dropIfExists('pengajuan');
     }
 };
