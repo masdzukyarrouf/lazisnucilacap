@@ -14,7 +14,7 @@ class Show extends Component
     public function mount($title_berita)
     {
         $this->berita = Berita::where('title_berita', $title_berita)->firstOrFail();
-        // dd($this->berita);
+        dd($this);
     }
 
     public function render()

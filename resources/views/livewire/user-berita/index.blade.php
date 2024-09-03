@@ -8,7 +8,7 @@
             @else
                 @if($kategori === 'all')
                     @foreach($Beritas->take(3) as $berita)
-                    <a href="{{ route('detail-berita', ['title_berita' => $berita->title_berita]) }}">
+                    <a href="{{ route('user-berita.show', $berita->title_berita) }}">
                         <div class="flex flex-col bg-white rounded-lg shadow-lg">
                             <div class="relative flex items-center px-3 py-2 group w-80">
                                 <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-full h-full rounded-md">
@@ -33,7 +33,7 @@
                         <p class="mb-3 font-semibold text-green-500 text-md">Berita Lainnya</p>
                         <div class="flex flex-col gap-3">
                             @foreach ($Beritas->skip(3) as $berita)
-                            <a href="{{ route('detail-berita', $berita->title_berita) }}">
+                            <a href="{{ route('user-berita.show',$berita->title_berita )}}">
                                 <div class="flex items-center bg-white rounded-lg shadow-md">
                                     <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-24 h-24 rounded-md">
                                     <div class="flex flex-col pl-2">
@@ -57,7 +57,7 @@
                     <!-- Display berita for specific category -->
                     <div class="flex flex-col gap-3">
                             @foreach ($Beritas as $berita)
-                            <a href="{{ route('detail-berita', ['title_berita' => $berita->title_berita]) }}">
+                            <a href="{{ route('user-berita.show',$berita->title_berita) }}">
                                 <div class="flex items-center bg-white rounded-lg shadow-md">
                                     <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-24 h-24 rounded-md">
                                     <div class="flex flex-col pl-2">
