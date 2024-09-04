@@ -62,8 +62,8 @@
                 </a>
             </div> 
             <div class="items-center w-16 h-auto rounded-lg">
-                <a wire:navigate.hover href="{{ route('profil') }}">
-                    <img src="{{ request()->is('profil') || request()->is('akun') || request()->is('riwayat') ? asset('images/Frame 4-active.png') : asset('images/Frame 4.png') }}" alt="">
+                <a wire:navigate.hover href="{{ route('profile.index') }}">
+                    <img src="{{ request()->is('profile.index') || request()->is('akun') || request()->is('riwayat') ? asset('images/Frame 4-active.png') : asset('images/Frame 4.png') }}" alt="">
                 </a>
             </div>
         </div>
