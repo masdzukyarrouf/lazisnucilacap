@@ -86,9 +86,13 @@ Route::get('/pengajuan', App\Livewire\Pengajuan\Index::class)->name('pengajuan.i
 Route::get('/pengajuan/success', App\Livewire\Pengajuan\Success::class)->name('pengajuan.success');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profil', App\Livewire\Profil::class)->name('profil');
-    Route::get('/akun', App\Livewire\Akun::class)->name('akun');
-    Route::get('/riwayat', App\Livewire\Riwayat::class)->name('riwayat');
+    // Route::get('/profil', App\Livewire\Profil::class)->name('profil');
+    // Route::get('/akun', App\Livewire\Akun::class)->name('akun');
+    // Route::get('/riwayat', App\Livewire\Riwayat::class)->name('riwayat');
+    Route::get('/profile', App\Livewire\Profile\Index::class)->name('profile.index');
+    Route::get('/account', App\Livewire\Profile\Account::class)->name('profile.account');
+    Route::get('/history', App\Livewire\Profile\History::class)->name('profile.history');
+    Route::get('/transaction', App\Livewire\Profile\Transaction::class)->name('profile.transaction');
 });
 
 Route::get('/donasi/{title}', App\Livewire\Donasi\Index::class)->name('donasi.index');

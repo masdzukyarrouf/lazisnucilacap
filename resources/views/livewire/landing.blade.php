@@ -275,7 +275,7 @@
                         </a>
                     </div> 
                     <div class="items-center w-16 h-auto rounded-lg">
-                        <a wire:navigate.hover href="{{ route('profil') }}">
+                        <a wire:navigate.hover href="{{ route('profile.index') }}">
                             <img src="{{ Request::is('profil') ? asset('images/Frame 4-active.png') : asset('images/Frame 4.png') }}" alt="">
                         </a>
                     </div>
