@@ -78,6 +78,8 @@ Route::get('/konfirmasi', App\Livewire\UserKonfirmasi::class)->name('user-konfir
 
 Route::get('/pengajuan-mobiznu', App\Livewire\PengajuanMobiznu::class)->name('pengajuan-mobiznu');
 
+Route::get('/wa_splash', App\Livewire\WaSplash::class)->name('wa_splash');
+
 
 Route::get('/donasi/{title}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
 Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');

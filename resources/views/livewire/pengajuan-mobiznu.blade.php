@@ -108,12 +108,13 @@
                     <h1 class="py-2 text-sm font-semibold">
                         Tanggal layanan
                     </h1>
-                    <input type="date" id="tanggal" wire:model.lazy="tanggal" wire:input="tanggal"
+                    <input type="date" id="tanggal" wire:model.lazy="tanggal" min="{{ date('Y-m-d') }}"
                         class="w-full px-2 py-1 mb-3 border border-gray-300 rounded"/>
                     @error('tanggal')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
+
                 <div class="flex flex-col">
                     <h1 class="py-2 text-sm font-semibold">
                         waktu Penjemputan

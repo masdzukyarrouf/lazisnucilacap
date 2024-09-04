@@ -53,7 +53,7 @@ class PengajuanMobiznu extends Component
             'no_telp' => 'required|string',
             'jenis' => 'required|string',
             'keperluan' => 'required|string',
-            'tanggal' => 'required|date',
+            'tanggal' => 'required|date|after_or_equal:today',
             'jemput' => 'required|string',
             'waktu_jemput' => 'required|string',
             'tujuan' => 'required|string',
@@ -95,11 +95,8 @@ class PengajuanMobiznu extends Component
             "⿢ Input data rekam jejak pelayanan melalui mobisnu.\n" .
             "https://mobisnu.nucarecilacap.id";
 
-        // URL untuk mengirimkan pesan WhatsApp
-        $url = 'https://api.whatsapp.com/send?phone=' . $this->nomorTujuan . '&text=' . urlencode($pesan);
+        return redirect()->route('wa_splash')->with('pesan', $pesan);
 
-        // Redirect ke URL WhatsApp
-        return redirect()->away($url);
     }
 
 
