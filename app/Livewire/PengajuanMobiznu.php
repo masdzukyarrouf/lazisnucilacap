@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\On;
 use Illuminate\Support\Facades\Http;
+use App\Models\petugas;
 
 class PengajuanMobiznu extends Component
 {
@@ -21,7 +22,11 @@ class PengajuanMobiznu extends Component
     public $lainnya;
     public $tanggal;
     public $jemput;
+    public $waktu_jemput;
     public $tujuan;
+    public $nomorTujuan;
+    public $petugases;
+    public $nama_admin;
 
 
 
@@ -33,7 +38,12 @@ class PengajuanMobiznu extends Component
             $this->nama = $users->username;
             $this->no_telp = $users->no_telp;
         }
+
+        $petugases = petugas::where('bagian', 'mobiznu')->latest()->first();
+        $this->nomorTujuan = $petugases->no;
+        $this->nama_admin = $petugases->nama;
     }
+
 
     protected function rules()
     {
@@ -45,6 +55,7 @@ class PengajuanMobiznu extends Component
             'keperluan' => 'required|string',
             'tanggal' => 'required|date',
             'jemput' => 'required|string',
+            'waktu_jemput' => 'required|string',
             'tujuan' => 'required|string',
             'lainnya' => 'nullable|string',
         ];
@@ -52,34 +63,46 @@ class PengajuanMobiznu extends Component
 
     public function save()
     {
-            // Validasi data
-            $validatedData = $this->validate();
+        // Validasi data
+        $validatedData = $this->validate();
 
         $keperluanPesan = $validatedData['keperluan'];
         if ($validatedData['keperluan'] === 'Lainnya') {
             $keperluanPesan = $validatedData['lainnya'] ?? ''; // Gunakan isi lainnya jika ada
         }
 
-            // Format pesan WhatsApp
-            $pesan = "*Pengajuan Layanan Mobiznu*\n" .
-                "Daerah : {$validatedData['jemput']}\n" .
-                "Atas nama : {$validatedData['nama']}\n" .
-                "No telepon : {$validatedData['no_telp']}\n" .
-                "Jenis pelayanan ambulance : {$validatedData['jenis']}\n" .
-                "Keperluan : {$keperluanPesan}\n" .
-                "Tanggal : {$validatedData['tanggal']}\n" .
-                "Alamat penjemputan : {$validatedData['jemput']}\n" .
-                "Alamat tujuan : {$validatedData['tujuan']}";
+        // Format pesan WhatsApp
+        $pesan = "PENGAJUAN LAYANAN AMBULANCE\n\n" .
+            "Assalamualaikum, {$this->nama_admin}\n" .
+            "Berikut pengajuan layanan ambulance untuk dapat ditindaklanjuti.\n\n" .
+            "Nama Pemohon\n" .
+            "{$validatedData['nama']}\n\n" .
+            "No HP\n" .
+            "{$validatedData['no_telp']}\n\n" .
+            "Jenis Layanan\n" .
+            "{$validatedData['jenis']}\n\n" .
+            "Keperluan\n" .
+            "{$keperluanPesan}\n\n" .
+            "Hari, Tanggal\n" .
+            "{$validatedData['tanggal']}\n\n" .
+            "Waktu Jemput\n" .
+            "{$validatedData['waktu_jemput']}\n\n" .
+            "Lokasi Jemput\n" .
+            "{$validatedData['jemput']}\n\n" .
+            "Lokasi Tujuan\n" .
+            "{$validatedData['tujuan']}\n\n" .
+            "⿡ Harap koordinator ambulance segera konfirmasi kepada pemohon.\n" .
+            "⿢ Input data rekam jejak pelayanan melalui mobisnu.\n" .
+            "https://mobisnu.nucarecilacap.id";
 
-            // URL untuk mengirimkan pesan WhatsApp
-            $nomorTujuan = '62859106685052';
-            $url = 'https://api.whatsapp.com/send?phone=' . $nomorTujuan . '&text=' . urlencode($pesan);
+        // URL untuk mengirimkan pesan WhatsApp
+        $url = 'https://api.whatsapp.com/send?phone=' . $this->nomorTujuan . '&text=' . urlencode($pesan);
 
-            // Redirect ke URL WhatsApp
-            return redirect()->away($url);
-
-        
+        // Redirect ke URL WhatsApp
+        return redirect()->away($url);
     }
+
+
 
 
     #[On('formCreated')]
@@ -91,7 +114,8 @@ class PengajuanMobiznu extends Component
     public function render()
     {
         return view('livewire.pengajuan-mobiznu', [
-            'users' => $this->users
+            'users' => $this->users,
+            'petugases' => $this->petugases,
         ])->layout('layouts.mobile');
     }
 }
