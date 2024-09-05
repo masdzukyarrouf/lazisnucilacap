@@ -32,6 +32,13 @@ class Index extends Component
     #[Rule(['required','integer'])]
     public  $jumlah_penerima = "";
 
+    public function mount(){
+        $user = Auth::user();
+        if($user){
+            $this->username = $user->username;
+            $this->no_telp = $user->no_telp;
+        }
+    }
     public function create()
     {
         $user = Auth::user();

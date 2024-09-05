@@ -92,8 +92,8 @@
                 <x-navlink title="Lazisnu Cilacap" :links="[
                     ['href' => '#', 'text' => 'Visi & Misi'],
                     ['href' => '/profil&jajaran', 'text' => 'Profil & Jajaran Pengurus'],
-                    ['href' => '#', 'text' => 'Sejarah'],
-                    ['href' => '#', 'text' => 'Legalitas'],
+                    ['href' => '/sejarah', 'text' => 'Sejarah'],
+                    ['href' => '/legalitas', 'text' => 'Legalitas'],
                     ['href' => '/kebijakan', 'text' => 'Standar Layanan (MANTAP)'],
                     ['href' => '#', 'text' => 'Laporan & Publikasi'],
                     ['href' => '/mitra', 'text' => 'Mitra'],
@@ -109,7 +109,7 @@
 
                 <x-navlink title="Layanan" :links="[
                     ['href' => '#', 'text' => 'Konfirmasi Donasi'],
-                    ['href' => '#', 'text' => 'Pengajuan Umum'],
+                    ['href' => '/pengajuan', 'text' => 'Pengajuan Umum'],
                     ['href' => '#', 'text' => 'Layanan Mobisnu'],
                     ['href' => '#', 'text' => 'Gocap'],
                 ]" isDropdown="true" />
