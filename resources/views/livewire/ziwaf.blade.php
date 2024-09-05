@@ -82,6 +82,15 @@
                 />
 
                 <label>Nominal Zakat Kamu</label>
+                @if($zakatNominal == 0)
+                <input 
+                    type="text" 
+                    value="Belum memenuhi Nisab" 
+                    class="w-full px-2 py-1 text-red-500 border border-gray-300 rounded" 
+                    placeholder="Rp. 0" 
+                    readonly 
+                />
+                @else
                 <input 
                     type="text" 
                     value="{{ $zakatNominal !== '' ? number_format($zakatNominal, 0, ',', '.') : 'Rp. 0' }}" 
@@ -89,6 +98,7 @@
                     placeholder="Rp. 0" 
                     readonly 
                 />
+                @endif
             </div>
 
         @elseif($selectedOption === 'profesi')
@@ -128,6 +138,15 @@
                 />
 
                 <label>Nominal Zakat Kamu</label>
+                @if($zakatProfesi == 0)
+                <input 
+                    type="text" 
+                    value="Belum memenuhi Nisab" 
+                    class="w-full px-2 py-1 text-red-500 border border-gray-300 rounded" 
+                    placeholder="Rp. 0" 
+                    readonly 
+                />
+                @else
                 <input 
                     type="text" 
                     value="{{ $zakatProfesi !== '' ? number_format($zakatProfesi, 0, ',', '.') : 'Rp. 0' }}" 
@@ -135,6 +154,9 @@
                     placeholder="Rp. 0" 
                     readonly 
                 />
+                @endif
+
+
             </div>
         @endif
         <div class="flex items-center justify-center mt-5">

@@ -80,6 +80,10 @@ Route::get('/pengajuan-mobiznu', App\Livewire\PengajuanMobiznu::class)->name('pe
 
 Route::get('/wa_splash', App\Livewire\WaSplash::class)->name('wa_splash');
 
+Route::get('/sejarah', App\Livewire\Sejarah::class)->name('sejarah');
+
+Route::get('/legalitas', App\Livewire\Legalitas::class)->name('legalitas');
+
 
 Route::get('/donasi/{title}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
 Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');

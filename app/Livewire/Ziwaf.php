@@ -12,19 +12,23 @@ class Ziwaf extends Component
     public $properti = '';
     public $saham = '';
     public $hutang = '';
-    public $zakatNominal = '';
+    public $zakatNominal = 0;
 
     public $gaji = '';
     public $gaji2 = '';
     public $cicilan = '';
-    public $zakatProfesi = '';
+    public $zakatProfesi = 0;
     public $totalHarta1;
     public $totalPendapatan1;
-
-
-
-
     public $selectedOption = '';
+
+    protected function rules()
+    {
+        return [
+            'zakatProfesi' => 'required|integer',
+            'description' => 'required|string',
+        ];
+    }
 
     public function calculateZakat()
     {
@@ -45,8 +49,9 @@ class Ziwaf extends Component
         $this->totalHarta1 = number_format($this->totalHarta1, 0, ',', '.');
 
         $nisab = 85 * 1000000;
+        $nisabbulan = $nisab / 12;
 
-        if ($totalHarta >= $nisab) {
+        if ($totalHarta >= $nisabbulan) {
             $this->zakatNominal = $totalHarta * 0.025;
         } else {
             $this->zakatNominal = 0;
@@ -59,7 +64,11 @@ class Ziwaf extends Component
 
         $this->totalPendapatan1 = number_format($this->totalPendapatan1, 0, ',', '.');
 
-        $this->zakatProfesi = $totalPendapatan * 0.025;
+        if ($totalPendapatan >= $nisabbulan) {
+            $this->zakatProfesi = $totalPendapatan * 0.025;
+        } else {
+            $this->zakatProfesi = 0;
+        }
     }
 
 
@@ -77,6 +86,10 @@ class Ziwaf extends Component
 
     public function submitZakat()
     {
+        if ($this->zakatProfesi == 0 || $this->zakatNominal == 0) {
+            return;
+        }
+
         return redirect()->route('pembayaran_zakat', [
             'totalHarta1' => $this->totalHarta1,
             'hutang' => $this->hutang,
@@ -86,6 +99,7 @@ class Ziwaf extends Component
             'zakatProfesi' => $this->zakatProfesi,
         ]);
     }
+
 
     public function handleDropdownChange()
     {
