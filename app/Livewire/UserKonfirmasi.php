@@ -48,7 +48,7 @@ class UserKonfirmasi extends Component
             'no_telp' => 'required|string',
             'email' => 'required|string',
             'campaign' => 'required|string',
-            'bukti' => 'required|image|max:1024', // Validasi gambar
+            'bukti' => 'required|image|', // Validasi gambar
         ];
     }
 
