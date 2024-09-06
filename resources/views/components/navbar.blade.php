@@ -40,9 +40,9 @@
             ]" isDropdown="true" />
 
             <x-navlink title="Layanan" :links="[
-                ['href' => '#', 'text' => 'Konfirmasi Donasi'],
-                ['href' => '#', 'text' => 'Pengajuan Umum'],
-                ['href' => '#', 'text' => 'Layanan Mobisnu'],
+                ['href' => '/konfirmasi', 'text' => 'Konfirmasi Donasi'],
+                ['href' => '/pengajuan', 'text' => 'Pengajuan Umum'],
+                ['href' => '/pengajuan-mobiznu', 'text' => 'Layanan Mobisnu'],
                 ['href' => '#', 'text' => 'Gocap'],
             ]" isDropdown="true" />
 
@@ -108,9 +108,9 @@
                 ]" isDropdown="true" />
 
                 <x-navlink title="Layanan" :links="[
-                    ['href' => '#', 'text' => 'Konfirmasi Donasi'],
+                    ['href' => '/konfirmasi', 'text' => 'Konfirmasi Donasi'],
                     ['href' => '/pengajuan', 'text' => 'Pengajuan Umum'],
-                    ['href' => '#', 'text' => 'Layanan Mobisnu'],
+                    ['href' => '/pengajuan-mobiznu', 'text' => 'Layanan Mobisnu'],
                     ['href' => '#', 'text' => 'Gocap'],
                 ]" isDropdown="true" />
 
