@@ -45,11 +45,13 @@ Route::post('logout', App\Http\Controllers\logout::class)->name('logout');
 
 Route::get('/berita', App\Livewire\UserBerita\Index::class)->name('berita');
 
-Route::get('/zakat', App\Livewire\Ziwaf::class)->name('zakat');
-Route::get('/infak', App\Livewire\Infak::class)->name('infak');
-Route::get('/wakaf', App\Livewire\Wakaf::class)->name('wakaf');
-Route::get('/pembayaran_zakat', App\Livewire\ZakatBayar::class)->name('pembayaran_zakat');
-Route::get('/pembayaran_infaq&wakaf', App\Livewire\InfaqwakafBayar::class)->name('pembayaran-infaq&wakaf');
+Route::get('/zakat', App\Livewire\ziwaf\Ziwaf::class)->name('zakat');
+Route::get('/infak', App\Livewire\ziwaf\Infak::class)->name('infak');
+Route::get('/wakaf', App\Livewire\ziwaf\Wakaf::class)->name('wakaf');
+Route::get('/fidyah', App\Livewire\ziwaf\Fidyah::class)->name('fidyah');
+Route::get('/qurban', App\Livewire\ziwaf\Qurban::class)->name('qurban');
+Route::get('/pembayaran_zakat', App\Livewire\ziwaf\ZakatBayar::class)->name('pembayaran_zakat');
+Route::get('/pembayaran_infaq&wakaf', App\Livewire\ziwaf\InfaqwakafBayar::class)->name('pembayaran-infaq&wakaf');
 
 
 Route::get('/mitra', App\Livewire\UserMitra::class)->name('mitra');

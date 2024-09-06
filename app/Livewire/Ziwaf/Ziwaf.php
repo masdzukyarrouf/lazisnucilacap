@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Ziwaf;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Request;
@@ -103,6 +103,6 @@ class Ziwaf extends Component
     }
     public function render()
     {
-        return view('livewire.ziwaf')->layout('layouts.mobile');
+        return view('livewire.ziwaf.ziwaf')->layout('layouts.mobile');
     }
 }
