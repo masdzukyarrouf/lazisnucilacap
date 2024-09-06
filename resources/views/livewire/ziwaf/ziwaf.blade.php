@@ -17,6 +17,16 @@
                     <img src="{{ Request::is('wakaf') ? asset('images/wakaf on.png') : asset('images/wakaf off.png') }}" alt="" style="width: 138px; height: 38px">
                 </a>
             </div>
+            <div class="rounded-lg">
+                <a wire:navigate.hover href="{{ route('fidyah') }}">
+                    <img src="{{ Request::is('fidyah') ? asset('images/fidyah on.png') : asset('images/fidyah off.png') }}" alt="" style="width: 138px; height: 38px">
+                </a>
+            </div>
+            <div class="rounded-lg">
+                <a wire:navigate.hover href="{{ route('qurban') }}">
+                    <img src="{{ Request::is('qurban') ? asset('images/qurban on.png') : asset('images/qurban off.png') }}" alt="" style="width: 138px; height: 38px">
+                </a>
+            </div>
         </div>
         <div class="flex flex-col justify-center p-4">
             <h1 class="pb-2 font-semibold">Pilih Kategori Zakat</h1>
