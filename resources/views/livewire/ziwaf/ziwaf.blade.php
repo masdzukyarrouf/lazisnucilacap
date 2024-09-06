@@ -108,6 +108,66 @@
                         placeholder="Rp. 0" 
                         readonly 
                     />
+                    <div class="flex mt-4">
+                        <span class="text-green-500">baca niat zakat</span>
+                    </div>
+                    <div class="mt-4 mb-2">
+                        <span class="font-semibold">
+                            Silahkan Lengkapi Data Dibawah
+                        </span>
+                        <div class="flex flex-col justify-center py-4">
+                            <h1 class="pb-2 font-semibold">Nama Lengkap</h1>
+                            <div class="relative flex items-center">
+                                <!-- Dropdown -->
+                                <div class="relative w-1/3">
+                                    <select wire:model="selectedOption3" wire:change="handleDropdownChange" class="block w-full h-12 px-4 leading-tight bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:border-blue-500">
+                                        <option value="" disabled selected>Panggilan</option>
+                                        <option value="Bapak">Bapak</option>
+                                        <option value="Ibu">Ibu</option>
+                                        <option value="Kak">Kak</option>
+                                    </select>
+                                    <!-- SVG Icon -->
+                                    <div class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                                        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                            <path d="M7 10l5 5 5-5H7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                
+                                <!-- Input Field -->
+                                <input 
+                                    type="text" 
+                                    id="nama_lengkap" 
+                                    wire:model.lazy="nama_lengkap" 
+                                    wire:input="calculateZakat" 
+                                    class="w-2/3 h-12 px-4 py-2 pr-8 border border-gray-300 rounded" 
+                                />
+                            </div>
+                        </div>
+                        <label class="font-semibold">No Telepon (WA Aktif)</label>
+                        <input 
+                            type="text" 
+                            id="wa" 
+                            wire:model.lazy="wa" 
+                            wire:input="calculateZakat" 
+                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                            placeholder="Isikan No WA Anda" 
+                        />
+                        <label class="font-semibold">Alamat Lengkap</label>
+                        <textarea 
+                            type="text" 
+                            id="gram" 
+                            wire:model.lazy="gram" 
+                            wire:input="calculateZakat" 
+                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                            placeholder="Isi dengan Alamat Lengkap"
+                            rows="3">
+                        </textarea>
+                    <div class="flex items-center justify-center mt-4">
+                        <button wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                            Zakat Sekarang
+                        </button>
+                    </div>
                     @else
                     <div class="relative flex items-center justify-center">
                         <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-500 rounded h-9">Rp. </span>
@@ -120,9 +180,6 @@
                         />
                     </div>
                     @endif
-                    <div class="flex mt-4">
-                        <span class="text-green-500">baca niat zakat</span>
-                    </div>
                 </div>
 
             @elseif ($selectedOption2 === 'Perdagangan')
@@ -262,11 +319,6 @@
                 @endif
             </div>
         @endif
-        <div class="flex items-center justify-center mt-5">
-            <button wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
-                Zakat Sekarang
-            </button>
-        </div>
     </div>
     <!-- Tambahkan script untuk format angka dengan titik setiap 3 digit -->
     <script>
