@@ -80,6 +80,10 @@ Route::get('/konfirmasi', App\Livewire\UserKonfirmasi::class)->name('user-konfir
 
 Route::get('/pengajuan-mobiznu', App\Livewire\PengajuanMobiznu::class)->name('pengajuan-mobiznu');
 
+Route::get('/pengajuan-gocap', App\Livewire\PengaduanGocap\Index::class)->name('pengajuan-gocap.index');
+Route::get('/pengajuan-gocap/success', App\Livewire\PengaduanGocap\Success::class)->name('pengajuan-gocap.success');
+
+
 Route::get('/wa_splash', App\Livewire\WaSplash::class)->name('wa_splash');
 
 Route::get('/sejarah', App\Livewire\Sejarah::class)->name('sejarah');

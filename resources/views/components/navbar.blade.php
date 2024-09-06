@@ -43,7 +43,7 @@
                 ['href' => '/konfirmasi', 'text' => 'Konfirmasi Donasi'],
                 ['href' => '/pengajuan', 'text' => 'Pengajuan Umum'],
                 ['href' => '/pengajuan-mobiznu', 'text' => 'Layanan Mobisnu'],
-                ['href' => '#', 'text' => 'Gocap'],
+                ['href' => '/pengajuan-gocap', 'text' => 'Gocap'],
             ]" isDropdown="true" />
 
             <x-navlink title="Ziswaf" url="/zakat" />
@@ -111,7 +111,7 @@
                     ['href' => '/konfirmasi', 'text' => 'Konfirmasi Donasi'],
                     ['href' => '/pengajuan', 'text' => 'Pengajuan Umum'],
                     ['href' => '/pengajuan-mobiznu', 'text' => 'Layanan Mobisnu'],
-                    ['href' => '#', 'text' => 'Gocap'],
+                    ['href' => '/pengajuan-gocap', 'text' => 'Gocap'],
                 ]" isDropdown="true" />
 
                 <x-navlink title="Ziswaf" url="/zakat" />
