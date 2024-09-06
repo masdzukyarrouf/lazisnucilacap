@@ -9,7 +9,8 @@ class TransactionListener extends Controller
 {
     public function handleNotification(Request $request)
     {
-        $serverKey = env('MIDTRANS_SERVER_KEY');
+        // $serverKey = env('MIDTRANS_SERVER_KEY');
+        $serverKey = '123123123';
         $signatureKey = $request->signature_key;
         $orderId = $request->order_id;
         $grossAmount = $request->gross_amount;

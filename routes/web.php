@@ -102,11 +102,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/transaction', App\Livewire\Profile\Transaction::class)->name('profile.transaction');
 });
 
+// Route::post('/transaction/notification', [TransactionListener::class, 'handleNotification']);
+
 Route::get('/donasi/{title}', App\Livewire\Donasi\Index::class)->name('donasi.index');
 Route::get('/donasi/data/{title}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
 Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');
 Route::get('/pembayaran/{title}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
-Route::post('/midtrans/notification', [App\Http\Controllers\TransactionListener::class, 'handleNotification']);
 
 Route::get('/list_donasi/{title}', App\Livewire\Campaigns\DonasiList::class)->name('campaigns.donasiList');
 Route::get('/campaigns', App\Livewire\Campaigns\Index::class)->name('campaign');
