@@ -133,7 +133,7 @@
                 @endforeach
             @endif
         </div>
-
+ 
         @for ($i = 0; $i < 3; $i++)
             <div wire:loading
                 class="w-full flex-col items-center py-2 px-4 shadow-[0_4px_4px_rgba(0,0,0,0.1)] animate-pulse">

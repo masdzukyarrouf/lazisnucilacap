@@ -62,7 +62,7 @@ class Campaign extends Authenticatable
         foreach ($campaigns as $campaign) {
             $raisedAmount = Donasi::where('id_campaign', $campaign->id_campaign)
                 ->whereHas('transaction', function ($query) {
-                    $query->where('status', 'settlement');
+                    $query->where('status', 'success');
                 })
                 ->sum('jumlah_donasi');
     

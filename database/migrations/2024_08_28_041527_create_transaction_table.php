@@ -18,8 +18,12 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->integer('nominal');
             $table->string('snap_token')->nullable();
-            $table->integer('order_id')->nullable();
             $table->string('status');
+            $table->integer('order_id')->nullable();
+            $table->string('payment_type')->nullable();
+            $table->string('va_number')->nullable();
+            $table->string('settlement_time')->nullable();
+            $table->string('bank_or_store')->nullable();
             $table->text('alamat');
             $table->timestamps();
         });

@@ -23,8 +23,17 @@ class TransactionListener extends Controller
             if ($transaction) {
                 switch ($request->transaction_status) {
                     case 'capture':
-                        // $transaction->status = 'success';
-                        $transaction->status = 'settlement';//temp
+                        $transaction->status = 'success';
+                        $transaction->payment_type = $request->payment_type ?? null;
+                        $transaction->va_number = $request->va_number ?? null;
+                        $transaction->settlement_time = $request->transaction_time;
+                        if($request->bank){
+                            $transaction->bank_or_store = $request->bank;
+                        }elseif($request->store){   
+                            $transaction->bank_or_store = $request->store;
+                        }elseif($request->issuer){
+                            $transaction->bank_or_store = $request->issuer;
+                        }
                         $message = 'Transaksi berhasil.';
                         break;
 
@@ -55,8 +64,8 @@ class TransactionListener extends Controller
         }
 
         // return response()->json(['message' => 'Invalid notification signature'], 400);
-        return response()->json(['message' => '$hashed'], 400);//temp
+        return response()->json(['message' =>  $hashed], 400);//temp
     }
-    //belum dipake
+
     
 }

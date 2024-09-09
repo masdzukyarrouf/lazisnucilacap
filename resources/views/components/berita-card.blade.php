@@ -6,7 +6,7 @@
             class="object-cover w-full h-full rounded-md md:h-80 hover:cursor-pointer">
     </div>
     <div class="w-4/5 px-3 py-2 md:p-4 md:w-full">
-        <h2 class="text-sm font-semibold text-gray-800 md:text-xl">{{ $berita->title_berita }}</h2>
+        <h2 class="text-sm font-semibold text-gray-800 md:text-xl">{{ \Illuminate\Support\Str::limit($berita->title_berita, 25, '...') }}</h2>
         <div class="flex items-center mt-1">
             <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
             <p class="pl-1 text-xs text-gray-600 md:text-sm">{{$berita->tanggal}}</p>

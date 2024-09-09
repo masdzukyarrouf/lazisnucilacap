@@ -154,6 +154,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <script>
         // Toggle User Menu visibility

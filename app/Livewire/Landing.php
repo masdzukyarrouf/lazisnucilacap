@@ -13,25 +13,20 @@ use App\Models\Donasi;
 
 class Landing extends Component
 {
+    public $landings;
+    public $campaigns;
+    public $beritas;
+    public $mitras;
+    public $visis;
+    public $misis;
+    public $banyak_donasi;
     public function mount()
     {
-        Campaign::updateRaisedValues();
-        $this->campaigns = Campaign::query()
-            ->latest()
-            ->paginate(3);
 
         $this->mitras = Mitra::query()
             ->latest()
             ->get();
 
-        $this->landings = gambar_landing::query()
-            ->latest()
-            ->get();
-
-        $this->beritas = Berita::query()
-            ->latest()
-            ->take(3)
-            ->get();
 
         $this->visis = visi::query()
             ->latest()
@@ -40,7 +35,23 @@ class Landing extends Component
         $this->misis = misi::query()
             ->latest()
             ->get();
-            
+
+
+        $this->banyak_donasi = Donasi::whereHas('transaction', function ($query) {
+            $query->where('status', 'success');
+        })->count();
+        $this->landings = gambar_landing::query()
+            ->latest()
+            ->get();
+
+    }
+    public function loadCampaigns()
+    {
+        Campaign::updateRaisedValues();
+        $this->campaigns = Campaign::query()
+            ->latest()
+            ->take(3)
+            ->get();
         foreach ($this->campaigns as $campaign) {
             $raised = $campaign->raised;
             $goal = $campaign->goal;
@@ -50,20 +61,21 @@ class Landing extends Component
             }
             $campaign->progress = $progress;
         }
-        $this->banyak_donasi = Donasi::whereHas('transaction', function ($query) {
-            $query->where('status', 'settlement');
-        })->count();
-
+    }
+    public function loadBerita(){
+        $this->beritas = Berita::query()
+        ->latest()
+        ->take(3)
+        ->get();
     }
     public function render()
     {
         return view('livewire.landing', [
-            'campaigns' => $this->campaigns,
-            'mitras' => $this->mitras,
-            'landings' => $this->landings,
-            'beritas' => $this->beritas,
-            'visis' => $this->visis,
-            'misis' => $this->misis,
+            // 'campaigns' => $this->campaigns,
+            // 'mitras' => $this->mitras,
+            // 'beritas' => $this->beritas,
+            // 'visis' => $this->visis,
+            // 'misis' => $this->misis,
 
         ]);
     }
