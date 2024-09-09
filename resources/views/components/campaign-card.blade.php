@@ -1,4 +1,4 @@
-<div class="z-5  md:flex-col bg-white md:shadow-2xl md:rounded-lg h-full border border-transparent border-b-gray-300">
+<div wire:loading:remove class="z-5  md:flex-col bg-white md:shadow-2xl md:rounded-lg h-full border border-transparent border-b-gray-300">
     <a href="{{ route('campaigns.show', $campaign->title) }}" class="flex flex-row md:flex-col md:flex">
         <div class="z-0 relative group flex items-center w-44 h-28 md:h-80 md:w-auto md:rounded-lg">
 
@@ -9,7 +9,7 @@
                 <p class="text-white text-lg text-center">View Campaign</p>
             </div>
         </div>
-        <div class="py-2 px-3 md:p-4 w-4/5 md:w-full">
+        <div class="py-2 px-3 md:p-4 w-3/5 md:w-full">
             <h2 class="text-sm md:text-xl font-semibold text-gray-800">
                 {{ \Illuminate\Support\Str::limit($campaign->title, 25, '...') }}</h2>
             <div class="flex items-center mt-1">

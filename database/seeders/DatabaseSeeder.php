@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Doa;
 use App\Models\Like;
 use App\Models\Berita;
+use App\Models\Mitra;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
         Campaign::factory(50)->create();
         // Doa::factory(150)->create();
         Berita::factory(50)->create();
+        Mitra::factory(20)->create();
 
         // User::factory()->create([
         //     'name' => 'Test User',

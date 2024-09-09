@@ -19,6 +19,9 @@ class Transaction extends Model
         'username',
         'no_telp',
         'email',
+        'bank_or_store',
+        'va_number',
+        'settlement_time',
         'alamat',
     ];
 }
