@@ -21,7 +21,7 @@ class DoaList extends Component
     {
         $this->doa = Doa::where('id_campaign', $this->campaign->id_campaign)
         ->whereHas('transaction', function ($query) {
-            $query->where('status', 'settlement');
+            $query->where('status', 'success');
         })
         ->get();
     }

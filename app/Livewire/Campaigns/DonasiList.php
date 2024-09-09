@@ -23,7 +23,7 @@ class DonasiList extends Component
     {
         $this->donasis = Donasi::where('id_campaign', $this->campaign->id_campaign)
             ->whereHas('transaction', function ($query) {
-                $query->where('status', 'settlement');
+                $query->where('status', 'success');
             })
             ->get();
             

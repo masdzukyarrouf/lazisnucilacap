@@ -51,7 +51,7 @@ class Landing extends Component
             $campaign->progress = $progress;
         }
         $this->banyak_donasi = Donasi::whereHas('transaction', function ($query) {
-            $query->where('status', 'settlement');
+            $query->where('status', 'success');
         })->count();
 
     }

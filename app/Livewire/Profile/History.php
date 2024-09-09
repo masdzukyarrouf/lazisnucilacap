@@ -23,7 +23,7 @@ class History extends Component
     
         $this->donasis = Donasi::where('id_user', $this->id_user)
             ->whereHas('transaction', function ($query) {
-                $query->where('status', 'settlement');
+                $query->where('status', 'success');
             })
             ->get();
 

@@ -18,7 +18,7 @@ class Index extends Component
         $this->jumlah_berita = Berita::count();
         $this->jumlah_user = User::count();
         $this->banyak_donasi = Donasi::whereHas('transaction', function ($query) {
-            $query->where('status', 'settlement');
+            $query->where('status', 'success');
         })->count();
         
         $this->jumlah_donasi = Donasi::sum('jumlah_donasi');
