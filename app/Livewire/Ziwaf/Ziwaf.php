@@ -24,6 +24,12 @@ class Ziwaf extends Component
     public $totalpenghasilan;
     public $zakatPenghasilan;
 
+    public $harga;
+    public $kg;
+    public $toggleValue = false;
+    public $hargatotal;
+    public $zakatPertanian;
+
 
 
 
@@ -95,10 +101,30 @@ class Ziwaf extends Component
         // Kalkulasi Zakat Penghasilan
         $this->totalpenghasilan = $gaji + $gaji2;
 
-        if ($this->totalpenghasilan >= $this->nisab) {
+        if ($this->totalpenghasilan >= $this->nisabbulan) {
             $this->zakatPenghasilan = $this->totalpenghasilan * 0.025;
         } else {
             $this->zakatPenghasilan = 0;
+        }
+    }
+
+
+    public function totalharga()
+    {
+        $harga = !empty($this->harga) ? (float) str_replace('.', '', $this->harga) : 0;
+        $this->hargatotal = $harga * $this->kg;
+    }
+
+    public function maalPertanian()
+    {
+        $harga = !empty($this->harga) ? (float) str_replace('.', '', $this->harga) : 0;
+        $this->hargatotal = $harga * $this->kg;
+        $persen = $this->toggleValue ? '0.05' : '0.1';
+        
+        if ($this->kg >= 653){
+            $this->zakatPertanian = $this->hargatotal * $persen;
+        }else {
+            $this->zakatPertanian = 0;
         }
     }
 
@@ -119,6 +145,7 @@ class Ziwaf extends Component
 
     public function mount()
     {
+        $this->reset(); // Reset
         // $this->fetchGoldPrice();
         // $this->nisab = 85 * $this->goldPrice[0]['sell'];
         $this->nisab = 82312725;
@@ -127,25 +154,43 @@ class Ziwaf extends Component
         // Inisialisasi selectedOption berdasarkan URL jika ada
         if (Request::is('zakat-maal')) {
             $this->selectedOption = 'maal';
-        } elseif (Request::is('zakat-profesi')) {
-            $this->selectedOption = 'profesi';
+        } elseif (Request::is('zakat-fitrah')) {
+            $this->selectedOption = 'fitrah';
         }
     }
 
 
     public function submitZakat()
     {
-        if ($this->zakatProfesi == 0) {
-            return;
-        }
+        // Mendapatkan nilai dari parameter
+        $zakatEmas = (float) $this->zakatEmas;
+        $zakatPenghasilan = (float) $this->zakatPenghasilan;
+        $zakatPertanian = (float) $this->zakatPertanian;
+        $zakatPerdagangan = (float) $this->zakatPerdagangan;
 
-        return redirect()->route('pembayaran_zakat', [
-            'totalHarta1' => $this->totalHarta1,
-            'totalPendapatan1' => $this->totalPendapatan1,
-            'cicilan' => $this->cicilan,
-            'zakatProfesi' => $this->zakatProfesi,
-        ]);
+        // Menentukan URL redirect berdasarkan nilai parameter
+        if ($zakatEmas > 0) {
+            return redirect()->route('pembayaran_zakat', [
+                'zakatEmas' => $zakatEmas
+            ]);
+        } elseif ($zakatPenghasilan > 0) {
+            return redirect()->route('pembayaran_zakat', [
+                'zakatPenghasilan' => $zakatPenghasilan
+            ]);
+        } elseif ($zakatPertanian > 0) {
+            return redirect()->route('pembayaran_zakat', [
+                'zakatPertanian' => $zakatPertanian
+            ]);
+        } elseif ($zakatPerdagangan > 0) {
+            return redirect()->route('pembayaran_zakat', [
+                'zakatPerdagangan' => $zakatPerdagangan
+            ]);
+        } else {
+            // Default redirect or error handling if none of the conditions are met
+            return redirect()->route('pembayaran_zakat');
+        }
     }
+
 
 
     public function handleDropdownChange()
