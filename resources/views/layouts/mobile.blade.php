@@ -40,30 +40,30 @@
 </body>
 <footer>
     <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center">
-        <div class="flex items-center justify-center px-8 py-4 space-x-8 bg-white" style="width: 414px; height: 67px; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -2px rgba(0, 0, 0, 0.1);">
-            <div class="items-center w-16 h-auto rounded-lg">
+        <div class="flex items-center justify-center px-4 py-2 space-x-8 bg-white" style="width: 414px; height: 67px; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -2px rgba(0, 0, 0, 0.1);">
+            <div class="items-center w-16 h-11 rounded-lg">
                 <a wire:navigate.hover href="{{ route('landing') }}">
-                    <img src="{{ Request::is('/') ? asset('images/Frame 1-active.png') : asset('images/Frame 1.png') }}" alt="">
+                    <img class="w-full h-auto" src="{{ Request::is('/') ? asset('images/Frame 1-active.png') : asset('images/Frame 1.png') }}" alt="">
                 </a>
             </div>
-            <div class="items-center w-16 h-auto rounded-lg">
+            <div class="items-center w-16 h-11 rounded-lg">
                 <a wire:navigate.hover href="{{ route('campaign') }}">
-                    <img src="{{ Request::is('campaigns') ? asset('images/Frame 2-active.png') : asset('images/Frame 2.png') }}" alt="">
+                    <img class="w-full h-auto" src="{{ Request::is('campaigns') ? asset('images/Frame 2-active.png') : asset('images/Frame 2.png') }}" alt="">
                 </a>
             </div>
-            <div class="items-center w-16 h-auto rounded-lg">
+            <div class="items-center w-16 h-11 rounded-lg">
                 <a wire:navigate.hover href="{{ route('berita') }}">
-                    <img src="{{ Request::is('berita') || Request::is('detail-berita/*') ? asset('images/Frame 3-active.png') : asset('images/Frame 3.png') }}" alt="">
+                    <img class="w-full h-auto" src="{{ Request::is('berita') || Request::is('detail-berita/*') ? asset('images/Frame 3-active.png') : asset('images/Frame 3.png') }}" alt="">
                 </a>
             </div>
-            <div class="items-center w-16 h-auto rounded-lg">
+            <div class="items-center w-16 h-11 rounded-lg">
                 <a wire:navigate.hover href="{{ route('zakat') }}">
-                    <img src="{{ request()->is('zakat') || request()->is('infak') || request()->is('wakaf') ? asset('images/Frame 5-active.png') : asset('images/Frame 5.png') }}" alt="">
+                    <img class="w-full h-auto" src="{{ request()->is('zakat') || request()->is('infak') || request()->is('wakaf') ? asset('images/Frame 5-active.png') : asset('images/Frame 5.png') }}" alt="">
                 </a>
             </div> 
-            <div class="items-center w-16 h-auto rounded-lg">
+            <div class="items-center w-16 h-11 rounded-lg">
                 <a wire:navigate.hover href="{{ route('profile.index') }}">
-                    <img src="{{ request()->is('profile.index') || request()->is('akun') || request()->is('riwayat') ? asset('images/Frame 4-active.png') : asset('images/Frame 4.png') }}" alt="">
+                    <img class="w-full h-auto" src="{{ request()->is('profile') || request()->is('account') || request()->is('history') || request()->is('transaction') ? asset('images/Frame 4-active.png') : asset('images/Frame 4.png') }}" alt="">
                 </a>
             </div>
         </div>

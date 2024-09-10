@@ -61,6 +61,7 @@
 <body class="flex flex-col h-screen">
     {{ $slot }}
     @livewireScripts
+    <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
 </body>
 <footer class="hidden py-8 text-white bg-gray-200 md:block">
     <div class="px-4 mx-auto max-w-7xl">

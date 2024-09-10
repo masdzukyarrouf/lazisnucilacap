@@ -88,16 +88,16 @@
             <p class="mt-4 ml-4 text-[16px] font-semibold text-green-500 justify-center items-center flex">Sekilas
                 NU-Care Lazisnu Cilacap</p>
             <div id="details-content" class="w-full px-5 py-4">
-                <h2 class="font-semibold text-left text-green-500">Visi</h2>
+                <h2 class="font-semibold text-left text-green-500 w-full text-center">Visi</h2>
                 @foreach ($visis as $visi)
                     <p>{!! nl2br(e($visi->visi)) !!}</p>
                 @endforeach
-                <h2 class="mt-4 font-semibold text-left text-green-500">Misi</h2>
+                <h2 class="mt-4 font-semibold text-left text-green-500 w-full text-center">Misi</h2>
                 @foreach ($misis as $Misi)
-                    <p>{!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}</p>
+                    <p>- {!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}</p>
                 @endforeach
             </div>
-            <a href="#" id="details-expand-link"
+            <a id="details-expand-link"
                 class="absolute bottom-0 left-0 w-full px-3 pt-4 text-left bg-gradient-to-t from-white via-white to-transparent">
                 <livewire:visi-misi />
             </a>
@@ -271,7 +271,8 @@
     </div>
 
     <!-- Mitra Section -->
-    <div class="flex flex-col items-center px-4 py-4 mt-4 mb-2 bg-white bg-center bg-cover shadow-md w-max-screen">
+    <div class="flex flex-col items-center px-4 py-4 mt-4 mb-2 bg-white bg-center bg-cover  w-max-screen"
+        >
         <!-- Title -->
         <div class="mb-8">
             <h2 class="text-xl font-semibold text-green-600">Mitra Kami</h2>
@@ -280,10 +281,11 @@
             offset: 0,
             logoWidth: 10, // Lebar setiap logo 10%
             visibleLogos: 5, // Menampilkan 5 logo sekaligus
-            logoCount: {{ $mitras->count() }},
+            logoCount: {{ $this->mitraCount }},
             slideWidth: 20.10, // Nilai default, akan disesuaikan
-            slideInterval: 3000, // Waktu dalam milidetik untuk setiap slide
+            slideInterval: 1000, // Waktu dalam milidetik untuk setiap slide
             interval: null,
+            load: false,
             updateSlideWidth() {
                 // Deteksi ukuran layar dan sesuaikan slideWidth
                 if (window.innerWidth < 640) {
@@ -292,7 +294,8 @@
                     this.slideWidth = 20.10; // Nilai untuk layar besar
                 }
             }
-        }" x-init="updateSlideWidth();
+        }" x-init="updateSlideWidth(),
+        load = true ;
         interval = setInterval(() => {
             if (offset < (logoCount - visibleLogos) * slideWidth) {
                 offset += slideWidth;
@@ -300,18 +303,31 @@
                 offset = 0; // Mulai dari awal lagi
             }
         }, slideInterval);
-        window.addEventListener('resize', updateSlideWidth); // Perbarui saat ukuran layar berubah" class="relative w-full overflow-hidden">
+        window.addEventListener('resize', updateSlideWidth);"
+        x-show="load" wire:init="loadMitra"
+         class="relative w-full overflow-hidden">
             <!-- Carousel Container -->
-            <div class="flex transition-transform duration-500 w-[{{ $mitras->count() * 10 }}%] items-center flex"
+            <div class="flex transition-transform duration-500 w-[{{ $this->mitraCount * 10 }}%] items-center flex"
                 :style="'transform: translateX(-' + offset + '%)'">
                 <!-- Loop through logos -->
+                @if ($mitras && $mitras->isEmpty())
+                @elseif($mitras)
                 @foreach ($mitras as $mitra)
-                    <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture" class="w-[10%] h-[5%]"
-                        style="margin-left: 75px; margin-right: 75px;" />
+                <div wire:loading.remove class="bg-gray-400 w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20">
+                    <div class="w-[50px] h-[50px] md:w-[150px] md:h-[150px]">
+                        <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture" class="w-full h-full bg-black"/>
+                    </div>
+                </div>                   
                 @endforeach
+                @endif
+                @for ($i = 0; $i < $this->mitraCount; $i++)
+                <div wire:loading class="animate-pulse bg-gray-400 w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20">
+                    <div class="w-[50px] h-[50px] md:w-[150px] md:h-[150px]"></div>
+                </div>
+                @endfor
             </div>
         </div>
-        <div class="mb-16">
+        <div class="h-[70px]">
         </div>
         <!-- Sticky Bottom -->
         <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white shadow-md md:hidden">

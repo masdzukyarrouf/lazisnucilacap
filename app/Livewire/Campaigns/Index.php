@@ -9,28 +9,28 @@ class Index extends Component
 {
     public $kategori = "";
     public $filter = "soon";
-    public $search = ''; 
-    public $campaigns;
+    public $search = '';
+    public $campaigns = [];
 
     public function mount()
     {
         $this->kategori = session('kategori', 'all');
         Campaign::updateRaisedValues();
-        $this->loadCampaigns();
+        // $this->loadCampaigns();
     }
 
     public function saring($filter)
     {
         $this->filter = $filter;
-        $this->loadCampaigns();
+        $this->loadCampaign();
     }
 
     public function updatedSearch()
     {
-        $this->loadCampaigns();
+        $this->loadCampaign();
     }
 
-    public function loadCampaigns()
+    public function loadCampaign()
     {
         $query = Campaign::query();
         $query->where('end_date', '>', now());
@@ -48,11 +48,13 @@ class Index extends Component
         } elseif ($this->filter == 'soon') {
             $query->orderBy('end_date', 'asc');
         } elseif ($this->filter == 'urgent') {
-            $query->where('title', 'like', '!%')->latest();
+            $query->orderByRaw("title LIKE '!%' DESC")
+                ->latest();
         }
 
         $this->campaigns = $query->get();
     }
+
 
     public function render()
     {

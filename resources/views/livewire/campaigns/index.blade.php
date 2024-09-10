@@ -1,10 +1,19 @@
 <div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Campaign" :backUrl="route('landing')"/>
+    <x-nav-mobile2 title="Campaign" :backUrl="route('landing')" />
     <div class=" w-full max-w-[414px] mx-auto bg-white min-h-screen">
         <div class="w-full sticky ">
-            <input type="text" placeholder="Search Campaigns..." wire:model.live="search"
-                class="px-4 py-2 border border-gray-300 rounded w-full" />
-
+            <div class="relative w-full">
+                <input id="search" type="text" placeholder="Search Campaigns..." wire:model.live="search"
+                    class="px-4 py-2 border border-gray-300 rounded w-full" />
+                @if ($search)
+                    <button type="button" class="absolute top-0 right-0 mt-2 mr-4"
+                        onclick="document.getElementById('search').value = ''; 
+                                 var element = document.getElementById('search'); 
+                                 element.dispatchEvent(new Event('input'));">
+                        &#10005;
+                    </button>
+                @endif
+            </div>
             <!-- Kategori and Filter Buttons -->
             <div class="flex items-center justify-between">
                 <!-- Kategori Button -->
@@ -39,10 +48,15 @@
             </div>
 
             <!-- Campaign Cards Grid -->
-            <div class="flex grid items-center justify-center w-full h-auto grid-cols-1" wire:loading.remove>
-                @if ($campaigns->isEmpty())
+            <div class="flex grid items-center justify-center w-full h-auto grid-cols-1" wire:loading.remove
+                x-data="{ load: false }" x-init="load = true" x-show="load" wire:init="loadCampaign">
+                @if ($this->kategori == 'all' && $campaigns && $campaigns->isEmpty())
                     <div class="px-4 py-20  text-center">
                         Campaign Tidak Ditemukan
+                    </div>
+                @elseif($this->kategori !== 'all' && $campaigns && $campaigns->isEmpty())
+                    <div class="px-4 py-20  text-center">
+                        Campaign pada kategori {{ $this->kategori }} Tidak Ditemukan
                     </div>
                 @else
                     @foreach ($campaigns as $campaign)
@@ -53,7 +67,7 @@
                     @endforeach
                 @endif
             </div>
-
+            {{-- placeholder --}}
             <div wire:loading class="px-4 py-2 border border-transparent space-y-2">
                 @for ($i = 0; $i < 5; $i++)
                     <div class="z-5 flex flex-grow  h-[100px] animate-pulse">
@@ -76,6 +90,7 @@
 
 
 </div>
+
 <script>
     document.getElementById('openModal').addEventListener('click', function(event) {
         event.preventDefault();
@@ -92,3 +107,4 @@
         }
     });
 </script>
+

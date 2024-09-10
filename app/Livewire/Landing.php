@@ -20,12 +20,11 @@ class Landing extends Component
     public $visis;
     public $misis;
     public $banyak_donasi;
+    public $mitraCount;
     public function mount()
     {
 
-        $this->mitras = Mitra::query()
-            ->latest()
-            ->get();
+        $this->mitraCount = mitra::query()->count();
 
 
         $this->visis = visi::query()
@@ -40,6 +39,7 @@ class Landing extends Component
         $this->banyak_donasi = Donasi::whereHas('transaction', function ($query) {
             $query->where('status', 'success');
         })->count();
+        
         $this->landings = gambar_landing::query()
             ->latest()
             ->get();
@@ -68,15 +68,13 @@ class Landing extends Component
         ->take(3)
         ->get();
     }
+    public function loadMitra(){
+        $this->mitras = Mitra::query()
+            ->latest()
+            ->get();
+    }
     public function render()
     {
-        return view('livewire.landing', [
-            // 'campaigns' => $this->campaigns,
-            // 'mitras' => $this->mitras,
-            // 'beritas' => $this->beritas,
-            // 'visis' => $this->visis,
-            // 'misis' => $this->misis,
-
-        ]);
+        return view('livewire.landing');
     }
 }

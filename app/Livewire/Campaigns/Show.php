@@ -24,7 +24,6 @@ class Show extends Component
     {
         Campaign::updateRaisedValues();
         $this->title = $title;
-        sleep(1);
         $this->loadCampaign();
         
     }
