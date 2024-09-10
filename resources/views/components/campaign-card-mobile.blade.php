@@ -1,5 +1,5 @@
 <div class="flex flex-grow h-full bg-white z-5">
-    <a href="{{ route('campaigns.show', $campaign->id_campaign) }}">
+    <a wire:navigate.hover href="{{ route('campaigns.show', $campaign->id_campaign) }}">
     <div class="relative z-0 flex items-center justify-center overflow-hidden group w-44 h-28">
             <img src="{{ asset('storage/images/campaign/' . $campaign->main_picture) }}" 
                  alt="Picture"

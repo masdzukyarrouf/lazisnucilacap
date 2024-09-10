@@ -40,6 +40,7 @@ class Landing extends Component
         $this->banyak_donasi = Donasi::whereHas('transaction', function ($query) {
             $query->where('status', 'success');
         })->count();
+        
         $this->landings = gambar_landing::query()
             ->latest()
             ->get();
@@ -70,13 +71,6 @@ class Landing extends Component
     }
     public function render()
     {
-        return view('livewire.landing', [
-            // 'campaigns' => $this->campaigns,
-            // 'mitras' => $this->mitras,
-            // 'beritas' => $this->beritas,
-            // 'visis' => $this->visis,
-            // 'misis' => $this->misis,
-
-        ]);
+        return view('livewire.landing');
     }
 }

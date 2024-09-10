@@ -83,21 +83,21 @@
         </div>
     </div>
 
-    <div class="flex flex-col justify-between mt-8 px-60">
+    <div class="flex flex-col justify-between mt-8 px-60" >
         <div id="details-container" class="relative max-h-[1000px] overflow-hidden transition-all duration-300">
             <p class="mt-4 ml-4 text-[16px] font-semibold text-green-500 justify-center items-center flex">Sekilas
                 NU-Care Lazisnu Cilacap</p>
             <div id="details-content" class="w-full px-5 py-4">
-                <h2 class="font-semibold text-left text-green-500">Visi</h2>
+                <h2 class="font-semibold text-left text-green-500 w-full text-center">Visi</h2>
                 @foreach ($visis as $visi)
                     <p>{!! nl2br(e($visi->visi)) !!}</p>
                 @endforeach
-                <h2 class="mt-4 font-semibold text-left text-green-500">Misi</h2>
+                <h2 class="mt-4 font-semibold text-left text-green-500 w-full text-center">Misi</h2>
                 @foreach ($misis as $Misi)
-                    <p>{!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}</p>
+                    <p>- {!! nl2br(e(\Illuminate\Support\Str::limit( $Misi->misi, 300, '...'))) !!}</p>
                 @endforeach
             </div>
-            <a href="#" id="details-expand-link"
+            <a id="details-expand-link"
                 class="absolute bottom-0 left-0 w-full px-3 pt-4 text-left bg-gradient-to-t from-white via-white to-transparent">
                 <livewire:visi-misi />
             </a>
@@ -271,7 +271,7 @@
     </div>
 
     <!-- Mitra Section -->
-    <div class="flex flex-col items-center px-4 py-4 mt-4 mb-2 bg-white bg-center bg-cover shadow-md w-max-screen">
+    <div class="flex flex-col items-center px-4 py-4 mt-4 mb-2 bg-white bg-center bg-cover  w-max-screen">
         <!-- Title -->
         <div class="mb-8">
             <h2 class="text-xl font-semibold text-green-600">Mitra Kami</h2>
@@ -282,7 +282,7 @@
             visibleLogos: 5, // Menampilkan 5 logo sekaligus
             logoCount: {{ $mitras->count() }},
             slideWidth: 20.10, // Nilai default, akan disesuaikan
-            slideInterval: 3000, // Waktu dalam milidetik untuk setiap slide
+            slideInterval: 1000, // Waktu dalam milidetik untuk setiap slide
             interval: null,
             updateSlideWidth() {
                 // Deteksi ukuran layar dan sesuaikan slideWidth
@@ -300,7 +300,7 @@
                 offset = 0; // Mulai dari awal lagi
             }
         }, slideInterval);
-        window.addEventListener('resize', updateSlideWidth); // Perbarui saat ukuran layar berubah" class="relative w-full overflow-hidden">
+        window.addEventListener('resize', updateSlideWidth);" class="relative w-full overflow-hidden">
             <!-- Carousel Container -->
             <div class="flex transition-transform duration-500 w-[{{ $mitras->count() * 10 }}%] items-center flex"
                 :style="'transform: translateX(-' + offset + '%)'">
