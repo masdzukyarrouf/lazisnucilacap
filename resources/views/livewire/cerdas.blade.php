@@ -70,7 +70,7 @@
             </div>
             <!-- Loop Through Latest News -->
             @foreach ($latestBerita->take(3) as $berita)
-                            <a href="{{ route('user-berita.show', ['id_berita' => $berita->id_berita]) }}">
+                            <a href="{{ route('user-berita.show', ['title_berita' => $berita->title_berita]) }}">
                                 <div class="flex items-center py-2 bg-white rounded-lg shadow-md">
                                     <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-24 h-24 pr-2 rounded-md">
                                     <div class="flex flex-col pl-2">

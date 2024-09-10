@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Campaign" :backUrl="route('landing')"/>
+    <x-nav-mobile2 title="Campaign" :backUrl="route('landing')" />
     <div class=" w-full max-w-[414px] mx-auto bg-white min-h-screen">
         <div class="w-full sticky ">
             <input type="text" placeholder="Search Campaigns..." wire:model.live="search"
@@ -39,11 +39,16 @@
             </div>
 
             <!-- Campaign Cards Grid -->
-            <div class="flex grid items-center justify-center w-full h-auto grid-cols-1" wire:loading.remove>
-                @if ($campaigns->isEmpty())
+            <div class="flex grid items-center justify-center w-full h-auto grid-cols-1" wire:loading.remove
+                x-data="{ load: false }" x-init="load = true" x-show="load" wire:init="loadCampaign">
+                @if ($this->kategori == 'all' && $campaigns && $campaigns->isEmpty())
                     <div class="px-4 py-20  text-center">
                         Campaign Tidak Ditemukan
                     </div>
+                @elseif($this->kategori !== 'all' && $campaigns && $campaigns->isEmpty())
+                <div class="px-4 py-20  text-center">
+                    Campaign pada kategori {{$this->kategori}} Tidak Ditemukan
+                </div>
                 @else
                     @foreach ($campaigns as $campaign)
                         <div class="px-4 py-2 border border-transparent border-b-gray-300"
@@ -53,7 +58,6 @@
                     @endforeach
                 @endif
             </div>
-
             <div wire:loading class="px-4 py-2 border border-transparent space-y-2">
                 @for ($i = 0; $i < 5; $i++)
                     <div class="z-5 flex flex-grow  h-[100px] animate-pulse">
