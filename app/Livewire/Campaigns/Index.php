@@ -9,7 +9,7 @@ class Index extends Component
 {
     public $kategori = "";
     public $filter = "soon";
-    public $search = ''; 
+    public $search = '';
     public $campaigns = [];
 
     public function mount()
@@ -48,7 +48,8 @@ class Index extends Component
         } elseif ($this->filter == 'soon') {
             $query->orderBy('end_date', 'asc');
         } elseif ($this->filter == 'urgent') {
-            $query->where('title', 'like', '!%')->latest();//orderByRaw???
+            $query->orderByRaw("title LIKE '!%' DESC")
+                ->latest();
         }
 
         $this->campaigns = $query->get();
