@@ -38,9 +38,9 @@ class Login extends Component
             ) {
                 // Redirect based on user role
                 if ($user->role === 'admin') {
-                    return redirect()->route('admin');
+                    return redirect()->intended(route('admin'));
                 } elseif ($user->role === 'donatur') {
-                    return redirect()->route('landing');
+                    return redirect()->intended(route('profile.index'));
                 } else {
                     return redirect()->route('home');
                 }
