@@ -20,12 +20,11 @@ class Landing extends Component
     public $visis;
     public $misis;
     public $banyak_donasi;
+    public $mitraCount;
     public function mount()
     {
 
-        $this->mitras = Mitra::query()
-            ->latest()
-            ->get();
+        $this->mitraCount = mitra::query()->count();
 
 
         $this->visis = visi::query()
@@ -68,6 +67,11 @@ class Landing extends Component
         ->latest()
         ->take(3)
         ->get();
+    }
+    public function loadMitra(){
+        $this->mitras = Mitra::query()
+            ->latest()
+            ->get();
     }
     public function render()
     {
