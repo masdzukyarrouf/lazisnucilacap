@@ -3,7 +3,7 @@
     <div class="flex flex-col h-full pb-24 bg-white shadow-md" style="width: 414px">
         <div class="w-full p-6 ">
             <h2 class="text-[12px] text-gray-500 mb-4">Anda Akan Melakukan Pembayaran Untuk Fidyah</h2>
-            <form>
+            <form wire:submit="bayarFidyah">
                 <div class="flex items-center mr-2 border w-full rounded-md bg-white text-green-500">
                     <p class=" text-[12px] text-center italic mx-2 w-8">Rp</p>
                     <input type="text" 
@@ -13,7 +13,7 @@
                 </div>
                 <h3 class="text-[16px] font-semibold  mb-2">Mohon Lengkapi Data Berikut</h3>
                 @if (!Auth::check())
-                    <p class="text-[12px]  mb-4">Sudah Punya Akun? <a href="#"
+                    <p class="text-[12px]  mb-4">Sudah Punya Akun? <a href="/login"
                             class="text-green-500 hover:underline">Login</a></p>
                 @endif
                 <div class="mb-4">

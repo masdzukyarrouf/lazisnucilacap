@@ -12,6 +12,7 @@ class ziwaf extends Model
     protected $primaryKey = 'id_ziwaf';
     protected $fillable = [
         'username',
+        'id_transaction',
         'no_telp',
         'email',
         'nominal',

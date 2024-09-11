@@ -15,6 +15,10 @@
                                         <p class="text-[12px] text-gray-800">Donasi Untuk</p>
                                         <p class="text-[12px] text-gray-800">{{ $transaction->title }}</p>
                                     </div>
+                                    @else
+                                    <div class="flex flex-col text-left">
+                                        <p class="text-[12px] text-gray-800">{{ $transaction->jenis }}</p>
+                                    </div>
                                 @endif
                                 <div class="z-5 flex flex-grow py-4 w-full">
                                     <div class="flex flex-col items-center ">
