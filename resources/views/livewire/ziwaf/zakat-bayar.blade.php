@@ -2,82 +2,140 @@
     <x-nav-mobile2 title="Pembayaran" />
     <div class="flex flex-col bg-white shadow-md" style="width: 414px; height: 736px">
         <div class="mx-5 mt-5">
-            <h2 class="font-semibold">
-                Rincian Zakat
-            </h2>
-            <div class="flex flex-col mt-2">
-                <div class="flex items-center my-4">
-                    <h2 style="padding-right: 123px">Total Kekayaan</h2> <h2 class="pr-2">:</h2>
-                    <h2>
-                        @if($totalHarta1 !== '0')
-                            {{ $totalHarta1 }}
-                        @elseif($totalPendapatan1 !== '0')
-                            {{ $totalPendapatan1 }}
-                        @else
-                            0
-                        @endif
-                    </h2>
-                </div>
-                    <h2>Hutang Pribadi Yang Jatuh</h2>
-                    <div class="flex items-center">
-                        <h2 style="padding-right: 113px">Tempo Tahun Ini</h2>
-                        <h2 class="pr-2">:</h2>
-                        <h2>
-                            @if($hutang !== '')
-                                {{ $hutang }}
-                            @elseif($cicilan !== '')
-                                {{ $cicilan }}
-                            @else
-                                0
-                            @endif
-                        </h2>
+            <span class="text-sm text-gray-600">Anda Akan Melakukan Pembayaran Untuk Zakat</span>
+            <div class="my-4">
+                @if ($zakatEmas)
+                <label class="font-semibold">Nominal Zakat</label>
+                <div class="relative flex flex-col mb-3">
+                    <div class="flex items-center justify-center">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
+                            <input 
+                                type="text" 
+                                value="{{ number_format($zakatEmas, 0, ',', '.') }}" 
+                                class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
+                                placeholder="Rp. 0" 
+                                readonly 
+                            />
                     </div>
-                <div class="flex my-4">
-                    <h2 style="padding-right: 80px">Perhitungan Zakat</h2> <h2 class="pr-2">:</h2>
-                    <h2>
-                        @if($hutang !== '')
-                            <h2>{{ $totalHarta1 }} - {{ $hutang }} X 2.5%</h2>
-                        @elseif($cicilan !== '')
-                            <h2>{{ $totalPendapatan1 }} - {{ $cicilan }} X 2.5%</h2>
-                        @else
-                            0
-                        @endif
-                    </h2>
+                </div>
+                
+                @elseif ($zakatPerdagangan)
+                <label class="font-semibold">Nominal Zakat</label>
+                <div class="relative flex flex-col mb-3">
+                    <div class="flex items-center justify-center">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
+                            <input 
+                                type="text" 
+                                value="{{ number_format($zakatPerdagangan, 0, ',', '.') }}" 
+                                class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
+                                placeholder="Rp. 0" 
+                                readonly 
+                            />
+                    </div>
+                </div>
+                
+                @elseif ($zakatPenghasilan)
+                <label class="font-semibold">Nominal Zakat</label>
+                <div class="relative flex flex-col mb-3">
+                    <div class="flex items-center justify-center">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
+                            <input 
+                                type="text" 
+                                value="{{ number_format($zakatPenghasilan, 0, ',', '.') }}" 
+                                class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
+                                placeholder="Rp. 0" 
+                                readonly 
+                            />
+                    </div>
                 </div>
 
-                <div class="mt-5">
-                    <h2 class="font-semibold">
-                        Pembayaran Zakat
-                    </h2>
-                    <div class="flex mt-2">
-                        <h2 class="pr-16">Total</h2>
-                        <h2 class="pr-2">:</h2>
-                        <h2 class="font-semibold text-green-500">Rp. </h2>
-                        <h2 class="font-semibold text-green-500">
-                            @if($zakatNominal !== '0')
-                                {{ $zakatNominal !== '' ? number_format($zakatNominal, 0, ',', '.') : 'Rp. 0' }}
-                            @elseif($zakatProfesi !== '0')
-                                {{ $zakatProfesi !== '' ? number_format($zakatProfesi, 0, ',', '.') : 'Rp. 0' }}
-                            @else
-                                0
-                            @endif
-                        </h2>
+                @elseif ($zakatPertanian)
+                <label class="font-semibold">Nominal Zakat</label>
+                <div class="relative flex flex-col mb-3">
+                    <div class="flex items-center justify-center">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
+                            <input 
+                                type="text" 
+                                value="{{ number_format($zakatPertanian, 0, ',', '.') }}" 
+                                class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
+                                placeholder="Rp. 0" 
+                                readonly 
+                            />
                     </div>
                 </div>
-                <div class="mt-5">
-                    <h2 class="font-semibold">
-                        Metode Pembayaran
-                    </h2>
+                @endif
+                <div class="mt-4">
+                    <span class="text-xl font-semibold">Mohon Lengkapi Data Berikut</span>
                     <div>
-                        <img src="{{ asset('images/gopay.png') }}" alt="gopay" class="my-2">
-                        <img src="{{ asset('images/shopee.png') }}" alt="shopee" class="my-2">
-                        <img src="{{ asset('images/VA bni.png') }}" alt="bni" class="my-2">
-                        <img src="{{ asset('images/VA permatabank.png') }}" alt="permatabank" class="my-2">
-                        <img src="{{ asset('images/mandiri.png') }}" alt="mandiri" class="my-2">
-                        <img src="{{ asset('images/tf.png') }}" alt="transfer" class="my-2">
+                        @if (!$users)
+                            <span>sudah punya akun?</span>
+                            <span wire:click="login" class="font-semibold text-green-500">Login</span>
+                            <div>
+                                <label class="font-semibold">Nama Anda</label>
+                                <input 
+                                    type="text" 
+                                    id="nama" 
+                                    wire:model.lazy="nama" 
+                                    wire:input="datadiri" 
+                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                                    placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
+                                />
+                                
+                                <label class="font-semibold">No Telepon (WA Aktif)</label>
+                                <input 
+                                    type="text" 
+                                    id="no" 
+                                    wire:model.lazy="no" 
+                                    wire:input="datadiri" 
+                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                                    placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
+                                />
+
+                                <label class="font-semibold">Email (Opsional)</label>
+                                <input 
+                                    type="text" 
+                                    id="Email" 
+                                    wire:model.lazy="Email" 
+                                    wire:input="datadiri" 
+                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                                    placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
+                                />
+                            </div>
+                            
+                        @else
+                            <label class="font-semibold">Nama Anda</label>
+                                <input 
+                                    type="text" 
+                                    value="{{ $users->username }}" 
+                                    class="w-full px-4 py-1 text-green-500 border border-gray-300 rounded h-9" 
+                                    placeholder="Rp. 0" 
+                                    readonly 
+                               />
+                            
+                               <label class="font-semibold">No Telepon (WA Aktif)</label>
+                                <input 
+                                    type="text" 
+                                    value="{{ $users->no_telp }}" 
+                                    class="w-full px-4 py-1 text-green-500 border border-gray-300 rounded h-9" 
+                                    placeholder="Rp. 0" 
+                                    readonly 
+                               />
+
+                               <label class="font-semibold">Email (Opsional)</label>
+                                <input 
+                                    type="text" 
+                                    value="{{ $users->email }}" 
+                                    class="w-full px-4 py-1 text-green-500 border border-gray-300 rounded h-9" 
+                                    placeholder="Rp. 0" 
+                                    readonly 
+                               />
+                        @endif
                     </div>
-                </div>
+                </div> 
             </div>
+            <button wire:click="co" class="w-full px-4 py-2 font-semibold text-white bg-green-500 rounded">
+                Zakat Sekarang
+            </button>
         </div>
     </div>
 </div>

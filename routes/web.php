@@ -35,6 +35,7 @@ Route::get('/', App\Livewire\Landing::class)->name('landing');
 Route::get('/daftar', App\Livewire\Daftar::class);
 
 Route::get('/login', App\Livewire\Login::class)->name('login')->middleware('guest');
+Route::get('/Login', App\Livewire\Ziwaf\Login::class)->name('Login-ziwaf')->middleware('guest');
 
 Route::get('/detail-berita/{title_berita}', App\Livewire\UserBerita\Show::class)->name('user-berita.show');
 Route::get('/landing-mobile', App\Livewire\LandingMobile::class);
@@ -59,6 +60,7 @@ Route::prefix('fidyah')->group(function () {
 Route::get('/qurban', App\Livewire\ziwaf\Qurban::class)->name('qurban');
 Route::get('/pembayaran_zakat', App\Livewire\ziwaf\ZakatBayar::class)->name('pembayaran_zakat');
 Route::get('/pembayaran_infaq&wakaf', App\Livewire\ziwaf\InfaqwakafBayar::class)->name('pembayaran-infaq&wakaf');
+Route::get('/checkout', App\Livewire\ziwaf\Checkout::class)->name('checkout');
 
 
 Route::get('/mitra', App\Livewire\UserMitra::class)->name('mitra');

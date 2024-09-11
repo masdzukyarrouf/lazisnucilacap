@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ZakatBayar extends Component
+class Checkout extends Component
 {
     public $zakatEmas;
     public $zakatPenghasilan;
@@ -30,47 +30,8 @@ class ZakatBayar extends Component
         $this->Email = $request->query('Email', '');
     }
 
-    public function login()
+    public function back()
     {
-        // Mendapatkan nilai dari parameter
-        $zakatEmas = (float) $this->zakatEmas;
-        $zakatPenghasilan = (float) $this->zakatPenghasilan;
-        $zakatPertanian = (float) $this->zakatPertanian;
-        $zakatPerdagangan = (float) $this->zakatPerdagangan;
-
-        // Menentukan URL redirect berdasarkan nilai parameter
-        if ($zakatEmas > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatEmas' => $zakatEmas
-            ]);
-        } elseif ($zakatPenghasilan > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatPenghasilan' => $zakatPenghasilan
-            ]);
-        } elseif ($zakatPertanian > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatPertanian' => $zakatPertanian
-            ]);
-        } elseif ($zakatPerdagangan > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatPerdagangan' => $zakatPerdagangan
-            ]);
-        } else {
-            // Default redirect or error handling if none of the conditions are met
-            return redirect()->route('pembayaran_zakat');
-        }
-    }
-
-    public function datadiri()
-    {
-        $this->nama;
-        $this->no;
-        $this->Email;
-    }
-
-public function co()
-{
-        // Mendapatkan nilai dari parameter
         $zakatEmas = (float) $this->zakatEmas;
         $zakatPenghasilan = (float) $this->zakatPenghasilan;
         $zakatPertanian = (float) $this->zakatPertanian;
@@ -82,7 +43,7 @@ public function co()
 
         // Menentukan URL redirect berdasarkan nilai parameter
         if ($zakatEmas > 0) {
-            return redirect()->route('checkout', [
+            return redirect()->route('pembayaran_zakat', [
                 'zakatEmas' => $zakatEmas,
                 'users' => $users,
                 'nama' => $nama,
@@ -90,7 +51,7 @@ public function co()
                 'Email' => $Email,
             ]);
         } elseif ($zakatPenghasilan > 0) {
-            return redirect()->route('checkout', [
+            return redirect()->route('pembayaran_zakat', [
                 'zakatPenghasilan' => $zakatPenghasilan,
                 'users' => $users,
                 'nama' => $nama,
@@ -98,7 +59,7 @@ public function co()
                 'Email' => $Email,
             ]);
         } elseif ($zakatPertanian > 0) {
-            return redirect()->route('checkout', [
+            return redirect()->route('pembayaran_zakat', [
                 'zakatPertanian' => $zakatPertanian,
                 'users' => $users,
                 'nama' => $nama,
@@ -106,7 +67,7 @@ public function co()
                 'Email' => $Email,
             ]);
         } elseif ($zakatPerdagangan > 0) {
-            return redirect()->route('checkout', [
+            return redirect()->route('pembayaran_zakat', [
                 'zakatPerdagangan' => $zakatPerdagangan,
                 'users' => $users,
                 'nama' => $nama,
@@ -117,10 +78,10 @@ public function co()
             // Default redirect or error handling if none of the conditions are met
             return redirect()->route('checkout');
         }
-}
+    }
 
     public function render()
     {
-        return view('livewire.ziwaf.zakat-bayar')->layout('layouts.none');
+        return view('livewire.ziwaf.checkout')->layout('layouts.none');
     }
 }
