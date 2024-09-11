@@ -24,6 +24,11 @@ class Ziwaf extends Component
     public $totalpenghasilan;
     public $zakatPenghasilan;
 
+    public $uang;
+    public $surat;
+    public $totalkekayaan;
+    public $zakatUang;
+
     public $harga;
     public $kg;
     public $toggleValue = false;
@@ -31,6 +36,13 @@ class Ziwaf extends Component
     public $zakatPertanian;
 
 
+    public $jenisPerusahaan = 'jasa';
+    public $totalperusahaan;
+    public $pendapatan;
+    public $aktiva;
+    public $pasiva;
+    public $zakatJasa;
+    public $zakatDagang;
 
 
     public $selectedOption = '';
@@ -40,6 +52,55 @@ class Ziwaf extends Component
     public $goldPrice = [];
     public $site = 'lakuemas'; // Default site
 
+
+
+    public function jasa()
+    {
+        $this->jenisPerusahaan = 'jasa';
+    }
+
+    public function dagang()
+    {
+        $this->jenisPerusahaan = 'dagang';
+    }
+
+    public function pendapatan()
+    {
+        $pendapatan = !empty($this->pendapatan) ? (float) str_replace('.', '', $this->pendapatan) : 0;
+        $this->totalperusahaan = $pendapatan;
+    }
+
+    public function aktifpasif()
+    {
+        $aktiva = !empty($this->aktiva) ? (float) str_replace('.', '', $this->aktiva) : 0;
+        $pasiva = !empty($this->pasiva) ? (float) str_replace('.', '', $this->pasiva) : 0;
+        $this->totalperusahaan = $aktiva + $pasiva;
+    }
+
+    public function maalJasa()
+    {
+            $pendapatan = !empty($this->pendapatan) ? (float) str_replace('.', '', $this->pendapatan) : 0;
+            $this->totalperusahaan = $pendapatan;
+
+            if ($this->totalperusahaan >= $this->nisab) {
+                $this->zakatJasa = $this->totalperusahaan * 0.025;
+            } else {
+                $this->zakatJasa = 0;
+            }
+        }
+
+    public function maalDagang()
+    {
+        $aktiva = !empty($this->aktiva) ? (float) str_replace('.', '', $this->aktiva) : 0;
+        $pasiva = !empty($this->pasiva) ? (float) str_replace('.', '', $this->pasiva) : 0;
+        $this->totalperusahaan = $aktiva + $pasiva;
+
+        if ($this->totalperusahaan >= $this->nisab) {
+            $this->zakatDagang = $this->totalperusahaan * 0.025;
+        } else {
+            $this->zakatDagang = 0;
+        }
+    }
 
 
     public function gramtoidr()
@@ -108,6 +169,28 @@ class Ziwaf extends Component
         }
     }
 
+    public function kekayaan()
+    {
+        $uang = !empty($this->uang) ? (float) str_replace('.', '', $this->uang) : 0;
+        $surat = !empty($this->surat) ? (float) str_replace('.', '', $this->surat) : 0;
+
+        $this->totalkekayaan = $uang + $surat;
+    }
+
+    public function maalUang()
+    {
+        $uang = !empty($this->uang) ? (float) str_replace('.', '', $this->uang) : 0;
+        $surat = !empty($this->surat) ? (float) str_replace('.', '', $this->surat) : 0;
+        // Kalkulasi Zakat Penghasilan
+        $this->totalkekayaan = $uang + $surat;
+
+        if ($this->totalkekayaan >= $this->nisab) {
+            $this->zakatUang = $this->totalkekayaan * 0.025;
+        } else {
+            $this->zakatUang = 0;
+        }
+    }
+
 
     public function totalharga()
     {
@@ -152,9 +235,9 @@ class Ziwaf extends Component
         $this->nisabbulan = $this->nisab / 12;
 
         // Inisialisasi selectedOption berdasarkan URL jika ada
-        if (Request::is('zakat-maal')) {
+        if (Request::is('maal')) {
             $this->selectedOption = 'maal';
-        } elseif (Request::is('zakat-fitrah')) {
+        } elseif (Request::is('fitrah')) {
             $this->selectedOption = 'fitrah';
         }
     }
@@ -167,6 +250,9 @@ class Ziwaf extends Component
         $zakatPenghasilan = (float) $this->zakatPenghasilan;
         $zakatPertanian = (float) $this->zakatPertanian;
         $zakatPerdagangan = (float) $this->zakatPerdagangan;
+        $zakatUang = (float) $this->zakatUang;
+        $zakatJasa = (float) $this->zakatJasa;
+        $zakatDagang = (float) $this->zakatDagang;
 
         // Menentukan URL redirect berdasarkan nilai parameter
         if ($zakatEmas > 0) {
@@ -184,6 +270,18 @@ class Ziwaf extends Component
         } elseif ($zakatPerdagangan > 0) {
             return redirect()->route('pembayaran_zakat', [
                 'zakatPerdagangan' => $zakatPerdagangan
+            ]);
+        } elseif ($zakatUang > 0) {
+            return redirect()->route('pembayaran_zakat', [
+                'zakatUang' => $zakatUang
+            ]);
+        } elseif ($zakatJasa > 0) {
+            return redirect()->route('pembayaran_zakat', [
+                'zakatJasa' => $zakatJasa
+            ]);
+        } elseif ($zakatDagang > 0) {
+            return redirect()->route('pembayaran_zakat', [
+                'zakatDagang' => $zakatDagang
             ]);
         } else {
             // Default redirect or error handling if none of the conditions are met

@@ -12,6 +12,9 @@ class Checkout extends Component
     public $zakatPenghasilan;
     public $zakatPerdagangan;
     public $zakatPertanian;
+    public $zakatUang;
+    public $zakatJasa;
+    public $zakatDagang;
     public $users;
     public $nama;
     public $no;
@@ -24,6 +27,9 @@ class Checkout extends Component
         $this->zakatPenghasilan = $request->query('zakatPenghasilan', '');
         $this->zakatPerdagangan = $request->query('zakatPerdagangan', '');
         $this->zakatPertanian = $request->query('zakatPertanian', '');
+        $this->zakatUang = $request->query('zakatUang', '');
+        $this->zakatJasa = $request->query('zakatJasa', '');
+        $this->zakatDagang = $request->query('zakatDagang', '');
         $this->users = Auth::user();
         $this->nama = $request->query('nama', '');
         $this->no = $request->query('no', '');
@@ -36,6 +42,9 @@ class Checkout extends Component
         $zakatPenghasilan = (float) $this->zakatPenghasilan;
         $zakatPertanian = (float) $this->zakatPertanian;
         $zakatPerdagangan = (float) $this->zakatPerdagangan;
+        $zakatUang = (float) $this->zakatUang;
+        $zakatJasa = (float) $this->zakatJasa;
+        $zakatDagang = (float) $this->zakatDagang;
         $nama = $this->nama;
         $no = $this->no;
         $Email = $this->Email;
@@ -69,6 +78,30 @@ class Checkout extends Component
         } elseif ($zakatPerdagangan > 0) {
             return redirect()->route('pembayaran_zakat', [
                 'zakatPerdagangan' => $zakatPerdagangan,
+                'users' => $users,
+                'nama' => $nama,
+                'no' => $no,
+                'Email' => $Email,
+            ]);
+        } elseif ($zakatUang > 0) {
+            return redirect()->route('pembayaran_zakat', [
+                'zakatUang' => $zakatUang,
+                'users' => $users,
+                'nama' => $nama,
+                'no' => $no,
+                'Email' => $Email,
+            ]);
+        } elseif ($zakatJasa > 0) {
+            return redirect()->route('pembayaran_zakat', [
+                'zakatJasa' => $zakatJasa,
+                'users' => $users,
+                'nama' => $nama,
+                'no' => $no,
+                'Email' => $Email,
+            ]);
+        } elseif ($zakatDagang > 0) {
+            return redirect()->route('pembayaran_zakat', [
+                'zakatD$zakatDagang' => $zakatDagang,
                 'users' => $users,
                 'nama' => $nama,
                 'no' => $no,
