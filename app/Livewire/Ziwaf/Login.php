@@ -16,6 +16,7 @@ class Login extends Component
     public $zakatPenghasilan;
     public $zakatPerdagangan;
     public $zakatPertanian;
+    public $zakatUang;
 
 
     public function mount(Request $request)
@@ -24,6 +25,7 @@ class Login extends Component
         $this->zakatPenghasilan = $request->query('zakatPenghasilan', '');
         $this->zakatPerdagangan = $request->query('zakatPerdagangan', '');
         $this->zakatPertanian = $request->query('zakatPertanian', '');
+        $this->zakatUang = $request->query('zakatUang', '');
     }
 
 
@@ -56,6 +58,7 @@ class Login extends Component
                 $zakatPenghasilan = (float) $this->zakatPenghasilan;
                 $zakatPertanian = (float) $this->zakatPertanian;
                 $zakatPerdagangan = (float) $this->zakatPerdagangan;
+                $zakatUang = (float) $this->zakatUang;
 
                 // Menentukan URL redirect berdasarkan nilai parameter
                 if ($zakatEmas > 0) {
@@ -73,6 +76,10 @@ class Login extends Component
                 } elseif ($zakatPerdagangan > 0) {
                     return redirect()->route('pembayaran_zakat', [
                         'zakatPerdagangan' => $zakatPerdagangan
+                    ]);
+                } elseif ($zakatUang > 0) {
+                    return redirect()->route('pembayaran_zakat', [
+                        'zakatUang' => $zakatUang
                     ]);
                 } else {
                     // Default redirect or error handling if none of the conditions are met

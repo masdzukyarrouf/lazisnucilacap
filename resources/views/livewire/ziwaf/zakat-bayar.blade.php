@@ -63,13 +63,58 @@
                             />
                     </div>
                 </div>
+
+                @elseif ($zakatUang)
+                <label class="font-semibold">Nominal Zakat</label>
+                <div class="relative flex flex-col mb-3">
+                    <div class="flex items-center justify-center">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
+                            <input 
+                                type="text" 
+                                value="{{ number_format($zakatUang, 0, ',', '.') }}" 
+                                class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
+                                placeholder="Rp. 0" 
+                                readonly 
+                            />
+                    </div>
+                </div>
+
+                @elseif ($zakatJasa)
+                <label class="font-semibold">Nominal Zakat</label>
+                <div class="relative flex flex-col mb-3">
+                    <div class="flex items-center justify-center">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
+                            <input 
+                                type="text" 
+                                value="{{ number_format($zakatJasa, 0, ',', '.') }}" 
+                                class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
+                                placeholder="Rp. 0" 
+                                readonly 
+                            />
+                    </div>
+                </div>
+
+                @elseif ($zakatDagang)
+                <label class="font-semibold">Nominal Zakat</label>
+                <div class="relative flex flex-col mb-3">
+                    <div class="flex items-center justify-center">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
+                            <input 
+                                type="text" 
+                                value="{{ number_format($zakatDagang, 0, ',', '.') }}" 
+                                class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
+                                placeholder="Rp. 0" 
+                                readonly 
+                            />
+                    </div>
+                </div>
                 @endif
                 <div class="mt-4">
                     <span class="text-xl font-semibold">Mohon Lengkapi Data Berikut</span>
                     <div>
                         @if (!$users)
                             <span>sudah punya akun?</span>
-                            <span wire:click="login" class="font-semibold text-green-500">Login</span>
+                            <span wire:click="login" class="font-semibold text-green-500 cursor-pointer">Login</span>
                             <div>
                                 <label class="font-semibold">Nama Anda</label>
                                 <input 
