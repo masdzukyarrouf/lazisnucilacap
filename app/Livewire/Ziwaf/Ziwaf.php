@@ -47,6 +47,7 @@ class Ziwaf extends Component
 
     public $selectedOption = '';
     public $selectedOption2 = '';
+    public $zakat;
     public $nisab;
     public $nisabbulan;
     public $goldPrice = [];
@@ -106,14 +107,14 @@ class Ziwaf extends Component
     public function gramtoidr()
     {
         $gram = !empty($this->gram) ? (float) str_replace('.', '', $this->gram) : 0;
-        $this->nilaiemas = $gram;
+        $this->nilaiemas = $gram * 1000000;
         // $this->nilaiemas = $this->gram * $this->goldPrice[0]['sell'];
     }
 
     public function maalEmas()
     {
         $gram = !empty($this->gram) ? (float) str_replace('.', '', $this->gram) : 0;
-        $this->nilaiemas = $gram;
+        $this->nilaiemas = $gram * 1000000;
         // $this->nilaiemas = $this->gram * $this->goldPrice[0]['sell'];
 
         if ($this->nilaiemas >= $this->nisab) {
@@ -231,7 +232,7 @@ class Ziwaf extends Component
         $this->reset(); // Reset
         // $this->fetchGoldPrice();
         // $this->nisab = 85 * $this->goldPrice[0]['sell'];
-        $this->nisab = 82312725;
+        $this->nisab = 85 * 1000000;
         $this->nisabbulan = $this->nisab / 12;
 
         // Inisialisasi selectedOption berdasarkan URL jika ada
@@ -246,47 +247,70 @@ class Ziwaf extends Component
     public function submitZakat()
     {
         // Mendapatkan nilai dari parameter
-        $zakatEmas = (float) $this->zakatEmas;
-        $zakatPenghasilan = (float) $this->zakatPenghasilan;
-        $zakatPertanian = (float) $this->zakatPertanian;
-        $zakatPerdagangan = (float) $this->zakatPerdagangan;
-        $zakatUang = (float) $this->zakatUang;
-        $zakatJasa = (float) $this->zakatJasa;
-        $zakatDagang = (float) $this->zakatDagang;
+        $zakatEmas = $this->zakatEmas;
+        $zakatPenghasilan = $this->zakatPenghasilan;
+        $zakatPertanian = $this->zakatPertanian;
+        $zakatPerdagangan = $this->zakatPerdagangan;
+        $zakatUang = $this->zakatUang;
+        $zakatJasa = $this->zakatJasa;
+        $zakatDagang = $this->zakatDagang;
+        $selectedOption = $this->selectedOption;
+        $selectedOption2 = $this->selectedOption2;
 
         // Menentukan URL redirect berdasarkan nilai parameter
         if ($zakatEmas > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatEmas' => $zakatEmas
-            ]);
+            // return redirect()->route('pembayaran_zakat', [
+            //     'zakatEmas' => $zakatEmas
+            // ]);
+            $this->zakat = [
+                'nominal' => $zakatEmas,
+                'jenis1' => $selectedOption,
+                'jenis2' => $selectedOption2
+            ];
+
         } elseif ($zakatPenghasilan > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatPenghasilan' => $zakatPenghasilan
-            ]);
+            $this->zakat = [
+                'nominal' => $zakatPenghasilan,
+                'jenis1' => $selectedOption,
+                'jenis2' => $selectedOption2
+            ];
         } elseif ($zakatPertanian > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatPertanian' => $zakatPertanian
-            ]);
+            $this->zakat = [
+                'nominal' => $zakatPertanian,
+                'jenis1' => $selectedOption,
+                'jenis2' => $selectedOption2
+            ];
         } elseif ($zakatPerdagangan > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatPerdagangan' => $zakatPerdagangan
-            ]);
+            $this->zakat = [
+                'nominal' => $zakatPerdagangan,
+                'jenis1' => $selectedOption,
+                'jenis2' => $selectedOption2
+            ];
         } elseif ($zakatUang > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatUang' => $zakatUang
-            ]);
+            $this->zakat = [
+                'nominal' => $zakatUang,
+                'jenis1' => $selectedOption,
+                'jenis2' => $selectedOption2
+            ];
         } elseif ($zakatJasa > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatJasa' => $zakatJasa
-            ]);
+            $this->zakat = [
+                'nominal' => $zakatJasa,
+                'jenis1' => $selectedOption,
+                'jenis2' => $selectedOption2
+            ];
         } elseif ($zakatDagang > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatDagang' => $zakatDagang
-            ]);
+            $this->zakat = [
+                'nominal' => $zakatDagang,
+                'jenis1' => $selectedOption,
+                'jenis2' => $selectedOption2
+            ];
         } else {
             // Default redirect or error handling if none of the conditions are met
             return redirect()->route('pembayaran_zakat');
         }
+
+        return redirect()->route('pembayaran_zakat')
+            ->with('zakat', $this->zakat);
     }
 
 

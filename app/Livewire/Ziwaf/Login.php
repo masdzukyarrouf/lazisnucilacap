@@ -6,28 +6,22 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class Login extends Component
 {
     public $username;
     public $password;
-    public $zakatEmas;
-    public $zakatPenghasilan;
-    public $zakatPerdagangan;
-    public $zakatPertanian;
-    public $zakatUang;
+    public $zakat = [
+        'nominal' => 0,
+        'jenis1' => '',
+        'jenis2' => '',
+    ];
 
-
-    public function mount(Request $request)
+    public function mount()
     {
-        $this->zakatEmas = $request->query('zakatEmas', '');
-        $this->zakatPenghasilan = $request->query('zakatPenghasilan', '');
-        $this->zakatPerdagangan = $request->query('zakatPerdagangan', '');
-        $this->zakatPertanian = $request->query('zakatPertanian', '');
-        $this->zakatUang = $request->query('zakatUang', '');
+        // Ambil data zakat dari session jika ada
+        $this->zakat = session('zakat', $this->zakat);
     }
-
 
     public function render()
     {
@@ -36,67 +30,37 @@ class Login extends Component
 
     public function login()
     {
-        // Validate input
+        // Validasi input
         $validatedData = $this->validate([
             'username' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        // Check if username exists
+        // Cek apakah username ada di database
         $user = User::where('username', $validatedData['username'])->first();
 
         if ($user) {
-            // Attempt to log in the user
+            // Coba login user
             if (
                 Auth::attempt([
                     'username' => $validatedData['username'],
                     'password' => $validatedData['password']
                 ])
             ) {
-                // Mendapatkan nilai dari parameter
-                $zakatEmas = (float) $this->zakatEmas;
-                $zakatPenghasilan = (float) $this->zakatPenghasilan;
-                $zakatPertanian = (float) $this->zakatPertanian;
-                $zakatPerdagangan = (float) $this->zakatPerdagangan;
-                $zakatUang = (float) $this->zakatUang;
-
-                // Menentukan URL redirect berdasarkan nilai parameter
-                if ($zakatEmas > 0) {
-                    return redirect()->route('pembayaran_zakat', [
-                        'zakatEmas' => $zakatEmas
-                    ]);
-                } elseif ($zakatPenghasilan > 0) {
-                    return redirect()->route('pembayaran_zakat', [
-                        'zakatPenghasilan' => $zakatPenghasilan
-                    ]);
-                } elseif ($zakatPertanian > 0) {
-                    return redirect()->route('pembayaran_zakat', [
-                        'zakatPertanian' => $zakatPertanian
-                    ]);
-                } elseif ($zakatPerdagangan > 0) {
-                    return redirect()->route('pembayaran_zakat', [
-                        'zakatPerdagangan' => $zakatPerdagangan
-                    ]);
-                } elseif ($zakatUang > 0) {
-                    return redirect()->route('pembayaran_zakat', [
-                        'zakatUang' => $zakatUang
-                    ]);
-                } else {
-                    // Default redirect or error handling if none of the conditions are met
-                    return redirect()->route('pembayaran_zakat');
-                }
+                // Setelah login berhasil, arahkan ke pembayaran_zakat dengan membawa data zakat
+                return redirect()->route('pembayaran_zakat')
+                    ->with('zakat', $this->zakat);
             } else {
-                // Incorrect password
+                // Jika password salah
                 throw ValidationException::withMessages([
                     'password' => 'Password salah.',
                 ]);
             }
         } else {
-            // Username not found
+            // Jika username tidak ditemukan
             throw ValidationException::withMessages([
                 'username' => 'Username salah.',
             ]);
         }
     }
-
 }

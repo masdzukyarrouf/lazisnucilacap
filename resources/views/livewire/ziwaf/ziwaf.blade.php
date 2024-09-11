@@ -1,33 +1,7 @@
 <div class="flex flex-col items-center justify-center">
     <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
     <div class="flex flex-col min-h-screen pb-24 bg-white rounded-lg shadow-md" style="width: 414px">
-        <div class="flex py-4 bg-white">
-            <div class="rounded-lg">
-                <a wire:navigate.hover href="{{ route('zakat') }}">
-                    <img src="{{ $selectedOption === '' || $selectedOption === 'maal' || $selectedOption === 'fitrah' ? asset('images/zakat on.png') : asset('images/zakat off.png') }}" alt="" style="width: 138px; height: 38px">
-                </a>
-            </div>
-            <div class="rounded-lg">
-                <a wire:navigate.hover href="{{ route('infak') }}">
-                    <img src="{{ Request::is('infak') ? asset('images/infak on.png') : asset('images/infak off.png') }}" alt="" style="width: 138px; height: 38px">
-                </a>
-            </div>
-            <div class="rounded-lg">
-                <a wire:navigate.hover href="{{ route('wakaf') }}">
-                    <img src="{{ Request::is('wakaf') ? asset('images/wakaf on.png') : asset('images/wakaf off.png') }}" alt="" style="width: 138px; height: 38px">
-                </a>
-            </div>
-            <div class="rounded-lg">
-                <a wire:navigate.hover href="{{ route('fidyah') }}">
-                    <img src="{{ Request::is('fidyah') ? asset('images/fidyah on.png') : asset('images/fidyah off.png') }}" alt="" style="width: 138px; height: 38px">
-                </a>
-            </div>
-            <div class="rounded-lg">
-                <a wire:navigate.hover href="{{ route('qurban') }}">
-                    <img src="{{ Request::is('qurban') ? asset('images/qurban on.png') : asset('images/qurban off.png') }}" alt="" style="width: 138px; height: 38px">
-                </a>
-            </div>
-        </div>
+        <livewire:ziwaf.navigation/>
         <div class="flex flex-col justify-center p-4">
             <h1 class="pb-2 font-semibold">Pilih Kategori Zakat</h1>
             <div class="relative w-96">
@@ -77,8 +51,7 @@
             @if ($selectedOption2 === 'Emas')
                 <div class="px-4 py-2">
                     <!-- Form untuk input Zakat Maal -->
-                    <label class="font-semibold">Jumlah Emas (Dalam Rupiah)</label>
-                    <a href="https://www.lakuemas.com/" class="border border-green-500">Lakuemas.com</a>
+                    <label class="font-semibold">Jumlah Emas (Dalam Gram)</label>
                     <input
                         oninput="formatMoney(this)" 
                         type="text" 
@@ -89,7 +62,7 @@
                         placeholder="Masukkan nilai" 
                     />
 
-                    {{-- <label class="font-semibold">Jumlah Emas (Dalam Rupiah)</label>
+                    <label class="font-semibold">Jumlah Emas (Dalam Rupiah)</label>
                     <div class="relative flex flex-col mb-3">
                             <div class="flex items-center justify-center">
                                 <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
@@ -101,7 +74,7 @@
                                     readonly 
                                 />
                             </div>
-                        </div> --}}
+                        </div>
 
                     <label class="font-semibold">Nisab per Tahun</label>
                     <div class="relative flex flex-col mb-3">

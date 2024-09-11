@@ -3,114 +3,48 @@
 namespace App\Livewire\Ziwaf;
 
 use Livewire\Component;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class Checkout extends Component
 {
-    public $zakatEmas;
-    public $zakatPenghasilan;
-    public $zakatPerdagangan;
-    public $zakatPertanian;
-    public $zakatUang;
-    public $zakatJasa;
-    public $zakatDagang;
-    public $users;
+    public $nominal;
+    public $jenis1;
+    public $jenis2;
     public $nama;
     public $no;
-    public $Email;
+    public $email;
+    public $datazakat;
 
 
-    public function mount(Request $request)
+    public function mount()
     {
-        $this->zakatEmas = $request->query('zakatEmas', '');
-        $this->zakatPenghasilan = $request->query('zakatPenghasilan', '');
-        $this->zakatPerdagangan = $request->query('zakatPerdagangan', '');
-        $this->zakatPertanian = $request->query('zakatPertanian', '');
-        $this->zakatUang = $request->query('zakatUang', '');
-        $this->zakatJasa = $request->query('zakatJasa', '');
-        $this->zakatDagang = $request->query('zakatDagang', '');
-        $this->users = Auth::user();
-        $this->nama = $request->query('nama', '');
-        $this->no = $request->query('no', '');
-        $this->Email = $request->query('Email', '');
+        $datazakat = session('datazakat', '');
+
+        if ($datazakat) {
+        $this->nominal = $datazakat['nominal'];
+        $this->jenis1 = $datazakat['jenis1'];
+        $this->jenis2 = $datazakat['jenis2'];
+        $this->nama = $datazakat['nama'];
+        $this->no = $datazakat['no'];
+        $this->email = $datazakat['email'];
+        } else {
+            return redirect()->route('zakat');
+        }
     }
 
     public function back()
     {
-        $zakatEmas = (float) $this->zakatEmas;
-        $zakatPenghasilan = (float) $this->zakatPenghasilan;
-        $zakatPertanian = (float) $this->zakatPertanian;
-        $zakatPerdagangan = (float) $this->zakatPerdagangan;
-        $zakatUang = (float) $this->zakatUang;
-        $zakatJasa = (float) $this->zakatJasa;
-        $zakatDagang = (float) $this->zakatDagang;
-        $nama = $this->nama;
-        $no = $this->no;
-        $Email = $this->Email;
-        $users = $this->users;
+        $this->datazakat = [
+            'nominal' => $this->nominal,
+            'jenis1' => $this->jenis1,
+            'jenis2' => $this->jenis2,
+            'nama' => $this->nama,
+            'no' => $this->no,
+            'email' => $this->email,
 
-        // Menentukan URL redirect berdasarkan nilai parameter
-        if ($zakatEmas > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatEmas' => $zakatEmas,
-                'users' => $users,
-                'nama' => $nama,
-                'no' => $no,
-                'Email' => $Email,
-            ]);
-        } elseif ($zakatPenghasilan > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatPenghasilan' => $zakatPenghasilan,
-                'users' => $users,
-                'nama' => $nama,
-                'no' => $no,
-                'Email' => $Email,
-            ]);
-        } elseif ($zakatPertanian > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatPertanian' => $zakatPertanian,
-                'users' => $users,
-                'nama' => $nama,
-                'no' => $no,
-                'Email' => $Email,
-            ]);
-        } elseif ($zakatPerdagangan > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatPerdagangan' => $zakatPerdagangan,
-                'users' => $users,
-                'nama' => $nama,
-                'no' => $no,
-                'Email' => $Email,
-            ]);
-        } elseif ($zakatUang > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatUang' => $zakatUang,
-                'users' => $users,
-                'nama' => $nama,
-                'no' => $no,
-                'Email' => $Email,
-            ]);
-        } elseif ($zakatJasa > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatJasa' => $zakatJasa,
-                'users' => $users,
-                'nama' => $nama,
-                'no' => $no,
-                'Email' => $Email,
-            ]);
-        } elseif ($zakatDagang > 0) {
-            return redirect()->route('pembayaran_zakat', [
-                'zakatD$zakatDagang' => $zakatDagang,
-                'users' => $users,
-                'nama' => $nama,
-                'no' => $no,
-                'Email' => $Email,
-            ]);
-        } else {
-            // Default redirect or error handling if none of the conditions are met
-            return redirect()->route('checkout');
-        }
+        ];
+
+        return redirect()->route('pembayaran_zakat')
+            ->with('datazakat', $this->datazakat);
     }
 
     public function render()
