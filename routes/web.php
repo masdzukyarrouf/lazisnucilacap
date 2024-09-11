@@ -53,7 +53,7 @@ Route::get('/wakaf', App\Livewire\ziwaf\Wakaf::class)->name('wakaf');
 Route::prefix('fidyah')->group(function () {
     Route::get('/', App\Livewire\ziwaf\Fidyah\Index::class)->name('fidyah.index');
     Route::get('/data', App\Livewire\ziwaf\Fidyah\Data::class)->name('fidyah.data');
-    Route::get('/pembayaran', App\Livewire\ziwaf\Fidyah\Pembayaran::class)->name('fidyah.pembayaran');
+    Route::get('/pembayaran/{token}', App\Livewire\ziwaf\Fidyah\Pembayaran::class)->name('fidyah.pembayaran');
 });
 
 
