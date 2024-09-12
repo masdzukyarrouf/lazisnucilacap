@@ -4,6 +4,8 @@
         <div class="w-full p-6 ">
             <h2 class="text-[12px] text-gray-500 mb-4">Anda Akan Melakukan Pembayaran Untuk Fidyah</h2>
             <form wire:submit="bayarFidyah">
+                <label class="block text-sm font-bold ">Nominal</label>
+
                 <div class="flex items-center mr-2 border w-full rounded-md bg-white text-green-500">
                     <p class=" text-[12px] text-center italic mx-2 w-8">Rp</p>
                     <input type="text" 
