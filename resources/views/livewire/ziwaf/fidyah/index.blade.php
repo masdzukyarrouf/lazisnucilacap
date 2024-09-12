@@ -5,16 +5,16 @@
         <form wire:submit.prevent="bayarFidyah" class="mx-4">
             <div class="mt-2 w-full flex flex-col space-y-2">
                 <label class="text-[12px] font-semibold text-black mx-2">Jumlah Hari</label>
-                <div class="flex items-center mx-2 border bg-gray-400">
+                <div class="flex items-center mx-2 border bg-gray-400 bg-opacity-70">
                     <p class="text-black text-[12px] text-center italic mx-2 w-8">Hari</p>
                     <input type="text"
                         class="text-[12px] ml-2 w-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-500"
                         placeholder="Isi Dengan Jumlah Hari" onkeyup="formatAndSync(this)" id="formattedInput">
-                    <input type="hidden" wire:model.live.debounce.100ms="nominal" id="rawInput">
+                    <input type="hidden" wire:model.live="nominal" id="rawInput">
                     
                 </div>
                 <label class="text-[12px] font-semibold text-black mx-2">Nominal Fidyah</label>
-                <div class="flex items-center mx-2 border bg-gray-400">
+                <div class="flex items-center mx-2 border bg-gray-400 bg-opacity-70">
                     <p class="text-black text-[12px] text-center italic mx-2 w-8">Rp.</p>
                     <input type="text" disabled
                         class="text-[12px] ml-2 w-full p-2 focus:outline-none focus:ring-2 bg-white focus:ring-gray-500"

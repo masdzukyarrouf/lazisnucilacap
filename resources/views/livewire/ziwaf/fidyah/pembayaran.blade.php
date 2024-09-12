@@ -4,7 +4,10 @@
         <div class="w-full ">
             <div class="mx-4 mt-4">
                 <div class="w-full flex-col items-center space-y-4">
+
                     <div class="w-full flex-col items-center space-y-2">
+                        <h2 class="text-[12px] text-gray-500 mb-4">Anda Akan Melakukan Pembayaran Untuk Fidyah</h2>
+
                         <div>
                             <p class="text-[14px] font-semibold text-black">
                                 Data Donatur
@@ -64,19 +67,7 @@
                         </h2>
                     </div>
                     <div id="snap-container" class="w-full"></div>
-                    <div class="flex items-center w-full">
-                        <form class="flex items-center w-full">
-                            <input type="hidden" wire:model="nominal">
-                            <input type="hidden" wire:model="username">
-                            <input type="hidden" wire:model="no_telp">
-                            <input type="hidden" wire:model="email">
-                            <input type="hidden" wire:model="doa">
-                            {{-- <button id="pay-button"
-                                class="text-[12px] bg-green-600 w-full py-2 items-center text-white rounded-lg">
-                                Donasi Sekarang
-                            </button> --}}
-                        </form>
-                    </div>
+                    
                 </div>
             </div>
         </div>
