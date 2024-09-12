@@ -1,34 +1,70 @@
 <div class="flex flex-col items-center justify-center">
     <x-nav-mobile2 title="Pembayaran" />
     <div class="flex flex-col bg-white shadow-md" style="width: 414px; height: 736px">
-        <div class="mt-5 ml-5">
-            <h2 class="font-semibold">
-                Total Pembayaran
-            </h2>
-                <div class="flex items-center px-3 py-3 mr-5 bg-white rounded-lg shadow-md">
-                    <h2 class="mr-5">Rp.</h2>
-                    <input 
-                        type="text" 
-                        value="{{ $waif !== '' ? $waif : '0' }}" 
-                        class="w-full px-2 py-1 border border-gray-300 rounded" 
-                        placeholder="Rp. 0" 
-                        readonly  
-                    />
-                </div>
-                <div class="mt-5">
-                    <h2 class="font-semibold">
-                        Metode Pembayaran
-                    </h2>
-                    <div class="mr-5">
-                        <img src="{{ asset('images/gopay.png') }}" alt="gopay" class="my-2">
-                        <img src="{{ asset('images/shopee.png') }}" alt="shopee" class="my-2">
-                        <img src="{{ asset('images/VA bni.png') }}" alt="bni" class="my-2">
-                        <img src="{{ asset('images/VA permatabank.png') }}" alt="permatabank" class="my-2">
-                        <img src="{{ asset('images/mandiri.png') }}" alt="mandiri" class="my-2">
-                        <img src="{{ asset('images/tf.png') }}" alt="transfer" class="my-2">
+        <div class="mx-5 mt-5">
+            <div class="flex flex-col">
+                <span class="text-sm text-gray-600">Anda Akan Melakukan Pembayaran Untuk Wakaf</span>
+                <span class="text-sm text-gray-600">Untuk Program : {{ $this->jenis }}   </span>
+            </div>
+            <div class="my-4">
+                <label class="font-semibold">Nominal Zakat</label>
+                <div class="relative flex flex-col mb-3">
+                    <div class="flex items-center justify-center">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
+                            <input 
+                                type="text" 
+                                value="{{ number_format($this->nominal, 0, ',', '.') }}" 
+                                class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
+                                placeholder="Rp. 0" 
+                                readonly 
+                            />
                     </div>
                 </div>
+                
+                <div class="mt-4">
+                    <span class="text-xl font-semibold">Mohon Lengkapi Data Berikut</span>
+                    <div>
+                        @if (!$users)
+                            <span>sudah punya akun?</span>
+                            <span wire:click="login" class="font-semibold text-green-500 cursor-pointer">Login</span>
+                        @endif
+                            <div>
+                                <label class="font-semibold">Nama Anda</label>
+                                <input 
+                                    type="text" 
+                                    id="nama" 
+                                    wire:model.lazy="nama" 
+                                    wire:input="datadiri"
+                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                                    placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
+                                />
+                                
+                                <label class="font-semibold">No Telepon (WA Aktif)</label>
+                                <input 
+                                    type="text" 
+                                    id="no" 
+                                    wire:model.lazy="no" 
+                                    wire:input="datadiri" 
+                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                                    placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
+                                />
+
+                                <label class="font-semibold">Email (Opsional)</label>
+                                <input 
+                                    type="text" 
+                                    id="email" 
+                                    wire:model.lazy="email" 
+                                    wire:input="datadiri" 
+                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                                    placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
+                                />
+                            </div>
+                    </div>
+                </div> 
             </div>
+            <button wire:click="co" class="w-full px-4 py-2 font-semibold text-white bg-green-500 rounded">
+                Zakat Sekarang
+            </button>
         </div>
     </div>
 </div>
