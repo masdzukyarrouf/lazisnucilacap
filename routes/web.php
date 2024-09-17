@@ -35,9 +35,9 @@ Route::get('/', App\Livewire\Landing::class)->name('landing');
 Route::get('/daftar', App\Livewire\Daftar::class);
 
 Route::get('/login', App\Livewire\Login::class)->name('login')->middleware('guest');
-Route::get('/Login', App\Livewire\Ziwaf\Login::class)->name('Login-ziwaf')->middleware('guest');
 
 Route::get('/detail-berita/{title_berita}', App\Livewire\UserBerita\Show::class)->name('user-berita.show');
+
 Route::get('/landing-mobile', App\Livewire\LandingMobile::class);
 
 Route::get('/detail-campaign', App\Livewire\DetailCampaign::class);
@@ -46,9 +46,17 @@ Route::post('logout', App\Http\Controllers\logout::class)->name('logout');
 
 Route::get('/berita', App\Livewire\UserBerita\Index::class)->name('berita');
 
-Route::get('/zakat', App\Livewire\ziwaf\Ziwaf::class)->name('zakat');
-// Route::get('/infak', App\Livewire\ziwaf\Infak::class)->name('infak');
-Route::get('/wakaf', App\Livewire\ziwaf\Wakaf::class)->name('wakaf');
+Route::prefix('zakat')->group(function () {
+    Route::get('/', App\Livewire\ziwaf\Zakat\ziwaf::class)->name('zakat');
+    Route::get('/data', App\Livewire\ziwaf\zakat\ZakatBayar::class)->name('zakat.data');
+    Route::get('/pembayaran/{token}', App\Livewire\ziwaf\zakat\Checkout::class)->name('zakat.pembayaran');
+});
+
+Route::prefix('wakaf')->group(function () {
+    Route::get('/', App\Livewire\Ziwaf\Wakaf\Wakaf::class)->name('wakaf');
+    Route::get('/data', App\Livewire\ziwaf\Wakaf\InfaqwakafBayar::class)->name('wakaf.data');
+    Route::get('/pembayaran/{token}', App\Livewire\Ziwaf\Wakaf\CheckoutWakaf::class)->name('wakaf.pembayaran');
+});
  
 Route::prefix('narasi')->group(function () {
     Route::get('/fitrah', App\Livewire\Ziwaf\Narasi\Fitrah::class)->name('fitrah');
@@ -72,10 +80,6 @@ Route::prefix('infaq')->group(function () {
 
 
 Route::get('/qurban', App\Livewire\ziwaf\Qurban::class)->name('qurban');
-Route::get('/pembayaran_zakat', App\Livewire\ziwaf\ZakatBayar::class)->name('pembayaran_zakat');
-Route::get('/pembayaran_infaq&wakaf', App\Livewire\ziwaf\InfaqwakafBayar::class)->name('pembayaran-infaq&wakaf');
-Route::get('/checkout/{token}', App\Livewire\ziwaf\Checkout::class)->name('checkout');
-Route::get('/checkout-wakaf/{token}', App\Livewire\ziwaf\CheckoutWakaf::class)->name('checkout-wakaf');
 
 
 Route::get('/mitra', App\Livewire\UserMitra::class)->name('mitra');

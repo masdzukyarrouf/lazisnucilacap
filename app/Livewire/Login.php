@@ -11,6 +11,22 @@ class Login extends Component
 {
     public $username;
     public $password;
+    public $zakat = [
+        'nominal' => 0,
+        'jenis1' => '',
+        'jenis2' => '',
+    ];
+    public $data = [
+        'nominal' => 0,
+        'jenis' => '',
+    ];
+
+    public function mount()
+    {
+        // Ambil data zakat dari session jika ada
+        $this->zakat = session('zakat', $this->zakat);
+        $this->data = session('data', $this->data);
+    }
 
     public function render()
     {
@@ -19,39 +35,37 @@ class Login extends Component
 
     public function login()
     {
-        // Validate input
+        // Validasi input
         $validatedData = $this->validate([
             'username' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        // Check if username exists
+        // Cek apakah username ada di database
         $user = User::where('username', $validatedData['username'])->first();
 
         if ($user) {
-            // Attempt to log in the user
+            // Coba login user
             if (
                 Auth::attempt([
                     'username' => $validatedData['username'],
                     'password' => $validatedData['password']
                 ])
             ) {
-                // Redirect based on user role
-                if ($user->role === 'admin') {
-                    return redirect()->intended(route('admin'));
-                } elseif ($user->role === 'donatur') {
-                    return redirect()->intended(route('profile.index'));
+                if ($this->zakat['nominal'] > 0 && !empty($this->zakat['jenis1']) && !empty($this->zakat['jenis2'])) {
+                    return redirect()->route('zakat.data')
+                        ->with('zakat', $this->zakat);
                 } else {
-                    return redirect()->route('home');
+                    return redirect()->route('landing');
                 }
             } else {
-                // Incorrect password
+                // Jika password salah
                 throw ValidationException::withMessages([
                     'password' => 'Password salah.',
                 ]);
             }
         } else {
-            // Username not found
+            // Jika username tidak ditemukan
             throw ValidationException::withMessages([
                 'username' => 'Username salah.',
             ]);
