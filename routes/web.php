@@ -49,6 +49,15 @@ Route::get('/berita', App\Livewire\UserBerita\Index::class)->name('berita');
 Route::get('/zakat', App\Livewire\ziwaf\Ziwaf::class)->name('zakat');
 // Route::get('/infak', App\Livewire\ziwaf\Infak::class)->name('infak');
 Route::get('/wakaf', App\Livewire\ziwaf\Wakaf::class)->name('wakaf');
+ 
+Route::prefix('narasi')->group(function () {
+    Route::get('/fitrah', App\Livewire\Ziwaf\Narasi\Fitrah::class)->name('fitrah');
+    Route::get('/maal', App\Livewire\Ziwaf\Narasi\Maal::class)->name('maal');
+    Route::get('/infaq', App\Livewire\Ziwaf\Narasi\Infaq::class)->name('infaq');
+    Route::get('/wakaf', App\Livewire\Ziwaf\Narasi\Wakaf::class)->name('Wakaf');
+    Route::get('/fidyah', App\Livewire\Ziwaf\Narasi\Fidyah::class)->name('fidyah');
+    Route::get('/qurban', App\Livewire\Ziwaf\Narasi\Qurban::class)->name('qurban');
+});
 
 Route::prefix('fidyah')->group(function () {
     Route::get('/', App\Livewire\ziwaf\Fidyah\Index::class)->name('fidyah.index');

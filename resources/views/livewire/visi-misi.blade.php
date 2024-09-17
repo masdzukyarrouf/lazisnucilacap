@@ -15,13 +15,25 @@
             </div>
             <div class="p-4">
                 <div class="flex flex-col items-start mt-4">
-                    <h2 class="font-semibold text-left text-green-500 w-full text-center">Visi</h2>
+                    <h2 class="w-full font-semibold text-left text-green-500">Visi</h2>
                     @foreach($visis as $visi)
                         <p> {!! nl2br(e($visi->visi)) !!}</p>
                     @endforeach
-                    <h2 class="mt-4 font-semibold text-left text-green-500 w-full text-center">Misi</h2>
-                    @foreach($misis as $Misi)
-                        <p>- {!! nl2br(e($Misi->misi)) !!}</p>
+                    <h2 class="w-full mt-4 font-semibold text-left text-green-500">Misi</h2>
+                    @php
+                        $index = 1;
+                    @endphp
+
+                    @foreach ($misis as $Misi)
+                        <div class="flex mt-4">
+                            <h1 class="pr-2 text-sm">{{ $index }}.</h1>
+                            <p class="text-sm">
+                                {!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}
+                            </p>
+                        </div>
+                        @php
+                            $index++;
+                        @endphp
                     @endforeach
                 </div>
             </div>
