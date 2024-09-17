@@ -15,7 +15,7 @@ class Create extends Component
     protected function rules()
     {
         return [
-            'gambar' => 'required|image|max:1024', // Validasi gambar
+            'gambar' => 'required|image', // Validasi gambar
         ];
     }
 
