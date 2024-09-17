@@ -47,13 +47,18 @@ Route::post('logout', App\Http\Controllers\logout::class)->name('logout');
 Route::get('/berita', App\Livewire\UserBerita\Index::class)->name('berita');
 
 Route::get('/zakat', App\Livewire\ziwaf\Ziwaf::class)->name('zakat');
-Route::get('/infak', App\Livewire\ziwaf\Infak::class)->name('infak');
+// Route::get('/infak', App\Livewire\ziwaf\Infak::class)->name('infak');
 Route::get('/wakaf', App\Livewire\ziwaf\Wakaf::class)->name('wakaf');
 
 Route::prefix('fidyah')->group(function () {
     Route::get('/', App\Livewire\ziwaf\Fidyah\Index::class)->name('fidyah.index');
     Route::get('/data', App\Livewire\ziwaf\Fidyah\Data::class)->name('fidyah.data');
     Route::get('/pembayaran/{token}', App\Livewire\ziwaf\Fidyah\Pembayaran::class)->name('fidyah.pembayaran');
+});
+Route::prefix('infaq')->group(function () {
+    Route::get('/', App\Livewire\ziwaf\infaq\Index::class)->name('infaq.index');
+    Route::get('/data', App\Livewire\ziwaf\infaq\Data::class)->name('infaq.data');
+    Route::get('/pembayaran/{token}', App\Livewire\ziwaf\infaq\Pembayaran::class)->name('infaq.pembayaran');
 });
 
 

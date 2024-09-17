@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Livewire\Ziwaf\Infaq;
+
+use Livewire\Component;
+
+class Index extends Component
+{
+    public $nominal_infaq;
+    public $jenis_ziwaf;
+
+    protected $rules = [
+        'nominal_infaq' => 'required|integer|min:50000',
+        'jenis_ziwaf' => 'required|string',
+    ];
+
+    protected $messages = [
+        'nominal_infaq.min' => 'Infaq minimal Rp 50.000',
+        'nominal_infaq.required' => 'Nominal infaq wajib diisi',
+        'jenis_ziwaf.required' => 'Jenis infaq wajib dipilih',
+    ];
+
+    public function bayarInfaq()
+    {
+        $this->validate(); // Validate fields
+
+        $infaq = [
+            'nominal' => $this->nominal_infaq,
+            'jenis_ziwaf' => $this->jenis_ziwaf
+        ];
+
+        return redirect()->route('infaq.data')->with('infaq', $infaq);
+    }
+
+    public function render()
+    {
+        return view('livewire.ziwaf.infaq.index')->layout('layouts.mobile');
+    }
+}

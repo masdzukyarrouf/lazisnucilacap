@@ -5,8 +5,8 @@
         </a>
     </div>
     <div class="rounded-lg">
-        <a wire:navigate.hover href="{{ route('infak') }}">
-            <img src="{{ Request::is('infak') ? asset('images/infak on.png') : asset('images/infak off.png') }}" alt="" style="width: 138px; height: 38px">
+        <a wire:navigate.hover href="{{ route('infaq.index') }}">
+            <img src="{{ Request::is('infaq') ? asset('images/infak on.png') : asset('images/infak off.png') }}" alt="" style="width: 138px; height: 38px">
         </a>
     </div>
     <div class="rounded-lg">
