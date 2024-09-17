@@ -59,7 +59,7 @@
                         wire:model="gram" 
                         wire:input.lazy="gramtoidr" 
                         class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                        placeholder="Masukkan nilai" 
+                        placeholder="Isikan jumlah emas anda" 
                     />
 
                     <label class="font-semibold">Jumlah Emas (Dalam Rupiah)</label>
@@ -97,7 +97,7 @@
                         </div>
                         @elseif ($zakatEmas != 0)
                             <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan (2,5% Dari Nilai Emas)</label>
-                            <div class="relative flex flex-col mb-3">
+                            <div class="relative flex flex-col mt-2 mb-3">
                                 <div class="flex items-center justify-center">
                                     <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
                                     <input 
@@ -151,16 +151,20 @@
                             </div>
                         </div>
                         <!-- Form untuk input Zakat Maal -->
-                        <label class="font-semibold">Pendapatan Sebelum Pajak (Tahun)</label>
-                        <input 
-                            oninput="formatMoney(this)"
-                            type="text" 
-                            id="pendapatan" 
-                            wire:model.lazy="pendapatan" 
-                            wire:input="pendapatan" 
-                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                            placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
-                        />
+                        <label class="font-semibold">Pendaparan sebekum pajak (tahun)</label>
+                        <div class="relative flex items-center justify-center mb-3">
+                            <span class="absolute inset-y-0 left-0 flex items-center px-2 rounded h-9">Rp. </span>
+                            <input 
+                                oninput="formatMoney(this)"
+                                type="text" 
+                                id="pendapatan" 
+                                wire:model.lazy="pendapatan" 
+                                wire:input="pendapatan" 
+                                class="w-full px-2 py-1 mb-3 border border-gray-300 rounded pl-11" 
+                                placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
+                            />
+                        </div>
+
                         <label class="font-semibold">Nisab per Tahun</label>
                         <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
@@ -181,7 +185,7 @@
                                 <span class="text-gray-400">Harta anda belum masuk nisab</span>
                             </div>
                             @elseif ($zakatJasa != 0)
-                                <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan (2,5% Dari jumlah )</label>
+                                <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                                 <div class="relative flex flex-col mb-3">
                                     <div class="flex items-center justify-center">
                                         <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
@@ -276,7 +280,7 @@
                                 <span class="text-gray-400">Harta anda belum masuk nisab</span>
                             </div>
                             @elseif ($zakatDagang != 0)
-                                <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan (2,5% Dari jumlah )</label>
+                                <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                                 <div class="relative flex flex-col mb-3">
                                     <div class="flex items-center justify-center">
                                         <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
@@ -329,7 +333,7 @@
                         wire:model.lazy="asset" 
                         wire:input="assetlaba" 
                         class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                        placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
+                        placeholder="Isikan dengan jumlah aset dalam 1 tahun" 
                     />
                     
                     <label class="font-semibold">Laba</label>
@@ -373,7 +377,7 @@
                             <span class="text-gray-400">Harta anda belum masuk nisab</span>
                         </div>
                         @elseif ($zakatPerdagangan != 0)
-                            <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan (2,5% Dari jumlah )</label>
+                            <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                             <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
                                     <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
@@ -416,16 +420,32 @@
                 <div class="px-4 py-2">
                     <!-- Form untuk input Zakat Maal -->
                     <label class="font-semibold">Gaji Perbulan</label>
-                    <input 
-                        oninput="formatMoney(this)"
-                        type="text" 
-                        id="gaji" 
-                        wire:model.lazy="gaji" 
-                        wire:input="penghasilan" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                        placeholder="Isikan dengan gaji anda" 
-                    />
+                    <div class="relative flex items-center justify-center mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-2 font-semibold rounded h-9">Rp. </span>
+                        <input 
+                            oninput="formatMoney(this)"
+                            type="text" 
+                            id="gaji" 
+                            wire:model.lazy="gaji" 
+                            wire:input="penghasilan" 
+                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded pl-11" 
+                            placeholder="Isikan dengan jumlah gaji anda dalam 1 bulan" 
+                        />
+                    </div>
                     
+                    <label class="font-semibold">Penghasilan Lain Perbulan</label>
+                    <div class="relative flex items-center justify-center mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-2 font-semibold rounded h-9">Rp. </span>
+                        <input 
+                            oninput="formatMoney(this)"
+                            type="text" 
+                            id="gaji2" 
+                            wire:model.lazy="gaji2" 
+                            wire:input="penghasilan" 
+                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded pl-11"
+                            placeholder="Isikan dengan penghasilan lain anda dalam 1 bulan"
+                        />
+                    </div>
                     <label class="font-semibold">Penghasilan Lain Perbulan</label>
                     <input 
                         oninput="formatMoney(this)"
@@ -510,15 +530,18 @@
                 <div class="px-4 py-2">
                     <!-- Form untuk input Zakat Maal -->
                     <label class="font-semibold">Harga Produk Per Kg</label>
-                    <input 
-                        oninput="formatMoney(this)"
-                        type="text" 
-                        id="harga" 
-                        wire:model.lazy="harga" 
-                        wire:input="totalharga" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                        placeholder="Isikan dengan gaji anda" 
-                    />
+                    <div class="relative flex items-center justify-center mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-2 rounded h-9">Rp. </span>
+                        <input 
+                            oninput="formatMoney(this)"
+                            type="text" 
+                            id="harga" 
+                            wire:model.lazy="harga" 
+                            wire:input="totalharga" 
+                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded pl-11" 
+                            placeholder="Isikan dengan perkiraan harga produk per kg" 
+                        />
+                    </div>
                     
                     <label class="font-semibold">Jumlah Produk (Kg)</label>
                     <input 
@@ -570,7 +593,7 @@
                             <span class="text-gray-400">Harta anda belum masuk nisab</span>
                         </div>
                         @elseif ($zakatPertanian != 0)
-                            <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan (2,5% Dari Jumlah Pertanian)</label>
+                            <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                             <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
                                     <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
@@ -612,26 +635,32 @@
                 <div class="px-4 py-2">
                     <!-- Form untuk input Zakat Maal -->
                     <label class="font-semibold">Nominal Uang</label>
-                    <input 
-                        oninput="formatMoney(this)"
-                        type="text" 
-                        id="uang" 
-                        wire:model.lazy="uang" 
-                        wire:input="kekayaan" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                        placeholder="Isikan dengan gaji anda" 
-                    />
-                    
+                    <div class="relative flex items-center justify-center mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-2 font-semibold rounded h-9">Rp. </span>
+                        <input 
+                            oninput="formatMoney(this)"
+                            type="text" 
+                            id="uang" 
+                            wire:model.lazy="uang" 
+                            wire:input="kekayaan" 
+                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded pl-11" 
+                            placeholder="Isikan dengan jumlah uang anda dalam 1 tahun"
+                        />
+                    </div>
+
                     <label class="font-semibold">Surat Berharga Lainnya</label>
-                    <input 
-                        oninput="formatMoney(this)"
-                        type="text" 
-                        id="surat" 
-                        wire:model.lazy="surat" 
-                        wire:input="kekayaan" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                        placeholder="Isikan dengan penghasilan anda yang lain" 
-                    />
+                    <div class="relative flex items-center justify-center mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 font-semibold rounded h-9">Rp. </span>
+                        <input 
+                            oninput="formatMoney(this)"
+                            type="text" 
+                            id="surat" 
+                            wire:model.lazy="surat" 
+                            wire:input="kekayaan" 
+                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded pl-11" 
+                            placeholder="Isikan dengan jumlah surat berharga anda dalam rupiah"
+                        />
+                    </div>
 
                     <label class="font-semibold">jumlah</label>
                     <div class="relative flex items-center justify-center mb-3">
@@ -663,100 +692,7 @@
                             <span class="text-gray-400">Harta anda belum masuk nisab</span>
                         </div>
                         @elseif ($zakatUang != 0)
-                            <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan (2,5% Dari Jumlah Penghasilan)</label>
-                            <div class="relative flex flex-col mb-3">
-                                <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
-                                    <input 
-                                    type="text" 
-                                    value="{{ number_format($zakatUang, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
-                                    placeholder="Rp. 0" 
-                                    readonly 
-                                    />
-                                </div>
-                            </div>
-                        @endif
-                        @if ($zakatUang === 0)
-                            <livewire:ziwaf.niat-zakat>
-                            <div class="flex items-center justify-center mt-4">
-                                <button wire:click="maalUang" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
-                                    Hitung Zakat
-                                </button>
-                            </div>
-                        @elseif ($zakatUang != 0)
-                            <livewire:ziwaf.niat-zakat>
-                            <div class="flex items-center justify-center mt-4">
-                                <button id="user-menu-btn" wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
-                                    Zakat Sekarang
-                                </button>
-                            </div>
-                        @else
-                            <livewire:ziwaf.niat-zakat>
-                            <div class="flex items-center justify-center mt-4">
-                                <button wire:click="maalUang" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
-                                    Hitung Zakat
-                                </button>
-                            </div>
-                        @endif
-                </div>
-
-                @elseif ($selectedOption2 === 'Perusahaan')
-                <div class="px-4 py-2">
-                    <!-- Form untuk input Zakat Maal -->
-                    <label class="font-semibold">Nominal Uang</label>
-                    <input 
-                        oninput="formatMoney(this)"
-                        type="text" 
-                        id="uang" 
-                        wire:model.lazy="uang" 
-                        wire:input="kekayaan" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                        placeholder="Isikan dengan gaji anda" 
-                    />
-                    
-                    <label class="font-semibold">Surat Berharga Lainnya</label>
-                    <input 
-                        oninput="formatMoney(this)"
-                        type="text" 
-                        id="surat" 
-                        wire:model.lazy="surat" 
-                        wire:input="kekayaan" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                        placeholder="Isikan dengan penghasilan anda yang lain" 
-                    />
-
-                    <label class="font-semibold">jumlah</label>
-                    <div class="relative flex items-center justify-center mb-3">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
-                        <input 
-                            type="text" 
-                            value="{{ number_format($totalkekayaan, 0, ',', '.') }}" 
-                            class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
-                            readonly
-                        />
-                    </div>
-                    <label class="font-semibold">Nisab per Tahun</label>
-                    <div class="relative flex flex-col mb-3">
-                            <div class="flex items-center justify-center">
-                                <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
-                                <input 
-                                    type="text" 
-                                    value="{{ number_format($nisab, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
-                                    placeholder="Rp. 0" 
-                                    readonly 
-                                />
-                            </div>
-                            <span class="text-xs font-semibold text-red-500">Sesuai SK Baznas No.1 Tahun 2024</span>
-                        </div>
-
-                        @if ($zakatUang === 0)
-                        <div class="flex items-center justify-center my-4">                          
-                            <span class="text-gray-400">Harta anda belum masuk nisab</span>
-                        </div>
-                        @elseif ($zakatUang != 0)
-                            <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan (2,5% Dari Jumlah Penghasilan)</label>
+                            <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                             <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
                                     <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
