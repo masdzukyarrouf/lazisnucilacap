@@ -21,7 +21,7 @@
                 <div class="flex w-full transition-transform duration-500"
                     :style="'transform: translateX(-' + offset + '%)'">
                     @foreach ($landings as $landing)
-                        <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture" class="min-w-full" />
+                        <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture" class="min-w-full h-[300px] md:h-[600px] " />
                     @endforeach
                 </div>
             </div>
