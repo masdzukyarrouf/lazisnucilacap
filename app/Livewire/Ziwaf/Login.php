@@ -16,11 +16,16 @@ class Login extends Component
         'jenis1' => '',
         'jenis2' => '',
     ];
+    public $data = [
+        'nominal' => 0,
+        'jenis' => '',
+    ];
 
     public function mount()
     {
         // Ambil data zakat dari session jika ada
         $this->zakat = session('zakat', $this->zakat);
+        $this->data = session('data', $this->data);
     }
 
     public function render()
@@ -47,9 +52,13 @@ class Login extends Component
                     'password' => $validatedData['password']
                 ])
             ) {
-                // Setelah login berhasil, arahkan ke pembayaran_zakat dengan membawa data zakat
-                return redirect()->route('pembayaran_zakat')
-                    ->with('zakat', $this->zakat);
+                if ($this->zakat['nominal'] > 0 && !empty($this->zakat['jenis1']) && !empty($this->zakat['jenis2'])) {
+                    return redirect()->route('pembayaran_zakat')
+                        ->with('zakat', $this->zakat);
+                } elseif (!empty($this->data['nominal']) && !empty($this->data['jenis'])) {
+                    return redirect()->route('pembayaran-infaq&wakaf')
+                        ->with('data', $this->data);
+                }
             } else {
                 // Jika password salah
                 throw ValidationException::withMessages([

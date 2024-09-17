@@ -13,6 +13,7 @@ class Checkout extends Component
     public $no;
     public $email;
     public $datazakat;
+    public $token;
 
 
     public function mount()

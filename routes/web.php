@@ -60,7 +60,8 @@ Route::prefix('fidyah')->group(function () {
 Route::get('/qurban', App\Livewire\ziwaf\Qurban::class)->name('qurban');
 Route::get('/pembayaran_zakat', App\Livewire\ziwaf\ZakatBayar::class)->name('pembayaran_zakat');
 Route::get('/pembayaran_infaq&wakaf', App\Livewire\ziwaf\InfaqwakafBayar::class)->name('pembayaran-infaq&wakaf');
-Route::get('/checkout', App\Livewire\ziwaf\Checkout::class)->name('checkout');
+Route::get('/checkout/{token}', App\Livewire\ziwaf\Checkout::class)->name('checkout');
+Route::get('/checkout-wakaf/{token}', App\Livewire\ziwaf\CheckoutWakaf::class)->name('checkout-wakaf');
 
 
 Route::get('/mitra', App\Livewire\UserMitra::class)->name('mitra');

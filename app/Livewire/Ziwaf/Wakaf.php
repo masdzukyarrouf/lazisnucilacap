@@ -6,12 +6,20 @@ use Livewire\Component;
 
 class Wakaf extends Component
 {
-    public $waif = '';
+    public $wakaf = '';
+    public $selectedOption = '';
+    public $data;
 
     public function submitwaif()
     {
-        // Redirect ke route dengan query parameter
-        return redirect()->route('pembayaran-infaq&wakaf', ['waif' => $this->waif]);
+        $this->wakaf = !empty($this->wakaf) ? (float) str_replace('.', '', $this->wakaf) : 0;
+        
+        $this->data = [
+            'nominal' => $this->wakaf,
+            'jenis' => $this->selectedOption,
+        ];
+        return redirect()->route('pembayaran-infaq&wakaf')
+            ->with('data', $this->data);
     }
 
     public function render()

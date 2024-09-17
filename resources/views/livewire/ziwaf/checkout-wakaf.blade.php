@@ -3,7 +3,10 @@
     <div class="flex flex-col bg-white shadow-md" style="width: 414px; height: 736px">
         <div class="shadow ">
             <div class="mx-5 mt-2">
-                <span class="text-sm text-gray-600">Anda Akan Melakukan Pembayaran Untuk Zakat</span>
+                <div class="flex flex-col">
+                    <span class="text-sm text-gray-600">Anda Akan Melakukan Pembayaran Untuk Wakaf</span>
+                    <span class="text-sm text-gray-600">Untuk Program : {{ $this->jenis }}   </span>
+                </div>
                 <label class="font-semibold">Nominal Zakat</label>
                 <div class="relative flex flex-col mb-3">
                     <div class="flex items-center justify-center">
