@@ -13,7 +13,11 @@ class Index extends Component
 
     }
     public function updatedNominal(){
-        $this->nominal_fidyah = $this->nominal * 60000 ?? 0;
+        if($this->nominal == null){
+            $this->nominal_fidyah = 0;
+        }else{
+            $this->nominal_fidyah = $this->nominal * 60000 ?? 0;
+        }
 
     }
 
