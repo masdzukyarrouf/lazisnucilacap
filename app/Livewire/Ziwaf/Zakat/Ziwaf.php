@@ -327,7 +327,7 @@ class Ziwaf extends Component
     }
     public function render()
     {
-        return view('livewire.ziwaf.ziwaf')->layout('layouts.mobile');
+        return view('livewire.ziwaf.zakat.ziwaf')->layout('layouts.mobile');
     }
 }
 
