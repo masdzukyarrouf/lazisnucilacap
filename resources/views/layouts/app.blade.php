@@ -77,7 +77,7 @@
                             <img src="{{ asset('images/whatsapp.png') }}" alt="" class="hover:scale-125">
                         </a>
                     </li>
-                    <li><a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+                    <li><a href="https://www.youtube.com/@LazisnuCilacap" target="_blank" rel="noopener noreferrer">
                             <img src="{{ asset('images/youtube.png') }}" alt="" class="hover:scale-125">
                         </a>
                     </li>
@@ -95,7 +95,7 @@
             <div class="w-2/12 mb-4 md:mb-0">
                 <h2 class="mb-4 text-xl font-semibold text-gray-800 ">Informasi</h2>
                 <ul class="space-y-4 text-sm">
-                    <li><a href="#" class="text-gray-800 hover:text-lg ">Lazisnu Cilacap</a></li>
+                    <li><a href="/" class="text-gray-800 hover:text-lg ">Lazisnu Cilacap</a></li>
                     <li><a href="#" class="text-gray-800 hover:text-lg ">Pilar & Program</a></li>
                     <li><a href="#" class="text-gray-800 hover:text-lg ">Layanan</a></li>
                     <li><a href="#" class="text-gray-800 hover:text-lg ">Ziswaf</a></li>
@@ -126,7 +126,7 @@
             <div class="w-3/12 mb-4 md:mb-0">
                 <h2 class="mb-4 text-lg font-semibold text-gray-800">NU Care-Lazisnu Cilacap</h2>
                 <div class="h-auto bg-white rounded-lg w-75">
-                    <a href="https://maps.app.goo.gl/3ZVUjzq2MxBruu318">
+                    <a href="https://maps.app.goo.gl/3ZVUjzq2MxBruu318" target="_blank">
                         <img src="{{ asset('images/map2.png') }}" alt="map">
                     </a>
                 </div>

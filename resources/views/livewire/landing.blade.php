@@ -21,7 +21,8 @@
                 <div class="flex w-full transition-transform duration-500"
                     :style="'transform: translateX(-' + offset + '%)'">
                     @foreach ($landings as $landing)
-                        <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture" class="min-w-full h-[300px] md:h-[600px] " />
+                        <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
+                            class="min-w-full h-[300px] md:h-[600px] " />
                     @endforeach
                 </div>
             </div>
@@ -84,36 +85,38 @@
     </div>
 
     <div class="flex flex-col justify-between px-4 mt-8 md:px-8 lg:px-16 xl:px-24">
-    <div id="details-container" class="relative max-h-[325px] overflow-hidden transition-all duration-300">
-        <p class="mt-4 ml-4 text-[14px] md:text-[16px] font-semibold text-green-500 flex justify-center items-center">Sekilas NU-Care Lazisnu Cilacap</p>
-        <div id="details-content" class="w-full px-4 py-4 md:px-5">
-            <h2 class="w-full font-semibold text-left text-green-500">Visi</h2>
-            @foreach ($visis as $visi)
-                <p class="text-sm md:text-base">{!! nl2br(e($visi->visi)) !!}</p>
-            @endforeach
-            <h2 class="w-full mt-4 font-semibold text-left text-green-500">Misi</h2>
-            @php
-                $index = 1;
-            @endphp
-
-            @foreach ($misis as $Misi)
-                <div class="flex mt-4">
-                    <h1 class="pr-2 text-sm">{{ $index }}.</h1>
-                    <p class="text-sm">
-                        {!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}
-                    </p>
-                </div>
+        <div id="details-container" class="relative max-h-[325px] overflow-hidden transition-all duration-300">
+            <p
+                class="mt-4 ml-4 text-[14px] md:text-[16px] font-semibold text-green-500 flex justify-center items-center">
+                Sekilas NU-Care Lazisnu Cilacap</p>
+            <div id="details-content" class="w-full px-4 py-4 md:px-5">
+                <h2 class="w-full font-semibold text-left text-green-500">Visi</h2>
+                @foreach ($visis as $visi)
+                    <p class="text-sm md:text-base">{!! nl2br(e($visi->visi)) !!}</p>
+                @endforeach
+                <h2 class="w-full mt-4 font-semibold text-left text-green-500">Misi</h2>
                 @php
-                    $index++;
+                    $index = 1;
                 @endphp
-            @endforeach
+
+                @foreach ($misis as $Misi)
+                    <div class="flex mt-4">
+                        <h1 class="pr-2 text-sm">{{ $index }}.</h1>
+                        <p class="text-sm">
+                            {!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}
+                        </p>
+                    </div>
+                    @php
+                        $index++;
+                    @endphp
+                @endforeach
+            </div>
+            <a id="details-expand-link"
+                class="absolute bottom-0 left-0 w-full px-3 pt-4 text-left bg-gradient-to-t from-white via-white to-transparent">
+                <livewire:visi-misi />
+            </a>
         </div>
-        <a id="details-expand-link"
-            class="absolute bottom-0 left-0 w-full px-3 pt-4 text-left bg-gradient-to-t from-white via-white to-transparent">
-            <livewire:visi-misi />
-        </a>
     </div>
-</div>
 
 
 
@@ -283,8 +286,7 @@
     </div>
 
     <!-- Mitra Section -->
-    <div class="flex flex-col items-center px-4 py-4 mt-4 mb-2 bg-white bg-center bg-cover w-max-screen"
-        >
+    <div class="flex flex-col items-center px-4 py-4 mt-4 mb-2 bg-white bg-center bg-cover w-max-screen">
         <!-- Title -->
         <div class="mb-8">
             <h2 class="text-xl font-semibold text-green-600">Mitra Kami</h2>
@@ -307,7 +309,7 @@
                 }
             }
         }" x-init="updateSlideWidth(),
-        load = true ;
+            load = true;
         interval = setInterval(() => {
             if (offset < (logoCount - visibleLogos) * slideWidth) {
                 offset += slideWidth;
@@ -315,28 +317,41 @@
                 offset = 0; // Mulai dari awal lagi
             }
         }, slideInterval);
-        window.addEventListener('resize', updateSlideWidth);"
-        x-show="load" wire:init="loadMitra"
-         class="relative w-full overflow-hidden">
+        window.addEventListener('resize', updateSlideWidth);" x-show="load" wire:init="loadMitra"
+            class="relative w-full overflow-hidden">
             <!-- Carousel Container -->
             <div class="flex transition-transform duration-500 w-[{{ $this->mitraCount * 10 }}%] items-center flex"
                 :style="'transform: translateX(-' + offset + '%)'">
                 <!-- Loop through logos -->
                 @if ($mitras && $mitras->isEmpty())
                 @elseif($mitras)
-                @foreach ($mitras as $mitra)
-                <div wire:loading.remove class="bg-gray-400 w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20">
-                    <div class="w-[50px] h-[50px] md:w-[150px] md:h-[150px]">
-                        <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture" class="w-full h-full bg-black"/>
-                    </div>
-                </div>                   
-                @endforeach
+                    @foreach ($mitras as $mitra)
+                        <div wire:loading.remove
+                            class=" w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20">
+                            <div class="w-[50px] h-[50px] md:w-[150px] md:h-[150px]">
+                                <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture"
+                                    class="w-full h-full bg-black" />
+                            </div>
+                        </div>
+                    @endforeach
                 @endif
                 @for ($i = 0; $i < $this->mitraCount; $i++)
-                <div wire:loading class="animate-pulse bg-gray-400 w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20">
-                    <div class="w-[50px] h-[50px] md:w-[150px] md:h-[150px]"></div>
-                </div>
+                    <div wire:loading
+                        class="animate-pulse bg-gray-400 w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20">
+                        <div class="w-[50px] h-[50px] md:w-[150px] md:h-[150px]"></div>
+                    </div>
                 @endfor
+            </div>
+        </div>
+        <div class="w-full pt-8 px-8 h-[200px] md:h-[400px] flex">
+            <iframe class="w-1/2 h-[200px] md:h-[400px] bg-black" src="https://www.youtube.com/embed/IUWm95fwZHk?si=sDflST4mHtaP_N1-"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="w-1/2 h-full text-green-500 flex items-center justify-center mx-4">
+                <p class="text-[12px] md:text-[20px] font-bold">
+                    Lihat Video Terbaru dari NU Care Lazisnu Cilacap
+                </p>
             </div>
         </div>
         <div class="h-[70px]">
