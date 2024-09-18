@@ -124,7 +124,10 @@
                     <x-navlink title="Visi" url="/visi"
                         class="rounded-lg md:px-3 md:py-1 {{ request()->is('visi') ? 'text-green-500' : '' }} sm:hover:text-green" />
                     <x-navlink title="Update" url="/update-campaign"
-                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('visi') ? 'text-green-500' : '' }} sm:hover:text-green" />
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('update-campaign') ? 'text-green-500' : '' }} sm:hover:text-green" />
+                    <x-navlink title="Petugas Layanan" url="/petugas"
+                        class="rounded-lg md:px-3 md:py-1 {{ request()->is('petugas') ? 'text-green-500' : '' }} sm:hover:text-green" />
+
 
 
                     <button id="logoutButton" class="px-3 py-1 rounded-lg sm:hover:text-green">Logout</button>

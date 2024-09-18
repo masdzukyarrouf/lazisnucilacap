@@ -47,7 +47,7 @@
                                 <livewire:berita.form-edit :id_berita="$berita->id_berita" wire:key="edit-{{ $berita->id_berita }}" />
                             </div>
                             <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
-                                    wire:click="destroy({{ $berita->id_berita }})">Delete</button>
+                                    wire:click="destroy({{ $berita->id_berita }})" wire:confirm="Are you sure?">Delete</button>
                         </div>
                     </td>
                 </tr>

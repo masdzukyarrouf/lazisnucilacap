@@ -24,7 +24,7 @@ class Wakaf extends Component
 
     public function render()
     {
-        return view('livewire.ziwaf.wakaf')->layout('layouts.mobile');
+        return view('livewire.ziwaf.wakaf.wakaf')->layout('layouts.mobile');
     }
 }
 

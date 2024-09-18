@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckAdmin;
-use App\Livewire\KebijakanMutu;
-use App\Models\visi;
+
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -36,7 +35,6 @@ Route::get('/daftar', App\Livewire\Daftar::class);
 
 Route::get('/login', App\Livewire\Login::class)->name('login')->middleware('guest');
 
-Route::get('/detail-berita/{title_berita}', App\Livewire\UserBerita\Show::class)->name('user-berita.show');
 
 Route::get('/landing-mobile', App\Livewire\LandingMobile::class);
 
@@ -44,7 +42,10 @@ Route::get('/detail-campaign', App\Livewire\DetailCampaign::class);
 
 Route::post('logout', App\Http\Controllers\logout::class)->name('logout');
 
-Route::get('/berita', App\Livewire\UserBerita\Index::class)->name('berita');
+Route::prefix('berita')->group(function () {
+    Route::get('/', App\Livewire\UserBerita\Index::class)->name('berita');
+    Route::get('/{title_berita}', App\Livewire\UserBerita\Show::class)->name('user-berita.show');
+});
 
 Route::prefix('zakat')->group(function () {
     Route::get('/', App\Livewire\ziwaf\Zakat\ziwaf::class)->name('zakat');

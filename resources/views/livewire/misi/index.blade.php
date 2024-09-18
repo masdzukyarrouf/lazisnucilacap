@@ -33,7 +33,7 @@
                         </td>
                         <td class="flex justify-center px-4 py-2 space-x-1">
                             <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
-                                    wire:click="destroy({{ $Misi->id_misi }})">Delete</button>
+                                    wire:click="destroy({{ $Misi->id_misi }})" wire:confirm="Are you sure?">Delete</button>
                         </td>
                     </tr>
                 @endforeach
