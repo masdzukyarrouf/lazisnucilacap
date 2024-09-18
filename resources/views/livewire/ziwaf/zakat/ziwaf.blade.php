@@ -25,7 +25,10 @@
             <h1 class="pb-2 font-semibold">Perhitungan Zakat</h1>
                 <div class="relative w-96">
                     <a href="#">
-                        <img src="{{ asset ('images/zakat.png') }}" alt="">
+                        <button class="flex items-center w-full px-4 py-2 border border-gray-300 rounded">
+                            <img src="{{ asset ('images/paper.png') }}" alt="logo" class="w-6">
+                            <span class="pl-2 text-sm font-semibold">Tabel Perhitungan Zakat.pdf</span>
+                        </button>
                     </a>
                 </div>
             </div>
@@ -735,26 +738,23 @@
             @if ($fitrah === 'true')
                 <div class="px-4 py-2">
                     <label class="font-semibold">Jumlah Muzakki</label>
-                    <input type="number"
-                        id="jumlah" 
-                        wire:model.lazy="jumlah" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                        placeholder="Isikan jumlah muzakki"
-                        min="1"
+                    <input type="text"
+                    id="jumlah" 
+                    wire:model.lazy="jumlah" 
+                    wire:input="fitrah" 
+                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                    placeholder="Isikan jumlah muzakki"
                     />
 
                     <label class="font-semibold">Nama Muzakki</label>
-
-                    @foreach($muzakki as $index => $nama)
-                        <input type="text"
-                            id="nama_{{ $index }}" 
-                            wire:model.lazy="muzakki.{{ $index }}" 
-                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                            placeholder="Isi dengan nama lengkap"
-                        />
-                    @endforeach
+                    <input type="text"
+                    id="nama" 
+                    wire:model.lazy="nama" 
+                    wire:input="fitrah" 
+                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                    placeholder="Isi dengan nama lengkap"
+                    />
                 </div>
-
             @else
                 <div class="flex items-center justify-center">
                     <span class="mt-20 text-gray-400">Belum waktunya zakat fitrah</span>
