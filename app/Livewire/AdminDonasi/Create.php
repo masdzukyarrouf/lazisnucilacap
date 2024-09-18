@@ -10,7 +10,7 @@ use App\Models\User;
 
 class Create extends Component
 {
-    #[Rule('required|integer')]
+    #[Rule('nullable|integer')]
     public $id_user;
 
     #[Rule('required|integer')]
@@ -18,6 +18,13 @@ class Create extends Component
 
     #[Rule('required|integer')]
     public $id_campaign;
+    #[Rule('required|string')]
+    public $username;
+    #[Rule('required|string')]
+    public $no_telp;
+    #[Rule('nullable|email')]
+    public $email;
+
 
     public function save()
     {
@@ -26,11 +33,12 @@ class Create extends Component
         $user = User::find($this->id_user);
 
         $donasi = Donasi::create([
-            'id_user' => $this->id_user,
             'jumlah_donasi' => $this->jumlah_donasi,
             'id_campaign' => $this->id_campaign,
-            'username' => $user->username,
-            'no_telp' => $user->no_telp,
+            'username' => $this->username,
+            'no_telp' => $this->no_telp,
+            'email' => $this->email ?? null,
+            'id_transaction' => 1,
         ]);
 
         $donasi->save();

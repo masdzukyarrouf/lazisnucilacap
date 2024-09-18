@@ -21,6 +21,12 @@ class Edit extends Component
 
     #[Rule('required|integer')]
     public $id_campaign;
+    #[Rule('required|string')]
+    public $username;
+    #[Rule('required|string')]
+    public $no_telp;
+    #[Rule('nullable|email')]
+    public $email;
 
 
 
@@ -30,9 +36,11 @@ class Edit extends Component
         $donasi = Donasi::find($id_donasi);
         if ($donasi) {
             $this->id_donasi = $donasi->id_donasi;
-            $this->id_user = $donasi->id_user;
             $this->jumlah_donasi = $donasi->jumlah_donasi;
             $this->id_campaign = $donasi->id_campaign;
+            $this->username = $donasi->username;
+            $this->no_telp = $donasi->no_telp;
+            $this->email = $donasi->email;
         }
         return $donasi;
 
