@@ -36,7 +36,7 @@
                         <td class="flex justify-center px-4 py-2 space-x-1">
                             <livewire:mitra.edit :id_partner="$mitra->id_partner" wire:key="edit-{{ $mitra->id_partner }}" />
                             <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
-                                    wire:click="destroy({{ $mitra->id_partner }})">Delete</button>
+                                    wire:click="destroy({{ $mitra->id_partner }})" wire:confirm="Are you sure?">Delete</button>
                         </td>
                     </tr>
                 @endforeach

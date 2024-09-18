@@ -732,7 +732,34 @@
             @endif
 
         @elseif($selectedOption === 'fitrah')
-            <span>xzx</span>
+            @if ($fitrah === 'true')
+                <div class="px-4 py-2">
+                    <label class="font-semibold">Jumlah Muzakki</label>
+                    <input type="number"
+                        id="jumlah" 
+                        wire:model.lazy="jumlah" 
+                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        placeholder="Isikan jumlah muzakki"
+                        min="1"
+                    />
+
+                    <label class="font-semibold">Nama Muzakki</label>
+
+                    @foreach($muzakki as $index => $nama)
+                        <input type="text"
+                            id="nama_{{ $index }}" 
+                            wire:model.lazy="muzakki.{{ $index }}" 
+                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                            placeholder="Isi dengan nama lengkap"
+                        />
+                    @endforeach
+                </div>
+
+            @else
+                <div class="flex items-center justify-center">
+                    <span class="mt-20 text-gray-400">Belum waktunya zakat fitrah</span>
+                </div>
+            @endif
         @endif
     </div>
     <!-- Tambahkan script untuk format angka dengan titik setiap 3 digit -->

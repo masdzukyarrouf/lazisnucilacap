@@ -45,6 +45,12 @@ class Ziwaf extends Component
     public $zakatDagang;
 
 
+    public $fitrah = 'true';
+    public $jumlah;
+    public $nama;
+    public $muzakki = [];
+
+
     public $selectedOption = '';
     public $selectedOption2 = '';
     public $zakat;
@@ -54,6 +60,18 @@ class Ziwaf extends Component
     public $site = 'lakuemas'; // Default site
 
 
+
+    public function updatedJumlah()
+    {
+        // Mengisi array muzakki sesuai jumlah yang diinput
+        $this->muzakki = array_fill(0, $this->jumlah, ''); // Isi dengan string kosong
+    }
+
+    public function updatedMuzakki($index, $value)
+    {
+        // Memperbarui nama muzakki berdasarkan index
+        $this->muzakki[$index] = $value;
+    }
 
     public function jasa()
     {

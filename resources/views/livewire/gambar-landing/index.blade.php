@@ -32,7 +32,7 @@
                     <td class="px-4 py-2">
                         <div class="flex items-center space-y-2">
                             <button class="inline-block px-3 py-1 mx-auto text-white bg-red-500 rounded hover:bg-red-700" 
-                                    wire:click="destroy({{ $landing->id_gambar }})">Delete</button>
+                                    wire:click="destroy({{ $landing->id_gambar }})" wire:confirm="Are you sure?">Delete</button>
                         </div>
                     </td>
                 </tr>
