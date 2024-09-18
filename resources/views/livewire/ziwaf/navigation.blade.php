@@ -1,27 +1,29 @@
-<div class="flex py-4 bg-white">
-    <div class="rounded-lg">
+<div class="flex pt-4 bg-white w-full flex items-center justify-center shadow-md">
+    <div
+        class="pb-2 w-1/5 font-bold text-center border-b-4 {{ Request::is('zakat') ? 'border-b-green-500' : 'border-b-transparent' }}">
         <a wire:navigate.hover href="{{ route('zakat') }}">
-            <img src="{{ Request::is('zakat') ? asset('images/zakat on.png') : asset('images/zakat off.png') }}" alt="" style="width: 138px; height: 38px">
+            <p class="{{ Request::is('zakat') ? 'text-green-500' : 'text-gray-600' }} text-center text-[12px]">Zakat</p>
         </a>
     </div>
-    <div class="rounded-lg">
+    <div class="pb-2 w-1/5 font-bold text-center border-b-4 {{ Request::is('infaq') ? 'border-b-green-500' : 'border-b-transparent' }}">
         <a wire:navigate.hover href="{{ route('infaq.index') }}">
-            <img src="{{ Request::is('infaq') ? asset('images/infak on.png') : asset('images/infak off.png') }}" alt="" style="width: 138px; height: 38px">
+            <p class="{{ Request::is('infaq') ? 'text-green-500' : 'text-gray-600' }} text-center text-[12px]">Infaq</p>
         </a>
     </div>
-    <div class="rounded-lg">
+    <div class="pb-2 w-1/5 font-bold text-center border-b-4 {{ Request::is('wakaf') ? 'border-b-green-500' : 'border-b-transparent' }}">
         <a wire:navigate.hover href="{{ route('wakaf') }}">
-            <img src="{{ Request::is('wakaf') ? asset('images/wakaf on.png') : asset('images/wakaf off.png') }}" alt="" style="width: 138px; height: 38px">
+            <p class="{{ Request::is('wakaf') ? 'text-green-500' : 'text-gray-600' }} text-center text-[12px]">Wakaf</p>
         </a>
     </div>
-    <div class="rounded-lg">
+    <div class="pb-2 w-1/5 font-bold text-center border-b-4 {{ Request::is('fidyah') ? 'border-b-green-500' : 'border-b-transparent' }}">
         <a wire:navigate.hover href="{{ route('fidyah.index') }}">
-            <img src="{{ Request::is('fidyah') ? asset('images/fidyah on.png') : asset('images/fidyah off.png') }}" alt="" style="width: 138px; height: 38px">
+            <p class="{{ Request::is('fidyah') ? 'text-green-500' : 'text-gray-600' }} text-center text-[12px]">Fidyah</p>
         </a>
     </div>
-    <div class="rounded-lg">
+    <div class="pb-2 w-1/5 font-bold text-center border-b-4 {{ Request::is('qurban') ? 'border-b-green-500' : 'border-b-transparent' }}">
         <a wire:navigate.hover href="{{ route('qurban') }}">
-            <img src="{{ Request::is('qurban') ? asset('images/qurban on.png') : asset('images/qurban off.png') }}" alt="" style="width: 138px; height: 38px">
+            <p class="{{ Request::is('qurban') ? 'text-green-500' : 'text-gray-600' }} text-center text-[12px]">Qurban
+            </p>
         </a>
     </div>
 </div>

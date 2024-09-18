@@ -17,10 +17,26 @@
                 <form wire:submit="update">
                     <input type="hidden" wire:model="id_donasi">
                     <div class="mb-4">
-                        <label for="id_user" class="block text-sm font-medium text-gray-700">Id User</label>
-                        <input type="text" id="id_user" wire:model="id_user" name="id_user"
+                        <label for="username" class="block text-sm font-medium text-gray-700">username</label>
+                        <input type="text" id="username" wire:model="username" name="username"
                             class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
-                        @error('id_user')
+                        @error('username')
+                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-4">
+                        <label for="no_telp" class="block text-sm font-medium text-gray-700">no_telp</label>
+                        <input type="text" id="no_telp" wire:model="no_telp" name="no_telp"
+                            class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
+                        @error('no_telp')
+                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-sm font-medium text-gray-700">email</label>
+                        <input type="text" id="email" wire:model="email" name="email"
+                            class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
+                        @error('email')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                     </div>
