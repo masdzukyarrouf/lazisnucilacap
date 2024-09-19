@@ -343,13 +343,13 @@
                 @endfor
             </div>
         </div>
-        <div class="w-full pt-8 px-8 h-[200px] md:h-[400px] flex">
-            <iframe class="w-1/2 h-[200px] md:h-[400px] bg-black" src="https://www.youtube.com/embed/IUWm95fwZHk?si=sDflST4mHtaP_N1-"
+        <div class="w-full pt-8 px-4 md:px-20 h-[180px] md:h-[350px] flex">
+            <iframe class="w-1/2 h-[180px] md:h-[350px] bg-black" src="https://www.youtube.com/embed/IUWm95fwZHk?si=sDflST4mHtaP_N1-"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="w-1/2 h-full text-green-500 flex items-center justify-center mx-4">
-                <p class="text-[12px] md:text-[20px] font-bold">
+                <p class="text-[12px] md:text-[30px] font-bold">
                     Lihat Video Terbaru dari NU Care Lazisnu Cilacap
                 </p>
             </div>
