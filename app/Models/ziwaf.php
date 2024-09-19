@@ -15,6 +15,7 @@ class ziwaf extends Model
         'id_transaction',
         'no_telp',
         'email',
+        'alamat',
         'nominal',
         'jenis_ziwaf',
     ];

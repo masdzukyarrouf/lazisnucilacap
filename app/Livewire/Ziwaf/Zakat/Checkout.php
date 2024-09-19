@@ -50,6 +50,6 @@ class Checkout extends Component
 
     public function render()
     {
-        return view('livewire.ziwaf.checkout')->layout('layouts.none');
+        return view('livewire.ziwaf.zakat.checkout')->layout('layouts.none');
     }
 }

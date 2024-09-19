@@ -16,16 +16,18 @@ class Login extends Component
         'jenis1' => '',
         'jenis2' => '',
     ];
-    public $data = [
+    public $qurban = [
         'nominal' => 0,
         'jenis' => '',
+        'mudhohi' => '',
+        'jumlah' => '',
     ];
 
     public function mount()
     {
-        // Ambil data zakat dari session jika ada
+        // Ambil qurban zakat dari session jika ada
         $this->zakat = session('zakat', $this->zakat);
-        $this->data = session('data', $this->data);
+        $this->qurban = session('qurban', $this->qurban);
     }
 
     public function render()
@@ -55,6 +57,9 @@ class Login extends Component
                 if ($this->zakat['nominal'] > 0 && !empty($this->zakat['jenis1']) && !empty($this->zakat['jenis2'])) {
                     return redirect()->route('zakat.data')
                         ->with('zakat', $this->zakat);
+                }elseif($this->qurban['nominal'] > 0 && !empty($this->qurban['jenis']) && !empty($this->qurban['mudhohi']) && !empty($this->qurban['jumlah'])) {
+                    return redirect()->route('qurban.data')
+                        ->with('qurban', $this->qurban);
                 } else {
                     return redirect()->route('landing');
                 }

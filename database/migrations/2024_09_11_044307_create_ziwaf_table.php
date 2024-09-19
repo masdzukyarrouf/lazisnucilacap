@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('username');
             $table->string('no_telp');
             $table->string('email')->nullable();
+            $table->string('alamat')->nullable();
             $table->integer('nominal');
             $table->string('jenis_ziwaf');
             $table->timestamps();

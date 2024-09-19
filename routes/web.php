@@ -80,7 +80,7 @@ Route::prefix('infaq')->group(function () {
 });
 
 Route::prefix('qurban')->group(function () {
-    Route::get('/', App\Livewire\ziwaf\Qurban\Index::class)->name('qurban');
+    Route::get('/', App\Livewire\ziwaf\Qurban\Qurban::class)->name('qurban');
     Route::get('/data', App\Livewire\ziwaf\Qurban\Data::class)->name('qurban.data');
     Route::get('/checkout/{token}', App\Livewire\ziwaf\Qurban\checkout::class)->name('qurban.checkout');
 });
