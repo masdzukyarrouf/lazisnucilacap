@@ -67,7 +67,7 @@ class Data extends Component
                 'no_telp' => $this->no_telp,
             ),
             'callbacks' => [
-                'finish' => route('fidyah.index'),
+                'finish' => route('ziwaf.success', ['route' => 'fidyah.index']),
                 'unfinish' => route('zakat'),
                 'error' => route('wakaf'),
             ]

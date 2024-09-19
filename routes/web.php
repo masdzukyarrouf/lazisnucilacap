@@ -85,6 +85,7 @@ Route::prefix('qurban')->group(function () {
     Route::get('/checkout/{token}', App\Livewire\ziwaf\Qurban\checkout::class)->name('qurban.checkout');
 });
 
+Route::get('/ziwaf/success', App\Livewire\Ziwaf\Success::class)->name('ziwaf.success');
 
 Route::get('/mitra', App\Livewire\UserMitra::class)->name('mitra');
 
