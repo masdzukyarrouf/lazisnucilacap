@@ -35,8 +35,6 @@ class UserKonfirmasi extends Component
     public function loadCampaigns()
     {
         $query = Campaign::query();
-
-        // Fetch the latest 3 berita for the selected category or all
         $this->campaigns = $query->latest()->get();
     }
 
@@ -60,13 +58,15 @@ class UserKonfirmasi extends Component
         // Simpan file gambar dan ambil path-nya
         $path = $this->bukti->store('images/bukti_tf', 'public'); // Simpan di storage/public
 
+        $id_campaign = Campaign::where('title', $validatedData['campaign'])->value('id_campaign');
+
         // Simpan data ke database
         $konfirmasi = konfirmasi::create([
             'id_user' => $this->id_user, // Use $this->id_user
             'nama' => $validatedData['nama'],
             'no_telp' => $validatedData['no_telp'],
             'email' => $validatedData['email'],
-            'campaign' => $validatedData['campaign'],
+            'id_campaign' => $id_campaign,
             'bukti' => $path, // Simpan path gambar
         ]);
 

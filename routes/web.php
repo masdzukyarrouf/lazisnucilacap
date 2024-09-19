@@ -24,7 +24,7 @@ Route::middleware([CheckAdmin::class])->group(function () {
     Route::get('/visi', App\Livewire\Visi\Index::class)->name('visi');
     Route::get('/misi', App\Livewire\Misi\Index::class)->name('misi');
     Route::get('/admin-kebijakan', App\Livewire\KebijakanAdmin\Index::class)->name('admin-kebijakan');
-    Route::get('/admin-konfirmasi', App\Livewire\AdminKonfirmasi::class)->name('admin-konfirmasi');
+    Route::get('/admin-konfirmasi', App\Livewire\adminKonfirmasi\Index::class)->name('admin-konfirmasi');
     Route::get('/petugas', App\Livewire\Petugas\Index::class)->name('petugas');
 
 });

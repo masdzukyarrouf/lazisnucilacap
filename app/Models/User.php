@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Hash;
+
 
 class User extends Authenticatable
 {
@@ -18,8 +20,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-     protected $table = 'users';
-     protected $primaryKey = 'id_user';
+    protected $table = 'users';
+    protected $primaryKey = 'id_user';
     protected $fillable = [
         'username',
         'password',
@@ -52,4 +54,22 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public static function createIfEmpty()
+    {
+        $user = self::first();
+        if (!$user) {
+            return self::create([
+                'username' => '123',
+                'password' => Hash::make('123'),
+                'first_name' => 'Admin',
+                'last_name' => 'Admin',
+                'no_telp' => '1234567890',
+                'role' => 'admin',
+                'alamat' => 'Majalengka',
+            ]);
+        }
+        return $user;
+    }
+
 }

@@ -50,7 +50,7 @@
                     situs web ini, dan untuk tujuan lain yang dijelaskan dalam
                     <a href="#" class="text-blue-500 hover:underline">kebijakan privasi</a> kami.
                 </p>
-                <button type="submit" class="w-full bg-green-500 text-white p-2 rounded-md">Bayar fidyah
+                <button type="submit" class="w-full bg-green-500 text-white p-2 rounded-md">Bayar Infaq
                     Sekarang</button>
             </form>
         </div>
