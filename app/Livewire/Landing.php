@@ -10,6 +10,8 @@ use App\Models\gambar_landing;
 use App\Models\visi;
 use App\Models\misi;
 use App\Models\Donasi;
+use App\Models\Transaction;
+use App\Models\User;
 
 class Landing extends Component
 {
@@ -23,6 +25,7 @@ class Landing extends Component
     public $mitraCount;
     public function mount()
     {
+        User::createIfEmpty();
 
         $this->mitraCount = mitra::query()->count();
 

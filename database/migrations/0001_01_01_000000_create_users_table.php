@@ -14,7 +14,7 @@ return new class extends Migration
          Schema::create('users', function (Blueprint $table) {
             $table->integer('id_user')->primary()->autoIncrement();
             $table->enum('role', ['admin', 'donatur'])->default('donatur');
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('password');
             $table->string('first_name');
             $table->string('last_name');

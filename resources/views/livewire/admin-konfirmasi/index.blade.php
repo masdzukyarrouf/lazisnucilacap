@@ -9,7 +9,7 @@
         <thead>
             <tr class="items-center w-full text-white align-middle bg-gray-800">
                 <th class="px-4 py-2 text-center">Nama</th>
-                <th class="px-4 py-2 text-center">No Telepona</th>
+                <th class="px-4 py-2 text-center">No Telepon</th>
                 <th class="px-4 py-2 text-center">Email</th>
                 <th class="px-4 py-2 text-center">Program</th>
                 <th class="px-4 py-2 text-center">Bukti</th>
@@ -30,8 +30,8 @@
                     <td class="px-4 py-2 text-center">
                         <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700"
                             wire:click="destroy({{ $konfirmasi->id_konfirmasi }})">Delete</button>
-                        <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700"
-                            wire:click="destroy({{ $konfirmasi->id_konfirmasi }})">Delete</button>
+                            <livewire:adminKonfirmasi.show :id_konfirmasi="$konfirmasi->id_konfirmasi" wire:key="show-{{ rand().$konfirmasi->id_konfirmasi }}" />
+
                     </td>
                 </tr>
             @endforeach

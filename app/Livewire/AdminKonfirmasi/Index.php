@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\AdminKonfirmasi;
 
 use Livewire\Component;
 use App\Models\konfirmasi;
 
-class AdminKonfirmasi extends Component
+class Index extends Component
 {
     public $search = '';
 
@@ -42,7 +42,7 @@ class AdminKonfirmasi extends Component
             }
             
 
-        return view('livewire.admin-konfirmasi', [
+        return view('livewire.admin-konfirmasi.index', [
             'konfirmasis' => $konfirmasis,
         ])->layout('layouts.admin');
     }

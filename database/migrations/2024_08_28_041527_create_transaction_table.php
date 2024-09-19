@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('nominal');
             $table->string('snap_token')->nullable();
             $table->string('status');
+            $table->integer('user_id')->nullable();
             $table->integer('order_id')->nullable();
             $table->string('payment_type')->nullable();
             $table->string('va_number')->nullable();

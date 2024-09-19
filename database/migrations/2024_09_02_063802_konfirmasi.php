@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('no_telp');
             $table->string('email')->nullable();
-            $table->string('campaign');
+            $table->integer('id_campaign');
             $table->string('bukti');
             $table->timestamps();
 

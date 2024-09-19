@@ -26,7 +26,8 @@ class Data extends Component
         if($user){
             $this->username = $user->username;
             $this->no_telp = $user->no_telp;
-            // $this->email = $user->email;
+            $this->user_id = $user->user_id;
+            $this->email = $user->email ?? null;
         }
     }
     public function bayarInfaq(){
@@ -42,6 +43,8 @@ class Data extends Component
             'no_telp' => $this->no_telp,
             'alamat' => 'temp',
             'email' => $this->email ?? null,
+            'user_id' => $this->user_id ?? null,
+
         ]);
 
         // Configure Midtrans

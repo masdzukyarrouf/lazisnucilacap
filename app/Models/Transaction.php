@@ -16,6 +16,7 @@ class Transaction extends Model
         'payment_type',
         'status',
         'order_id',
+        'user_id',
         'username',
         'no_telp',
         'email',
@@ -24,4 +25,5 @@ class Transaction extends Model
         'settlement_time',
         'alamat',
     ];
+    
 }

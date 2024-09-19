@@ -15,7 +15,11 @@ class konfirmasi extends Model
         'nama',
         'no_telp',
         'email',
-        'campaign',
+        'id_campaign',
         'bukti',
     ];
+    public function campaign()
+{
+    return $this->belongsTo(Campaign::class, 'id_campaign', 'id_campaign');
+}
 }

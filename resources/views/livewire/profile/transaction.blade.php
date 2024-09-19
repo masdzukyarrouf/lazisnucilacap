@@ -11,20 +11,23 @@
                         @foreach ($transactions as $transaction)
                             <li class="px-4 my-2 bg-white w-full" wire:key="{{ $transaction->id_transaction }}">
                                 @if ($transaction->title)
-                                    <div class="flex flex-col text-left">
-                                        <p class="text-[12px] text-gray-800">Donasi Untuk</p>
-                                        <p class="text-[12px] text-gray-800 font-bold">{{ $transaction->title }}</p>
+                                    <div class="text-left">
+                                        <span class="text-[12px] text-gray-800">Donasi Untuk</span>
+                                        <span class="text-[12px] text-gray-800 font-bold">{{ $transaction->title }}</span>
                                     </div>
                                 @else
-                                    <div class="flex flex-col text-left">
-                                        <p class="text-[12px] text-gray-800">Pembayaran Untuk</p>
-                                        <p class="text-[12px] text-gray-800 font-bold">{{ $transaction->jenis }}</p>
-                                    </div>
+                                <div class="text-left">
+                                    <span class="text-[12px] text-gray-800">Pembayaran Untuk </span>
+                                    <span class="text-[12px] text-gray-800 font-bold">{{ $transaction->jenis }}</span>
+                                </div>                                
                                 @endif
                                 <div class="z-5 flex flex-grow py-2 w-full">
                                     <div class="flex flex-col items-start w-full">
                                         <div class="flex items-center space-x-4 ">
                                             <div class="flex flex-col space-y-2">
+                                                <p class="text-[11px] text-gray-800">
+                                                    Atas Nama
+                                                </p>
                                                 <p class="text-[11px] text-gray-800">
                                                     Bertransaksi Sebesar
                                                 </p>
@@ -36,6 +39,12 @@
                                                 </p>
                                             </div>
                                             <div class="flex flex-col  space-y-2">
+                                                <div class="flex flex-grow items-center">
+                                                    <p class="text-[11px]">: &nbsp</p>
+                                                    <p class="text-[11px] text-black">
+                                                        {{ $transaction->username }}
+                                                    </p>
+                                                </div>
                                                 <div class="flex flex-grow items-center">
                                                     <p class="text-[11px]">: &nbsp</p>
                                                     <p class="text-[11px] text-green-500">
@@ -68,12 +77,12 @@
                                                 <div class="flex flex-grow items-center">
                                                     <p class="text-[11px]">: &nbsp</p>
                                                     <p
-                                                        class="text-[11px] bg-[#FF646A33] bg-opacity-20 text-[#04B300] px-2 py-1 rounded-md">
+                                                        class="text-[11px] bg-[#FF646A33] bg-opacity-20 text-red-600 px-2 py-1 rounded-md">
                                                         Gagal
                                                     </p>
                                                 </div>
                                                 @endif
-
+                                                
 
 
                                             </div>
