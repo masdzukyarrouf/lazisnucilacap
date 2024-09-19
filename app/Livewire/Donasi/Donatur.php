@@ -47,6 +47,8 @@ class Donatur extends Component
 
     public function pembayaran()
     {
+        $user = Auth::user();
+
         $hide_name = $this->toggleValue ? 'yes' : 'no';
 
         $this->donatur = [
@@ -69,6 +71,7 @@ class Donatur extends Component
             'no_telp' => $this->no_telp,
             'alamat' => 'temp',
             'email' => $this->email,
+            'id_user' => $user->id_user ?? null,
         ]);
 
         // Configure Midtrans
@@ -99,7 +102,6 @@ class Donatur extends Component
         $this->transaction->snap_token = $snapToken;
         $this->transaction->save();
 
-        $user = Auth::user();
 
         $donasi = Donasi::create([
             'id_user' => $user->id_user ?? null,

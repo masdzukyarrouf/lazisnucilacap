@@ -22,7 +22,15 @@ class Daftar extends Component
             'last_name' => 'required',
             'no_telp' => 'required',
             'password' => 'required',
+        ], [
+            'username.unique' => 'The username sudah dipakai. Buat username yang lain', 
+            'username.required' => 'The username field is required.', 
+            'first_name.required' => 'The first name field is required.',
+            'last_name.required' => 'The last name field is required.',
+            'no_telp.required' => 'The phone number field is required.',
+            'password.required' => 'The password field is required.',
         ]);
+        
 
         $user = User::create([
             'username' => $this->username,
@@ -30,7 +38,8 @@ class Daftar extends Component
             'last_name' => $this->last_name,
             'password' => bcrypt($this->password),
             'no_telp' => $this->no_telp,
-            'role' => 'donatur'
+            'role' => 'donatur',
+            'alamat' => 'alamat'
         ]);
 
         if($user)
