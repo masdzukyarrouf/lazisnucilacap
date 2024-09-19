@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
-    <div class="flex flex-col min-h-screen pb-24 bg-white rounded-lg shadow-md" style="width: 414px">
+    <x-nav-mobile2 title="Qurban Lazisnu Cilacap" />
+    <div class="flex flex-col min-h-screen pb-24 bg-white shadow-md" style="width: 414px">
         <livewire:ziwaf.navigation/>
         <div class="flex flex-col p-4">
             <h1 class="pb-2 font-semibold">Harga Hewan Qurban</h1>
@@ -16,7 +16,7 @@
             <div class="flex flex-col justify-center p-4">
             <h1 class="pb-2 font-semibold">Jenis Hewan</h1>
                 <div class="relative w-96">
-                    <select wire:model="selectedOption2" wire:change="handleDropdownChange" class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:border-blue-500">
+                    <select wire:model="selectedOption"class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:border-blue-500">
                         <option value="" disabled selected>Jenis Hewan</option>
                         <option value="Sapi">1/7 Sapi (250 - 300kg)</option>
                         <option value="Kambing">Kambing Standar (25 - 28kg)</option>
@@ -34,34 +34,39 @@
                 <label>Jumlah Mudhohi</label>
                 <input
                 type="text" 
-                id="jumlah" 
-                wire:model="jumlah" 
-                wire:input.lazy="qurban" 
+                id="mudhohi" 
+                wire:model="mudhohi"
+                wire:input.lazy="price" 
                 class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
                 placeholder="Isi dengan jumlah Mudhohi" 
                 />
                 
                 <label>Daftar Mudhohi</label>
-                <input
+                <textarea
                 type="text" 
                 id="daftar" 
                 wire:model="daftar" 
-                wire:input.lazy="qurban" 
+                wire:input.lazy="price" 
                 class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                placeholder="Isi dengan daftar Mudhohi" 
-                />
+                placeholder="Isi dengan daftar Mudhohi">
+                </textarea>
 
-                <label>Total nominal Qurban</label>
-                <input
-                type="text" 
-                value=""
-                class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                placeholder="Isi dengan daftar Mudhohi" 
-                />
+                <label class="font-semibold">Total Nominal Qurban</label>
+                            <div class="relative flex flex-col mb-3">
+                                <div class="flex items-center justify-center">
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                    <input 
+                                    type="text" 
+                                    value="{{ number_format($nominal, 0, ',', '.') }}" 
+                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                    placeholder="Rp. 0" 
+                                    readonly 
+                                    />
+                                </div>
+                            </div>
 
-                <livewire:ziwaf.qurban.niat>
                     <div class="flex items-center justify-center mt-4">
-                        <button wire:click="maalEmas" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                        <button wire:click="submitqurban" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
                             Qurban Sekarang
                         </button>
                     </div>

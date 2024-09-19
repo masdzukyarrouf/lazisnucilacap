@@ -141,16 +141,20 @@
             @elseif ($selectedOption2 === 'Perusahaan')
                 @if ($jenisPerusahaan === 'jasa')
                     <div class="px-4 py-2">
-                        <div class="flex justify-center py-4 bg-white">
-                            <div class="mx-2 rounded-lg">
-                                <button wire:click='jasa'>
-                                    <img src="{{ asset('images/jasa on.png') }}" alt="Jasa">
-                                </button>
+                        <div class="flex justify-center py-4 space-x-2 bg-white">
+                            <div class="flex justify-center w-1/2 font-bold border-b-4 border-green-500 cursor-pointer">
+                                <a wire:click='jasa'>
+                                    <span class="text-green-500 text-center text-[12px]">
+                                        Jasa
+                                    </span>
+                                </a>
                             </div>
-                            <div class="mx-2 rounded-lg">
-                                <button wire:click='dagang'>
-                                    <img src="{{ asset('images/dagang off.png') }}" alt="Dagang">
-                                </button>
+                            <div class="flex justify-center w-1/2 font-bold border-b-2 cursor-pointer">
+                                <a wire:click='dagang'>
+                                    <span class="text-center text-[12px]">
+                                        Dagang/Industri
+                                    </span>
+                                </a>
                             </div>
                         </div>
                         <!-- Form untuk input Zakat Maal -->
@@ -229,16 +233,20 @@
                         
                 @elseif ($jenisPerusahaan === 'dagang')
                     <div class="px-4 py-2">
-                        <div class="flex justify-center py-4 bg-white">
-                            <div class="mx-2 rounded-lg">
-                            <button wire:click='jasa'>
-                                <img src="{{ asset('images/jasa off.png') }}" alt="Jasa">
-                            </button>
+                        <div class="flex justify-center py-4 space-x-2 bg-white">
+                            <div class="flex justify-center w-1/2 font-bold border-b-2 cursor-pointer">
+                                <a wire:click='jasa'>
+                                    <span class="text-center text-[12px]">
+                                        Jasa
+                                    </span>
+                                </a>
                             </div>
-                            <div class="mx-2 rounded-lg">
-                                <button wire:click='dagang'>
-                                    <img src="{{ asset('images/dagang on.png') }}" alt="Dagang">
-                                </button>
+                            <div class="flex justify-center w-1/2 font-bold border-b-4 border-green-500 cursor-pointer">
+                                <a wire:click='dagang'>
+                                    <span class="text-center text-[12px] text-green-500">
+                                        Dagang/Industri
+                                    </span>
+                                </a>
                             </div>
                         </div>
                         <!-- Form untuk input Zakat Maal -->
@@ -747,13 +755,36 @@
                     />
 
                     <label class="font-semibold">Nama Muzakki</label>
-                    <input type="text"
+                    <textarea type="text"
                     id="nama" 
                     wire:model.lazy="nama" 
                     wire:input="fitrah" 
                     class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                    placeholder="Isi dengan nama lengkap"
-                    />
+                    rows="6"
+                    placeholder="Isi dengan nama lengkap">
+                    </textarea>
+
+                    <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
+                            <div class="relative flex flex-col mb-3">
+                                <div class="flex items-center justify-center">
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                    <input 
+                                    type="text" 
+                                    value="" 
+                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                    placeholder="Rp. 0" 
+                                    readonly 
+                                    />
+                                </div>
+                            </div>
+
+                    <livewire:ziwaf.zakat.niat-fitrah>
+                        
+                    <div class="flex items-center justify-center mt-4">
+                        <button id="user-menu-btn" wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                            Zakat Sekarang
+                        </button>
+                    </div>
                 </div>
             @else
                 <div class="flex items-center justify-center">

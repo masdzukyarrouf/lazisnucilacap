@@ -139,6 +139,6 @@ class ZakatBayar extends Component
 
     public function render()
     {
-        return view('livewire.ziwaf.zakat-bayar')->layout('layouts.none');
+        return view('livewire.ziwaf.zakat.zakat-bayar')->layout('layouts.none');
     }
 }
