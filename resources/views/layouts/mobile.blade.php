@@ -40,10 +40,10 @@
 </body>
 <footer>
     <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center">
-        <div class="flex items-center justify-center px-4 py-2 space-x-8 bg-white" style="width: 414px; height: 67px; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -2px rgba(0, 0, 0, 0.1);">
+        <div class="flex items-center justify-center px-4 py-2 space-x-8 bg-white" style="width: 414px; height: 70px; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -2px rgba(0, 0, 0, 0.1);">
             <div class="items-center w-16 h-11 rounded-lg">
                 <a wire:navigate.hover href="{{ route('landing') }}">
-                    <img class="w-full h-auto" src="{{ Request::is('/') ? asset('images/Frame 1-active.png') : asset('images/Frame 1.png') }}" alt="">
+                    <img class="w-full h-auto" src="{{ Request::is('landing') ? asset('images/Frame 1-active.png') : asset('images/Frame 1.png') }}" alt="">
                 </a>
             </div>
             <div class="items-center w-16 h-11 rounded-lg">

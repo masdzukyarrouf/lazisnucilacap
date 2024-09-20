@@ -28,9 +28,9 @@ class Index extends Component
     public function bayarInfaq()
     {
         $this->validate(); // Validate fields
-
+        $rounded_nominal = ceil($this->nominal_infaq / 1000) * 1000;
         $infaq = [
-            'nominal' => $this->nominal_infaq,
+            'nominal' => $rounded_nominal,
             'jenis_ziwaf' => $this->jenis_ziwaf
         ];
 

@@ -67,7 +67,7 @@
     <div class="px-4 mx-auto max-w-7xl">
         <div class="flex flex-wrap ">
             <!-- Column 1 -->
-            <div class="w-4/12 mb-4 md:mb-0">
+            <div class="w-5/12 mb-4 md:mb-0">
                 <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="w-auto h-12">
                 <p class="mb-8 text-sm text-gray-700">Lazisnucilacap.com adalah situs resmi Lembaga Amil Zakat, Infaq
                     dan Shadaqah Nahdlatul Ulama (LAZISNU) Kabupaten Cilacap. Saran dan kritik :
@@ -91,18 +91,15 @@
                     </li>
                 </ul>
             </div>
-            <!-- Column 2 -->
+            {{-- <!-- Column 2 -->
             <div class="w-2/12 mb-4 md:mb-0">
                 <h2 class="mb-4 text-xl font-semibold text-gray-800 ">Informasi</h2>
                 <ul class="space-y-4 text-sm">
-                    <li><a href="/" class="text-gray-800 hover:text-lg ">Lazisnu Cilacap</a></li>
-                    <li><a href="#" class="text-gray-800 hover:text-lg ">Pilar & Program</a></li>
-                    <li><a href="#" class="text-gray-800 hover:text-lg ">Layanan</a></li>
-                    <li><a href="#" class="text-gray-800 hover:text-lg ">Ziswaf</a></li>
-                    <li><a href="#" class="text-gray-800 hover:text-lg ">Campaign</a></li>
-                    <li><a href="#" class="text-gray-800 hover:text-lg ">Berita</a></li>
+                <x-navlink class="font-semibold text-gray-800" title="Ziswaf" url="/zakat" />
+                <x-navlink class="font-semibold text-gray-800" title="Campaign" url="/campaigns" />
+                <x-navlink class="font-semibold text-gray-800" title="Berita" url="/berita" />
                 </ul>
-            </div>
+            </div> --}}
             <!-- Column 3 -->
             <div class="w-3/12 mb-4 md:mb-0">
                 <h2 class="mb-4 text-lg font-semibold text-gray-800">Alamat</h2>
@@ -117,13 +114,10 @@
                     Hp/WA : 081228221010
                 </p>
 
-                <div class="">
-                    <button class="px-4 py-2 text-white bg-green-500 rounded-md ">Berita Lainnya</button>
-                </div>
 
             </div>
             <!-- Column 4 -->
-            <div class="w-3/12 mb-4 md:mb-0">
+            <div class="w-4/12 mb-4 md:mb-0">
                 <h2 class="mb-4 text-lg font-semibold text-gray-800">NU Care-Lazisnu Cilacap</h2>
                 <div class="h-auto bg-white rounded-lg w-75">
                     <a href="https://maps.app.goo.gl/3ZVUjzq2MxBruu318" target="_blank">

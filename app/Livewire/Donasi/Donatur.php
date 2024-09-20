@@ -29,12 +29,14 @@ class Donatur extends Component
 
     public function mount($title, $nominal = null)
     {
+        
         $decodedTitle = urldecode($title);
-
+        
         $this->campaign = Campaign::where('title', $decodedTitle)->firstOrFail();
-
+        
         $this->nominal = $nominal ?? session('nominal', 'none');
-
+        
+        $this->nominal = ceil($this->nominal / 1000) * 1000;
         $user = Auth::user();
         if ($user) {
             $this->username = $user->username;

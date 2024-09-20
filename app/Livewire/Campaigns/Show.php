@@ -65,9 +65,9 @@ class Show extends Component
     {
         $desc = $this->campaign->description;
 
-        $desc = str_replace('[img1]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->main_picture) . '" class="w-full h-auto"  <p>', $desc);
-        $desc = str_replace('[img2]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->second_picture) . '" class="w-full h-auto"  <p>', $desc);
-        $desc = str_replace('[img3]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->last_picture) . '" class="w-full h-auto"  <p>', $desc);
+        $desc = str_replace('[img1]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->main_picture) . '"/>  <p style="font-size:12px; margin-top:10px">', $desc);
+        $desc = str_replace('[img2]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->second_picture) . '"/>  <p style="font-size:12px; margin-top:10px">', $desc);
+        $desc = str_replace('[img3]', '</pclass=> <img src="' . asset('storage/images/campaign/' . $this->campaign->last_picture) . '"/>  <p style="font-size:12px; margin-top:10px">', $desc);
 
         $this->processedDesc = $desc;
     }

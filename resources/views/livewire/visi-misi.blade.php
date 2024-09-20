@@ -13,7 +13,7 @@
                     <button class="text-gray-900">&times;</button>
                 </div>
             </div>
-            <div class="p-4">
+            <div class="p-4 max-h-[500px] overflow-y-auto">
                 <div class="flex flex-col items-start mt-4">
                     <h2 class="w-full font-semibold text-left text-green-500">Visi</h2>
                     @foreach($visis as $visi)

@@ -19,8 +19,11 @@ class Transaction extends Component
     
         $this->user = User::find($this->username);
     
-        $this->transactions = TransactionModel::where('username', $this->username)->latest()->get();
-        
+        $this->transactions = TransactionModel::where('username', $this->username)
+        ->whereNotNull('snap_token')
+        ->latest()
+        ->get();
+            
         foreach ($this->transactions as $transaction) {
             $donasi = Donasi::where('id_transaction', $transaction->id_transaction)->first();
             $ziwaf = ziwaf::where('id_transaction', $transaction->id_transaction)->first();

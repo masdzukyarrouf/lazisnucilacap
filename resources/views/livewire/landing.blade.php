@@ -1,4 +1,4 @@
-<div>
+<div >
     <x-navbar></x-navbar>
     <div class="relative flex items-center justify-center mt-1">
         <div class="relative z-0 w-full bg-white">
@@ -22,14 +22,14 @@
                     :style="'transform: translateX(-' + offset + '%)'">
                     @foreach ($landings as $landing)
                         <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                            class="min-w-full h-[300px] md:h-[600px] " />
+                            class="min-w-full h-auto " />
                     @endforeach
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="relative flex flex-wrap items-center justify-center w-full mt-12 z-12">
+    <div class="relative flex flex-wrap items-center justify-center w-full mt-16 z-12">
         <div
             class="relative flex flex-wrap items-center justify-center h-auto -mt-24 space-x-2 md:mx-20 md:-mt-32 md:space-x-4 lg:space-x-8 rounded-3xl">
             <!-- Wrapper for Left Ornament and Item 1 -->
@@ -42,7 +42,7 @@
                             <img src="{{ asset('images/Phone Message.png') }}" alt="Image 1"
                                 class="flex items-center justify-center w-8 h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
                         </div>
-                        <p class="relative text-sm text-center text-gray-800 md:text-lg">Konsultasi</p>
+                        <p class="relative text-[10px] font-medium text-center text-gray-800 md:text-lg">Konsultasi</p>
                     </div>
                 </a>
             </div>
@@ -55,7 +55,7 @@
                         <img src="{{ asset('images/calculator.png') }}" alt="Image 1"
                             class="flex items-center justify-center w-8 h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
                     </div>
-                    <p class="relative text-sm text-center text-gray-800 md:text-lg">Kalkulator Zakat</p>
+                    <p class="relative text-[10px] font-medium text-center text-gray-800 md:text-lg">Kalkulator Zakat</p>
                 </div>
             </a>
 
@@ -67,7 +67,7 @@
                     <img src="{{ asset('images/Buy With Card.png') }}" alt="Image 1"
                         class="flex items-center justify-center w-8 h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
                 </div>
-                <p class="relative text-sm text-center text-gray-800 md:text-lg">Rekenign Donasi</p>
+                <p class="relative text-[10px] font-medium text-center text-gray-800 md:text-lg">Rekenign Donasi</p>
             </div>
 
             <!-- Wrapper for Right Ornament and Item 4 -->
@@ -78,7 +78,7 @@
                         <img src="{{ asset('images/Qr Code.png') }}" alt="Image 1"
                             class="flex items-center justify-center w-8 h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
                     </div>
-                    <p class="relative text-sm text-center text-gray-800 md:text-lg">QR Donasi</p>
+                    <p class="relative text-[10px] font-medium text-center text-gray-800 md:text-lg">QR Donasi</p>
                 </div>
             </div>
         </div>
@@ -236,16 +236,7 @@
     </div>
 
     <!-- Tentang Section -->
-    <div class="flex flex-col items-center py-10 mt-4 bg-white shadow-lg">
-        <!-- Title -->
-        {{-- <div class="mb-8">
-                <h2 class="text-xl font-semibold text-black">Tentang</h2>
-                <div class="relative px-8 pt-4 mt-2">
-                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-white via-green-700 to-white">
-                    </div>
-                </div>
-            </div> --}}
-
+    {{-- <div class="flex flex-col items-center py-10 mt-4 bg-white shadow-lg">
         <!-- Container for items left -->
         <div class="flex items-start justify-between w-full h-auto max-w-4xl mx-20 space-x-20">
             <!-- Item 1 -->
@@ -283,7 +274,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Mitra Section -->
     <div class="flex flex-col items-center px-4 py-4 mt-4 mb-2 bg-white bg-center bg-cover w-max-screen">
@@ -362,7 +353,7 @@
 
                 <div class="items-center w-16 h-auto rounded-lg">
                     <a wire:navigate.hover href="{{ route('landing') }}">
-                        <img src="{{ Request::is('/') ? asset('images/Frame 1-active.png') : asset('images/Frame 1.png') }}"
+                        <img src="{{ Request::is('landing') ? asset('images/Frame 1-active.png') : asset('images/Frame 1.png') }}"
                             alt="">
                     </a>
                 </div>

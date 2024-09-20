@@ -4,7 +4,7 @@
         <div class="w-full sticky ">
             <div class="relative w-full">
                 <input id="search" type="text" placeholder="Search Campaigns..." wire:model.live="search"
-                    class="px-4 py-2 border border-gray-300 rounded w-full" />
+                    class="px-4 py-2 border-b border-gray-300 w-full" />
                 @if ($search)
                     <button type="button" class="absolute top-0 right-0 mt-2 mr-4"
                         onclick="document.getElementById('search').value = ''; 
