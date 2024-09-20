@@ -6,6 +6,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Transaction;
 use App\Models\ziwaf;
+use App\Models\detail_fitrah;
 
 class ZakatBayar extends Component
 {
@@ -14,6 +15,14 @@ class ZakatBayar extends Component
         'jenis1' => '',
         'jenis2' => '',
     ];
+    public $muzakki = [
+        'namaMuzakki'=> [],
+        'jumlah' => '',
+        'zakatFitrah' => 0,
+    ];
+    public $jumlah;
+    public $namaMuzakki;
+    public $zakatFitrah;
     public $datazakat;
     public $nominal;
     public $jenis1;
@@ -30,16 +39,25 @@ class ZakatBayar extends Component
 
     public function mount()
     {
-        $zakat = session('zakat', '');
+        $zakat = session('zakat', null);
+        $muzakki = session('muzakki', null);
+        // dd($zakat,$muzakki);
 
-        if ($zakat) {
+        if ($zakat !== null) {
             $this->nominal = $zakat['nominal'];
             $this->jenis1 = $zakat['jenis1'];
             $this->jenis2 = $zakat['jenis2'];
+        }elseif ($muzakki !== null) {
+            $this->namaMuzakki = $muzakki['namaMuzakki'];
+            $this->jumlah = $muzakki['jumlah'];
+            $this->zakatFitrah = $muzakki['zakatFitrah'];
         } else {
             return redirect()->route('zakat');
         }
+        // dd($this->zakat, $this->muzakki);
+        
 
+        
         $this->users = auth::user();
         if ($this->users)
         {
@@ -60,8 +78,17 @@ class ZakatBayar extends Component
 
         ];
 
+        $this->muzakki = [
+            'namaMuzakki' => $this->namaMuzakki,
+            'jumlah' => $this->jumlah,
+            'zakatFitrah' => $this->zakatFitrah,
+        ];
+        // dd($this->muzakki);
         return redirect()->route('login')
-            ->with('zakat', $this->zakat);
+            ->with([
+                    'zakat' => $this->zakat,
+                    'muzakki' => $this->muzakki
+                ]);
     }
 
     public function datadiri()
@@ -114,7 +141,7 @@ class ZakatBayar extends Component
         $this->transaction->snap_token = $snapToken;
         $this->transaction->save();
 
-        Ziwaf::create([
+        $ziwaf = Ziwaf::create([
             'nominal' => $this->nominal,
             'username' => $this->nama,
             'no_telp' => $this->no,
@@ -122,6 +149,13 @@ class ZakatBayar extends Component
             'jenis_ziwaf' => 'Zakat' . ' ' . $this->jenis1 . ' ' . $this->jenis2,
             'email' => $this->email,
         ]);
+
+        foreach ($this->namaMuzakki as $nama) {
+            detail_fitrah::create([
+                'id_ziwaf' => $ziwaf->id_ziwaf,
+                'nama_muzakki' => $nama,
+            ]);
+        }
 
         $this->datazakat = [
             'nominal' => $this->nominal,

@@ -47,7 +47,10 @@ class Ziwaf extends Component
 
     public $fitrah = 'true';
     public $jumlah;
-    public $nama;
+    public $nama = [];
+    public $muzakki;
+    public $total = 0;
+    public $zakatFitrah;
 
 
     public $selectedOption = '';
@@ -59,6 +62,11 @@ class Ziwaf extends Component
     public $site = 'lakuemas'; // Default site
 
 
+    public function hitung()
+    {
+       $this->zakatFitrah = $this->jumlah * 30000; //30000 cuma contoh
+        $this->total = $this->jumlah;
+    }
 
     public function jasa()
     {
@@ -234,6 +242,7 @@ class Ziwaf extends Component
 
     public function mount()
     {
+        redirect()->route(route: 'x');
         $this->reset(); // Reset
         // $this->fetchGoldPrice();
         // $this->nisab = 85 * $this->goldPrice[0]['sell'];
@@ -259,6 +268,7 @@ class Ziwaf extends Component
         $zakatUang = $this->zakatUang;
         $zakatJasa = $this->zakatJasa;
         $zakatDagang = $this->zakatDagang;
+        $zakatFitrah = $this->zakatFitrah;
         $selectedOption = $this->selectedOption;
         $selectedOption2 = $this->selectedOption2;
 
@@ -309,13 +319,23 @@ class Ziwaf extends Component
                 'jenis1' => $selectedOption,
                 'jenis2' => $selectedOption2
             ];
-        } else {
+        } elseif ($zakatFitrah > 0) {
+            $this->muzakki = [
+                'namaMuzakki' => $this->nama,
+                'jumlah' => $this->jumlah,
+                'zakatFitrah' => $zakatFitrah,
+
+            ];
+        }else {
             // Default redirect or error handling if none of the conditions are met
             return redirect()->route('pembayaran_zakat');
         }
 
         return redirect()->route('zakat.data')
-            ->with('zakat', $this->zakat);
+            ->with([
+                'zakat' => $this->zakat,
+                'muzakki' => $this->muzakki
+            ]);
     }
 
 

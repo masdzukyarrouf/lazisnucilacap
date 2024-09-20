@@ -748,21 +748,32 @@
                     <label class="font-semibold">Jumlah Muzakki</label>
                     <input type="text"
                     id="jumlah" 
-                    wire:model.lazy="jumlah" 
-                    wire:input="fitrah" 
+                    wire:model="jumlah" 
+                    wire:input.lazy="hitung" 
                     class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
                     placeholder="Isikan jumlah muzakki"
                     />
 
                     <label class="font-semibold">Nama Muzakki</label>
-                    <textarea type="text"
-                    id="nama" 
-                    wire:model.lazy="nama" 
-                    wire:input="fitrah" 
+                    @for ($i = 0; $i < $jumlah; $i++)
+                        <div>
+                            <input
+                                type="text"
+                                id="nama_{{ $i }}"
+                                wire:model="nama.{{ $i }}"
+                                wire:input="hitung"
+                                class="w-full px-2 py-1 mb-3 border border-gray-300 rounded"
+                                placeholder="Isi dengan nama lengkap"
+                            />
+                        </div>
+                    @endfor
+
+                    <label class="font-semibold">Total Zakat</label>
+                    <input type="text"
+                    value="{{ $total }} Paket"
                     class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                    rows="6"
-                    placeholder="Isi dengan nama lengkap">
-                    </textarea>
+                    placeholder="Isi dengan nama lengkap"
+                    />
 
                     <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                             <div class="relative flex flex-col mb-3">
@@ -770,7 +781,7 @@
                                     <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
                                     <input 
                                     type="text" 
-                                    value="" 
+                                    value="{{ $zakatFitrah }}" 
                                     class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 

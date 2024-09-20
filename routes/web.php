@@ -89,7 +89,7 @@ Route::get('/ziwaf/success', App\Livewire\Ziwaf\Success::class)->name('ziwaf.suc
 
 Route::get('/mitra', App\Livewire\UserMitra::class)->name('mitra');
 
-
+Route::get('/pemberitahuan', App\Livewire\ziwaf\Zakat\x::class)->name('x');
 
 Route::get('/profil&jajaran', App\Livewire\ProfilJajaran::class)->name('profil&jajaran');
 

@@ -22,12 +22,18 @@ class Login extends Component
         'mudhohi' => '',
         'jumlah' => '',
     ];
+    public $muzakki = [
+        'namaMuzakki' => [],
+        'jumlah' => '',
+        'zakatFitrah' => 0,
+    ];
 
     public function mount()
     {
         // Ambil qurban zakat dari session jika ada
         $this->zakat = session('zakat', $this->zakat);
         $this->qurban = session('qurban', $this->qurban);
+        $this->muzakki = session('muzakki', $this->muzakki);
     }
 
     public function render()
@@ -60,7 +66,11 @@ class Login extends Component
                 }elseif($this->qurban['nominal'] > 0 && !empty($this->qurban['jenis']) && !empty($this->qurban['mudhohi']) && !empty($this->qurban['jumlah'])) {
                     return redirect()->route('qurban.data')
                         ->with('qurban', $this->qurban);
+                } elseif ($this->muzakki['zakatFitrah'] > 0 && !empty($this->muzakki['jumlah']) && !empty($this->muzakki['namaMuzakki'])) {
+                    return redirect()->route('zakat.data')
+                        ->with('muzakki', $this->muzakki);
                 } else {
+                    // dd($this->muzakki);
                     return redirect()->route('landing');
                 }
             } else {

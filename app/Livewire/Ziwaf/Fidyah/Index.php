@@ -9,8 +9,9 @@ class Index extends Component
     public $nominal;
     public $nominal_fidyah = 0;
 
-    public function mount(){
-
+    public function mount()
+    {
+        redirect()->route(route: 'x');
     }
     public function updatedNominal(){
         if($this->nominal == null){

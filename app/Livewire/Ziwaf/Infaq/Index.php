@@ -9,6 +9,11 @@ class Index extends Component
     public $nominal_infaq;
     public $jenis_ziwaf;
 
+    public function mount()
+    {
+        redirect()->route(route: 'x');
+    }
+    
     protected $rules = [
         'nominal_infaq' => 'required|integer|min:50000',
         'jenis_ziwaf' => 'required|string',

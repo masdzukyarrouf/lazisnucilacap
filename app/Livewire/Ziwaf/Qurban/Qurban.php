@@ -13,7 +13,11 @@ class Qurban extends Component
     public $nominal = 0;
     public $qurban = [];
 
-
+    public function mount()
+    {
+        redirect()->route(route: 'x');
+    }
+    
     public function price()
     {
         if ($this->selectedOption === 'Sapi') {

@@ -4,19 +4,60 @@
         <div class="mx-5 mt-5">
             <span class="text-sm text-gray-600">Anda Akan Melakukan Pembayaran Untuk Zakat</span>
             <div class="my-4">
+                @if ($zakatFitrah > 0)
+                <div class="flex flex-col">
+                    <span>
+                        Detail Zakat
+                    </span>
+                    <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">Jumlah Muzakki</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>{{ $jumlah }}</div>
+                </div>
+                <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">Nama Muzakki</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>
+                        @foreach ($this->namaMuzakki as $nama)
+                            {{ $nama }}
+                        @endforeach
+                    </div>
+                </div>
+                <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">Total Zakat</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>{{ $jumlah }}</div>
+                    <span>paket</span>
+                </div>
+                </div>
                 <label class="font-semibold">Nominal Zakat</label>
                 <div class="relative flex flex-col mb-3">
                     <div class="flex items-center justify-center">
                         <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
                             <input 
                                 type="text" 
-                                value="{{ number_format($this->nominal, 0, ',', '.') }}" 
+                                value="{{ number_format($this->zakatFitrah, 0, ',', '.') }}" 
                                 class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
                                 placeholder="Rp. 0" 
                                 readonly 
                             />
                     </div>
                 </div>
+                @else
+                <label class="font-semibold">Nominal Zakat</label>
+                <div class="relative flex flex-col mb-3">
+                    <div class="flex items-center justify-center">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
+                        <input 
+                        type="text" 
+                        value="{{ number_format($this->nominal, 0, ',', '.') }}" 
+                        class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
+                        placeholder="Rp. 0" 
+                        readonly 
+                        />
+                    </div>
+                </div>
+                @endif
                 
                 <div class="mt-4">
                     <span class="text-xl font-semibold">Mohon Lengkapi Data Berikut</span>

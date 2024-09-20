@@ -10,6 +10,12 @@ class Wakaf extends Component
     public $selectedOption = '';
     public $data;
 
+
+    public function mount()
+    {
+        redirect()->route(route: 'x');
+    }
+    
     public function submitwaif()
     {
         $this->wakaf = !empty($this->wakaf) ? (float) str_replace('.', '', $this->wakaf) : 0;
