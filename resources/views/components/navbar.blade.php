@@ -23,7 +23,6 @@
         class="fixed inset-y-0 right-0 z-30 hidden w-48 px-4 py-2 bg-white rounded-lg shadow-lg top-12">
         <div class="flex flex-col">
             <x-navlink title="Lazisnu Cilacap" :links="[
-                ['href' => '#', 'text' => 'Visi & Misi'],
                 ['href' => '/profil&jajaran', 'text' => 'Profil & Jajaran Pengurus'],
                 ['href' => '/sejarah', 'text' => 'Sejarah'],
                 ['href' => '/legalitas', 'text' => 'Legalitas'],
@@ -97,7 +96,6 @@
             <!-- Navigation Links and Buttons -->
             <div class="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0 md:ml-auto">
                 <x-navlink title="Lazisnu Cilacap" :links="[
-                    ['href' => '#', 'text' => 'Visi & Misi'],
                     ['href' => '/profil&jajaran', 'text' => 'Profil & Jajaran Pengurus'],
                     ['href' => '/sejarah', 'text' => 'Sejarah'],
                     ['href' => '/legalitas', 'text' => 'Legalitas'],
