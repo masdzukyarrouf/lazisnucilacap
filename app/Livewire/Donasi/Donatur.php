@@ -35,15 +35,16 @@ class Donatur extends Component
         $this->campaign = Campaign::where('title', $decodedTitle)->firstOrFail();
         
         $this->nominal = $nominal ?? session('nominal', 'none');
-        
-        $this->nominal = ceil($this->nominal / 1000) * 1000;
+        if($this->nominal !== 'none'){   
+            $this->nominal = ceil($this->nominal / 1000) * 1000;
+        }
         $user = Auth::user();
         if ($user) {
             $this->username = $user->username;
             $this->no_telp = $user->no_telp;
             $this->email = $user->email;
         }
-
+        
         $this->goBack();
     }
 
