@@ -1,4 +1,4 @@
-<div >
+<div>
     <x-navbar></x-navbar>
     <div class="relative flex items-center justify-center mt-1">
         <div class="relative z-0 w-full bg-white">
@@ -21,8 +21,7 @@
                 <div class="flex w-full transition-transform duration-500"
                     :style="'transform: translateX(-' + offset + '%)'">
                     @foreach ($landings as $landing)
-                        <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                            class="min-w-full h-auto " />
+                        <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture" class="min-w-full h-auto " />
                     @endforeach
                 </div>
             </div>
@@ -55,7 +54,8 @@
                         <img src="{{ asset('images/calculator.png') }}" alt="Image 1"
                             class="flex items-center justify-center w-8 h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
                     </div>
-                    <p class="relative text-[10px] font-medium text-center text-gray-800 md:text-lg">Kalkulator Zakat</p>
+                    <p class="relative text-[10px] font-medium text-center text-gray-800 md:text-lg">Kalkulator Zakat
+                    </p>
                 </div>
             </a>
 
@@ -144,9 +144,18 @@
             x-data="{ load: false }" x-init="load = true" x-show="load" wire:init="loadCampaigns">
             @if ($campaigns && $campaigns->isEmpty())
             @elseif($campaigns)
-                @foreach ($campaigns as $campaign)
-                    <x-campaign-card :campaign="$campaign" wire:key="{{ $campaign->id_campaign }}" />
-                @endforeach
+            @foreach ($campaigns as $campaign)
+            <!-- Display this card on md: and larger -->
+            <div class="hidden md:block">
+                <x-campaign-card :campaign="$campaign" wire:key="md-{{ $campaign->id_campaign }}" />
+            </div>
+        
+            <!-- Display this card below md: -->
+            <div class="block md:hidden">
+                <livewire:campaigns.card :campaign="$campaign" wire:key="sm-{{ $campaign->id_campaign }}" />
+            </div>
+        @endforeach
+        
             @endif
             <div wire:loading class="w-full ">
                 <div
@@ -317,8 +326,7 @@
                 @if ($mitras && $mitras->isEmpty())
                 @elseif($mitras)
                     @foreach ($mitras as $mitra)
-                        <div wire:loading.remove
-                            class=" w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20">
+                        <div wire:loading.remove class=" w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20">
                             <div class="w-[50px] h-[50px] md:w-[150px] md:h-[150px]">
                                 <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture"
                                     class="w-full h-full bg-black" />
@@ -335,8 +343,9 @@
             </div>
         </div>
         <div class="w-full pt-8 px-4 md:px-20 h-[180px] md:h-[350px] flex">
-            <iframe class="w-1/2 h-[180px] md:h-[350px] bg-black" src="https://www.youtube.com/embed/IUWm95fwZHk?si=sDflST4mHtaP_N1-"
-                title="YouTube video player" frameborder="0"
+            <iframe class="w-1/2 h-[180px] md:h-[350px] bg-black"
+                src="https://www.youtube.com/embed/IUWm95fwZHk?si=sDflST4mHtaP_N1-" title="YouTube video player"
+                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="w-1/2 h-full text-green-500 flex items-center justify-center mx-4">

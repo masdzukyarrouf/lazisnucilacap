@@ -64,19 +64,26 @@ class Show extends Component
     public function processDescription()
     {
         $desc = $this->campaign->description;
-
+    
+        // Replace the image placeholders
         $desc = str_replace('[img1]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->main_picture) . '"/>  <p style="font-size:12px; margin-top:10px">', $desc);
         $desc = str_replace('[img2]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->second_picture) . '"/>  <p style="font-size:12px; margin-top:10px">', $desc);
-        $desc = str_replace('[img3]', '</pclass=> <img src="' . asset('storage/images/campaign/' . $this->campaign->last_picture) . '"/>  <p style="font-size:12px; margin-top:10px">', $desc);
-
+        $desc = str_replace('[img3]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->last_picture) . '"/>  <p style="font-size:12px; margin-top:10px">', $desc);
+    
+        // Replace newlines with <br> tags
+        $desc = nl2br($desc);
+    
         $this->processedDesc = $desc;
     }
+    
 
     public function processUpdate()
     {
         $desc = $this->update_campaign->description;
 
-        $desc = str_replace('[img1]', '</p> <img src="' . asset('storage/images/update_campaign/' . $this->update_campaign->picture) . '" class="w-full h-auto"  <p>', $desc);
+        $desc = str_replace('[img1]', '</p> <img src="' . asset('storage/images/update_campaign/' . $this->update_campaign->picture) . '"/>  <p style="font-size:12px; margin-top:10px">', $desc);
+
+        $desc = nl2br($desc);
 
         $this->processedUpdate = $desc;
     }
