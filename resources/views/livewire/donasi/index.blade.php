@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center ">
-    <x-nav-mobile2 title="Nominal Donasi" :backUrl="route('campaigns.show', $campaign->title)"/>
+    <x-nav-mobile2 title="Nominal Donasi" :backUrl="route('campaigns.show', $campaign->title)" />
     <div class=" w-full max-w-[414px] mx-auto bg-gray-100 py-4">
         <div class="w-full ">
             <!-- Kategori and Filter Buttons -->
@@ -79,7 +79,7 @@
                             <span class="text-gray-600">Rp.</span>
                             <input type="number"
                                 class="ml-2 w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-                                wire:model="nominal" placeholder="Minimal donasi {{$this->campaign->min_donation}}">
+                                wire:model="nominal" placeholder="Minimal donasi {{ $this->campaign->min_donation }}">
                         </div>
                         @error('nominal')
                             <span class="text-red-500 text-xs mt-2">{{ $message }}</span>
@@ -100,19 +100,21 @@
 
 
         </div>
-        <script>
-            document.getElementById('openModal').addEventListener('click', function(event) {
-                event.preventDefault();
-                document.getElementById('modalOverlay').classList.remove('hidden');
-            });
+    </div>
+</div>
+<script>
+    document.getElementById('openModal').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('modalOverlay').classList.remove('hidden');
+    });
 
-            document.getElementById('closeModal').addEventListener('click', function() {
-                document.getElementById('modalOverlay').classList.add('hidden');
-            });
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('modalOverlay').classList.add('hidden');
+    });
 
-            document.getElementById('modalOverlay').addEventListener('click', function(event) {
-                if (event.target === event.currentTarget) {
-                    document.getElementById('modalOverlay').classList.add('hidden');
-                }
-            });
-        </script>
+    document.getElementById('modalOverlay').addEventListener('click', function(event) {
+        if (event.target === event.currentTarget) {
+            document.getElementById('modalOverlay').classList.add('hidden');
+        }
+    });
+</script>

@@ -18,14 +18,30 @@ class Donatur extends Component
 
     #[Rule('required|string')]
     public $username;
-    #[Rule('required|string')]
+    #[Rule('required|integer')]
     public $no_telp;
-    #[Rule('required|string')]
+    #[Rule('nullable|string')]
     public $email;
     #[Rule('nullable|email')]
     public $doa;
+    #[Rule('required|string')]
+    public $alamat;
     public $toggleValue = false;
     public $donatur;
+
+    public function messages()
+    {
+        return [
+            'username.required' => 'Nama pengguna wajib diisi.',
+            'username.string' => 'Nama pengguna harus berupa teks.',
+            'no_telp.required' => 'Nomor telepon wajib diisi.',
+            'no_telp.integer' => 'Nomor telepon harus berupa angka.',
+            'email.string' => 'Email harus berupa teks.',
+            'email.email' => 'Format email tidak valid.',
+            'alamat.required' => 'Alamat wajib diisi.',
+            'alamat.string' => 'Alamat harus berupa teks.',
+        ];
+    }
 
     public function mount($title, $nominal = null)
     {
@@ -50,6 +66,8 @@ class Donatur extends Component
 
     public function pembayaran()
     {
+
+        $this->validate();
         $user = Auth::user();
 
         $hide_name = $this->toggleValue ? 'yes' : 'no';
@@ -72,7 +90,7 @@ class Donatur extends Component
             'snap_token' => null,
             'username' => $this->username,
             'no_telp' => $this->no_telp,
-            'alamat' => 'temp',
+            'alamat' => $this->alamat,
             'email' => $this->email,
             'id_user' => $user->id_user ?? null,
         ]);
@@ -107,14 +125,14 @@ class Donatur extends Component
 
 
         $donasi = Donasi::create([
+            'email' => $this->email ?? null,
             'id_user' => $user->id_user ?? null,
             'jumlah_donasi' => $this->nominal,
             'id_campaign' => $this->campaign->id_campaign,
             'username' => $this->username,
             'no_telp' => $this->no_telp,
-            'email' => $this->email,
             'hide_name' => $hide_name,
-            'alamat' => 'temp',
+            'alamat' => $this->alamat,
             'id_transaction' => $this->transaction->id_transaction
         ]);
         if ($this->doa) {
@@ -128,6 +146,7 @@ class Donatur extends Component
             ]);
         }
 
+        
         return redirect()->route('donasi.pembayaran', ['title' => urlencode($this->campaign->title), 'token' => $snapToken])
             ->with('donatur', $this->donatur);
     }

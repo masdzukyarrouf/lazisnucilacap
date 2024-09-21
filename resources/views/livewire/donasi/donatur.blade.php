@@ -34,6 +34,7 @@
             <div class="mx-4 mt-4">
                 <!-- Donation Options -->
                 <form wire:submit="pembayaran">
+                
                     <div class="w-full flex-col items-center space-y-4">
                         <div class="flex-col items-center pt-2 w-full">
                             <p class="text-[12px] font-semibold text-black">
@@ -97,6 +98,17 @@
                                 <span class="text-red-500 text-xs mt-2">{{ $message }}</span>
                             @enderror
                         </div>
+                        <div class="flex-col items-center w-full">
+                            <p class="text-[12px] font-semibold text-black">
+                                Alamat
+                            </p>
+                            <input type="text"
+                                class=" w-full border rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-green-500"
+                                wire:model="alamat">
+                            @error('alamat')
+                                <span class="text-red-500 text-xs mt-2">{{ $message }}</span>
+                            @enderror
+                        </div>
 
                         <div class="flex-col items-center w-full">
                             <p class="text-[12px] font-semibold text-black">
@@ -121,6 +133,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <script>
         function autoResize(textarea) {
