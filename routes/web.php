@@ -124,9 +124,9 @@ Route::get('/sejarah', App\Livewire\Sejarah::class)->name('sejarah');
 Route::get('/legalitas', App\Livewire\Legalitas::class)->name('legalitas');
 
 
-Route::get('/donasi/{title}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
-Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');
-Route::get('/pembayaran/{title}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
+// Route::get('/donasi/{title}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
+// Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');
+// Route::get('/pembayaran/{title}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
 
 Route::get('/pengajuan', App\Livewire\Pengajuan\Index::class)->name('pengajuan.index');
 Route::get('/pengajuan/success', App\Livewire\Pengajuan\Success::class)->name('pengajuan.success');
@@ -148,3 +148,6 @@ Route::get('/list_donasi/{title}', App\Livewire\Campaigns\DonasiList::class)->na
 Route::get('/campaigns', App\Livewire\Campaigns\Index::class)->name('campaign');
 Route::get('/campaigns/{title}', App\Livewire\Campaigns\Show::class)->name('campaigns.show');
 Route::get('/doa/{title}', App\Livewire\Campaigns\DoaList::class)->name('campaigns.doaList');
+
+// Custom 404 harus dibawah
+Route::get('{slug}', App\Livewire\NotFound::class)->name('404');
