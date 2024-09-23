@@ -9,8 +9,8 @@ class TransactionListener extends Controller
 {
     public function handleNotification(Request $request)
     {
-        // $serverKey = env('MIDTRANS_SERVER_KEY');
-        $serverKey = '123123123';//fake 
+        $serverKey = env('MIDTRANS_SERVER_KEY');
+        // $serverKey = '123123123';//fake 
         $signatureKey = $request->signature_key;
         $orderId = $request->order_id;
         $grossAmount = $request->gross_amount;
@@ -63,8 +63,8 @@ class TransactionListener extends Controller
             }
         }
 
-        // return response()->json(['message' => 'Invalid notification signature'], 400);
-        return response()->json(['message' =>  $hashed], 400);//temp
+        return response()->json(['message' => 'Invalid notification signature'], 400);
+        // return response()->json(['message' =>  $hashed], 400);//temp
     }
 
     

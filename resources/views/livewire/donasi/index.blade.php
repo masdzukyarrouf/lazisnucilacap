@@ -5,7 +5,7 @@
             <!-- Kategori and Filter Buttons -->
             <div class="flex items-center justify-between">
                 <!-- Campaign Cards -->
-                <div class="flex grid items-center justify-center w-full h-auto grid-cols-1" wire:loading.remove>
+                <div class="flex grid items-center justify-center w-full h-auto grid-cols-1">
                     <div class="z-5 flex flex-grow h-[100px] px-4">
                         <div
                             class="z-0 relative group flex justify-center items-center w-[220px] h-full overflow-hidden">
@@ -77,9 +77,15 @@
                         <label class="text-[12px] font-semibold text-green-500 mx-2">Nominal Donasi Lainnya</label>
                         <div class="flex items-center pl-4 w-full bg-white rounded-lg border-2">
                             <span class="text-gray-600">Rp.</span>
-                            <input type="number"
+                            
+                            <!-- Visible input for formatted number -->
+                            <input type="text"
                                 class="ml-2 w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-                                wire:model="nominal" placeholder="Minimal donasi {{ $this->campaign->min_donation }}">
+                                placeholder="Minimal donasi {{ number_format($this->campaign->min_donation, 0, ',', '.') }}"
+                                onkeyup="formatAndSync(this)" id="formattedInput">
+                            
+                            <!-- Hidden input bound to wire:model.defer for raw value -->
+                            <input type="hidden" wire:model.defer="nominal" id="rawInput">
                         </div>
                         @error('nominal')
                             <span class="text-red-500 text-xs mt-2">{{ $message }}</span>
@@ -103,18 +109,28 @@
     </div>
 </div>
 <script>
-    document.getElementById('openModal').addEventListener('click', function(event) {
-        event.preventDefault();
-        document.getElementById('modalOverlay').classList.remove('hidden');
-    });
+    
+    function formatAndSync(input) {
+        // Remove all non-digit characters from the input
+        let rawValue = input.value.replace(/\D/g, '');
+        
+        // Format the number with dots for every three digits
+        let formattedValue = rawValue.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
-    document.getElementById('closeModal').addEventListener('click', function() {
-        document.getElementById('modalOverlay').classList.add('hidden');
-    });
+        // Update the visible input with the formatted value
+        input.value = formattedValue;
+        
+        // Set the raw value in the hidden input and Livewire model
+        document.getElementById('rawInput').value = rawValue;
+        Livewire.find(document.querySelector('[wire\\:id]').getAttribute('wire:id')).set('nominal', rawValue);
+    }
 
-    document.getElementById('modalOverlay').addEventListener('click', function(event) {
-        if (event.target === event.currentTarget) {
-            document.getElementById('modalOverlay').classList.add('hidden');
-        }
+    // Optional: Format the value when Livewire sends the data
+    document.addEventListener('livewire:load', function () {
+        Livewire.hook('message.processed', (message, component) => {
+            let nominalValue = @this.nominal;
+            let formattedNominalValue = nominalValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            document.getElementById('formattedInput').value = formattedNominalValue;
+        });
     });
 </script>

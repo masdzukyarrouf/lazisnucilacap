@@ -84,7 +84,7 @@
                                 Total
                             </p>
                             <p class="ml-7 text-[12px] text-black">
-                                : {{ $this->nominal }}
+                                : {{ number_format($this->nominal, 0, ',', '.') }}
                             </p>
                         </div>
                     </div>
@@ -111,12 +111,12 @@
             </div>
         </div>
     </div>
+</div>
 
-    <script type="text/javascript">
-        window.onload = function() {
-                window.snap.embed('{{ $this->token }}', {
-                    embedId: 'snap-container'
-                });
-        };
-    </script>
-    
+<script type="text/javascript">
+    window.onload = function() {
+        window.snap.embed('{{ $this->token }}', {
+            embedId: 'snap-container'
+        });
+    };
+</script>

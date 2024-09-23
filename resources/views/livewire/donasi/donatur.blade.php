@@ -5,7 +5,7 @@
             <!-- Kategori and Filter Buttons -->
             <div class="flex items-center justify-between">
                 <!-- Campaign Cards -->
-                <div class="flex grid items-center justify-center w-full h-auto grid-cols-1" wire:loading.remove>
+                <div class="flex grid items-center justify-center w-full h-auto grid-cols-1">
                     <div class="z-5 flex flex-grow h-[100px] px-4 ">
                         <div
                             class="z-0 relative group flex justify-center items-center w-[220px] h-full overflow-hidden">
@@ -34,15 +34,26 @@
             <div class="mx-4 mt-4">
                 <!-- Donation Options -->
                 <form wire:submit="pembayaran">
-                
+
                     <div class="w-full flex-col items-center space-y-4">
                         <div class="flex-col items-center pt-2 w-full">
                             <p class="text-[12px] font-semibold text-black">
                                 Nominal Donasi
                             </p>
-                            <input type="number"
-                                class=" w-full border rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-green-500"
-                                wire:model="nominal" disabled>
+
+                            <!-- Disabled input for displaying the formatted value -->
+                            <div class="flex items-center w-full rounded-lg border">
+                                <p class="px-2">Rp</p>
+
+                                <input type="text"
+                                    class="w-full border  p-1 focus:outline-none focus:ring-2 focus:ring-green-500"
+                                    wire:model="formattedDisplay" disabled>
+                            </div>
+
+                            <span class="text-[12px] text-red-400">Nominal Dibulatkan *</span>
+                            <!-- Hidden input to store the raw value, bound to Livewire -->
+                            <input type="hidden" wire:model="nominal" id="rawInput">
+
                             @error('nominal')
                                 <span class="text-red-500 text-xs mt-2">{{ $message }}</span>
                             @enderror
@@ -51,6 +62,10 @@
                             <p class="text-[14px] font-semibold text-black">
                                 Mohon Lengkapi Data Di Bawah
                             </p>
+                            @if (!Auth::check())
+                                <p class="text-[12px]  mb-4">Sudah Punya Akun? <a href="/login"
+                                        class="text-green-500 hover:underline">Login</a></p>
+                            @endif
                         </div>
                         <div class="flex-col items-center w-full">
                             <p class="text-[12px] font-semibold text-black">
@@ -69,11 +84,12 @@
                                 <div class="relative">
                                     <input id="toggle" type="checkbox" wire:model="toggleValue" class="sr-only" />
                                     <div class="block bg-gray-200 w-9 h-5 rounded-full"></div>
-                                    <div class="dot absolute left-1 top-1 bg-white w-3 h-3 rounded-full transition"></div>
+                                    <div class="dot absolute left-1 top-1 bg-white w-3 h-3 rounded-full transition">
+                                    </div>
                                 </div>
                             </label>
                         </div>
-                        
+
 
                         <div class="flex-col items-center w-full">
                             <p class="text-[12px] font-semibold text-black">
@@ -114,7 +130,8 @@
                             <p class="text-[12px] font-semibold text-black">
                                 Kirim kan Doa Anda
                             </p>
-                            <textarea type="text" class=" w-full border rounded-lg h-8 focus:outline-none focus:ring-2 focus:ring-green-500 resize-none overflow-hidden"
+                            <textarea type="text"
+                                class=" w-full border rounded-lg h-8 focus:outline-none focus:ring-2 focus:ring-green-500 resize-none overflow-hidden"
                                 wire:model="doa" oninput="autoResize(this)">    
                             </textarea>
                             @error('doa')
@@ -135,9 +152,26 @@
     </div>
 </div>
 
-    <script>
-        function autoResize(textarea) {
-            textarea.style.height = 'auto';
-            textarea.style.height = textarea.scrollHeight + 'px';
-        }
-    </script>
+<script>
+    function autoResize(textarea) {
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px';
+    }
+    document.addEventListener('livewire:load', function() {
+        // Hook into Livewire to observe changes to the 'nominal' value
+        Livewire.hook('message.processed', (message, component) => {
+            // Get the raw nominal value from the Livewire model
+            let rawNominalValue = @this.nominal;
+
+            // Format the nominal value with dots (thousands separators)
+            let formattedNominalValue = rawNominalValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g,
+                '.');
+
+            // Set the formatted value in the disabled input for display
+            document.getElementById('formattedDisplay').value = formattedNominalValue;
+
+            // Ensure the hidden input holds the real raw value
+            document.getElementById('rawInput').value = rawNominalValue;
+        });
+    });
+</script>

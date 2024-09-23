@@ -16,18 +16,25 @@ class Donatur extends Component
     public $nominal;
     public $min_donation;
 
-    #[Rule('required|string')]
     public $username;
-    #[Rule('required|integer')]
     public $no_telp;
-    #[Rule('nullable|string')]
     public $email;
-    #[Rule('nullable|email')]
     public $doa;
-    #[Rule('required|string')]
     public $alamat;
     public $toggleValue = false;
     public $donatur;
+    public $formattedDisplay;
+
+    public function rules()
+    {
+        return [
+            'username' => 'required|string',
+            'no_telp' => 'required|integer',
+            'email' => 'nullable|email|regex:/@gmail\.com$/',
+            'doa' => 'nullable|string',
+            'alamat' => 'required|string',
+        ];
+    }
 
     public function messages()
     {
@@ -40,33 +47,39 @@ class Donatur extends Component
             'email.email' => 'Format email tidak valid.',
             'alamat.required' => 'Alamat wajib diisi.',
             'alamat.string' => 'Alamat harus berupa teks.',
+            'email.regex' => 'Email harus berupa @gmail.com',
+
         ];
     }
 
     public function mount($title, $nominal = null)
     {
-        
+
         $decodedTitle = urldecode($title);
-        
+
         $this->campaign = Campaign::where('title', $decodedTitle)->firstOrFail();
-        
+
         $this->nominal = $nominal ?? session('nominal', 'none');
-        if($this->nominal !== 'none'){   
+        if ($this->nominal !== 'none') {
             $this->nominal = ceil($this->nominal / 1000) * 1000;
+            $this->formattedDisplay = number_format($this->nominal, 0, ',', '.');
         }
+        
         $user = Auth::user();
         if ($user) {
             $this->username = $user->username;
             $this->no_telp = $user->no_telp;
             $this->email = $user->email;
         }
-        
+
         $this->goBack();
     }
 
     public function pembayaran()
     {
-
+        if ($this->email == '') {
+            $this->email = null;
+        }
         $this->validate();
         $user = Auth::user();
 
@@ -146,7 +159,7 @@ class Donatur extends Component
             ]);
         }
 
-        
+
         return redirect()->route('donasi.pembayaran', ['title' => urlencode($this->campaign->title), 'token' => $snapToken])
             ->with('donatur', $this->donatur);
     }
