@@ -1,5 +1,7 @@
 <div>
-    <x-navbar></x-navbar>
+    {{-- <x-navbar></x-navbar> --}}
+    <livewire:navbar.index/>
+    <livewire:navbar.usermenu/>
     <div class="relative flex items-center justify-center mt-1">
         <div class="relative z-0 w-full bg-white">
             <div x-data="{
@@ -394,3 +396,26 @@
         </div>
     </div>
 </div>
+<script>
+    // Toggle User Menu visibility
+    document.getElementById('user-menu-btn').addEventListener('click', function() {
+        const userMenu = document.getElementById('user-menu');
+        userMenu.classList.toggle('hidden');
+    });
+
+    // Close User Menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const userMenu = document.getElementById('user-menu');
+        const userMenuBtn = document.getElementById('user-menu-btn');
+        if (userMenu) {
+            if (userMenuBtn.contains(event.target) == null && userMenu.contains(event.target) == null) {
+                userMenu.classList.add('hidden');
+            }
+        }
+        if (userMenuBtn) {
+            if (userMenuBtn.contains(event.target) == null && userMenu.contains(event.target) == null) {
+                userMenu.classList.add('hidden');
+            }
+        }
+    });
+</script>
