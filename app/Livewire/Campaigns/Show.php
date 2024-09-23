@@ -20,6 +20,7 @@ class Show extends Component
     public $dayLeft;
     public $title;
 
+
     public function mount($title)
     {
         Campaign::updateRaisedValues();

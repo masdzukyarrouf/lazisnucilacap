@@ -176,16 +176,4 @@
                 userMenu.classList.add('hidden');
             }
         });
-
-        // Toggle Sidebar visibility
-        document.getElementById('menu-btn').addEventListener('click', function() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('-translate-x-full');
-        });
-
-        // Close Sidebar
-        document.getElementById('close-btn').addEventListener('click', function() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.add('-translate-x-full');
-        });
     </script>
