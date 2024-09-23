@@ -14,7 +14,7 @@
             @endif
         </div>
 
-        <livewire:admincampaign.create />
+        <livewire:admin-campaign.create />
 
         <table class="min-w-full bg-white border border-gray-200 mt-4">
             <thead class="bg-gray-200">
@@ -49,8 +49,8 @@
                                 alt="Main Picture" class="w-16 h-16 object-cover">
                         </td>
                         <td class="flex px-4 py-2 space-x-1">
-                            <livewire:admincampaign.edit :campaign="$campaign" wire:key="edit-{{ rand().$campaign->id_campaign }}" />
-                            <livewire:admincampaign.show :id_campaign="$campaign->id_campaign" wire:key="show-{{ rand().$campaign->id_campaign }}" />
+                            <livewire:admin-campaign.edit :campaign="$campaign" wire:key="edit-{{ rand().$campaign->id_campaign }}" />
+                            <livewire:admin-campaign.show :id_campaign="$campaign->id_campaign" wire:key="show-{{ rand().$campaign->id_campaign }}" />
                             <button
                                 class="inline-block px-3 py-1 text-white text-center bg-red-500 rounded hover:bg-red-700"
                                 wire:click="destroy({{ $campaign->id_campaign }})" wire:confirm="Are you sure?">Delete</button>
