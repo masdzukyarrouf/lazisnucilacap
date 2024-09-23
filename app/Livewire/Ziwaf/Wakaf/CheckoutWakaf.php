@@ -13,6 +13,8 @@ class CheckoutWakaf extends Component
     public $email;
     public $datawakaf;
     public $token;
+    public $atasNama;
+    public $jenis3;
 
 
     public function mount()
@@ -25,6 +27,8 @@ class CheckoutWakaf extends Component
             $this->nama = $datawakaf['nama'];
             $this->no = $datawakaf['no'];
             $this->email = $datawakaf['email'];
+            $this->atasNama = $datawakaf['atasNama'];
+            $this->jenis3 = $datawakaf['jenis3'];
         } else {
             return redirect()->route('wakaf');
         }
@@ -38,6 +42,8 @@ class CheckoutWakaf extends Component
             'nama' => $this->nama,
             'no' => $this->no,
             'email' => $this->email,
+            'atasNama' => $this->atasNama,
+            'jenis3' => $this->jenis3
 
         ];
 
@@ -47,6 +53,6 @@ class CheckoutWakaf extends Component
 
     public function render()
     {
-        return view('livewire.ziwaf.checkout-wakaf')->layout('layouts.none');
+        return view('livewire.ziwaf.wakaf.checkout-wakaf')->layout('layouts.none');
     }
 }

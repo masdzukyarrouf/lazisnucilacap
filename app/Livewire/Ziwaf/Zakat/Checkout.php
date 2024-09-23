@@ -9,11 +9,15 @@ class Checkout extends Component
     public $nominal;
     public $jenis1;
     public $jenis2;
+    public $jenis3;
+    public $atasNama;
     public $nama;
     public $no;
     public $email;
+    public $alamat;
     public $datazakat;
     public $token;
+    public $zakatFitrah;
 
 
     public function mount()
@@ -24,9 +28,13 @@ class Checkout extends Component
         $this->nominal = $datazakat['nominal'];
         $this->jenis1 = $datazakat['jenis1'];
         $this->jenis2 = $datazakat['jenis2'];
+        $this->jenis3 = $datazakat['jenis3'];
+        $this->atasNama = $datazakat['atasNama'];
         $this->nama = $datazakat['nama'];
         $this->no = $datazakat['no'];
         $this->email = $datazakat['email'];
+        $this->alamat = $datazakat['alamat'];
+        $this->zakatFitrah = $datazakat['zakatFitrah'];
         } else {
             return redirect()->route('zakat');
         }
@@ -38,9 +46,13 @@ class Checkout extends Component
             'nominal' => $this->nominal,
             'jenis1' => $this->jenis1,
             'jenis2' => $this->jenis2,
+            'jenis3' => $this->jenis3,
+            'atasNama' => $this->atasNama,
             'nama' => $this->nama,
             'no' => $this->no,
             'email' => $this->email,
+            'alamat' => $this->alamat,
+            'zakatFitrah' => $this->zakatFitrah
 
         ];
 

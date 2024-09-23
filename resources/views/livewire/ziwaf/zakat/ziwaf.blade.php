@@ -54,6 +54,29 @@
             @if ($selectedOption2 === 'Emas')
                 <div class="px-4 py-2">
                     <!-- Form untuk input Zakat Maal -->
+                    <label class="font-semibold">Atas Nama</label>
+                    <input 
+                        type="text" 
+                        id="atasNama" 
+                        wire:model="atasNama" 
+                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        placeholder="Isikan nama anda" 
+                    />
+
+                    <div class="flex flex-col space-x-4">
+                        <label class="font-semibold">Jenis</label>
+                        <div class="flex py-4 space-x-6">
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="jenis3" value="pribadi" wire:model='jenis3'>
+                                <span>Pribadi</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="jenis3" value="entitas" wire:model='jenis3'>
+                                <span>Entitas</span>
+                            </label>
+                        </div>
+                    </div>
+                    
                     <label class="font-semibold">Jumlah Emas (Dalam Gram)</label>
                     <input
                         oninput="formatMoney(this)" 
@@ -336,6 +359,29 @@
             @elseif ($selectedOption2 === 'Perdagangan')
                 <div class="px-4 py-2">
                     <!-- Form untuk input Zakat Maal -->
+                    <label class="font-semibold">Atas Nama</label>
+                    <input 
+                        type="text" 
+                        id="atasNama" 
+                        wire:model="atasNama" 
+                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        placeholder="Isikan nama anda" 
+                    />
+
+                    <div class="flex flex-col space-x-4">
+                        <label class="font-semibold">Jenis</label>
+                        <div class="flex py-4 space-x-6">
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="jenis3" value="pribadi" wire:model='jenis3'>
+                                <span>Pribadi</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="jenis3" value="entitas" wire:model='jenis3'>
+                                <span>Entitas</span>
+                            </label>
+                        </div>
+                    </div>
+                    
                     <label class="font-semibold">Asset Lancar</label>
                     <input 
                         oninput="formatMoney(this)"
@@ -430,6 +476,29 @@
                 @elseif ($selectedOption2 === 'Penghasilan')
                 <div class="px-4 py-2">
                     <!-- Form untuk input Zakat Maal -->
+                    <label class="font-semibold">Atas Nama</label>
+                    <input 
+                        type="text" 
+                        id="atasNama" 
+                        wire:model="atasNama" 
+                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        placeholder="Isikan nama anda" 
+                    />
+
+                    <div class="flex flex-col space-x-4">
+                        <label class="font-semibold">Jenis</label>
+                        <div class="flex py-4 space-x-6">
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="jenis3" value="pribadi" wire:model='jenis3'>
+                                <span>Pribadi</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="jenis3" value="entitas" wire:model='jenis3'>
+                                <span>Entitas</span>
+                            </label>
+                        </div>
+                    </div>
+                    
                     <label class="font-semibold">Gaji Perbulan</label>
                     <div class="relative flex items-center justify-center mb-3">
                         <span class="absolute inset-y-0 left-0 flex items-center px-2 font-semibold rounded h-9">Rp. </span>
@@ -540,6 +609,29 @@
                 @elseif ($selectedOption2 === 'Pertanian')
                 <div class="px-4 py-2">
                     <!-- Form untuk input Zakat Maal -->
+                    <label class="font-semibold">Atas Nama</label>
+                    <input 
+                        type="text" 
+                        id="atasNama" 
+                        wire:model="atasNama" 
+                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        placeholder="Isikan nama anda" 
+                    />
+
+                    <div class="flex flex-col space-x-4">
+                        <label class="font-semibold">Jenis</label>
+                        <div class="flex py-4 space-x-6">
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="jenis3" value="pribadi" wire:model='jenis3'>
+                                <span>Pribadi</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="jenis3" value="entitas" wire:model='jenis3'>
+                                <span>Entitas</span>
+                            </label>
+                        </div>
+                    </div>
+                    
                     <label class="font-semibold">Harga Produk Per Kg</label>
                     <div class="relative flex items-center justify-center mb-3">
                         <span class="absolute inset-y-0 left-0 flex items-center px-2 rounded h-9">Rp. </span>
@@ -645,6 +737,29 @@
                 @elseif ($selectedOption2 === 'Uang')
                 <div class="px-4 py-2">
                     <!-- Form untuk input Zakat Maal -->
+                    <label class="font-semibold">Atas Nama</label>
+                    <input 
+                        type="text" 
+                        id="atasNama" 
+                        wire:model="atasNama" 
+                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        placeholder="Isikan nama anda" 
+                    />
+
+                    <div class="flex flex-col space-x-4">
+                        <label class="font-semibold">Jenis</label>
+                        <div class="flex py-4 space-x-6">
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="jenis3" value="pribadi" wire:model='jenis3'>
+                                <span>Pribadi</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="jenis3" value="entitas" wire:model='jenis3'>
+                                <span>Entitas</span>
+                            </label>
+                        </div>
+                    </div>
+                    
                     <label class="font-semibold">Nominal Uang</label>
                     <div class="relative flex items-center justify-center mb-3">
                         <span class="absolute inset-y-0 left-0 flex items-center px-2 font-semibold rounded h-9">Rp. </span>

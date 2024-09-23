@@ -7,6 +7,7 @@ use Livewire\Component;
 class Pembayaran extends Component
 {
     public $username;
+    public $atasNama;
     public $no_telp;
     public $email;
     public $nominal;
@@ -18,6 +19,7 @@ class Pembayaran extends Component
         if ($this->donatur) {
             $this->username = $this->donatur['username'];
             $this->nominal = $this->donatur['nominal'];
+            $this->atasNama = $this->donatur['atasNama'];
             $this->no_telp = $this->donatur['no_telp'];
             $this->email = $this->donatur['email'];
         } else {

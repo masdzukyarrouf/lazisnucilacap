@@ -21,8 +21,31 @@
                             </option>
                         </select>
                         @error('jenis_ziwaf')
-                            <span class="text-red-500 text-xs mt-2">{{ $message }}</span>
+                            <span class="mt-2 text-xs text-red-500">{{ $message }}</span>
                         @enderror
+                    </div>
+
+                    <label class="font-semibold">Atas Nama</label>
+                    <input 
+                        type="text" 
+                        id="atasNama" 
+                        wire:model="atasNama" 
+                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        placeholder="Isikan nama anda" 
+                    />
+
+                    <div class="flex flex-col space-x-4">
+                        <label class="font-semibold">Jenis</label>
+                        <div class="flex py-4 space-x-6">
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="jenis3" value="pribadi" wire:model='jenis3'>
+                                <span>Pribadi</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="jenis3" value="entitas" wire:model='jenis3'>
+                                <span>Entitas</span>
+                            </label>
+                        </div>
                     </div>
 
                     <div class="relative w-96">
@@ -40,7 +63,7 @@
                             wire:model="nominal_infaq" 
                         />
                         @error('nominal_infaq')
-                            <span class="text-red-500 text-xs mt-2">{{ $message }}</span>
+                            <span class="mt-2 text-xs text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>

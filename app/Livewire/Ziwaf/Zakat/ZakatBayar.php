@@ -14,6 +14,8 @@ class ZakatBayar extends Component
         'nominal' => 0,
         'jenis1' => '',
         'jenis2' => '',
+        'jenis3' => '',
+        'atasNama' => '',
     ];
     public $muzakki = [
         'namaMuzakki'=> [],
@@ -27,6 +29,8 @@ class ZakatBayar extends Component
     public $nominal;
     public $jenis1;
     public $jenis2;
+    public $jenis3;
+    public $atasNama;
     public $zakatUang;
     public $zakatJasa;
     public $zakatDagang;
@@ -34,8 +38,23 @@ class ZakatBayar extends Component
     public $nama;
     public $no;
     public $email;
+    public $alamat;
     public $transaction;
 
+
+    public function rules()
+    {
+        return [
+            'email' => 'nullable|email|regex:/@gmail\.com$/',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'email.regex' => 'Email harus berupa @gmail.com',
+        ];
+    }
 
     public function mount()
     {
@@ -47,6 +66,8 @@ class ZakatBayar extends Component
             $this->nominal = $zakat['nominal'];
             $this->jenis1 = $zakat['jenis1'];
             $this->jenis2 = $zakat['jenis2'];
+            $this->jenis3 = $zakat['jenis3'];
+            $this->atasNama = $zakat['atasNama'];
         }elseif ($muzakki !== null) {
             $this->namaMuzakki = $muzakki['namaMuzakki'];
             $this->jumlah = $muzakki['jumlah'];
@@ -75,6 +96,8 @@ class ZakatBayar extends Component
             'nominal' => $this->nominal,
             'jenis1' => $this->jenis1,
             'jenis2' => $this->jenis2,
+            'jenis3' => $this->jenis3,
+            'atasNama' => $this->atasNama,
 
         ];
 
@@ -95,7 +118,7 @@ class ZakatBayar extends Component
     {
         $this->nama;
         $this->no;
-        $this->email;
+        $this->validateOnly('email');
     }
 
     public function co()
@@ -143,27 +166,40 @@ class ZakatBayar extends Component
 
         $ziwaf = Ziwaf::create([
             'nominal' => $this->nominal,
+            'atas_nama'=> $this->atasNama,
             'username' => $this->nama,
             'no_telp' => $this->no,
             'id_transaction' => $this->transaction->id_transaction,
-            'jenis_ziwaf' => 'Zakat' . ' ' . $this->jenis1 . ' ' . $this->jenis2,
+            'jenis_ziwaf' => 'Zakat' . ' ' . $this->jenis1 . ' ' . $this->jenis2 . ' ' . '(' . $this->jenis3 . ')',
             'email' => $this->email,
+            'alamat' => $this->alamat,
         ]);
 
-        foreach ($this->namaMuzakki as $nama) {
-            detail_fitrah::create([
-                'id_ziwaf' => $ziwaf->id_ziwaf,
-                'nama_muzakki' => $nama,
-            ]);
-        }
+        if ($this->namaMuzakki)
+        {
+            foreach ($this->namaMuzakki as $nama) {
+                detail_fitrah::create([
+                    'id_ziwaf' => $ziwaf->id_ziwaf,
+                    'nama_muzakki' => $nama,
+                ]);
+            }   
+        }else
+        {
 
+        }
+        
+        
         $this->datazakat = [
             'nominal' => $this->nominal,
             'jenis1' => $this->jenis1,
             'jenis2' => $this->jenis2,
+            'jenis3' => $this->jenis3,
+            'atasNama' => $this->atasNama,
             'nama' => $this->nama ,
             'no' => $this->no,
             'email' => $this->email,
+            'alamat' => $this->alamat,
+            'zakatFitrah' => $this->zakatFitrah,
 
         ];
 
