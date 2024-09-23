@@ -151,3 +151,6 @@ Route::get('/doa/{title}', App\Livewire\Campaigns\DoaList::class)->name('campaig
 
 // Custom 404 harus dibawah
 Route::get('{slug}', App\Livewire\NotFound::class)->name('404');
+Route::get('{slug}/{slug}', App\Livewire\NotFound::class)->name('404');
+Route::get('{slug}/{slug}/{slug}/{slug}', App\Livewire\NotFound::class)->name('404');
+Route::get('{slug}/{slug}/{slug}/{slug}/{slug}', App\Livewire\NotFound::class)->name('404');
