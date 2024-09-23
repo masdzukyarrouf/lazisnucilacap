@@ -1,19 +1,19 @@
 <div class="relative flex items-center group navlink">
     <div class="font-semibold text-gray-900 w-full">
-        @if ($isDropdown)
-            <a wire:navigate.hover class="flex items-center justify-between py-2 text-gray-900 rounded hover:text-green-500">
+        @if ($isDropdown == 'true')
+            <a wire:navigate.hover
+                class="flex items-center justify-between py-2 text-gray-900 rounded hover:text-green-500">
                 {{ $title }}
                 @if ($isDropdown == 'true')
                     <img src="{{ asset('images/arrow_down.png') }}" alt="arrow down" class="w-4 h-4 ml-1">
                 @endif
             </a>
         @else
-            @if (!empty($links) && isset($links[0]))
-                <a wire:navigate.hover href="{{ $links[0]['href'] }}"
-                    class="inline-flex items-center py-2 text-black rounded hover:text-green-500">
-                    {{ $title }}
-                </a>
-            @endif
+            <a wire:navigate.hover href="{{ $url }}"
+                class="inline-flex items-center py-2 text-black rounded hover:text-green-500">
+                {{ $title }}
+            </a>
+
         @endif
     </div>
 

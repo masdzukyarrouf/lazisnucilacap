@@ -7,6 +7,7 @@ use Livewire\Component;
 class Navlink extends Component
 {
     public $title;
+    public $url;
     public $links = [];
     public $isDropdown = false;
 

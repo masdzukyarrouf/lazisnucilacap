@@ -1,30 +1,32 @@
 <div>
     <div id="user-menu" class="fixed inset-y-0 right-0 z-30 hidden w-48 px-8 py-2 bg-white rounded-lg shadow-lg top-12">
         <div class="flex flex-col">
-            <livewire:navbar.navlink wire:key={{rand()}} title="Lazisnu Cilacap" :links="[
+            <livewire:navbar.navlink wire:key={{ rand() }} title="Lazisnu Cilacap" :links="[
                 ['href' => '/profil&jajaran', 'text' => 'Profil & Jajaran Pengurus'],
                 ['href' => '/sejarah', 'text' => 'Sejarah'],
                 ['href' => '/legalitas', 'text' => 'Legalitas'],
                 ['href' => '/kebijakan', 'text' => 'Standar Layanan (MANTAP)'],
                 ['href' => '#', 'text' => 'Laporan & Publikasi'],
                 ['href' => '/mitra', 'text' => 'Mitra'],
-            ]" isDropdown="true" />
-            <livewire:navbar.navlink wire:key={{rand()}} title="Pilar & Program" :links="[
+            ]"
+                isDropdown="true" />
+            <livewire:navbar.navlink wire:key={{ rand() }} title="Pilar & Program" :links="[
                 ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
                 ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
                 ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
                 ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
                 ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
-            ]" isDropdown="true" />
+            ]"
+                isDropdown="true" />
 
-            <livewire:navbar.navlink wire:key={{rand()}} title="Layanan" :links="[
+            <livewire:navbar.navlink wire:key={{ rand() }} title="Layanan" :links="[
                 ['href' => '/konfirmasi', 'text' => 'Konfirmasi Donasi'],
                 ['href' => '/pengajuan', 'text' => 'Pengajuan Umum'],
                 ['href' => '/pengajuan-mobiznu', 'text' => 'Layanan Mobisnu'],
                 ['href' => '/pengajuan-gocap', 'text' => 'Gocap'],
             ]" isDropdown="true" />
 
-            <livewire:navbar.navlink wire:key={{rand()}} title="Ziwaf" :links="[
+            <livewire:navbar.navlink wire:key={{ rand() }} title="Ziwaf" :links="[
                 ['href' => '/narasi/fitrah', 'text' => 'Zakat Fitrah'],
                 ['href' => '/narasi/maal', 'text' => 'Zakat Maal'],
                 ['href' => '/narasi/infaq', 'text' => 'Infaq'],
@@ -33,8 +35,9 @@
                 ['href' => '/narasi/qurban', 'text' => 'Qurban'],
             ]" isDropdown="true" />
 
-            <livewire:navbar.navlink isDropdown="false" wire:key={{rand()}} title="Campaign" url="/campaigns" />
-            <livewire:navbar.navlink isDropdown="false" wire:key={{rand()}} title="Berita" url="/berita" />
+            <livewire:navbar.navlink isDropdown="false" wire:key={{ rand() }} title="Campaign"
+                url="/campaigns" />
+            <livewire:navbar.navlink isDropdown="false" wire:key={{ rand() }} title="Berita" url="/berita" />
 
             @if (Auth::check())
                 @if (Auth::user()->role == 'admin')
@@ -74,41 +77,47 @@
 
             <!-- Navigation Links and Buttons -->
             <div class="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0 md:ml-auto">
-                <livewire:navbar.navlink wire:key={{rand()}} title="Lazisnu Cilacap" :links="[
+                <livewire:navbar.navlink wire:key={{ rand() }} title="Lazisnu Cilacap" :links="[
                     ['href' => '/profil&jajaran', 'text' => 'Profil & Jajaran Pengurus'],
                     ['href' => '/sejarah', 'text' => 'Sejarah'],
                     ['href' => '/legalitas', 'text' => 'Legalitas'],
                     ['href' => '/kebijakan', 'text' => 'Standar Layanan (MANTAP)'],
                     ['href' => '#', 'text' => 'Laporan & Publikasi'],
                     ['href' => '/mitra', 'text' => 'Mitra'],
-                ]" isDropdown="true" />
+                ]"
+                    isDropdown="true" />
 
-                <livewire:navbar.navlink wire:key={{rand()}} title="Pilar & Program" :links="[
+                <livewire:navbar.navlink wire:key={{ rand() }} title="Pilar & Program" :links="[
                     ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
                     ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
                     ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
                     ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
                     ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
-                ]" isDropdown="true" />
+                ]"
+                    isDropdown="true" />
 
-                <livewire:navbar.navlink wire:key={{rand()}} title="Layanan" :links="[
+                <livewire:navbar.navlink wire:key={{ rand() }} title="Layanan" :links="[
                     ['href' => '/konfirmasi', 'text' => 'Konfirmasi Donasi'],
                     ['href' => '/pengajuan', 'text' => 'Pengajuan Umum'],
                     ['href' => '/pengajuan-mobiznu', 'text' => 'Layanan Mobisnu'],
                     ['href' => '/pengajuan-gocap', 'text' => 'Gocap'],
-                ]" isDropdown="true" />
+                ]"
+                    isDropdown="true" />
 
-<livewire:navbar.navlink wire:key={{rand()}} title="Ziwaf" :links="[
-    ['href' => '/narasi/fitrah', 'text' => 'Zakat Fitrah'],
-    ['href' => '/narasi/maal', 'text' => 'Zakat Maal'],
-    ['href' => '/narasi/infaq', 'text' => 'Infaq'],
-    ['href' => '/narasi/wakaf', 'text' => 'wakaf'],
-    ['href' => '/narasi/fidyah', 'text' => 'Fidyah'],
-    ['href' => '/narasi/qurban', 'text' => 'Qurban'],
-]" isDropdown="true" />
+                <livewire:navbar.navlink wire:key={{ rand() }} title="Ziwaf" :links="[
+                    ['href' => '/narasi/fitrah', 'text' => 'Zakat Fitrah'],
+                    ['href' => '/narasi/maal', 'text' => 'Zakat Maal'],
+                    ['href' => '/narasi/infaq', 'text' => 'Infaq'],
+                    ['href' => '/narasi/wakaf', 'text' => 'wakaf'],
+                    ['href' => '/narasi/fidyah', 'text' => 'Fidyah'],
+                    ['href' => '/narasi/qurban', 'text' => 'Qurban'],
+                ]"
+                    isDropdown="true" />
 
-                <livewire:navbar.navlink isDropdown="false"  wire:key={{rand()}} title="Campaign" url="/campaigns" />
-                <livewire:navbar.navlink isDropdown="false"  wire:key={{rand()}} title="Berita" url="/berita" />
+                <livewire:navbar.navlink isDropdown="false" wire:key={{ rand() }} title="Campaign"
+                    url="/campaigns" />
+                <livewire:navbar.navlink isDropdown="false" wire:key={{ rand() }} title="Berita"
+                    url="/berita" />
 
                 @if (Auth::check())
                     @if (Auth::user()->role == 'admin')
