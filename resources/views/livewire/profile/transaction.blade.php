@@ -12,7 +12,7 @@
                             <li class="px-4 my-2 bg-white w-full" wire:key="{{ $transaction->id_transaction }}">
                                 @if ($transaction->title)
                                     <div class="text-left">
-                                        <span class="text-[12px] text-gray-800">Donasi Untuk</span>
+                                        <span class="text-[12px] text-gray-800">Donasi Untuk Campaign</span>
                                         <span class="text-[12px] text-gray-800 font-bold">{{ $transaction->title }}</span>
                                     </div>
                                 @else
