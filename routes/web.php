@@ -148,10 +148,3 @@ Route::get('/list_donasi/{title}', App\Livewire\Campaigns\DonasiList::class)->na
 Route::get('/campaigns', App\Livewire\Campaigns\Index::class)->name('campaign');
 Route::get('/campaigns/{title}', App\Livewire\Campaigns\Show::class)->name('campaigns.show');
 Route::get('/doa/{title}', App\Livewire\Campaigns\DoaList::class)->name('campaigns.doaList');
-
-// Custom 404 harus dibawah
-Route::get('{slug}', App\Livewire\NotFound::class)->name('404');
-Route::get('{slug}/{slaug}', App\Livewire\NotFound::class)->name('404');
-Route::get('{slug}/{slaug}/{sluga}', App\Livewire\NotFound::class)->name('404');
-Route::get('{slug}/{slaug}/{sluga}/{slugaa}', App\Livewire\NotFound::class)->name('404');
-Route::get('{slug}/{slaug}/{sluga}/{slugaa}/{slugaaa}', App\Livewire\NotFound::class)->name('404');
