@@ -123,9 +123,9 @@ Route::get('/sejarah', App\Livewire\Sejarah::class)->name('sejarah');
 Route::get('/legalitas', App\Livewire\Legalitas::class)->name('legalitas');
 
 
-Route::get('/donasi/{title}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
-Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');
-Route::get('/pembayaran/{title}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
+// Route::get('/donasi/{title}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
+// Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');
+// Route::get('/pembayaran/{title}/{token}', App\Livewire\Donasi\Pembayaran::class)->name('donasi.pembayaran');
 
 Route::get('/pengajuan', App\Livewire\Pengajuan\Index::class)->name('pengajuan.index');
 Route::get('/pengajuan/success', App\Livewire\Pengajuan\Success::class)->name('pengajuan.success');
