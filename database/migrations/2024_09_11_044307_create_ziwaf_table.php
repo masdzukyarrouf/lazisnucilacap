@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('ziwaf', function (Blueprint $table) {
             $table->integer('id_ziwaf')->autoIncrement()->primary();
             $table->integer('id_transaction');
+            $table->string('atas_nama');
             $table->string('username');
             $table->string('no_telp');
             $table->string('email')->nullable();

@@ -17,12 +17,17 @@ class Data extends Component
     #[Rule('required|string')]
     public $email;
     public $nominal;
+    public $atasNama;
+    public $data;
 
 
     public function mount(){
-        $this->nominal = session('nominal', 'none');
-        if($this->nominal == 'none'){
+        $this->data = session('data', 'none');
+        if($this->data == 'none'){
             return redirect()->route('fidyah.index');
+        }else{
+            $this->nominal = $this->data['nominal'];
+            $this->atasNama = $this->data['atasNama'];
         }
         $user = Auth::user();
         if($user){
@@ -84,16 +89,18 @@ class Data extends Component
             'no_telp' => $this->no_telp,
             'id_transaction' => $this->transaction->id_transaction,
             'jenis_ziwaf' => 'fidyah',
-            'email' => 'email@email.email',
+            'email' => $this->email ?? null,
+            'atas_nama' => $this->atasNama,
         ]);
         $this->donatur = [
             'username' => $this->username,
             'nominal' => $this->nominal,
+            'atasNama' => $this->atasNama,
             'no_telp' => $this->no_telp,
             'email' => $this->email,
         ];
-        return redirect()->route('fidyah.pembayaran',['token' => $snapToken])
-            ->with('donatur', $this->donatur);
+        // return redirect()->route('fidyah.pembayaran',['token' => $snapToken])
+        //     ->with('donatur', $this->donatur);
     }
     public function render()
     {

@@ -3,27 +3,35 @@
     <div class="flex flex-col min-h-screen pb-24 bg-white rounded-lg shadow-md" style="width: 414px">
         <livewire:ziwaf.navigation/>
         <form wire:submit.prevent="bayarFidyah" class="mx-4">
-            <div class="mt-2 w-full flex flex-col space-y-2">
-                <label class=" font-semibold text-black mx-2">Jumlah Hari</label>
-                <div class="flex items-center mx-2 border bg-gray-400 bg-opacity-70">
-                    <p class="text-black  text-center italic mx-2 w-8">Hari</p>
+            <div class="flex flex-col w-full mt-2 space-y-2">
+                <label class="mx-2 font-semibold text-black ">Jumlah Hari</label>
+                <div class="flex items-center mx-2 bg-gray-400 border bg-opacity-70">
+                    <p class="w-8 mx-2 italic text-center text-black">Hari</p>
                     <input type="text"
-                        class=" ml-2 w-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                        class="w-full p-2 ml-2 focus:outline-none focus:ring-2 focus:ring-gray-500"
                         placeholder="Isi Dengan Jumlah Hari" onkeyup="formatAndSync(this)" id="formattedInput">
                     <input type="hidden" wire:model.live="nominal" id="rawInput">
                     
                 </div>
-                <label class=" font-semibold text-black mx-2">Nominal Fidyah</label>
-                <div class="flex items-center mx-2 border bg-gray-400 bg-opacity-70">
-                    <p class="text-black  text-center italic mx-2 w-8">Rp.</p>
-                    <input type="text" disabled
-                        class=" ml-2 w-full p-2 focus:outline-none focus:ring-2 bg-white focus:ring-gray-500"
+                <label class="font-semibold">Atas Nama</label>
+                    <input 
+                        type="text" 
+                        id="atasNama" 
+                        wire:model="atasNama" 
+                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        placeholder="Isikan nama anda" 
+                    />
+                <label class="mx-2 font-semibold text-black ">Nominal Fidyah</label>
+                <div class="flex items-center mx-2 bg-gray-400 border bg-opacity-70">
+                    <p class="w-8 mx-2 italic text-center text-black">Rp.</p>
+                    <input type="text"
+                        class="w-full p-2 ml-2 bg-white focus:outline-none focus:ring-2 focus:ring-gray-500"
                         id="nominalFidyahDisplay" placeholder="Minimal donasi"
                         value="{{ number_format($nominal_fidyah, 0, ',', '.') }}">
                 </div>
-                <div class="flex items-center justify-center py-4 space-x-4 w-full">
+                <div class="flex items-center justify-center w-full py-4 space-x-4">
                     <button type="submit"
-                        class=" bg-green-600 px-16 py-2 items-center text-white rounded-lg w-full">
+                        class="items-center w-full px-16 py-2 text-white bg-green-600 rounded-lg ">
                         Bayar Sekarang
                     </button>
                 </div>

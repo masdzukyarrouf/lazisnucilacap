@@ -5,7 +5,26 @@
             <div class="mx-5 mt-2">
                 <div class="flex flex-col">
                     <span class="text-sm text-gray-600">Anda Akan Melakukan Pembayaran Untuk Wakaf</span>
-                    <span class="text-sm text-gray-600">Untuk Program : {{ $this->jenis }}   </span>
+                </div>
+                <div class="flex flex-col mt-2">
+                    <span class="mb-2">
+                        Detail Wakaf
+                    </span>
+                    <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">Nama Program</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>{{ $jenis }}</div>
+                </div>
+                <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">Nama Muzakki</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>{{ $atasNama }}</div>
+                </div>
+                <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">Jenis</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>{{ $jenis3 }}</div>
+                </div>
                 </div>
                 <label class="font-semibold">Nominal Zakat</label>
                 <div class="relative flex flex-col mb-3">

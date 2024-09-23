@@ -55,6 +55,8 @@ class Ziwaf extends Component
 
     public $selectedOption = '';
     public $selectedOption2 = '';
+    public $jenis3;
+    public $atasNama;
     public $zakat;
     public $nisab;
     public $nisabbulan;
@@ -242,7 +244,7 @@ class Ziwaf extends Component
 
     public function mount()
     {
-        redirect()->route(route: 'x');
+        // redirect()->route(route: 'x');
         $this->reset(); // Reset
         // $this->fetchGoldPrice();
         // $this->nisab = 85 * $this->goldPrice[0]['sell'];
@@ -271,6 +273,8 @@ class Ziwaf extends Component
         $zakatFitrah = $this->zakatFitrah;
         $selectedOption = $this->selectedOption;
         $selectedOption2 = $this->selectedOption2;
+        $jenis3 = $this->jenis3;
+        $atasNama = $this->atasNama;
 
         // Menentukan URL redirect berdasarkan nilai parameter
         if ($zakatEmas > 0) {
@@ -280,44 +284,58 @@ class Ziwaf extends Component
             $this->zakat = [
                 'nominal' => $zakatEmas,
                 'jenis1' => $selectedOption,
-                'jenis2' => $selectedOption2
+                'jenis2' => $selectedOption2,
+                'jenis3' => $jenis3,
+                'atasNama' => $atasNama
             ];
 
         } elseif ($zakatPenghasilan > 0) {
             $this->zakat = [
                 'nominal' => $zakatPenghasilan,
                 'jenis1' => $selectedOption,
-                'jenis2' => $selectedOption2
+                'jenis2' => $selectedOption2,
+                'jenis3' => $jenis3,
+                'atasNama' => $atasNama
             ];
         } elseif ($zakatPertanian > 0) {
             $this->zakat = [
                 'nominal' => $zakatPertanian,
                 'jenis1' => $selectedOption,
-                'jenis2' => $selectedOption2
+                'jenis2' => $selectedOption2,
+                'jenis3' => $jenis3,
+                'atasNama' => $atasNama
             ];
         } elseif ($zakatPerdagangan > 0) {
             $this->zakat = [
                 'nominal' => $zakatPerdagangan,
                 'jenis1' => $selectedOption,
-                'jenis2' => $selectedOption2
+                'jenis2' => $selectedOption2,
+                'jenis3' => $jenis3,
+                'atasNama' => $atasNama
             ];
         } elseif ($zakatUang > 0) {
             $this->zakat = [
                 'nominal' => $zakatUang,
                 'jenis1' => $selectedOption,
-                'jenis2' => $selectedOption2
+                'jenis2' => $selectedOption2,
+                'jenis3' => $jenis3,
+                'atasNama' => $atasNama
             ];
         } elseif ($zakatJasa > 0) {
             $this->zakat = [
                 'nominal' => $zakatJasa,
                 'jenis1' => $selectedOption,
-                'jenis2' => $selectedOption2
+                'jenis2' => $selectedOption2,
+                'jenis3' => $jenis3,
+                'atasNama' => $atasNama
             ];
         } elseif ($zakatDagang > 0) {
             $this->zakat = [
                 'nominal' => $zakatDagang,
                 'jenis1' => $selectedOption,
-                'jenis2' => $selectedOption2
+                'jenis2' => $selectedOption2,
+                'jenis3' => $jenis3,
+                'atasNama' => $atasNama
             ];
         } elseif ($zakatFitrah > 0) {
             $this->muzakki = [

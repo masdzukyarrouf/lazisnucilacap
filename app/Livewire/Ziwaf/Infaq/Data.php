@@ -10,6 +10,9 @@ use App\Models\ziwaf;
 class Data extends Component
 {
     public $nominal_infaq;
+    public $atasNama;
+    public $jenis3;
+    public $jenis;
     public $username;
     public $no_telp;
     public $jenis_ziwaf;
@@ -20,8 +23,17 @@ class Data extends Component
             return redirect()->route('infaq.index');
         }else{
             $this->jenis_ziwaf = $infaq['jenis_ziwaf'];
-        $this->nominal_infaq = $infaq['nominal'];
+            $this->nominal_infaq = $infaq['nominal'];
+            $this->atasNama = $infaq['atasNama'];
+            $this->jenis3 = $infaq['jenis3'];
         }
+
+        if($this->jenis_ziwaf === "Infaq / Sedekah Umum"){
+            $this->jenis = "Umum";
+        }else{
+            $this->jenis = "Terikat";
+        }
+
         $user = Auth::user();
         if($user){
             $this->username = $user->username;
@@ -30,6 +42,21 @@ class Data extends Component
             $this->email = $user->email ?? null;
         }
     }
+
+    public function rules()
+    {
+        return [
+            'email' => 'nullable|email|regex:/@gmail\.com$/',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'email.regex' => 'Email harus berupa @gmail.com',
+        ];
+    }
+
     public function bayarInfaq(){
 
         $order_id = rand();
@@ -80,8 +107,9 @@ class Data extends Component
             'username' => $this->username,
             'no_telp' => $this->no_telp,
             'id_transaction' => $this->transaction->id_transaction,
-            'jenis_ziwaf' => $this->jenis_ziwaf,
-            'email' => 'email@email.email',
+            'jenis_ziwaf' => $this->jenis_ziwaf . ' ' . '(' . $this->jenis . ')',
+            'email' => $this->email ?? null,
+            'atas_nama' => $this->atasNama,
         ]);
         $this->donatur = [
             'username' => $this->username,
@@ -89,6 +117,8 @@ class Data extends Component
             'no_telp' => $this->no_telp,
             'email' => $this->email ?? null,
             'jenis_ziwaf' => $this->jenis_ziwaf,
+            'atasNama' => $this->atasNama,
+            'jenis3' => $this->jenis3
         ];
         return redirect()->route('infaq.pembayaran',['token' => $snapToken])
             ->with('donatur', $this->donatur);

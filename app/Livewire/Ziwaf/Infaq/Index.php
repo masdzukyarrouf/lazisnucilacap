@@ -8,11 +8,9 @@ class Index extends Component
 {
     public $nominal_infaq;
     public $jenis_ziwaf;
+    public $jenis3;
+    public $atasNama;
 
-    public function mount()
-    {
-        redirect()->route(route: 'x');
-    }
     
     protected $rules = [
         'nominal_infaq' => 'required|integer|min:50000',
@@ -31,7 +29,9 @@ class Index extends Component
         $rounded_nominal = ceil($this->nominal_infaq / 1000) * 1000;
         $infaq = [
             'nominal' => $rounded_nominal,
-            'jenis_ziwaf' => $this->jenis_ziwaf
+            'jenis_ziwaf' => $this->jenis_ziwaf,
+            'atasNama' => $this->atasNama,
+            'jenis3' => $this->jenis3
         ];
 
         return redirect()->route('infaq.data')->with('infaq', $infaq);

@@ -4,9 +4,28 @@
         <div class="mx-5 mt-5">
             <div class="flex flex-col">
                 <span class="text-sm text-gray-600">Anda Akan Melakukan Pembayaran Untuk Wakaf</span>
-                <span class="text-sm text-gray-600">Untuk Program : {{ $this->jenis }}   </span>
             </div>
             <div class="my-4">
+                <div class="flex flex-col">
+                    <span class="mb-2">
+                        Detail Wakaf
+                    </span>
+                    <div class="flex items-center mb-2">
+                        <div class="w-40 text-gray-500">Nama program</div>
+                        <div class="w-4 text-gray-500text-center">:</div>
+                        <div>{{ $jenis }}</div>
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <div class="w-40 text-gray-500">Atas nama</div>
+                        <div class="w-4 text-gray-500text-center">:</div>
+                        <div>{{ $atasNama }}</div>
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <div class="w-40 text-gray-500">Jenis</div>
+                        <div class="w-4 text-gray-500text-center">:</div>
+                        <div>{{ $jenis3 }}</div>
+                    </div>
+                </div>
                 <label class="font-semibold">Nominal Zakat</label>
                 <div class="relative flex flex-col mb-3">
                     <div class="flex items-center justify-center">
@@ -49,15 +68,18 @@
                                     placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
                                 />
 
-                                <label class="font-semibold">Email (Opsional)</label>
+                                 <label class="font-semibold">Email (Opsional)</label>
                                 <input 
                                     type="text" 
                                     id="email" 
                                     wire:model.lazy="email" 
                                     wire:input="datadiri" 
-                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                                    placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
+                                    class="w-full px-2 py-1 border border-gray-300 rounded" 
+                                    placeholder="Isikan dengan email anda" 
                                 />
+                                @error('email')
+                                    <span class="w-full mt-2 text-xs text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                     </div>
                 </div> 

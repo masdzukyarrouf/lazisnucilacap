@@ -6,7 +6,7 @@
             <div class="my-4">
                 @if ($zakatFitrah > 0)
                 <div class="flex flex-col">
-                    <span>
+                    <span class="mb-2">
                         Detail Zakat
                     </span>
                     <div class="flex items-center mb-2">
@@ -44,6 +44,26 @@
                     </div>
                 </div>
                 @else
+                <div class="flex flex-col">
+                    <span class="mb-2">
+                        Detail Zakat
+                    </span>
+                    <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">Zakat Maal</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>{{ $jenis2 }}</div>
+                </div>
+                <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">Atas Nama</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>{{ $atasNama }}</div>
+                </div>
+                <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">Jenis</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>{{ $jenis3 }}</div>
+                </div>
+                </div>
                 <label class="font-semibold">Nominal Zakat</label>
                 <div class="relative flex flex-col mb-3">
                     <div class="flex items-center justify-center">
@@ -66,7 +86,7 @@
                             <span>sudah punya akun?</span>
                             <span wire:click="login" class="font-semibold text-green-500 cursor-pointer">Login</span>
                         @endif
-                            <div>
+                            <div class="flex flex-col">
                                 <label class="font-semibold">Nama Anda</label>
                                 <input 
                                     type="text" 
@@ -74,7 +94,7 @@
                                     wire:model.lazy="nama" 
                                     wire:input="datadiri"
                                     class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                                    placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
+                                    placeholder="Isikan dengan nama anda" 
                                 />
                                 
                                 <label class="font-semibold">No Telepon (WA Aktif)</label>
@@ -84,7 +104,7 @@
                                     wire:model.lazy="no" 
                                     wire:input="datadiri" 
                                     class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                                    placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
+                                    placeholder="Isikan dengan nomor whatsapp anda" 
                                 />
 
                                 <label class="font-semibold">Email (Opsional)</label>
@@ -93,13 +113,31 @@
                                     id="email" 
                                     wire:model.lazy="email" 
                                     wire:input="datadiri" 
-                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                                    placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
+                                    class="w-full px-2 py-1 border border-gray-300 rounded" 
+                                    placeholder="Isikan dengan email anda" 
                                 />
+                                @error('email')
+                                    <span class="w-full mt-2 text-xs text-red-500">{{ $message }}</span>
+                                @enderror
+
+                                <label class="mt-3 font-semibold">Alamat (Opsional)</label>
+                                <textarea 
+                                    type="text" 
+                                    id="alamat" 
+                                    wire:model.lazy="alamat" 
+                                    wire:input="datadiri" 
+                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                                    placeholder="Isikan dengan alamat anda">
+                                </textarea>
                             </div>
                     </div>
                 </div> 
             </div>
+                <p class="text-[10px]  mb-4">
+                    Data pribadi Anda akan digunakan untuk memproses pesanan Anda, menunjang pengalaman Anda di seluruh
+                    situs web ini, dan untuk tujuan lain yang dijelaskan dalam
+                    <a href="#" class="text-blue-500 hover:underline">kebijakan privasi</a> kami.
+                </p>
             <button wire:click="co" class="w-full px-4 py-2 font-semibold text-white bg-green-500 rounded">
                 Zakat Sekarang
             </button>

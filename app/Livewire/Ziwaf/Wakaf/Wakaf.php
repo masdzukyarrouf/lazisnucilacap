@@ -9,13 +9,12 @@ class Wakaf extends Component
     public $wakaf = '';
     public $selectedOption = '';
     public $data;
+    public $jenis3;
+    public $atasNama;
 
 
-    public function mount()
-    {
-        redirect()->route(route: 'x');
-    }
-    
+
+
     public function submitwaif()
     {
         $this->wakaf = !empty($this->wakaf) ? (float) str_replace('.', '', $this->wakaf) : 0;
@@ -23,6 +22,8 @@ class Wakaf extends Component
         $this->data = [
             'nominal' => $this->wakaf,
             'jenis' => $this->selectedOption,
+            'atasnama' => $this->atasNama,
+            'jenis3' => $this->jenis3
         ];
         return redirect()->route('wakaf.data')
             ->with('data', $this->data);
