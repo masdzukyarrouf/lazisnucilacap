@@ -1,7 +1,7 @@
 <div>
     {{-- <x-navbar></x-navbar> --}}
-    <livewire:navbar.index/>
-    <livewire:navbar.usermenu/>
+    <livewire:navbar.index />
+    <livewire:navbar.usermenu />
     <div class="relative flex items-center justify-center mt-1">
         <div class="relative z-0 w-full bg-white">
             <div x-data="{
@@ -32,9 +32,9 @@
 
     <div class="relative flex flex-wrap items-center justify-center w-full mt-16 z-12">
         <div
-            class="relative flex flex-wrap items-center justify-center h-auto -mt-24 space-x-2 md:mx-20 md:-mt-32 md:space-x-4 lg:space-x-8 rounded-3xl">
+            class="relative flex flex-wrap items-center justify-center h-full -mt-24 space-x-2 md:space-x-8 rounded-3xl">
             <!-- Wrapper for Left Ornament and Item 1 -->
-            <div class="relative flex items-center">
+            <div class="relative flex items-center h-full">
                 <a
                     href="https://wa.me/62895392167815?text=Assalamualaikum,%20saya%20ingin%20berkonsultasi%20mengenai%20zakat">
                     <div
@@ -146,18 +146,18 @@
             x-data="{ load: false }" x-init="load = true" x-show="load" wire:init="loadCampaigns">
             @if ($campaigns && $campaigns->isEmpty())
             @elseif($campaigns)
-            @foreach ($campaigns as $campaign)
-            <!-- Display this card on md: and larger -->
-            <div class="hidden md:block">
-                <x-campaign-card :campaign="$campaign" wire:key="md-{{ $campaign->id_campaign }}" />
-            </div>
-        
-            <!-- Display this card below md: -->
-            <div class="block md:hidden">
-                <livewire:campaigns.card :campaign="$campaign" wire:key="sm-{{ $campaign->id_campaign }}" />
-            </div>
-        @endforeach
-        
+                @foreach ($campaigns as $campaign)
+                    <!-- Display this card on md: and larger -->
+                    <div class="hidden md:block">
+                        <x-campaign-card :campaign="$campaign" wire:key="md-{{ $campaign->id_campaign }}" />
+                    </div>
+
+                    <!-- Display this card below md: -->
+                    <div class="block md:hidden">
+                        <livewire:campaigns.card :campaign="$campaign" wire:key="sm-{{ $campaign->id_campaign }}" />
+                    </div>
+                @endforeach
+
             @endif
             <div wire:loading class="w-full ">
                 <div
@@ -359,8 +359,8 @@
         <div class="h-[70px]">
         </div>
         <!-- Sticky Bottom -->
-        <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white shadow-md md:hidden">
-            <div class="flex items-center justify-center w-full px-8 py-4 space-x-12 bg-white shadow-2xl rounded-3xl">
+        <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white shadow-md md:hidden border-t">
+            <div class="flex items-center justify-center w-full px-8 py-8 space-x-12 bg-white shadow-2xl rounded-3xl">
 
                 <div class="items-center w-16 h-auto rounded-lg">
                     <a wire:navigate.hover href="{{ route('landing') }}">
