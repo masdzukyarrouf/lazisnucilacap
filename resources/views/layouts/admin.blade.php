@@ -104,6 +104,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     @livewireStyles
 </head>
@@ -127,7 +129,7 @@
                 <form action="{{ route('logout') }}" method="POST" x-data>
                     @csrf
                     <button
-                        @click.prevent="if (confirm('Apakah Anda yakin ingin keluar?')) { $el.closest('form').submit(); }">
+                        @click.prevent="confirmLogout">
                         Logout
                     </button>
                 </form>
@@ -139,7 +141,7 @@
     <div id="overlay" class="overlay"></div>
 
     <!-- Navbar -->
-    <nav class="z-10 p-4 shadow-xl bg-white-800 flex justify-between items-center">
+    <nav class="z-10 flex items-center justify-between p-4 shadow-xl bg-white-800">
         <button id="menu-toggle" class="text-black focus:outline-none">
             <!-- Hamburger Icon -->
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -173,7 +175,36 @@
             sidebar.style.transform = 'translateX(-250px)';
             overlay.classList.remove('show');
         });
+        
+        function confirmLogout() {
+            Swal.fire({
+                title: 'Apakah Anda yakin ingin keluar?',
+                text: "Anda akan keluar dari sesi ini.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#22c55e',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Keluar',
+                customClass: {
+                    popup: 'small-swal',  // Custom class untuk modal kecil
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Submit form jika konfirmasi diterima
+                    document.querySelector('form').submit();
+                }
+            });
+        }
     </script>
+
+    <!-- Custom CSS untuk memperkecil ukuran modal -->
+    <style>
+        .small-swal {
+            font-size: 0.8rem; /* Ukuran font lebih kecil */
+            padding: 1.5rem;   /* Mengurangi padding modal */
+            width: 300px;      /* Mengurangi lebar modal */
+        }
+    </style>
     @livewireScripts
 </body>
 

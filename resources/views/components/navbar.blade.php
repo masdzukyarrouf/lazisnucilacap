@@ -64,9 +64,9 @@
                         Admin
                     </a>
                 @elseif (Auth::user()->role == 'donatur')
-                    <a href="{{route('profile.index')}}"
+                    <a href="#"
                         class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
-                        profil
+                        prfil
                     </a>
                 @endif
             @else
@@ -131,9 +131,9 @@
                             Admin
                         </a>
                     @elseif (Auth::user()->role == 'donatur')
-                        <a href="{{route('profile.index')}}"
+                        <a href="#"
                             class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
-                            profil
+                            profl
                         </a>
                     @endif
                 @else
