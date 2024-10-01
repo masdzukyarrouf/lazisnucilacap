@@ -24,13 +24,14 @@
             <div class="flex flex-col justify-center p-4">
             <h1 class="pb-2 font-semibold">Perhitungan Zakat</h1>
                 <div class="relative w-96">
-                    <a href="#">
+                    <a href="{{ asset('storage/tabel_perhitungan_zakat_lazisnu.pdf') }}" target="_blank">
                         <button class="flex items-center w-full px-4 py-2 border border-gray-300 rounded">
-                            <img src="{{ asset ('images/paper.png') }}" alt="logo" class="w-6">
+                            <img src="{{ asset('images/paper.png') }}" alt="logo" class="w-6">
                             <span class="pl-2 text-sm font-semibold">Tabel Perhitungan Zakat.pdf</span>
                         </button>
                     </a>
                 </div>
+
             </div>
             <div class="flex flex-col justify-center p-4">
             <h1 class="pb-2 font-semibold">Pilih Kategori Zakat Maal</h1>

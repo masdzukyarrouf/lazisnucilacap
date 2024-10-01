@@ -5,7 +5,7 @@
         <div class="flex flex-col p-4">
             <h1 class="pb-2 font-semibold">Harga Hewan Qurban</h1>
                 <div class="relative w-96">
-                    <a href="#">
+                    <a href="{{ asset('storage/table_harga_hewan_qurban_2024.pdf') }}">
                         <button class="flex items-center w-full px-4 py-2 border border-gray-300 rounded">
                             <img src="{{ asset ('images/paper.png') }}" alt="logo" class="w-6">
                             <span class="pl-2 text-sm font-semibold">Tabel Harga Hewan Qurban 2024.pdf</span>
