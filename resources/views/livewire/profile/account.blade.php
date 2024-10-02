@@ -19,7 +19,7 @@
                     <div class="mb-4">
                         <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
                         <input type="text" id="username" wire:model="username" name="username"
-                            class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                            class="block w-full py-1 px-2 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('username')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -28,7 +28,7 @@
                         <label for="first_name" class="block text-sm font-medium text-gray-700">Nama
                             Depan</label>
                         <input type="text" id="first_name" wire:model="first_name" name="first_name"
-                            class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                            class="block w-full py-1 px-2 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('first_name')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -37,7 +37,7 @@
                         <label for="last_name" class="block text-sm font-medium text-gray-700">Nama
                             Belakang</label>
                         <input type="text" id="last_name" wire:model="last_name" name="last_name"
-                            class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                            class="block w-full py-1 px-2 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('last_name')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -45,7 +45,7 @@
                     <div class="mb-4">
                         <label for="no_telp" class="block text-sm font-medium text-gray-700">No Telp</label>
                         <input type="text" id="no_telp" wire:model="no_telp" name="no_telp"
-                            class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                            class="block w-full py-1 px-2 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('no_telp')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -53,7 +53,7 @@
                     <div class="mb-4">
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                         <input type="password" id="password" wire:model="password" name="password"
-                            class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                            class="block w-full py-1 px-2 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('password')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -62,7 +62,7 @@
                     <!-- Submit Button inside the form -->
                     <div class="flex justify-center mt-6 rounded-b-lg">
                         <button type="submit"
-                            class="w-full py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">Submit</button>
+                            class="w-full py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">Simpan</button>
                     </div>
                 </form>
     </div>
