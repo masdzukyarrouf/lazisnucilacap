@@ -1,5 +1,5 @@
 <div class="w-full max-w-[414px] mx-auto bg-white h-auto">
-    <x-nav-mobile2 title="List Donasi Campaign" />
+    <x-nav-mobile2 title="Daftar Donasi {{ $campaign->title }}" />
     <div x-data="{ load: false }" x-init="load = true" x-show="load" wire:init="loadDonasis">
 
         @if ($donasis && $donasis->isEmpty())

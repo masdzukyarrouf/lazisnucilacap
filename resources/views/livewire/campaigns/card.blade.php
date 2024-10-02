@@ -26,7 +26,7 @@
                 </div>
                 <div class="flex items-center justify-between">
                     <div class="text-[12px] text-left">
-                        <p class=" text-gray-700 ">Raised</p>
+                        <p class=" text-gray-700 ">Terhimpun</p>
                         <p class=" text-green-600  font-bold">Rp.
                             {{ number_format($campaign->raised, 0, ',', '.') }}</p>
                     </div>

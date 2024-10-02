@@ -24,7 +24,7 @@
 
                 <div class="flex items-center justify-between ">
                     <div class=" text-left ">
-                        <p class=" text-gray-700 text-[10px]">Raised</p>
+                        <p class=" text-gray-700 text-[10px]">Terhimpun</p>
                         <p class=" text-green-600 text-[12px] font-extrabold">Rp.
                             {{ number_format($campaign->raised, 0, ',', '.') }}</p>
                     </div>
@@ -82,7 +82,7 @@
                 @if ($donasis && $donasis->isEmpty())
                     <div class="px-4 py-2 border border-transparent border-b-gray-300 h-[100px] text-center ">
                         <p>
-                            Belum Ada Donasi
+                            Jadilah yang pertama donasi
                         </p>
                         <a href="{{ route('donasi.index', $campaign->title) }}" class="text-green-500 text-sm">Donasi
                             Sekarang</a>
@@ -125,7 +125,7 @@
                 @if ($doas && $doas->isEmpty())
                     <div class="px-4 py-2 border border-transparent border-b-gray-300 h-[100px] text-center ">
                         <p>
-                            Belum Ada Doa
+                            Jadilah yang pertama mendoakan
                         </p>
                         <a href="{{ route('donasi.index', $campaign->title) }}" class="text-green-500 text-sm">Donasi
                             Sekarang</a>
@@ -178,7 +178,7 @@
                 <livewire:campaigns.share />
 
                 <a wire:navigate.hover href="{{ route('donasi.index', $campaign->title) }}"
-                    class="text-[12px] bg-green-600 px-16 py-2 items-center text-white rounded-lg">
+                    class="text-[13px] bg-green-600 px-20 py-2 items-center text-white rounded-lg">
                     Donasi Sekarang
                 </a>
             </div>
