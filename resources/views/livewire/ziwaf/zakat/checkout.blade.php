@@ -5,6 +5,7 @@
             <div class="mx-5 mt-2">
                 <span class="mb-4 text-sm text-gray-600">Anda Akan Melakukan Pembayaran Untuk Zakat</span>
                 @if ($zakatFitrah > 0)
+                <span> Fitrah</span>
                 <div class="flex flex-col mb-4">
                     <span class="mb-2">
                         Detail Zakat
@@ -18,8 +19,8 @@
                     <div class="w-40 text-gray-500">Nama Muzakki</div>
                     <div class="w-4 text-gray-500text-center">:</div>
                     <div>
-                        @foreach ($this->namaMuzakki as $nama)
-                            {{ $nama }}
+                        @foreach ($this->namaMuzakki as $index => $nama)
+                            {{ $nama }}@if (!$loop->last),@endif
                         @endforeach
                     </div>
                 </div>

@@ -342,6 +342,7 @@ class Ziwaf extends Component
                 'namaMuzakki' => $this->nama,
                 'jumlah' => $this->jumlah,
                 'zakatFitrah' => $zakatFitrah,
+                'jenis1' => $selectedOption,
 
             ];
         }else {

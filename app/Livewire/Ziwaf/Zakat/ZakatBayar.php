@@ -26,6 +26,7 @@ class ZakatBayar extends Component
     public $namaMuzakki;
     public $zakatFitrah;
     public $datazakat;
+    public $datafitrah;
     public $nominal;
     public $jenis1;
     public $jenis2;
@@ -72,6 +73,7 @@ class ZakatBayar extends Component
             $this->namaMuzakki = $muzakki['namaMuzakki'];
             $this->jumlah = $muzakki['jumlah'];
             $this->zakatFitrah = $muzakki['zakatFitrah'];
+            $this->jenis1 = $muzakki['jenis1'];
         } else {
             return redirect()->route('zakat');
         }
@@ -124,6 +126,12 @@ class ZakatBayar extends Component
     public function co()
     {
         $order_id = rand();
+
+        if ($this->zakatFitrah)
+        {
+            $this->nominal = $this->zakatFitrah;
+            $this->atasNama = implode(', ', $this->namaMuzakki);
+        }
 
         $this->transaction = Transaction::create([
             'nominal' => $this->nominal,
@@ -188,23 +196,38 @@ class ZakatBayar extends Component
 
         }
         
-        
-        $this->datazakat = [
-            'nominal' => $this->nominal,
-            'jenis1' => $this->jenis1,
-            'jenis2' => $this->jenis2,
-            'jenis3' => $this->jenis3,
-            'atasNama' => $this->atasNama,
-            'nama' => $this->nama ,
-            'no' => $this->no,
-            'email' => $this->email,
-            'alamat' => $this->alamat,
-            'zakatFitrah' => $this->zakatFitrah,
+        if ($this->zakatFitrah)
+        {
+            $this->datafitrah = [
+                'zakatFitrah' => $this->zakatFitrah,
+                'namaMuzakki' => $this->namaMuzakki,
+                'jumlah' => $this->jumlah,
+                'nama' => $this->nama,
+                'no' => $this->no,
+                'email' => $this->email,
+                'alamat' => $this->alamat,
 
-        ];
+            ];
+        }else{
+            $this->datazakat = [
+                'nominal' => $this->nominal,
+                'jenis1' => $this->jenis1,
+                'jenis2' => $this->jenis2,
+                'jenis3' => $this->jenis3,
+                'atasNama' => $this->atasNama,
+                'nama' => $this->nama ,
+                'no' => $this->no,
+                'email' => $this->email,
+                'alamat' => $this->alamat,
+    
+            ];
+        }
 
         return redirect()->route('zakat.pembayaran',['token' => $snapToken])
-            ->with('datazakat', $this->datazakat);
+            ->with([
+                'datazakat' => $this->datazakat,
+                'datafitrah' => $this->datafitrah
+            ]);
     }
 
     public function render()
