@@ -58,6 +58,14 @@
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
+                    <div class="mb-4">
+                        <label for="alamat" class="block text-sm font-medium text-gray-700">alamat</label>
+                        <input type="alamat" id="alamat" wire:model="alamat" name="alamat"
+                            class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                        @error('alamat')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
+                    </div>
 
                     <!-- Submit Button inside the form -->
                     <div class="flex justify-end p-4 bg-gray-200 rounded-b-lg">

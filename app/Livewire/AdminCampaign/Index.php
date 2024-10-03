@@ -14,7 +14,9 @@ class Index extends Component
     #[On('postUpdated')]
     public function handlePostEdited()
     {
-        session()->flash('message', 'Campaign Updated Successfully ');
+        // session()->flash('message', 'Campaign Updated Successfully ');
+        $this->dispatch('created', ['message' => 'Campaign Edited Successfully']);
+
 
     }
 
@@ -22,7 +24,9 @@ class Index extends Component
     #[On('campaignCreated')]
     public function handleCampaignCreated()
     {
-        session()->flash('message', 'Campaign Created Successfully ');
+        // session()->flash('message', 'Campaign Created Successfully ');
+        $this->dispatch('created', ['message' => 'Campaign Created Successfully']);
+
         
     }
     public function destroy($id_campaign)
@@ -30,8 +34,10 @@ class Index extends Component
         $campaign = campaign::find($id_campaign);
         if ($campaign) {
             $campaign->delete();
+            $this->dispatch('created', ['message' => 'Campaign deleted Successfully']);
+
         }
-        session()->flash('message', 'Campaign Destroyed Successfully ');
+        // session()->flash('message', 'Campaign Destroyed Successfully ');
 
 
     }

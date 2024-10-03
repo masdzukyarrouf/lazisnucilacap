@@ -26,14 +26,16 @@ class Index extends Component
             $landing->delete();
 
             // Tampilkan pesan sukses
-            session()->flash('message', 'Gambar Landing destroyed successfully.');
+            $this->dispatch('created', ['message' => 'Gambar Landing deleted Successfully']);
+            // session()->flash('message', 'Gambar Landing destroyed successfully.');
         }
     }
 
     #[On('gambarCreated')]
     public function handleberitaCreated()
     {
-        session()->flash('message', 'Gambar Landing Created Successfully');
+            $this->dispatch('created', ['message' => 'Gambar Landing created Successfully']);
+        // session()->flash('message', 'Gambar Landing Created Successfully');
     }
 
     public function render()
