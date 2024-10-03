@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\visi;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,8 @@ class VisiFactory extends Factory
     {
         return [
             'visi' => fake()->paragraph(),
+            'order' => $this->faker->unique()->numberBetween(0, 9),
+
 
         ];
     }

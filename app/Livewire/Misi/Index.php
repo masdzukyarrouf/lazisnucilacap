@@ -11,7 +11,7 @@ class Index extends Component
     #[On('misiUpdated')]
     public function handlemisiEdited()
     {
-            $this->dispatch('created', ['message' => 'misi Updated Successfully']);
+        $this->dispatch('created', ['message' => 'misi Updated Successfully']);
         // session()->flash('message', 'misi Updated Successfully ');
 
     }
@@ -24,7 +24,7 @@ class Index extends Component
         $Misi->delete();
 
         // Tampilkan pesan sukses
-            $this->dispatch('created', ['message' => 'misi deleted Successfully']);
+        $this->dispatch('created', ['message' => 'misi deleted Successfully']);
         // session()->flash('message', 'misi destroyed successfully.');
 
     }
@@ -33,7 +33,7 @@ class Index extends Component
     #[On('misiCreated')]
     public function handlemisiCreated()
     {
-            $this->dispatch('created', ['message' => 'misi created Successfully']);
+        $this->dispatch('created', ['message' => 'misi created Successfully']);
         // session()->flash('message', 'misi Created Successfully ');
 
 
@@ -41,21 +41,56 @@ class Index extends Component
     #[On('misiUpdated')]
     public function handlemisiUpdated()
     {
-            $this->dispatch('updated', ['message' => 'misi updated Successfully']);
+        $this->dispatch('updated', ['message' => 'misi updated Successfully']);
         // session()->flash('message', 'misi Created Successfully ');
 
 
     }
 
+    public function moveUp($id_misi)
+    {
+        $currentMisi = misi::find($id_misi);
+
+
+        if ($currentMisi->order == 1) {
+            return;
+        }
+
+
+        $previousMisi = misi::where('order', $currentMisi->order - 1)->first();
+        $tempOrder = $currentMisi->order;
+        $previousMisi->update(['order' => 100]);
+        $currentMisi->update(['order' => $currentMisi->order - 1]);
+        $previousMisi->update(['order' => $tempOrder]);
+
+    }
+
+    public function moveDown($id_misi)
+    {
+        $currentMisi = misi::find($id_misi);
+        $maxOrder = misi::max('order');
+
+        if ($currentMisi->order == $maxOrder) {
+            return;
+        }
+
+        $nextMisi = misi::where('order', $currentMisi->order + 1)->first();
+        $tempOrder = $currentMisi->order;
+        $nextMisi->update(['order' => 100]);
+        $currentMisi->update(['order' => $currentMisi->order + 1]);
+        $nextMisi->update(['order' => $tempOrder]);
+    }
+
+
     public function render()
     {
 
-        $misis = misi::query()
-            ->latest()
-            ->get();
+        $misis = misi::orderBy('order', 'asc')->get(); // Order by 'order'
+        $maxOrder = misi::max('order');
 
         return view('livewire.misi.index', [
             'misis' => $misis,
+            'maxOrder' => $maxOrder,
         ])->layout('layouts.admin');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\misi;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,8 @@ class MisiFactory extends Factory
     {
         return [
             'misi' => fake()->paragraph(),
+            'order' => $this->faker->unique()->numberBetween(0, 9),
+
 
         ];
     }

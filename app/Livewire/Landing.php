@@ -30,14 +30,9 @@ class Landing extends Component
         $this->mitraCount = mitra::query()->count();
 
 
-        $this->visis = visi::query()
-            ->latest()
-            ->get();
+        $this->visis = visi::orderBy('order', 'asc')->get();
 
-        $this->misis = misi::query()
-            ->latest()
-            ->get();
-
+        $this->misis = misi::orderBy('order', 'asc')->get();
 
         $this->banyak_donasi = Donasi::whereHas('transaction', function ($query) {
             $query->where('status', 'success');
