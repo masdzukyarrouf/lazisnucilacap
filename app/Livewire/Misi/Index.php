@@ -38,6 +38,14 @@ class Index extends Component
 
 
     }
+    #[On('misiUpdated')]
+    public function handlemisiUpdated()
+    {
+            $this->dispatch('updated', ['message' => 'misi updated Successfully']);
+        // session()->flash('message', 'misi Created Successfully ');
+
+
+    }
 
     public function render()
     {

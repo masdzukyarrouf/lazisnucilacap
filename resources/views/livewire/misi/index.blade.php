@@ -32,6 +32,8 @@
                             <p>{!! nl2br(e($Misi->misi)) !!}</p>
                         </td>
                         <td class="flex justify-center px-4 py-2 space-x-1">
+        <livewire:misi.edit :id_misi="$Misi->id_misi" wire:key="edit-{{ $Misi->id_misi }}"/>
+
                             <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
                                     wire:click="destroy({{ $Misi->id_misi }})" wire:confirm="Are you sure?">Delete</button>
                         </td>
