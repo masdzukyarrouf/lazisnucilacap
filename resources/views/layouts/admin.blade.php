@@ -13,7 +13,14 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
         }
-
+        textarea {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        input {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
         .spinner-wrapper {
             display: flex;
             justify-content: center;
@@ -128,8 +135,7 @@
             <li>
                 <form action="{{ route('logout') }}" method="POST" x-data>
                     @csrf
-                    <button
-                        @click.prevent="confirmLogout">
+                    <button @click.prevent="confirmLogout">
                         Logout
                     </button>
                 </form>
@@ -175,7 +181,7 @@
             sidebar.style.transform = 'translateX(-250px)';
             overlay.classList.remove('show');
         });
-        
+
         function confirmLogout() {
             Swal.fire({
                 title: 'Apakah Anda yakin ingin keluar?',
@@ -186,7 +192,7 @@
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Keluar',
                 customClass: {
-                    popup: 'small-swal',  // Custom class untuk modal kecil
+                    popup: 'small-swal', // Custom class untuk modal kecil
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -201,13 +207,16 @@
     <!-- Custom CSS untuk memperkecil ukuran modal -->
     <style>
         .small-swal {
-            font-size: 0.8rem; /* Ukuran font lebih kecil */
-            padding: 1.5rem;   /* Mengurangi padding modal */
-            width: 300px;      /* Mengurangi lebar modal */
+            font-size: 0.8rem;
+            /* Ukuran font lebih kecil */
+            padding: 1.5rem;
+            /* Mengurangi padding modal */
+            width: 300px;
+            /* Mengurangi lebar modal */
         }
     </style>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             window.addEventListener('updated', event => {
                 // console.log(event.detail);
                 Swal.fire({
@@ -218,7 +227,7 @@
                 });
             });
         });
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             window.addEventListener('created', event => {
                 Swal.fire({
                     title: 'Success!',
@@ -228,7 +237,7 @@
                 });
             });
         });
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             window.addEventListener('destroyed', event => {
                 Swal.fire({
                     title: 'warning!',
@@ -239,7 +248,7 @@
             });
         });
     </script>
-    
+
     @livewireScripts
 </body>
 
