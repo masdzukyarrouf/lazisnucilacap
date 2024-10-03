@@ -1,10 +1,10 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
-    <div class="flex flex-col min-h-screen pb-24 bg-white rounded-lg shadow-md" style="width: 414px">
+    <div class="flex flex-col min-h-screen pb-24 bg-white rounded-lg shadow-md min-w-fit">
         <livewire:ziwaf.navigation/>
         <div class="flex flex-col justify-center p-4">
             <h1 class="pb-2 font-semibold">Pilih Kategori Zakat</h1>
-            <div class="relative w-96">
+            <div class="relative w-screen">
                 <select wire:model="selectedOption" wire:change="handleDropdownChange" class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:border-blue-500">
                     <option value="" disabled selected>Pilih Kategori Zakat</option>
                     <option value="maal">Zakat Maal</option>
@@ -60,7 +60,7 @@
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
                         placeholder="Isikan nama anda" 
                     />
 
@@ -85,18 +85,18 @@
                         id="gram" 
                         wire:model="gram" 
                         wire:input.lazy="gramtoidr" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
                         placeholder="Isikan jumlah emas anda" 
                     />
 
                     <label class="font-semibold">Jumlah Emas (Dalam Rupiah)</label>
                     <div class="relative flex flex-col mb-3">
                             <div class="flex items-center justify-center">
-                                <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                                 <input 
                                     type="text" 
                                     value="{{ number_format($nilaiemas, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                 />
@@ -106,11 +106,11 @@
                     <label class="font-semibold">Nisab per Tahun</label>
                     <div class="relative flex flex-col mb-3">
                             <div class="flex items-center justify-center">
-                                <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                                 <input 
                                     type="text" 
                                     value="{{ number_format($nisab, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                 />
@@ -126,7 +126,7 @@
                             <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan (2,5% Dari Nilai Emas)</label>
                             <div class="relative flex flex-col mt-2 mb-3">
                                 <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                                     <input 
                                     type="text" 
                                     value="{{ number_format($zakatEmas, 0, ',', '.') }}" 
@@ -184,14 +184,14 @@
                         <!-- Form untuk input Zakat Maal -->
                         <label class="font-semibold">Pendaparan sebekum pajak (tahun)</label>
                         <div class="relative flex items-center justify-center mb-3">
-                            <span class="absolute inset-y-0 left-0 flex items-center px-2 rounded h-9">Rp. </span>
+                            <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                             <input 
                                 oninput="formatMoney(this)"
                                 type="text" 
                                 id="pendapatan" 
                                 wire:model.lazy="pendapatan" 
                                 wire:input="pendapatan" 
-                                class="w-full px-2 py-1 mb-3 border border-gray-300 rounded pl-11" 
+                                class="w-full px-2 py-1 pl-12 mt-2 mb-3 border border-gray-300 rounded h-9" 
                                 placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
                             />
                         </div>
@@ -199,11 +199,11 @@
                         <label class="font-semibold">Nisab per Tahun</label>
                         <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                                     <input 
                                         type="text" 
                                         value="{{ number_format($nisab, 0, ',', '.') }}" 
-                                        class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                        class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
                                         placeholder="Rp. 0" 
                                         readonly 
                                     />
@@ -219,11 +219,11 @@
                                 <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                                 <div class="relative flex flex-col mb-3">
                                     <div class="flex items-center justify-center">
-                                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                        <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                                         <input 
                                         type="text" 
                                         value="{{ number_format($zakatJasa, 0, ',', '.') }}" 
-                                        class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                        class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
                                         placeholder="Rp. 0" 
                                         readonly 
                                         />
@@ -281,7 +281,7 @@
                             id="aktiva" 
                             wire:model.lazy="aktiva" 
                             wire:input="aktifpasif" 
-                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                            class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
                             placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
                         />
                         
@@ -292,17 +292,17 @@
                             id="pasiva" 
                             wire:model.lazy="pasiva" 
                             wire:input="aktifpasif" 
-                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                            class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
                             placeholder="Isikan dengan jumlah laba dalam 1 tahun" 
                         />
                         <label class="font-semibold">Nisab per Tahun</label>
                         <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                                     <input 
                                         type="text" 
                                         value="{{ number_format($nisab, 0, ',', '.') }}" 
-                                        class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                        class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
                                         placeholder="Rp. 0" 
                                         readonly 
                                     />
@@ -318,11 +318,11 @@
                                 <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                                 <div class="relative flex flex-col mb-3">
                                     <div class="flex items-center justify-center">
-                                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                        <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                                         <input 
                                         type="text" 
                                         value="{{ number_format($zakatDagang, 0, ',', '.') }}" 
-                                        class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                        class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
                                         placeholder="Rp. 0" 
                                         readonly 
                                         />
@@ -365,7 +365,7 @@
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
                         placeholder="Isikan nama anda" 
                     />
 
@@ -390,7 +390,7 @@
                         id="asset" 
                         wire:model.lazy="asset" 
                         wire:input="assetlaba" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
                         placeholder="Isikan dengan jumlah aset dalam 1 tahun" 
                     />
                     
@@ -401,28 +401,28 @@
                         id="laba" 
                         wire:model.lazy="laba" 
                         wire:input="assetlaba" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
                         placeholder="Isikan dengan jumlah laba dalam 1 tahun" 
                     />
 
                     <label class="font-semibold">Jumlah</label>
                     <div class="relative flex items-center justify-center mb-3">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                         <input 
                             type="text" 
                             value="{{ number_format($totalassetlaba, 0, ',', '.') }}" 
-                            class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                            class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
                             readonly
                         />
                     </div>
                     <label class="font-semibold">Nisab per Tahun</label>
                     <div class="relative flex flex-col mb-3">
                             <div class="flex items-center justify-center">
-                                <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                                 <input 
                                     type="text" 
                                     value="{{ number_format($nisab, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                 />
@@ -438,11 +438,11 @@
                             <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                             <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                                     <input 
                                     type="text" 
                                     value="{{ number_format($zakatPerdagangan, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                     />
@@ -866,7 +866,7 @@
                     id="jumlah" 
                     wire:model="jumlah" 
                     wire:input.lazy="hitung" 
-                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                    class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
                     placeholder="Isikan jumlah muzakki"
                     />
 
@@ -878,7 +878,7 @@
                                 id="nama_{{ $i }}"
                                 wire:model="nama.{{ $i }}"
                                 wire:input="hitung"
-                                class="w-full px-2 py-1 mb-3 border border-gray-300 rounded"
+                                class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded"
                                 placeholder="Isi dengan nama lengkap"
                             />
                         </div>
@@ -886,20 +886,21 @@
 
                     <label class="font-semibold">Total Zakat</label>
                     <input type="text"
+                    readonly
                     value="{{ $total }} Paket"
-                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                    class="w-full px-2 py-1 mt-2 mb-3 text-gray-500 border border-gray-300 rounded" 
                     placeholder="Isi dengan nama lengkap"
                     />
 
                     <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                             <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                                     <input 
                                     type="text" 
                                     value="{{ $zakatFitrah }}" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
-                                    placeholder="Rp. 0" 
+                                    class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
+                                    placeholder="0" 
                                     readonly 
                                     />
                                 </div>
