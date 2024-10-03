@@ -27,18 +27,31 @@
             </thead>
             <tbody>
                 @foreach ($misis as $Misi)
-                    <tr class="border-t" wire:key="visi-{{ $Misi->id_misi }}">
-                        <td class="px-4 py-2">
+                    <tr class="border-t flex justify-between" wire:key="visi-{{ $Misi->id_misi }}">
+                        <td class="px-4 py-2 flex">
+                            <div class="flex-col justify-between">
+                                <a wire:click="moveUp({{ $Misi->id_misi }})" class="{{ $Misi->order == 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer' }}" wire:key="up-{{ $Misi->id_misi }}">
+                                    🔼
+                                </a>
+                                <a wire:click="moveDown({{ $Misi->id_misi }})" class="{{ $Misi->order == $maxOrder ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer' }}"wire:key="down-{{ $Misi->id_misi }}">
+                                    🔽
+                                </a>
+                                
+                            </div>
                             <p>{!! nl2br(e($Misi->misi)) !!}</p>
                         </td>
                         <td class="flex justify-center px-4 py-2 space-x-1">
-                            <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
-                                    wire:click="destroy({{ $Misi->id_misi }})" wire:confirm="Are you sure?">Delete</button>
+                            <livewire:misi.edit :id_misi="$Misi->id_misi" wire:key="edit-{{ $Misi->id_misi }}" />
+            
+                            <button
+                                class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700"
+                                wire:click="destroy({{ $Misi->id_misi }})"
+                                wire:confirm="Are you sure?">Delete</button>
                         </td>
                     </tr>
                 @endforeach
-
             </tbody>
+            
         </table>
     </div>
 

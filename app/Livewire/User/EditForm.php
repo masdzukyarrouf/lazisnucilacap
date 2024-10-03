@@ -24,6 +24,8 @@ class EditForm extends Component
     public string $no_telp = "";
     #[Rule(['required', 'string'])]
     public string $password = "";
+    #[Rule(['required', 'string'])]
+    public string $alamat = "";
 
     public function clear($id_user)
     {
@@ -38,6 +40,7 @@ class EditForm extends Component
             $this->role = $user->role;
             $this->no_telp = $user->no_telp;
             $this->password = $user->password;
+            $this->alamat = $user->alamat;
         }
         
     }
@@ -70,6 +73,7 @@ class EditForm extends Component
             $this->role = $user->role;
             $this->no_telp = $user->no_telp;
             $this->password = $user->password;
+            $this->alamat = $user->alamat;
         }
         return $user;
     }
@@ -86,6 +90,7 @@ class EditForm extends Component
                 'last_name' => $validatedData['last_name'],
                 'role' => $validatedData['role'],
                 'no_telp' => $validatedData['no_telp'],
+                'alamat' => $validatedData['alamat'],
                 'password' => bcrypt($validatedData['password']),
             ]);
         }

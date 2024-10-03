@@ -21,6 +21,8 @@ class Create extends Component
     public string $no_telp = "";
     #[Rule(['required','string'])]
     public string $password = "";
+    #[Rule(['required','string'])]
+    public string $alamat = "";
 
     public function save(){
         $validatedData = $this->validate();
@@ -31,6 +33,7 @@ class Create extends Component
             'role' => $validatedData['role'],
             'no_telp' => $validatedData['no_telp'],
             'password' => bcrypt($validatedData['password']),
+            'alamat' => $validatedData['alamat']
         ]);
         
         // dd($user);

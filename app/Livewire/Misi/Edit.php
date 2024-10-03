@@ -2,13 +2,19 @@
 
 namespace App\Livewire\Misi;
 
-use App\Models\misi;
 use Livewire\Component;
+use App\Models\misi;
 
-class Create extends Component
+class Edit extends Component
 {
     public string $misi = "";
+    public $id_misi;
 
+    public function mount(){
+        $misis = misi::find($this->id_misi);
+        $this->misi = $misis->misi;
+
+    }
     protected function rules()
     {
         return [
@@ -16,27 +22,23 @@ class Create extends Component
         ];
     }
 
-    public function save()
+    public function edit()
     {
-        // Validasi data
         $validatedData = $this->validate();
 
 
-        // Simpan data ke database
-        $Misi = misi::create([
+        $misi = misi::find($this->id_misi);
+        $misi->update([
             'misi' => $validatedData['misi'],
-            'order' => misi::max('order') + 1,
         ]);
 
         $this->reset();
 
-        $this->dispatch('misiCreated');
-
-        return $Misi;
+        $this->dispatch('misiUpdated');
 
     }
     public function render()
     {
-        return view('livewire.misi.create');
+        return view('livewire.misi.edit');
     }
 }

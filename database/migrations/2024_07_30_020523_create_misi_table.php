@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('misi', function (Blueprint $table) {
             $table->integer('id_misi')->autoIncrement()->primary();
             $table->text('misi');
+            $table->integer('order')->unique();
             $table->timestamps();
         });
     }

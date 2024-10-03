@@ -2,13 +2,20 @@
 
 namespace App\Livewire\Visi;
 
-use App\Models\visi;
 use Livewire\Component;
+use App\Models\visi;
 
-class Create extends Component
+class Edit extends Component
 {
     public string $visi = "";
+    public $id_visi;
 
+
+    public function mount(){
+        $visis = visi::find($this->id_visi);
+        $this->visi = $visis->visi;
+
+    }
     protected function rules()
     {
         return [
@@ -16,27 +23,24 @@ class Create extends Component
         ];
     }
 
-    public function save()
+    public function edit()
     {
         // Validasi data
         $validatedData = $this->validate();
 
-
-        // Simpan data ke database
-        $Visi = visi::create([
+        $visi = visi::find($this->id_visi);
+        $visi->update([
             'visi' => $validatedData['visi'],
-            'order' => visi::max('order') + 1,
         ]);
+
 
         $this->reset();
 
-        $this->dispatch('visiCreated');
-
-        return $Visi;
+        $this->dispatch('visiUpdated');
 
     }
     public function render()
     {
-        return view('livewire.visi.create');
+        return view('livewire.visi.edit');
     }
 }

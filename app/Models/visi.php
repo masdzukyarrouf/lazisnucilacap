@@ -13,5 +13,6 @@ class visi extends Model
     protected $primaryKey = 'id_visi';
     protected $fillable = [
         'visi',
+        'order',
     ];
 }

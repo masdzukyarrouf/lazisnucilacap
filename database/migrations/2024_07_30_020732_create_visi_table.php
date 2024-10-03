@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('visi', function (Blueprint $table) {
             $table->integer('id_visi')->autoIncrement()->primary();
             $table->text('visi');
+            $table->integer('order')->unique();
             $table->timestamps();
         });
     }

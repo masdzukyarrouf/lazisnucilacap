@@ -13,5 +13,6 @@ class misi extends Model
     protected $primaryKey = 'id_misi';
     protected $fillable = [
         'misi',
+        'order',
     ];
 }

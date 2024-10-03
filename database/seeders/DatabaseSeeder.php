@@ -32,8 +32,8 @@ class DatabaseSeeder extends Seeder
         Berita::factory(50)->create();
         Mitra::factory(20)->create();
         gambar_landing::factory(3)->create();
-        visi::factory(1)->create();
-        misi::factory(5)->create();
+        visi::factory(9)->create();
+        misi::factory(9)->create();
 
         // User::factory()->create([
         //     'name' => 'Test User',

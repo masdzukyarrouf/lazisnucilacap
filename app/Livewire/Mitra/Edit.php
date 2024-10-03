@@ -31,7 +31,7 @@ class Edit extends Component
         if ($mitra) {
             $this->id_partner = $mitra->id_partner;
             $this->partner_name = $mitra->partner_name;
-            $this->logo = $mitra->logo; // Fetch the current logo
+            // $this->logo = $mitra->logo; // Fetch the current logo
         }
     }
 
@@ -59,7 +59,7 @@ class Edit extends Component
         if ($mitra) {
             $this->id_partner = $mitra->id_partner;
             $this->partner_name = $mitra->partner_name;
-            $this->logo = $mitra->logo; // Fetch the current logo
+            // $this->logo = $mitra->logo; // Fetch the current logo
         }
     }
 

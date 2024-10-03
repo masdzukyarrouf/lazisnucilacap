@@ -17,7 +17,8 @@ class Index extends Component
     #[On('postUpdated')]
     public function handlePostEdited()
     {
-        session()->flash('message', 'User Updated Successfully ');
+        // session()->flash('message', 'User Updated Successfully ');
+        $this->dispatch('updated', ['message' => 'User Updated Successfully']);
 
     }
 
@@ -26,8 +27,8 @@ class Index extends Component
         $user = User::find($id_user);
         if ($user) {
             $user->delete();
+        $this->dispatch('created', ['message' => 'User Deleted Successfully']);
         }
-        session()->flash('message', 'User Destroyed Successfully ');
 
 
     }
@@ -35,7 +36,7 @@ class Index extends Component
     #[On('postCreated')]
     public function handlePostCreated()
     {
-        session()->flash('message', 'User Created Successfully ');
+        $this->dispatch('created', ['message' => 'User Created Successfully']);
 
     }
 

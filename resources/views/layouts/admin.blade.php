@@ -196,6 +196,7 @@
             });
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Custom CSS untuk memperkecil ukuran modal -->
     <style>
@@ -205,6 +206,40 @@
             width: 300px;      /* Mengurangi lebar modal */
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('updated', event => {
+                // console.log(event.detail);
+                Swal.fire({
+                    title: 'Success!',
+                    text: event.detail[0].message,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('created', event => {
+                Swal.fire({
+                    title: 'Success!',
+                    text: event.detail[0].message,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('destroyed', event => {
+                Swal.fire({
+                    title: 'warning!',
+                    text: event.detail[0].message,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            });
+        });
+    </script>
+    
     @livewireScripts
 </body>
 
