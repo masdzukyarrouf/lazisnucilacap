@@ -326,7 +326,7 @@ class Ziwaf extends Component
                 'nominal' => $zakatJasa,
                 'jenis1' => $selectedOption,
                 'jenis2' => $selectedOption2,
-                'jenis3' => $jenis3,
+                'jenis3' => 'Entitas',
                 'atasNama' => $atasNama
             ];
         } elseif ($zakatDagang > 0) {
@@ -334,7 +334,7 @@ class Ziwaf extends Component
                 'nominal' => $zakatDagang,
                 'jenis1' => $selectedOption,
                 'jenis2' => $selectedOption2,
-                'jenis3' => $jenis3,
+                'jenis3' => 'Entitas',
                 'atasNama' => $atasNama
             ];
         } elseif ($zakatFitrah > 0) {

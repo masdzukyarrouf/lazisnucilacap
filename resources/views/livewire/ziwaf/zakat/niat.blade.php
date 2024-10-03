@@ -5,7 +5,7 @@
     <!-- Modal Background -->
     <div x-show="isOpen" class="fixed inset-0 z-50 flex items-end justify-center bg-gray-600 bg-opacity-75">
         <!-- Modal Content -->
-        <div class="w-[414px] bg-white rounded-t-lg shadow-lg">
+        <div class="w-full mx-2 bg-white rounded-t-lg shadow-lg md:w-[414px]">
             <!-- Modal Header -->
             <div class="relative">
                 <!-- Centered Top Border -->
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="flex flex-col px-4 py-6">
-                    <span class="text-xl text-right">
+                    <span class="pr-2 text-xl text-right">
                         نویت أن أخرج زكاة مالى فرضا تعالى
                     </span>
                     <span class="pt-2 text-sm text-gray-700">
