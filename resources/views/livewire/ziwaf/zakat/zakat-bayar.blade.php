@@ -1,11 +1,11 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Pembayaran" />
-    <div class="flex flex-col bg-white shadow-md" style="width: 414px; height: 736px">
+    <div class="flex flex-col w-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="mx-5 mt-5">
             <span class="text-sm text-gray-600">Anda Akan Melakukan Pembayaran Untuk Zakat</span>
             <div class="my-4">
                 @if ($zakatFitrah > 0)
-                <div class="flex flex-col">
+                <div class="flex flex-col mb-4">
                     <span class="mb-2">
                         Detail Zakat
                     </span>
@@ -18,9 +18,11 @@
                     <div class="w-40 text-gray-500">Nama Muzakki</div>
                     <div class="w-4 text-gray-500text-center">:</div>
                     <div>
-                        @foreach ($this->namaMuzakki as $nama)
-                            {{ $nama }}
+
+                        @foreach ($this->namaMuzakki as $index => $nama)
+                            {{ $nama }}@if (!$loop->last),@endif
                         @endforeach
+
                     </div>
                 </div>
                 <div class="flex items-center mb-2">
@@ -32,19 +34,19 @@
                 </div>
                 <label class="font-semibold">Nominal Zakat</label>
                 <div class="relative flex flex-col mb-3">
-                    <div class="flex items-center justify-center">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
+                    <div class="flex items-center justify-center mt-2">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 text-green-500 bg-gray-300 border border-black rounded h-9">Rp. </span>
                             <input 
                                 type="text" 
                                 value="{{ number_format($this->zakatFitrah, 0, ',', '.') }}" 
-                                class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
+                                class="w-full py-1 pr-2 text-green-500 bg-gray-300 border border-black rounded pl-14 h-9 md:w-96" 
                                 placeholder="Rp. 0" 
                                 readonly 
                             />
                     </div>
                 </div>
                 @else
-                <div class="flex flex-col">
+                <div class="flex flex-col mb-4">
                     <span class="mb-2">
                         Detail Zakat
                     </span>
@@ -66,12 +68,12 @@
                 </div>
                 <label class="font-semibold">Nominal Zakat</label>
                 <div class="relative flex flex-col mb-3">
-                    <div class="flex items-center justify-center">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
+                    <div class="flex items-center justify-center mt-2">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 text-green-500 bg-gray-300 border border-black rounded h-9">Rp. </span>
                         <input 
                         type="text" 
                         value="{{ number_format($this->nominal, 0, ',', '.') }}" 
-                        class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
+                        class="w-full py-1 pr-2 text-green-500 bg-gray-300 border border-black rounded pl-14 h-9 md:w-96" 
                         placeholder="Rp. 0" 
                         readonly 
                         />
@@ -83,8 +85,10 @@
                     <span class="text-xl font-semibold">Mohon Lengkapi Data Berikut</span>
                     <div>
                         @if (!$users)
+                        <div class="my-2">
                             <span>sudah punya akun?</span>
                             <span wire:click="login" class="font-semibold text-green-500 cursor-pointer">Login</span>
+                        </div>
                         @endif
                             <div class="flex flex-col">
                                 <label class="font-semibold">Nama Anda</label>
@@ -93,7 +97,7 @@
                                     id="nama" 
                                     wire:model.lazy="nama" 
                                     wire:input="datadiri"
-                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                                    class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded md:w-[374px]" 
                                     placeholder="Isikan dengan nama anda" 
                                 />
                                 
@@ -103,7 +107,7 @@
                                     id="no" 
                                     wire:model.lazy="no" 
                                     wire:input="datadiri" 
-                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                                    class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded md:w-[374px]" 
                                     placeholder="Isikan dengan nomor whatsapp anda" 
                                 />
 
@@ -113,7 +117,7 @@
                                     id="email" 
                                     wire:model.lazy="email" 
                                     wire:input="datadiri" 
-                                    class="w-full px-2 py-1 border border-gray-300 rounded" 
+                                    class="w-full px-2 py-1 mt-2 border border-gray-300 rounded md:w-[374px]" 
                                     placeholder="Isikan dengan email anda" 
                                 />
                                 @error('email')
@@ -126,7 +130,7 @@
                                     id="alamat" 
                                     wire:model.lazy="alamat" 
                                     wire:input="datadiri" 
-                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                                    class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded md:w-[374px]" 
                                     placeholder="Isikan dengan alamat anda">
                                 </textarea>
                             </div>
@@ -138,9 +142,9 @@
                     situs web ini, dan untuk tujuan lain yang dijelaskan dalam
                     <a href="#" class="text-blue-500 hover:underline">kebijakan privasi</a> kami.
                 </p>
-            <button wire:click="co" class="w-full px-4 py-2 font-semibold text-white bg-green-500 rounded">
-                Zakat Sekarang
-            </button>
+                <button wire:click="co" class="w-screen px-4 py-2 my-4 font-semibold text-white bg-green-500 rounded md:w-[374px]">
+                    Zakat Sekarang
+                </button>
         </div>
     </div>
 </div>

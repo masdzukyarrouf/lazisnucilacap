@@ -1,10 +1,10 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
-    <div class="flex flex-col min-h-screen pb-24 bg-white rounded-lg shadow-md min-w-fit">
+    <div class="flex flex-col w-full min-h-screen pb-24 bg-white rounded-lg shadow-md md:w-[414px]">
         <livewire:ziwaf.navigation/>
         <div class="flex flex-col justify-center p-4">
             <h1 class="pb-2 font-semibold">Pilih Kategori Zakat</h1>
-            <div class="relative w-screen">
+            <div class="relative w-screen md:w-96">
                 <select wire:model="selectedOption" wire:change="handleDropdownChange" class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:border-blue-500">
                     <option value="" disabled selected>Pilih Kategori Zakat</option>
                     <option value="maal">Zakat Maal</option>
@@ -23,7 +23,7 @@
         @if($selectedOption === 'maal')
             <div class="flex flex-col justify-center p-4">
             <h1 class="pb-2 font-semibold">Perhitungan Zakat</h1>
-                <div class="relative w-96">
+                <div class="relative w-screen md:w-96">
                     <a href="{{ asset('storage/tabel_perhitungan_zakat_lazisnu.pdf') }}" target="_blank">
                         <button class="flex items-center w-full px-4 py-2 border border-gray-300 rounded">
                             <img src="{{ asset('images/paper.png') }}" alt="logo" class="w-6">
@@ -35,7 +35,7 @@
             </div>
             <div class="flex flex-col justify-center p-4">
             <h1 class="pb-2 font-semibold">Pilih Kategori Zakat Maal</h1>
-                <div class="relative w-96">
+                <div class="relative w-fscreen md:w-96">
                     <select wire:model="selectedOption2" wire:change="handleDropdownChange" class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:border-blue-500">
                         <option value="" disabled selected>Pilih Kategori Zakat Maal</option>
                         <option value="Emas">Emas</option>
@@ -60,7 +60,7 @@
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
+                        class="w-screen px-2 py-1 mt-2 mb-3 border border-gray-300 rounded md:w-96" 
                         placeholder="Isikan nama anda" 
                     />
 
@@ -68,11 +68,11 @@
                         <label class="font-semibold">Jenis</label>
                         <div class="flex py-4 space-x-6">
                             <label class="flex items-center space-x-2">
-                                <input type="radio" name="jenis3" value="pribadi" wire:model='jenis3'>
+                                <input type="radio" name="jenis3" value="Pribadi" wire:model='jenis3'>
                                 <span>Pribadi</span>
                             </label>
                             <label class="flex items-center space-x-2">
-                                <input type="radio" name="jenis3" value="entitas" wire:model='jenis3'>
+                                <input type="radio" name="jenis3" value="Entitas" wire:model='jenis3'>
                                 <span>Entitas</span>
                             </label>
                         </div>
@@ -85,18 +85,18 @@
                         id="gram" 
                         wire:model="gram" 
                         wire:input.lazy="gramtoidr" 
-                        class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
+                        class="w-screen px-2 py-1 mt-2 mb-3 border border-gray-300 rounded md:w-96" 
                         placeholder="Isikan jumlah emas anda" 
                     />
 
                     <label class="font-semibold">Jumlah Emas (Dalam Rupiah)</label>
                     <div class="relative flex flex-col mb-3">
                             <div class="flex items-center justify-center">
-                                <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
+                                <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                 <input 
                                     type="text" 
                                     value="{{ number_format($nilaiemas, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-screen py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14 md:w-96" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                 />
@@ -106,11 +106,11 @@
                     <label class="font-semibold">Nisab per Tahun</label>
                     <div class="relative flex flex-col mb-3">
                             <div class="flex items-center justify-center">
-                                <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
+                                <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                 <input 
                                     type="text" 
                                     value="{{ number_format($nisab, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-screen py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14 md:w-96" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                 />
@@ -126,11 +126,11 @@
                             <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan (2,5% Dari Nilai Emas)</label>
                             <div class="relative flex flex-col mt-2 mb-3">
                                 <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                     <input 
                                     type="text" 
                                     value="{{ number_format($zakatEmas, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-screen py-1 pr-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                     />
@@ -140,21 +140,21 @@
                         @if ($zakatEmas === 0)
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button wire:click="maalEmas" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button wire:click="maalEmas" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Hitung Zakat
                                 </button>
                             </div>
                         @elseif ($zakatEmas != 0)
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button id="user-menu-btn" wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button id="user-menu-btn" wire:click="submitZakat" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Zakat Sekarang
                                 </button>
                             </div>
                         @else
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button wire:click="maalEmas" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button wire:click="maalEmas" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Hitung Zakat
                                 </button>
                             </div>
@@ -182,7 +182,16 @@
                             </div>
                         </div>
                         <!-- Form untuk input Zakat Maal -->
-                        <label class="font-semibold">Pendaparan sebekum pajak (tahun)</label>
+                        <label class="font-semibold">Atas Nama</label>
+                        <input 
+                            type="text" 
+                            id="atasNama" 
+                            wire:model="atasNama" 
+                            class="w-screen px-2 py-1 mt-2 mb-3 border border-gray-300 rounded md:w-96" 
+                            placeholder="Isikan nama anda" 
+                        />
+                    
+                        <label class="font-semibold">Pendapatan sebekum pajak (tahun)</label>
                         <div class="relative flex items-center justify-center mb-3">
                             <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                             <input 
@@ -191,7 +200,7 @@
                                 id="pendapatan" 
                                 wire:model.lazy="pendapatan" 
                                 wire:input="pendapatan" 
-                                class="w-full px-2 py-1 pl-12 mt-2 mb-3 border border-gray-300 rounded h-9" 
+                                class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded pl-14 h-9" 
                                 placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
                             />
                         </div>
@@ -199,11 +208,11 @@
                         <label class="font-semibold">Nisab per Tahun</label>
                         <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                     <input 
                                         type="text" 
                                         value="{{ number_format($nisab, 0, ',', '.') }}" 
-                                        class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
+                                        class="w-full py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                         placeholder="Rp. 0" 
                                         readonly 
                                     />
@@ -219,11 +228,11 @@
                                 <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                                 <div class="relative flex flex-col mb-3">
                                     <div class="flex items-center justify-center">
-                                        <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                         <input 
                                         type="text" 
                                         value="{{ number_format($zakatJasa, 0, ',', '.') }}" 
-                                        class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
+                                        class="w-full py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                         placeholder="Rp. 0" 
                                         readonly 
                                         />
@@ -233,21 +242,21 @@
                             @if ($zakatJasa === 0)
                                 <livewire:ziwaf.zakat.niat>
                                 <div class="flex items-center justify-center mt-4">
-                                    <button wire:click="maalJasa" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                    <button wire:click="maalJasa" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                         Hitung Zakat
                                     </button>
                                 </div>
                             @elseif ($zakatJasa != 0)
                                 <livewire:ziwaf.zakat.niat>
                                 <div class="flex items-center justify-center mt-4">
-                                    <button id="user-menu-btn" wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                    <button id="user-menu-btn" wire:click="submitZakat" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                         Zakat Sekarang
                                     </button>
                                 </div>
                             @else
                                 <livewire:ziwaf.zakat.niat>
                                 <div class="flex items-center justify-center mt-4">
-                                    <button wire:click="maalJasa" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                    <button wire:click="maalJasa" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                         Hitung Zakat
                                     </button>
                                 </div>
@@ -332,21 +341,21 @@
                             @if ($zakatDagang === 0)
                                 <livewire:ziwaf.zakat.niat>
                                 <div class="flex items-center justify-center mt-4">
-                                    <button wire:click="maalDagang" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                    <button wire:click="maalDagang" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                         Hitung Zakat
                                     </button>
                                 </div>
                             @elseif ($zakatDagang != 0)
                                 <livewire:ziwaf.zakat.niat>
                                 <div class="flex items-center justify-center mt-4">
-                                    <button id="user-menu-btn" wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                    <button id="user-menu-btn" wire:click="submitZakat" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                         Zakat Sekarang
                                     </button>
                                 </div>
                             @else
                                 <livewire:ziwaf.zakat.niat>
                                 <div class="flex items-center justify-center mt-4">
-                                    <button wire:click="maalDagang" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                    <button wire:click="maalDagang" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                         Hitung Zakat
                                     </button>
                                 </div>
@@ -452,21 +461,21 @@
                         @if ($zakatPerdagangan === 0)
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button wire:click="maalPerdagangan" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button wire:click="maalPerdagangan" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Hitung Zakat
                                 </button>
                             </div>
                         @elseif ($zakatPerdagangan != 0)
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button id="user-menu-btn" wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button id="user-menu-btn" wire:click="submitZakat" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Zakat Sekarang
                                 </button>
                             </div>
                         @else
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button wire:click="maalPerdagangan" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button wire:click="maalPerdagangan" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Hitung Zakat
                                 </button>
                             </div>
@@ -585,21 +594,21 @@
                         @if ($zakatPenghasilan === 0)
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button wire:click="maalPenghasilan" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button wire:click="maalPenghasilan" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Hitung Zakat
                                 </button>
                             </div>
                         @elseif ($zakatPenghasilan != 0)
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button id="user-menu-btn" wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button id="user-menu-btn" wire:click="submitZakat" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Zakat Sekarang
                                 </button>
                             </div>
                         @else
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button wire:click="maalPenghasilan" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button wire:click="maalPenghasilan" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Hitung Zakat
                                 </button>
                             </div>
@@ -714,21 +723,21 @@
                         @if ($zakatPertanian === 0)
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button wire:click="maalPertanian" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button wire:click="maalPertanian" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Hitung Zakat
                                 </button>
                             </div>
                         @elseif ($zakatPertanian != 0)
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button id="user-menu-btn" wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button id="user-menu-btn" wire:click="submitZakat" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Zakat Sekarang
                                 </button>
                             </div>
                         @else
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button wire:click="maalPertanian" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button wire:click="maalPertanian" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Hitung Zakat
                                 </button>
                             </div>
@@ -836,21 +845,21 @@
                         @if ($zakatUang === 0)
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button wire:click="maalUang" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button wire:click="maalUang" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Hitung Zakat
                                 </button>
                             </div>
                         @elseif ($zakatUang != 0)
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button id="user-menu-btn" wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button id="user-menu-btn" wire:click="submitZakat" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Zakat Sekarang
                                 </button>
                             </div>
                         @else
                             <livewire:ziwaf.zakat.niat>
                             <div class="flex items-center justify-center mt-4">
-                                <button wire:click="maalUang" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                                <button wire:click="maalUang" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                                     Hitung Zakat
                                 </button>
                             </div>
@@ -888,18 +897,18 @@
                     <input type="text"
                     readonly
                     value="{{ $total }} Paket"
-                    class="w-full px-2 py-1 mt-2 mb-3 text-gray-500 border border-gray-300 rounded" 
+                    class="w-full px-2 py-1 mt-2 mb-3 bg-gray-300 border border-gray-300 rounded" 
                     placeholder="Isi dengan nama lengkap"
                     />
 
                     <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                             <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                     <input 
                                     type="text" 
                                     value="{{ $zakatFitrah }}" 
-                                    class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-full py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                     placeholder="0" 
                                     readonly 
                                     />
@@ -909,7 +918,7 @@
                     <livewire:ziwaf.zakat.niat-fitrah>
                         
                     <div class="flex items-center justify-center mt-4">
-                        <button id="user-menu-btn" wire:click="submitZakat" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
+                        <button id="user-menu-btn" wire:click="submitZakat" class="w-screen px-4 py-2 font-semibold text-white bg-green-500 rounded">
                             Zakat Sekarang
                         </button>
                     </div>
