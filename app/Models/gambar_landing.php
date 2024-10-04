@@ -13,6 +13,7 @@ class gambar_landing extends Model
     protected $table = 'gambar_landing';
     protected $primaryKey = 'id_gambar';
     protected $fillable = [
-        'gambar'
+        'gambar',
+        'link'
     ];
 }

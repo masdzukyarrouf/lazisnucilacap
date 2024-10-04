@@ -6,7 +6,7 @@
                 <div id="flash-message"
                     class="flex items-center justify-between p-4 mx-12 mt-8 mb-4 text-white bg-green-500 rounded">
                     <span>{{ session('message') }}</span>
-                    <button class="p-1"  onclick="document.getElementById('flash-message').style.display='none'"
+                    <button class="p-1" onclick="document.getElementById('flash-message').style.display='none'"
                         class="font-bold text-white">
                         &times;
                     </button>
@@ -20,6 +20,7 @@
         <thead>
             <tr class="items-center w-full text-white align-middle bg-gray-800">
                 <th class="px-4 py-2">Gambar</th>
+                <th class="px-4 py-2">Link</th>
                 <th class="px-16 py-2">Action</th>
             </tr>
         </thead>
@@ -27,12 +28,19 @@
             @foreach ($landings as $landing)
                 <tr class="border-t" wire:key="landing-{{ $landing->id_gambar }}">
                     <td class="px-4 py-2">
-                        <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Main Picture" class="block w-1/2 mx-auto mt-2 mb-2">
+                        <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Main Picture"
+                            class="block w-1/2 mx-auto mt-2 mb-2">
                     </td>
                     <td class="px-4 py-2">
-                        <div class="flex items-center space-y-2">
-                            <button class="inline-block px-3 py-1 mx-auto text-white bg-red-500 rounded hover:bg-red-700" 
-                                    wire:click="destroy({{ $landing->id_gambar }})" wire:confirm="Are you sure?">Delete</button>
+                        <p>{{$landing->link}}</p>
+                    </td>
+                    <td class="px-4 py-2">
+                        <div class="flex items-center">
+                            <livewire:gambar-landing.edit :id_gambar="$landing->id_gambar" wire:key="edit-{{ $landing->id_gambar }}"/>
+                            <button
+                                class="inline-block px-3 py-2 mx-auto text-white bg-red-500 rounded hover:bg-red-700"
+                                wire:click="destroy({{ $landing->id_gambar }})"
+                                wire:confirm="Are you sure?">Delete</button>
                         </div>
                     </td>
                 </tr>

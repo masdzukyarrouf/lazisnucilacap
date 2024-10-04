@@ -1,4 +1,4 @@
-<div wire:loading:remove x-data="{ isOpen: false }" @modal-closed.window="isOpen = false">
+<div  x-data="{ isOpen: false }" @modal-closed.window="isOpen = false">
     <!-- Button to open the modal -->
     <span @click="isOpen=true" class="text-green-500 cursor-pointer hover:underline">Baca Selengkapnya...</span>
 

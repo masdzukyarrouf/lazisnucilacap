@@ -47,6 +47,30 @@ class Create extends Component
     #[Rule('nullable|image')]
     public $last_picture;
 
+    protected $messages = [
+        'title.required' => 'Judul harus diisi.',
+        'title.string' => 'Judul harus berupa teks.',
+        'description.required' => 'Deskripsi harus diisi.',
+        'description.string' => 'Deskripsi harus berupa teks.',
+        'kategori.required' => 'Kategori harus dipilih.',
+        'kategori.string' => 'Kategori harus berupa teks.',
+        'start_date.required' => 'Tanggal mulai harus diisi.',
+        'start_date.date' => 'Tanggal mulai tidak valid.',
+        'end_date.required' => 'Tanggal akhir harus diisi.',
+        'end_date.date' => 'Tanggal akhir tidak valid.',
+        'raised.integer' => 'Jumlah dana yang terkumpul harus berupa angka.',
+        'goal.required' => 'Target harus diisi.',
+        'goal.integer' => 'Target harus berupa angka.',
+        'lokasi.required' => 'Lokasi harus diisi.',
+        'lokasi.string' => 'Lokasi harus berupa teks.',
+        'min_donation.required' => 'Donasi minimum harus diisi.',
+        'min_donation.integer' => 'Donasi minimum harus berupa angka.',
+        'main_picture.required' => 'Gambar utama harus diunggah.',
+        'main_picture.image' => 'Gambar utama harus berupa file gambar.',
+        'second_picture.image' => 'Gambar kedua harus berupa file gambar.',
+        'last_picture.image' => 'Gambar terakhir harus berupa file gambar.',
+    ];
+
     public function save()
     {
         $this->validate();

@@ -11,18 +11,20 @@ class Create extends Component
     use WithFileUploads;
 
     public $gambar; // Pastikan ini bukan string
+    public $link;
 
     protected function rules()
     {
         return [
-            'gambar' => 'required|image', // Validasi gambar
+            'gambar' => 'required|image',
+            'link' => 'nullable|string',
         ];
     }
 
     public function save()
     {
         // Validasi data
-        $validatedData = $this->validate();
+       $this->validate();
 
         // Simpan file gambar dan ambil path-nya
         $path = $this->gambar->store('images/gambar_landing', 'public'); // Simpan di storage/public
@@ -30,6 +32,7 @@ class Create extends Component
         // Simpan data ke database
         $landing = gambar_landing::create([
             'gambar' => $path, // Simpan path gambar
+            'link' => $this->link, 
         ]);
 
         $this->reset();

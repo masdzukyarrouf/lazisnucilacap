@@ -52,12 +52,19 @@
                     </div>
                     <div class="mb-4">
                         <label for="goal" class="block text-sm font-medium text-gray-700">Goal</label>
-                        <input type="text" id="goal" wire:model="goal" name="goal"
-                            class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
+                        <!-- Visible Input for formatting -->
+                        <input type="text" id="goal_display" name="goal_display"
+                            class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm"
+                            oninput="formatMoney(this, 'goal_hidden')" value="{{ number_format($goal, 0, ',', '.') }}">
+
+                        <!-- Hidden Input for Livewire to store pure numeric value -->
+                        <input type="hidden" id="goal_hidden" wire:model.lazy="goal">
+
                         @error('goal')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                     </div>
+
                     <div class="mb-4">
                         <label for="start_date" class="block text-sm font-medium text-gray-700">Start date</label>
                         <input type="date" id="start_date" wire:model="start_date" name="start_date"
@@ -76,9 +83,16 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="min_donation" class="block text-sm font-medium text-gray-700">Min donation</label>
-                        <input type="text" id="min_donation" wire:model="min_donation" name="min_donation"
-                            class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
+                        <label for="min_donation" class="block text-sm font-medium text-gray-700">Min Donation</label>
+                        <!-- Visible Input for formatting -->
+                        <input type="text" id="min_donation_display" name="min_donation_display"
+                            class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm"
+                            oninput="formatMoney(this, 'min_donation_hidden')"
+                            value="{{ number_format($min_donation, 0, ',', '.') }}">
+
+                        <!-- Hidden Input for Livewire to store pure numeric value -->
+                        <input type="hidden" id="min_donation_hidden" wire:model.lazy="min_donation">
+
                         @error('min_donation')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
@@ -103,13 +117,20 @@
                         @enderror
                     </div>
 
+                    <!-- For Second Image -->
                     <div class="mb-4">
-                        <label for="edit_second_picture" class="block text-sm font-medium text-gray-700">Image 2</label>
+                        <label for="edit_second_picture" class="block text-sm font-medium text-gray-700">Image
+                            2</label>
                         <input type="file" id="edit_second_picture"
                             class="border border-gray-300 p-2 w-full rounded-lg" wire:model="second_picture">
                         @error('second_picture')
                             <span class="text-red-600">{{ $message }}</span>
                         @enderror
+
+                        @if ($second_picture || $check_second_picture)
+                            <button type="button" wire:click="deleteSecondPicture"
+                                class="mt-2 text-red-500 hover:text-red-700">Delete Second Image</button>
+                        @endif
                     </div>
 
                     <div class="mb-4">
@@ -119,23 +140,22 @@
                         @error('last_picture')
                             <span class="text-red-600">{{ $message }}</span>
                         @enderror
-                    </div>
 
-                    <!-- Submit Button inside the form -->
+                        @if ($last_picture || $check_last_picture)
+                            <button type="button" wire:click="deleteLastPicture"
+                                class="mt-2 text-red-500 hover:text-red-700">Delete Last Image</button>
+                        @endif
+                    </div>
                     <div class="flex justify-between p-4 bg-gray-200 rounded-b-lg">
                         <div wire:loading>
                             <div class="spinner"></div>
-                            {{-- <div class="spinner-text">Uploading...</div> --}}
                         </div>
                         <div wire:loading.remove>
-                            <!-- This content will be hidden while a Livewire request is processing -->
                         </div>
                         <div>
                             <button type="button" @click="isOpen = false" wire:click="clear({{ $id_campaign }})"
                                 class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Close</button>
-                            {{-- <button type="submit"
-                                class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Update</button> --}}
-                            <button type="submit" @click="isOpen = false" wire:loading.attr="disabled"
+                            <button type="submit" wire:loading.attr="disabled"
                                 wire:loading.class="bg-blue-300 cursor-not-allowed"
                                 class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-all duration-300">
                                 Update
@@ -149,21 +169,31 @@
         </div>
     </div>
 </div>
-{{-- <script>
-    function previewImage(event, previewId) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        const preview = document.getElementById(previewId);
+<script>
+    function formatMoney(input, hiddenInputId) {
+        // Get the raw value without formatting
+        let value = input.value.replace(/[^\d]/g, ''); // Remove all non-numeric characters
 
-        if (file) {
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-            };
-            reader.readAsDataURL(file);
-        } else {
-            preview.src = '';
-            preview.style.display = 'none';
+        // Format the value with dots for thousands
+        let formattedValue = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+        // Update the visible input with the formatted value
+        input.value = formattedValue;
+
+        // Update the hidden input with the numeric value for Livewire
+        let hiddenInput = document.getElementById(hiddenInputId);
+        hiddenInput.value = value;
+
+        // Dispatch an input event to ensure Livewire sees the change
+        hiddenInput.dispatchEvent(new Event('input'));
+    }
+
+    function formatOnLoad() {
+        const goalInput = document.getElementById('goal_display');
+        if (goalInput.value) {
+            formatMoney(goalInput, 'goal_hidden');
         }
     }
-</script> --}}
+
+    document.addEventListener('DOMContentLoaded', formatOnLoad);
+</script>
