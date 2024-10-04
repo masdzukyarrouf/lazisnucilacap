@@ -56,10 +56,13 @@
                     class="z-30 px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
                     Login
                 </a>
-            @endif
-            <a href="/daftar"
-                class="px-6 py-2 text-green-600 border border-green-600 rounded-xl hover:bg-green-600 hover:text-white">Daftar</a>
+                <a href="/daftar"
+                class="px-6 py-2 text-green-600 border border-green-600 rounded-xl hover:bg-green-600 hover:text-white">
+                Daftar
+                </a>
 
+            @endif
+            
         </div>
     </div>
 
@@ -71,7 +74,7 @@
             class="sticky top-0 right-0 flex flex-col items-center w-full px-8 py-4 space-y-4 bg-white md:flex-row md:justify-between md:space-y-0">
             <!-- Logo -->
             <a href="/" class="flex-shrink-0">
-                <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="Logo"
+                <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="ogo"
                     class="hidden w-auto h-8 md:block">
             </a>
 
@@ -125,6 +128,11 @@
                             class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
                             Admin
                         </a>
+                        <div class="flex items-center">
+                            <span class="font-semibold">
+                                <?php $a = auth::user()->username ; echo $a ?>
+                            </span>
+                        </div>
                     @elseif (Auth::user()->role == 'donatur')
                         <a href="/profile"
                             class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
@@ -136,9 +144,9 @@
                         class="z-30 px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
                         Login
                     </a>
+                    <a href="/daftar"
+                        class="px-6 py-2 text-green-600 border border-green-600 rounded-xl hover:bg-green-600 hover:text-white">Daftar</a>
                 @endif
-                <a href="/daftar"
-                    class="px-6 py-2 text-green-600 border border-green-600 rounded-xl hover:bg-green-600 hover:text-white">Daftar</a>
 
                 <!-- Close Button -->
                 <div class="absolute top-4 right-4">

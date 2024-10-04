@@ -19,8 +19,6 @@ class Gambar_landingFactory extends Factory
         return [
             'gambar' => fake()->randomElement([
                 'images/gambar_landing/3e5gBovJoWiAmPb8Bl7DMNwLtuu9ucDQWkqJuRXR.png',
-                'images/gambar_landing/FaIB5VVytZUXFCLebeJmw6gDkeHBdIrLlDt9fV0m.jpg',
-                'images/gambar_landing/LQmxdLwhuDo0ph9gG9KyrqhEiEI3Z0fmClQfSxth.png',
             ]),
             'link' => fake()->randomElement([
                 'http://127.0.0.1:8000/campaigns',
