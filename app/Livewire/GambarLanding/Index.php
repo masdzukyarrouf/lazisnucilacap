@@ -37,6 +37,13 @@ class Index extends Component
             $this->dispatch('created', ['message' => 'Gambar Landing created Successfully']);
         // session()->flash('message', 'Gambar Landing Created Successfully');
     }
+    #[On('gambarUpdated')]
+
+    public function handleberitaUpdated()
+    {
+            $this->dispatch('created', ['message' => 'Gambar Landing updated Successfully']);
+        // session()->flash('message', 'Gambar Landing Created Successfully');
+    }
 
     public function render()
     {

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('gambar_landing', function (Blueprint $table) {
             $table->integer('id_gambar')->autoIncrement()->primary();
             $table->string('gambar');
+            $table->string('link');
             $table->timestamps();
 
         });

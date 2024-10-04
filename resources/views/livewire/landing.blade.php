@@ -23,7 +23,17 @@
                 <div class="flex w-full transition-transform duration-500"
                     :style="'transform: translateX(-' + offset + '%)'">
                     @foreach ($landings as $landing)
-                        <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture" class="min-w-full h-auto " />
+                        @if ($landing->link == '-')
+                            <a class="min-w-full h-auto ">
+                                <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
+                                    class="min-w-full h-auto " />
+                            </a>
+                        @else
+                            <a href="{{ $landing->link }}" class="min-w-full h-auto ">
+                                <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
+                                    class="min-w-full h-auto " />
+                            </a>
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -33,7 +43,8 @@
     <div class="relative flex justify-center w-full mt-16 z-12">
         <div class="flex justify-center space-x-4 -mt-24">
             <!-- Item 1 -->
-            <a href="https://wa.me/62895392167815?text=Assalamualaikum,%20saya%20ingin%20berkonsultasi%20mengenai%20zakat">
+            <a
+                href="https://wa.me/62895392167815?text=Assalamualaikum,%20saya%20ingin%20berkonsultasi%20mengenai%20zakat">
                 <div
                     class="flex flex-col items-center w-20 h-32 sm:w-36 sm:h-36 p-4 bg-white rounded-lg shadow-2xl md:w-48 md:h-44">
                     <div class="px-4 py-4 bg-green-500 rounded-full">
@@ -43,7 +54,7 @@
                     <p class="text-[10px] md:text-lg font-medium text-center text-gray-800">Konsultasi</p>
                 </div>
             </a>
-    
+
             <!-- Item 2 -->
             <a href="/zakat">
                 <div
@@ -55,7 +66,7 @@
                     <p class="text-[10px] md:text-lg font-medium text-center text-gray-800">Kalkulator Zakat</p>
                 </div>
             </a>
-    
+
             <!-- Item 3 -->
             <div
                 class="flex flex-col items-center w-20 h-32 sm:w-36 sm:h-36 p-4 bg-white rounded-lg shadow-2xl md:w-48 md:h-44">
@@ -65,7 +76,7 @@
                 </div>
                 <p class="text-[10px] md:text-lg font-medium text-center text-gray-800">Rekening Donasi</p>
             </div>
-    
+
             <!-- Item 4 -->
             <div
                 class="flex flex-col items-center w-20 h-32 sm:w-36 sm:h-36 p-4 bg-white rounded-lg shadow-2xl md:w-48 md:h-44">
@@ -77,8 +88,8 @@
             </div>
         </div>
     </div>
-    
-    
+
+
 
     <div class="flex flex-col justify-between px-4 mt-8 md:px-8 lg:px-16 xl:px-24">
         <div id="details-container" class="relative max-h-[325px] overflow-hidden transition-all duration-300">
@@ -110,12 +121,14 @@
             <a id="details-expand-link"
                 class="absolute bottom-0 left-0 w-full px-3 pt-4 text-left bg-gradient-to-t from-white via-white to-transparent">
                 {{-- <livewire:visi-misi /> --}}
-                <div  x-data="{ isOpen: false }" @modal-closed.window="isOpen = false">
+                <div x-data="{ isOpen: false }" @modal-closed.window="isOpen = false">
                     <!-- Button to open the modal -->
-                    <span @click="isOpen=true" class="text-green-500 cursor-pointer hover:underline">Baca Selengkapnya...</span>
-                
+                    <span @click="isOpen=true" class="text-green-500 cursor-pointer hover:underline">Baca
+                        Selengkapnya...</span>
+
                     <!-- Modal Background -->
-                    <div x-show="isOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-75">
+                    <div x-show="isOpen"
+                        class="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-75">
                         <!-- Modal Content -->
                         <div class="w-[414px] md:w-full md:mx-4 bg-white rounded-lg shadow-lg">
                             <!-- Modal Header -->
@@ -128,14 +141,14 @@
                             <div class="p-4 max-h-[500px] overflow-y-auto">
                                 <div class="flex flex-col items-start mt-4">
                                     <h2 class="w-full font-semibold text-left text-green-500">Visi</h2>
-                                    @foreach($visis as $visi)
+                                    @foreach ($visis as $visi)
                                         <p> {!! nl2br(e($visi->visi)) !!}</p>
                                     @endforeach
                                     <h2 class="w-full mt-4 font-semibold text-left text-green-500">Misi</h2>
                                     @php
                                         $index = 1;
                                     @endphp
-                
+
                                     @foreach ($misis as $Misi)
                                         <div class="flex mt-4">
                                             <h1 class="pr-2 text-sm">{{ $index }}.</h1>
@@ -208,7 +221,8 @@
                                 </div>
                                 <div class="w-2/5 h-2 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-sm md:w-1/2 md:h-2">
                                 </div>
-                                <div class="w-auto h-1 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-lg md:w-auto md:h-2">
+                                <div
+                                    class="w-auto h-1 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-lg md:w-auto md:h-2">
                                 </div>
                                 <div class="flex justify-between w-auto mx-4 mt-1 md:mt-0">
                                     <div class="w-1/4 h-2 text-gray-400 bg-gray-400 rounded-sm md:w-1/4 md:h-2 "></div>
@@ -396,45 +410,54 @@
         </div>
         <!-- Sticky Bottom -->
         <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white shadow-md md:hidden border-t">
-            <div class="flex items-center justify-between w-full max-w-lg px-8 py-4 space-x-6 bg-white shadow-2xl rounded-3xl">
-        
+            <div
+                class="flex items-center justify-between w-full max-w-lg px-8 py-4 space-x-6 bg-white shadow-2xl rounded-3xl">
+
                 <!-- Landing -->
                 <div class="flex items-center justify-center w-16">
                     <a wire:navigate.hover href="{{ route('landing') }}">
-                        <img class="h-10 w-full" src="{{ asset('images/Frame 1-active.png')  }}" alt="">
+                        <img class="h-10 w-full" src="{{ asset('images/Frame 1-active.png') }}" alt="">
                     </a>
                 </div>
-        
+
                 <!-- Campaign -->
                 <div class="flex items-center justify-center w-16">
                     <a wire:navigate.hover href="{{ route('campaign') }}">
-                        <img class="h-10 w-full" src="{{ Request::is('campaigns') ? asset('images/Frame 2-active.png') : asset('images/Frame 2.png') }}" alt="">
+                        <img class="h-10 w-full"
+                            src="{{ Request::is('campaigns') ? asset('images/Frame 2-active.png') : asset('images/Frame 2.png') }}"
+                            alt="">
                     </a>
                 </div>
-        
+
                 <!-- Berita -->
                 <div class="flex items-center justify-center w-16">
                     <a wire:navigate.hover href="{{ route('berita') }}">
-                        <img class="h-10 w-full" src="{{ Request::is('berita') ? asset('images/Frame 3-active.png') : asset('images/Frame 3.png') }}" alt="">
+                        <img class="h-10 w-full"
+                            src="{{ Request::is('berita') ? asset('images/Frame 3-active.png') : asset('images/Frame 3.png') }}"
+                            alt="">
                     </a>
                 </div>
-        
+
                 <!-- Zakat -->
                 <div class="flex items-center justify-center w-16">
                     <a wire:navigate.hover href="{{ route('zakat') }}">
-                        <img class="h-10 w-full" src="{{ request()->is('zakat') || request()->is('infak') || request()->is('wakaf') ? asset('images/Frame 5-active.png') : asset('images/Frame 5.png') }}" alt="">
+                        <img class="h-10 w-full"
+                            src="{{ request()->is('zakat') || request()->is('infak') || request()->is('wakaf') ? asset('images/Frame 5-active.png') : asset('images/Frame 5.png') }}"
+                            alt="">
                     </a>
                 </div>
-        
+
                 <!-- Profile -->
                 <div class="flex items-center justify-center w-16">
                     <a wire:navigate.hover href="{{ route('profile.index') }}">
-                        <img class="h-10 w-full" src="{{ Request::is('profil') ? asset('images/Frame 4-active.png') : asset('images/Frame 4.png') }}" alt="">
+                        <img class="h-10 w-full"
+                            src="{{ Request::is('profil') ? asset('images/Frame 4-active.png') : asset('images/Frame 4.png') }}"
+                            alt="">
                     </a>
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 <script>
@@ -466,7 +489,7 @@
             const container = document.getElementById(containerId);
             const expandLink = document.getElementById(expandLinkId);
 
-        
+
 
             // Function to expand the container
             function expandContainer() {
@@ -481,5 +504,4 @@
         setupExpandableContainer('details-container', 'details-expand-link');
         setupExpandableContainer('update-container', 'update-expand-link');
     });
-
-</script>   
+</script>

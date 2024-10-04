@@ -22,6 +22,12 @@ class Gambar_landingFactory extends Factory
                 'images/gambar_landing/FaIB5VVytZUXFCLebeJmw6gDkeHBdIrLlDt9fV0m.jpg',
                 'images/gambar_landing/LQmxdLwhuDo0ph9gG9KyrqhEiEI3Z0fmClQfSxth.png',
             ]),
+            'link' => fake()->randomElement([
+                'http://127.0.0.1:8000/campaigns',
+                'http://127.0.0.1:8000/berita',
+                'http://127.0.0.1:8000/zakat',
+                'http://127.0.0.1:8000/profil&jajaran',
+            ]),
         ];
     }
 }
