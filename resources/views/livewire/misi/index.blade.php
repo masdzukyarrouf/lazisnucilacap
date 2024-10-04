@@ -17,7 +17,7 @@
         <livewire:misi.create />
     </div>
 
-        <table class="min-w-full mt-4 bg-white border border-gray-200">
+        <table class="w-full mt-4 bg-white border border-gray-200">
             <thead>
                 <tr class="items-center w-full text-white align-middle bg-gray-800">
                     <th class="px-4 py-2 text-center">Misi</th>
@@ -28,7 +28,7 @@
             <tbody>
                 @foreach ($misis as $Misi)
                     <tr class="border-t flex justify-between" wire:key="visi-{{ $Misi->id_misi }}">
-                        <td class="px-4 py-2 flex">
+                        <td class="px-4 py-2 flex ">
                             <div class="flex-col justify-between">
                                 <a wire:click="moveUp({{ $Misi->id_misi }})" class="{{ $Misi->order == 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer' }}" wire:key="up-{{ $Misi->id_misi }}">
                                     🔼
@@ -38,7 +38,7 @@
                                 </a>
                                 
                             </div>
-                            <p>{!! nl2br(e($Misi->misi)) !!}</p>
+                            <p class="break-loose w-full">{!! nl2br(e($Misi->misi)) !!}</p>
                         </td>
                         <td class="flex justify-center px-4 py-2 space-x-1">
                             <livewire:misi.edit :id_misi="$Misi->id_misi" wire:key="edit-{{ $Misi->id_misi }}" />

@@ -88,7 +88,7 @@
             <div id="details-content" class="w-full px-4 py-4 md:px-5">
                 <h2 class="w-full font-semibold text-left text-green-500">Visi</h2>
                 @foreach ($visis as $visi)
-                    <p class="text-sm md:text-base">{!! nl2br(e($visi->visi)) !!}</p>
+                    <p class="text-sm md:text-base" wire:key="misi-{{ $visi->id_visi }}">{!! nl2br(e($visi->visi)) !!}</p>
                 @endforeach
                 <h2 class="w-full mt-4 font-semibold text-left text-green-500">Misi</h2>
                 @php
@@ -96,7 +96,7 @@
                 @endphp
 
                 @foreach ($misis as $Misi)
-                    <div class="flex mt-4">
+                    <div class="flex mt-4" wire:key="misi-{{ $Misi->id_misi }}">
                         <h1 class="pr-2 text-sm">{{ $index }}.</h1>
                         <p class="text-sm">
                             {!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}
@@ -109,7 +109,49 @@
             </div>
             <a id="details-expand-link"
                 class="absolute bottom-0 left-0 w-full px-3 pt-4 text-left bg-gradient-to-t from-white via-white to-transparent">
-                <livewire:visi-misi />
+                {{-- <livewire:visi-misi /> --}}
+                <div  x-data="{ isOpen: false }" @modal-closed.window="isOpen = false">
+                    <!-- Button to open the modal -->
+                    <span @click="isOpen=true" class="text-green-500 cursor-pointer hover:underline">Baca Selengkapnya...</span>
+                
+                    <!-- Modal Background -->
+                    <div x-show="isOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-75">
+                        <!-- Modal Content -->
+                        <div class="w-[414px] md:w-full md:mx-4 bg-white rounded-lg shadow-lg">
+                            <!-- Modal Header -->
+                            <div class="flex items-center justify-between p-4 bg-gray-200 rounded-t-lg">
+                                <h3 class="text-xl font-semibold text-green-500">Sekilas NU-Care Lazisnu Cilacap</h3>
+                                <div @click="isOpen=false" class="px-3 rounded-sm shadow hover:bg-red-500">
+                                    <button class="text-gray-900">&times;</button>
+                                </div>
+                            </div>
+                            <div class="p-4 max-h-[500px] overflow-y-auto">
+                                <div class="flex flex-col items-start mt-4">
+                                    <h2 class="w-full font-semibold text-left text-green-500">Visi</h2>
+                                    @foreach($visis as $visi)
+                                        <p> {!! nl2br(e($visi->visi)) !!}</p>
+                                    @endforeach
+                                    <h2 class="w-full mt-4 font-semibold text-left text-green-500">Misi</h2>
+                                    @php
+                                        $index = 1;
+                                    @endphp
+                
+                                    @foreach ($misis as $Misi)
+                                        <div class="flex mt-4">
+                                            <h1 class="pr-2 text-sm">{{ $index }}.</h1>
+                                            <p class="text-sm">
+                                                {!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}
+                                            </p>
+                                        </div>
+                                        @php
+                                            $index++;
+                                        @endphp
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </a>
         </div>
     </div>
@@ -418,3 +460,26 @@
         }
     });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function setupExpandableContainer(containerId, expandLinkId) {
+            const container = document.getElementById(containerId);
+            const expandLink = document.getElementById(expandLinkId);
+
+        
+
+            // Function to expand the container
+            function expandContainer() {
+                container.classList.remove('max-h-[174px]');
+                container.classList.add('max-h-none'); // Remove height restriction
+                expandLink.style.display = 'none'; // Hide the link
+            }
+
+        }
+
+        // Setup expandable containers
+        setupExpandableContainer('details-container', 'details-expand-link');
+        setupExpandableContainer('update-container', 'update-expand-link');
+    });
+
+</script>   
