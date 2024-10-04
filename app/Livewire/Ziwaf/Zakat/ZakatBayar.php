@@ -41,6 +41,7 @@ class ZakatBayar extends Component
     public $email;
     public $alamat;
     public $transaction;
+    public $jenisPerusahaan;
 
 
     public function rules()
@@ -59,6 +60,7 @@ class ZakatBayar extends Component
 
     public function mount()
     {
+        $this->reset();
         $zakat = session('zakat', null);
         $muzakki = session('muzakki', null);
         // dd($zakat,$muzakki);
@@ -68,6 +70,7 @@ class ZakatBayar extends Component
             $this->jenis1 = $zakat['jenis1'];
             $this->jenis2 = $zakat['jenis2'];
             $this->jenis3 = $zakat['jenis3'];
+            $this->jenisPerusahaan = $zakat['jenisPerusahaan'] ?? null;
             $this->atasNama = $zakat['atasNama'];
         }elseif ($muzakki !== null) {
             $this->namaMuzakki = $muzakki['namaMuzakki'];

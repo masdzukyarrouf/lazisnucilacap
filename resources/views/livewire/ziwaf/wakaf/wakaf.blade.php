@@ -1,11 +1,11 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
-    <div class="flex flex-col bg-white rounded-lg shadow-md" style="width: 414px; height: 736px">
+    <div class="flex flex-col w-full min-h-screen bg-white rounded-lg shadow-md">
         <livewire:ziwaf.navigation/>
-        <div class="flex justify-center py-4">
+        <div class="flex justify-center p-4">
             <div class="flex flex-col">
                 <h1 class="pb-2 font-semibold">Pilih Program Wakaf</h1>
-                <div class="relative w-96">
+                <div class="relative w-screen mb-2 md:w-96">
                     <select wire:model="selectedOption" class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:border-blue-500">
                         <option value="" disabled selected>Pilih Program Wakaf</option>
                         <option value="Wakaf Sumur Bor Untuk Daerah Pelosok">Wakaf Sumur Bor Untuk Daerah Pelosok</option>
@@ -30,7 +30,7 @@
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        class="w-screen px-2 py-1 mt-2 mb-3 border border-gray-300 rounded md:w-96" 
                         placeholder="Isikan nama anda" 
                     />
 
@@ -47,16 +47,19 @@
                             </label>
                         </div>
                     </div>
-                <div class="relative w-96">
+                <div class="relative w-screen md:w-96">
                     <label class="font-semibold">Nominal Wakaf Anda</label>
-                    <input 
-                        oninput="formatMoney(this)" 
-                        id="wakaf" 
-                        wire:model.lazy="wakaf" 
-                        type="text" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                        placeholder="Rp." 
-                    />
+                    <div class="relative flex items-center justify-center mt-2 mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                        <input 
+                            oninput="formatMoney(this)" 
+                            id="wakaf" 
+                            wire:model.lazy="wakaf" 
+                            type="text" 
+                            class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                            placeholder="0" 
+                        />
+                    </div>
                 </div>
             </div>
         </div>

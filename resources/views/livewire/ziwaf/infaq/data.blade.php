@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
-    <div class="flex flex-col h-full pb-24 bg-white shadow-md" style="width: 414px">
+<div class="flex flex-col items-center justify-center min-w-fit">
+    <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" backUrl="{{ route('infaq.index') }}"/>
+    <div class="flex flex-col w-full h-full min-h-screen pb-24 bg-white shadow-md md:w-[414px]">
         <div class="w-full p-6 ">
             <h2 class="text-[12px] text-gray-500 mb-4">Anda Akan Melakukan Pembayaran Untuk Infaq</h2>
             <form wire:submit="bayarInfaq">
@@ -15,7 +15,7 @@
                 </div>
                 <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Nama program</div>
-                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div class="w-4 text-sm text-gray-500text-center">:</div>
                     <div>{{ $jenis_ziwaf }}</div>
                 </div>
                 <div class="flex items-center mb-2">
@@ -29,12 +29,11 @@
                     <div>{{ $jenis3 }}</div>
                 </div>
                 </div>
-                <label class="block text-sm font-bold ">Nominal Infaq</label>
-
-                <div class="flex items-center w-full mr-2 font-bold text-green-500 bg-white border rounded-md">
-                    <p class=" text-[12px] text-center italic mx-2 w-8">Rp</p>
+                <label class="block mt-6 text-sm font-bold">Nominal Infaq</label>
+                <div class="relative flex items-center w-full mt-2 mb-4 mr-2 font-bold text-green-500 bg-white border rounded-md">
+                    <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 bg-gray-300 border border-black rounded h-9">Rp. </span>
                     <input type="text" disabled
-                        class="text-[12px] w-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                        class="w-full py-1 pr-2 text-green-500 bg-gray-300 border border-black rounded pl-14 h-9 md:w-96" 
                         wire:model="nominal_infaq"
                         onload="formatInput(this)">
                 </div>
@@ -46,7 +45,7 @@
                 <div class="mb-4">
                     <label class="block text-sm font-bold ">Nama Anda *</label>
                     <input type="text" wire:model="username"
-                        class="mt-1 text-[12px] block w-full p-2 border border-border rounded-md bg-input text-foreground"
+                        class="mt-2 text-[12px] block w-full p-2 border border-border rounded-md bg-input text-foreground"
                         placeholder="Isikan nama anda" />
                     @error('username')
                         <span class="mt-2 text-xs text-red-500">{{ $message }}</span>
@@ -55,16 +54,16 @@
                 <div class="mb-4">
                     <label class="block text-sm font-bold ">No Telepon (WhatsApp Aktif) *</label>
                     <input type="tel" wire:model="no_telp"
-                        class="mt-1 text-[12px] block w-full p-2 border border-border rounded-md bg-input text-foreground"
+                        class="mt-2 text-[12px] block w-full p-2 border border-border rounded-md bg-input text-foreground"
                         placeholder="Isikan no whatsapp anda" />
                     @error('no_telp')
                         <span class="mt-2 text-xs text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="mb-4">
+                <div class="mb-6">
                     <label class="block text-sm font-bold ">Email (opsional)</label>
                     <input type="email" wire:model="email"
-                        class="mt-1 text-[12px] block w-full p-2 border border-border rounded-md bg-input text-foreground"
+                        class="mt-2 text-[12px] block w-full p-2 border border-border rounded-md bg-input text-foreground"
                         placeholder="Isikan Email Anda" />
                     @error('email')
                         <span class="mt-2 text-xs text-red-500">{{ $message }}</span>

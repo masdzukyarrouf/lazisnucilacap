@@ -19,6 +19,8 @@ class Data extends Component
     public $nominal;
     public $atasNama;
     public $data;
+    public $user_id;
+    public $hari;
 
 
     public function mount(){
@@ -27,6 +29,7 @@ class Data extends Component
             return redirect()->route('fidyah.index');
         }else{
             $this->nominal = $this->data['nominal'];
+            $this->hari = $this->data['hari'];
             $this->atasNama = $this->data['atasNama'];
         }
         $user = Auth::user();
@@ -94,13 +97,14 @@ class Data extends Component
         ]);
         $this->donatur = [
             'username' => $this->username,
+            'hari' => $this->hari,
             'nominal' => $this->nominal,
             'atasNama' => $this->atasNama,
             'no_telp' => $this->no_telp,
             'email' => $this->email,
         ];
-        // return redirect()->route('fidyah.pembayaran',['token' => $snapToken])
-        //     ->with('donatur', $this->donatur);
+        return redirect()->route('fidyah.pembayaran',['token' => $snapToken])
+            ->with('donatur', $this->donatur);
     }
     public function render()
     {

@@ -17,15 +17,20 @@
                     <div class="w-4 text-gray-500text-center">:</div>
                     <div>{{ $atasNama }}</div>
                 </div>
+                <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">hari</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>{{ $hari }}</div>
+                </div>
                 </div>
                 <label class="font-semibold">Nominal Fidyah</label>
                 <div class="relative flex flex-col mb-3">
                     <div class="flex items-center justify-center">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 bg-gray-300 border border-black rounded h-9">Rp. </span>
                             <input 
                                 type="text" 
                                 value="{{ number_format($nominal, 0, ',', '.') }}" 
-                                class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
+                                class="w-full py-1 pr-2 text-green-500 bg-gray-300 border border-black rounded pl-14 h-9" 
                                 placeholder="Rp. 0" 
                                 readonly 
                             />
@@ -68,7 +73,7 @@
                         </div>
                     </div>
 
-                    <div class="flex-col items-center w-full space-y-2">
+                    <div class="flex-col items-center w-full mt-4 space-y-2">
                         <div>
                             <p class="text-[14px] font-semibold text-black">
                                 Rincian Pembayaran

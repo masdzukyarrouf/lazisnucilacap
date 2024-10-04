@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2 title="Pembayaran" />
+    <x-nav-mobile2 title="Pembayaran" backUrl="{{ route('zakat') }}"/>
     <div class="flex flex-col w-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="mx-5 mt-5">
             <span class="text-sm text-gray-600">Anda Akan Melakukan Pembayaran Untuk Zakat</span>
@@ -7,7 +7,7 @@
                 @if ($zakatFitrah > 0)
                 <div class="flex flex-col mb-4">
                     <span class="mb-2">
-                        Detail Zakat
+                        Detail Zakat Fitrah
                     </span>
                     <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Jumlah Muzakki</div>
@@ -53,7 +53,17 @@
                     <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Zakat Maal</div>
                     <div class="w-4 text-gray-500text-center">:</div>
-                    <div>{{ $jenis2 }}</div>
+                    <div>
+                        @if ($jenisPerusahaan)
+                            @if ($jenisPerusahaan == 'jasa')
+                                {{ $jenis2 }} (Jasa)                                
+                            @else
+                                {{ $jenis2 }} (Dagang/Industri)
+                            @endif
+                        @else
+                            {{ $jenis2 }}
+                        @endif
+                    </div>
                 </div>
                 <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Atas Nama</div>

@@ -16,6 +16,8 @@ class Data extends Component
     public $username;
     public $no_telp;
     public $jenis_ziwaf;
+    public $user_id;
+    public $email;
     public function mount(){
         $infaq = session('infaq', 'none');
 

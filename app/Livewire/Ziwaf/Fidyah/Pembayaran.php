@@ -13,12 +13,15 @@ class Pembayaran extends Component
     public $nominal;
     public $donatur;
     public $token;
+    public $hari;
+
     public function mount(){
         $this->donatur = session('donatur');
 
         if ($this->donatur) {
             $this->username = $this->donatur['username'];
             $this->nominal = $this->donatur['nominal'];
+            $this->hari = $this->donatur['hari'];
             $this->atasNama = $this->donatur['atasNama'];
             $this->no_telp = $this->donatur['no_telp'];
             $this->email = $this->donatur['email'];

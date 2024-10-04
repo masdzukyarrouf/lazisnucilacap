@@ -1,13 +1,13 @@
-<div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
-    <div class="flex flex-col bg-white rounded-lg shadow-md" style="width: 414px; height: 736px">
+<div class="flex flex-col items-center justify-center min-w-fit">
+    <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" backUrl="{{ route('infaq.index') }}"/>
+    <div class="flex flex-col w-full min-h-screen bg-white rounded-lg shadow-md md:w-[414px]">
         <livewire:ziwaf.navigation />
         <form wire:submit.prevent="bayarInfaq">
-            <div class="flex justify-center py-4">
+            <div class="flex justify-center p-4">
                 <div class="flex flex-col">
-                    <div class="relative w-96">
+                    <div class="relative w-screen md:w-96">
                         <label class="font-semibold">Pilih Program Infaq</label>
-                        <select wire:model="jenis_ziwaf" class="w-full px-2 py-1 mb-3 border border-gray-300 rounded">
+                        <select wire:model="jenis_ziwaf" class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded">
                             <option value={{ null }}>Pilih Program Infaq</option>
                             <option value="Infaq / Sedekah Umum">Infaq / Sedekah Umum</option>
                             <option value="Sedekah Palestina">Sedekah Palestina</option>
@@ -30,7 +30,7 @@
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        class="w-screen px-2 py-1 mt-2 mb-3 border border-gray-300 rounded md:w-96" 
                         placeholder="Isikan nama anda" 
                     />
 
@@ -48,20 +48,23 @@
                         </div>
                     </div>
 
-                    <div class="relative w-96">
+                    <div class="relative w-screen md:w-96">
                         <label class="font-semibold">Nominal Infaq Kamu</label>
-                        <input 
-                            data-input="nominal_infaq" 
-                            type="text" 
-                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                            placeholder="Rp." 
-                            oninput="formatNumberInput(this)" 
-                        />
-                        <input 
-                            type="hidden" 
-                            name="nominal_infaq_raw" 
-                            wire:model="nominal_infaq" 
-                        />
+                        <div class="relative flex items-center justify-center mt-2 mb-3">
+                            <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                            <input 
+                                data-input="nominal_infaq" 
+                                type="text" 
+                                class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                placeholder="0" 
+                                oninput="formatNumberInput(this)" 
+                            />
+                            <input 
+                                type="hidden" 
+                                name="nominal_infaq_raw" 
+                                wire:model="nominal_infaq" 
+                            />
+                        </div>
                         @error('nominal_infaq')
                             <span class="mt-2 text-xs text-red-500">{{ $message }}</span>
                         @enderror

@@ -245,7 +245,9 @@ class Ziwaf extends Component
     public function mount()
     {
         // redirect()->route(route: 'x');
-        $this->reset(); // Reset
+        $this->selectedOption = '';
+        $this->selectedOption2 = '';
+        // dd($this->selectedOption);
         // $this->fetchGoldPrice();
         // $this->nisab = 85 * $this->goldPrice[0]['sell'];
         $this->nisab = 85 * 1000000;
@@ -257,6 +259,11 @@ class Ziwaf extends Component
         } elseif (Request::is('fitrah')) {
             $this->selectedOption = 'fitrah';
         }
+    }
+
+    public function refresh()
+    {
+        $this->dispatch('reload-page');
     }
 
 
@@ -327,6 +334,7 @@ class Ziwaf extends Component
                 'jenis1' => $selectedOption,
                 'jenis2' => $selectedOption2,
                 'jenis3' => 'Entitas',
+                'jenisPerusahaan' => $this->jenisPerusahaan,
                 'atasNama' => $atasNama
             ];
         } elseif ($zakatDagang > 0) {
@@ -335,6 +343,7 @@ class Ziwaf extends Component
                 'jenis1' => $selectedOption,
                 'jenis2' => $selectedOption2,
                 'jenis3' => 'Entitas',
+                'jenisPerusahaan' => $this->jenisPerusahaan,
                 'atasNama' => $atasNama
             ];
         } elseif ($zakatFitrah > 0) {
@@ -368,6 +377,7 @@ class Ziwaf extends Component
         // } elseif ($this->selectedOption === 'profesi') {
         //     // Logika ketika Zakat Profesi dipilih
         // }
+        // dd($this->selectedOption);
     }
     public function render()
     {

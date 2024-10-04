@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
+    <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap"/>
     <div class="flex flex-col w-full min-h-screen pb-24 bg-white rounded-lg shadow-md md:w-[414px]">
         <livewire:ziwaf.navigation/>
         <div class="flex flex-col justify-center p-4">
@@ -283,6 +283,15 @@
                             </div>
                         </div>
                         <!-- Form untuk input Zakat Maal -->
+                        <label class="font-semibold">Atas Nama</label>
+                        <input 
+                            type="text" 
+                            id="atasNama" 
+                            wire:model="atasNama" 
+                            class="w-screen px-2 py-1 mt-2 mb-3 border border-gray-300 rounded md:w-96" 
+                            placeholder="Isikan nama anda" 
+                        />
+                        
                         <label class="font-semibold">Aktiva Lancar</label>
                         <input 
                             oninput="formatMoney(this)"
@@ -307,11 +316,11 @@
                         <label class="font-semibold">Nisab per Tahun</label>
                         <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                     <input 
                                         type="text" 
                                         value="{{ number_format($nisab, 0, ',', '.') }}" 
-                                        class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
+                                        class="w-full py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                         placeholder="Rp. 0" 
                                         readonly 
                                     />
@@ -327,11 +336,11 @@
                                 <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                                 <div class="relative flex flex-col mb-3">
                                     <div class="flex items-center justify-center">
-                                        <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
+                                        <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                         <input 
                                         type="text" 
                                         value="{{ number_format($zakatDagang, 0, ',', '.') }}" 
-                                        class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
+                                        class="w-full py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                         placeholder="Rp. 0" 
                                         readonly 
                                         />
@@ -416,22 +425,22 @@
 
                     <label class="font-semibold">Jumlah</label>
                     <div class="relative flex items-center justify-center mb-3">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9 ">Rp. </span>
                         <input 
                             type="text" 
                             value="{{ number_format($totalassetlaba, 0, ',', '.') }}" 
-                            class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
+                            class="w-full py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                             readonly
                         />
                     </div>
                     <label class="font-semibold">Nisab per Tahun</label>
                     <div class="relative flex flex-col mb-3">
                             <div class="flex items-center justify-center">
-                                <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
+                                <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9 ">Rp. </span>
                                 <input 
                                     type="text" 
                                     value="{{ number_format($nisab, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-full py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                 />
@@ -447,11 +456,11 @@
                             <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                             <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9 ">Rp. </span>
                                     <input 
                                     type="text" 
                                     value="{{ number_format($zakatPerdagangan, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 mt-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-full py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                     />
@@ -491,7 +500,7 @@
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
                         placeholder="Isikan nama anda" 
                     />
 
@@ -510,61 +519,51 @@
                     </div>
                     
                     <label class="font-semibold">Gaji Perbulan</label>
-                    <div class="relative flex items-center justify-center mb-3">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-2 font-semibold rounded h-9">Rp. </span>
+                    <div class="relative flex items-center justify-center mt-2 mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
                         <input 
                             oninput="formatMoney(this)"
                             type="text" 
                             id="gaji" 
                             wire:model.lazy="gaji" 
                             wire:input="penghasilan" 
-                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded pl-11" 
+                            class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
                             placeholder="Isikan dengan jumlah gaji anda dalam 1 bulan" 
                         />
                     </div>
                     
                     <label class="font-semibold">Penghasilan Lain Perbulan</label>
-                    <div class="relative flex items-center justify-center mb-3">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-2 font-semibold rounded h-9">Rp. </span>
+                    <div class="relative flex items-center justify-center mt-2 mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
                         <input 
                             oninput="formatMoney(this)"
                             type="text" 
                             id="gaji2" 
                             wire:model.lazy="gaji2" 
                             wire:input="penghasilan" 
-                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded pl-11"
+                            class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
                             placeholder="Isikan dengan penghasilan lain anda dalam 1 bulan"
                         />
                     </div>
-                    <label class="font-semibold">Penghasilan Lain Perbulan</label>
-                    <input 
-                        oninput="formatMoney(this)"
-                        type="text" 
-                        id="gaji2" 
-                        wire:model.lazy="gaji2" 
-                        wire:input="penghasilan" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
-                        placeholder="Isikan dengan penghasilan anda yang lain" 
-                    />
 
                     <label class="font-semibold">Total Penghasilan Perbulan</label>
-                    <div class="relative flex items-center justify-center mb-3">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                    <div class="relative flex items-center justify-center mt-2 mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 border border-black rounded h-9">Rp. </span>
                         <input 
                             type="text" 
                             value="{{ number_format($totalpenghasilan, 0, ',', '.') }}" 
-                            class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                            class="w-full py-1 pr-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                             readonly
                         />
                     </div>
                     <label class="font-semibold">Nisab per Bulan</label>
-                    <div class="relative flex flex-col mb-3">
+                    <div class="relative flex flex-col mt-2 mb-3">
                             <div class="flex items-center justify-center">
-                                <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                 <input 
                                     type="text" 
                                     value="{{ number_format($nisabbulan, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-full py-1 pr-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                 />
@@ -578,13 +577,13 @@
                         </div>
                         @elseif ($zakatPenghasilan != 0)
                             <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan (2,5% Dari Jumlah Penghasilan)</label>
-                            <div class="relative flex flex-col mb-3">
+                            <div class="relative flex flex-col mt-2 mb-3">
                                 <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                     <input 
                                     type="text" 
                                     value="{{ number_format($zakatPenghasilan, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-full py-1 pr-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                     />
@@ -624,7 +623,7 @@
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
                         placeholder="Isikan nama anda" 
                     />
 
@@ -643,15 +642,15 @@
                     </div>
                     
                     <label class="font-semibold">Harga Produk Per Kg</label>
-                    <div class="relative flex items-center justify-center mb-3">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-2 rounded h-9">Rp. </span>
+                    <div class="relative flex items-center justify-center mt-2 mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded">Rp. </span>
                         <input 
                             oninput="formatMoney(this)"
                             type="text" 
                             id="harga" 
                             wire:model.lazy="harga" 
                             wire:input="totalharga" 
-                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded pl-11" 
+                            class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
                             placeholder="Isikan dengan perkiraan harga produk per kg" 
                         />
                     </div>
@@ -662,22 +661,22 @@
                         id="kg" 
                         wire:model.lazy="kg" 
                         wire:input="totalharga" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
                         placeholder="Isikan dengan penghasilan anda yang lain" 
                     />
 
                     <label class="font-semibold">Jumlah</label>
-                    <div class="relative flex items-center justify-center mb-3">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                    <div class="relative flex items-center justify-center mt-2 mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 border border-black rounded h-9">Rp. </span>
                         <input 
                             type="text" 
                             value="{{ number_format($hargatotal, 0, ',', '.') }}" 
-                            class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                            class="w-full py-1 pr-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                             readonly
                         />
                     </div>
                     
-                    <div class="flex items-center justify-between w-full my-3">
+                    <div class="flex items-center justify-between w-full mt-6 mb-4">
                         <label for="diari" class="font-semibold">Diairi memakai alat ?</label>
                         <label class="relative inline-flex items-center cursor-pointer">
                             <input type="checkbox" id="alat" wire:model="toggleValue" class="sr-only peer">
@@ -687,13 +686,13 @@
                     </div>
                     
                     <label class="font-semibold">Nisab</label>
-                    <div class="relative flex flex-col mb-3">
+                    <div class="relative flex flex-col mt-2 mb-3">
                             <div class="flex items-center justify-center">
-                                <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                 <input 
                                     type="text" 
                                     value="653 Kg" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-full py-1 pr-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                 />
@@ -709,11 +708,11 @@
                             <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                             <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                     <input 
                                     type="text" 
                                     value="{{ number_format($zakatPertanian, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-full py-1 pr-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                     />
@@ -752,7 +751,7 @@
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                        class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded" 
                         placeholder="Isikan nama anda" 
                     />
 
@@ -771,51 +770,51 @@
                     </div>
                     
                     <label class="font-semibold">Nominal Uang</label>
-                    <div class="relative flex items-center justify-center mb-3">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-2 font-semibold rounded h-9">Rp. </span>
+                    <div class="relative flex items-center justify-center mt-2 mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
                         <input 
                             oninput="formatMoney(this)"
                             type="text" 
                             id="uang" 
                             wire:model.lazy="uang" 
                             wire:input="kekayaan" 
-                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded pl-11" 
+                            class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
                             placeholder="Isikan dengan jumlah uang anda dalam 1 tahun"
                         />
                     </div>
 
                     <label class="font-semibold">Surat Berharga Lainnya</label>
-                    <div class="relative flex items-center justify-center mb-3">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 font-semibold rounded h-9">Rp. </span>
+                    <div class="relative flex items-center justify-center mt-2 mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
                         <input 
                             oninput="formatMoney(this)"
                             type="text" 
                             id="surat" 
                             wire:model.lazy="surat" 
                             wire:input="kekayaan" 
-                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded pl-11" 
+                            class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
                             placeholder="Isikan dengan jumlah surat berharga anda dalam rupiah"
                         />
                     </div>
 
                     <label class="font-semibold">jumlah</label>
-                    <div class="relative flex items-center justify-center mb-3">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                    <div class="relative flex items-center justify-center mt-2 mb-3">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 border border-black rounded h-9">Rp. </span>
                         <input 
                             type="text" 
                             value="{{ number_format($totalkekayaan, 0, ',', '.') }}" 
-                            class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                            class="w-full py-1 pr-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                             readonly
                         />
                     </div>
                     <label class="font-semibold">Nisab per Tahun</label>
                     <div class="relative flex flex-col mb-3">
                             <div class="flex items-center justify-center">
-                                <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                 <input 
                                     type="text" 
                                     value="{{ number_format($nisab, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                class="w-full py-1 pr-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                 />
@@ -831,11 +830,11 @@
                             <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                             <div class="relative flex flex-col mb-3">
                                 <div class="flex items-center justify-center">
-                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                     <input 
                                     type="text" 
                                     value="{{ number_format($zakatUang, 0, ',', '.') }}" 
-                                    class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                                    class="w-full py-1 pr-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                     placeholder="Rp. 0" 
                                     readonly 
                                     />
@@ -943,6 +942,10 @@
                 sessionStorage.setItem('ziwafRefreshed', 'true');
                 location.reload();
             }
+        });
+
+        window.addEventListener('reload-page', function() {
+            window.location.reload();
         });
     </script>
 </div>

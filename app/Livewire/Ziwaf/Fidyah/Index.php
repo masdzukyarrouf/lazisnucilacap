@@ -22,6 +22,7 @@ class Index extends Component
     public function bayarFidyah(){
         $this->data = [
             'nominal' => $this->nominal_fidyah,
+            'hari' => $this->nominal,
             'atasNama' => $this->atasNama,
         ];
         return redirect()->route('fidyah.data')->with('data', $this->data);

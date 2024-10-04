@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
-    <div class="flex flex-col h-full pb-24 bg-white shadow-md" style="width: 414px">
+    <div class="flex flex-col w-screen h-full min-h-screen pb-24 bg-white shadow-md">
         <div class="w-full p-6 ">
             <h2 class="text-[12px] text-gray-500 mb-4">Anda Akan Melakukan Pembayaran Untuk Fidyah</h2>
             <form wire:submit="bayarFidyah">
@@ -9,15 +9,24 @@
                     <div class="w-4 text-gray-500text-center">:</div>
                     <div>{{ $atasNama }}</div>
                 </div>
-                <label class="block text-sm font-bold ">Nominal</label>
 
-                <div class="flex items-center w-full mr-2 text-green-500 bg-white border rounded-md">
-                    <p class=" text-[12px] text-center italic mx-2 w-8">Rp</p>
-                    <input type="text" 
-                        class="text-[12px] w-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-500"
-                        wire:model="nominal"
-                        onload="formatInput(this)">
+                <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">Hari</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>{{ $hari }}</div>
                 </div>
+
+                <label class="text-sm font-semibold">Nominal</label>
+                    <div class="relative flex items-center justify-center mt-2 mb-4 text-green-500">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9 text-[12px] border border-black">Rp. </span>
+                        <input 
+                            type="text" 
+                            class="w-full py-1 pr-2 border border-black rounded h-9 pl-14 text-[12px] bg-gray-300" 
+                            wire:model="nominal"
+                            onload="formatInput(this)" 
+                        />
+                    </div>
+                    
                 <h3 class="text-[16px] font-semibold  mb-2">Mohon Lengkapi Data Berikut</h3>
                 @if (!Auth::check())
                     <p class="text-[12px]  mb-4">Sudah Punya Akun? <a href="/login"

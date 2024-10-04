@@ -60,12 +60,12 @@ Route::prefix('wakaf')->group(function () {
 });
  
 Route::prefix('narasi')->group(function () {
-    Route::get('/fitrah', App\Livewire\Ziwaf\Narasi\Fitrah::class)->name('fitrah');
-    Route::get('/maal', App\Livewire\Ziwaf\Narasi\Maal::class)->name('maal');
-    Route::get('/infaq', App\Livewire\Ziwaf\Narasi\Infaq::class)->name('infaq');
-    Route::get('/wakaf', App\Livewire\Ziwaf\Narasi\Wakaf::class)->name('Wakaf');
-    Route::get('/fidyah', App\Livewire\Ziwaf\Narasi\Fidyah::class)->name('fidyah');
-    Route::get('/qurban', App\Livewire\Ziwaf\Narasi\Qurban::class)->name('qurban');
+    Route::get('/fitrah', App\Livewire\Ziwaf\Narasi\Fitrah::class)->name('narasi.fitrah');
+    Route::get('/maal', App\Livewire\Ziwaf\Narasi\Maal::class)->name('narasi.maal');
+    Route::get('/infaq', App\Livewire\Ziwaf\Narasi\Infaq::class)->name('narasi.infaq');
+    Route::get('/wakaf', App\Livewire\Ziwaf\Narasi\Wakaf::class)->name('narasi.Wakaf');
+    Route::get('/fidyah', App\Livewire\Ziwaf\Narasi\Fidyah::class)->name('narasi.fidyah');
+    Route::get('/qurban', App\Livewire\Ziwaf\Narasi\Qurban::class)->name('narasi.qurban');
 });
 
 Route::prefix('fidyah')->group(function () {
