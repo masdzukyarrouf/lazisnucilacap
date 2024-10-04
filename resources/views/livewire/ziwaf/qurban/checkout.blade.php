@@ -25,11 +25,11 @@
                 <label class="mt-4 font-semibold">Nominal Qurban</label>
                 <div class="relative flex flex-col mb-3">
                     <div class="flex items-center justify-center">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 font-semibold text-green-500 rounded h-9">Rp. </span>
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 font-semibold text-green-500 border border-black rounded h-9bg-gray-300">Rp. </span>
                             <input 
                                 type="text" 
                                 value="{{ number_format($this->nominal, 0, ',', '.') }}" 
-                                class="w-full py-1 pl-10 pr-2 font-semibold text-green-500 border border-gray-300 rounded h-9" 
+                                class="w-full py-1 pl-10 pr-2 font-semibold text-green-500 bg-gray-300 border border-black rounded h-9" 
                                 placeholder="Rp. 0" 
                                 readonly 
                             />

@@ -129,6 +129,7 @@ class Data extends Component
 
         Ziwaf::create([
             'nominal' => $this->nominal,
+            'atas_nama' => $this->mudhohi,
             'username' => $this->nama,
             'no_telp' => $this->no,
             'id_transaction' => $this->transaction->id_transaction,

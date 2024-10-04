@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2 title="Pembayaran" />
-    <div class="flex flex-col w-full min-h-screen bg-white shadow-md">
+    <x-nav-mobile2 title="Pembayaran" backUrl="{{ route('wakaf') }}"/>
+    <div class="flex flex-col w-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="mx-5 mt-5">
             <div class="flex flex-col">
                 <span class="text-sm text-gray-600">Anda Akan Melakukan Pembayaran Untuk Wakaf</span>

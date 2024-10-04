@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
-    <div class="flex flex-col w-screen h-full min-h-screen pb-24 bg-white shadow-md">
+    <div class="flex flex-col w-screen h-full min-h-screen pb-24 bg-white shadow-md md:w-[414px]">
         <div class="w-full p-6 ">
             <h2 class="text-[12px] text-gray-500 mb-4">Anda Akan Melakukan Pembayaran Untuk Fidyah</h2>
             <form wire:submit="bayarFidyah">

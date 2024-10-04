@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Qurban Lazisnu Cilacap" />
-    <div class="flex flex-col min-h-screen pb-24 bg-white shadow-md" style="width: 414px">
+    <div class="flex flex-col w-full min-h-screen pb-24 bg-white shadow-md md:w-[414px]">
         <livewire:ziwaf.navigation/>
         <div class="flex flex-col p-4">
             <h1 class="pb-2 font-semibold">Harga Hewan Qurban</h1>
