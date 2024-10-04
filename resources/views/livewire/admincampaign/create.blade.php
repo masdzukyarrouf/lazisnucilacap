@@ -36,7 +36,7 @@
                         <label for="kategori" class="block text-sm font-medium text-gray-700">Kategori</label>
                         <select id="kategori" wire:model="kategori" name="kategori"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 bg-gray-200 py-2 sm:text-sm">
-                            <option value="" disabled selected>Select</option>
+                            <option value="" selected>Select</option>
                             <option value="Bencana Alam">Bencana Alam</option>
                             <option value="Pendidikan">Pendidikan</option>
                             <option value="Sosial & Keagamaan">Sosial & Keagamaan</option>
@@ -49,10 +49,17 @@
                         @enderror
                     </div>
                     
+
                     <div class="mb-4">
                         <label for="goal" class="block text-sm font-medium text-gray-700">Goal</label>
-                        <input type="text" id="goal" wire:model="goal" name="goal"
-                            class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
+                        <!-- Visible Input for formatting -->
+                        <input type="text" id="goal_display" name="goal_display"
+                            class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm"
+                            oninput="formatMoney(this, 'goal_hidden')" value="{{ number_format($goal, 0, ',', '.') }}">
+                        
+                        <!-- Hidden Input for Livewire to store pure numeric value -->
+                        <input type="hidden" id="goal_hidden" wire:model.lazy="goal">
+                    
                         @error('goal')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
@@ -75,9 +82,15 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="min_donation" class="block text-sm font-medium text-gray-700">Min donation</label>
-                        <input type="number" id="min_donation" wire:model="min_donation" name="min_donation"
-                            class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
+                        <label for="min_donation" class="block text-sm font-medium text-gray-700">Min Donation</label>
+                        <!-- Visible Input for formatting -->
+                        <input type="text" id="min_donation_display" name="min_donation_display"
+                            class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm"
+                            oninput="formatMoney(this, 'min_donation_hidden')"   value="{{ number_format($min_donation, 0, ',', '.') }}">
+                    
+                        <!-- Hidden Input for Livewire to store pure numeric value -->
+                        <input type="hidden" id="min_donation_hidden" wire:model.lazy="min_donation">
+                    
                         @error('min_donation')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
@@ -103,8 +116,8 @@
 
                     <div class="mb-4">
                         <label for="second_picture" class="block text-sm font-medium text-gray-700">Image 2</label>
-                        <input type="file" id="second_picture" class="border border-gray-300 p-2 w-full rounded-lg"
-                            wire:model="second_picture">
+                        <input type="file" id="second_picture"
+                            class="border border-gray-300 p-2 w-full rounded-lg" wire:model="second_picture">
                         @error('second_picture')
                             <span class="text-red-600">{{ $message }}</span>
                         @enderror
@@ -118,6 +131,9 @@
                             <span class="text-red-600">{{ $message }}</span>
                         @enderror
                     </div>
+                    <input type="hidden" id="goal-hidden" wire:model="goal">
+                    <input type="hidden" id="min-donation-hidden" wire:model="min_donation">
+
 
 
 
@@ -134,7 +150,7 @@
                         <div>
                             <button type="button" @click="isOpen = false"
                                 class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Close</button>
-                            <button type="submit" @click="isOpen = false"
+                            <button type="submit"
                                 class="ml-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Submit</button>
                         </div>
                     </div>
@@ -144,23 +160,33 @@
         </div>
     </div>
 </div>
-{{-- img preview --}}
-{{-- <script>
-    function previewImage(event, previewId) {
-        const reader = new FileReader();
-        reader.onload = function() {
-            const output = document.getElementById(previewId);
-            output.src = reader.result;
-            output.style.display = 'block';
-        }
-        reader.readAsDataURL(event.target.files[0]);
-    }
-</script> --}}
-{{-- format uang --}}
 <script>
-    function formatMoney(input) {
-        let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
-        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Add dots for thousands
-        input.value = value;
-    }
-    </script>
+    function formatMoney(input, hiddenInputId) {
+     // Get the raw value without formatting
+     let value = input.value.replace(/[^\d]/g, ''); // Remove all non-numeric characters
+ 
+     // Format the value with dots for thousands
+     let formattedValue = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+ 
+     // Update the visible input with the formatted value
+     input.value = formattedValue;
+ 
+     // Update the hidden input with the numeric value for Livewire
+     let hiddenInput = document.getElementById(hiddenInputId);
+     hiddenInput.value = value;
+ 
+     // Dispatch an input event to ensure Livewire sees the change
+     hiddenInput.dispatchEvent(new Event('input'));
+ }
+ 
+//  function formatOnLoad() {
+//      const goalInput = document.getElementById('goal_display');
+//      if (goalInput.value) {
+//          formatMoney(goalInput, 'goal_hidden');
+//      }
+//  }
+ 
+ document.addEventListener('DOMContentLoaded', formatOnLoad);
+ 
+ </script>
+
