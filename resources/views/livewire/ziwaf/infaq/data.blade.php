@@ -29,13 +29,18 @@
                     <div>{{ $jenis3 }}</div>
                 </div>
                 </div>
-                <label class="block mt-6 text-sm font-bold">Nominal Infaq</label>
-                <div class="relative flex items-center w-full mt-2 mb-4 mr-2 font-bold text-green-500 bg-white border rounded-md">
-                    <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 bg-gray-300 border border-black rounded h-9">Rp. </span>
-                    <input type="text" disabled
-                        class="w-full py-1 pr-2 text-green-500 bg-gray-300 border border-black rounded pl-14 h-9 md:w-96" 
-                        wire:model="nominal_infaq"
-                        onload="formatInput(this)">
+                <label class="font-semibold">Nominal</label>
+                <div class="relative flex flex-col mb-3">
+                    <div class="flex items-center justify-center">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 bg-gray-300 border border-black rounded h-9">Rp. </span>
+                            <input 
+                                type="text" 
+                                value="{{ number_format($this->nominal_infaq, 0, ',', '.') }}" 
+                                class="w-full py-1 pr-2 text-green-500 bg-gray-300 border border-black rounded pl-14 h-9" 
+                                placeholder="Rp. 0" 
+                                readonly 
+                            />
+                    </div>
                 </div>
                 <h3 class="text-[16px] font-semibold  mb-2">Mohon Lengkapi Data Berikut</h3>
                 @if (!Auth::check())

@@ -42,8 +42,10 @@
                         <td class="px-6 py-4 border-b border-gray-300">{{ $donasi->created_at->format('d/m/Y') }}</td>
                         <td class="flex px-6 py-4 space-x-2 border-b border-gray-300">
                             <livewire:admin-donasi.edit :id_donasi="$donasi->id_donasi" wire:key="donasi-{{ $donasi->id_donasi }}"/>
-                            <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700"
-                                wire:click="destroy({{ $donasi->id_donasi }})">Delete</button>
+                            <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
+                                onclick="confirmDelete({{ $donasi->id_donasi }})">
+                                Delete
+                            </button>
 
                         </td>
                     </tr>
@@ -56,6 +58,23 @@
     <div class="py-8 mt-4 text-center">
         {{ $donasis->links('pagination::tailwind') }}
     </div>
-
+<script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Trigger Livewire destroy method
+                    @this.call('destroy', id);
+                }
+            })
+        }
+    </script>
 
 </div>

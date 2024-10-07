@@ -1,6 +1,6 @@
 <div class="mx-5 shadow-2xl">
     <div class="flex justify-between mx-4 mt-12">
-        <h1 class="text-2xl font-bold ">Berita Table</h1>
+        <h1 class="text-2xl font-bold ">Pilihan Wakaf Table</h1>
         <div>
             @if (session()->has('message'))
                 <div id="flash-message"
@@ -15,39 +15,26 @@
         </div>
         <!-- Modal Form -->
         <input type="text" wire:model.live="search" placeholder="   Search" class="ml-4 border border-gray-300 rounded-lg">
-        <livewire:berita.create />
+        <livewire:pilihan-wakaf-admin.create />
     </div>
     <table class="min-w-full mt-4 bg-white border border-gray-200">
         <thead>
             <tr class="items-center w-full text-white align-middle bg-gray-800">
-                <th class="px-4 py-2 text-center">Judul</th>
-                <th class="px-4 py-2 text-center">Isi</th>
-                <th class="px-4 py-2 text-center">Tanggal</th>
-                <th class="px-4 py-2 text-center">kategori</th>
-                <th class="px-4 py-2 text-center">Gambar</th>
+                <th class="px-4 py-2 text-center">Pilihan Wakaf</th>
                 <th class="px-4 py-2 text-center">Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($beritas as $berita)
-                <tr class="border-t" wire:key="berita-{{ $berita->id_berita }}">
-                    <td class="max-w-xs px-4 py-2 break-words">{{ $berita->title_berita }}</td>
+            @foreach ($pilihan_wakafs as $pilihan_wakaf)
+                <tr class="border-t" wire:key="pilihan_wakaf-{{ $pilihan_wakaf->id }}">
+                    <td class="max-w-xs px-4 py-2 text-center">{{ $pilihan_wakaf->pil_wakaf }}</td>
                     <td class="px-4 py-2">
-                        {{ \Illuminate\Support\Str::limit($berita->description, 30, '...') }}
-                    </td>
-                    <td class="px-4 py-2">{{ $berita->tanggal }}</td>
-                    <td class="px-4 py-2">{{ $berita->kategori }}</td>
-                    <td class="px-4 py-2">
-                        <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="block w-24 mx-auto mt-2 mb-2">
-                    </td>
-                    <td class="px-4 py-2">
-                        <div class="flex flex-col items-center space-y-2">
+                        <div class="flex items-center justify-center gap-3">
                             <div class="flex space-x-2">
-                                <livewire:berita.show :id_berita="$berita->id_berita" wire:key="show-{{ $berita->id_berita }}" />
-                                <livewire:berita.form-edit :id_berita="$berita->id_berita" wire:key="edit-{{ $berita->id_berita }}" />
+                                <livewire:pilihan-wakaf-admin.edit :id="$pilihan_wakaf->id" wire:key="edit-{{ $pilihan_wakaf->id }}" />
                             </div>
                             <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
-                                onclick="confirmDelete({{ $berita->id_berita }})">
+                                onclick="confirmDelete({{ $pilihan_wakaf->id }})">
                                 Delete
                             </button>
                         </div>
@@ -58,7 +45,7 @@
     </table>
     <!-- Pagination Controls -->
     <div class="py-8 mt-4 text-center">
-        {{ $beritas->links('pagination::tailwind') }}
+        {{ $pilihan_wakafs->links('pagination::tailwind') }}
     </div>
     <script>
         function confirmDelete(id) {

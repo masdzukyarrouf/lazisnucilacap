@@ -20,7 +20,7 @@ class BeritaFactory extends Factory
             'title_berita' => fake()->sentence(),
             'description' => fake()->paragraph(5),
             'tanggal' => fake()->dateTimeBetween('-3 month', 'now'),
-            'picture' => '2lNcAJLKMgQSJpdbEPL72LN3EwvAlEDqkFGjglKb.png',
+            'picture' => '1PfQkLJrx3r5qzFTa4hwUVNzYgQOX00XA2xUOsx6.png',
             'kategori' => fake()->randomElement([
                 'Bencana Alam',
                 'Pendidikan',

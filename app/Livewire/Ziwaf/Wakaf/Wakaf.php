@@ -3,6 +3,7 @@
 namespace App\Livewire\Ziwaf\Wakaf;
 
 use Livewire\Component;
+use App\Models\pilihan_wakaf;
 
 class Wakaf extends Component
 {
@@ -11,9 +12,14 @@ class Wakaf extends Component
     public $data;
     public $jenis3;
     public $atasNama;
+    public $pilihan_wakafs;
 
 
 
+    public function mount()
+    {
+        $this->pilihan_wakafs = pilihan_wakaf::all();
+    }
 
     public function submitwaif()
     {

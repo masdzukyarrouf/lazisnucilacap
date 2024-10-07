@@ -3,6 +3,7 @@
 namespace App\Livewire\Ziwaf\Infaq;
 
 use Livewire\Component;
+use App\Models\pilihan_infaq;
 
 class Index extends Component
 {
@@ -11,6 +12,13 @@ class Index extends Component
     public $jenis3;
     public $atasNama;
 
+    public $pilihan_infaqs;
+
+
+    public function mount()
+    {
+        $this->pilihan_infaqs = pilihan_infaq::all();
+    }
     
     protected $rules = [
         'nominal_infaq' => 'required|integer|min:50000',

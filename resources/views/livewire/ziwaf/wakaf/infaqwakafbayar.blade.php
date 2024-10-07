@@ -26,7 +26,7 @@
                         <div>{{ $jenis3 }}</div>
                     </div>
                 </div>
-                <label class="font-semibold">Nominal Zakat</label>
+                <label class="font-semibold">Nominal</label>
                 <div class="relative flex flex-col mb-3">
                     <div class="flex items-center justify-center">
                         <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 bg-gray-300 border border-black rounded h-9">Rp. </span>

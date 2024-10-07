@@ -109,7 +109,7 @@ class Data extends Component
             'username' => $this->username,
             'no_telp' => $this->no_telp,
             'id_transaction' => $this->transaction->id_transaction,
-            'jenis_ziwaf' => $this->jenis_ziwaf . ' ' . '(' . $this->jenis . ')',
+            'jenis_ziwaf' => 'Infaq ' . $this->jenis_ziwaf . ' ' . '(' . $this->jenis . ')',
             'email' => $this->email ?? null,
             'atas_nama' => $this->atasNama,
         ]);

@@ -132,7 +132,7 @@ class InfaqwakafBayar extends Component
             'username' => $this->nama,
             'no_telp' => $this->no,
             'id_transaction' => $this->transaction->id_transaction,
-            'jenis_ziwaf' => $this->jenis . ' ' . '(' . $this->jenis3 . ')',
+            'jenis_ziwaf' => 'wakaf ' . $this->jenis . ' ' . '(' . $this->jenis3 . ')',
             'email' => $this->email,
             'atas_nama' => $this->atasNama,
         ]);

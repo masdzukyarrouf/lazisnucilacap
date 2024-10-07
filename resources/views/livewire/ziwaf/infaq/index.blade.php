@@ -9,16 +9,9 @@
                         <label class="font-semibold">Pilih Program Infaq</label>
                         <select wire:model="jenis_ziwaf" class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded">
                             <option value={{ null }}>Pilih Program Infaq</option>
-                            <option value="Infaq / Sedekah Umum">Infaq / Sedekah Umum</option>
-                            <option value="Sedekah Palestina">Sedekah Palestina</option>
-                            <option value="Sedekah Nu Care Lazisnu Cilacap">Sedekah Nu Care Lazisnu Cilacap</option>
-                            <option value="Infaq Dakwah & Kemanusiaan">Infaq Dakwah & Kemanusiaan</option>
-                            <option value="Infaq Pendidikan">Infaq Pendidikan</option>
-                            <option value="Infaq Kesehatan">Infaq Kesehatan</option>
-                            <option value="Infaq Ekonomi">Infaq Ekonomi</option>
-                            <option value="Infaq Lingkungan Hidup dan Kebencanaan">Infaq Lingkungan Hidup dan
-                                Kebencanaan
-                            </option>
+                            @foreach ($pilihan_infaqs as $item)
+                                <option value="{{ $item->pil_infaq }}">{{ $item->pil_infaq }}</option>
+                            @endforeach
                         </select>
                         @error('jenis_ziwaf')
                             <span class="mt-2 text-xs text-red-500">{{ $message }}</span>
