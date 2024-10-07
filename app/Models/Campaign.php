@@ -25,7 +25,7 @@ class Campaign extends Authenticatable
         'description',
         'goal',
         'raised',
-        'kategori',
+        'id_kategori',
         'start_date',
         'end_date',
         'min_donation',
@@ -36,7 +36,7 @@ class Campaign extends Authenticatable
     ];
     public function kategori()
     {
-        return $this->belongsTo(Kategori::class, 'kategori', 'id');
+        return $this->belongsTo(Kategori::class, 'id_kategori', 'id');
     }
 
     /**

@@ -56,7 +56,7 @@
                     </div>
                 @elseif($this->kategori !== 'all' && $campaigns && $campaigns->isEmpty())
                     <div class="px-4 py-20  text-center">
-                        Campaign pada kategori {{ $this->kategori }} Tidak Ditemukan
+                        Campaign Yang Dicari Tidak Ditemukan pada Kategori {{ $this->kategori }} 
                     </div>
                 @else
                     @foreach ($campaigns as $campaign)

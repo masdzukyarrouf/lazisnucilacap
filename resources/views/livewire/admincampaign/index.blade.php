@@ -43,7 +43,7 @@
                         <td class="px-4 py-2">{{ $campaign->end_date }}</td>
                         <td class="px-4 py-2">{{ $campaign->min_donation }}</td>
                         <td class="px-4 py-2">{{ $campaign->lokasi }}</td>
-                        <td class="px-4 py-2">{{ $campaign->kategori }}</td>
+                        <td class="px-4 py-2">{{ $campaign->kategori->nama_kategori ?? 'No Kategori' }}</td>
                         <td class="px-4 py-2">
                             <img src="{{ asset('storage/images/campaign/' . $campaign->main_picture) }}"
                                 alt="Main Picture" class="w-16 h-16 object-cover">

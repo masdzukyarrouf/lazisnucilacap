@@ -21,7 +21,7 @@ class CampaignFactory extends Factory
             'description' => fake()->paragraph(),
             'goal' => fake()->numberBetween(7000000, 10000000),
             'raised' => 0,
-            'kategori' => fake()->randomElement([
+            'id_kategori' => fake()->randomElement([
                 1,2,3,4,5,6,
             ]),
             'start_date' => fake()->dateTimeBetween('-3 month', 'now'),

@@ -17,7 +17,7 @@
                     <img src="{{ asset('images/icon_location.png') }}" alt="pinpoint" class="w-3 h-3">
                     <p class="pl-1 text-[12px]  text-gray-600">{{ $campaign->lokasi }}</p>
                 </div>
-                <p class="pl-1 text-[12px]  text-green-600">{{ $campaign->kategori }}</p>
+                <p class="pl-1 text-[12px] text-right text-green-600">{{ $campaign->kategori->nama_kategori ?? '' }}</p>
 
             </div>
             <div class="mt-3">

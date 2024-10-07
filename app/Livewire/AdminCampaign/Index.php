@@ -5,11 +5,13 @@ namespace App\Livewire\AdminCampaign;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\Campaign;
+use App\Models\Kategori;
 
 
 
 class Index extends Component
 {
+    public $kategoriList = [];
 
     #[On('postUpdated')]
     public function handlePostEdited()
@@ -20,14 +22,14 @@ class Index extends Component
 
     }
 
-    
+
     #[On('campaignCreated')]
     public function handleCampaignCreated()
     {
         // session()->flash('message', 'Campaign Created Successfully ');
         $this->dispatch('created', ['message' => 'Campaign Created Successfully']);
 
-        
+
     }
     public function destroy($id_campaign)
     {
@@ -42,10 +44,13 @@ class Index extends Component
 
     }
 
-    
+
+
+
 
     public function render()
     {
+
 
         return view('livewire.admincampaign.index', [
             $this->campaigns = Campaign::query()
