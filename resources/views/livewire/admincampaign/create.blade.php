@@ -18,7 +18,8 @@
                         <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
                         <input type="text" id="title" wire:model="title" name="title"
                             class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
-                        @error('title')
+                            <small><span class="text-black">Tambahakan ! dalam title jika urgent</span></small>
+                            @error('title')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                     </div>

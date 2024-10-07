@@ -9,7 +9,7 @@ use App\Models\Kategori;
 class Index extends Component
 {
     public $kategori = "";
-    public $filter = "soon";
+    public $filter = "Mendesak";
     public $search = '';
     public $campaigns = [];
 
@@ -46,11 +46,11 @@ class Index extends Component
             }
         }
     
-        if ($this->filter == 'newest') {
+        if ($this->filter == 'Terbaru') {
             $query->latest();
-        } elseif ($this->filter == 'soon') {
+        } elseif ($this->filter == 'Segera Berakhir') {
             $query->orderBy('end_date', 'asc');
-        } elseif ($this->filter == 'urgent') {
+        } elseif ($this->filter == 'Mendesak') {
             $query->orderByRaw("title LIKE '!%' DESC")
                   ->latest();
         }
