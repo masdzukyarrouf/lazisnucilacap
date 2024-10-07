@@ -132,6 +132,7 @@
             <li><a href="/misi">Misi</a></li>
             <li><a href="/visi">Visi</a></li>
             <li><a href="/update-campaign">Update</a></li>
+            <li><a href="/kategori">Kategori</a></li>
             <li><a href="/pilihan-wakaf">Pilihan Wakaf</a></li>
             <li><a href="/pilihan-infaq">Pilihan infaq</a></li>
             <li>

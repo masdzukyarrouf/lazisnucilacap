@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->integer('goal');
             $table->integer('raised');
-            $table->string('kategori');
+            $table->string('id_kategori');
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('min_donation');

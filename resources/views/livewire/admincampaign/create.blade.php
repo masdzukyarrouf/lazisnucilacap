@@ -18,7 +18,8 @@
                         <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
                         <input type="text" id="title" wire:model="title" name="title"
                             class="mt-1 block w-full rounded-md border-gray-700 shadow-2xl focus:border-indigo-500 bg-gray-200 py-1 sm:text-sm">
-                        @error('title')
+                            <small><span class="text-black">Tambahakan ! dalam title jika urgent</span></small>
+                            @error('title')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                     </div>
@@ -33,21 +34,20 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="kategori" class="block text-sm font-medium text-gray-700">Kategori</label>
-                        <select id="kategori" wire:model="kategori" name="kategori"
+                        <label for="id_kategori" class="block text-sm font-medium text-gray-700">Kategori</label>
+                        <select id="id_kategori" wire:model="id_kategori" name="id_kategori"
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 bg-gray-200 py-2 sm:text-sm">
-                            <option value="" selected>Select</option>
-                            <option value="Bencana Alam">Bencana Alam</option>
-                            <option value="Pendidikan">Pendidikan</option>
-                            <option value="Sosial & Keagamaan">Sosial & Keagamaan</option>
-                            <option value="Ekonomi">Ekonomi</option>
-                            <option value="Ramadhan">Ramadhan</option>
-                            <option value="Kesehatan">Kesehatan</option>
+                            <option value="{{null}}" selected>Select</option>
+                            @foreach($kategoriList as $item)
+                                <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
+                            @endforeach
                         </select>
-                        @error('kategori')
+                    
+                        @error('id_kategori')
                             <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                         @enderror
                     </div>
+                    
                     
 
                     <div class="mb-4">

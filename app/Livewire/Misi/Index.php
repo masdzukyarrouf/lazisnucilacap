@@ -24,7 +24,7 @@ class Index extends Component
         $Misi->delete();
 
         // Tampilkan pesan sukses
-        $this->dispatch('created', ['message' => 'misi deleted Successfully']);
+        $this->dispatch('destroyed', ['message' => 'misi deleted Successfully']);
         // session()->flash('message', 'misi destroyed successfully.');
 
     }

@@ -26,7 +26,7 @@ class Index extends Component
             $landing->delete();
 
             // Tampilkan pesan sukses
-            $this->dispatch('created', ['message' => 'Gambar Landing deleted Successfully']);
+            $this->dispatch('destroyed', ['message' => 'Gambar Landing deleted Successfully']);
             // session()->flash('message', 'Gambar Landing destroyed successfully.');
         }
     }
@@ -41,7 +41,7 @@ class Index extends Component
 
     public function handleberitaUpdated()
     {
-            $this->dispatch('created', ['message' => 'Gambar Landing updated Successfully']);
+            $this->dispatch('updated', ['message' => 'Gambar Landing updated Successfully']);
         // session()->flash('message', 'Gambar Landing Created Successfully');
     }
 

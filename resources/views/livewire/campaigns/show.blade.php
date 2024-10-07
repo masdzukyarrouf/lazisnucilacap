@@ -14,7 +14,7 @@
                     <p class="pl-1 text-[12px] text-gray-600">{{ $campaign->lokasi }}</p>
                 </div>
                 <div>
-                    <p class="pl-1 text-[12px] text-green-600">{{ $campaign->kategori }}</p>
+                    <p class="pl-1 text-[12px] text-green-600">{{ $campaign->kategori->nama_kategori ?? '' }}</p>
                 </div>
             </div>
             <div class="py-4">

@@ -7,18 +7,21 @@ use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Livewire\Component;
 use Livewire\Attributes\Rule;
+use App\Models\Kategori;
 
 class Create extends Component
 {
     use WithFileUploads;
+    public $kategoriList = [];
+
 
     #[Rule('required|string')]
     public $title;
     
     #[Rule('required|string')]
     public $description;
-    #[Rule('required|string')]
-    public $kategori;
+    #[Rule('required|integer')]
+    public $id_kategori;
 
     #[Rule('required|date')]
     public $start_date;
@@ -52,8 +55,8 @@ class Create extends Component
         'title.string' => 'Judul harus berupa teks.',
         'description.required' => 'Deskripsi harus diisi.',
         'description.string' => 'Deskripsi harus berupa teks.',
-        'kategori.required' => 'Kategori harus dipilih.',
-        'kategori.string' => 'Kategori harus berupa teks.',
+        'id_kategori.required' => 'Kategori harus dipilih.',
+        'id_kategori.integer' => 'Kategori harus berupa teks.',
         'start_date.required' => 'Tanggal mulai harus diisi.',
         'start_date.date' => 'Tanggal mulai tidak valid.',
         'end_date.required' => 'Tanggal akhir harus diisi.',
@@ -90,7 +93,7 @@ class Create extends Component
             'description' => $this->description,
             'goal' => $this->goal,
             'raised' => $this->raised ?? 0,
-            'kategori' => $this->kategori,
+            'id_kategori' => $this->id_kategori,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
             'min_donation' => $this->min_donation,
@@ -118,6 +121,11 @@ class Create extends Component
         return null;
     }
 
+    public function mount()
+    {
+        $this->kategoriList = Kategori::all();
+
+    }
     public function render()
     {
         return view('livewire.admincampaign.create');

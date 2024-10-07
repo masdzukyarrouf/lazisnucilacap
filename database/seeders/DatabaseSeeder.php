@@ -13,6 +13,7 @@ use App\Models\Doa;
 use App\Models\Like;
 use App\Models\Berita;
 use App\Models\Mitra;
+use App\Models\Kategori;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Factories\VisiFactory;
 use Illuminate\Database\Seeder;
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory(50)->create();
+        kategori::factory(6)->create();
         // Donasi::factory(300)->create();
         // Like::factory(300)->create();
         Campaign::factory(50)->create();
@@ -35,9 +37,10 @@ class DatabaseSeeder extends Seeder
         visi::factory(5)->create();
         misi::factory(5)->create();
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'username' => '123',
+            'password' => '123',
+            'role' => 'admin',
+        ]);
     }
 }

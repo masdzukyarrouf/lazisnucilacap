@@ -7,11 +7,14 @@ use Livewire\WithFileUploads;
 use App\Models\Campaign;
 use Illuminate\Support\Str;
 use Livewire\Attributes\On;
+use App\Models\Kategori;
 
 
 class Edit extends Component
 {
     use WithFileUploads;
+
+    public $kategoriList = [];
 
     public $id_campaign;
 
@@ -20,8 +23,8 @@ class Edit extends Component
 
     #[Rule('required|string')]
     public $description;
-    #[Rule('required|string')]
-    public $kategori;
+    #[Rule('required|integer')]
+    public $id_kategori;
 
     #[Rule('required|date')]
     public $start_date;
@@ -62,8 +65,7 @@ class Edit extends Component
         'title.string' => 'Judul harus berupa teks.',
         'description.required' => 'Deskripsi harus diisi.',
         'description.string' => 'Deskripsi harus berupa teks.',
-        'kategori.required' => 'Kategori harus dipilih.',
-        'kategori.string' => 'Kategori harus berupa teks.',
+        'id_kategori.required' => 'Kategori harus dipilih.',
         'start_date.required' => 'Tanggal mulai harus diisi.',
         'start_date.date' => 'Tanggal mulai tidak valid.',
         'end_date.required' => 'Tanggal akhir harus diisi.',
@@ -91,15 +93,20 @@ class Edit extends Component
         $this->raised = $campaign->raised;
         $this->goal = $campaign->goal;
         $this->lokasi = $campaign->lokasi;
-        $this->kategori = $campaign->kategori;
+        $this->id_kategori = $campaign->id_kategori;
         $this->min_donation = $campaign->min_donation;
         if ($campaign->second_picture != null) {
             // $this->secondpicture = $campaign->second_picture;
-            $this->check_second_picture =true;
+            $this->check_second_picture = true;
         }
         if ($campaign->last_picture != null) {
             // $this->lastpicture = $campaign->last_picture;
-            $this->check_last_picture =true;
+            $this->check_last_picture = true;
+        }
+        $this->kategoriList = Kategori::all();
+        $kategori = Kategori::find($this->id_kategori);
+        if ($kategori) {
+            $this->nama_kategori = $kategori->nama_kategori;
         }
 
     }
@@ -139,7 +146,7 @@ class Edit extends Component
         $campaign->end_date = $this->end_date;
         $campaign->raised = $this->raised;
         $campaign->goal = $this->goal;
-        $campaign->kategori = $this->kategori;
+        $campaign->id_kategori = $this->id_kategori;
         $campaign->lokasi = $this->lokasi;
         $campaign->min_donation = $this->min_donation;
 
@@ -180,7 +187,7 @@ class Edit extends Component
     }
     public function clear($id_campaign)
     {
-        $this->reset();
+        
         $this->dispatch('refreshComponent');
         $campaign = Campaign::find($id_campaign);
         if ($campaign) {
@@ -195,10 +202,10 @@ class Edit extends Component
             $this->min_donation = $campaign->min_donation;
         }
         if ($campaign->second_picture != null) {
-            $this->check_second_picture =true;
+            $this->check_second_picture = true;
         }
         if ($campaign->last_picture != null) {
-            $this->check_last_picture =true;
+            $this->check_last_picture = true;
         }
 
     }

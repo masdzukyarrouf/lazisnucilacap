@@ -25,7 +25,7 @@ class Index extends Component
             $Kebijakan->delete();
 
             // Tampilkan pesan sukses
-            $this->dispatch('created', ['message' => 'Kebijakan deleted Successfully']);
+            $this->dispatch('destroyed', ['message' => 'Kebijakan deleted Successfully']);
             // session()->flash('message', 'Kebijakan destroyed successfully.');
         }
     }
