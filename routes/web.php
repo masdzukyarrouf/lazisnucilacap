@@ -152,4 +152,4 @@ Route::get('/list_donasi/{title}', App\Livewire\Campaigns\DonasiList::class)->na
 Route::get('/campaigns', App\Livewire\Campaigns\Index::class)->name('campaign');
 Route::get('/campaigns/{title}', App\Livewire\Campaigns\Show::class)->name('campaigns.show');
 Route::get('/doa/{title}', App\Livewire\Campaigns\DoaList::class)->name('campaigns.doaList');
-Route::get('/pilar/{slug}', App\Livewire\PilarProgram\index::class)->name('pilarProgram.index');
+Route::get('/pilar/{slug}', App\Livewire\PilarProgram\show::class)->name('pilarProgram.show');
