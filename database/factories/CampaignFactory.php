@@ -22,12 +22,7 @@ class CampaignFactory extends Factory
             'goal' => fake()->numberBetween(7000000, 10000000),
             'raised' => 0,
             'kategori' => fake()->randomElement([
-                'Bencana Alam',
-                'Pendidikan',
-                'Sosial & Keagamaan',
-                'Ekonomi',
-                'Ramadhan',
-                'Kesehatan',
+                1,2,3,4,5,6,
             ]),
             'start_date' => fake()->dateTimeBetween('-3 month', 'now'),
             'end_date' => fake()->dateTimeBetween('+3 month', '+6 month'),

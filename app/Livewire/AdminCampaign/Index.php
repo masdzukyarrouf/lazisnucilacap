@@ -15,7 +15,7 @@ class Index extends Component
     public function handlePostEdited()
     {
         // session()->flash('message', 'Campaign Updated Successfully ');
-        $this->dispatch('created', ['message' => 'Campaign Edited Successfully']);
+        $this->dispatch('updated', ['message' => 'Campaign Edited Successfully']);
 
 
     }
@@ -34,7 +34,7 @@ class Index extends Component
         $campaign = campaign::find($id_campaign);
         if ($campaign) {
             $campaign->delete();
-            $this->dispatch('created', ['message' => 'Campaign deleted Successfully']);
+            $this->dispatch('destroyed', ['message' => 'Campaign deleted Successfully']);
 
         }
         // session()->flash('message', 'Campaign Destroyed Successfully ');

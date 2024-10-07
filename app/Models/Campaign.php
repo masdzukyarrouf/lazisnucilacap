@@ -34,6 +34,10 @@ class Campaign extends Authenticatable
         'second_picture',
         'last_picture',
     ];
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori', 'id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -57,7 +61,7 @@ class Campaign extends Authenticatable
     }
     public static function updateRaisedValues()
     {
-        $campaigns = self::all(); // Fetch all campaigns
+        $campaigns = self::all();
     
         foreach ($campaigns as $campaign) {
             $raisedAmount = Donasi::where('id_campaign', $campaign->id_campaign)

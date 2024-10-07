@@ -1,7 +1,7 @@
 <div class="w-1/2 ">
     <a href="#" id="openModal"
         class="flex items-center justify-center py-2 space-x-2 border border-transparent border-b-gray-200 border-r-gray-200 hover:cursor-pointer">
-        <img src="{{ asset('images/kategori.png') }}" alt="Kategori" class="w-auto h-4">
+        <img src="{{ asset('images/folder.png') }}" alt="Kategori" class="w-auto h-4">
         <h1 class="text-base">Kategori</h1>
     </a>
 

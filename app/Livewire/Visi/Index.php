@@ -11,7 +11,7 @@ class Index extends Component
     #[On('visiUpdated')]
     public function handlevisiEdited()
     {
-            $this->dispatch('created', ['message' => 'visi Updated Successfully']);
+            $this->dispatch('updated', ['message' => 'visi Updated Successfully']);
         // session()->flash('message', 'visi Updated Successfully ');
 
     }
@@ -24,7 +24,7 @@ class Index extends Component
             $Visi->delete();
 
             // Tampilkan pesan sukses
-            $this->dispatch('created', ['message' => 'visi deleted Successfully']);
+            $this->dispatch('destroyed', ['message' => 'visi deleted Successfully']);
             // session()->flash('message', 'visi destroyed successfully.');
 
         }

@@ -13,7 +13,7 @@ class Index extends Component
     public function handlePostEdited()
     {
         // session()->flash('message', 'donasi Updated Successfully ');
-        $this->dispatch('created', ['message' => 'Donasi Updated Successfully']);
+        $this->dispatch('updated', ['message' => 'Donasi Updated Successfully']);
 
 
     }
@@ -23,7 +23,7 @@ class Index extends Component
         $donasi = Donasi::find($id_donasi);
         if ($donasi) {
             $donasi->delete();
-        $this->dispatch('created', ['message' => 'Donasi Deleted Successfully']);
+        $this->dispatch('destroyed', ['message' => 'Donasi Deleted Successfully']);
 
         }
         // session()->flash('message', 'donasi Destroyed Successfully ');

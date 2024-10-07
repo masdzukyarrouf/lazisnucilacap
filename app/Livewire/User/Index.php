@@ -27,7 +27,7 @@ class Index extends Component
         $user = User::find($id_user);
         if ($user) {
             $user->delete();
-        $this->dispatch('created', ['message' => 'User Deleted Successfully']);
+        $this->dispatch('destroyed', ['message' => 'User Deleted Successfully']);
         }
 
 

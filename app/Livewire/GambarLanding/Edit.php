@@ -5,9 +5,12 @@ namespace App\Livewire\GambarLanding;
 use Livewire\Component;
 use App\Models\gambar_landing;
 use Illuminate\Support\Facades\Storage;
+use Livewire\WithFileUploads;
+
 
 class Edit extends Component
 {
+    use WithFileUploads;
     public $gambar;
     public $link;
     public $landing;  
