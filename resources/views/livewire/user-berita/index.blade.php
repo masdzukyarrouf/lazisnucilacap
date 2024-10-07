@@ -2,18 +2,18 @@
     <x-nav-mobile2 title="Berita Lazisnu Cilacap" />
     <div class="flex flex-col min-h-screen bg-white shadow-md" style="width: 414px;">
         <div class="flex">
-            <livewire:user-berita.kategori />
+            <livewire:user-berita.kategori :nama_kategori="$this->kategori" />
             <input type="text" placeholder="Search Berita..." wire:model.live="search"
                 class="w-full px-4 py-2 border border-gray-300" />
         </div>
 
         <div class="flex flex-col ">
             @if($Beritas->isEmpty())
-                <p class="text-center text-gray-600">Tidak ada berita untuk kategori ini.</p>
+                <p class="text-center text-gray-600">Tidak ada berita .</p>
             @else
-                @if($kategori === 'all')
+                @if($kategori === 'Kategori')
                     @foreach($Beritas->take(3) as $berita)
-                    <div class="px-4 py-2">
+                    <div class="px-4 py-2 mx-2">
                         <a href="{{ route('user-berita.show', $berita->title_berita) }}">
                             <div class="flex flex-col bg-white rounded-lg shadow-xl">
                                 <div class="px-3 py-2">
@@ -27,6 +27,8 @@
                                         <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
                                         <p class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}</p>
                                     </div>
+                                    <h1 class="pl-4 text-xs text-right text-green-500 md:text-sm">{{ $berita->kategori->nama_kategori }}</h1>
+
                                     <div class="text-sm text-green-500 md:text-base hover:text-green-600 hover:cursor-pointer">
                                         Baca Selengkapnya ...
                                     </div>
@@ -41,7 +43,7 @@
                             <p class="font-semibold text-green-500 text-md">Berita NU Care-LAZISNU Cilacap</p>
                             <p class="mb-3 text-sm">Baca Berita Terbaru</p>
                         </div>
-                        <div class="flex flex-col">
+                        <div class="flex flex-col mx-2">
                             @foreach ($Beritas->skip(3) as $berita)
                             <a href="{{ route('user-berita.show',$berita->title_berita )}}">
                                 <div class="flex items-center px-4 py-2 bg-white border-b border-gray-500">
@@ -55,7 +57,7 @@
                                                 <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
                                                 <h1 class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}</h1>
                                             </div>
-                                            <h1 class="pl-4 text-xs text-green-500 md:text-sm">{{ $berita->kategori }}</h1>
+                                            <h1 class="pl-4 text-xs text-right text-green-500 md:text-sm">{{ $berita->kategori->nama_kategori }}</h1>
                                         </div>
                                         
                                     </div>
@@ -66,12 +68,12 @@
                     </div>
                 @else
                     <!-- Display berita for specific category -->
-                    <div class="flex flex-col gap-3">
+                    <div class="flex flex-col gap-3 mx-2 mt-2">
                             @foreach ($Beritas as $berita)
-                            <a href="{{ route('user-berita.show',$berita->title_berita) }}">
-                                <div class="flex items-center bg-white rounded-lg shadow-md">
-                                    <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-24 h-24 rounded-md">
-                                    <div class="flex flex-col pl-2">
+                            <a href="{{ route('user-berita.show',$berita->title_berita) }}" class="w-full">
+                                <div class="flex items-center bg-white rounded-lg shadow-md w-full">
+                                    <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-40 h-24 rounded-md">
+                                    <div class="flex flex-col pl-2 w-full">
                                         <h2 class="text-sm font-semibold text-gray-800">
                                             {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
                                         </h2>
@@ -80,7 +82,7 @@
                                                 <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
                                                 <h1 class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}</h1>
                                             </div>
-                                            <h1 class="pl-4 text-xs text-green-500 md:text-sm">{{ $berita->kategori }}</h1>
+                                            <h1 class="pl-4 mr-2 text-xs text-right text-green-500 md:text-sm">{{ $berita->kategori->nama_kategori }}</h1>
                                         </div>
                                     </div>
                                 </div>

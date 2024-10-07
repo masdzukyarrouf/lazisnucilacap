@@ -2,7 +2,7 @@
     <a id="openModal"
         class="flex items-center justify-center py-2 space-x-2 border border-transparent border-b-gray-200 border-r-gray-200 hover:cursor-pointer">
         <img src="{{ asset('images/folder.png') }}" alt="Kategori" class="w-auto h-4">
-        <h1 class="text-base">Kategori</h1>
+        <h1 class="text-base">{{$nama_kategori}}</h1>
     </a>
 
     <!-- The Popup Modal -->
@@ -24,68 +24,19 @@
                 <div class="p-4">
                     <div class="grid grid-cols-3 gap-4 mt-2">
                         <div class="flex flex-col items-center">
-                            <a class="flex flex-col items-center" wire:click="kategori('all')">
-                                <!-- Placeholder for Icon -->
-                                <div class="w-10 h-10 mb-2 bg-green-500 rounded-full"></div>
+                            <a class="flex flex-col items-center" wire:click="kategori('Kategori')">
+                                <div class="w-10 h-10 bg-green-500 rounded-full mb-2"> <img src="" alt=""></div>
                                 <span class="text-sm font-semibold text-center">Semua</span>
                             </a>
                         </div>
-                        <div class="flex flex-col items-center">
-                            <a class="flex flex-col items-center" wire:click="kategori('Bencana Alam')">
-                                <!-- Placeholder for Icon -->
-                                <div class="w-10 h-10 mb-2 bg-green-500 rounded-full"></div>
-                                <span class="text-sm font-semibold text-center">Bencana Alam</span>
-                            </a>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <a class="flex flex-col items-center" wire:click="kategori('Pendidikan')">
-                                <!-- Placeholder for Icon -->
-                                <div class="w-10 h-10 mb-2 bg-green-500 rounded-full"></div>
-                                <span class="text-sm font-semibold text-center">Pendidikan</span>
-                            </a>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <a class="flex flex-col items-center" wire:click="kategori('Sosial & Keagamaan')">
-                                <!-- Placeholder for Icon -->
-                                <div class="w-10 h-10 mb-2 bg-green-500 rounded-full"></div>
-                                <span class="text-sm font-semibold text-center">Sosial & Keagamaan</span>
-                            </a>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <a class="flex flex-col items-center" wire:click="kategori('Ekonomi')">
-                                <!-- Placeholder for Icon -->
-                                <div class="w-10 h-10 mb-2 bg-green-500 rounded-full"></div>
-                                <span class="text-sm font-semibold text-center">Ekonomi</span>
-                            </a>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <a class="flex flex-col items-center" wire:click="kategori('Ramadhan')">
-                                <!-- Placeholder for Icon -->
-                                <div class="w-10 h-10 mb-2 bg-green-500 rounded-full"></div>
-                                <span class="text-sm font-semibold text-center">Ramadhan</span>
-                            </a>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <a class="flex flex-col items-center" wire:click="kategori('Kesehatan')">
-                                <!-- Placeholder for Icon -->
-                                <div class="w-10 h-10 mb-2 bg-green-500 rounded-full"></div>
-                                <span class="text-sm font-semibold text-center">Kesehatan</span>
-                            </a>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <a class="flex flex-col items-center" wire:click="kategori('Penghargaan')">
-                                <!-- Placeholder for Icon -->
-                                <div class="w-10 h-10 mb-2 bg-green-500 rounded-full"></div>
-                                <span class="text-sm font-semibold text-center">Penghargaan</span>
-                            </a>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <a class="flex flex-col items-center" wire:click="kategori('Laporan & Publikasi')">
-                                <!-- Placeholder for Icon -->
-                                <div class="w-10 h-10 mb-2 bg-green-500 rounded-full"></div>
-                                <span class="text-sm font-semibold text-center">Laporan & Publikasi</span>
-                            </a>
-                        </div>
+                        @foreach($kategoris as $kategori)
+                            <div class="flex flex-col items-center">
+                                <a class="flex flex-col items-center" wire:click="kategori('{{ $kategori->nama_kategori }}')">
+                                    <div class="w-10 h-10 bg-green-500 rounded-full mb-2"> <img src="{{ asset('storage/images/kategori/' . $kategori->image) }}" alt=""></div>
+                                    <span class="text-sm font-semibold text-center">{{ $kategori->nama_kategori }}</span>
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

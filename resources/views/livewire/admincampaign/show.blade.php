@@ -14,6 +14,7 @@
             </div>
             <div class="p-4">
                 <h1 class="text-2xl font-bold ">{{ $campaign->title }}</h1>
+                <p class="text-[15px] text-center w-full ">{{ $campaign->main_picture }}</p>
                 <img src="{{ asset('storage/images/campaign/' . $campaign->main_picture) }}" alt="main picture"
                     class="h-96 mb-2 mt-2 mx-auto block">
                 {{-- <p>{{ $campaign->description }}</p> --}}

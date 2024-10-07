@@ -52,7 +52,7 @@
                                     <div class="flex items-center pt-4">
                                         <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
                                         <p class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}</p>
-                                        <h1 class="pl-4 text-xs text-green-500 md:text-sm">{{ $berita->kategori }}</h1>
+                                        <h1 class="pl-4 text-xs text-green-500 md:text-sm">{{ $berita->kategori->nama_kategori }}</h1>
                                     </div>
                                 </div>
                             </div>

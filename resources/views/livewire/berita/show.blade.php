@@ -15,6 +15,7 @@
                 </div>
             </div>
             <div class="p-4 mx-16 shadow-lg">
+                <p class="w-full text-center">{{$berita->picture}}</p>
                         <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="block mx-auto mt-2 mb-2 h-96">
                         <div class="mt-5">
                             <h1 class="text-2xl font-bold">{{ $berita->title_berita }}</h1>

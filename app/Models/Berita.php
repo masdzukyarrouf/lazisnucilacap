@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Kategori;
 
 class Berita extends Model
 {
@@ -16,7 +17,12 @@ class Berita extends Model
         'title_berita',
         'description',
         'tanggal',
-        'kategori',
+        'id_kategori',
         'picture',
     ];
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'id_kategori', 'id');
+    }
 }

@@ -20,14 +20,9 @@ class BeritaFactory extends Factory
             'title_berita' => fake()->sentence(),
             'description' => fake()->paragraph(5),
             'tanggal' => fake()->dateTimeBetween('-3 month', 'now'),
-            'picture' => '1PfQkLJrx3r5qzFTa4hwUVNzYgQOX00XA2xUOsx6.png',
-            'kategori' => fake()->randomElement([
-                'Bencana Alam',
-                'Pendidikan',
-                'Sosial & Keagamaan',
-                'Ekonomi',
-                'Ramadhan',
-                'Kesehatan',
+            'picture' => 'images/berita/1PfQkLJrx3r5qzFTa4hwUVNzYgQOX00XA2xUOsx6.png',
+            'id_kategori' => fake()->randomElement([
+                1,2,3,4,5,6,
             ]),
         ];
     }
