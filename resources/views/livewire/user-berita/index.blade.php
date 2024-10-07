@@ -8,34 +8,41 @@
         </div>
 
         <div class="flex flex-col ">
-            @if($Beritas->isEmpty())
+            @if ($Beritas->isEmpty())
                 <p class="text-center text-gray-600">Tidak ada berita .</p>
             @else
-                @if($kategori === 'Kategori')
-                    @foreach($Beritas->take(3) as $berita)
-                    <div class="px-4 py-2 mx-2">
-                        <a href="{{ route('user-berita.show', $berita->title_berita) }}">
-                            <div class="flex flex-col bg-white rounded-lg shadow-xl">
-                                <div class="px-3 py-2">
-                                    <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-full h-full rounded-md">
-                                </div>
-                                <div class="px-3 py-2">
-                                    <h2 class="text-sm font-semibold text-gray-800 md:text-xl">
-                                        {{ $berita->title_berita }}
-                                    </h2>
-                                    <div class="flex items-center mt-1">
-                                        <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
-                                        <p class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}</p>
+                @if ($kategori === 'Kategori')
+                    @foreach ($Beritas->take(3) as $berita)
+                        <div class="px-4 py-2 mx-2">
+                            <a href="{{ route('user-berita.show', $berita->title_berita) }}">
+                                <div class="flex flex-col bg-white rounded-lg shadow-xl">
+                                    <div class="px-3 py-2">
+                                        <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"
+                                            class="object-cover w-full h-full rounded-md">
                                     </div>
-                                    <h1 class="pl-4 text-xs text-right text-green-500 md:text-sm">{{ $berita->kategori->nama_kategori }}</h1>
+                                    <div class="px-3 py-2">
+                                        <h2 class="text-sm font-semibold text-gray-800 md:text-xl">
+                                            {{ $berita->title_berita }}
+                                        </h2>
+                                        <div class="flex items-center justify-between mt-1">
+                                            <div class="flex items-center">
+                                                <img src="{{ asset('images/clock.png') }}" alt="pinpoint"
+                                                    class="w-3 h-3">
+                                                <p class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}
+                                                </p>
+                                            </div>
+                                            <h1 class="pl-4 text-xs text-right text-green-500 md:text-sm">
+                                                {{ $berita->kategori->nama_kategori }}</h1>
+                                        </div>
 
-                                    <div class="text-sm text-green-500 md:text-base hover:text-green-600 hover:cursor-pointer">
-                                        Baca Selengkapnya ...
+                                        <div
+                                            class="text-sm text-green-500 md:text-base hover:text-green-600 hover:cursor-pointer">
+                                            Baca Selengkapnya ...
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
                     @endforeach
 
                     <div class="mt-5">
@@ -45,50 +52,58 @@
                         </div>
                         <div class="flex flex-col mx-2">
                             @foreach ($Beritas->skip(3) as $berita)
-                            <a href="{{ route('user-berita.show',$berita->title_berita )}}">
-                                <div class="flex items-center px-4 py-2 bg-white border-b border-gray-500">
-                                    <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-40">
-                                    <div class="flex flex-col pl-2">
-                                        <h2 class="text-sm font-semibold text-gray-800">
-                                            {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
-                                        </h2>
-                                        <div class="flex items-center justify-between pt-4">
-                                            <div class="flex items-center">
-                                                <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
-                                                <h1 class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}</h1>
+                                <a href="{{ route('user-berita.show', $berita->title_berita) }}">
+                                    <div class="flex items-center px-4 py-2 bg-white border-b border-gray-500">
+                                        <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"
+                                            class="object-cover w-40">
+                                        <div class="flex flex-col pl-2">
+                                            <h2 class="text-sm font-semibold text-gray-800">
+                                                {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
+                                            </h2>
+                                            <div class="flex items-center justify-between pt-4">
+                                                <div class="flex items-center">
+                                                    <img src="{{ asset('images/clock.png') }}" alt="pinpoint"
+                                                        class="w-3 h-3">
+                                                    <h1 class="pl-1 text-xs text-gray-600 md:text-sm">
+                                                        {{ $berita->tanggal }}</h1>
+                                                </div>
+                                                <h1 class="pl-4 text-xs text-right text-green-500 md:text-sm">
+                                                    {{ $berita->kategori->nama_kategori }}</h1>
                                             </div>
-                                            <h1 class="pl-4 text-xs text-right text-green-500 md:text-sm">{{ $berita->kategori->nama_kategori }}</h1>
+
                                         </div>
-                                        
                                     </div>
-                                </div>
-                            </a>
+                                </a>
                             @endforeach
                         </div>
                     </div>
                 @else
                     <!-- Display berita for specific category -->
                     <div class="flex flex-col gap-3 mx-2 mt-2">
-                            @foreach ($Beritas as $berita)
-                            <a href="{{ route('user-berita.show',$berita->title_berita) }}" class="w-full">
+                        @foreach ($Beritas as $berita)
+                            <a href="{{ route('user-berita.show', $berita->title_berita) }}" class="w-full">
                                 <div class="flex items-center bg-white rounded-lg shadow-md w-full">
-                                    <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-40 h-24 rounded-md">
+                                    <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"
+                                        class="object-cover w-40 h-24 rounded-md">
                                     <div class="flex flex-col pl-2 w-full">
                                         <h2 class="text-sm font-semibold text-gray-800">
                                             {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
                                         </h2>
                                         <div class="flex items-center justify-between pt-4">
                                             <div class="flex items-center">
-                                                <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
-                                                <h1 class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}</h1>
+                                                <img src="{{ asset('images/clock.png') }}" alt="pinpoint"
+                                                    class="w-3 h-3">
+                                                <h1 class="pl-1 text-xs text-gray-600 md:text-sm">
+                                                    {{ $berita->tanggal }}</h1>
                                             </div>
-                                            <h1 class="pl-4 mr-2 text-xs text-right text-green-500 md:text-sm">{{ $berita->kategori->nama_kategori }}</h1>
+                                            <h1 class="pl-4 mr-2 text-xs text-right text-green-500 md:text-sm">
+                                                {{ $berita->kategori->nama_kategori }}</h1>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            @endforeach
-                        </div>
+                        @endforeach
+                    </div>
                 @endif
             @endif
         </div>
