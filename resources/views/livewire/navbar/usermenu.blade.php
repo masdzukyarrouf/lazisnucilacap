@@ -5,7 +5,7 @@
                 ['href' => '/profil&jajaran', 'text' => 'Profil & Jajaran Pengurus'],
                 ['href' => '/sejarah', 'text' => 'Sejarah'],
                 ['href' => '/legalitas', 'text' => 'Legalitas'],
-                ['href' => '/kebijakan', 'text' => 'Standar Layanan (MANTAP)'],
+                ['href' => '/kebijakan', 'text' => 'Kebijakan mutu (MANTAP)'],
                 ['href' => '#', 'text' => 'Laporan & Publikasi'],
                 ['href' => '/mitra', 'text' => 'Mitra'],
             ]"
@@ -80,7 +80,7 @@
                     ['href' => '/profil&jajaran', 'text' => 'Profil & Jajaran Pengurus'],
                     ['href' => '/sejarah', 'text' => 'Sejarah'],
                     ['href' => '/legalitas', 'text' => 'Legalitas'],
-                    ['href' => '/kebijakan', 'text' => 'Standar Layanan (MANTAP)'],
+                    ['href' => '/kebijakan', 'text' => 'Kebijakan mutu (MANTAP)'],
                     ['href' => '#', 'text' => 'Laporan & Publikasi'],
                     ['href' => '/mitra', 'text' => 'Mitra'],
                 ]"

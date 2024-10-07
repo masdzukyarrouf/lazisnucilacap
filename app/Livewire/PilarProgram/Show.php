@@ -26,6 +26,7 @@ class Show extends Component
     }
     public function render()
     {
-        return view('livewire.pilar-program.show');
+        return view('livewire.pilar-program.show')
+            ->layout('layouts.mobile');
     }
 }

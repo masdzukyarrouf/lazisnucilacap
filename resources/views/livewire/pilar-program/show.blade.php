@@ -1,9 +1,9 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="NU Care Berdaya" />
-    <div class="flex flex-col h-full min-h-screen bg-white shadow-md" style="width: 414px;">
+    <div class="flex flex-col w-full h-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="flex h-56 shadow-lg">
             <div class="flex px-4 pt-4 pb-6">
-                <img src="{{ asset('images/berdaya.png') }}" alt="" class="pr-2">
+                <img src="{{ asset('storage/' . $pilar->img) }}" alt="Main Picture" class="pr-2">
                 <div class="flex flex-col">
                     <h1 class="text-sm font-semibold text-green-500">
                         NU Care {{ $pilar->nama }} ({{ $pilar->kategori->nama_kategori }}) 
@@ -11,7 +11,6 @@
                     <h1 class="mt-2 text-xs">
                         {{ $pilar->deskripsi }}
                     </h1>
-                    <img src="{{ asset('storage/' . $pilar->img) }}" alt="Main Picture" class="w-6 mt-1">
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
-    {{-- <x-nav-mobile2  title="Profil & Jajaran Pengurus"/> --}}
-    <div class="sticky inset-0 top-0 z-10 flex items-center w-full h-16 bg-green-500" style="width: 414px;">
+<div class="flex flex-col items-center justify-center min-w-fit">
+    <x-nav-mobile2  title="Profil & Jajaran Pengurus"/>
+    {{-- <div class="sticky inset-0 top-0 z-10 flex items-center w-full h-16 bg-green-500" style="width: 414px;">
         <div class="flex items-center pl-5">
             <a href="{{ route('landing') ?? 'javascript:history.back()' }}">
                 <img src="{{ asset('images/backArrow.png') }}" alt="back button" class="w-6 h-auto">
@@ -9,9 +9,9 @@
                 Profil & Jajaran Pengurus
             </h2>
         </div>
-    </div>
+    </div> --}}
     
-    <div class="flex flex-col h-full min-h-screen bg-white shadow-md" style="width: 414px;">
+    <div class="flex flex-col w-full h-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div id="details-container" class="relative max-h-[1000px] overflow-hidden transition-all duration-300 shadow-lg px-4 py-4">
             <img src="{{ asset('images/profil.png')}}" alt="" class="mb-4">
             <p class=" text-[16px] font-semibold z-50 text-green-500 items-center flex">Sekilas NU-Care Lazisnu Cilacap</p>

@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     {{-- <x-nav-mobile2 title="Sejarah" /> --}}
-    <div class="sticky inset-0 top-0 z-10 flex items-center w-full h-16 bg-green-500" style="width: 414px;">
+    <div class="sticky inset-0 top-0 z-10 flex items-center w-full h-16 bg-green-500">
         <div class="flex items-center pl-5">
             <a href="{{ route('landing') ?? 'javascript:history.back()' }}">
                 <img src="{{ asset('images/backArrow.png') }}" alt="back button" class="w-6 h-auto">
