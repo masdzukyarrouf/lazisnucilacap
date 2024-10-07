@@ -135,6 +135,7 @@
             <li><a href="/kategori">Kategori</a></li>
             <li><a href="/pilihan-wakaf">Pilihan Wakaf</a></li>
             <li><a href="/pilihan-infaq">Pilihan infaq</a></li>
+            <li><a href="/pilarProgram">Pilar dan Program</a></li>
             <li>
                 <form action="{{ route('logout') }}" method="POST" x-data>
                     @csrf

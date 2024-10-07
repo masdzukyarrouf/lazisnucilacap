@@ -10,14 +10,21 @@
                 ['href' => '/mitra', 'text' => 'Mitra'],
             ]"
                 isDropdown="true" />
-            <livewire:navbar.navlink wire:key={{ rand() }} title="Pilar & Program" :links="[
-                ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
-                ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
-                ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
-                ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
-                ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
-            ]"
-                isDropdown="true" />
+                
+            <!-- Build Pilar & Program Links -->
+            @php
+                $pilarLinks = [];
+                foreach ($pilars as $item) {
+                    $pilarLinks[] = [
+                        'href' => '/pilar/' . $item->slug,
+                        'text' => $item->name . ' ' . $item->kategori->nama,
+                    ];
+                }
+            @endphp
+
+            <!-- Pilar & Program Navigation -->
+            <livewire:navbar.navlink wire:key="{{ rand() }}" title="Pilar & Program" :links="$pilarLinks" isDropdown="true" />
+
 
             <livewire:navbar.navlink wire:key={{ rand() }} title="Layanan" :links="[
                 ['href' => '/konfirmasi', 'text' => 'Konfirmasi Donasi'],
@@ -91,11 +98,14 @@
                     isDropdown="true" />
 
                 <livewire:navbar.navlink wire:key={{ rand() }} title="Pilar & Program" :links="[
-                    ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
-                    ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
-                    ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
-                    ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
-                    ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
+                    @foreach ($pilars as $item) {
+                        ['href' => '/pilar/' . $item->slug, 'text' => $item->name . ' ' . $item->kategori->nama];
+                    }
+                    // ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
+                    // ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
+                    // ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
+                    // ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
+                    // ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
                 ]"
                     isDropdown="true" />
 

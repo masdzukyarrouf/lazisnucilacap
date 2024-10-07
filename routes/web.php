@@ -29,6 +29,7 @@ Route::middleware([CheckAdmin::class])->group(function () {
     Route::get('/kategori', App\Livewire\kategori\Index::class)->name('kategori');
     Route::get('/pilihan-wakaf', App\Livewire\PilihanWakafAdmin\Index::class)->name('pilihan-wakaf');
     Route::get('/pilihan-infaq', App\Livewire\PilihaninfaqAdmin\Index::class)->name('pilihan-infaq');
+    Route::get('/pilarProgram', App\Livewire\PilarProgram\Index::class)->name(name: 'pilarProgram.index');
 
 
 });
@@ -151,3 +152,4 @@ Route::get('/list_donasi/{title}', App\Livewire\Campaigns\DonasiList::class)->na
 Route::get('/campaigns', App\Livewire\Campaigns\Index::class)->name('campaign');
 Route::get('/campaigns/{title}', App\Livewire\Campaigns\Show::class)->name('campaigns.show');
 Route::get('/doa/{title}', App\Livewire\Campaigns\DoaList::class)->name('campaigns.doaList');
+Route::get('/pilar/{slug}', App\Livewire\PilarProgram\index::class)->name('pilarProgram.index');
