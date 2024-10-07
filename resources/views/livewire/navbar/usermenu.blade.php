@@ -10,20 +10,9 @@
                 ['href' => '/mitra', 'text' => 'Mitra'],
             ]"
                 isDropdown="true" />
-                
-            <!-- Build Pilar & Program Links -->
-            @php
-                $pilarLinks = [];
-                foreach ($pilars as $item) {
-                    $pilarLinks[] = [
-                        'href' => '/pilar/' . $item->slug,
-                        'text' => $item->name . ' ' . $item->kategori->nama,
-                    ];
-                }
-            @endphp
 
-            <!-- Pilar & Program Navigation -->
-            <livewire:navbar.navlink wire:key="{{ rand() }}" title="Pilar & Program" :links="$pilarLinks" isDropdown="true" />
+                <livewire:navbar.navlink wire:key="{{ rand() }}" title="Pilar & Program" :links="$pilarLinks"
+                isDropdown="true" />
 
 
             <livewire:navbar.navlink wire:key={{ rand() }} title="Layanan" :links="[
@@ -64,12 +53,12 @@
                     Login
                 </a>
                 <a href="/daftar"
-                class="px-6 py-2 text-green-600 border border-green-600 rounded-xl hover:bg-green-600 hover:text-white">
-                Daftar
+                    class="px-6 py-2 text-green-600 border border-green-600 rounded-xl hover:bg-green-600 hover:text-white">
+                    Daftar
                 </a>
 
             @endif
-            
+
         </div>
     </div>
 
@@ -97,17 +86,13 @@
                 ]"
                     isDropdown="true" />
 
-                <livewire:navbar.navlink wire:key={{ rand() }} title="Pilar & Program" :links="[
-                    @foreach ($pilars as $item) {
-                        ['href' => '/pilar/' . $item->slug, 'text' => $item->name . ' ' . $item->kategori->nama];
-                    }
-                    // ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
-                    // ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
-                    // ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
-                    // ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
-                    // ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
-                ]"
+                <livewire:navbar.navlink wire:key="{{ rand() }}" title="Pilar & Program" :links="$pilarLinks"
                     isDropdown="true" />
+                {{-- ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
+                     ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
+                     ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
+                     ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
+                     ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'], --}}
 
                 <livewire:navbar.navlink wire:key={{ rand() }} title="Layanan" :links="[
                     ['href' => '/konfirmasi', 'text' => 'Konfirmasi Donasi'],
@@ -140,7 +125,8 @@
                         </a>
                         <div class="flex items-center">
                             <span class="font-semibold">
-                                <?php $a = auth::user()->username ; echo $a ?>
+                                <?php $a = auth::user()->username;
+                                echo $a; ?>
                             </span>
                         </div>
                     @elseif (Auth::user()->role == 'donatur')

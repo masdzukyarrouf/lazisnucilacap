@@ -14,6 +14,7 @@ use App\Models\Like;
 use App\Models\Berita;
 use App\Models\Mitra;
 use App\Models\Kategori;
+use App\Models\pilar_program;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Factories\VisiFactory;
 use Illuminate\Database\Seeder;
@@ -25,6 +26,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::factory()->create([
+            'username' => '123',
+            'password' => '123',
+            'role' => 'admin',
+        ]);
         User::factory(50)->create();
         kategori::factory(6)->create();
         // Donasi::factory(300)->create();
@@ -36,11 +42,7 @@ class DatabaseSeeder extends Seeder
         gambar_landing::factory(3)->create();
         visi::factory(5)->create();
         misi::factory(5)->create();
+        pilar_program::factory(4)->create();
 
-        User::factory()->create([
-            'username' => '123',
-            'password' => '123',
-            'role' => 'admin',
-        ]);
     }
 }

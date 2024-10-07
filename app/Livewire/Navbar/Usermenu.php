@@ -11,18 +11,20 @@ class Usermenu extends Component
 
     public function mount()
     {
-        $this->pilars=pilar_program::all();
+        $this->pilars = pilar_program::all();
     }
     public function render()
     {
         $pilarLinks = [];
+
         foreach ($this->pilars as $item) {
             $pilarLinks[] = [
                 'href' => '/pilar/' . $item->slug,
-                'text' => $item->name . ' ' . $item->kategori->nama,
+                'text' => 'NU Care ' . $item->nama . ' (' . $item->kategori->nama_kategori . ')',
             ];
         }
-    
+
+
         return view('livewire.navbar.usermenu', [
             'pilarLinks' => $pilarLinks,
         ]);
