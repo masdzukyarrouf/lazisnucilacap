@@ -4,6 +4,7 @@ namespace App\Livewire\PilarProgram;
 
 use Livewire\Component;
 use App\Models\pilar_program;
+use App\Models\Kategori;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
 
@@ -17,6 +18,8 @@ class Edit extends Component
     public $deskripsi;
     public $id;
     public $pilar_program;
+    public $id_kategori;   
+    public $kategori; 
 
 
     protected function rules()
@@ -26,16 +29,19 @@ class Edit extends Component
             'slug' => 'required|string',
             'nama' => 'required|string',
             'deskripsi' => 'required|string',
+            'id_kategori' => 'required|string',
         ];
     }
 
     public function mount()
     {
+        $this->kategori = Kategori::all();
         $pilar_program = pilar_program::find($this->id);
 
         $this->pilar_program = $pilar_program;
         $this->nama = $pilar_program->nama;
         $this->slug = $pilar_program->slug;
+        $this->id_kategori = $pilar_program->id_kategori;
         // $this->img = $pilar_program->img;
         $this->deskripsi = $pilar_program->deskripsi;
     }
@@ -59,6 +65,7 @@ class Edit extends Component
         // Update the link
         $this->pilar_program->nama = $this->nama;
         $this->pilar_program->slug = $this->slug;
+        $this->pilar_program->id_kategori = $this->id_kategori;
         // $this->pilar_program->img = $this->img;
         $this->pilar_program->deskripsi = $this->deskripsi;
 

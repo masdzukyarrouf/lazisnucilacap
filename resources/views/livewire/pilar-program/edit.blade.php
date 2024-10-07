@@ -31,6 +31,20 @@
                         @enderror
                     </div>
                     <div class="mb-4">
+                        <label for="id_kategori" class="block text-sm font-medium text-gray-700">Kategori</label>
+                        <select id="id_kategori" wire:model="id_kategori" name="id_kategori"
+                            class="block w-full py-2 mt-1 bg-gray-200 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 sm:text-sm">
+                            <option value="{{null}}" selected>Select</option>
+                            @foreach($kategori as $item)
+                                <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
+                            @endforeach
+                        </select>
+                    
+                        @error('id_kategori')
+                            <span class="mt-1 text-sm text-red-500">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-4">
                         <label for="img" class="block text-sm font-medium text-gray-700">Gambar</label>
                         <input type="file" id="img" wire:model="img" name="img"
                             class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">

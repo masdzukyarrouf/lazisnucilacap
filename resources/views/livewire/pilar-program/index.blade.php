@@ -22,6 +22,7 @@
             <tr class="items-center w-full text-white align-middle bg-gray-800">
                 <th class="px-4 py-2 text-center">Nama</th>
                 <th class="px-4 py-2 text-center">Slug</th>
+                <th class="px-4 py-2 text-center">Kategori</th>
                 <th class="px-4 py-2 text-center">Gambar</th>
                 <th class="px-4 py-2 text-center">Deskripsi</th>
                 <th class="px-4 py-2 text-center">Action</th>
@@ -32,6 +33,7 @@
                 <tr class="border-t" wire:key="pilar_program-{{ $item->id }}">
                     <td class="max-w-xs px-4 py-2 text-center">{{ $item->nama }}</td>
                     <td class="max-w-xs px-4 py-2 text-center">{{ $item->slug }}</td>
+                    <td class="max-w-xs px-4 py-2 text-center">{{ $item->kategori->nama_kategori ?? 'No Kategori' }}</td>
                     <td class="max-w-xs px-4 py-2 text-center">
                         <img src="{{ asset('storage/' . $item->img) }}" alt="Main Picture" class="block w-24 mx-auto mt-2 mb-2">
                     </td>
