@@ -2,7 +2,7 @@
     <a href="#" id="openModal"
         class="flex items-center justify-center py-2 space-x-2 border border-transparent border-b-gray-200 border-r-gray-200 hover:cursor-pointer">
         <img src="{{ asset('images/folder.png') }}" alt="Kategori" class="w-auto h-4">
-        <h1 class="text-base">Kategori</h1>
+        <h1 class="text-base">{{$nama_kategori ?? 'Kategori'}}</h1>
     </a>
 
     <!-- The Popup Modal -->
@@ -21,7 +21,7 @@
             <div class="p-4">
                 <div class="grid grid-cols-3 gap-4 mt-2">
                     <div class="flex flex-col items-center">
-                        <a class="flex flex-col items-center" wire:click="kategori('all')">
+                        <a class="flex flex-col items-center" wire:click="kategori('Kategori')">
                             <div class="w-10 h-10 bg-green-500 rounded-full mb-2"> <img src="" alt=""></div>
                             <span class="text-sm font-semibold text-center">Semua</span>
                         </a>

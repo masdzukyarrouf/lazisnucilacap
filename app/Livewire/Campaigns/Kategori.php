@@ -8,6 +8,7 @@ use App\Models\Kategori as kategoriModel;
 class Kategori extends Component
 {
     public $kategoris; 
+    public $nama_kategori;
 
     public function mount()
     {

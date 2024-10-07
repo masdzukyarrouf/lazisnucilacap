@@ -17,7 +17,7 @@
             <!-- Kategori and Filter Buttons -->
             <div class="flex items-center justify-between">
                 <!-- Kategori Button -->
-                <livewire:campaigns.kategori />
+                <livewire:campaigns.kategori :nama_kategori="$this->kategori" />
                 <div x-data="{ open: false }" class="relative w-1/2">
                     <!-- Filter Button -->
                     <a @click.prevent="open = !open"

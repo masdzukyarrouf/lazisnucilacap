@@ -15,7 +15,7 @@ class Index extends Component
 
     public function mount()
     {
-        $this->kategori = session('kategori', 'all');
+        $this->kategori = session('kategori', 'Kategori');
         Campaign::updateRaisedValues();
     }
 
@@ -38,7 +38,7 @@ class Index extends Component
             $query->where('title', 'like', '%' . $this->search . '%');
         }
     
-        if ($this->kategori !== 'all') {
+        if ($this->kategori !== 'Kategori') {
             $kategori = Kategori::where('nama_kategori', $this->kategori)->first();
             
             if ($kategori) {
