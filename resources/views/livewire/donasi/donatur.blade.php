@@ -95,7 +95,7 @@
                             <p class="text-[12px] font-semibold text-black">
                                 No Whatshapp
                             </p>
-                            <input type="text"
+                            <input type="number"
                                 class=" w-full border rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-green-500"
                                 wire:model="no_telp">
                             @error('no_telp')
