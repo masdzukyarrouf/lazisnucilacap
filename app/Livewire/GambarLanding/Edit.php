@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\PilarProgram;
+namespace App\Livewire\GambarLanding;
 
 use Livewire\Component;
 use App\Models\gambar_landing;
