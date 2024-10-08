@@ -29,7 +29,7 @@ class Donatur extends Component
     {
         return [
             'username' => 'required|string',
-            'no_telp' => 'required|integer',
+            'no_telp' => 'required|string|regex:/^[0-9]+$/',
             'email' => 'nullable|email|regex:/@gmail\.com$/',
             'doa' => 'nullable|string',
             'alamat' => 'required|string',
