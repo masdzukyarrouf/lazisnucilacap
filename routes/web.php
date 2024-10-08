@@ -30,7 +30,7 @@ Route::middleware([CheckAdmin::class])->group(function () {
     Route::get('/pilihan-wakaf', App\Livewire\PilihanWakafAdmin\Index::class)->name('pilihan-wakaf');
     Route::get('/pilihan-infaq', App\Livewire\PilihaninfaqAdmin\Index::class)->name('pilihan-infaq');
     Route::get('/pilarProgram', App\Livewire\PilarProgram\Index::class)->name(name: 'pilarProgram.index');
-
+    Route::get('/laporan-admin', App\Livewire\LaporanAdmin\Index::class)->name('laporan-admin');
 
 });
 

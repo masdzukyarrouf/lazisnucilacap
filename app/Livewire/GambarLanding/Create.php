@@ -45,6 +45,6 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.gambar-landing.create');
+        return view('livewire.laporan-admin.create');
     }
 }
