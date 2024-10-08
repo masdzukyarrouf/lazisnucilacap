@@ -87,12 +87,12 @@ Salam,
 Nucare Lazisnu Cilacap🙏🙏😇';
 
                 $notifController = new NotificationController();
-                $response = $notifController->sendNotif($transaction->no_telp, $pesan);
+                $notification_response = $notifController->sendNotif($transaction->no_telp, $pesan);
 
 
                 return response()->json([
                     'message' => $message,
-                    'response' => $response,
+                    'notification_response' => $notification_response,
                     'transaction_status' => $request->transaction_status,
                     'order_id' => $request->order_id,
                     'details' => $request->all()
