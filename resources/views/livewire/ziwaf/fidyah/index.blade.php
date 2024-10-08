@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
+    <x-nav-mobile2 title="Fidyah Lazisnu Cilacap" BackUrl="{{ route('landing') }}"/>
     <div class="flex flex-col w-full min-h-screen pb-24 bg-white rounded-lg shadow-md md:w-[414px]">
         <livewire:ziwaf.navigation/>
         <form wire:submit.prevent="bayarFidyah" class="p-4">

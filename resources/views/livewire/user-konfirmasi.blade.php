@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Form konfirmasi Donasi" />
+    <x-nav-mobile2 title="Form konfirmasi Donasi" backUrl="{{ route('landing') }}"/>
     <div class="flex flex-col h-full min-h-screen bg-white shadow-md" style="width: 414px;">
         <div class="flex flex-col py-4 px-[24px]">
             <div>

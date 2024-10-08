@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Infak" />
+    <x-nav-mobile2 title="Infak" backUrl="{{ route('landing') }}"/>
     <div class="flex flex-col h-full min-h-screen bg-gray-100 shadow-md" style="width: 414px;">
         <div class="p-4 bg-[#56B44926] bg-opacity-15">
             <span class="flex flex-col mb-2 font-semibold text-green-500">

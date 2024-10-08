@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2 title="Isi Data" />
+    <x-nav-mobile2 title="Qurban Lazisnu Cilacap" backUrl="{{ route('qurban') }}"/>
     <div class="flex flex-col w-full min-h-screen pb-24 bg-white shadow-md md:w-[414px]">
         <div class="px-4 py-2"> 
             <div class="flex flex-col"> 

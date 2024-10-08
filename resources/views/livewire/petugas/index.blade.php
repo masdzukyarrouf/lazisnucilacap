@@ -29,13 +29,16 @@
             </thead>
             <tbody>
                 @foreach ($petugases as $petugas)
-                    <tr class="border-t" wire:key="petugas-{{ $petugas->id_petugas }}">
+                    <tr class="text-center border-t" wire:key="petugas-{{ $petugas->id_petugas }}">
                         <td class="px-4 py-2">{{ $petugas->nama }}</td>
                         <td class="px-4 py-2">{{ $petugas->no }}</td>
                         <td class="px-4 py-2">{{ $petugas->bagian }}</td>
                         <td class="flex justify-center px-4 py-2 space-x-1">
-                            <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
-                                    wire:click="destroy({{ $petugas->id_petugas }})">Delete</button>
+                                <livewire:petugas.edit :id_petugas="$petugas->id_petugas" wire:key="edit-{{ $petugas->id_petugas }}" />
+                                <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
+                                onclick="confirmDelete({{ $petugas->id_petugas }})">
+                                Delete
+                            </button>
                         </td>
                     </tr>
                 @endforeach
@@ -43,5 +46,22 @@
             </tbody>
         </table>
     </div>
-
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Trigger Livewire destroy method
+                    @this.call('destroy', id);
+                }
+            })
+        }
+    </script>
 </div>

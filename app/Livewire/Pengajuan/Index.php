@@ -42,11 +42,13 @@ class Index extends Component
     public function create()
     {
         $user = Auth::user();
-        if($user){
+        if($user){  
             $id_user = $user->id_user;
             $this->username = $user->username;
             $this->no_telp = $user->no_telp;
         }
+
+        $this->nominal = str_replace('.', '', $this->nominal);
         $validatedData = $this->validate();
         try {
             $pengajuan = Pengajuan::create([

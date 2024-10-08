@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap"/>
+    <x-nav-mobile2 title="Zakat Lazisnu Cilacap" backUrl="{{ route('landing') }}"/>
     <div class="flex flex-col w-full min-h-screen pb-24 bg-white rounded-lg shadow-md md:w-[414px]">
         <livewire:ziwaf.navigation/>
         <div class="flex flex-col justify-center p-4">

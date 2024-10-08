@@ -137,6 +137,7 @@
             <li><a href="/pilihan-infaq">Pilihan infaq</a></li>
             <li><a href="/pilarProgram">Pilar dan Program</a></li>
             <li><a href="/laporan-admin">Laporan</a></li>
+            <li><a href="/petugas">Petugas</a></li>
             <li>
                 <form action="{{ route('logout') }}" method="POST" x-data>
                     @csrf

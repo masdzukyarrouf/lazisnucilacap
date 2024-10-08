@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2  title="Profil & Jajaran Pengurus"/>
+    <x-nav-mobile2  title="Profil & Jajaran Pengurus" backUrl="{{ route('landing') }}"/>
     {{-- <div class="sticky inset-0 top-0 z-10 flex items-center w-full h-16 bg-green-500" style="width: 414px;">
         <div class="flex items-center pl-5">
             <a href="{{ route('landing') ?? 'javascript:history.back()' }}">

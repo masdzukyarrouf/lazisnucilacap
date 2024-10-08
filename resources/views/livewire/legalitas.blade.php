@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2 title="Legalitas" />
+    <x-nav-mobile2 title="Legalitas" backUrl="{{ route('landing') }}"/>
     <div class="flex flex-col w-full h-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="flex flex-col p-6">
             <h1 class="font-semibold text-green-500">
