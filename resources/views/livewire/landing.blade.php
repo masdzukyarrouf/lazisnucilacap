@@ -24,14 +24,14 @@
                     :style="'transform: translateX(-' + offset + '%)'">
                     @foreach ($landings as $landing)
                         @if ($landing->link == '-')
-                            <a class="min-w-full h-auto ">
+                            <a class="h-auto min-w-full ">
                                 <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                                    class="min-w-full h-auto " />
+                                    class="h-auto min-w-full " />
                             </a>
                         @else
-                            <a href="{{ $landing->link }}" class="min-w-full h-auto ">
+                            <a href="{{ $landing->link }}" class="h-auto min-w-full ">
                                 <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                                    class="min-w-full h-auto " />
+                                    class="h-auto min-w-full " />
                             </a>
                         @endif
                     @endforeach
@@ -41,50 +41,50 @@
     </div>
 
     <div class="relative flex justify-center w-full mt-16 z-12">
-        <div class="flex justify-center space-x-4 -mt-24">
+        <div class="flex justify-center -mt-24 space-x-4">
             <!-- Item 1 -->
             <a
                 href="https://wa.me/62895392167815?text=Assalamualaikum,%20saya%20ingin%20berkonsultasi%20mengenai%20zakat">
                 <div
-                    class="flex flex-col items-center w-20 h-32 sm:w-36 sm:h-36 p-4 bg-white rounded-lg shadow-2xl md:w-48 md:h-44">
-                    <div class="px-4 py-4 bg-green-500 rounded-full">
+                    class="flex flex-col items-center w-20 p-4 bg-white rounded-lg shadow-2xl sm:w-36 sm:h-36 md:w-48 md:h-44 h-[110px]">
+                    <div class="p-4 bg-green-500 rounded-full">
                         <img src="{{ asset('images/Phone Message.png') }}" alt="Image 1"
-                            class="w-6 h-6 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
+                            class="w-6 h-4 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
                     </div>
-                    <p class="text-[10px] md:text-lg font-medium text-center text-gray-800">Konsultasi</p>
+                    <p class="text-[10px] mt-2 md:text-lg font-medium text-center text-gray-800">Konsultasi</p>
                 </div>
             </a>
 
             <!-- Item 2 -->
             <a href="/zakat">
                 <div
-                    class="flex flex-col items-center w-20 h-32 sm:w-36 sm:h-36 p-4 bg-white rounded-lg shadow-2xl md:w-48 md:h-44">
+                    class="flex flex-col items-center w-20 p-4 bg-white rounded-lg shadow-2xl sm:w-36 sm:h-36 md:w-48 md:h-44 h-[110px]">
                     <div class="px-4 py-4 bg-green-500 rounded-full">
                         <img src="{{ asset('images/calculator.png') }}" alt="Image 2"
-                            class="w-6 h-6 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
+                            class="w-6 h-4 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
                     </div>
-                    <p class="text-[10px] md:text-lg font-medium text-center text-gray-800">Kalkulator Zakat</p>
+                    <p class="text-[10px] mt-2 md:text-lg font-medium text-center text-gray-800">Kalkulator Zakat</p>
                 </div>
             </a>
 
             <!-- Item 3 -->
             <div
-                class="flex flex-col items-center w-20 h-32 sm:w-36 sm:h-36 p-4 bg-white rounded-lg shadow-2xl md:w-48 md:h-44">
+                class="flex flex-col items-center w-20 p-4 bg-white rounded-lg shadow-2xl sm:w-36 sm:h-36 md:w-48 md:h-44 h-[110px]">
                 <div class="px-4 py-4 bg-green-500 rounded-full">
                     <img src="{{ asset('images/Buy With Card.png') }}" alt="Image 3"
-                        class="w-6 h-6 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
+                        class="w-6 h-4 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
                 </div>
-                <p class="text-[10px] md:text-lg font-medium text-center text-gray-800">Rekening Donasi</p>
+                <p class="text-[10px] mt-2 md:text-lg font-medium text-center text-gray-800">Rekening Donasi</p>
             </div>
 
             <!-- Item 4 -->
             <div
-                class="flex flex-col items-center w-20 h-32 sm:w-36 sm:h-36 p-4 bg-white rounded-lg shadow-2xl md:w-48 md:h-44">
+                class="flex flex-col items-center w-20 p-4 bg-white rounded-lg shadow-2xl sm:w-36 sm:h-36 md:w-48 md:h-44 h-[110px]">
                 <div class="px-4 py-4 bg-green-500 rounded-full">
                     <img src="{{ asset('images/Qr Code.png') }}" alt="Image 4"
-                        class="w-6 h-6 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
+                        class="w-6 h-4 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
                 </div>
-                <p class="text-[10px] md:text-lg font-medium text-center text-gray-800">QR Donasi</p>
+                <p class="text-[10px] mt-2 md:text-lg font-medium text-center text-gray-800">QR Donasi</p>
             </div>
         </div>
     </div>
@@ -400,7 +400,7 @@
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <div class="w-1/2 h-full text-green-500 flex items-center justify-center mx-4">
+            <div class="flex items-center justify-center w-1/2 h-full mx-4 text-green-500">
                 <p class="text-[12px] md:text-[30px] font-bold">
                     Lihat Video Terbaru dari NU Care Lazisnu Cilacap
                 </p>
@@ -409,21 +409,21 @@
         <div class="h-[70px]">
         </div>
         <!-- Sticky Bottom -->
-        <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white shadow-md md:hidden border-t">
+        <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white border-t shadow-md md:hidden">
             <div
                 class="flex items-center justify-between w-full max-w-lg px-8 py-4 space-x-6 bg-white shadow-2xl rounded-3xl">
 
                 <!-- Landing -->
                 <div class="flex items-center justify-center w-16">
                     <a wire:navigate.hover href="{{ route('landing') }}">
-                        <img class="h-10 w-full" src="{{ asset('images/Frame 1-active.png') }}" alt="">
+                        <img class="w-full h-10" src="{{ asset('images/Frame 1-active.png') }}" alt="">
                     </a>
                 </div>
 
                 <!-- Campaign -->
                 <div class="flex items-center justify-center w-16">
                     <a wire:navigate.hover href="{{ route('campaign') }}">
-                        <img class="h-10 w-full"
+                        <img class="w-full h-10"
                             src="{{ Request::is('campaigns') ? asset('images/Frame 2-active.png') : asset('images/Frame 2.png') }}"
                             alt="">
                     </a>
@@ -432,7 +432,7 @@
                 <!-- Berita -->
                 <div class="flex items-center justify-center w-16">
                     <a wire:navigate.hover href="{{ route('berita') }}">
-                        <img class="h-10 w-full"
+                        <img class="w-full h-10"
                             src="{{ Request::is('berita') ? asset('images/Frame 3-active.png') : asset('images/Frame 3.png') }}"
                             alt="">
                     </a>
@@ -441,7 +441,7 @@
                 <!-- Zakat -->
                 <div class="flex items-center justify-center w-16">
                     <a wire:navigate.hover href="{{ route('zakat') }}">
-                        <img class="h-10 w-full"
+                        <img class="w-full h-10"
                             src="{{ request()->is('zakat') || request()->is('infak') || request()->is('wakaf') ? asset('images/Frame 5-active.png') : asset('images/Frame 5.png') }}"
                             alt="">
                     </a>
@@ -450,7 +450,7 @@
                 <!-- Profile -->
                 <div class="flex items-center justify-center w-16">
                     <a wire:navigate.hover href="{{ route('profile.index') }}">
-                        <img class="h-10 w-full"
+                        <img class="w-full h-10"
                             src="{{ Request::is('profil') ? asset('images/Frame 4-active.png') : asset('images/Frame 4.png') }}"
                             alt="">
                     </a>
