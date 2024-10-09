@@ -8,14 +8,15 @@ use App\Http\Controllers\NotificationController;
 use App\Models\Donasi;
 use App\Models\ziwaf;
 use App\Models\Campaign;
+use App\Models\Notification;
 
 
 class TransactionListener extends Controller
 {
     public function handleNotification(Request $request)
     {
-        $serverKey = env('MIDTRANS_SERVER_KEY');
-        // $serverKey = '123123123';//fake 
+        // $serverKey = env('MIDTRANS_SERVER_KEY');
+        $serverKey = '123123123';//fake 
         $signatureKey = $request->signature_key;
         $orderId = $request->order_id;
         $grossAmount = $request->gross_amount;
@@ -72,7 +73,7 @@ class TransactionListener extends Controller
 
 
                 $pesan = 'Assalamualaikum 
-Alhamdulillah, terima kasih dan kami terima atas '.$transaction->jenis.' '.strtoupper($transaction->username).' sebesar Rp '.number_format($transaction->nominal, 0, ',', '.').' 
+Alhamdulillah, terima kasih dan kami terima atas '.$transaction->jenis.' atas nama '.strtoupper($transaction->username).' sebesar Rp '.number_format($transaction->nominal, 0, ',', '.').' Pada tanggal ' .  date('Y-m-d', strtotime($transaction->settlement_time)).'
 Insya Allah, '.$transaction->jenis.' Anda akan kami salurkan sesuai amanah dan ketentuan syariah.
 
 Semoga Allah SWT melimpahkan pahala terhadap harta yang telah Anda titipkan, dan semoga menjadi pembuka rahmat, kasih sayang, juga rezeki dunia-akhirat yang luas. 
@@ -89,6 +90,17 @@ Nucare Lazisnu Cilacap🙏🙏😇';
                 $notifController = new NotificationController();
                 $notification_response = $notifController->sendNotif($transaction->no_telp, $pesan);
 
+                if($notification_response['status'] == 'success'){
+                    $status = 'success';
+                }else{
+                    $status = $notification_response['message'];
+                }
+                Notification::create([
+                    'id_transaction' => $transaction->id_transaction,
+                    'pesan' => $pesan,
+                    'response' => $status,
+                    'no_telp' => $transaction->no_telp
+                ]);
 
                 return response()->json([
                     'message' => $message,
@@ -100,8 +112,8 @@ Nucare Lazisnu Cilacap🙏🙏😇';
             }
         }
 
-        return response()->json(['message' => 'Invalid notification signature'], 400);
-        // return response()->json(['message' =>  $hashed], 400);//temp
+        // return response()->json(['message' => 'Invalid notification signature'], 400);
+        return response()->json(['message' =>  $hashed], 400);//temp
     }
 
 
