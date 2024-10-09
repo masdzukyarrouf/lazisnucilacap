@@ -13,14 +13,17 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
         }
+
         textarea {
             padding-left: 10px;
             padding-right: 10px;
         }
+
         input {
             padding-left: 10px;
             padding-right: 10px;
         }
+
         .spinner-wrapper {
             display: flex;
             justify-content: center;
@@ -103,6 +106,17 @@
             z-index: 1000;
         }
 
+        .sidebar {
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .sidebar::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, and Opera */
+        }
+
         .overlay.show {
             display: block;
         }
@@ -119,7 +133,7 @@
 
 <body class="flex flex-col h-screen">
     <!-- Sidebar -->
-    <div id="sidebar" class="sidebar">
+    <div id="sidebar" class="sidebar overflow-y-auto">
         <ul>
             <li><a href="/admin">Home</a></li>
             <li><a href="/user">User</a></li>
@@ -138,6 +152,8 @@
             <li><a href="/pilarProgram">Pilar dan Program</a></li>
             <li><a href="/laporan-admin">Laporan</a></li>
             <li><a href="/petugas">Petugas</a></li>
+            <li><a href="/notification">Notification</a></li>
+            
             <li>
                 <form action="{{ route('logout') }}" method="POST" x-data>
                     @csrf
@@ -223,47 +239,46 @@
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    window.addEventListener('updated', event => {
-        Swal.fire({
-            title: 'Success!',
-            text: event.detail[0].message,
-            icon: 'success',
-            confirmButtonText: 'OK'
-        }).then(() => {
-            // Dispatch the modal-closed event to close the modal
-            window.dispatchEvent(new CustomEvent('modal-closed'));
+            window.addEventListener('updated', event => {
+                Swal.fire({
+                    title: 'Success!',
+                    text: event.detail[0].message,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    // Dispatch the modal-closed event to close the modal
+                    window.dispatchEvent(new CustomEvent('modal-closed'));
+                });
+            });
         });
-    });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-    window.addEventListener('created', event => {
-        Swal.fire({
-            title: 'Success!',
-            text: event.detail[0].message,
-            icon: 'success',
-            confirmButtonText: 'OK'
-        }).then(() => {
-            // Dispatch the modal-closed event to close the modal
-            window.dispatchEvent(new CustomEvent('modal-closed'));
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('created', event => {
+                Swal.fire({
+                    title: 'Success!',
+                    text: event.detail[0].message,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    // Dispatch the modal-closed event to close the modal
+                    window.dispatchEvent(new CustomEvent('modal-closed'));
+                });
+            });
         });
-    });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-    window.addEventListener('destroyed', event => {
-        Swal.fire({
-            title: 'Warning!',
-            text: event.detail[0].message,
-            icon: 'warning',
-            confirmButtonText: 'OK'
-        }).then(() => {
-            // Dispatch the modal-closed event to close the modal
-            window.dispatchEvent(new CustomEvent('modal-closed'));
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('destroyed', event => {
+                Swal.fire({
+                    title: 'Warning!',
+                    text: event.detail[0].message,
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    // Dispatch the modal-closed event to close the modal
+                    window.dispatchEvent(new CustomEvent('modal-closed'));
+                });
+            });
         });
-    });
-});
-
     </script>
 
     @livewireScripts
