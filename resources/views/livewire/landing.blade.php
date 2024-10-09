@@ -394,7 +394,7 @@
                 @endfor
             </div>
         </div>
-        <div class="w-full pt-8 px-4 md:px-20 h-[180px] md:h-[350px] flex">
+        <div class="w-full pt-8 px-4 md:px-20 h-[180px] md:h-[350px] flex mb-24">
             <iframe class="w-1/2 h-[180px] md:h-[350px] bg-black"
                 src="https://www.youtube.com/embed/IUWm95fwZHk?si=sDflST4mHtaP_N1-" title="YouTube video player"
                 frameborder="0"
@@ -406,51 +406,49 @@
                 </p>
             </div>
         </div>
-        <div class="h-[70px]">
-        </div>
         <!-- Sticky Bottom -->
-        <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white border-t shadow-md md:hidden">
+        <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white shadow-md md:hidden">
             <div
-                class="flex items-center justify-between w-full max-w-lg px-8 py-4 space-x-6 bg-white shadow-2xl rounded-3xl">
+                class="flex items-center justify-between w-full max-w-lg px-4 py-2 space-x-8 bg-white" style="height: 65px; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -2px rgba(0, 0, 0, 0.1);">
 
                 <!-- Landing -->
-                <div class="flex items-center justify-center w-16">
+                <div class="flex items-center justify-center w-16 h-11">
                     <a wire:navigate.hover href="{{ route('landing') }}">
-                        <img class="w-full h-10" src="{{ asset('images/Frame 1-active.png') }}" alt="">
+                        <img class="w-full h-auto" src="{{ asset('images/Frame 1-active.png') }}" alt="">
                     </a>
                 </div>
 
                 <!-- Campaign -->
-                <div class="flex items-center justify-center w-16">
+                <div class="flex items-center justify-center w-16 h-11">
                     <a wire:navigate.hover href="{{ route('campaign') }}">
-                        <img class="w-full h-10"
+                        <img class="w-full h-auto"
                             src="{{ Request::is('campaigns') ? asset('images/Frame 2-active.png') : asset('images/Frame 2.png') }}"
                             alt="">
                     </a>
                 </div>
 
                 <!-- Berita -->
-                <div class="flex items-center justify-center w-16">
+                <div class="flex items-center justify-center w-16 h-11">
                     <a wire:navigate.hover href="{{ route('berita') }}">
-                        <img class="w-full h-10"
+                        <img class="w-full h-auto"
                             src="{{ Request::is('berita') ? asset('images/Frame 3-active.png') : asset('images/Frame 3.png') }}"
                             alt="">
                     </a>
                 </div>
 
                 <!-- Zakat -->
-                <div class="flex items-center justify-center w-16">
+                <div class="flex items-center justify-center w-16 h-11">
                     <a wire:navigate.hover href="{{ route('zakat') }}">
-                        <img class="w-full h-10"
+                        <img class="w-full h-auto"
                             src="{{ request()->is('zakat') || request()->is('infak') || request()->is('wakaf') ? asset('images/Frame 5-active.png') : asset('images/Frame 5.png') }}"
                             alt="">
                     </a>
                 </div>
 
                 <!-- Profile -->
-                <div class="flex items-center justify-center w-16">
+                <div class="flex items-center justify-center w-16 h-11">
                     <a wire:navigate.hover href="{{ route('profile.index') }}">
-                        <img class="w-full h-10"
+                        <img class="w-full h-auto"
                             src="{{ Request::is('profil') ? asset('images/Frame 4-active.png') : asset('images/Frame 4.png') }}"
                             alt="">
                     </a>

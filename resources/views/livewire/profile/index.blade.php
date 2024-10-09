@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Profil" />
-    <div class="flex flex-col min-h-screen bg-white shadow-md" style="width: 414px;">
+    <div class="flex flex-col w-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="flex items-center justify-center mt-5">
             <img src="{{ asset('images/Mask Group.png') }}" alt="pinpoint" class="w-36">
         </div>

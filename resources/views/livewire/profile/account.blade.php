@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Profil" />
-    <div class="flex flex-col bg-white shadow-md" style="width: 414px; height: 700px">
+    <div class="flex flex-col w-full min-h-screen bg-white shadow-md md:w-[414px]">
         @if (session()->has('message'))
                 <div id="flash-message"
                     class="flex items-center justify-between p-4 mx-12 mt-8 mb-4 text-white bg-green-500 rounded">
@@ -19,7 +19,7 @@
                     <div class="mb-4">
                         <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
                         <input type="text" id="username" wire:model="username" name="username"
-                            class="block w-full py-1 px-2 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                            class="block w-full px-2 py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('username')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -28,7 +28,7 @@
                         <label for="first_name" class="block text-sm font-medium text-gray-700">Nama
                             Depan</label>
                         <input type="text" id="first_name" wire:model="first_name" name="first_name"
-                            class="block w-full py-1 px-2 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                            class="block w-full px-2 py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('first_name')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -37,7 +37,7 @@
                         <label for="last_name" class="block text-sm font-medium text-gray-700">Nama
                             Belakang</label>
                         <input type="text" id="last_name" wire:model="last_name" name="last_name"
-                            class="block w-full py-1 px-2 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                            class="block w-full px-2 py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('last_name')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -45,7 +45,7 @@
                     <div class="mb-4">
                         <label for="no_telp" class="block text-sm font-medium text-gray-700">No Telp</label>
                         <input type="text" id="no_telp" wire:model="no_telp" name="no_telp"
-                            class="block w-full py-1 px-2 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                            class="block w-full px-2 py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('no_telp')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -53,7 +53,7 @@
                     <div class="mb-4">
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                         <input type="password" id="password" wire:model="password" name="password"
-                            class="block w-full py-1 px-2 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                            class="block w-full px-2 py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('password')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror

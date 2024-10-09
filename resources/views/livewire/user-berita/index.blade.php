@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Berita Lazisnu Cilacap" />
-    <div class="flex flex-col min-h-screen bg-white shadow-md" style="width: 414px;">
+<div class="flex flex-col items-center justify-center min-w-fit">
+    <x-nav-mobile2 title="Berita Lazisnu Cilacap" backUrl="{{ route('landing') }}"/>
+    <div class="flex flex-col w-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="flex">
             <livewire:user-berita.kategori :nama_kategori="$this->kategori" />
             <input type="text" placeholder="Search Berita..." wire:model.live="search"
@@ -82,10 +82,10 @@
                     <div class="flex flex-col gap-3 mx-2 mt-2">
                         @foreach ($Beritas as $berita)
                             <a href="{{ route('user-berita.show', $berita->title_berita) }}" class="w-full">
-                                <div class="flex items-center bg-white rounded-lg shadow-md w-full">
+                                <div class="flex items-center w-full bg-white rounded-lg shadow-md">
                                     <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"
                                         class="object-cover w-40 h-24 rounded-md">
-                                    <div class="flex flex-col pl-2 w-full">
+                                    <div class="flex flex-col w-full pl-2">
                                         <h2 class="text-sm font-semibold text-gray-800">
                                             {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
                                         </h2>

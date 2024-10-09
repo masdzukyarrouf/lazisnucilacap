@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="{{ \Illuminate\Support\Str::limit($berita->title_berita, 35, '...') }}" />
-    <div class="min-h-screen bg-white shadow-md" style="width: 414px">
+<div class="flex flex-col items-center justify-center min-w-fit">
+    <x-nav-mobile2 title="{{ \Illuminate\Support\Str::limit($berita->title_berita, 35, '...') }}" backUrl="{{ route('berita') }}"/>
+    <div class="w-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="mx-5 mb-10">
             <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"
                 class="object-cover w-full h-full mt-4 rounded-md">

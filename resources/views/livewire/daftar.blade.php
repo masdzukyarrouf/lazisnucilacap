@@ -1,7 +1,6 @@
-<div>
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Daftar" />
-    <div class="flex items-center justify-center px-6 lg:px-8">
-        <div class="w-full max-w-md min-h-screen px-8 bg-white shadow-md" style="width: 414px">
+    <div class="flex flex-col w-full h-full min-h-screen bg-white shadow-md md:w-[414px] p-4">
             <div class="text-center">
                 <h2 class="mt-3 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">Daftar</h2>
                 <p class="text-xl font-bold leading-9 tracking-tight text-center text-gray-900">Silahkan lengkapi data di
@@ -84,7 +83,5 @@
                 </form>
             </div>
             <div style="height: 67px "></div>
-
-        </div>
     </div>
 </div>

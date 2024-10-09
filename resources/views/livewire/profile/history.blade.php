@@ -1,22 +1,22 @@
-<div class="w-full max-w-[414px] mx-auto h-full">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Riwayat" />
-    <div class="flex flex-col bg-white shadow-md h-full" style="width: 414px;">
-        <div class="w-full  flex flex-col items-center">
+    <div class="flex flex-col w-full min-h-screen bg-white shadow-md md:w-[414px]">
+        <div class="flex flex-col items-center w-full">
             @if ($donasis->isEmpty())
                 <p class="text-center ">Pengguna ini belum berdonasi</p>
                 <a href="{{ route('campaign') }}" class="text-center text-green-500 ">Donasi Sekarang</a>
             @else
                 <ul class="w-full">
-                    <div class=" pt-2 bg-white w-full">
+                    <div class="w-full pt-2 bg-white ">
                         @foreach ($donasis as $donasi)
-                            <li class="px-4 bg-white w-full" wire:click="{{ $donasi->id_donasi }}">
-                                <div class="z-5 flex flex-grow py-4 w-full">
+                            <li class="w-full px-4 bg-white" wire:click="{{ $donasi->id_donasi }}">
+                                <div class="flex flex-grow w-full py-4 z-5">
                                     <div class="z-0 relative group flex justify-center items-center w-[120px] h-[90px] overflow-hidden">
                                         <img src="{{ asset('storage/images/campaign/' . $donasi->image) }}" alt="Picture"
                                              class="object-cover w-full h-full hover:cursor-pointer">
                                     </div>
                                     
-                                    <div class="px-3  w-3/5 ">
+                                    <div class="w-3/5 px-3 ">
                                         <p class="text-[12px] font-semibold text-gray-800">
                                             {{ \Illuminate\Support\Str::limit($donasi->title, 35, '...') }}
                                         </p>
