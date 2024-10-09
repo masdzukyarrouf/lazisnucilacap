@@ -1,6 +1,41 @@
 <div>
     <div id="user-menu" class="fixed inset-y-0 right-0 z-30 hidden w-48 px-8 py-2 bg-white rounded-lg shadow-lg top-12">
         <div class="flex flex-col">
+            
+             @if (Auth::check())
+                @if (Auth::user()->role == 'admin')
+                        <a href="/admin"
+                            class="flex items-center justify-center text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
+                            <span class="flex items-center px-6 py-2 group">
+                                <svg class="w-8 h-8 mr-2 text-white group-hover:text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                                <?php $a = auth::user()->username; echo $a; ?>
+                            </span>
+                        </a>
+                @elseif (Auth::user()->role == 'donatur')
+                        <a href="/profile"
+                            class="flex items-center justify-center text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
+                            <span class="flex items-center px-6 py-2 group">
+                                <svg class="w-8 h-8 mr-2 text-white group-hover:text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                                <?php $a = auth::user()->username; echo $a; ?>
+                            </span>
+                        </a>
+                @endif
+            @else
+                <a href="/login"
+                    class="z-30 px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
+                    Login
+                </a>
+                <a href="/daftar"
+                    class="px-6 py-2 mt-2 text-green-600 border border-green-600 rounded-xl hover:bg-green-600 hover:text-white">
+                    Daftar
+                </a>
+
+            @endif
+
             <livewire:navbar.navlink wire:key={{ rand() }} title="Lazisnu Cilacap" :links="[
                 ['href' => '/profil&jajaran', 'text' => 'Profil & Jajaran Pengurus'],
                 ['href' => '/sejarah', 'text' => 'Sejarah'],
@@ -34,31 +69,6 @@
             <livewire:navbar.navlink isDropdown="false" wire:key={{ rand() }} title="Campaign"
                 url="/campaigns" />
             <livewire:navbar.navlink isDropdown="false" wire:key={{ rand() }} title="Berita" url="/berita" />
-
-            @if (Auth::check())
-                @if (Auth::user()->role == 'admin')
-                    <a href="/admin"
-                        class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
-                        Admin
-                    </a>
-                @elseif (Auth::user()->role == 'donatur')
-                    <a href="/profile"
-                        class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
-                        profil
-                    </a>
-                @endif
-            @else
-                <a href="/login"
-                    class="z-30 px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
-                    Login
-                </a>
-                <a href="/daftar"
-                    class="px-6 py-2 text-green-600 border border-green-600 rounded-xl hover:bg-green-600 hover:text-white">
-                    Daftar
-                </a>
-
-            @endif
-
         </div>
     </div>
 
@@ -120,19 +130,23 @@
                 @if (Auth::check())
                     @if (Auth::user()->role == 'admin')
                         <a href="/admin"
-                            class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
-                            Admin
-                        </a>
-                        <div class="flex items-center">
-                            <span class="font-semibold">
-                                <?php $a = auth::user()->username;
-                                echo $a; ?>
+                            class="flex items-center justify-center text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
+                            <span class="flex items-center px-6 py-2 group">
+                                <svg class="w-8 h-8 mr-2 text-white group-hover:text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                                <?php $a = auth::user()->username; echo $a; ?>
                             </span>
-                        </div>
+                        </a>
                     @elseif (Auth::user()->role == 'donatur')
                         <a href="/profile"
-                            class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
-                            profil
+                            class="flex items-center justify-center text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
+                            <span class="flex items-center px-6 py-2 group">
+                                <svg class="w-8 h-8 mr-2 text-white group-hover:text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+                                <?php $a = auth::user()->username; echo $a; ?>
+                            </span>
                         </a>
                     @endif
                 @else

@@ -16,7 +16,7 @@
                             <div class="mt-2">
                                 <input wire:model="username" id="username" name="username" type="text"
                                     autocomplete="username" required
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 @error('username')
                                     <small class="text-red-500">{{ $message }}</small>
                                 @enderror
@@ -29,7 +29,7 @@
                             <div class="mt-2">
                                 <input wire:model="first_name" id="first_name" name="first_name" type="text"
                                     autocomplete="first_name" required
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 @error('first_name')
                                     <small class="text-red-500">{{ $message }}</small>
                                 @enderror
@@ -42,7 +42,7 @@
                             <div class="mt-2">
                                 <input wire:model="last_name" id="last_name" name="last_name" type="text"
                                     autocomplete="last_name" required
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 @error('last_name')
                                     <small class="text-red-500">{{ $message }}</small>
                                 @enderror
@@ -55,7 +55,7 @@
                             <div class="mt-2">
                                 <input wire:model="no_telp" id="no_telp" name="no_telp" type="text"
                                     autocomplete="no_telp" required
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 @error('no_telp')
                                     <small class="text-red-500">{{ $message }}</small>
                                 @enderror
@@ -68,7 +68,7 @@
                             <div class="mt-2">
                                 <input wire:model="password" id="password" name="password" type="password"
                                     autocomplete="password" required
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 @error('password')
                                     <small class="text-red-500">{{ $message }}</small>
                                 @enderror
