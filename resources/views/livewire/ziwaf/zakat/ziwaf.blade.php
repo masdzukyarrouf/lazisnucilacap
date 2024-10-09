@@ -4,7 +4,7 @@
         <livewire:ziwaf.navigation/>
         <div class="flex flex-col justify-center p-4">
             <h1 class="pb-2 font-semibold">Pilih Kategori Zakat</h1>
-            <div class="relative w-screen md:w-96">
+            <div class="relative w-full md:w-96">
                 <select wire:model="selectedOption" wire:change="handleDropdownChange" class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:border-blue-500">
                     <option value="" disabled selected>Pilih Kategori Zakat</option>
                     <option value="maal">Zakat Maal</option>
