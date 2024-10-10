@@ -91,83 +91,112 @@
 
 
 
-    <div class="flex flex-col justify-between px-4 mt-8 md:px-8 lg:px-16 xl:px-24">
+    <div class="flex flex-col justify-between px-4 mt-8 md:px-8 lg:px-16 xl:px-24" x-data="{ load: false, showModal: false }"
+        x-init="load = true;
+        showModal = true" x-show="load" wire:init.defer="loadVisiMisi">
+        <!-- Main content -->
         <div id="details-container" class="relative max-h-[325px] overflow-hidden transition-all duration-300">
             <p
                 class="mt-4 ml-4 text-[14px] md:text-[16px] font-semibold text-green-500 flex justify-center items-center">
-                Sekilas NU-Care Lazisnu Cilacap</p>
+                Sekilas NU-Care Lazisnu Cilacap
+            </p>
             <div id="details-content" class="w-full px-4 py-4 md:px-5">
                 <h2 class="w-full font-semibold text-left text-green-500">Visi</h2>
-                @foreach ($visis as $visi)
-                    <p class="text-sm md:text-base" wire:key="misi-{{ $visi->id_visi }}">{!! nl2br(e($visi->visi)) !!}</p>
-                @endforeach
-                <h2 class="w-full mt-4 font-semibold text-left text-green-500">Misi</h2>
-                @php
-                    $index = 1;
-                @endphp
-
-                @foreach ($misis as $Misi)
-                    <div class="flex mt-4" wire:key="misi-{{ $Misi->id_misi }}">
-                        <h1 class="pr-2 text-sm">{{ $index }}.</h1>
-                        <p class="text-sm">
-                            {!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}
+                @if (!empty($visis))
+                    @foreach ($visis as $visi)
+                        <p class="text-sm md:text-base" wire:key="misi-{{ $visi->id_visi }}">
+                            {!! nl2br(e($visi->visi)) !!}
                         </p>
+                    @endforeach
+                @else
+                    <div class="w-full ">
+                        <div class="flex-col space-y-2 justify-between w-auto mx-4 mt-4 md:mt-0">
+                            <div class="w-full h-2 text-gray-400 bg-gray-400 rounded-sm md:w-full md:h-6 "></div>
+                            <div class="w-full h-2 text-gray-400 bg-gray-400 rounded-sm md:w-full md:h-6 "></div>
+                        </div>
                     </div>
-                    @php
-                        $index++;
-                    @endphp
-                @endforeach
+                @endif
+
+                <h2 class="w-full mt-4 font-semibold text-left text-green-500">Misi</h2>
+                @if (!empty($misis))
+                    @php $index = 1; @endphp
+                    @foreach ($misis as $Misi)
+                        <div class="flex mt-4" wire:key="misi-{{ $Misi->id_misi }}">
+                            <h1 class="pr-2 text-sm">{{ $index }}.</h1>
+                            <p class="text-sm">
+                                {!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}
+                            </p>
+                        </div>
+                        @php $index++; @endphp
+                    @endforeach
+                @else
+                    <div class="w-full ">
+                        <div class="flex-col space-y-2 justify-between w-auto mx-4 mt-4 md:mt-0">
+                            <div class="w-full h-2 text-gray-400 bg-gray-400 rounded-sm md:w-full md:h-6 "></div>
+                            <div class="w-full h-2 text-gray-400 bg-gray-400 rounded-sm md:w-full md:h-6 "></div>
+                            <div class="w-full h-2 text-gray-400 bg-gray-400 rounded-sm md:w-full md:h-6 "></div>
+                            <div class="w-full h-2 text-gray-400 bg-gray-400 rounded-sm md:w-full md:h-6 "></div>
+                        </div>
+                    </div>
+                @endif
             </div>
+
+            <!-- Modal Button -->
             <a id="details-expand-link"
                 class="absolute bottom-0 left-0 w-full px-3 pt-4 text-left bg-gradient-to-t from-white via-white to-transparent">
-                {{-- <livewire:visi-misi /> --}}
-                <div x-data="{ isOpen: false }" @modal-closed.window="isOpen = false">
+                <div x-show="showModal" x-data="{ isOpen: false }" @modal-closed.window="isOpen = false">
                     <!-- Button to open the modal -->
                     <span @click="isOpen=true" class="text-green-500 cursor-pointer hover:underline">Baca
                         Selengkapnya...</span>
-
-                    <!-- Modal Background -->
-                    <div x-show="isOpen"
-                        class="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-75">
-                        <!-- Modal Content -->
-                        <div class="w-[414px] md:w-full md:mx-4 bg-white rounded-lg shadow-lg">
-                            <!-- Modal Header -->
-                            <div class="flex items-center justify-between p-4 bg-gray-200 rounded-t-lg">
-                                <h3 class="text-xl font-semibold text-green-500">Sekilas NU-Care Lazisnu Cilacap</h3>
-                                <div @click="isOpen=false" class="px-3 rounded-sm shadow hover:bg-red-500">
-                                    <button class="text-gray-900">&times;</button>
+                    @if (!empty($visis) || !empty($misis))
+                        <!-- Modal Background -->
+                        <div x-show="isOpen"
+                            class="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-75">
+                            <!-- Modal Content -->
+                            <div class="w-[414px] md:w-full md:mx-4 bg-white rounded-lg shadow-lg">
+                                <div class="flex items-center justify-between p-4 bg-gray-200 rounded-t-lg">
+                                    <h3 class="text-xl font-semibold text-green-500">Sekilas NU-Care Lazisnu Cilacap
+                                    </h3>
+                                    <div @click="isOpen=false" class="px-3 rounded-sm shadow hover:bg-red-500">
+                                        <button class="text-gray-900">&times;</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="p-4 max-h-[500px] overflow-y-auto">
-                                <div class="flex flex-col items-start mt-4">
-                                    <h2 class="w-full font-semibold text-left text-green-500">Visi</h2>
-                                    @foreach ($visis as $visi)
-                                        <p> {!! nl2br(e($visi->visi)) !!}</p>
-                                    @endforeach
-                                    <h2 class="w-full mt-4 font-semibold text-left text-green-500">Misi</h2>
-                                    @php
-                                        $index = 1;
-                                    @endphp
 
-                                    @foreach ($misis as $Misi)
-                                        <div class="flex mt-4">
-                                            <h1 class="pr-2 text-sm">{{ $index }}.</h1>
-                                            <p class="text-sm">
-                                                {!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}
-                                            </p>
-                                        </div>
-                                        @php
-                                            $index++;
-                                        @endphp
-                                    @endforeach
+                                <div class="p-4 max-h-[500px] overflow-y-auto">
+                                    <div class="flex flex-col items-start mt-4">
+                                        <h2 class="w-full font-semibold text-left text-green-500">Visi</h2>
+                                        @if (!empty($visis))
+                                            @foreach ($visis as $visi)
+                                                <p class="text-sm md:text-base" wire:key="misi-{{ $visi->id_visi }}">
+                                                    {!! nl2br(e($visi->visi)) !!}
+                                                </p>
+                                            @endforeach
+                                        @endif
+
+                                        <h2 class="w-full mt-4 font-semibold text-left text-green-500">Misi</h2>
+                                        @if (!empty($misis))
+                                            @php $index = 1; @endphp
+                                            @foreach ($misis as $Misi)
+                                                <div class="flex mt-4" wire:key="misi-{{ $Misi->id_misi }}">
+                                                    <h1 class="pr-2 text-sm">{{ $index }}.</h1>
+                                                    <p class="text-sm">
+                                                        {!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}
+                                                    </p>
+                                                </div>
+                                                @php $index++; @endphp
+                                            @endforeach
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
+
                 </div>
             </a>
         </div>
     </div>
+
 
 
 
@@ -206,39 +235,43 @@
                         <livewire:campaigns.card :campaign="$campaign" wire:key="sm-{{ $campaign->id_campaign }}" />
                     </div>
                 @endforeach
-
-            @endif
-            <div wire:loading class="w-full ">
-                <div
-                    class="flex flex-col justify-between w-full pb-4 space-y-4 md:flex-row md:flex md:space-y-0 md:shadow-lg md:space-x-4 md:w-auto ">
-                    @for ($i = 0; $i < 3; $i++)
-                        <div
-                            class="flex flex-row md:flex-col md:space-y-4 animate-pulse bg-gray-200 h-28 w-full md:h-[500px] md:w-[410px] ">
-                            <div class="w-2/5 h-full bg-gray-400 md:w-full md:h-80"></div>
-                            <div class="flex flex-col w-3/5 space-y-2 md:space-y-4 md:w-full">
-                                <div
-                                    class="w-auto h-4 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-sm md:mt-1 md:w-auto md:h-6">
-                                </div>
-                                <div class="w-2/5 h-2 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-sm md:w-1/2 md:h-2">
-                                </div>
-                                <div
-                                    class="w-auto h-1 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-lg md:w-auto md:h-2">
-                                </div>
-                                <div class="flex justify-between w-auto mx-4 mt-1 md:mt-0">
-                                    <div class="w-1/4 h-2 text-gray-400 bg-gray-400 rounded-sm md:w-1/4 md:h-2 "></div>
-                                    <div class="w-1/4 h-2 text-gray-400 bg-gray-400 rounded-sm md:w-1/4 md:h-2 "></div>
-                                </div>
-                                <div class="flex justify-between w-auto mx-4 mt-4">
-                                    <div class="w-4/12 h-3 text-gray-400 bg-gray-400 rounded-sm md:w-4/12 md:h-4 ">
+            @else
+                <div class="w-full ">
+                    <div
+                        class="flex flex-col justify-between w-full pb-4 space-y-4 md:flex-row md:flex md:space-y-0 md:shadow-lg md:space-x-4 md:w-auto ">
+                        @for ($i = 0; $i < 3; $i++)
+                            <div
+                                class="flex flex-row md:flex-col md:space-y-4 animate-pulse bg-gray-200 h-28 w-full md:h-[500px] md:w-[410px] ">
+                                <div class="w-2/5 h-full bg-gray-400 md:w-full md:h-80"></div>
+                                <div class="flex flex-col w-3/5 space-y-2 md:space-y-4 md:w-full">
+                                    <div
+                                        class="w-auto h-4 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-sm md:mt-1 md:w-auto md:h-6">
                                     </div>
-                                    <div class="w-4/12 h-3 text-gray-400 bg-gray-400 rounded-sm md:w-4/12 md:h-4 ">
+                                    <div
+                                        class="w-2/5 h-2 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-sm md:w-1/2 md:h-2">
+                                    </div>
+                                    <div
+                                        class="w-auto h-1 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-lg md:w-auto md:h-2">
+                                    </div>
+                                    <div class="flex justify-between w-auto mx-4 mt-1 md:mt-0">
+                                        <div class="w-1/4 h-2 text-gray-400 bg-gray-400 rounded-sm md:w-1/4 md:h-2 ">
+                                        </div>
+                                        <div class="w-1/4 h-2 text-gray-400 bg-gray-400 rounded-sm md:w-1/4 md:h-2 ">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between w-auto mx-4 mt-4">
+                                        <div class="w-4/12 h-3 text-gray-400 bg-gray-400 rounded-sm md:w-4/12 md:h-4 ">
+                                        </div>
+                                        <div class="w-4/12 h-3 text-gray-400 bg-gray-400 rounded-sm md:w-4/12 md:h-4 ">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endfor
+                        @endfor
+                    </div>
                 </div>
-            </div>
+            @endif
+
         </div>
     </div>
 
@@ -270,29 +303,31 @@
                 @foreach ($beritas as $berita)
                     <x-berita-card :berita="$berita" wire:key="{{ $berita->id_berita }}" />
                 @endforeach
-            @endif
-            <div wire:loading class="w-full ">
-                <div
-                    class="flex flex-col justify-between w-full pb-4 space-y-4 md:flex-row md:flex md:space-y-0 md:shadow-lg md:space-x-4 md:w-auto ">
-                    @for ($i = 0; $i < 3; $i++)
-                        <div
-                            class="flex flex-row md:flex-col md:space-y-1 animate-pulse bg-gray-200 h-28 w-full md:h-[400px] md:w-[410px] ">
-                            <div class="bg-gray-400 w-2/5 h-full md:w-full md:h-[300px]"></div>
-                            <div class="flex flex-col w-3/5 space-y-2 md:space-y-4 md:w-full">
-                                <div
-                                    class="w-auto h-5 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-sm md:mt-2 md:w-auto md:h-4">
-                                </div>
-                                <div
-                                    class="w-2/5 h-2 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-sm md:mt-0 md:w-1/2 md:h-3">
-                                </div>
-                                <div
-                                    class="w-auto h-1 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-lg md:mt-0 md:w-1/2 md:h-3">
+            @else
+                <div class="w-full ">
+                    <div
+                        class="flex flex-col justify-between w-full pb-4 space-y-4 md:flex-row md:flex md:space-y-0 md:shadow-lg md:space-x-4 md:w-auto ">
+                        @for ($i = 0; $i < 3; $i++)
+                            <div
+                                class="flex flex-row md:flex-col md:space-y-1 animate-pulse bg-gray-200 h-28 w-full md:h-[400px] md:w-[410px] ">
+                                <div class="bg-gray-400 w-2/5 h-full md:w-full md:h-[300px]"></div>
+                                <div class="flex flex-col w-3/5 space-y-2 md:space-y-4 md:w-full">
+                                    <div
+                                        class="w-auto h-5 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-sm md:mt-2 md:w-auto md:h-4">
+                                    </div>
+                                    <div
+                                        class="w-2/5 h-2 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-sm md:mt-0 md:w-1/2 md:h-3">
+                                    </div>
+                                    <div
+                                        class="w-auto h-1 mx-4 mt-4 text-gray-400 bg-gray-400 rounded-lg md:mt-0 md:w-1/2 md:h-3">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endfor
+                        @endfor
+                    </div>
                 </div>
-            </div>
+            @endif
+
         </div>
     </div>
 
@@ -385,13 +420,15 @@
                             </div>
                         </div>
                     @endforeach
+                @else
+                    @for ($i = 0; $i < $this->mitraCount; $i++)
+                        <div
+                            class="animate-pulse bg-gray-400 w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20">
+                            <div class="w-[50px] h-[50px] md:w-[150px] md:h-[150px]"></div>
+                        </div>
+                    @endfor
                 @endif
-                @for ($i = 0; $i < $this->mitraCount; $i++)
-                    <div wire:loading
-                        class="animate-pulse bg-gray-400 w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20">
-                        <div class="w-[50px] h-[50px] md:w-[150px] md:h-[150px]"></div>
-                    </div>
-                @endfor
+
             </div>
         </div>
         <div class="w-full pt-8 px-4 md:px-20 h-[180px] md:h-[350px] flex mb-24">
