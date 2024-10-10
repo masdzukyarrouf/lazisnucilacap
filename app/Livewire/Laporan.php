@@ -15,7 +15,7 @@ class Laporan extends Component
 
     public function loadBerita()
     {
-        $this->laporan = LaporanModel::all();
+        $this->laporan = LaporanModel::latest()->get();
         // Query for the 'Berita' model
         $query = Berita::query();
 

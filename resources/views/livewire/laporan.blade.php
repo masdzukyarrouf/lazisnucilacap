@@ -5,7 +5,7 @@
             <div id="details-container" class="relative max-h-[1000px] overflow-hidden transition-all duration-300">
                 <p class="text-[14px] font-semibold text-green-500 items-center flex pb-2">Laporan & Publikasi NU-Care Lazisnu Cilacap</p>
                 <div class="flex flex-col gap-3 p-4 mb-6 rounded shadow-lg">
-                    @foreach ($laporan as $item)
+                    @foreach ($laporan->take(5) as $item)
                         <a href="{{ asset('storage/' . $item->file) }}" target="_blank">
                             <button class="flex items-center justify-between w-full px-4 py-2 border border-gray-300 rounded">
                                 <div class="flex items-center">
