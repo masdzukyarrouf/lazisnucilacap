@@ -29,11 +29,6 @@ class Landing extends Component
 
         $this->mitraCount = mitra::query()->count();
 
-
-        $this->visis = visi::orderBy('order', 'asc')->get();
-
-        $this->misis = misi::orderBy('order', 'asc')->get();
-
         $this->banyak_donasi = Donasi::whereHas('transaction', function ($query) {
             $query->where('status', 'success');
         })->count();
@@ -42,6 +37,11 @@ class Landing extends Component
             ->latest()
             ->get();
 
+    }
+    public function loadVisiMisi(){
+         $this->visis = visi::orderBy('order', 'asc')->get();
+
+        $this->misis = misi::orderBy('order', 'asc')->get();
     }
     public function loadCampaigns()
     {
