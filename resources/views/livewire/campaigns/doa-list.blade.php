@@ -1,13 +1,13 @@
-<div class="w-full max-w-[414px] mx-auto bg-white h-auto">
+<div class="w-full max-w-[414px] mx-auto bg-white min-h-screen">
     <x-nav-mobile2 title="List Doa Campaign" />
     <div x-data="{ load: false }" x-init="load = true" x-show="load" wire:init="loadDoas">
 
         @if ($doas && $doas->isEmpty())
-            <div class="px-4 py-60  text-center ">
+            <div class="px-4 text-center py-60 ">
                 <p>
                     Belum Ada Doa
                 </p>
-                <a href="{{ route('donasi.index', $campaign->title) }}" class="text-green-500 text-sm">Donasi
+                <a href="{{ route('donasi.index', $campaign->title) }}" class="text-sm text-green-500">Donasi
                     Sekarang</a>
             </div>
         @elseif($doas)
@@ -21,28 +21,28 @@
         <div wire:loading
             class="w-full flex-col items-center py-2 px-4 shadow-[0_4px_4px_rgba(0,0,0,0.1)] animate-pulse">
             <!-- Placeholder for the username and date -->
-            <div class="flex flex-col text-left w-full">
-                <div class="bg-gray-200 dark:bg-gray-700 h-4 w-24 mb-1"></div>
-                <div class="bg-gray-200 dark:bg-gray-700 h-3 w-20"></div>
+            <div class="flex flex-col w-full text-left">
+                <div class="w-24 h-4 mb-1 bg-gray-200 dark:bg-gray-700"></div>
+                <div class="w-20 h-3 bg-gray-200 dark:bg-gray-700"></div>
             </div>
 
             <!-- Placeholder for the doa text -->
-            <div class="w-full bg-gray-200 dark:bg-gray-700 mt-4 text-black flex flex-col p-2">
-                <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full mb-1"></div>
-                <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
+            <div class="flex flex-col w-full p-2 mt-4 text-black bg-gray-200 dark:bg-gray-700">
+                <div class="w-full h-4 mb-1 bg-gray-200 rounded dark:bg-gray-700"></div>
+                <div class="w-3/4 h-4 bg-gray-200 rounded dark:bg-gray-700"></div>
 
                 <!-- Placeholder for like count and description -->
-                <div class="flex justify-start space-x-1 mt-4">
-                    <div class="bg-gray-200 dark:bg-gray-700 h-3 w-12"></div>
-                    <div class="bg-gray-200 dark:bg-gray-700 h-3 w-24"></div>
+                <div class="flex justify-start mt-4 space-x-1">
+                    <div class="w-12 h-3 bg-gray-200 dark:bg-gray-700"></div>
+                    <div class="w-24 h-3 bg-gray-200 dark:bg-gray-700"></div>
                 </div>
             </div>
 
             <!-- Placeholder for the like button -->
             <div
-                class="w-full bg-gray-200 dark:bg-gray-700 mt-2 text-black border-t flex justify-center py-2 space-x-1 items-center">
-                <div class="bg-gray-200 dark:bg-gray-700 h-5 w-5 rounded-full"></div>
-                <div class="bg-gray-200 dark:bg-gray-700 h-3 w-12"></div>
+                class="flex items-center justify-center w-full py-2 mt-2 space-x-1 text-black bg-gray-200 border-t dark:bg-gray-700">
+                <div class="w-5 h-5 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                <div class="w-12 h-3 bg-gray-200 dark:bg-gray-700"></div>
             </div>
 
 
