@@ -1,6 +1,6 @@
 <div class="mx-5 shadow-2xl">
     <div class="flex justify-between mx-4 mt-12">
-        <h1 class="text-2xl font-bold ">User Table</h1>
+        <h1 class="text-2xl font-bold ">Donasi Table</h1>
         <div>
             @if (session()->has('message'))
                 <div id="flash-message"

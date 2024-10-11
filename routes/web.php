@@ -16,7 +16,7 @@ Route::middleware([CheckAdmin::class])->group(function () {
     Route::get('/user', App\Livewire\User\Index::class)->name('user');
     Route::get('/admin-campaign', App\Livewire\AdminCampaign\Index::class)->name('admin-campaign');
     Route::get('/update-campaign', App\Livewire\AdminUpdate\Index::class)->name('update-campaign');
-    Route::get('/user/create', App\Livewire\User\Create::class)->name('user');
+    // Route::get('/user/create', App\Livewire\User\Create::class)->name('user');
     Route::get('/admin-berita', App\Livewire\Berita\Index::class)->name('admin-berita');
     Route::get('/gambar_landing', App\Livewire\GambarLanding\Index::class)->name('gambar_landing');
     Route::get('/admin-mitra', App\Livewire\Mitra\Index::class)->name('admin-mitra');
