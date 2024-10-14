@@ -110,7 +110,7 @@
                     @endforeach
                 @else
                     <div class="w-full ">
-                        <div class="flex-col space-y-2 justify-between w-auto mx-4 mt-4 md:mt-0">
+                        <div class="flex-col justify-between w-auto mx-4 mt-4 space-y-2 md:mt-0">
                             <div class="w-full h-2 text-gray-400 bg-gray-400 rounded-sm md:w-full md:h-6 "></div>
                             <div class="w-full h-2 text-gray-400 bg-gray-400 rounded-sm md:w-full md:h-6 "></div>
                         </div>
@@ -131,7 +131,7 @@
                     @endforeach
                 @else
                     <div class="w-full ">
-                        <div class="flex-col space-y-2 justify-between w-auto mx-4 mt-4 md:mt-0">
+                        <div class="flex-col justify-between w-auto mx-4 mt-4 space-y-2 md:mt-0">
                             <div class="w-full h-2 text-gray-400 bg-gray-400 rounded-sm md:w-full md:h-6 "></div>
                             <div class="w-full h-2 text-gray-400 bg-gray-400 rounded-sm md:w-full md:h-6 "></div>
                             <div class="w-full h-2 text-gray-400 bg-gray-400 rounded-sm md:w-full md:h-6 "></div>
@@ -296,12 +296,15 @@
             </div>
         </div>
 
-        <div class="flex flex-col justify-center w-full px-10 pb-4 space-y-4 md:flex-row md:space-y-0 md:space-x-4 md:w-auto"
+        <div class="flex flex-col justify-center w-full px-10 pb-4 md:flex-row md:space-y-0 md:space-x-6 md:w-auto md:flex-nowrap" 
             x-data="{ load: false }" x-init="load = true" x-show="load" wire:init="loadBerita">
             @if ($beritas && $beritas->isEmpty())
+                <!-- Handle empty state -->
             @elseif($beritas)
                 @foreach ($beritas as $berita)
-                    <x-berita-card :berita="$berita" wire:key="{{ $berita->id_berita }}" />
+                    <div class="flex w-full md:w-1/2">
+                        <x-berita-card :berita="$berita" wire:key="{{ $berita->id_berita }}" />
+                    </div>
                 @endforeach
             @else
                 <div class="w-full ">
