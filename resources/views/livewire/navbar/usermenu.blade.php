@@ -98,11 +98,6 @@
 
                 <livewire:navbar.navlink wire:key="{{ rand() }}" title="Pilar & Program" :links="$pilarLinks"
                     isDropdown="true" />
-                {{-- ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
-                     ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
-                     ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
-                     ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
-                     ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'], --}}
 
                 <livewire:navbar.navlink wire:key={{ rand() }} title="Layanan" :links="[
                     ['href' => '/konfirmasi', 'text' => 'Konfirmasi Donasi'],
