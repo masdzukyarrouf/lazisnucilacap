@@ -85,12 +85,12 @@
             </div>
             <div class="items-center w-16 rounded-lg h-11">
                 <a wire:navigate.hover href="{{ route('berita') }}">
-                    <img class="w-full h-auto" src="{{ Request::is('berita') || Request::is('detail-berita/*') ? asset('images/Frame 3-active.png') : asset('images/Frame 3.png') }}" alt="">
+                    <img class="w-full h-auto" src="{{ request()->is('berita') || request()->routeIs('user-berita.show') ? asset('images/Frame 3-active.png') : asset('images/Frame 3.png') }}" alt="">
                 </a>
             </div>
             <div class="items-center w-16 rounded-lg h-11">
                 <a wire:navigate.hover href="{{ route('zakat') }}">
-                    <img class="w-full h-auto" src="{{ request()->is('zakat') || request()->is('infak') || request()->is('wakaf') ? asset('images/Frame 5-active.png') : asset('images/Frame 5.png') }}" alt="">
+                    <img class="w-full h-auto" src="{{ request()->is('zakat') || request()->is('infak') || request()->is('wakaf') || request()->is('qurban') ? asset('images/Frame 5-active.png') : asset('images/Frame 5.png') }}" alt="">
                 </a>
             </div> 
             <div class="items-center w-16 rounded-lg h-11">
