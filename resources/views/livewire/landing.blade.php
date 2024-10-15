@@ -393,7 +393,7 @@
             updateSlideWidth() {
                 // Deteksi ukuran layar dan sesuaikan slideWidth
                 if (window.innerWidth < 640) {
-                    this.slideWidth = 43; // Nilai untuk layar kecil
+                    this.slideWidth = 34; // Nilai untuk layar kecil
                 } else {
                     this.slideWidth = 20.10; // Nilai untuk layar besar
                 }
@@ -416,10 +416,10 @@
                 @if ($mitras && $mitras->isEmpty())
                 @elseif($mitras)
                     @foreach ($mitras as $mitra)
-                        <div wire:loading.remove class=" w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20">
+                        <div wire:loading.remove class=" w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-[40px] md:mx-[75px]">
                             <div class="w-[50px] h-[50px] md:w-[150px] md:h-[150px]">
                                 <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture"
-                                    class="w-full h-full bg-black" />
+                                    class="w-full h-full" />
                             </div>
                         </div>
                     @endforeach
