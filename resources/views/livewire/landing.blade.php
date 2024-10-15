@@ -416,7 +416,7 @@
                 @if ($mitras && $mitras->isEmpty())
                 @elseif($mitras)
                     @foreach ($mitras as $mitra)
-                        <div wire:loading.remove class=" w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-[40px] md:mx-[75px]">
+                        <div wire:loading.remove class=" w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-[40px] md:mx-[74.5px]">
                             <div class="w-[50px] h-[50px] md:w-[150px] md:h-[150px]">
                                 <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture"
                                     class="w-full h-full" />
