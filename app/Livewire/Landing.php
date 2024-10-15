@@ -63,7 +63,7 @@ class Landing extends Component
     public function loadBerita(){
         $this->beritas = Berita::query()
         ->latest()
-        ->take(4)
+        ->take(3)
         ->get();
     }
     public function loadMitra(){
