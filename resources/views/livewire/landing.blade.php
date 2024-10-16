@@ -41,7 +41,7 @@
     </div>
 
     <div class="relative flex justify-center w-full mt-16 z-12">
-        <div class="flex justify-center -mt-24 space-x-4">
+        <div class="flex justify-center -mt-24 space-x-2 md:space-x-4">
             <!-- Item 1 -->
             <a
                 href="https://wa.me/62895392167815?text=Assalamualaikum,%20saya%20ingin%20berkonsultasi%20mengenai%20zakat">
