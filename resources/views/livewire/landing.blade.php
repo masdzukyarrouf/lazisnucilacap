@@ -296,7 +296,7 @@
             </div>
         </div>
 
-        <div class="flex flex-col justify-center w-full px-10 pb-4 md:flex-row md:space-y-0 md:space-x-6 md:w-auto md:flex-nowrap" 
+        <div class="flex flex-col justify-center w-full px-10 pb-4 md:flex-row md:space-y-0 md:space-x-6 md:w-auto md:flex-nowrap"
             x-data="{ load: false }" x-init="load = true" x-show="load" wire:init="loadBerita">
             @if ($beritas && $beritas->isEmpty())
                 <!-- Handle empty state -->
@@ -383,57 +383,58 @@
         </div>
         <div x-data="{
             offset: 0,
-            logoWidth: 10, // Lebar setiap logo 10%
-            visibleLogos: 5, // Menampilkan 5 logo sekaligus
+            logoWidth: 10, // Each logo takes 10% width
+            visibleLogos: 5, // Number of logos visible at once
             logoCount: {{ $this->mitraCount }},
-            slideWidth: 20.10, // Nilai default, akan disesuaikan
-            slideInterval: 1000, // Waktu dalam milidetik untuk setiap slide
+            slideWidth: 20.10, // Default value, will be adjusted
+            slideInterval: 1000, // Time in milliseconds for each slide
             interval: null,
             load: false,
             updateSlideWidth() {
-                // Deteksi ukuran layar dan sesuaikan slideWidth
+                // Adjust slideWidth based on screen size
                 if (window.innerWidth < 640) {
-                    this.slideWidth = 34; // Nilai untuk layar kecil
+                    this.slideWidth = 34; // Value for smaller screens
                 } else {
-                    this.slideWidth = 20.10; // Nilai untuk layar besar
+                    this.slideWidth = 20.10; // Value for larger screens
                 }
             }
-        }" x-init="updateSlideWidth(),
-            load = true;
+        }" x-init="updateSlideWidth();
+        load = true;
         interval = setInterval(() => {
             if (offset < (logoCount - visibleLogos) * slideWidth) {
                 offset += slideWidth;
             } else {
-                offset = 0; // Mulai dari awal lagi
+                offset = 0; // Restart from the beginning
             }
         }, slideInterval);
         window.addEventListener('resize', updateSlideWidth);" x-show="load" wire:init="loadMitra"
             class="relative w-full overflow-hidden">
+
             <!-- Carousel Container -->
-            <div class="flex transition-transform duration-500 w-[{{ $this->mitraCount * 10 }}%] items-center flex"
+            <div class="flex transition-transform duration-500 w-[{{ $this->mitraCount * 10 }}%] items-center"
                 :style="'transform: translateX(-' + offset + '%)'">
                 <!-- Loop through logos -->
                 @if ($mitras && $mitras->isEmpty())
                 @elseif($mitras)
                     @foreach ($mitras as $mitra)
-                        <div wire:loading.remove class=" w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-[40px] md:mx-[74.5px]">
-                            <div class="w-[50px] h-[50px] md:w-[150px] md:h-[150px]">
+                        <div class="h-[50px] md:h-[150px] mx-[40px] md:mx-[74.5px] flex-shrink-0" >
+                            <div class="h-[50px] md:h-[150px] w-full">
                                 <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture"
-                                    class="w-full h-full" />
+                                    class="h-[50px] md:h-[150px] w-full" />
                             </div>
                         </div>
                     @endforeach
                 @else
                     @for ($i = 0; $i < $this->mitraCount; $i++)
-                        <div
-                            class="animate-pulse bg-gray-400 w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20">
-                            <div class="w-[50px] h-[50px] md:w-[150px] md:h-[150px]"></div>
+                        <div class="animate-pulse bg-gray-400 w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20 flex-shrink-0"
+                            style="width: 12%;">
+                            <div class="w-full h-full"></div>
                         </div>
                     @endfor
                 @endif
-
             </div>
         </div>
+
         <div class="w-full pt-8 px-4 md:px-20 h-[180px] md:h-[350px] flex mb-24">
             <iframe class="w-1/2 h-[180px] md:h-[350px] bg-black"
                 src="https://www.youtube.com/embed/IUWm95fwZHk?si=sDflST4mHtaP_N1-" title="YouTube video player"
@@ -448,8 +449,8 @@
         </div>
         <!-- Sticky Bottom -->
         <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white shadow-md md:hidden">
-            <div
-                class="flex items-center justify-between w-full max-w-lg px-4 py-2 space-x-8 bg-white" style="height: 65px; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -2px rgba(0, 0, 0, 0.1);">
+            <div class="flex items-center justify-between w-full max-w-lg px-4 py-2 space-x-8 bg-white"
+                style="height: 65px; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -2px rgba(0, 0, 0, 0.1);">
 
                 <!-- Landing -->
                 <div class="flex items-center justify-center w-16 h-11">
