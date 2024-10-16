@@ -417,7 +417,7 @@
                 @if ($mitras && $mitras->isEmpty())
                 @elseif($mitras)
                     @foreach ($mitras as $mitra)
-                        <div class="h-[50px] md:h-[150px] mx-[40px] md:mx-[74.5px] flex-shrink-0" >
+                        <div class="h-[50px] md:h-[150px] mx-[40px] md:mx-[95px] flex-shrink-0" >
                             <div class="h-[50px] md:h-[150px] w-full">
                                 <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture"
                                     class="h-[50px] md:h-[150px] w-full" />
