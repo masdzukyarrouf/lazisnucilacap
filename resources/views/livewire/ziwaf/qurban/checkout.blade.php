@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Pembayaran Qurban Lazisnu Cilacap" backUrl="{{ route('qurban') }}"/>
-    <div class="flex flex-col bg-white shadow-md" style="width: 414px; height: 736px">
+    <div class="flex flex-col w-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="shadow ">
             <div class="mx-5 mt-2">
                 <span class="mb-4 text-sm text-gray-500">
@@ -29,7 +29,7 @@
                             <input 
                                 type="text" 
                                 value="{{ number_format($this->nominal, 0, ',', '.') }}" 
-                                class="w-full py-1 pl-10 pr-2 font-semibold text-green-500 bg-gray-300 border border-black rounded h-9" 
+                                class="w-full py-1 pr-2 font-semibold text-green-500 bg-gray-300 border border-black rounded pl-14 h-9" 
                                 placeholder="Rp. 0" 
                                 readonly 
                             />

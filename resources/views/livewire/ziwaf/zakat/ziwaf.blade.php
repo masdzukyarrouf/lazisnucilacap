@@ -5,16 +5,11 @@
         <div class="flex flex-col justify-center p-4">
             <h1 class="pb-2 font-semibold">Pilih Kategori Zakat</h1>
             <div class="relative w-full md:w-96">
-                <select wire:model="selectedOption" wire:change="handleDropdownChange" class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:border-blue-500">
-                    <option value="" disabled selected class="w-full">Pilih Kategori Zakat</option>
+                <select wire:model="selectedOption" wire:change="handleDropdownChange" class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+                    <option value="" disabled selected >Pilih Kategori Zakat</option>
                     <option value="maal">Zakat Maal</option>
                     <option value="fitrah">Zakat Fitrah</option>
                 </select>
-                <div class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
-                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M7 10l5 5 5-5H7z"/>
-                    </svg>
-                </div>
             </div>
         </div>
 
@@ -35,7 +30,7 @@
             <div class="flex flex-col justify-center px-4">
             <h1 class="pb-2 font-semibold">Pilih Kategori Zakat Maal</h1>
                 <div class="relative w-fscreen md:w-96">
-                    <select wire:model="selectedOption2" wire:change="handleDropdownChange" class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:border-blue-500">
+                    <select wire:model="selectedOption2" wire:change="handleDropdownChange" class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded focus:outline-none focus:border-blue-500">
                         <option value="" disabled selected>Pilih Kategori Zakat Maal</option>
                         <option value="Emas">Emas</option>
                         <option value="Uang">Uang Dan Surat Berharga</option>
@@ -44,11 +39,6 @@
                         <option value="Pertanian">Pertanian dan Buah Buahan</option>
                         <option value="Perusahaan">Perusahaan</option>
                     </select>
-                    <div class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
-                        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path d="M7 10l5 5 5-5H7z"/>
-                        </svg>
-                    </div>
                 </div>
             </div>
             @if ($selectedOption2 === 'Emas')

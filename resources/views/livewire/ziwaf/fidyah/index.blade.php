@@ -1,47 +1,52 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Fidyah Lazisnu Cilacap" BackUrl="{{ route('landing') }}"/>
-    <div class="flex flex-col w-full min-h-screen pb-24 bg-white rounded-lg shadow-md md:w-[414px]">
+    <div class="flex flex-col w-screen min-h-screen pb-24 bg-white rounded-lg shadow-md md:w-[414px]">
         <livewire:ziwaf.navigation/>
-        <div class="flex flex-col w-screen space-y-2 md:w-96">
-            <form wire:submit.prevent="bayarFidyah" class="p-4">
-                <label class="font-semibold">Jumlah Hari</label>
-                    <div class="relative flex items-center justify-center mt-2 mb-3">
+        <form wire:submit.prevent="bayarFidyah">
+            <div class="flex flex-col justify-center p-4">
+                <div class="relativew-full md:w-96">
+                    <label class="font-semibold">Jumlah Hari</label>
+                    <div class="relative flex items-center justify-center mt-2 mb-4">
                         <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Hari </span>
                         <input type="text"
-                            class="w-full py-1 pl-16 pr-2 border border-gray-300 rounded h-9" 
-                            placeholder="Isi Dengan Jumlah Hari" onkeyup="formatAndSync(this)" id="formattedInput">
+                        class="w-full py-1 pl-16 pr-2 border border-gray-300 rounded h-9 md:w-96" 
+                        placeholder="Isi Dengan Jumlah Hari" onkeyup="formatAndSync(this)" id="formattedInput">
                         <input type="hidden" wire:model.live="nominal" id="rawInput">
                     </div>
                     
                     <label class="font-semibold">Atas Nama</label>
-                        <input 
-                            type="text" 
-                            id="atasNama" 
-                            wire:model="atasNama" 
-                            class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded md:w-96" 
-                            placeholder="Isikan nama anda" 
-                        />
-
-                <label class="font-semibold">Nominal Fidyah</label>
-                    <div class="relative flex items-center justify-center mt-2 mb-3">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
-                        <input 
+                    <input 
+                    type="text" 
+                    id="atasNama" 
+                    wire:model="atasNama" 
+                    class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded md:w-96" 
+                    placeholder="Isikan nama anda" 
+                    />
+                    
+                    <label class="font-semibold">Nominal Fidyah</label>
+                    <div class="relative flex flex-col mb-4">
+                        <div class="flex items-center justify-center">
+                            <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9">Rp. </span>
+                            <input 
                             oninput="formatMoney(this)"
                             type="text"   
-                            class="w-full py-1 pr-2 border border-gray-300 rounded h-9 pl-14" 
+                            class="w-full py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14 md:w-96" 
                             id="nominalFidyahDisplay" placeholder="Minimal donasi"
                             value="{{ number_format($nominal_fidyah, 0, ',', '.') }}"
-                        />
-                    </div>
+                            readonly
+                            />
+                        </div>
+                </div>
                     
                 <div class="flex items-center justify-center w-full py-4 space-x-4">
                     <button type="submit"
-                        class="items-center w-full px-16 py-2 text-white bg-green-600 rounded-lg ">
+                        class="items-center w-full px-16 py-2 text-white bg-green-500 rounded">
                         Bayar Sekarang
                     </button>
                 </div>
-            </form>
-        </div>
+            </div>
+            </div>
+        </form>
     </div>
 </div>
 

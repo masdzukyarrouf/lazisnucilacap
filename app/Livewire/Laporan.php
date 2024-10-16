@@ -16,8 +16,12 @@ class Laporan extends Component
     public function loadBerita()
     {
         $this->laporan = LaporanModel::latest()->get();
+
         // Query for the 'Berita' model
         $query = Berita::query();
+
+        // Initialize latestBerita as an empty collection to avoid null errors
+        $this->latestBerita = collect();
 
         // Query for the 'Kategori' model to get the ID of 'Laporan & Publikasi'
         $kategoriLaporan = Kategori::where('nama_kategori', 'Laporan & Publikasi')->first();
@@ -32,6 +36,7 @@ class Laporan extends Component
             $this->latestBerita = Berita::latest()->get();
         }
     }
+
 
     public function render()
     {

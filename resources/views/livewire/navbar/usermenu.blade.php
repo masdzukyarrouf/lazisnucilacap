@@ -41,7 +41,7 @@
                 ['href' => '/sejarah', 'text' => 'Sejarah'],
                 ['href' => '/legalitas', 'text' => 'Legalitas'],
                 ['href' => '/kebijakan', 'text' => 'Kebijakan mutu (MANTAP)'],
-                ['href' => '#', 'text' => 'Laporan & Publikasi'],
+                ['href' => '/laporan', 'text' => 'Laporan & Publikasi'],
                 ['href' => '/mitra', 'text' => 'Mitra'],
             ]"
                 isDropdown="true" />
@@ -91,7 +91,7 @@
                     ['href' => '/sejarah', 'text' => 'Sejarah'],
                     ['href' => '/legalitas', 'text' => 'Legalitas'],
                     ['href' => '/kebijakan', 'text' => 'Kebijakan mutu (MANTAP)'],
-                    ['href' => '#', 'text' => 'Laporan & Publikasi'],
+                    ['href' => '/laporan', 'text' => 'Laporan & Publikasi'],
                     ['href' => '/mitra', 'text' => 'Mitra'],
                 ]"
                     isDropdown="true" />
