@@ -1,10 +1,10 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Qurban Lazisnu Cilacap" backUrl="{{ route('landing') }}"/>
-    <div class="flex flex-col w-full min-h-screen pb-24 bg-white shadow-md md:w-[414px]">
+    <div class="flex flex-col w-screen min-h-screen pb-24 bg-white shadow-md md:w-[414px]">
         <livewire:ziwaf.navigation/>
         <div class="flex flex-col p-4">
             <h1 class="pb-2 font-semibold">Harga Hewan Qurban</h1>
-                <div class="relative w-96">
+                <div class="relative w-full md:w-96">
                     <a href="{{ asset('storage/table_harga_hewan_qurban_2024.pdf') }}">
                         <button class="flex items-center w-full px-4 py-2 border border-gray-300 rounded">
                             <img src="{{ asset ('images/paper.png') }}" alt="logo" class="w-6">
@@ -15,7 +15,7 @@
             </div>
             <div class="flex flex-col justify-center p-4">
             <h1 class="pb-2 font-semibold">Jenis Hewan</h1>
-                <div class="relative w-96">
+                <div class="relative w-full md:w-96">
                     <select wire:model="selectedOption"class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:border-blue-500">
                         <option value="" disabled selected>Jenis Hewan</option>
                         <option value="Sapi">1/7 Sapi (250 - 300kg)</option>
