@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Zakat Lazisnu Cilacap" backUrl="{{ route('zakat') }}"/>
-    <div class="flex flex-col w-full min-h-screen bg-white shadow-md md:w-[414px]">
+    <div class="flex flex-col w-screen min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="mx-5 mt-5">
             <span class="text-sm text-gray-600">Anda Akan Melakukan Pembayaran Untuk Zakat</span>
             <div class="my-4">
@@ -152,7 +152,7 @@
                     situs web ini, dan untuk tujuan lain yang dijelaskan dalam
                     <a href="#" class="text-blue-500 hover:underline">kebijakan privasi</a> kami.
                 </p>
-                <button wire:click="co" class="w-screen px-4 py-2 my-4 font-semibold text-white bg-green-500 rounded md:w-[374px]">
+                <button wire:click="co" class="w-full px-4 py-2 my-4 font-semibold text-white bg-green-500 rounded md:w-[374px]">
                     Zakat Sekarang
                 </button>
         </div>

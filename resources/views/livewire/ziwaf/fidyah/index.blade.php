@@ -2,9 +2,8 @@
     <x-nav-mobile2 title="Fidyah Lazisnu Cilacap" BackUrl="{{ route('landing') }}"/>
     <div class="flex flex-col w-full min-h-screen pb-24 bg-white rounded-lg shadow-md md:w-[414px]">
         <livewire:ziwaf.navigation/>
-        <form wire:submit.prevent="bayarFidyah" class="p-4">
-            <div class="flex flex-col w-screen mt-2 space-y-2 md:w-96">
-
+        <div class="flex flex-col w-screen space-y-2 md:w-96">
+            <form wire:submit.prevent="bayarFidyah" class="p-4">
                 <label class="font-semibold">Jumlah Hari</label>
                     <div class="relative flex items-center justify-center mt-2 mb-3">
                         <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Hari </span>
@@ -41,8 +40,8 @@
                         Bayar Sekarang
                     </button>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 
