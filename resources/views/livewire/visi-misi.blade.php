@@ -17,7 +17,7 @@
                 <div class="flex flex-col items-start mt-4">
                     <h2 class="w-full font-semibold text-left text-green-500">Visi</h2>
                     @foreach($visis as $visi)
-                        <p> {!! nl2br(e($visi->visi)) !!}</p>
+                        <p> {!! nl2br(e($visi->visi)) !!} </p>
                     @endforeach
                     <h2 class="w-full mt-4 font-semibold text-left text-green-500">Misi</h2>
                     @php
@@ -28,7 +28,7 @@
                         <div class="flex mt-4">
                             <h1 class="pr-2 text-sm">{{ $index }}.</h1>
                             <p class="text-sm">
-                                {!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}
+                                {!! nl2br(e($Misi->misi)) !!}
                             </p>
                         </div>
                         @php

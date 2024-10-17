@@ -24,6 +24,7 @@ class KategoriFactory extends Factory
                 'Ekonomi',
                 'Ramadhan',
                 'Kesehatan',
+                'Laporan & Publikasi',
             ]),
             'image' => '49wlvjTyIrjc3OJICTVbkuHCnmAJD3JK72TILkK9.png',
         ];

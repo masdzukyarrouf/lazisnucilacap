@@ -262,17 +262,120 @@ class DatabaseSeeder extends Seeder
             'logo' => 'images/mitra/AL MA\'WA NU - Copy.png'
         ]);
 
+        visi::factory()->create([
+            'visi' => 'Menjadi Lembaga Filantropi Islam Terkemuka'
+        ]);
+
+        misi::factory()->create([
+            'misi' => 'Menyediakan program-program untuk peningkatan kualitas sumber daya manusia sehingga 
+                        mampu melahirkan intelektual, teknokrat dan wirausahawan yang Unggul dan handal serta 
+                        memberikan akses lapangan kerja dan kesempatan berkarir disektor strategis selaras 
+                        dengan bidang yang dibutuhkan pemerintah.'
+        ]);
+
+        misi::factory()->create([
+            'misi' => 'Menjadi pilihan utama mitra strategis dalam berkolaborasi dan bersinergi menjalankan berbagai kegiatan/usaha sosial;'
+        ]);
+
+        misi::factory()->create([
+            'misi' => 'Meliterasi dan menggalang dana infaq shadaqah dan dana abadi (Trust Fund) berbasis digital untuk kepentingan kegiatan yang berbasis Investasi Sosial;'
+        ]);
+
+        gambar_landing::factory()->create([
+            'gambar' => 'images/gambar_landing/donasi.png',
+            'link' => 'http://127.0.0.1:8000/campaigns'
+        ]);
+
+        gambar_landing::factory()->create([
+            'gambar' => 'images/gambar_landing/berita.jpg',
+            'link' => 'http://127.0.0.1:8000/berita'
+        ]);
+
+        kategori::factory()->create([
+            'nama_kategori' => 'Bencana Alam',
+            'image' => 'images/kategori/Bencana Alam.png'
+        ]);
+
+        kategori::factory()->create([
+            'nama_kategori' => 'Pendidikan',
+            'image' => 'images/kategori/Pendidikan.png'
+        ]);
+
+        kategori::factory()->create([
+            'nama_kategori' => 'Sosial & Keagamaan',
+            'image' => 'images/kategori/Sosial & Keagamaan.png'
+        ]);
+
+
+        Berita::factory()->create([
+            'title_berita' => 'Program Ramadhan 2024, Nu Care-Lazisnu Cilacap Berhasil Menyalurkan Kepada 54.000 Penerima Manfaat',
+            'description' => 'NU Care-LAZISNU Cilacap telah berhasil menyalurkan dana zakat, infak, dan sedekah (ZIS) pada Ramadan 1445 H/2024 M kepada lebih dari 54.000 penerima manfaat. Dana ZIS tersebut disalurkan melalui 5 pilar program dan 12 program unggulan yang dilaksanakan selama bulan Ramadan 1445 H.
+
+                                Program Ramadan yang telah dilaksanakan antara lain, Peningkatan Gizi dan Ketahanan Pangan, Beasiswa santri nusantara, Syiar quran, Beras santri nusantara, Belanja bersama adik juara anak yatim, Bantuan usaha untuk keluarga berdaya, Layanan Masjid Sehat, Warteg Gratis untuk Pejuang Nafkah, Sepeda Sekolah untuk yatim dhuafa, Bantuan usaha untuk difabel berdaya, Training guru Al-Quran, Gerai Ta’jil Gratis serta Bantuan Kemanusiaan untuk Palestina.
+
+                                Selain program-program yang telah disebutkan, masih banyak puluhan program yang telah berjalan beriringan selama Ramadan 1445 H ini. Pelaksanaan-program Ramadan ini berlandaskan lima pilar NU Care-LAZISNU Cilacap, yaitu Pendidikan, Kesehatan, Kemanusiaan, Ekonomi dan Dakwah-Advokasi. Apabila dirinci terdapat sekitar 54 ribu lebih penerima manfaat tersebut terdiri dari 296 jiwa penerima manfaat bidang pendidikan, 518 penerima manfaat bidang kesehatan, 3.955 penerima manfaat bidang kemanusiaan, 83 penerima manfaat bidang Ekonomi dan 13.109 penerima manfaat bidang Dakwah-Advokasi dan 35.000 penerima manfaat bidang lainnya.
+                                Data Program Ramadhan ini terangkum sejak awal bulan ramadhan 1445 H, tepatmya tanggal 12 maret 2024 hingga akhir ramadhan yakni tanggal 9 April 2024. Untuk persebaran wilayah pentasarufan NU Care-Lazisnu Cilacap telah berhasil menjangkau 24 kecamatan dan 269 desa di Kabupaten Cilacap.
+
+                                Direktur NU Care-LAZISNU Cilacap, Ahmad Fauzi, S.Pdi mengatakan bahwasannya program Ramadhan ini merupakan program rutin NU Care-LAZISNU Cilacap setiap tahunnya, tahun ini kita mengusung tema Mahabbah Ramadhan dengan tujuan menyebarkan cinta dan kasih sayang kepada saudara kita yang membutuhkan. Alhamdulillah, capaian Ramadhan kali ini mengalami peningkatan dari tahun kemarin. Semua pencapaian ini tidak lepas dari peran serta munfiq, donatur, stakeholder serta mitra-mitra yang sudah turut serta dalam #kolaborasikankebaikan bersama NU Care-LAZSINU Cilacap.
+
+                                “Terimakasih kepada munfiq, donatur, stakeholder serta mitra yang telah bersama-sama #kolaborasikankebaikan menyukseskan program ramadhan tahun ini, Alhamdulillah kita berhasil mentasarufkan program-program ramadhan di 24 kecamatan dan 269 desa mulai dari cilacap ujung barat hingga cilacap ujung timur. Harapan kita untuk tahun berikutnya kita mampu menjangkau lebih banyak penerima manfaat, karena senyum kebahagiaan penerima manfaat menjadi kebahagiaan kita semua” ungkapnya.',
+            'picture' => 'images/berita/1.jpeg',
+            'tanggal' => '2024-05-20',
+            'id_kategori' => '3'
+        ]);
+
+        // Berita::factory()->create([
+        //     'title' => '',
+        //     'description' => '',
+        //     'picture' => 'images/berita/',
+        //     'tanggal' => '',
+        //     'id_kategori' => ''
+        // ]);
+        // Berita::factory()->create([
+        //     'title' => '',
+        //     'description' => '',
+        //     'picture' => 'images/berita/',
+        //     'tanggal' => '',
+        //     'id_kategori' => ''
+        // ]);
+
+        // Berita::factory()->create([
+        //     'title' => '',
+        //     'description' => '',
+        //     'picture' => 'images/berita/',
+        //     'tanggal' => '',
+        //     'id_kategori' => ''
+        // ]);
+
+        // Berita::factory()->create([
+        //     'title' => '',
+        //     'description' => '',
+        //     'picture' => 'images/berita/',
+        //     'tanggal' => '',
+        //     'id_kategori' => ''
+        // ]);
+
+        // Berita::factory()->create([
+        //     'title' => '',
+        //     'description' => '',
+        //     'picture' => 'images/berita/',
+        //     'tanggal' => '',
+        //     'id_kategori' => ''
+        // ]);
+
+        // Berita::factory()->create([
+        //     'title' => '',
+        //     'description' => '',
+        //     'picture' => 'images/berita/',
+        //     'tanggal' => '',
+        //     'id_kategori' => ''
+        // ]);
 
         User::factory(50)->create();
-        kategori::factory(6)->create();
         // Donasi::factory(300)->create();
         // Like::factory(300)->create();
         Campaign::factory(50)->create();
         // Doa::factory(150)->create();
-        Berita::factory(50)->create();
-        gambar_landing::factory(3)->create();
-        visi::factory(5)->create();
-        misi::factory(5)->create();
         pilar_program::factory(4)->create();
 
     }

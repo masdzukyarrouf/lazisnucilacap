@@ -124,7 +124,7 @@
                         <div class="flex mt-4" wire:key="misi-{{ $Misi->id_misi }}">
                             <h1 class="pr-2 text-sm">{{ $index }}.</h1>
                             <p class="text-sm">
-                                {!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}
+                                {!! nl2br(e($Misi->misi)) !!}
                             </p>
                         </div>
                         @php $index++; @endphp
@@ -180,7 +180,7 @@
                                                 <div class="flex mt-4" wire:key="misi-{{ $Misi->id_misi }}">
                                                     <h1 class="pr-2 text-sm">{{ $index }}.</h1>
                                                     <p class="text-sm">
-                                                        {!! nl2br(e(\Illuminate\Support\Str::limit($Misi->misi, 300, '...'))) !!}
+                                                        {!! nl2br(e($Misi->misi)) !!}
                                                     </p>
                                                 </div>
                                                 @php $index++; @endphp
@@ -220,7 +220,7 @@
                 </a>
             </div>
         </div>
-        <div class="flex flex-col justify-center w-full px-10 pb-4 space-y-4 md:flex-row md:space-y-0  md:space-x-4 md:w-auto "
+        <div class="flex flex-col justify-center w-full px-10 pb-4 space-y-4 md:flex-row md:space-y-0 md:space-x-4 md:w-auto "
             x-data="{ load: false }" x-init="load = true" x-show="load" wire:init="loadCampaigns">
             @if ($campaigns && $campaigns->isEmpty())
             @elseif($campaigns)
@@ -445,7 +445,7 @@
         @wheel="handleScroll($event)"> <!-- Use wheel event for smooth scrolling -->
 
     <!-- Carousel Container -->
-    <div class="flex transition-transform duration-500 items-center space-x-12 md:space-x-40"
+    <div class="flex items-center space-x-12 transition-transform duration-500 md:space-x-40"
          :style="'transform: translateX(-' + offset + '%)'">
         <!-- Loop through logos -->
         @if ($mitras && $mitras->isEmpty())
@@ -453,7 +453,7 @@
             @foreach ($mitras as $mitra)
                 <div class="h-[50px] md:h-[150px] max-w-[120px] md:max-w-[190px] py-2 md:py-4 flex-shrink-0">
                     <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture"
-                         class="h-full w-full object-contain" />
+                         class="object-contain w-full h-full" />
                 </div>
             @endforeach
         @else
