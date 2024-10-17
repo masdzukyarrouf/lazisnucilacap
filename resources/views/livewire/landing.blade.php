@@ -90,9 +90,9 @@
     </div>
 
 
-
-    <div class="flex flex-col justify-between px-4 mt-8 md:px-8 lg:px-16 xl:px-24" x-data="{ load: false, showModal: false }"
-        x-init="load = true;
+    {{-- visi misi  --}}
+    <div class="mx-auto max-w-[1220px] flex flex-col justify-between px-4 mt-8 md:px-8 lg:px-16 xl:px-24"
+        x-data="{ load: false, showModal: false }" x-init="load = true;
         showModal = true" x-show="load" wire:init.defer="loadVisiMisi">
         <!-- Main content -->
         <div id="details-container" class="relative max-h-[325px] overflow-hidden transition-all duration-300">
@@ -202,7 +202,7 @@
 
 
     <!-- Campaign Section -->
-    <div class="flex flex-col items-center py-10 mt-8 bg-white">
+    <div class="mx-auto max-w-[1220px] flex flex-col items-center py-10 mt-8 bg-white">
         <!-- Title -->
         <div class="flex items-center justify-between w-full mb-8">
             <div class="relative flex flex-col justify-between px-12">
@@ -220,7 +220,7 @@
                 </a>
             </div>
         </div>
-        <div class="flex flex-col justify-center w-full px-10 pb-4 space-y-4 md:flex-row md:space-y-0 md:shadow-lg md:space-x-4 md:w-auto "
+        <div class="flex flex-col justify-center w-full px-10 pb-4 space-y-4 md:flex-row md:space-y-0  md:space-x-4 md:w-auto "
             x-data="{ load: false }" x-init="load = true" x-show="load" wire:init="loadCampaigns">
             @if ($campaigns && $campaigns->isEmpty())
             @elseif($campaigns)
@@ -276,7 +276,8 @@
     </div>
 
     <!-- Berita Section -->
-    <div class="flex flex-col items-center w-full pb-4 mt-4 bg-center bg-cover shadow-md bg-gray-50 bg-opacity-90">
+    <div
+        class="mx-auto max-w-[1220px] flex flex-col items-center w-full pb-4 mt-4 bg-center bg-cover shadow-md bg-gray-50 bg-opacity-90">
         <!-- Title -->
         <div class="flex items-center justify-between w-full mb-8">
             <div class="relative flex flex-col justify-between px-12">
@@ -376,7 +377,8 @@
     </div> --}}
 
     <!-- Mitra Section -->
-    <div class="flex flex-col items-center px-4 py-4 mt-4 mb-2 bg-white bg-center bg-cover w-max-screen">
+    <div
+        class="border border-l border-r border-t-transparent border-b-transparent mx-auto max-w-[1220px] flex flex-col items-center px-4 py-4   bg-white bg-center bg-cover w-max-screen">
         <!-- Title -->
         <div class="mb-8">
             <h2 class="text-xl font-semibold text-green-600">Mitra Kami</h2>
@@ -387,9 +389,10 @@
             visibleLogos: 5, // Number of logos visible at once
             logoCount: {{ $this->mitraCount }},
             slideWidth: 20.10, // Default value, will be adjusted
-            slideInterval: 1000, // Time in milliseconds for each slide
+            slideInterval: 2000, // Time in milliseconds for each slide
             interval: null,
             load: false,
+            isScrolling: false, // Track manual scroll
             updateSlideWidth() {
                 // Adjust slideWidth based on screen size
                 if (window.innerWidth < 640) {
@@ -397,43 +400,83 @@
                 } else {
                     this.slideWidth = 20.10; // Value for larger screens
                 }
+            },
+            startAutoSlide() {
+                this.interval = setInterval(() => {
+                    if (!this.isScrolling) {
+                        // Move offset for auto slide
+                        if (this.offset < (this.logoCount - this.visibleLogos) * this.slideWidth) {
+                            this.offset += this.slideWidth;
+                        } else {
+                            this.offset = 0; // Restart from the beginning
+                        }
+                    }
+                }, this.slideInterval);
+            },
+            stopAutoSlide() {
+                clearInterval(this.interval);
+            },
+            handleScroll(event) {
+                this.isScrolling = true; // Set manual scrolling state
+                // Calculate new offset based on scroll position
+                const scrollAmount = event.deltaY / 10; // Adjust scroll speed sensitivity
+                this.offset = Math.min(
+                    Math.max(
+                        this.offset - scrollAmount, 
+                        0
+                    ),
+                    (this.logoCount - this.visibleLogos) * this.slideWidth
+                );
+                this.stopAutoSlide(); // Stop auto sliding while scrolling
+                clearTimeout(window.scrollTimeout);
+                window.scrollTimeout = setTimeout(() => {
+                    this.isScrolling = false; 
+                    this.startAutoSlide(); // Resume auto slide after scrolling
+                }, 1000);
             }
-        }" x-init="updateSlideWidth();
-        load = true;
-        interval = setInterval(() => {
-            if (offset < (logoCount - visibleLogos) * slideWidth) {
-                offset += slideWidth;
-            } else {
-                offset = 0; // Restart from the beginning
-            }
-        }, slideInterval);
-        window.addEventListener('resize', updateSlideWidth);" x-show="load" wire:init="loadMitra"
-            class="relative w-full overflow-hidden">
+        }" 
+        x-init="updateSlideWidth();
+                load = true;
+                startAutoSlide();
+                window.addEventListener('resize', updateSlideWidth);" 
+        x-show="load" 
+        wire:init="loadMitra"
+        class="relative w-full overflow-x-auto scrollbar-hide"
+        @wheel="handleScroll($event)"> <!-- Use wheel event for smooth scrolling -->
 
-            <!-- Carousel Container -->
-            <div class="flex transition-transform duration-500 w-[{{ $this->mitraCount * 10 }}%] items-center"
-                :style="'transform: translateX(-' + offset + '%)'">
-                <!-- Loop through logos -->
-                @if ($mitras && $mitras->isEmpty())
-                @elseif($mitras)
-                    @foreach ($mitras as $mitra)
-                        <div class="h-[50px] md:h-[150px] mx-[40px] md:mx-[95px] flex-shrink-0" >
-                            <div class="h-[50px] md:h-[150px] w-full">
-                                <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture"
-                                    class="h-[50px] md:h-[150px] w-full" />
-                            </div>
-                        </div>
-                    @endforeach
-                @else
-                    @for ($i = 0; $i < $this->mitraCount; $i++)
-                        <div class="animate-pulse bg-gray-400 w-[50px] h-[50px] md:w-[150px] md:h-[150px] mx-10 md:mx-20 flex-shrink-0"
-                            style="width: 12%;">
-                            <div class="w-full h-full"></div>
-                        </div>
-                    @endfor
-                @endif
-            </div>
-        </div>
+    <!-- Carousel Container -->
+    <div class="flex transition-transform duration-500 items-center space-x-12 md:space-x-40"
+         :style="'transform: translateX(-' + offset + '%)'">
+        <!-- Loop through logos -->
+        @if ($mitras && $mitras->isEmpty())
+        @elseif($mitras)
+            @foreach ($mitras as $mitra)
+                <div class="h-[50px] md:h-[150px] max-w-[120px] md:max-w-[190px] py-2 md:py-4 flex-shrink-0">
+                    <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture"
+                         class="h-full w-full object-contain" />
+                </div>
+            @endforeach
+        @else
+            @for ($i = 0; $i < $this->mitraCount; $i++)
+                <div class="animate-pulse bg-gray-400 h-[50px] md:h-[150px] max-w-[100px] md:max-w-[150px] py-2 md:py-4 flex-shrink-0">
+                    <div class="w-full h-full"></div>
+                </div>
+            @endfor
+        @endif
+    </div>
+</div>
+
+<style>
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+</style>
+
+
 
         <div class="w-full pt-8 px-4 md:px-20 h-[180px] md:h-[350px] flex mb-24">
             <iframe class="w-1/2 h-[180px] md:h-[350px] bg-black"
