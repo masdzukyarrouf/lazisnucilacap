@@ -29,7 +29,7 @@
         </div>
         <div class="mx-2 mb-4 border border-gray-200 rounded-lg shadow-lg">
             <a href="transaction" class="flex items-center justify-between px-4 py-3 text-gray-900">
-                <span>Riwayat Transaction</span>
+                <span>Riwayat Transaksi</span>
                 <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
