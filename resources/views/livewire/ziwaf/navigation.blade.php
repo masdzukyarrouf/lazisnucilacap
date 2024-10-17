@@ -1,4 +1,4 @@
-<div class="flex pt-4 bg-white w-full flex items-center justify-center shadow-md">
+<div class="fixed mt-16 top-0 flex pt-4 bg-white w-full flex items-center justify-center shadow-md z-10 h-12 md:w-[414px]">
     <div
         class="pb-2 w-1/5 font-bold text-center border-b-4 {{ Request::is('zakat') ? 'border-b-green-500' : 'border-b-transparent' }}">
         <a wire:navigate.hover href="{{ route('zakat') }}">

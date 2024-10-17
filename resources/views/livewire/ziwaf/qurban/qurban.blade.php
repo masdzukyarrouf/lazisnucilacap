@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Qurban Lazisnu Cilacap" backUrl="{{ route('landing') }}"/>
-    <div class="flex flex-col w-screen min-h-screen pb-24 bg-white shadow-md md:w-[414px]">
+    <div class="flex flex-col w-screen min-h-screen mt-12 pb-24 bg-white shadow-md md:w-[414px]">
         <livewire:ziwaf.navigation/>
         <div class="flex flex-col p-4">
             <h1 class="pb-2 font-semibold">Harga Hewan Qurban</h1>

@@ -1,8 +1,8 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Zakat Lazisnu Cilacap" backUrl="{{ route('landing') }}"/>
-    <div class="flex flex-col w-screen min-h-screen pb-24 bg-white rounded-lg shadow-md md:w-[414px]">
+    <div class="flex flex-col w-screen min-h-screen mt-12 pb-24 bg-white  shadow-md md:w-[414px]">
         <livewire:ziwaf.navigation/>
-        <div class="flex flex-col justify-center p-4">
+        <div class="flex flex-col justify-center p-4 ">
             <h1 class="pb-2 font-semibold">Pilih Kategori Zakat</h1>
             <div class="relative w-full md:w-96">
                 <select wire:model="selectedOption" wire:change="handleDropdownChange" class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded focus:outline-none focus:border-blue-500">
