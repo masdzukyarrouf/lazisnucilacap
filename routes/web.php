@@ -92,6 +92,7 @@ Route::prefix('qurban')->group(function () {
 });
 
 Route::get('/ziwaf/success', App\Livewire\Ziwaf\Success::class)->name('ziwaf.success');
+Route::get('/ziwaf/KebijakanPrivasi', App\Livewire\Ziwaf\KebijakanPrivasi::class)->name('ziwaf.KebijakanPrivasi');
 
 Route::get('/mitra', App\Livewire\UserMitra::class)->name('mitra');
 

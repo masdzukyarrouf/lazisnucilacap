@@ -87,7 +87,7 @@
             <p class="text-[10px]  mb-4">
                     Data pribadi Anda akan digunakan untuk memproses pesanan Anda, menunjang pengalaman Anda di seluruh
                     situs web ini, dan untuk tujuan lain yang dijelaskan dalam
-                    <a href="#" class="text-blue-500 hover:underline">kebijakan privasi</a> kami.
+                    <a href="/ziwaf/KebijakanPrivasi" class="text-blue-500 hover:underline">kebijakan privasi</a> kami.
                 </p>
             <button wire:click="co" class="w-full px-4 py-2 font-semibold text-white bg-green-500 rounded">
                 Zakat Sekarang
