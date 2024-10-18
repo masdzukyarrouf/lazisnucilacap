@@ -25,15 +25,23 @@
                     <div class="grid grid-cols-3 gap-4 mt-2">
                         <div class="flex flex-col items-center">
                             <a class="flex flex-col items-center" wire:click="kategori('Kategori')">
-                                <div class="w-10 h-10 bg-green-500 rounded-full mb-2"> <img src="" alt=""></div>
-                                <span class="text-sm font-semibold text-center">Semua</span>
+                                <div class="w-8 h-8 mb-2 rounded-full"> <img src="{{ asset('images/all.png') }}" alt=""></div>
+                                @if ($nama_kategori === 'Kategori')
+                                    <span class="text-sm font-semibold text-center text-green-500">Semua</span>
+                                    @else
+                                    <span class="text-sm font-semibold text-center">Semua</span>
+                                    @endif
                             </a>
                         </div>
                         @foreach($kategoris as $kategori)
                             <div class="flex flex-col items-center">
                                 <a class="flex flex-col items-center" wire:click="kategori('{{ $kategori->nama_kategori }}')">
-                                    <div class="w-10 h-10 bg-green-500 rounded-full mb-2"> <img src="{{ asset('storage/images/kategori/' . $kategori->image) }}" alt=""></div>
+                                    <div class="w-8 h-8 mb-2 rounded-full"> <img src="{{ asset('storage/images/kategori/' . $kategori->image) }}" alt="" class="flex items-center w-8 h-8 mb-2"></div>
+                                    @if ($nama_kategori === $kategori->nama_kategori)
+                                    <span class="text-sm font-semibold text-center text-green-500">{{ $kategori->nama_kategori }}</span>
+                                    @else
                                     <span class="text-sm font-semibold text-center">{{ $kategori->nama_kategori }}</span>
+                                    @endif
                                 </a>
                             </div>
                         @endforeach

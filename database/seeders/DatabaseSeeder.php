@@ -293,17 +293,37 @@ class DatabaseSeeder extends Seeder
 
         kategori::factory()->create([
             'nama_kategori' => 'Bencana Alam',
-            'image' => 'images/kategori/Bencana Alam.png'
+            'image' => 'Bencana Alam.png'
         ]);
 
         kategori::factory()->create([
             'nama_kategori' => 'Pendidikan',
-            'image' => 'images/kategori/Pendidikan.png'
+            'image' => 'Pendidikan.png'
         ]);
 
         kategori::factory()->create([
             'nama_kategori' => 'Sosial & Keagamaan',
-            'image' => 'images/kategori/Sosial & Keagamaan.png'
+            'image' => 'Sosial & Keagamaan.png'
+        ]);
+
+        kategori::factory()->create([
+            'nama_kategori' => 'Ekonomi',
+            'image' => 'Ekonomi.png'
+        ]);
+
+        kategori::factory()->create([
+            'nama_kategori' => 'Ramadhan',
+            'image' => 'Ramadhan.png'
+        ]);
+
+        kategori::factory()->create([
+            'nama_kategori' => 'Kesehatan',
+            'image' => 'Kesehatan.png'
+        ]);
+
+        kategori::factory()->create([
+            'nama_kategori' => 'Laporan & Publikasi',
+            'image' => 'Laporan & Publikasi.png'
         ]);
 
 
