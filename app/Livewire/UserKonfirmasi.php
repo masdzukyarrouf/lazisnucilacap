@@ -23,12 +23,14 @@ class UserKonfirmasi extends Component
 
     public function mount()
     {
+        $this->reset();
+        
         $users = Auth::user();
         if ($users) {
             $this->id_user = $users->id_user;
             $this->nama = $users->username;
             $this->no_telp = $users->no_telp;
-            $this->email = $users->email;
+            $this->email = $users->email ?? null;
         }
     }
 
@@ -70,7 +72,7 @@ class UserKonfirmasi extends Component
             'bukti' => $path, // Simpan path gambar
         ]);
 
-        $this->reset();
+        $this->mount();
 
         $this->dispatch('formCreated');
 
@@ -81,7 +83,7 @@ class UserKonfirmasi extends Component
     #[On('formCreated')]
     public function handleberitaCreated()
     {
-        session()->flash('message', 'Form Sukses Dikirim');
+        $this->dispatch('updated', ['message' => 'Pilar and Program updated Successfully']);
     }
 
     public function render()

@@ -38,7 +38,7 @@
                             <option value="mobiznu">mobiznu</option>
                             <option value="konsultasi zakat">Konsultasi zakat</option>
                             <option value="konfirmasi donasi">konfirmasi donasi</option>
-                            <option value="Pengaduan">Pengaduan</option>
+                            <option value="Pengaduan">Pengaduan Gocap</option>
                         </select>
                         @error('bagian')
                             <span class="mt-1 text-sm text-red-500">{{ $message }}</span>

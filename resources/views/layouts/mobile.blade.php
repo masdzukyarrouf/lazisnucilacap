@@ -67,7 +67,53 @@
 </head>
 
 <body class="flex flex-col h-screen bg-gray-200">
+    
     {{ $slot }}
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('updated', event => {
+                Swal.fire({
+                    title: 'Success!',
+                    text: event.detail[0].message,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    // Dispatch the modal-closed event to close the modal
+                    window.dispatchEvent(new CustomEvent('modal-closed'));
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('created', event => {
+                Swal.fire({
+                    title: 'Success!',
+                    text: event.detail[0].message,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    // Dispatch the modal-closed event to close the modal
+                    window.dispatchEvent(new CustomEvent('modal-closed'));
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('destroyed', event => {
+                Swal.fire({
+                    title: 'Warning!',
+                    text: event.detail[0].message,
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    // Dispatch the modal-closed event to close the modal
+                    window.dispatchEvent(new CustomEvent('modal-closed'));
+                });
+            });
+        });
+    </script>
     @livewireScripts
 </body>
 <footer>

@@ -14,6 +14,7 @@ use App\Models\Like;
 use App\Models\Berita;
 use App\Models\Mitra;
 use App\Models\Kategori;
+use App\Models\petugas;
 use App\Models\pilar_program;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Factories\VisiFactory;
@@ -560,6 +561,30 @@ class DatabaseSeeder extends Seeder
             'picture' => 'images/berita/7.jpg',
             'tanggal' => '2024-03-21',
             'id_kategori' => '5'
+        ]);
+
+        petugas::factory()->create([
+            'nama' => 'admin mobiznu',
+            'no' => '1234567890',
+            'bagian' => 'mobiznu',
+        ]);
+
+        petugas::factory()->create([
+            'nama' => 'admin konsultasi zakat',
+            'no' => '1234567890',
+            'bagian' => 'konsultasi zakat',
+        ]);
+
+        petugas::factory()->create([
+            'nama' => 'admin konfirmasi donasi',
+            'no' => '1234567890',
+            'bagian' => 'konfirmasi donasi',
+        ]);
+
+        petugas::factory()->create([
+            'nama' => 'admin Pengaduan Gocap',
+            'no' => '1234567890',
+            'bagian' => 'Pengaduan',
         ]);
 
         User::factory(50)->create();
