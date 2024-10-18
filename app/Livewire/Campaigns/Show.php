@@ -67,9 +67,9 @@ class Show extends Component
         $desc = $this->campaign->description;
     
         // Replace the image placeholders
-        $desc = str_replace('[img1]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->main_picture) . '"/>  <p style="font-size:12px; margin-top:10px">', $desc);
-        $desc = str_replace('[img2]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->second_picture) . '"/>  <p style="font-size:12px; margin-top:10px">', $desc);
-        $desc = str_replace('[img3]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->last_picture) . '"/>  <p style="font-size:12px; margin-top:10px">', $desc);
+        $desc = str_replace('[img1]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->main_picture) . '"/>  <p style="font-size:12px;x">', $desc);
+        $desc = str_replace('[img2]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->second_picture) . '"/>  <p style="font-size:12px;x">', $desc);
+        $desc = str_replace('[img3]', '</p> <img src="' . asset('storage/images/campaign/' . $this->campaign->last_picture) . '"/>  <p style="font-size:12px;x">', $desc);
     
         // Replace newlines with <br> tags
         $desc = nl2br($desc);
