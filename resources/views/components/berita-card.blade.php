@@ -1,9 +1,9 @@
-<div class="w-full h-full mb-4 bg-white rounded-md shadow-2xl z-5 md:flex-col">
+<div class="w-full h-[130px] mb-4 bg-white pt-2 z-5 md:flex-col bg-black">
     <a href="{{ route('user-berita.show', $berita->title_berita) }}"
        class="flex flex-grow text-sm text-green-500 md:flex-col md:flex md:text-base hover:text-green-600 hover:cursor-pointer">
-        <div class="relative z-0 flex items-center w-full h-40 group md:h-80 md:w-auto">
+        <div class="relative z-0 flex items-center w-full h-full group md:h-80 md:w-auto">
             <img src="{{ asset('storage/' . $berita->picture) }}" alt="Picture"
-                 class="object-cover w-full h-full rounded-md hover:cursor-pointer">
+                 class="object-cover w-[180px] h-[130px] hover:cursor-pointer">
         </div>
         <div class="w-full px-3 py-2 md:p-4">
             <h2 class="text-sm font-semibold text-gray-800 md:text-xl">

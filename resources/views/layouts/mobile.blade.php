@@ -121,7 +121,7 @@
         <div class="flex items-center justify-center w-full px-4 py-2 space-x-8 bg-white md:w-[414px]" style="height: 70px; box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -2px rgba(0, 0, 0, 0.1);">
             <div class="items-center w-16 rounded-lg h-11">
                 <a wire:navigate.hover href="{{ route('landing') }}">
-                    <img class="w-full h-auto" src="{{ !Request::is('campaigns', 'berita', 'zakat', 'infak', 'wakaf', 'qurban', 'profile', 'account', 'history', 'transaction') ? asset('images/Frame 1-active.png') : asset('images/Frame 1.png') }}" alt="">
+                    <img class="w-full h-auto" src="{{ !Request::is('campaigns', 'berita', 'zakat', 'infaq', 'wakaf', 'qurban', 'profile', 'account', 'history', 'transaction') ? asset('images/Frame 1-active.png') : asset('images/Frame 1.png') }}" alt="">
                 </a>
             </div>
             <div class="items-center w-16 rounded-lg h-11">
@@ -136,7 +136,7 @@
             </div>
             <div class="items-center w-16 rounded-lg h-11">
                 <a wire:navigate.hover href="{{ route('zakat') }}">
-                    <img class="w-full h-auto" src="{{ request()->is('zakat') || request()->is('infak') || request()->is('wakaf') || request()->is('qurban') ? asset('images/Frame 5-active.png') : asset('images/Frame 5.png') }}" alt="">
+                    <img class="w-full h-auto" src="{{ request()->is('zakat') || request()->is('infaq') || request()->is('wakaf') || request()->is('qurban') ? asset('images/Frame 5-active.png') : asset('images/Frame 5.png') }}" alt="">
                 </a>
             </div> 
             <div class="items-center w-16 rounded-lg h-11">
