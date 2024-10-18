@@ -77,7 +77,7 @@
                 <p class="text-[10px]  mb-4">
                     Data pribadi Anda akan digunakan untuk memproses pesanan Anda, menunjang pengalaman Anda di seluruh
                     situs web ini, dan untuk tujuan lain yang dijelaskan dalam
-                    <a href="#" class="text-blue-500 hover:underline">kebijakan privasi</a> kami.
+                    <a href="/ziwaf/KebijakanPrivasi" class="text-blue-500 hover:underline">kebijakan privasi</a> kami.
                 </p>
                 <button type="submit" class="w-full p-2 text-white bg-green-500 rounded-md">Bayar Infaq
                     Sekarang</button>

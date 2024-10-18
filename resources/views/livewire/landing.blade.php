@@ -91,7 +91,7 @@
 
 
     {{-- visi misi  --}}
-    <div class="mx-auto max-w-[1220px] flex flex-col justify-between px-4 mt-8 md:px-8 lg:px-16 xl:px-24"
+    <div class="mx-auto max-w-[1420px] flex flex-col justify-between px-4 mt-8 md:px-8 lg:px-16 xl:px-24"
         x-data="{ load: false, showModal: false }" x-init="load = true;
         showModal = true" x-show="load" wire:init.defer="loadVisiMisi">
         <!-- Main content -->
@@ -202,7 +202,7 @@
 
 
     <!-- Campaign Section -->
-    <div class="mx-auto max-w-[1220px] flex flex-col items-center py-10 mt-8 bg-white">
+    <div class="mx-auto max-w-[1420px] flex flex-col items-center py-10 mt-8 bg-white">
         <!-- Title -->
         <div class="flex items-center justify-between w-full mb-8">
             <div class="relative flex flex-col justify-between px-12">
@@ -277,7 +277,7 @@
 
     <!-- Berita Section -->
     <div
-        class="mx-auto max-w-[1220px] flex flex-col items-center w-full pb-4 mt-4 bg-center bg-cover shadow-md bg-gray-50 bg-opacity-90">
+        class="mx-auto max-w-[1420px] flex flex-col items-center w-full py-8 md:mt-[70px] mt-[50px] bg-center bg-cover shadow-md bg-gray-50 bg-opacity-90">
         <!-- Title -->
         <div class="flex items-center justify-between w-full mb-8">
             <div class="relative flex flex-col justify-between px-12">
@@ -378,7 +378,7 @@
 
     <!-- Mitra Section -->
     <div
-        class="border border-l border-r border-t-transparent border-b-transparent mx-auto max-w-[1220px] flex flex-col items-center px-4 py-4   bg-white bg-center bg-cover w-max-screen">
+        class="mx-auto max-w-[1420px] flex flex-col items-center py-4 mt-8   bg-white bg-center bg-cover w-max-screen">
         <!-- Title -->
         <div class="mb-8">
             <h2 class="text-xl font-semibold text-green-600">Mitra Kami</h2>
@@ -478,7 +478,7 @@
 
 
 
-        <div class="w-full pt-8 px-4 md:px-20 h-[180px] md:h-[350px] flex mb-24">
+        <div class="w-full pt-8 px-4 md:px-20 h-[180px] md:h-[350px] flex mb-24 mt-20">
             <iframe class="w-1/2 h-[180px] md:h-[350px] bg-black"
                 src="https://www.youtube.com/embed/IUWm95fwZHk?si=sDflST4mHtaP_N1-" title="YouTube video player"
                 frameborder="0"
