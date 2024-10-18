@@ -8,6 +8,6 @@ class KebijakanPrivasi extends Component
 {
     public function render()
     {
-        return view('livewire.ziwaf.kebijakan-privasi');
+        return view('livewire.ziwaf.kebijakan-privasi')->layout('layouts.none');
     }
 }
