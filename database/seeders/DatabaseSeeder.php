@@ -28,9 +28,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory()->create([
-            'username' => '123',
+            'username' => 'admin',
             'password' => '123',
             'role' => 'admin',
+        ]);
+
+        User::factory()->create([
+            'username' => 'donatur',
+            'password' => '123',
+            'role' => 'donatur',
         ]);
 
         Mitra::factory()->create([
@@ -587,11 +593,226 @@ class DatabaseSeeder extends Seeder
             'bagian' => 'Pengaduan',
         ]);
 
-        User::factory(50)->create();
-        // Donasi::factory(300)->create();
-        // Like::factory(300)->create();
-        Campaign::factory(50)->create();
-        // Doa::factory(150)->create();
+        Campaign::factory()->create([
+            'title' => 'Donasi Palestina',
+            'description' => 'Bantu Palestina dengan Donasi Anda
+
+                                Palestina membutuhkan kita sekarang lebih dari sebelumnya. Setiap hari, ribuan keluarga kehilangan tempat tinggal dan hidup dalam ketidakpastian akibat konflik yang berkepanjangan. Dengan donasi Anda, kita bisa memberikan harapan baru bagi mereka yang paling membutuhkan.
+                                
+                                [img1]
+                                Berikan Bantuan untuk Pengungsi Palestina
+                                Saat ini, banyak warga Palestina yang terpaksa tinggal di kamp pengungsian dengan kondisi memprihatinkan. Tenda-tenda darurat dan fasilitas yang terbatas menjadi tempat perlindungan mereka dari kekerasan yang terjadi. Donasi Anda dapat membantu menyediakan kebutuhan dasar seperti makanan, air bersih, dan perlindungan yang layak.
+                                
+                                [img2]
+                                Dukung Tim Medis Palestina yang Berjuang di Garis Depan
+                                Dalam situasi yang sangat sulit, tim medis Palestina bekerja tanpa lelah untuk merawat korban yang terluka. Donasi Anda dapat membantu menyuplai obat-obatan, peralatan medis, dan bantuan kesehatan yang sangat diperlukan.
+                                
+                                [img3]
+                                Mari bersama-sama, ulurkan tangan dan bantu mereka yang terdampak di Palestina. Setiap rupiah yang Anda sumbangkan akan membawa perubahan besar bagi kehidupan mereka. Donasikan sekarang untuk Palestina dan jadilah bagian dari perubahan ini!',
+            'goal' => 100000000,
+            'raised' => 0,
+            'id_kategori' => 3,
+            'start_date' => fake()->dateTimeBetween('-3 month', 'now'),
+            'end_date' => fake()->dateTimeBetween('+3 month', '+6 month'),
+            'min_donation' => 50000,
+            'lokasi' => 'Palestina',
+            'main_picture' => 'Palestina.png',
+            'second_picture' => 'Palestina.png',
+            'last_picture' => 'Palestina.png',
+        ]);
+
+        Campaign::factory()->create([
+            'title' => 'Donasi Korbang Gempa Bandung',
+            'description' => 'Bantu Korban Gempa di Bandung dengan Donasi Anda
+
+                                Gempa bumi yang baru-baru ini mengguncang Bandung telah menyebabkan kerusakan besar dan membuat ribuan orang kehilangan tempat tinggal. Banyak keluarga kini berada dalam kondisi yang sangat memprihatinkan. Dengan donasi Anda, kita bisa membantu mereka memulihkan kehidupan dan memberikan kebutuhan mendesak seperti makanan, air bersih, dan tempat tinggal sementara.
+
+                                [img1]
+                                Berikan Bantuan Darurat untuk Pengungsi Gempa di Bandung
+                                Ratusan warga kini terpaksa tinggal di tenda pengungsian setelah gempa menghancurkan rumah-rumah mereka. Mereka sangat membutuhkan bantuan darurat berupa selimut, pakaian, makanan, dan air bersih. Mari kita bersama-sama berikan bantuan untuk meringankan penderitaan mereka.
+
+                                [img2]
+                                Dukung Tim SAR dan Medis yang Bekerja Tak Kenal Lelah
+                                Tim penyelamat dan medis saat ini bekerja keras di lapangan untuk membantu para korban gempa. Dengan donasi Anda, kita dapat menyediakan peralatan yang dibutuhkan untuk upaya pencarian dan pertolongan serta mendukung tim medis dalam memberikan perawatan kepada yang terluka.
+
+                                [img3]
+                                Donasikan Sekarang untuk Bandung!
+                                Mari kita bergerak bersama untuk membantu saudara-saudara kita yang terkena dampak gempa di Bandung. Setiap kontribusi, besar atau kecil, akan sangat berarti dalam memulihkan kondisi mereka. Donasi sekarang dan kirimkan harapan baru untuk Bandung.',
+            'goal' => 100000000,
+            'raised' => 0,
+            'id_kategori' => 1,
+            'start_date' => fake()->dateTimeBetween('-3 month', 'now'),
+            'end_date' => fake()->dateTimeBetween('+3 month', '+6 month'),
+            'min_donation' => 50000,
+            'lokasi' => 'Bandung',
+            'main_picture' => 'Bandung.png',
+            'second_picture' => 'Bandung.png',
+            'last_picture' => 'Bandung.png',
+        ]);
+
+        Campaign::factory()->create([
+            'title' => 'Kritis! Tolong Hasna Sembuh dari Penyakit Kulit Langka',
+            'description' => 'Bantu Hasna dengan Donasi Anda
+
+                                Sudah 3 tahun berlalu sejak Hasna mengalami kejang-kejang dan muncul bintik merah di kulitnya. Saat ini, kondisi kulit Hasna semakin memburuk karena kulitnya menjadi berlendir, terdapat sensasi seperti terbakar, bahkan hingga terkelupas.
+
+                                [img1]
+                                Ibu Eli (41), Ibunda Hasna, menyatakan bahwa pada Desember 2022, Hasna mengalami demam yang disertai dengan kejang-kejang dan muncul bintik kemerahan di kulitnya. Khawatir dengan kondisi anaknya, Ibu Eli segera membawa Hasna berobat ke RSUD Majenangan, Cilacap.
+
+                                “Di RSUD Majenang dokter mendiagnosa sakit sindrom steven johnson dan dirawat selama 17 hari untuk penyembuhan kulit, pulang 2 hari di rumah langsung sesak nafas lagi.” cerita Ibu Eli.
+
+                                Semakin hari kondisi Hasna semakin memburuk. Bahkan, mata Hasna sulit terbuka karena mengalami pembengkakan dan tidak bisa dibuka. Melihat keadaan Hasna yang semakin mengkhawatirkan, Ibu Eli kembali membawa Hasna berobat ke RSUD Banyumas pada bulan Januari 2023. Di sana, Hasna mendapatkan perawatan selama 12 hari.
+
+                                “Kondisi masih belum sembuh, akhirnya dibawa ke RS Sardjito Yogyakarta. Dicek kesehatan masih sesak nafas, ditangani selama 20 hari. Belum mengalami perubahan apapun. Hasna berobat kontrol di RS Duta Mulya kondisi Hasna sudah sangat parah matanya tidak sanggup untuk membuka,” tutur Ibunda Hasna.
+
+                                [img2]
+                                Ibu Eli dan suaminya, Pak Marzuki (48 tahun), sudah kebingungan harus membawa Hasna berobat ke mana lagi. Sebenarnya mereka sudah dirujuk untuk membawa Hasna berobat ke rumah sakit yang lebih besar, tetapi kondisi keuangan Pak Marzuki sebagai buruh harian lepas hanya sanggup membiayai kehidupan mereka sehari-hari saja.
+
+                                Selama membawa Hasna berobat, kedua orang tuanya mengandalkan bantuan dari BPJS dan donasi yang dikumpulkan oleh pihak donatur NU Care LAZISNU Cilacap.
+
+                                Namun, tentu saja penyakit langka ini tidak bisa disembuhkan dengan mudah. Masih banyak rangkaian pengobatan yang harus Hasna lakukan dan tidak semua biayanya bisa di-cover oleh BPJS.
+
+                                [img3]
+                                “Saya sangat sedih, anak saya, Hasna harus seperti ini. Besar harapan saya agar bisa membawa Hasna berobat sampai sembuh dan melihatnya tertawa dan bermain.” lirih Pak Marzuki, ayah Hasna, sambil menahan air matanya yang keluar.
+
+                                Sahabat NU Care, mari kita bersama-sama temani Hasna melawan penyakit langka yang dideritanya agar kembali sehat, bisa melihat, tertawa, dan bermain bersama teman-temannya. Setiap kontribusi yang Anda berikan akan membantu memberikan perawatan yang diperlukan dan membawa harapan bagi Hasna dan keluarganya.
+
+                                Mari kita bergandengan tangan untuk membantu Hasna mengalahkan Sindrom Stevens-Johnson.',
+            'goal' => 100000000,
+            'raised' => 0,
+            'id_kategori' => 6,
+            'start_date' => fake()->dateTimeBetween('-3 month', 'now'),
+            'end_date' => fake()->dateTimeBetween('+3 month', '+6 month'),
+            'min_donation' => 50000,
+            'lokasi' => 'Cilacap',
+            'main_picture' => 'Cilacap.jpg',
+            'second_picture' => 'Cilacap.jpg',
+            'last_picture' => 'Cilacap.jpg',
+        ]);
+
+        Campaign::factory()->create([
+            'title' => 'SEDEKAH AL QUR’AN UNTUK PARA SANTRI PENGHAFAL ALQUR’AN DI PELOSOK',
+            'description' => '#SedekahseribuQuran
+
+                                Allah Swt. memberikan kita berbagai kemudahan dalam kehidupan. Bahkan kini, kita bisa berbagi cinta-Nya kepada sesama, menebar kebaikan, dan mengundang pahala terus mengalirkan keberkahan dunia-akhirat.
+
+                                [img1]
+                                Seperti pada beberapa waktu lalu, alhamdulillah kami bisa bertemu adik-adik di pelosok Indonesia. Mereka insyaallah anak-anak soleh-solehah. Lihat saja, bagaimana kegembiraan mereka memeluk kalam Allah, Al-Qur’an yang kami salurkan. Meski perjalanannya tidak mudah, bukankah kita selalu yakin bahwa ikhtiar kita pada jalan yang baik selalu Allah berikan petunjuk ‘kan?
+
+                                [img2]
+                                Al-Qur’an adalah pedoman kita, pegangan hidup kita. Namun, apa jadinya jika kita kehilangan nikmat dari ayat-ayat yang diturunkan kepada Nabi Muhammad saw. itu. Seperti adik-adik kita di Papua ini, semangat belajar Islam pada diri mereka tidak lengkap tanpa mushaf yang layak. Ini baru satu lokasi kecil saja di Indonesia, Sahabat. Masih banyak adik-adik kita penerus bangsa & agama, yang menunggu kita kirimkan hadiah Al-Qur’an baru.
+
+                                [img3]
+                                “Sesungguhnya di antara amalan dan kebaikan seorang mukmin yang akan menemuinya setelah kematiannya adalah: ilmu yang diajarkan dan disebarkannya, anak shalih yang ditinggalkannya, mushaf Al Quran yang diwariskannya…”
+                                (HR. Ibnu Majah & Baihaqi)
+
+                                #SahabatPeduli, yuk bersama-sama wujudkan program Sedekah Seribu Qur’an',
+            'goal' => 100000000,
+            'raised' => 0,
+            'id_kategori' => 2,
+            'start_date' => fake()->dateTimeBetween('-3 month', 'now'),
+            'end_date' => fake()->dateTimeBetween('+3 month', '+6 month'),
+            'min_donation' => 50000,
+            'lokasi' => 'Cilacap',
+            'main_picture' => 'Cilacap2.webp',
+            'second_picture' => 'Cilacap2.webp',
+            'last_picture' => 'Cilacap2.webp',
+        ]);
+
+        Campaign::factory()->create([
+            'title' => 'MAHABBAH QURBAN – QURBAN BARENG, BERKAH BARENG',
+            'description' => '“Maka laksanakanlah sholat karena Tuhanmu, dan berkurbanlah (sebagai ibadah untuk mendekatkan diri kepada Allah).” (QS. Al-Kautsar: 2)
+
+                                Qurban merupakan salah satu ibadah yang mempunyai makna sangat penting. Qurban bukanlah sekedar sebuah ritual, namun ia juga merupakan bentuk kepedulian dan kasih sayang kita kepada sesama.
+
+                                [img1]
+                                Dengan berqurban, kita tidak hanya memberikan daging kepada yang membutuhkan, namun juga memberikan harapan, kebahagiaan, dan kehangatan kepada mereka yang kurang beruntung.
+
+                                Momentun Qurban ini menjadi momentum saling berbagi kepada yang membutuhkan, terutama masyarakat yang jarang sekali merasakan daging.
+
+                                [img2]
+                                Masih banyak masyarakat pelosok yang menantikan daging hewan qurban namun desa mereka hanya mempunyai 1 atau 2 hewan qurban dan bahkan banyak desa yang tidak mempunyai hewan qurban sama sekali.
+
+                                Yuk Sahabat peduli kita #kolaborasikankebaikan untuk memberikan senyum kebahagiaan masyarakat pelosok.
+
+                                [img3]
+                                Satu hewan Qurban yang #Sahabatpeduli berikan, memberikan sejuta senyum kebahagiaan untuk masyarakat yang membutuhkan.
+
+                                “Agar mereka menyaksikan berbagai manfaat untuk mereka dan agar mereka menyebut nama Allah pada beberapa hari yang telah ditentukan atas rezeki yang diberikan Dia kepada mereka berupa hewan ternak. Maka makanlah sebagian darinya dan (sebagian lagi) berikanlah untuk dimakan orang-orang yang sengsara dan fakir.” (Al Hajj :28)',
+            'goal' => 100000000,
+            'raised' => 0,
+            'id_kategori' => 2,
+            'start_date' => fake()->dateTimeBetween('-3 month', 'now'),
+            'end_date' => fake()->dateTimeBetween('+3 month', '+6 month'),
+            'min_donation' => 50000,
+            'lokasi' => 'Cilacap',
+            'main_picture' => 'qurban.webp',
+            'second_picture' => 'qurban.webp',
+            'last_picture' => 'qurban.webp',
+        ]);
+
+        Campaign::factory()->create([
+            'title' => 'Kacamata Gratis untuk Santri dan Guru Ngaji',
+            'description' => 'Abi Hurairah ra, bahwasannya Rasulullah saw bersabda: “Apabila seorang manusia telah meninggal dunia, maka terputuslah amal perbuatannya kecuali tiga hal; sedekah jariyah, illmu yang bermanfaat, anak shalih yang mendo’akannya.”
+
+                                Dalam rangka peduli guru ngaji dan Santri, NU Care LAZISNU Cilacap luncurkan program kaca mata gratis untuk santri dan guru ngaji.
+
+                                [img1] [img2]
+                                Program tersebut bertujuan untuk guru ngaji dan santri yang mengalami kelemahan pandangan supaya dapat melihat dengan jelas.
+                                
+                                [img3]
+                                Yuk ikut berdonasi #kacamatagratis untuk santri dan guru ngaji, semoga dengan bersedekah dihari Jumat pahala dilipatgandakan',
+            'goal' => 100000000,
+            'raised' => 0,
+            'id_kategori' => 6,
+            'start_date' => fake()->dateTimeBetween('-3 month', 'now'),
+            'end_date' => fake()->dateTimeBetween('+3 month', '+6 month'),
+            'min_donation' => 50000,
+            'lokasi' => 'Cilacap',
+            'main_picture' => 'kacamata.jpeg',
+            'second_picture' => 'kacamata.jpeg',
+            'last_picture' => 'kacamata.jpeg',
+        ]);
+
+        Campaign::factory()->create([
+            'title' => 'Ketahanan Pangan',
+            'description' => 'Sahabat Peduli ?
+
+                                Sadarkah kita ? Bahwa  hari ini kita masih bisa tersenyum mekar, Bahagia, hidup dalam kecukupan, bisa membeli apa saja yang jadi keinginan.
+
+                                Sadarkah kita ? Bahwa hari ini kita masih bisa tidur dengan nyenyak, dengan perut yang kenyang, tanpa kekhawatiran.
+
+                                [img1]
+                                Lihatlah diluar sana masih banyak saudara kita hidup dalam kekurangan. Siang dan malamnya perut tak tak jarang kelaparan, pikiran dipenuhi kekhawatiran entah besok bisa makan.
+
+                                Sahabat Peduli kenalkan keluarga bapak Arif Sujoko yang beralamat di Kelurahan Tambakreja, Cilacap Selatan, Cilacap.
+
+                                [img2]
+                                “Saya makan kalau nunggu bapak saya pulang kerja, saya makan 1 kali, sore hari saya baru bisa makan,” ungkap Adek Cahyono
+
+                                Setiap harinya pak Arif bekerja sebagai nelayan di PPS Cilacap, untuk penghasilan pun tidak seberapa untuk mencukupi kebutuhannya.
+
+                                Oleh karena itu NU Care LAZISNU Cilacap menginisiasi adanya program Ketahanan Pangan untuk keluarga bapak Arif dan keluarga dhuafa lainnya. Selain itu program ketahanan pangan disalurkan untuk Pondok Pesantren, santri penghafal Al Quran dan guru ngaji.
+
+                                [img3]
+                                Donasi yang terkumpul nantinya akan digunakan untuk;
+
+                                1. Distribusi pangan untuk Keluarga Dhuafa
+                                2. Distribusi pangan untuk santri pondok pesantren dan penghafal al-Qur’an
+                                3. Distribusi pangan untuk Guru Ngaji
+                                #SahabatPeduli, yuk bersama-sama wujudkan program ketahanan pangan',
+            'goal' => 100000000,
+            'raised' => 0,
+            'id_kategori' => 6,
+            'start_date' => fake()->dateTimeBetween('-3 month', 'now'),
+            'end_date' => fake()->dateTimeBetween('+3 month', '+6 month'),
+            'min_donation' => 50000,
+            'lokasi' => 'Cilacap',
+            'main_picture' => 'pangan.png',
+            'second_picture' => 'pangan.png',
+            'last_picture' => 'pangan.png',
+        ]);
+
         pilar_program::factory(4)->create();
 
     }

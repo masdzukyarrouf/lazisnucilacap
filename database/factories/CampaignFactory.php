@@ -22,7 +22,7 @@ class CampaignFactory extends Factory
             'goal' => fake()->numberBetween(7000000, 10000000),
             'raised' => 0,
             'id_kategori' => fake()->randomElement([
-                1,2,3,4,5,6,
+                1,2,3,4,5,6,7
             ]),
             'start_date' => fake()->dateTimeBetween('-3 month', 'now'),
             'end_date' => fake()->dateTimeBetween('+3 month', '+6 month'),
