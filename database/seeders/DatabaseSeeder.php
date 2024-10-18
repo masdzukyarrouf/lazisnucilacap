@@ -813,7 +813,21 @@ class DatabaseSeeder extends Seeder
             'last_picture' => 'pangan.png',
         ]);
 
-        pilar_program::factory(4)->create();
+        pilar_program::factory()->create([
+            'id_kategori' => 4,
+            'nama' => 'NU Care Berdaya',
+            'slug' => 'nu_care_berdaya',
+            'deskripsi' => 'program untuk memdorong kemandirian dan meningkatkan pendapat, kesejahteraan serta semangat kewirausahaan melalui kegiatan ekonomi dan pembentukan usaha',
+            'img' => 'images/pilar_program/berdaya.png',
+        ]);
+
+        pilar_program::factory()->create([
+            'id_kategori' => 2,
+            'nama' => 'NU Care Cerdas',
+            'slug' => 'nu_care_cerdas',
+            'deskripsi' => 'program untuk meningkatkan kualitas sumber daya manusia (SDM) melalui penyediaan beasiswa, pelatihan, dan memperkuat fasilitas pendidikan, baik di tingkat sekolah dasar, menengah, & perguruan tinggi. program ini bertujuan untuk menjamin akses pendidikan berkualitas yang merata, serta membuka kesempatan belajar bagi semua orang, khususnya bagi siswa yatim-dhuafa dan berprestasi',
+            'img' => 'images/pilar_program/cerdas.png',
+        ]);
 
     }
 }

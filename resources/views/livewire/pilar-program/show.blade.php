@@ -1,19 +1,31 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2 title="NU Care {{ $pilar->nama }}" />
+    <x-nav-mobile2 title="{{ $pilar->nama }}" />
     <div class="flex flex-col w-full h-full min-h-screen bg-white shadow-md md:w-[414px]">
-        <div class="flex h-56 shadow-lg">
+        <div class="flex h-auto shadow-lg">
             <div class="flex px-4 pt-4 pb-6">
-                <img src="{{ asset('storage/' . $pilar->img) }}" alt="Main Picture" class="pr-2">
+                <img src="{{ asset('storage/' . $pilar->img) }}" alt="Main Picture" class="w-52">
                 <div class="flex flex-col">
                     <h1 class="text-sm font-semibold text-green-500">
-                        NU Care {{ $pilar->nama }} ({{ $pilar->kategori->nama_kategori }}) 
+                        {{ $pilar->nama }} ({{ $pilar->kategori->nama_kategori }}) 
                     </h1>
                     <h1 class="mt-2 text-xs">
-                        {{ $pilar->deskripsi }}
+                        {{ $firstWords }}
+                        @if (!empty($remainingWords) && !$showRemaining)
+                            <a href="#" wire:click.prevent="toggleRemaining()" class="text-green-500 underline ">
+                                Baca Selengkapnya
+                            </a>
+                        @endif
+                        @if ($showRemaining)
+                            {{ $remainingWords }}
+                            <a href="#" wire:click.prevent="toggleRemaining()" class="text-green-500 underline ">
+                                Tutup
+                            </a>
+                        @endif
                     </h1>
                 </div>
             </div>
         </div>
+
         @if ($campaigns && $campaigns->isNotEmpty())
         <div class="flex flex-col px-4 py-4 shadow-lg">
             <div class="flex items-center">

@@ -20,7 +20,7 @@ class Usermenu extends Component
         foreach ($this->pilars as $item) {
             $pilarLinks[] = [
                 'href' => '/pilar/' . $item->slug,
-                'text' => 'NU Care ' . $item->nama . ' (' . $item->kategori->nama_kategori . ')',
+                'text' => $item->nama . ' (' . $item->kategori->nama_kategori . ')',
             ];
         }
 
