@@ -36,25 +36,32 @@
                             selengkapnya>
                         </a>
                 </div>
-                @foreach ($beritas as $berita)
-                    <a href="{{ route('user-berita.show', ['title_berita' => $berita->title_berita]) }}">
-                        <div class="flex items-center bg-white rounded-lg shadow-md">
-                            <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-24 h-24 pr-2 rounded-md">
-                            <div class="flex flex-col">
-                                <h2 class="text-sm font-semibold text-gray-800">
-                                    {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
-                                </h2>
-                                <div class="flex items-center justify-between pt-4">
-                                    <div class="flex items-center">
-                                        <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
-                                            <h1 class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}</h1>
+                <div class="flex flex-col">
+                            @foreach ($beritas as $berita)
+                                <a href="{{ route('user-berita.show', $berita->title_berita) }}">
+                                    <div class="flex items-center px-2 py-4 bg-white border-b border-gray-500">
+                                        <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"
+                                            class="object-cover w-40">
+                                        <div class="flex flex-col pl-2">
+                                            <h2 class="text-sm font-semibold text-gray-800">
+                                                {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
+                                            </h2>
+                                            <div class="flex items-center justify-between pt-4">
+                                                <div class="flex items-center">
+                                                    <img src="{{ asset('images/clock.png') }}" alt="pinpoint"
+                                                        class="w-3 h-3">
+                                                    <h1 class="pl-1 text-xs text-gray-600 md:text-sm">
+                                                        {{ $berita->tanggal }}</h1>
+                                                </div>
+                                                <h1 class="pl-4 text-xs text-right text-green-500 md:text-sm">
+                                                    {{ $berita->kategori->nama_kategori }}</h1>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                    <h1 class="pl-4 text-xs text-green-500 md:text-sm">{{ $berita->kategori->nama_kategori }}</h1>
-                                </div>
-                            </div>
+                                </a>
+                            @endforeach
                         </div>
-                    </a>
-                 @endforeach
                  <div class="mb-16"></div>
             </div>
         </div>

@@ -38,6 +38,7 @@ class Index extends Component
 
 
     }
+    
     #[On('pilar_programUpdated')]
     public function handlepilar_programUpdated()
     {

@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Pengajuan" backUrl="{{ route('landing') }}"/>
-    <div class="flex flex-col h-full min-h-screen bg-white shadow-md" style="width: 414px;">
+    <div class="flex flex-col h-full min-h-screen bg-white shadow-md md:w-[414px] w-screen">
         <div class="mx-[24px] bg-white ">
             <h2 class="text-[14px] font-semibold text-green-600 mt-4">FORMULIR PENGAJUAN UMUM</h2>
 

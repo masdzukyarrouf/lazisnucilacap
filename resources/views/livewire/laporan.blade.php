@@ -19,25 +19,32 @@
                 </div>
                 <div class="flex flex-col gap-3 mb-16">
                     @if ($latestBerita->isNotEmpty())
-                        @foreach ($latestBerita->take(5) as $berita)
-                            <a href="{{ route('user-berita.show', ['title_berita' => $berita->title_berita]) }}">
-                                <div class="flex items-center bg-white rounded-lg shadow-md">
-                                    <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="object-cover w-24 h-24 rounded-md">
-                                    <div class="flex flex-col pl-2">
-                                        <h2 class="text-sm font-semibold text-gray-800">
-                                            {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
-                                        </h2>
-                                        <div class="flex items-center justify-between pt-4">
-                                            <div class="flex items-center">
-                                                <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3">
-                                                    <h1 class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}</h1>
+                       <div class="flex flex-col">
+                            @foreach ($latestBerita as $berita)
+                                <a href="{{ route('user-berita.show', $berita->title_berita) }}">
+                                    <div class="flex items-center px-4 py-2 bg-white border-b border-gray-500">
+                                        <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"
+                                            class="object-cover w-40">
+                                        <div class="flex flex-col pl-2">
+                                            <h2 class="text-sm font-semibold text-gray-800">
+                                                {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
+                                            </h2>
+                                            <div class="flex items-center justify-between pt-4">
+                                                <div class="flex items-center">
+                                                    <img src="{{ asset('images/clock.png') }}" alt="pinpoint"
+                                                        class="w-3 h-3">
+                                                    <h1 class="pl-1 text-xs text-gray-600 md:text-sm">
+                                                        {{ $berita->tanggal }}</h1>
+                                                </div>
+                                                <h1 class="pl-4 text-xs text-right text-green-500 md:text-sm">
+                                                    {{ $berita->kategori->nama_kategori }}</h1>
                                             </div>
-                                            <h1 class="pl-4 text-xs text-green-500 md:text-sm">{{ $berita->kategori->nama_kategori }}</h1>
+
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                        @endforeach
+                                </a>
+                            @endforeach
+                        </div>
                     @else
                         <p class="text-sm text-gray-500">Tidak ada berita tersedia saat ini.</p>
                     @endif

@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Form konfirmasi Donasi" />
-    <div class="flex flex-col h-full min-h-screen bg-white shadow-md" style="width: 414px;">
+    <div class="flex flex-col h-full min-h-screen bg-white shadow-md md:w-[414px] w-screen">
         <div class="flex flex-col py-4 px-[24px]">
             <div>
                 @if (session()->has('message'))
@@ -59,10 +59,10 @@
                         Kendala
                     </label>
                     <textarea wire:model="kendala"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                         id="kendala" rows="4" placeholder="kendala"></textarea>
                     @error('kendala')
-                        <span class="text-red-500 text-xs mt-2">{{ $message }}</span>
+                        <span class="mt-2 text-xs text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="flex flex-col pt-2">

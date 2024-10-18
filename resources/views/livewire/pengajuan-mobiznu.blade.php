@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Pengajuan Mobiznu" />
-    <div class="flex flex-col min-h-screen bg-white shadow-md" style="width: 414px;">
+    <div class="flex flex-col min-h-screen bg-white shadow-md md:w-[414px] w-screen">
         <div class="flex flex-col py-4 px-[24px]">
             <div>
                 @if (session()->has('message'))
