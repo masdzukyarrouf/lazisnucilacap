@@ -313,7 +313,7 @@
                         class="flex flex-col justify-between w-full pb-4 space-y-4 md:flex-row md:flex md:space-y-0 md:shadow-lg md:space-x-4 md:w-auto ">
                         @for ($i = 0; $i < 3; $i++)
                             <div
-                                class="flex flex-row md:flex-col md:space-y-1 animate-pulse bg-gray-200 h-[115px] w-full md:h-[400px] md:w-[410px] ">
+                                class="flex flex-row md:flex-col md:space-y-1 animate-pulse bg-gray-200 h-[180px] w-full md:h-[400px] md:w-[410px] ">
                                 <div class="bg-gray-400 w-2/5 h-full md:w-full md:h-[300px]"></div>
                                 <div class="flex flex-col w-3/5 space-y-2 md:space-y-4 md:w-full">
                                     <div
