@@ -33,6 +33,7 @@ class Edit extends Component
             'visi' => $validatedData['visi'],
         ]);
 
+        visi::reorder();
 
         $this->reset();
 

@@ -31,6 +31,7 @@ class Edit extends Component
         $misi->update([
             'misi' => $validatedData['misi'],
         ]);
+        misi::reorder();
 
         $this->reset();
 

@@ -31,6 +31,7 @@ class Create extends Component
         $this->reset();
 
         $this->dispatch('visiCreated');
+        visi::reorder();
 
         return $Visi;
 

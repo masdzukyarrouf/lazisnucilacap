@@ -22,6 +22,7 @@ class Index extends Component
 
         // Hapus data misi
         $Misi->delete();
+        misi::reorder();
 
         // Tampilkan pesan sukses
         $this->dispatch('destroyed', ['message' => 'misi deleted Successfully']);
@@ -84,6 +85,7 @@ class Index extends Component
 
     public function render()
     {
+        misi::reorder();
 
         $misis = misi::orderBy('order', 'asc')->get(); // Order by 'order'
         $maxOrder = misi::max('order');

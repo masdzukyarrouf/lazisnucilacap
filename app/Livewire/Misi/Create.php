@@ -27,6 +27,7 @@ class Create extends Component
             'misi' => $validatedData['misi'],
             'order' => misi::max('order') + 1,
         ]);
+        misi::reorder();
 
         $this->reset();
 

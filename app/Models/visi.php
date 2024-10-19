@@ -15,4 +15,14 @@ class visi extends Model
         'visi',
         'order',
     ];
+    public static function reorder()
+    {
+        $visiList = self::orderBy('order', 'asc')->get();
+        $newOrder = 1;
+        foreach ($visiList as $visi) {
+            $visi->order = $newOrder;
+            $visi->save();
+            $newOrder++;
+        }
+    }
 }
