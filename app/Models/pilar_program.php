@@ -17,6 +17,7 @@ class pilar_program extends Model
         'img',
         'deskripsi',
         'id_kategori',
+        'sdgs',
     ];
 
     public function kategori()

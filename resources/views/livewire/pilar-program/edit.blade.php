@@ -4,7 +4,7 @@
 
         <div>
     <div x-show="isOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-75">
-        <div class="w-1/2 bg-white rounded-lg shadow-lg">
+        <div class="w-1/2 bg-white rounded-lg shadow-lg max-h-[100vh] overflow-y-auto">
             <div class="flex items-center justify-between p-4 bg-gray-200 rounded-t-lg">
                 <h3 class="text-xl font-semibold">Edit Pilar dan Program</h3>
                 <div @click="isOpen=false" class="px-3 rounded-sm shadow hover:bg-red-500">
@@ -60,6 +60,27 @@
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
+                    <div class="mb-4">
+                        <label for="sdgs" class="block text-sm font-medium text-gray-700">SDG</label>
+                        
+                        <div class="flex flex-wrap grid grid-cols-2 gap-4 md:grid-cols-4">
+                            @foreach($sdgs as $sdg)
+                                <div class="flex items-center mb-2 mr-4">
+                                    <!-- Checkbox for each SDG -->
+                                    <input type="checkbox" wire:model="selectedSdgs" id="sdg-{{ $sdg['id'] }}" value="{{ $sdg['id'] }}" class="mr-2">
+                                    
+                                    <!-- SDG Logo -->
+                                    <img src="{{ asset('images/sdg/' . $sdg['image']) }}" alt="{{ $sdg['label'] }}" class="w-10 h-10 object-cover mr-2">
+                                    
+                                    <!-- SDG Label -->
+                                    <label for="sdg-{{ $sdg['id'] }}" class="text-xs">{{ $sdg['label'] }}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    
+                    
+                    
                     <!-- Submit Button inside the form -->
                     <div class="flex justify-end p-4 bg-gray-200 rounded-b-lg">
                         <button type="button" wire:click="clear({{$id}})" @click="isOpen = false" 

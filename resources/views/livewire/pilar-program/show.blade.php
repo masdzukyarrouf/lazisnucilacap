@@ -1,12 +1,12 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="{{ $pilar->nama }}" />
     <div class="flex flex-col w-full h-full min-h-screen bg-white shadow-md md:w-[414px]">
-        <div class="flex h-auto shadow-lg">
+        <div class="flex flex-col h-auto shadow-lg">
             <div class="flex px-4 pt-4 pb-6">
                 <img src="{{ asset('storage/' . $pilar->img) }}" alt="Main Picture" class="w-52">
                 <div class="flex flex-col">
                     <h1 class="text-sm font-semibold text-green-500">
-                        {{ $pilar->nama }} ({{ $pilar->kategori->nama_kategori }}) 
+                        {{ $pilar->nama }} ({{ $pilar->kategori->nama_kategori }})
                     </h1>
                     <h1 class="mt-2 text-xs">
                         {{ $firstWords }}
@@ -15,32 +15,54 @@
                                 Baca Selengkapnya
                             </a>
                         @endif
-                        @if ($showRemaining)
-                            {{ $remainingWords }}
-                            <a href="#" wire:click.prevent="toggleRemaining()" class="text-green-500 underline ">
-                                Tutup
-                            </a>
-                        @endif
+
                     </h1>
                 </div>
+            </div>
+            @if ($showRemaining)
+            <p class="mx-4 text-xs">
+                {{ $remainingWords }}
+            </p>
+                <a href="#" wire:click.prevent="toggleRemaining()" class="text-green-500 underline ">
+                    {{-- Tutup --}}
+                </a>
+            @endif
+            <div>
+                <h3 class="font-semibold text-black ml-8">Target SDGs</h3>
+                <div class="mx-8 my-4 grid grid-cols-5 gap-1">
+                    @foreach ($selectedSdgs as $sdgId)
+                        @php
+                            $sdg = collect($sdgs)->firstWhere('id', $sdgId);
+                        @endphp
+                        @if ($sdg)
+                            <div class="flex items-center">
+                                <img src="{{ asset('images/sdg/' . $sdg['image']) }}" alt="{{ $sdg['label'] }}" class="w-16 h-16">
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+            
+            
+            <div>
             </div>
         </div>
 
         @if ($campaigns && $campaigns->isNotEmpty())
-        <div class="flex flex-col px-4 py-4 shadow-lg">
-            <div class="flex items-center">
-                <h2 class="text-sm font-semibold text-green-500">Campaign Lazisnu Cilacap</h2>
-                <a href="{{ route('campaign') }}" class="ml-20 text-sm font-semibold text-green-500">
-                    selengkapnya >
-                </a>
-            </div>
-            @foreach ($campaigns as $campaign)
-                <div class="py-2 border border-transparent border-b-gray-300"
-                    wire:key="{{ $campaign->id_campaign }}">
-                    <livewire:campaigns.card :campaign="$campaign" wire:key="{{ $campaign->id_campaign }}" />
+            <div class="flex flex-col px-4 py-4 shadow-lg">
+                <div class="flex items-center">
+                    <h2 class="text-sm font-semibold text-green-500">Campaign Lazisnu Cilacap</h2>
+                    <a href="{{ route('campaign') }}" class="ml-20 text-sm font-semibold text-green-500">
+                        selengkapnya >
+                    </a>
                 </div>
-            @endforeach
-        </div>
+                @foreach ($campaigns as $campaign)
+                    <div class="py-2 border border-transparent border-b-gray-300"
+                        wire:key="{{ $campaign->id_campaign }}">
+                        <livewire:campaigns.card :campaign="$campaign" wire:key="{{ $campaign->id_campaign }}" />
+                    </div>
+                @endforeach
+            </div>
         @endif
         @if ($beritas && $beritas->isNotEmpty())
             <div class="flex items-center justify-center px-4 pt-6 shadow-lg">

@@ -5,7 +5,7 @@
     <!-- Modal Background -->
     <div x-show="isOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-75">
         <!-- Modal Content -->
-        <div class="w-1/2 bg-white rounded-lg shadow-lg">
+        <div class="w-1/2 bg-white rounded-lg shadow-lg max-h-[100vh] overflow-y-auto">
             <!-- Modal Header -->
             <div class="flex items-center justify-between p-4 bg-gray-200 rounded-t-lg">
                 <h3 class="text-xl font-semibold">Tambah Pilar dan Program</h3>
@@ -13,9 +13,9 @@
                     <button class="text-gray-900">&times;</button>
                 </div>
             </div>
-            <div class="p-4">
+            <div class="p-4 ">
 
-                <form wire:submit="save">
+                <form wire:submit.prevent="save">
                     <div class="mb-4">
                         <label for="nama" class="block text-sm font-medium text-gray-700">Nama</label>
                         <input type="text" id="nama" wire:model="nama" name="nama"
@@ -41,7 +41,6 @@
                                 <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
                             @endforeach
                         </select>
-                    
                         @error('id_kategori')
                             <span class="mt-1 text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -59,6 +58,24 @@
                         <input type="text" id="deskripsi" wire:model="deskripsi" name="deskripsi"
                             class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('deskripsi')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <!-- SDG Selection -->
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700">Select SDGs</label>
+                        <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+                            @foreach($sdgs as $sdg)
+                                <label class="flex items-center space-x-3">
+                                    <input type="checkbox" wire:model="selectedSdgs" value="{{ $sdg['id'] }}" 
+                                        class="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                                    <img src="{{ asset('images/sdg/' . $sdg['image']) }}" alt="{{ $sdg['label'] }}" class="w-8 h-8">
+                                    <span class="text-gray-800 text-xs">{{ $sdg['label'] }}</span>
+                                </label>
+                            @endforeach
+                        </div>
+                        @error('selectedSdgs')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
                     </div>

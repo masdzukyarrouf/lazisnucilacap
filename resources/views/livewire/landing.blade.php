@@ -153,7 +153,7 @@
                         <div x-show="isOpen"
                             class="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-75">
                             <!-- Modal Content -->
-                            <div class="w-[414px] md:w-full md:mx-4 bg-white rounded-lg shadow-lg">
+                            <div class="w-[414px] md:w-[500px] md:mx-4 bg-white rounded-lg shadow-lg">
                                 <div class="flex items-center justify-between p-4 bg-gray-200 rounded-t-lg">
                                     <h3 class="text-xl font-semibold text-green-500">Sekilas NU-Care Lazisnu Cilacap
                                     </h3>

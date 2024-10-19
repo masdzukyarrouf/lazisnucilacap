@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('img');
             $table->text('deskripsi');
+            $table->string('sdgs')->default('00000000000000000');
             $table->timestamps();
         });
     }
