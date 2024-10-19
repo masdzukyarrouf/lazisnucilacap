@@ -27,7 +27,8 @@
                     {{-- Tutup --}}
                 </a>
             @endif
-            <div>
+            @if($pilar->sdgs != '00000000000000000') 
+            <div class="mt-4">
                 <h3 class="font-semibold text-black ml-8">Target SDGs</h3>
                 <div class="mx-8 my-4 grid grid-cols-5 gap-1">
                     @foreach ($selectedSdgs as $sdgId)
@@ -42,8 +43,7 @@
                     @endforeach
                 </div>
             </div>
-            
-            
+            @endif
             <div>
             </div>
         </div>
