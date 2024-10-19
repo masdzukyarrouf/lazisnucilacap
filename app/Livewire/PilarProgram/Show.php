@@ -15,8 +15,8 @@ class Show extends Component
     public $campaigns;
     public $firstWords;
     public $remainingWords;
-    public $showRemaining = false; 
-    public $selectedSdgs =[];
+    public $showRemaining = false;
+    public $selectedSdgs = [];
 
     public $sdgs = [
         ['id' => 1, 'image' => '01-No poverty.png', 'label' => 'No Poverty'],
@@ -37,7 +37,7 @@ class Show extends Component
         ['id' => 16, 'image' => '16-Peace, justice and strong institutions.png', 'label' => 'Peace, Justice and Strong Institutions'],
         ['id' => 17, 'image' => '17-Partnerships for the goals.png', 'label' => 'Partnerships for the Goals'],
     ];
-    
+
 
     public function mount($slug)
     {
@@ -60,11 +60,9 @@ class Show extends Component
         $this->deskripsi = $this->pilar->deskripsi;
 
         // Assuming sdgs is stored as a binary string
-        $sdgBinary = str_pad((string) $this->pilar->sdgs, 17, '0', STR_PAD_LEFT);
         $this->selectedSdgs = [];
-
-        for ($i = 0; $i < strlen($sdgBinary); $i++) {
-            if ($sdgBinary[$i] === '1') {
+        for ($i = 0; $i < strlen($this->pilar->sdgs); $i++) {
+            if ($this->pilar->sdgs[$i] === '1') {
                 $this->selectedSdgs[] = $i + 1; // Convert index to SDG ID (1-based)
             }
         }

@@ -66,10 +66,8 @@ class Edit extends Component
         $this->deskripsi = $pilar_program->deskripsi;
 
         $this->selectedSdgs = [];
-        $sdgString = str_pad((string) $pilar_program->sdgs, 17, '0', STR_PAD_LEFT); // Ensure it is a 17-digit string
-
-        for ($i = 0; $i < strlen($sdgString); $i++) {
-            if ($sdgString[$i] === '1') {
+        for ($i = 0; $i < strlen($pilar_program->sdgs); $i++) {
+            if ($pilar_program->sdgs[$i] === '1') {
                 $this->selectedSdgs[] = $i + 1; 
             }
         }
