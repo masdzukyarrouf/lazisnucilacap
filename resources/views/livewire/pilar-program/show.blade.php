@@ -5,25 +5,25 @@
             <div class="flex px-4 pt-4 pb-6">
                 <img src="{{ asset('storage/' . $pilar->img) }}" alt="Main Picture" class="w-52">
                 <div class="flex flex-col">
-                    <h1 class="text-sm font-semibold text-green-500">
+                    <h1 class="text-sm font-semibold text-green-500 mx-2">
                         {{ $pilar->nama }} ({{ $pilar->kategori->nama_kategori }})
                     </h1>
-                    <h1 class="mt-2 text-xs">
+                    <h1 class="mt-2 text-xs mx-2">
                         {{ $firstWords }}
-                        @if (!empty($remainingWords) && !$showRemaining)
-                            <a href="#" wire:click.prevent="toggleRemaining()" class="text-green-500 underline ">
-                                Baca Selengkapnya
-                            </a>
-                        @endif
-
+                        
                     </h1>
+                    @if (!empty($remainingWords) && !$showRemaining)
+                        <a href="#" wire:click.prevent="toggleRemaining()" class="text-xs mx-2 text-green-500 underline ">
+                            Baca Selengkapnya
+                        </a>
+                    @endif
                 </div>
             </div>
             @if ($showRemaining)
             <p class="mx-4 text-xs">
                 {{ $remainingWords }}
             </p>
-                <a href="#" wire:click.prevent="toggleRemaining()" class="text-green-500 underline ">
+                <a href="#" wire:click.prevent="toggleRemaining()" class=" text-xs mx-4 text-green-500 underline ">
                     {{-- Tutup --}}
                 </a>
             @endif
