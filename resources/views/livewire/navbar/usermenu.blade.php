@@ -80,7 +80,7 @@
             class="sticky top-0 right-0 flex flex-col items-center w-full px-8 py-4 space-y-4 bg-white md:flex-row md:justify-between md:space-y-0">
             <!-- Logo -->
             <a href="/" class="flex-shrink-0">
-                <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="ogo"
+                <img src="images%2Fcooler_logo_lazisnu.png" alt="ogo"
                     class="hidden w-auto h-8 md:block">
             </a>
 
