@@ -25,7 +25,6 @@ class Edit extends Component
 
     public function clear($id_partner)
     {
-        $this->reset();
         $this->dispatch('refreshComponent');
         $mitra = Mitra::find($id_partner);
         if ($mitra) {
@@ -88,7 +87,7 @@ class Edit extends Component
         }
 
         // Reset form and dispatch event
-        $this->reset();
+        $this->clear($this->id_partner);
         $this->dispatch('mitraUpdated');
     }
 

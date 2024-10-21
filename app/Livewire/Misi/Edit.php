@@ -22,6 +22,17 @@ class Edit extends Component
         ];
     }
 
+    public function clear($id_misi)
+    {
+        $this->dispatch('refreshComponent');
+        $misi = misi::find($id_misi);
+        if ($misi) {
+            $this->id_misi = $misi->id_misi;
+            $this->misi = $misi->misi;
+
+        }
+    }
+
     public function edit()
     {
         $validatedData = $this->validate();
@@ -33,7 +44,7 @@ class Edit extends Component
         ]);
         misi::reorder();
 
-        $this->reset();
+        $this->clear($this->id_misi);
 
         $this->dispatch('misiUpdated');
 

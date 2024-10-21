@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="p-4">
-                <form wire:submit="update">
+                <form wire:submit="convert">
                     <input type="text" hidden wire:model="id">
                     <div class="mb-4">
                         <label for="nama" class="block text-sm font-medium text-gray-700">Pilihan qurban</label>
@@ -25,7 +25,7 @@
                     
                     <div class="mb-4">
                         <label for="harga" class="block text-sm font-medium text-gray-700">Harga</label>
-                        <input type="number" id="harga" wire:model="harga" name="harga"
+                        <input oninput="formatMoney(this)" type="text" id="harga" wire:model.lazy="harga" name="harga"
                             class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('harga')
                             <span class="text-sm text-red-500">{{ $message }}</span>
@@ -44,6 +44,11 @@
         </div>
     </div>
 </div>
-
-    
+    <script>
+        function formatMoney(input) {
+            let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Add dots for thousands
+            input.value = value;
+        }
+    </script>
 </div>

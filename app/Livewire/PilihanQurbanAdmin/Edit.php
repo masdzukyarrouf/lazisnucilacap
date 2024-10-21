@@ -10,18 +10,26 @@ class Edit extends Component
     public $id;
     public $nama;
     public $harga;
+    public $harga2;
+
+    public function convert()
+    {
+        $harga = !empty($this->harga) ? (float) str_replace('.', '', $this->harga) : 0;
+        $this->harga2 = $harga;
+        $this->update();
+
+    }
 
     public function rule()
     {
         return [
             'nama' => 'required|string',
-            'harga' => 'required|integer',
+            'harga2' => 'required|integer',
         ];
     }
 
     public function clear($id)
     {
-        $this->reset();
         $this->dispatch('refreshComponent');
         $pilihan_qurban = pilihan_qurban::find($id);
         if ($pilihan_qurban) {
@@ -55,7 +63,7 @@ class Edit extends Component
         if ($pilihan_qurban) {
             $this->id = $pilihan_qurban->id;
             $this->nama = $pilihan_qurban->nama;
-            $this->harga = $pilihan_qurban->harga;
+            $this->harga = $pilihan_qurban ? number_format($pilihan_qurban->harga, 0, ',', '.') : 0;
         }
         return $pilihan_qurban;
     }
@@ -64,7 +72,7 @@ class Edit extends Component
 
         $validatedData = $this->validate([
             'nama' => 'required|string',
-            'harga' => 'required|integer',
+            'harga2' => 'required|integer',
         ]);
 
         $pilihan_qurban = pilihan_qurban::find($this->id);
@@ -72,12 +80,12 @@ class Edit extends Component
             // Update data pilihan_qurban lainnya
             $pilihan_qurban->update([
                 'nama' => $validatedData['nama'],
-                'harga' => $validatedData['harga'],
+                'harga' => $validatedData['harga2'],
             ]);
         }
 
         // Reset form dan dispatch event
-        $this->reset();
+        $this->clear($this->id());
         $this->dispatch('pilihan_qurbanUpdated');
         return $pilihan_qurban;
     }

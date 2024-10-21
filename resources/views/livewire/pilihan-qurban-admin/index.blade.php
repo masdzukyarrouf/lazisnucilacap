@@ -29,7 +29,7 @@
             @foreach ($pilihan_qurbans as $pilihan_qurban)
                 <tr class="border-t" wire:key="pilihan_qurban-{{ $pilihan_qurban->id }}">
                     <td class="max-w-xs px-4 py-2 text-center">{{ $pilihan_qurban->nama }}</td>
-                    <td class="max-w-xs px-4 py-2 text-center">{{ $pilihan_qurban->harga }}</td>
+                    <td class="max-w-xs px-4 py-2 text-center">{{ number_format($pilihan_qurban->harga, 0, ',', '.') }}</td>
                     <td class="px-4 py-2">
                         <div class="flex items-center justify-center gap-3">
                             <div class="flex space-x-2">
@@ -50,6 +50,12 @@
         {{ $pilihan_qurbans->links('pagination::tailwind') }}
     </div>
     <script>
+        function formatMoney(input) {
+            let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Add dots for thousands
+            input.value = value;
+        }
+        
         function confirmDelete(id) {
             Swal.fire({
                 title: 'Are you sure?',

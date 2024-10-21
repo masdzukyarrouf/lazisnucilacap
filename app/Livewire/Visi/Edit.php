@@ -35,7 +35,7 @@ class Edit extends Component
 
         visi::reorder();
 
-        $this->reset();
+        // $this->reset();
 
         $this->dispatch('visiUpdated');
 

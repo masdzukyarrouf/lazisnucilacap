@@ -71,7 +71,6 @@ class Edit extends Component
         }
 
         // Reset form dan dispatch event
-        $this->reset();
         $this->dispatch('pilihan_wakafUpdated');
         return $pilihan_wakaf;
     }
