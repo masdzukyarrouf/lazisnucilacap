@@ -1,32 +1,31 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2 title="Fidyah Lazisnu Cilacap" backUrl="{{ route('fidyah.index') }}"/>
+    <x-nav-mobile2 title="Fidyah Lazisnu Cilacap" backUrl="{{ route('fidyah.index') }}" />
     <div class="flex flex-col w-screen h-full min-h-screen pb-24 bg-white shadow-md md:w-[414px]">
         <div class="w-full p-6 ">
             <h2 class="text-[12px] text-gray-500 mb-4">Anda Akan Melakukan Pembayaran Untuk Fidyah</h2>
             <form wire:submit="bayarFidyah">
                 <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Atas nama</div>
-                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div class="w-4 text-gray-500 text-center">:</div>
                     <div>{{ $atasNama }}</div>
                 </div>
 
                 <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Hari</div>
-                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div class="w-4 text-gray-500 text-center">:</div>
                     <div>{{ $hari }}</div>
                 </div>
 
-                <label class="text-sm font-semibold">Nominal</label>
-                    <div class="relative flex items-center justify-center mt-2 mb-4 text-green-500">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9 text-[12px] border border-black">Rp. </span>
-                        <input 
-                            type="text" 
-                            class="w-full py-1 pr-2 border border-black rounded h-9 pl-14 text-[12px] bg-gray-300" 
-                            wire:model="nominal"
-                            onload="formatInput(this)" 
-                        />
-                    </div>
-                    
+                <label class="text-md font-bold">Nominal</label>
+                <div class="relative flex items-center justify-center mt-2 mb-4 text-black-500">
+                    <span
+                        class="absolute inset-y-0 left-0 flex font-bold items-center px-3 bg-gray-300 rounded h-9 text-[14px] border border-gray-400">Rp.
+                    </span>
+                    <input type="text"
+                        class="w-full py-1 pr-2 border border-gray-400 font-bold rounded h-9 pl-14 text-[14px] bg-gray-300"
+                        id="nominalField" value="{{ $nominal }}" disabled />
+                </div>
+
                 <h3 class="text-[16px] font-semibold  mb-2">Mohon Lengkapi Data Berikut</h3>
                 @if (!Auth::check())
                     <p class="text-[12px]  mb-4">Sudah Punya Akun? <a href="/login"
@@ -44,6 +43,7 @@
                 <div class="mb-4">
                     <label class="block text-sm font-bold ">No Telepon (WhatsApp Aktif) *</label>
                     <input type="tel" wire:model="no_telp"
+                        id="no_telp"
                         class="mt-1 text-[12px] block w-full p-2 border border-border rounded-md bg-input text-foreground"
                         placeholder="Isikan no whatsapp anda" />
                     @error('no_telp')
@@ -64,16 +64,37 @@
                     situs web ini, dan untuk tujuan lain yang dijelaskan dalam
                     <a href="#" class="text-blue-500 hover:underline">kebijakan privasi</a> kami.
                 </p>
-                <button type="submit" class="w-full p-2 text-white bg-green-500 rounded-md">Bayar fidyah
+                <button type="submit" class="w-full p-2 text-white font-bold bg-green-500 rounded-md">Bayar Fidyah
                     Sekarang</button>
             </form>
         </div>
     </div>
 </div>
 <script>
-    function formatInput(input) {
-        let value = input.value.replace(/\D/g, ''); // Remove any non-digit characters
-        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Add dot every 3 digits
-        input.value = value;
+    // Function to format the nominal value
+    function formatNominal(nominal) {
+        nominal = nominal.replace(/\D/g, ''); // Remove any non-digit characters
+
+        if (nominal === '') {
+            return '';
+        }
+
+        // Add dot as thousand separator every 3 digits
+        return nominal.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     }
+
+    // Apply format on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const nominalField = document.getElementById('nominalField');
+
+        // Get the PHP value (assumed to be already set as `nominalField.value`)
+        let formattedValue = formatNominal(nominalField.value);
+        nominalField.value = formattedValue; // Set the formatted value
+    });
+    document.getElementById('no_telp').addEventListener('input', function (e) {
+        let value = e.target.value;
+        value = value.replace(/[^0-9+]/g, '');
+        e.target.value = value;
+    });
+
 </script>

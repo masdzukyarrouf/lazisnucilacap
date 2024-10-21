@@ -49,8 +49,8 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-center mt-4">
-                    <button wire:click="submitwaif" class="px-4 py-2 font-semibold text-white bg-green-500 rounded w-96">
-                        wakaf Sekarang
+                    <button wire:click="submitwaif" class="px-4 py-2 font-bold text-white bg-green-500 rounded w-96">
+                        Wakaf Sekarang
                     </button>
             </div>
         </div>

@@ -40,7 +40,7 @@
                     
                 <div class="flex items-center justify-center w-full py-4 space-x-4">
                     <button type="submit"
-                        class="items-center w-full px-16 py-2 text-white bg-green-500 rounded">
+                        class="items-center font-bold w-full px-16 py-2 text-white bg-green-500 rounded">
                         Bayar Sekarang
                     </button>
                 </div>
