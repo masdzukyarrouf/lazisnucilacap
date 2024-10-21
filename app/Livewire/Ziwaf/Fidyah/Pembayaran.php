@@ -30,6 +30,15 @@ class Pembayaran extends Component
         }
 
     }
+    public function back(){
+        $data = [
+            'nominal' => $this->nominal,
+            'hari' => $this->hari,
+            'atasNama' => $this->atasNama,
+        ];
+        return redirect()->route('fidyah.data')->with('data', $data);
+
+    }
     public function render()
     {
         return view('livewire.ziwaf.fidyah.pembayaran')->layout('layouts.none');
