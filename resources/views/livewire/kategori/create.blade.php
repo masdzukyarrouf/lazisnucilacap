@@ -17,7 +17,8 @@
 
                 <form wire:submit="save">
                     <div class="mb-4">
-                        <label for="image" class="block text-sm font-medium text-gray-700">image</label>
+                        <label for="image" class="block text-sm font-medium text-gray-700">Gambar Kategori (svg)</label>
+                        <a href="https://convertio.co/" class="text-sm text-green-500 underline">Ubah Gambar menjadi svg</a>
                         <input type="file" id="image" wire:model="image" name="image"
                             class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('image')
