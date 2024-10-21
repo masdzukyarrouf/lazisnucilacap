@@ -16,6 +16,9 @@ use App\Models\Mitra;
 use App\Models\Kategori;
 use App\Models\petugas;
 use App\Models\pilar_program;
+use App\Models\pilihan_infaq;
+use App\Models\pilihan_qurban;
+use App\Models\pilihan_wakaf;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Database\Factories\VisiFactory;
 use Illuminate\Database\Seeder;
@@ -299,38 +302,38 @@ class DatabaseSeeder extends Seeder
         ]);
 
         kategori::factory()->create([
-            'nama_kategori' => 'Bencana Alam',
-            'image' => 'Bencana Alam.png'
+            'nama_kategori' => 'Lingkungan Hidup dan Kebencanaan',
+            'image' => 'Bencana Alam.svg'
         ]);
 
         kategori::factory()->create([
             'nama_kategori' => 'Pendidikan',
-            'image' => 'Pendidikan.png'
+            'image' => 'Pendidikan.svg'
         ]);
 
         kategori::factory()->create([
-            'nama_kategori' => 'Sosial & Keagamaan',
-            'image' => 'Sosial & Keagamaan.png'
+            'nama_kategori' => 'Dakwah & Keagamaan',
+            'image' => 'Sosial & Keagamaan.svg'
         ]);
 
         kategori::factory()->create([
             'nama_kategori' => 'Ekonomi',
-            'image' => 'Ekonomi.png'
+            'image' => 'Ekonomi.svg'
         ]);
 
         kategori::factory()->create([
             'nama_kategori' => 'Ramadhan',
-            'image' => 'Ramadhan.png'
+            'image' => 'Ramadhan.svg'
         ]);
 
         kategori::factory()->create([
             'nama_kategori' => 'Kesehatan',
-            'image' => 'Kesehatan.png'
+            'image' => 'Kesehatan.svg'
         ]);
 
         kategori::factory()->create([
             'nama_kategori' => 'Laporan & Publikasi',
-            'image' => 'Laporan & Publikasi.png'
+            'image' => 'Laporan & Publikasi.svg'
         ]);
 
 
@@ -830,6 +833,67 @@ class DatabaseSeeder extends Seeder
             'img' => 'images/pilar_program/cerdas.png',
             'sdgs' => '00000000000100001',
 
+        ]);
+
+        pilar_program::factory()->create([
+            'id_kategori' => 6,
+            'nama' => 'NU Care Sehat',
+            'slug' => 'nu_care_sehat',
+            'deskripsi' => 'Program untuk meningkatkan layanan di bidang kesehatan masyarakat, khususnya dikalangan keluarga kurang mampu melalui tindakan kuratif maupun kegiatan preventif.',
+            'img' => 'images/pilar_program/sehat.png',
+            'sdgs' => '00100000000000000',
+
+        ]);
+
+        pilar_program::factory()->create([
+            'id_kategori' => 3,
+            'nama' => 'NU Care Damai',
+            'slug' => 'nu_care_damai',
+            'deskripsi' => 'program untuk meningkatkan layanan sosial dengan semangat
+                            dakwah Islam Ahlussunnah Wal Jama’ah dan misi kemanusiaan, baik dalam bentuk kebencanaan maupun bantuan sosial lainnya yang
+                            dilakukan secara sistematik dan melibatkan mitra internal dan eksternal NU.',
+            'img' => 'images/pilar_program/damai.png',
+            'sdgs' => '00000000000000001',
+
+        ]);
+
+        pilar_program::factory()->create([
+            'id_kategori' => 1,
+            'nama' => 'NU Care Hijau',
+            'slug' => 'nu_care_hijau',
+            'deskripsi' => 'program yang diarahkan untuk memelihara lingkungan dan sumber daya alam serta pemanfaatannya secara bijaksana dan
+                                mendorong keberlanjutan alam sebagai sumber penghidupan masyarakat.',
+            'img' => 'images/pilar_program/hijau.png',
+            'sdgs' => '00000110000010000',
+
+        ]);
+
+        pilihan_qurban::factory()->create([
+            'nama' => '1/7 Sapi (250 - 300kg)',
+            'harga' => 3000000,
+        ]);
+
+        pilihan_qurban::factory()->create([
+            'nama' => 'Kambing Standar (25 - 28kg)',
+            'harga' => 3000000,
+        ]);
+
+        pilihan_qurban::factory()->create([
+            'nama' => 'Kambing Premium (28 - 35kg)',
+            'harga' => 3200000,
+        ]);
+
+        pilihan_qurban::factory()->create([
+            'nama' => 'Domba Luar Negeri (45 - 60kg)',
+            'harga' => 5500000,
+        ]);
+
+        pilihan_infaq::factory()->create([
+            'pil_infaq' => 'Umum',
+        ]);
+
+        pilihan_wakaf::factory()->create([
+            'pil_wakaf' => 'Umum',
         ]);
 
     }

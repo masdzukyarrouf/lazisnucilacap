@@ -58,6 +58,10 @@ class Checkout extends Component
 
     public function render()
     {
-        return view('livewire.ziwaf.qurban.checkout')->layout('layouts.none');
+        $mudhohiList = json_decode($this->mudhohi, true);
+
+        return view('livewire.ziwaf.qurban.checkout', [
+            'mudhohiList' => $mudhohiList
+        ])->layout('layouts.none');
     }
 }

@@ -3,17 +3,17 @@
     <div class="flex flex-col w-full h-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="flex flex-col h-auto shadow-lg">
             <div class="flex px-4 pt-4 pb-6">
-                <img src="{{ asset('storage/' . $pilar->img) }}" alt="Main Picture" class="w-52">
+                <img src="{{ asset('storage/' . $pilar->img) }}" alt="Main Picture" class="max-w-52 max-h-52">
                 <div class="flex flex-col">
-                    <h1 class="text-sm font-semibold text-green-500 mx-2">
+                    <h1 class="mx-2 text-sm font-semibold text-green-500">
                         {{ $pilar->nama }} ({{ $pilar->kategori->nama_kategori }})
                     </h1>
-                    <h1 class="mt-2 text-xs mx-2">
+                    <h1 class="mx-2 mt-2 text-xs">
                         {{ $firstWords }}
                         
                     </h1>
                     @if (!empty($remainingWords) && !$showRemaining)
-                        <a href="#" wire:click.prevent="toggleRemaining()" class="text-xs mx-2 text-green-500 underline ">
+                        <a href="#" wire:click.prevent="toggleRemaining()" class="mx-2 text-xs text-green-500 underline ">
                             Baca Selengkapnya
                         </a>
                     @endif
@@ -23,14 +23,14 @@
             <p class="mx-4 text-xs">
                 {{ $remainingWords }}
             </p>
-                <a href="#" wire:click.prevent="toggleRemaining()" class=" text-xs mx-4 text-green-500 underline ">
+                <a href="#" wire:click.prevent="toggleRemaining()" class="mx-4 text-xs text-green-500 underline ">
                     {{-- Tutup --}}
                 </a>
             @endif
             @if($pilar->sdgs != '00000000000000000') 
             <div class="mt-4">
-                <h3 class="font-semibold text-black ml-8">Target SDGs</h3>
-                <div class="mx-8 my-4 grid grid-cols-5 gap-1">
+                <h3 class="ml-8 font-semibold text-black">Target SDGs</h3>
+                <div class="grid grid-cols-5 gap-1 mx-8 my-4">
                     @foreach ($selectedSdgs as $sdgId)
                         @php
                             $sdg = collect($sdgs)->firstWhere('id', $sdgId);

@@ -18,7 +18,7 @@ class Data extends Component
     public $dataqurban;
     public $nominal;
     public $jumlah;
-    public $mudhohi;
+    public $mudhohi = [];
     public $jenis;
     public $hewan;
     public $users;
@@ -41,16 +41,7 @@ class Data extends Component
         } else {
             return redirect()->route('qurban');
         }
-
-        if ($this->jenis === 'Sapi') {
-            $this->hewan = '1/7 Sapi';
-        } elseif ($this->jenis === 'Kambing') {
-            $this->hewan = 'Kambing Standar';
-        } elseif ($this->jenis === 'Kambing+') {
-            $this->hewan = 'Kambing Premium';
-        } elseif ($this->jenis === 'Domba') {
-            $this->hewan = 'Domba Luar Negeri';
-        }
+        
 
         $this->users = auth::user();
         if ($this->users) {
@@ -157,6 +148,10 @@ class Data extends Component
 
     public function render()
     {
-        return view('livewire.ziwaf.qurban.data')->layout('layouts.none');
+        $mudhohiList = json_decode($this->mudhohi, true);
+
+        return view('livewire.ziwaf.qurban.data',[
+            'mudhohiList' => $mudhohiList
+            ])->layout('layouts.none');
     }
 }
