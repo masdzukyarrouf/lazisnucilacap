@@ -26,12 +26,12 @@
                         @if ($landing->link == '-')
                             <a class="h-auto min-w-full ">
                                 <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                                    class="h-auto min-w-full " />
+                                    class="h-auto min-w-full" style="aspect-ratio: 5/3;"/>
                             </a>
                         @else
                             <a href="{{ $landing->link }}" class="h-auto min-w-full ">
                                 <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                                    class="h-auto min-w-full " />
+                                    class="h-auto min-w-full" style="aspect-ratio: 16/9;"/>
                             </a>
                         @endif
                     @endforeach
@@ -220,7 +220,7 @@
                 </a>
             </div>
         </div>
-        <div class="flex flex-col justify-center w-full px-4 md:px-10 pb-4 md:flex-row  md:space-x-4 md:w-auto "
+        <div class="flex flex-col justify-center w-full px-4 pb-4 md:px-10 md:flex-row md:space-x-4 md:w-auto "
             x-data="{ load: false }" x-init="load = true" x-show="load" wire:init="loadCampaigns">
             @if ($campaigns && $campaigns->isEmpty())
             @elseif($campaigns)
@@ -231,7 +231,7 @@
                     </div>
 
                     <!-- Display this card below md: -->
-                    <div class="block md:hidden py-4 border-b border-b-gray-300" >
+                    <div class="block py-4 border-b md:hidden border-b-gray-300" >
                         <livewire:campaigns.card :campaign="$campaign" wire:key="sm-{{ $campaign->id_campaign }}" />
                     </div>
                 @endforeach
@@ -297,13 +297,13 @@
             </div>
         </div>
 
-        <div class="flex flex-col justify-center w-full px-4 md:px-10 pb-4 md:flex-row md:space-x-6 md:w-auto md:flex-nowrap"
+        <div class="flex flex-col justify-center w-full px-4 pb-4 md:px-10 md:flex-row md:space-x-6 md:w-auto md:flex-nowrap"
             x-data="{ load: false }" x-init="load = true" x-show="load" wire:init="loadBerita">
             @if ($beritas && $beritas->isEmpty())
                 <!-- Handle empty state -->
             @elseif($beritas)
                 @foreach ($beritas as $berita)
-                    <div class="flex w-full md:w-1/2 py-2 pt-2 border-b border-b-gray-300">
+                    <div class="flex w-full py-2 pt-2 border-b md:w-1/2 md:border-b-transparent border-b-gray-300">
                         <x-berita-card :berita="$berita" wire:key="{{ $berita->id_berita }}" />
                     </div>
                 @endforeach

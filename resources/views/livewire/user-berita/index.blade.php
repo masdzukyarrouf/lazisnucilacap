@@ -7,7 +7,7 @@
                 class="w-full px-4 py-2 border border-gray-300" />
         </div>
 
-        <div class="flex flex-col ">
+        <div class="flex flex-col mb-20">
             @if ($Beritas->isEmpty())
                 <p class="text-center text-gray-600">Tidak ada berita .</p>
             @else
@@ -53,7 +53,7 @@
                         <div class="flex flex-col mx-2">
                             @foreach ($Beritas->skip(3) as $berita)
                                 <a href="{{ route('user-berita.show', $berita->title_berita) }}">
-                                    <div class="flex items-center px-4 py-2 bg-white border-b border-gray-500">
+                                    <div class="flex items-center px-4 py-2 bg-white border-b border-gray-200">
                                         <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"
                                             class="object-cover w-40">
                                         <div class="flex flex-col pl-2">
@@ -81,34 +81,34 @@
                     <!-- Display berita for specific category -->
                     <div class="flex flex-col gap-3 mx-2 mt-2">
                         @foreach ($Beritas as $berita)
-                            <a href="{{ route('user-berita.show', $berita->title_berita) }}" class="w-full">
-                                <div class="flex items-center w-full bg-white rounded-lg shadow-md">
-                                    <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"
-                                        class="object-cover w-40 h-24 rounded-md">
-                                    <div class="flex flex-col w-full pl-2">
-                                        <h2 class="text-sm font-semibold text-gray-800">
-                                            {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
-                                        </h2>
-                                        <div class="flex items-center justify-between pt-4">
-                                            <div class="flex items-center">
-                                                <img src="{{ asset('images/clock.png') }}" alt="pinpoint"
-                                                    class="w-3 h-3">
-                                                <h1 class="pl-1 text-xs text-gray-600 md:text-sm">
-                                                    {{ $berita->tanggal }}</h1>
+                            <a href="{{ route('user-berita.show', $berita->title_berita) }}">
+                                    <div class="flex items-center px-4 py-2 bg-white border-b border-gray-200">
+                                        <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"
+                                            class="object-cover w-40">
+                                        <div class="flex flex-col pl-2">
+                                            <h2 class="text-sm font-semibold text-gray-800">
+                                                {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
+                                            </h2>
+                                            <div class="flex items-center justify-between pt-4">
+                                                <div class="flex items-center">
+                                                    <img src="{{ asset('images/clock.png') }}" alt="pinpoint"
+                                                        class="w-3 h-3">
+                                                    <h1 class="pl-1 text-xs text-gray-600 md:text-sm">
+                                                        {{ $berita->tanggal }}</h1>
+                                                </div>
+                                                <h1 class="pl-4 text-xs text-right text-green-500 md:text-sm">
+                                                    {{ $berita->kategori->nama_kategori }}</h1>
                                             </div>
-                                            <h1 class="pl-4 mr-2 text-xs text-right text-green-500 md:text-sm">
-                                                {{ $berita->kategori->nama_kategori }}</h1>
+
                                         </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
                         @endforeach
                     </div>
                 @endif
             @endif
         </div>
     </div>
-    <div class="mb-16"></div>
 </div>
 <script>
     document.getElementById('openModal').addEventListener('click', function(event) {
