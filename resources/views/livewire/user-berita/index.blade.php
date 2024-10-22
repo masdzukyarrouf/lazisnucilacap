@@ -26,19 +26,20 @@
                                         </h2>
                                         <div class="flex items-center justify-between mt-1">
                                             <div class="flex items-center">
-                                                <img src="{{ asset('images/clock.png') }}" alt="pinpoint"
+                                                <img src="{{ asset('images/Calendar.png') }}" alt="pinpoint"
                                                     class="w-3 h-3">
-                                                <p class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}
+                                                <p class="pl-1 text-xs text-gray-600 md:text-sm">
+                                                    {{ \Carbon\Carbon::parse($berita->tanggal)->locale('id')->translatedFormat('d F Y') }}
                                                 </p>
                                             </div>
-                                            <h1 class="pl-4 text-xs text-right text-green-500 md:text-sm">
-                                                {{ $berita->kategori->nama_kategori }}</h1>
                                         </div>
+                                        <h1 class="pl-4 text-xs text-green-500 md:text-sm">
+                                            {{ $berita->kategori->nama_kategori }}</h1>
 
-                                        <div
+                                        {{-- <div
                                             class="text-sm text-green-500 md:text-base hover:text-green-600 hover:cursor-pointer">
                                             Baca Selengkapnya ...
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </a>
@@ -56,20 +57,21 @@
                                     <div class="flex items-center px-4 py-2 bg-white border-b border-gray-200">
                                         <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"
                                             class="object-cover w-40">
-                                        <div class="flex flex-col pl-2">
+                                        <div class="flex flex-col pl-4">
                                             <h2 class="text-sm font-semibold text-gray-800">
-                                                {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
+                                                {{ \Illuminate\Support\Str::limit($berita->title_berita, 60, '...') }}
                                             </h2>
                                             <div class="flex items-center justify-between pt-4">
                                                 <div class="flex items-center">
-                                                    <img src="{{ asset('images/clock.png') }}" alt="pinpoint"
+                                                    <img src="{{ asset('images/Calendar.png') }}" alt="pinpoint"
                                                         class="w-3 h-3">
                                                     <h1 class="pl-1 text-xs text-gray-600 md:text-sm">
-                                                        {{ $berita->tanggal }}</h1>
+                                                        {{ \Carbon\Carbon::parse($berita->tanggal)->locale('id')->translatedFormat('d F Y') }}
+                                                    </h1>
                                                 </div>
-                                                <h1 class="pl-4 text-xs text-right text-green-500 md:text-sm">
-                                                    {{ $berita->kategori->nama_kategori }}</h1>
                                             </div>
+                                            <h1 class="pl-4 text-xs text-green-500 md:text-sm">
+                                                {{ $berita->kategori->nama_kategori }}</h1>
 
                                         </div>
                                     </div>
@@ -85,20 +87,21 @@
                                     <div class="flex items-center px-4 py-2 bg-white border-b border-gray-200">
                                         <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"
                                             class="object-cover w-40">
-                                        <div class="flex flex-col pl-2">
+                                        <div class="flex flex-col pl-4">
                                             <h2 class="text-sm font-semibold text-gray-800">
-                                                {{ \Illuminate\Support\Str::limit($berita->title_berita, 30, '...') }}
+                                                {{ \Illuminate\Support\Str::limit($berita->title_berita, 60, '...') }}
                                             </h2>
                                             <div class="flex items-center justify-between pt-4">
                                                 <div class="flex items-center">
-                                                    <img src="{{ asset('images/clock.png') }}" alt="pinpoint"
+                                                    <img src="{{ asset('images/Calendar.png') }}" alt="pinpoint"
                                                         class="w-3 h-3">
                                                     <h1 class="pl-1 text-xs text-gray-600 md:text-sm">
-                                                        {{ $berita->tanggal }}</h1>
+                                                        {{ \Carbon\Carbon::parse($berita->tanggal)->locale('id')->translatedFormat('d F Y') }}
+                                                    </h1>
                                                 </div>
-                                                <h1 class="pl-4 text-xs text-right text-green-500 md:text-sm">
-                                                    {{ $berita->kategori->nama_kategori }}</h1>
                                             </div>
+                                            <h1 class="pl-4 text-xs text-green-500 md:text-sm">
+                                                {{ $berita->kategori->nama_kategori }}</h1>
 
                                         </div>
                                     </div>
