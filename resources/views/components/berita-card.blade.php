@@ -19,7 +19,7 @@
                     </p>
                 </div>
             </div>
-            <p class="text-xs text-green-600 md:text-lg">{{ $berita->kategori->nama_kategori ?? '' }}</p>
+            <p class="pl-4 text-green-600 ext-xs md:text-lg">{{ $berita->kategori->nama_kategori ?? '' }}</p>
             {{-- <div class="mt-1">
                 <p class="text-[12px]  md:text-lg text-green-600"> Baca Selengkapnya...</p>
             </div> --}}
