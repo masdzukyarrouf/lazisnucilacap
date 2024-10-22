@@ -24,7 +24,7 @@
                 <div class="p-4">
                     <div class="grid grid-cols-3 gap-4 mt-2">
                         <div class="flex flex-col items-center">
-                            <a class="flex flex-col items-center" wire:click="kategori('Kategori')">
+                            <a class="flex flex-col items-center cursor-pointer" wire:click="kategori('Kategori')">
                                 @if ($nama_kategori === 'Kategori')
                                     <div class="w-8 h-8 mb-2 rounded-full">
                                         <img src="{{ asset('images/all.svg') }}" alt="" class="flex items-center w-8 h-8 mb-2" style="filter: brightness(0) saturate(100%) invert(49%) sepia(88%) saturate(739%) hue-rotate(86deg) brightness(91%) contrast(89%);">
@@ -38,7 +38,7 @@
                         </div>
                         @foreach($kategoris as $kategori)
                             <div class="flex flex-col items-center">
-                                <a class="flex flex-col items-center" wire:click="kategori('{{ $kategori->nama_kategori }}')">
+                                <a class="flex flex-col items-center cursor-pointer" wire:click="kategori('{{ $kategori->nama_kategori }}')">
                                     @if ($nama_kategori === $kategori->nama_kategori)
                                         <div class="w-8 h-8 mb-2 rounded-full">
                                             <img src="{{ asset('storage/images/kategori/' . $kategori->image) }}" alt="" class="flex items-center w-8 h-8 mb-2" style="filter: brightness(0) saturate(100%) invert(49%) sepia(88%) saturate(739%) hue-rotate(86deg) brightness(91%) contrast(89%);">
