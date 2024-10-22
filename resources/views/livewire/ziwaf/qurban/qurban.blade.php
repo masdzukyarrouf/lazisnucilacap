@@ -16,17 +16,16 @@
             <div class="flex flex-col justify-center px-4">
                 <h1 class="pb-2 font-semibold">Jenis Hewan</h1>
                     <div class="relative w-full mb-4 md:w-96">
-                        <select wire:model="selectedOption"class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded focus:outline-none focus:border-blue-500">
-                            <option value="" disabled selected>Jenis Hewan</option>
-                            <option value="Sapi">1/7 Sapi (250 - 300kg)</option>
-                            <option value="Kambing">Kambing Standar (25 - 28kg)</option>
-                            <option value="Kambing+">Kambing Premium (28 - 35kd)</option>
-                            <option value="Domba">Domba Luar Negeri (45 - 60kg)</option>
+                        <select wire:model.lazy="selectedOption"class="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded focus:outline-none focus:border-blue-500">
+                            <option value="" disabled selected>Pilih Jenis Hewan</option>
+                            @foreach ($pilihan_qurbans as $x)
+                                <option value="{{ $x->nama }}">{{ $x->nama }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <label class="font-semibold">Jumlah Mudhohi</label>
                     <input
-                    type="text" 
+                    type="number" 
                     id="mudhohi" 
                     wire:model="mudhohi"
                     wire:input.lazy="price" 
@@ -35,14 +34,14 @@
                     />
                     
                     <label class="font-semibold">Daftar Mudhohi</label>
-                    <textarea
-                    type="text" 
-                    id="daftar" 
-                    wire:model="daftar" 
-                    wire:input.lazy="price" 
-                    class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded" 
-                    placeholder="Isi dengan daftar Mudhohi">
-                </textarea>
+                    @for ($i = 0; $i < $mudhohi; $i++)
+                        <input
+                            type="text"
+                            wire:model="daftar.{{ $i }}" 
+                            class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded" 
+                            placeholder="Nama Mudhohi ke-{{ $i + 1 }}"
+                        />
+                    @endfor
         
                 <label class="font-semibold">Total Nominal Qurban</label>
                     <div class="relative flex flex-col mb-4">

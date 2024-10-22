@@ -29,7 +29,8 @@ Route::middleware([CheckAdmin::class])->group(function () {
     Route::get('/kategori', App\Livewire\kategori\Index::class)->name('kategori');
     Route::get('/pilihan-wakaf', App\Livewire\PilihanWakafAdmin\Index::class)->name('pilihan-wakaf');
     Route::get('/pilihan-infaq', App\Livewire\PilihaninfaqAdmin\Index::class)->name('pilihan-infaq');
-    Route::get('/pilarProgram', App\Livewire\PilarProgram\Index::class)->name(name: 'pilarProgram.index');
+    Route::get('/pilihan-qurban', App\Livewire\PilihanQurbanAdmin\Index::class)->name('pilihan-qurban');
+    Route::get('/pilar-Program', App\Livewire\PilarProgram\Index::class)->name(name: 'pilar-Program');
     Route::get('/laporan-admin', App\Livewire\LaporanAdmin\Index::class)->name('laporan-admin');
     Route::get('/notification', App\Livewire\Notification\Index::class)->name('notification');
 

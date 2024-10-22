@@ -34,7 +34,6 @@ class FormEdit extends Component
 
     public function clear($id_berita)
     {
-        $this->reset();
         $this->dispatch('refreshComponent');
         $berita = Berita::find($id_berita);
         if ($berita) {
@@ -117,7 +116,7 @@ class FormEdit extends Component
         }
 
         // Reset form dan dispatch event
-        $this->reset();
+        $this->clear($this->id_berita);
         $this->dispatch('beritaUpdated');
         return $berita;
     }

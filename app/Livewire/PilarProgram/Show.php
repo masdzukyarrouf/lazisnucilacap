@@ -46,13 +46,13 @@ class Show extends Component
         $this->beritas = berita::where('id_kategori', $this->pilar->id_kategori)->get();
         $this->campaigns = Campaign::where('id_kategori', $this->pilar->id_kategori)->get();
 
-        $N = 24;
+        $N = 1;
 
         // Split the string into words
-        $words = explode(' ', $this->pilar->deskripsi);
+        $words = explode('.', $this->pilar->deskripsi);
 
         // Get the first N words
-        $this->firstWords = implode(' ', array_slice($words, 0, $N));
+        $this->firstWords = implode('.', array_slice($words, 0, $N));
 
         // Get the remaining words
         $this->remainingWords = implode(' ', array_slice($words, $N));

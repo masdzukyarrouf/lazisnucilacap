@@ -2,7 +2,7 @@
     <a id="openModal"
         class="flex items-center justify-center py-2 space-x-2 border border-transparent border-b-gray-200 border-r-gray-200 hover:cursor-pointer">
         <img src="{{ asset('images/folder.png') }}" alt="Kategori" class="w-auto h-4">
-        <h1 class="text-base">{{$nama_kategori}}</h1>
+        <h1 class="text-base">{{Str::limit($nama_kategori,10 ?? 'Kategori') }}</h1>
     </a>
 
     <!-- The Popup Modal -->
@@ -25,22 +25,30 @@
                     <div class="grid grid-cols-3 gap-4 mt-2">
                         <div class="flex flex-col items-center">
                             <a class="flex flex-col items-center" wire:click="kategori('Kategori')">
-                                <div class="w-8 h-8 mb-2 rounded-full"> <img src="{{ asset('images/all.png') }}" alt=""></div>
                                 @if ($nama_kategori === 'Kategori')
+                                    <div class="w-8 h-8 mb-2 rounded-full">
+                                        <img src="{{ asset('images/all.svg') }}" alt="" class="flex items-center w-8 h-8 mb-2" style="filter: brightness(0) saturate(100%) invert(49%) sepia(88%) saturate(739%) hue-rotate(86deg) brightness(91%) contrast(89%);">
+                                    </div>
                                     <span class="text-sm font-semibold text-center text-green-500">Semua</span>
-                                    @else
+                                @else
+                                    <div class="w-8 h-8 mb-2 rounded-full"> <img src="{{ asset('images/all.svg') }}" alt=""></div>
                                     <span class="text-sm font-semibold text-center">Semua</span>
-                                    @endif
+                                @endif
                             </a>
                         </div>
                         @foreach($kategoris as $kategori)
                             <div class="flex flex-col items-center">
                                 <a class="flex flex-col items-center" wire:click="kategori('{{ $kategori->nama_kategori }}')">
-                                    <div class="w-8 h-8 mb-2 rounded-full"> <img src="{{ asset('storage/images/kategori/' . $kategori->image) }}" alt="" class="flex items-center w-8 h-8 mb-2"></div>
                                     @if ($nama_kategori === $kategori->nama_kategori)
-                                    <span class="text-sm font-semibold text-center text-green-500">{{ $kategori->nama_kategori }}</span>
+                                        <div class="w-8 h-8 mb-2 rounded-full">
+                                            <img src="{{ asset('storage/images/kategori/' . $kategori->image) }}" alt="" class="flex items-center w-8 h-8 mb-2" style="filter: brightness(0) saturate(100%) invert(49%) sepia(88%) saturate(739%) hue-rotate(86deg) brightness(91%) contrast(89%);">
+                                        </div>
+                                        <span class="text-sm font-semibold text-center text-green-500">{{ $kategori->nama_kategori }}</span>
                                     @else
-                                    <span class="text-sm font-semibold text-center">{{ $kategori->nama_kategori }}</span>
+                                        <div class="w-8 h-8 mb-2 rounded-full">
+                                            <img src="{{ asset('storage/images/kategori/' . $kategori->image) }}" alt="" class="flex items-center w-8 h-8 mb-2">
+                                        </div>
+                                        <span class="text-sm font-semibold text-center">{{ $kategori->nama_kategori }}</span>
                                     @endif
                                 </a>
                             </div>

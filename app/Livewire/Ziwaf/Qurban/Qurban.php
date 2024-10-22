@@ -3,36 +3,47 @@
 namespace App\Livewire\Ziwaf\Qurban;
 
 use Livewire\Component;
+use App\Models\pilihan_qurban;
 
 class Qurban extends Component
 {
     public $mudhohi = '';
-    public $daftar = '';
+    public $daftar = [];
     public $selectedOption = '';
     public $harga = 0;
     public $nominal = 0;
     public $qurban = [];
+    public $pilihan_qurbans;
 
     
+    public function mount()
+    {
+        $this->pilihan_qurbans = pilihan_qurban::all();
+    }
+    public function updatedSelectedOption()
+    {
+        $this->price();
+    }
+
     public function price()
     {
-        if ($this->selectedOption === 'Sapi') {
-            $this->harga = 3000000;
-        } elseif ($this->selectedOption === 'Kambing') {
-            $this->harga = 3000000;
-        } elseif ($this->selectedOption === 'Kambing+') {
-            $this->harga = 3200000;
-        } elseif ($this->selectedOption === 'Domba') {
-            $this->harga = 5500000;
+        if ($this->selectedOption) {
+            $pilihan_qurban = pilihan_qurban::where('nama', $this->selectedOption)->first();
+            $this->harga = $pilihan_qurban->harga ?? 0;
         }
 
-        $this->nominal = $this->harga * $this->mudhohi;
+        if ($this->mudhohi > 0) {
+            $this->nominal = $this->harga * $this->mudhohi;
+        } else {
+            $this->mudhohi = null;
+        }
     }
+
 
     public function submitqurban()
     {
         $mudhohi = $this->mudhohi;
-        $daftar = $this->daftar;
+        $daftar = json_encode($this->daftar);
         $selectedOption = $this->selectedOption;
         $nominal = $this->nominal;
 

@@ -9,17 +9,25 @@
                 <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Jenis Hewan</div>
                     <div class="w-4 text-gray-500text-center">:</div>
-                    <div>{{ $hewan }}</div>
+                    <div>{{ $jenis }}</div>
                 </div>
                 <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Jumlah Mudhohi</div>
                     <div class="w-4 text-gray-500text-center">:</div>
                     <div>{{ $jumlah }}</div>
                 </div>
-                <div class="flex items-center mb-2">
-                    <div class="w-40 text-gray-500">Nama Mudhohi</div>
-                    <div class="w-4 text-gray-500text-center">:</div>
-                    <div>{{ $mudhohi }}</div>
+                <div class="flex flex-col">
+                        @if($mudhohiList)
+                            @foreach ($mudhohiList as $index => $mudhohi)
+                                <div class="flex items-center mb-2">
+                                    <div class="w-40 text-gray-500">Mudhohi {{ $index + 1 }}</div>
+                                    <div class="w-4 text-gray-500text-center">:</div>
+                                    <div>{{ $mudhohi }}</div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div>Daftar Mudhohi Kosong</div>
+                        @endif
                 </div>
 
                 <label class="mt-4 font-semibold">Nominal Qurban</label>

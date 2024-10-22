@@ -29,7 +29,6 @@ class EditForm extends Component
 
     public function clear($id_user)
     {
-        $this->reset();
         $this->dispatch('refreshComponent');
         $user = User::find($id_user);
         if ($user) {
@@ -95,7 +94,7 @@ class EditForm extends Component
             ]);
         }
 
-        $this->reset();
+        $this->clear($this->id_user);
         $this->dispatch('postUpdated');
         return $user;
     }

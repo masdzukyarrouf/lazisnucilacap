@@ -206,8 +206,13 @@
                 </a>
             </li>
             <li>
-                <a href="/pilarProgram">
-                    <p class="{{ Request::is('pilarProgram.index') ? 'text-green-500' : 'text-gray-600' }}">Pilar dan Program</p>
+                <a href="/pilihan-qurban">
+                    <p class="{{ Request::is('pilihan-qurban') ? 'text-green-500' : 'text-gray-600' }}">Pilihan qurban</p>
+                </a>
+            </li>
+            <li>
+                <a href="/pilar-Program">
+                    <p class="{{ Request::is('pilar-Program') ? 'text-green-500' : 'text-gray-600' }}">Pilar & Program</p>
                 </a>
             </li>
             <li>
