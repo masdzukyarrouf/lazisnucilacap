@@ -24,6 +24,24 @@
             background-color: #4F46E5;
             /* Change the background color when checked */
         }
+        .spinner {
+            border: 5px solid rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            border-top: 5px solid #3498db;
+            width: 42px;
+            height: 42px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     @livewireStyles
@@ -51,6 +69,11 @@
         // Trigger Livewire like function
         // Livewire.dispatch('like', doaId);
     }
+    document.getElementById('no_telp').addEventListener('input', function (e) {
+        let value = e.target.value;
+        value = value.replace(/[^0-9+]/g, '');
+        e.target.value = value;
+    });
     </script>
 
 </body>

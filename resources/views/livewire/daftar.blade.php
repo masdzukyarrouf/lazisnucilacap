@@ -22,6 +22,17 @@
                                 @enderror
                             </div>
                         </div>
+                        <div>
+                            <label for="email"
+                                class="block text-sm font-medium leading-6 text-gray-900">Email</label>
+                            <div class="mt-2">
+                                <input wire:model="email" id="email" name="email" type="text"
+                                    class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                @error('email')
+                                    <small class="text-red-500">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div>
                             <label for="first_name" class="block text-sm font-medium leading-6 text-gray-900">Nama
@@ -41,7 +52,7 @@
                                 Belakang</label>
                             <div class="mt-2">
                                 <input wire:model="last_name" id="last_name" name="last_name" type="text"
-                                    autocomplete="last_name" required
+                                    autocomplete="last_name" 
                                     class="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 @error('last_name')
                                     <small class="text-red-500">{{ $message }}</small>
@@ -60,6 +71,15 @@
                                     <small class="text-red-500">{{ $message }}</small>
                                 @enderror
                             </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
+                            <textarea wire:model="alamat" rows="2"
+                                class="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                ></textarea>
+                            @error('alamat')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div>
@@ -85,3 +105,10 @@
             <div style="height: 67px "></div>
     </div>
 </div>
+<script>
+    document.getElementById('no_telp').addEventListener('input', function (e) {
+    let value = e.target.value;
+    value = value.replace(/[^0-9+]/g, '');
+    e.target.value = value;
+});
+</script>

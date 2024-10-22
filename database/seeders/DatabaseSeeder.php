@@ -31,12 +31,14 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'password' => '123',
             'role' => 'admin',
+            'email' => 'admin@gmail.com',
         ]);
 
         User::factory()->create([
             'username' => 'donatur',
             'password' => '123',
             'role' => 'donatur',
+            'email' => 'donatur@gmail.com',
         ]);
 
         Mitra::factory()->create([
