@@ -15,7 +15,7 @@
                 <div class="flex items-center">
                     <img src="{{ asset('images/Calendar.png') }}" alt="clock" class="w-3 h-3">
                     <p class="pl-1 text-xs text-gray-600 md:text-sm">
-                        {{ \Carbon\Carbon::parse($berita->tanggal)->format('d-m-Y') }}
+                        {{ \Carbon\Carbon::parse($berita->tanggal)->locale('id')->translatedFormat('d F Y') }}
                     </p>
                 </div>
             </div>

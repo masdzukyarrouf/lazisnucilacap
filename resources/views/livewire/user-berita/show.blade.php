@@ -8,7 +8,9 @@
                 <p class="pt-3 font-bold">{{ $berita->title_berita }}</p>
                 <div class="flex items-center mt-3">
                     <img src="{{ asset('images/Calendar.png') }}" alt="jam" class="w-4 h-4">
-                    <p class="pl-1 text-sm">{{ \Carbon\Carbon::parse($berita->tanggal)->format('d-m-Y') }}</p>
+                    <p class="pl-1 text-sm">
+                        {{ \Carbon\Carbon::parse($berita->tanggal)->locale('id')->translatedFormat('d F Y') }}
+                    </p>
                 </div>
                 <p class="pt-10">
                     {!! nl2br(e($berita->description)) !!}
@@ -23,7 +25,7 @@
 
                 <!-- Grid logo sosial media -->
                 <div class="flex space-x-2">
-                    <a href="https://api.whatsapp.com/send?text=Berita%20Lazisnu%20Cilacap%20{{ urlencode(url()->current()) }}"
+                    <a href="https://api.whatsapp.com/send?text=Berita%20Lazisnu%20Cilacap.%0A{{$berita->title_berita}}{{ urlencode(url()->current()) }}"
                         target="_blank" class="flex flex-col items-center">
                         <img src="{{ asset('images/whatsapp3.png') }}" alt="" class="w-10">
                     </a>
@@ -53,7 +55,7 @@
                                                 <img src="{{ asset('images/Calendar.png') }}" alt="pinpoint"
                                                     class="w-3 h-3">
                                                 <h1 class="pl-1 text-xs text-gray-600 md:text-sm">
-                                                    {{ \Carbon\Carbon::parse($berita->tanggal)->format('d-m-Y') }}
+                                                    {{ \Carbon\Carbon::parse($berita->tanggal)->locale('id')->translatedFormat('d F Y') }}
                                                 </h1>
                                             </div>
                                         </div>

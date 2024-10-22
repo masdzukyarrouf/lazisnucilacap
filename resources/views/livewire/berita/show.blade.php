@@ -21,8 +21,8 @@
                             <h1 class="text-2xl font-bold">{{ $berita->title_berita }}</h1>
                         </div>
                         <div class="flex items-center mt-5">
-                            <img src="{{ asset('images/clock.png') }}" alt="pinpoint" class="w-3 h-3 mt-2 mr-2">  
-                            <p class="mt-2">{{ $berita->tanggal }}</p>
+                            <img src="{{ asset('images/Calendar.png') }}" alt="pinpoint" class="w-3 h-3 mt-2 mr-2">  
+                            <p class="mt-2">{{ \Carbon\Carbon::parse($berita->tanggal)->locale('id')->translatedFormat('d F Y') }}</p>
                         </div>
             </div>
                     <div class="p-4 mx-16 mt-10 shadow-lg">

@@ -29,7 +29,7 @@
                                                 <img src="{{ asset('images/Calendar.png') }}" alt="pinpoint"
                                                     class="w-3 h-3">
                                                 <p class="pl-1 text-xs text-gray-600 md:text-sm">
-                                                    {{ \Carbon\Carbon::parse($berita->tanggal)->format('d-m-Y') }}
+                                                    {{ \Carbon\Carbon::parse($berita->tanggal)->locale('id')->translatedFormat('d F Y') }}
                                                 </p>
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@
                                                     <img src="{{ asset('images/Calendar.png') }}" alt="pinpoint"
                                                         class="w-3 h-3">
                                                     <h1 class="pl-1 text-xs text-gray-600 md:text-sm">
-                                                        {{ \Carbon\Carbon::parse($berita->tanggal)->format('d-m-Y') }}
+                                                        {{ \Carbon\Carbon::parse($berita->tanggal)->locale('id')->translatedFormat('d F Y') }}
                                                     </h1>
                                                 </div>
                                             </div>
@@ -96,7 +96,7 @@
                                                     <img src="{{ asset('images/Calendar.png') }}" alt="pinpoint"
                                                         class="w-3 h-3">
                                                     <h1 class="pl-1 text-xs text-gray-600 md:text-sm">
-                                                        {{ \Carbon\Carbon::parse($berita->tanggal)->format('d-m-Y') }}
+                                                        {{ \Carbon\Carbon::parse($berita->tanggal)->locale('id')->translatedFormat('d F Y') }}
                                                     </h1>
                                                 </div>
                                             </div>
