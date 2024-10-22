@@ -51,8 +51,8 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <input type="password" id="password" wire:model="password" name="password"
+                        <label for="password" class="block text-sm font-medium text-gray-700">Ganti Password</label>
+                        <input type="password" id="password" wire:model="password" name="password" placeholder="Masukkan Password Baru"
                             class="block w-full px-2 py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('password')
                             <span class="text-sm text-red-500">{{ $message }}</span>
