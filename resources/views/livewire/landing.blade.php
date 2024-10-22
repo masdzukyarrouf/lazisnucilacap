@@ -205,17 +205,17 @@
     <div class="mx-auto max-w-[1420px] flex flex-col items-center py-10 mt-8 bg-white">
         <!-- Title -->
         <div class="flex items-center justify-between w-full mb-8">
-            <div class="relative flex flex-col justify-between px-12">
+            <div class="relative flex flex-col justify-between px-4 mr-6">
                 <h2 class="font-semibold text-green-600 text-md md:text-lg">Campaign Lazisnu Cilacap</h2>
                 <h2 class="text-xs text-black md:text-sm">Berikut merupakan campaign terbaru Lazisnu Cilacap</h2>
             </div>
             <div>
                 <a href="{{ route('campaign') }}"
-                    class="overflow-hidden text-sm text-left text-green-500 md:hidden mr-14 hover:text-green-600 hover:cursor-pointer whitespace-nowrap text-ellipsis">Selengkapnya
+                    class="mr-4 overflow-hidden text-sm text-left text-green-500 md:hidden hover:text-green-600 hover:cursor-pointer whitespace-nowrap text-ellipsis">Selengkapnya
                     ></a>
 
                 <a href="{{ route('campaign') }}"
-                    class="relative hidden px-4 py-2 mr-12 text-white bg-green-500 rounded-md md:block hover:bg-green-600">
+                    class="relative hidden px-4 py-2 text-white bg-green-500 rounded-md md:block hover:bg-green-600">
                     Campaign Lainya
                 </a>
             </div>
@@ -277,19 +277,19 @@
 
     <!-- Berita Section -->
     <div
-        class="mx-auto max-w-[1420px] flex flex-col items-center w-full py-8 md:mt-[70px] mt-[50px] bg-center bg-cover shadow-md bg-gray-50 bg-opacity-90">
+        class="mx-auto max-w-[1420px] flex flex-col items-center w-full py-8 md:mt-[70px] bg-center bg-cover shadow-md bg-gray-50 bg-opacity-90">
         <!-- Title -->
         <div class="flex items-center justify-between w-full mb-8">
-            <div class="relative flex flex-col justify-between px-12">
+            <div class="relative flex flex-col justify-between px-4 mr-6">
                 <h2 class="text-lg font-semibold text-green-600">Berita Lazisnu Cilacap</h2>
                 <h2 class="text-sm text-black">Berikut merupakan berita terbaru Lazisnu Cilacap</h2>
             </div>
             <div>
                 <a
-                    class="overflow-hidden text-sm text-left text-green-500 md:hidden mr-14 hover:text-green-600 hover:cursor-pointer whitespace-nowrap text-ellipsis">Selengkapnya
-                    ></a>
+                    class="mr-4 overflow-hidden text-sm text-left text-green-500 md:hidden hover:text-green-600 hover:cursor-pointer whitespace-nowrap text-ellipsis">Selengkapnya >
+                </a>
                 <button
-                    class="relative hidden px-4 py-2 mr-12 text-white bg-green-500 rounded-md md:block hover:bg-green-600">
+                    class="relative hidden px-4 py-2 text-white bg-green-500 rounded-md md:block hover:bg-green-600">
                     <a href="{{ route('berita') }}">
                         Berita Lainya
                     </a>
@@ -303,7 +303,7 @@
                 <!-- Handle empty state -->
             @elseif($beritas)
                 @foreach ($beritas as $berita)
-                    <div class="flex w-full py-2 pt-2 border-b md:w-1/2 md:border-b-transparent border-b-gray-300">
+                    <div class="flex w-full py-4 border-b md:w-1/2 md:border-b-transparent border-b-gray-300">
                         <x-berita-card :berita="$berita" wire:key="{{ $berita->id_berita }}" />
                     </div>
                 @endforeach

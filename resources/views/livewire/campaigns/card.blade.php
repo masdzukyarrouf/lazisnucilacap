@@ -4,35 +4,35 @@
             <img src="{{ asset('storage/images/campaign/' . $campaign->main_picture) }}" alt="Picture"
                 class="object-cover w-full h-full hover:cursor-pointer">
             <div
-                class="hover:cursor-pointer absolute inset-0 flex items-center justify-center bg-green-600 bg-opacity-80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p class="text-white text-lg text-center">View Campaign</p>
+                class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 bg-green-600 opacity-0 hover:cursor-pointer bg-opacity-80 group-hover:opacity-100">
+                <p class="text-lg text-center text-white">View Campaign</p>
             </div>
         </div>
-        <div class="py-2 px-3  w-4/5 ">
+        <div class="w-4/5 px-3 py-2 ">
             <h2 class="text-[14px]  font-semibold text-gray-800">
                 {{ \Illuminate\Support\Str::limit($campaign->title, 20, '...') }}
             </h2>
-            <div class="flex justify-between items-center mt-2">
+            <div class="flex items-center justify-between mt-2">
                 <div class="flex items-center">
                     <img src="{{ asset('images/icon_location.png') }}" alt="pinpoint" class="w-3 h-3">
                     <p class="pl-1 text-[12px]  text-gray-600">{{ $campaign->lokasi }}</p>
                 </div>
-                <p class="pl-1 text-[12px] text-right text-green-600">{{ $campaign->kategori->nama_kategori ?? '' }}</p>
+                <p class="pl-1 text-[10px] text-right text-green-600">{{ \Illuminate\Support\Str::limit($campaign->kategori->nama_kategori ?? '', 10, '...') }}</p>
 
             </div>
             <div class="mt-3">
-                <div class="mb-2 h-1  bg-gray-200 rounded-full">
-                    <div class="h-1  bg-green-500 rounded-full" style="width: {{ $progress }}%;"></div>
+                <div class="h-1 mb-2 bg-gray-200 rounded-full">
+                    <div class="h-1 bg-green-500 rounded-full" style="width: {{ $progress }}%;"></div>
                 </div>
                 <div class="flex items-center justify-between">
                     <div class="text-[12px] text-left">
-                        <p class=" text-gray-700 ">Terhimpun</p>
-                        <p class=" text-green-600  font-bold">Rp.
+                        <p class="text-gray-700 ">Terhimpun</p>
+                        <p class="font-bold text-green-600 ">Rp.
                             {{ number_format($campaign->raised, 0, ',', '.') }}</p>
                     </div>
                     <div class="text-[12px] text-left">
-                        <p class=" text-gray-700 ">Sisa Hari</p>
-                        <p class=" text-gray-700  font-bold text-right">{{ $dayLeft }}</p>
+                        <p class="text-gray-700 ">Sisa Hari</p>
+                        <p class="font-bold text-right text-gray-700 ">{{ $dayLeft }}</p>
                     </div>
                 </div>
             </div>

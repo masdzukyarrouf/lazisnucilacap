@@ -7,20 +7,22 @@
         </div>
         
         <!-- Text Section -->
-        <div class="py-2 px-3 w-4/5 flex flex-col justify-between md:w-full">
+        <div class="flex flex-col justify-between w-4/5 px-2 pl-4 md:w-full">
             <h2 class="text-[14px] md:text-lg font-semibold text-gray-800">
-                {{ \Illuminate\Support\Str::limit($berita->title_berita, 35, '...') }}
+                {{ \Illuminate\Support\Str::limit($berita->title_berita, 60, '...') }}
             </h2>
-            <div class="flex justify-between items-center mt-2 md:text-lg">
+            <div class="flex justify-between mt-1 md:text-lg">
                 <div class="flex items-center">
-                    <img src="{{ asset('images/clock.png') }}" alt="clock" class="w-3 h-3">
-                    <p class="pl-1 text-xs text-gray-600 md:text-sm">{{ $berita->tanggal }}</p>
+                    <img src="{{ asset('images/Calendar.png') }}" alt="clock" class="w-3 h-3">
+                    <p class="pl-1 text-xs text-gray-600 md:text-sm">
+                        {{ \Carbon\Carbon::parse($berita->tanggal)->format('d-m-Y') }}
+                    </p>
                 </div>
             </div>
-            <p class="pl-1 text-[12px] md:text-lg text-left text-green-600">{{ $berita->kategori->nama_kategori ?? '' }}</p>
-            <div class="mt-3">
+            <p class="text-xs text-green-600 md:text-lg">{{ $berita->kategori->nama_kategori ?? '' }}</p>
+            {{-- <div class="mt-1">
                 <p class="text-[12px]  md:text-lg text-green-600"> Baca Selengkapnya...</p>
-            </div>
+            </div> --}}
         </div>
     </a>
 </div>

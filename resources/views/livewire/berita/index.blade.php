@@ -35,7 +35,7 @@
                     <td class="px-4 py-2">
                         {{ \Illuminate\Support\Str::limit($berita->description, 30, '...') }}
                     </td>
-                    <td class="px-4 py-2">{{ $berita->tanggal }}</td>
+                    <td class="px-4 py-2">{{ \Carbon\Carbon::parse($berita->tanggal)->format('d-m-Y') }}</td>
                     <td class="px-4 py-2">{{ $berita->kategori->nama_kategori ?? 'No Kategori' }}</td>
                     <td class="px-4 py-2">
                         <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="block w-24 mx-auto mt-2 mb-2">
