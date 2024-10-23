@@ -35,6 +35,7 @@ Route::middleware([CheckAdmin::class])->group(function () {
     Route::get('/pilar-Program', App\Livewire\PilarProgram\Index::class)->name(name: 'pilar-Program');
     Route::get('/laporan-admin', App\Livewire\LaporanAdmin\Index::class)->name('laporan-admin');
     Route::get('/notification', App\Livewire\Notification\Index::class)->name('notification');
+    Route::get('/komponen_ziwaf', App\Livewire\KomponenZiwafAdmin\Index::class)->name('komponen_ziwaf');
 
 });
 
@@ -164,11 +165,11 @@ Route::get('/pilar/{slug}', App\Livewire\PilarProgram\show::class)->name('pilarP
 
 Route::get('/send-email', function () {
     $data = [
-        'name' => 'Syahrizal As',
-        'body' => 'Testing Kirim Email di Santri Koding'
+        'name' => 'Andika Bastian',
+        'body' => 'madang apa su??'
     ];
 
-    Mail::to('masdzukyarrouf16@gmail.com')->send(new SendEmail($data));
+    Mail::to('satriayudha262@gmail.com')->send(new SendEmail($data));
 
     // dd("Email Berhasil dikirim.");
 });

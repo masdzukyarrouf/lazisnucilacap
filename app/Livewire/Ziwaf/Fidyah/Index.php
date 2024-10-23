@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Ziwaf\Fidyah;
 
+use App\Models\Komponen_Ziwaf;
 use Livewire\Component;
 
 class Index extends Component
@@ -10,12 +11,19 @@ class Index extends Component
     public $nominal_fidyah = 0;
     public $atasNama;
     public $data;
+    public $fidyah_perhari;
 
+
+    public function mount()
+    {
+        $kompZiwaf = Komponen_Ziwaf::find(1);
+        $this->fidyah_perhari = $kompZiwaf->fidyah;
+    }
     public function updatedNominal(){
         if($this->nominal == null){
             $this->nominal_fidyah = 0;
         }else{
-            $this->nominal_fidyah = $this->nominal * 60000 ?? 0;
+            $this->nominal_fidyah = $this->nominal * $this->fidyah_perhari ?? 0;
         }
     }
 

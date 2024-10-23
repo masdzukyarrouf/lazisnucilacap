@@ -211,6 +211,11 @@
                 </a>
             </li>
             <li>
+                <a href="/komponen_ziwaf">
+                    <p class="{{ Request::is('komponen_ziwaf') ? 'text-green-500' : 'text-gray-600' }}">Komponen Ziwaf</p>
+                </a>
+            </li>
+            <li>
                 <a href="/pilar-Program">
                     <p class="{{ Request::is('pilar-Program') ? 'text-green-500' : 'text-gray-600' }}">Pilar & Program</p>
                 </a>

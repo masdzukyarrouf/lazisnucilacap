@@ -104,7 +104,6 @@
                                     readonly 
                                 />
                             </div>
-                            <span class="text-xs font-semibold text-red-500">Sesuai SK Baznas No.1 Tahun 2024</span>
                         </div>
 
                         @if ($zakatEmas === 0)
@@ -206,7 +205,7 @@
                                         readonly 
                                     />
                                 </div>
-                                <span class="text-xs font-semibold text-red-500">Sesuai SK Baznas No.1 Tahun 2024</span>
+
                             </div>
 
                             @if ($zakatJasa === 0)
@@ -314,7 +313,7 @@
                                         readonly 
                                     />
                                 </div>
-                                <span class="text-xs font-semibold text-red-500">Sesuai SK Baznas No.1 Tahun 2024</span>
+
                             </div>
 
                             @if ($zakatDagang === 0)
@@ -434,7 +433,6 @@
                                     readonly 
                                 />
                             </div>
-                            <span class="text-xs font-semibold text-red-500">Sesuai SK Baznas No.1 Tahun 2024</span>
                         </div>
 
                         @if ($zakatPerdagangan === 0)
@@ -557,7 +555,6 @@
                                     readonly 
                                 />
                             </div>
-                            <span class="text-xs font-semibold text-red-500">Sesuai SK Baznas No.1 Tahun 2024</span>
                         </div>
 
                         @if ($zakatPenghasilan === 0)
@@ -686,7 +683,6 @@
                                     readonly 
                                 />
                             </div>
-                            <span class="text-xs font-semibold text-red-500">Sesuai SK Baznas No.1 Tahun 2024</span>
                         </div>
 
                         @if ($zakatPertanian === 0)
@@ -808,7 +804,6 @@
                                     readonly 
                                 />
                             </div>
-                            <span class="text-xs font-semibold text-red-500">Sesuai SK Baznas No.1 Tahun 2024</span>
                         </div>
 
                         @if ($zakatUang === 0)

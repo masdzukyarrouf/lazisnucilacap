@@ -14,6 +14,7 @@ use App\Models\Like;
 use App\Models\Berita;
 use App\Models\Mitra;
 use App\Models\Kategori;
+use App\Models\Komponen_Ziwaf;
 use App\Models\petugas;
 use App\Models\pilar_program;
 use App\Models\pilihan_infaq;
@@ -894,6 +895,13 @@ class DatabaseSeeder extends Seeder
 
         pilihan_wakaf::factory()->create([
             'pil_wakaf' => 'Umum',
+        ]);
+
+        Komponen_Ziwaf::factory()->create([
+            'harga_emas' => 1000000,
+            'nisab' => 85000000,
+            'nisab_kg' => 653,
+            'fidyah' => 30000,
         ]);
 
     }
