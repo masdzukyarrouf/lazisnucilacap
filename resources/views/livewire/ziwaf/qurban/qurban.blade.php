@@ -33,15 +33,18 @@
                     placeholder="Isi dengan jumlah Mudhohi" 
                     />
                     
-                    <label class="font-semibold">Daftar Mudhohi</label>
-                    @for ($i = 0; $i < $mudhohi; $i++)
-                        <input
-                            type="text"
-                            wire:model="daftar.{{ $i }}" 
-                            class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded" 
-                            placeholder="Nama Mudhohi ke-{{ $i + 1 }}"
-                        />
-                    @endfor
+                    @if ($mudhohi > 0)
+                        <label class="font-semibold">Daftar Mudhohi</label>
+                            @for ($i = 0; $i < $mudhohi; $i++)
+                                <input
+                                    type="text"
+                                    wire:model="daftar.{{ $i }}" 
+                                    class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded" 
+                                    placeholder="Nama Mudhohi ke-{{ $i + 1 }}"
+                                />
+                            @endfor
+                    @endif
+                    
         
                 <label class="font-semibold">Total Nominal Qurban</label>
                     <div class="relative flex flex-col mb-4">
