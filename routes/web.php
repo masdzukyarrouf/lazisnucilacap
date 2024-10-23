@@ -161,6 +161,8 @@ Route::get('/doa/{title}', App\Livewire\Campaigns\DoaList::class)->name('campaig
 Route::get('/pilar/{slug}', App\Livewire\PilarProgram\show::class)->name('pilarProgram.show');
 
 
+Route::get('/forgot-password', App\Livewire\ForgotPassword::class)->name('ForgotPassword');
+Route::get('/reset-password/{token}', App\Livewire\ResetPassword::class)->name('ResetPassword');
 
 
 Route::get('/send-email', function () {
@@ -169,7 +171,6 @@ Route::get('/send-email', function () {
         'body' => 'madang apa su??'
     ];
 
-    Mail::to('satriayudha262@gmail.com')->send(new SendEmail($data));
+    dd(Mail::to('masdzukyarrouf16@gmail.com')->send(new SendEmail($data)));
 
-    // dd("Email Berhasil dikirim.");
 });

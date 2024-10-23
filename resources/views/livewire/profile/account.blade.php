@@ -25,6 +25,14 @@
                         @enderror
                     </div>
                     <div class="mb-4">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="text" id="email" wire:model="email" name="email"
+                            class="block w-full px-2 py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                        @error('email')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-4">
                         <label for="first_name" class="block text-sm font-medium text-gray-700">Nama
                             Depan</label>
                         <input type="text" id="first_name" wire:model="first_name" name="first_name"

@@ -12,12 +12,12 @@
             <form wire:submit="login">
                 <div class="space-y-6 ">
                     <div>
-                        <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
                         <div class="mt-2">
                             <input
                                 class="block w-full rounded-md border-0 py-1.5 px-2  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                wire:model='username' type="text" name="username" id="username">
-                            @error('username')
+                                wire:model='email' type="text" name="email" id="email">
+                            @error('email')
                                 <small class="text-red-500">{{ $message }}</small>
                             @enderror
                         </div>
@@ -37,11 +37,16 @@
                             @enderror
                         </div>
                         <div class="mt-1 text-sm">
-                            <a href="#" class="font-semibold text-green-500 hover:text-green-600">Forgot
+                            <a href="{{route('ForgotPassword')}}" class="font-semibold text-green-500 hover:text-green-600">Forgot
                                 password?</a>
                         </div>
                     </div>
-
+                    <div wire:loading>
+                        <div class="mt-2 w-full flex flex-row items-center space-x-2">
+                            <div class="spinner"></div>
+                            <div class="spinner-text">Memproses Permintaan...</div>
+                        </div>
+                    </div>
                     <div>
                         <button type="submit"
                             class="flex w-full justify-center rounded-md bg-green-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500">Masuk</button>

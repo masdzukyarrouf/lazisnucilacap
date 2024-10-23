@@ -9,7 +9,7 @@ use App\Models\User;
 
 class Login extends Component
 {
-    public $username;
+    public $email;
     public $password;
     public $zakat = [
         'nominal' => 0,
@@ -45,18 +45,21 @@ class Login extends Component
     {
         // Validasi input
         $validatedData = $this->validate([
-            'username' => 'required|string',
+            'email' => 'required|string',
             'password' => 'required|string',
+        ], [
+            'password.required' => 'Password wajib diisi',
+            'email.required' => 'Email wajib diisi',
         ]);
 
         // Cek apakah username ada di database
-        $user = User::where('username', $validatedData['username'])->first();
+        $user = User::where('email', $validatedData['email'])->first();
 
         if ($user) {
             // Coba login user
             if (
                 Auth::attempt([
-                    'username' => $validatedData['username'],
+                    'email' => $validatedData['email'],
                     'password' => $validatedData['password']
                 ])
             ) {
@@ -74,7 +77,7 @@ class Login extends Component
                     return redirect()->route('landing');
                 }
             } else {
-                // Jika password salah
+                $this->password = '';
                 throw ValidationException::withMessages([
                     'password' => 'Password salah.',
                 ]);
@@ -82,7 +85,7 @@ class Login extends Component
         } else {
             // Jika username tidak ditemukan
             throw ValidationException::withMessages([
-                'username' => 'Username salah.',
+                'email' => 'Email tidak ditemukan.',
             ]);
         }
     }

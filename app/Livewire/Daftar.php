@@ -12,25 +12,30 @@ class Daftar extends Component
     public $last_name;
     public $password;
     public $no_telp;
+    public $email;
+    public $alamat;
 
     public function simpan()
     {
-        \Log::info('Simpan method called');
         $this->validate([
-            'username' => 'required|unique:users',
+            'username' => 'required|',
             'first_name' => 'required',
-            'last_name' => 'required',
+            'last_name' => 'nullable',
             'no_telp' => 'required',
             'password' => 'required',
+            'alamat' => 'required',
+            'email' => ['required', 'regex:/^[\w\.-]+@gmail\.com$/', 'unique:users'],
+
         ], [
-            'username.unique' => 'The username sudah dipakai. Buat username yang lain', 
-            'username.required' => 'The username field is required.', 
-            'first_name.required' => 'The first name field is required.',
-            'last_name.required' => 'The last name field is required.',
-            'no_telp.required' => 'The phone number field is required.',
-            'password.required' => 'The password field is required.',
+            'username.required' => 'Username wajib diisi.',
+            'first_name.required' => 'Nama Depan wajib diisi',
+            'no_telp.required' => 'Nomer telepon wajib diisi',
+            'password.required' => 'Password wajib diisi',
+            'alamat.required' => 'Alamat wajib diisi',
+            'email.required' => 'Email wajib diisi',
+            'email.unique' => 'Email sudah dipakai. Gunakan email yang lain',
+            'email.regex' => 'Email harus berupa @gmail.com',
         ]);
-        
 
         $user = User::create([
             'username' => $this->username,
@@ -38,17 +43,17 @@ class Daftar extends Component
             'last_name' => $this->last_name,
             'password' => bcrypt($this->password),
             'no_telp' => $this->no_telp,
+            'email' => $this->email,
             'role' => 'donatur',
-            'alamat' => 'alamat'
+            'alamat' => $this->alamat,
         ]);
 
-        if($user)
-        {
+        if ($user) {
             session()->flash('success', 'Registrasi Berhasil');
             return redirect()->route('login');
-        }else{
+        } else {
             session()->flash('success', 'Registrasi Gagal');
-            
+
         }
     }
 
