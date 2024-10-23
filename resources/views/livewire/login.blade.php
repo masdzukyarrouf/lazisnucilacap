@@ -37,7 +37,7 @@
                             @enderror
                         </div>
                         <div class="mt-1 text-sm">
-                            <a href="#" class="font-semibold text-green-500 hover:text-green-600">Forgot
+                            <a href="{{route('ForgotPassword')}}" class="font-semibold text-green-500 hover:text-green-600">Forgot
                                 password?</a>
                         </div>
                     </div>
