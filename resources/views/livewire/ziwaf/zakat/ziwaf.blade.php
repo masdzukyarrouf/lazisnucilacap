@@ -895,7 +895,7 @@
                                     <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9">Rp. </span>
                                     <input 
                                     type="text" 
-                                    value="{{ $zakatFitrah }}" 
+                                    value="{{ number_format($zakatFitrah, 0, ',', '.') }}"
                                     class="w-full py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14" 
                                     placeholder="0" 
                                     readonly 

@@ -45,7 +45,7 @@ class Ziwaf extends Component
     public $zakatDagang;
 
 
-    public $fitrah = 'true';
+    public $fitrah = 'false';
     public $jumlah;
     public $nama = [];
     public $muzakki;

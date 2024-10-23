@@ -11,23 +11,23 @@
                     </span>
                     <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Jumlah Muzakki</div>
-                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div class="w-4 text-center text-gray-500">:</div>
                     <div>{{ $jumlah }}</div>
                 </div>
-                <div class="flex items-center mb-2">
-                    <div class="w-40 text-gray-500">Nama Muzakki</div>
-                    <div class="w-4 text-gray-500text-center">:</div>
-                    <div>
+                @foreach ($this->namaMuzakki as $index => $nama)
+                    <div class="flex items-center mb-2">
+                        <div class="w-40 text-gray-500">Nama Muzakki {{ $index + 1 }}</div>
+                        <div class="w-4 text-center text-gray-500">:</div>
+                        <div>
 
-                        @foreach ($this->namaMuzakki as $index => $nama)
-                            {{ $nama }}@if (!$loop->last),@endif
-                        @endforeach
-
+                            {{ $nama }}
+                            
+                        </div>
                     </div>
-                </div>
+                @endforeach
                 <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Total Zakat</div>
-                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div class="w-4 text-center text-gray-500">:</div>
                     <div>{{ $jumlah }}</div>
                     <span>paket</span>
                 </div>

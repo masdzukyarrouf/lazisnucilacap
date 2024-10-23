@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckAdmin;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
 
 
 Route::get('/welcome', function () {
@@ -156,3 +158,17 @@ Route::get('/campaigns', App\Livewire\Campaigns\Index::class)->name('campaign');
 Route::get('/campaigns/{title}', App\Livewire\Campaigns\Show::class)->name('campaigns.show');
 Route::get('/doa/{title}', App\Livewire\Campaigns\DoaList::class)->name('campaigns.doaList');
 Route::get('/pilar/{slug}', App\Livewire\PilarProgram\show::class)->name('pilarProgram.show');
+
+
+
+
+Route::get('/send-email', function () {
+    $data = [
+        'name' => 'Syahrizal As',
+        'body' => 'Testing Kirim Email di Santri Koding'
+    ];
+
+    Mail::to('masdzukyarrouf16@gmail.com')->send(new SendEmail($data));
+
+    // dd("Email Berhasil dikirim.");
+});
