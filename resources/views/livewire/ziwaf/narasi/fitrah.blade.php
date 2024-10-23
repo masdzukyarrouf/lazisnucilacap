@@ -20,9 +20,9 @@
                 Zakat Fitrah ditunaikan sejak awal Ramadhan dan paling lambat dilakukan sebelum pelaksanaan Shalat Idul Fitri. Sementara itu, penyalurannya kepada mustahik (penerima zakat) paling lambat dilakukan sebelum pelaksanaan shalat Idul Fitri. 
                 (Sumber: Peraturan Menteri Agama Nomor 52 Tahun 2014, SK Ketua BAZNAS No. 10 Tahun 2024, Hadist Riwayat Bukhari Muslim, dan pendapat Shaikh Yusuf Qardawi). 
             </span>
-            <a href="{{Route('zakat')}}" class="mt-4 text-xs font-semibold text-green-500">
+            <button wire:click="data" class="mt-4 text-xs font-semibold text-left text-green-500">
                 Bayar Fitrah Disini ...
-            </a>
+            </button>
 
         </div>
         <div class="mb-16"></div>

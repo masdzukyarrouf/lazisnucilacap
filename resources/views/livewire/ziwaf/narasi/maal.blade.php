@@ -42,9 +42,9 @@
                 Mencapai haul
                 Atau dapat ditunaikan saat panen
             </span>
-            <a href="{{Route('zakat')}}" class="mt-4 text-xs font-semibold text-green-500">
-                Bayar Maal Disini ...
-            </a>
+            <button wire:click="data" class="mt-4 text-xs font-semibold text-left text-green-500">
+                Bayar Fitrah Disini ...
+            </button>
 
         </div>
         <div class="mb-16"></div>

@@ -64,6 +64,7 @@ class Ziwaf extends Component
     public $harga_emas;
     public $nominal_nisab;
     public $nisab_kg;
+    public $data;
     public $goldPrice = [];
     public $site = 'lakuemas'; // Default site
 
@@ -253,9 +254,17 @@ class Ziwaf extends Component
         $this->nominal_nisab = $komZiwaf->nisab;
         $this->nisab_kg = $komZiwaf->nisab_kg;
 
+        $this->data = session('data', '');
+        if ($this->data == 'fitrah') {
+            $this->selectedOption = 'fitrah';
+        }elseif ($this->data == 'maal') {
+            $this->selectedOption = 'maal';
+        }
+
+
         // redirect()->route(route: 'x');
-        $this->selectedOption = '';
-        $this->selectedOption2 = '';
+        // $this->selectedOption = '';
+        // $this->selectedOption2 = '';
         // dd($this->selectedOption);
         // $this->fetchGoldPrice();
         // $this->nisab = 85 * $this->goldPrice[0]['sell'];
