@@ -904,6 +904,7 @@ class DatabaseSeeder extends Seeder
             'nisab' => 85000000,
             'nisab_kg' => 653,
             'fidyah' => 30000,
+            'nominal_fitrah' => 30000
         ]);
 
     }

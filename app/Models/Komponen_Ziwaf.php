@@ -16,5 +16,6 @@ class Komponen_Ziwaf extends Model
         'nisab',
         'nisab_kg',
         'fidyah',
+        'nominal_fitrah',
     ];
 }

@@ -4,14 +4,6 @@
         <livewire:ziwaf.navigation/>
         <div class="flex flex-col p-4">
             <h1 class="pb-2 font-semibold">Harga Hewan Qurban</h1>
-                <div class="relative w-full md:w-96">
-                    <a href="{{ asset('storage/table_harga_hewan_qurban_2024.pdf') }}">
-                        <button class="flex items-center w-full px-4 py-2 border border-gray-300 rounded">
-                            <img src="{{ asset ('images/paper.png') }}" alt="logo" class="w-6">
-                            <span class="pl-2 text-sm font-semibold">Tabel Harga Hewan Qurban 2024.pdf</span>
-                        </button>
-                    </a>
-                </div>
             </div>
             <div class="flex flex-col justify-center px-4">
                 <h1 class="pb-2 font-semibold">Jenis Hewan</h1>
@@ -23,6 +15,27 @@
                             @endforeach
                         </select>
                     </div>
+                    @if ($selectedOption)
+                        @php
+                            // Find the selected item based on the selectedOption
+                            $selectedQurban = $pilihan_qurbans->firstWhere('nama', $selectedOption);
+                        @endphp
+                        @if ($selectedQurban)
+                            <label class="font-semibold">Harga</label>
+                            <div class="relative flex flex-col mb-4">
+                                <div class="flex items-center justify-center">
+                                    <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9">Rp. </span>
+                                    <input 
+                                        type="text" 
+                                        value="{{ number_format($selectedQurban->harga, 0, ',', '.') }} / Mudhohi" 
+                                        class="w-full py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14 md:w-96" 
+                                        placeholder="Rp. 0" 
+                                        readonly 
+                                    />
+                                </div>
+                            </div>
+                        @endif
+                    @endif
                     <label class="font-semibold">Jumlah Mudhohi</label>
                     <input
                     type="number" 
@@ -47,6 +60,7 @@
                     
         
                 <label class="font-semibold">Total Nominal Qurban</label>
+                @if ($mudhohi > 0)
                     <div class="relative flex flex-col mb-4">
                         <div class="flex items-center justify-center">
                             <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9">Rp. </span>
@@ -59,6 +73,20 @@
                             />
                         </div>
                     </div>
+                @else
+                    <div class="relative flex flex-col mb-4">
+                        <div class="flex items-center justify-center">
+                            <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9">Rp. </span>
+                            <input 
+                                type="text" 
+                                value="0" 
+                                class="w-full py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14 md:w-96" 
+                                placeholder="Rp. 0" 
+                                readonly 
+                            />
+                        </div>
+                    </div>
+                @endif
             </div>
             
                     <div class="flex items-center justify-center mt-4">
