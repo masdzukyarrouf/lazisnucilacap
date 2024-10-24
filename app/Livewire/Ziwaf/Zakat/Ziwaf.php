@@ -52,6 +52,7 @@ class Ziwaf extends Component
     public $muzakki;
     public $total = 0;
     public $zakatFitrah;
+    public $nominal_fitrah;
 
 
     public $selectedOption = '';
@@ -71,7 +72,7 @@ class Ziwaf extends Component
 
     public function hitung()
     {
-       $this->zakatFitrah = $this->jumlah * 30000; //30000 cuma contoh
+       $this->zakatFitrah = $this->jumlah * $this->nominal_fitrah;
         $this->total = $this->jumlah;
     }
 
@@ -253,6 +254,7 @@ class Ziwaf extends Component
         $this->harga_emas = $komZiwaf->harga_emas;
         $this->nominal_nisab = $komZiwaf->nisab;
         $this->nisab_kg = $komZiwaf->nisab_kg;
+        $this->nominal_fitrah = $komZiwaf->nominal_fitrah;
 
         $this->data = session('data', '');
         if ($this->data == 'fitrah') {

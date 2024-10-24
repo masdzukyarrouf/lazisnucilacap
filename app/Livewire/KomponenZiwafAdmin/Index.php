@@ -9,10 +9,12 @@ class Index extends Component
 {
     public $KomZiwaf;
     public $harga_emas;
+    public $nominal_fitrah;
     public $nisab;
     public $nisab_kg;
     public $fidyah;
     public $harga_emas2;
+    public $nominal_fitrah2;
     public $nisab2;
     public $fidyah2;
 
@@ -24,6 +26,7 @@ class Index extends Component
             'nisab2' => 'required|numeric',
             'nisab_kg' => 'required|numeric',
             'fidyah2' => 'required|numeric',
+            'nominal_fitrah' => 'required|numeric',
         ];
     }
 
@@ -35,6 +38,7 @@ class Index extends Component
         $this->nisab = $kompZiwaf->nisab ? number_format($kompZiwaf->nisab, 0, ',', '.') : 0;
         $this->nisab_kg = $kompZiwaf->nisab_kg;
         $this->fidyah = $kompZiwaf->fidyah ? number_format($kompZiwaf->fidyah, 0, ',', '.') : 0;
+        $this->nominal_fitrah = $kompZiwaf->nominal_fitrah ? number_format($kompZiwaf->nominal_fitrah, 0, ',', '.') : 0;
     }
 
     public function convert()
@@ -47,6 +51,9 @@ class Index extends Component
 
         $fidyah = !empty($this->fidyah) ? (float) str_replace('.', '', $this->fidyah) : 0;
         $this->fidyah2 = $fidyah;
+
+        $nominal_fitrah = !empty($this->nominal_fitrah) ? (float) str_replace('.', '', $this->nominal_fitrah) : 0;
+        $this->nominal_fitrah2 = $nominal_fitrah;
 
         $this->update();
 
@@ -63,6 +70,7 @@ class Index extends Component
             'nisab' => $this->nisab2,
             'nisab_kg' => $this->nisab_kg,
             'fidyah' => $this->fidyah2,
+            'nominal_fitrah' => $this->nominal_fitrah2
         ]);
 
         $this->dispatch('updated', ['message' => 'Komponen Ziwaf Berhasil di Update']);

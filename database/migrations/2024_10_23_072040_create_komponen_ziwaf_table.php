@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('nisab');
             $table->integer('nisab_kg');
             $table->integer('fidyah');
+            $table->integer('nominal_fitrah');
             $table->timestamps();
         });
     }
