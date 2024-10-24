@@ -10,6 +10,7 @@ use App\Models\gambar_landing;
 use App\Models\visi;
 use App\Models\misi;
 use App\Models\Donasi;
+use App\Models\petugas;
 use App\Models\Transaction;
 use App\Models\User;
 
@@ -23,11 +24,19 @@ class Landing extends Component
     public $misis;
     public $banyak_donasi;
     public $mitraCount;
+    public $petugas;
+
+
     public function mount()
     {
         User::createIfEmpty();
 
         $this->mitraCount = mitra::query()->count();
+
+        $this->petugas = petugas::query()
+        ->where('bagian', 'konsultasi zakat')
+        ->first();
+        // dd($this->petugas);
 
         $this->banyak_donasi = Donasi::whereHas('transaction', function ($query) {
             $query->where('status', 'success');

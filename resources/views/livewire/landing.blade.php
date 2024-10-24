@@ -44,14 +44,14 @@
         <div class="flex justify-center -mt-24 space-x-2 md:space-x-4">
             <!-- Item 1 -->
             <a
-                href="https://wa.me/62895392167815?text=Assalamualaikum,%20saya%20ingin%20berkonsultasi%20mengenai%20zakat">
+                href="https://wa.me/{{ $petugas->no }}?text={{ urlencode('Assalamualaikum, saya ingin berkonsultasi mengenai zakat') }}">
                 <div
                     class="flex flex-col items-center w-20 p-4 bg-white rounded-lg shadow-2xl sm:w-36 sm:h-36 md:w-48 md:h-44 h-[110px]">
                     <div class="p-4 bg-green-500 rounded-full">
                         <img src="{{ asset('images/Phone Message.png') }}" alt="Image 1"
                             class="w-6 h-4 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
                     </div>
-                    <p class="text-[10px] mt-2 md:text-lg font-medium text-center text-gray-800">Konsultasi</p>
+                    <p class="text-[10px] mt-2 md:text-lg font-medium text-center text-gray-800">Konsultasi Zakat</p>
                 </div>
             </a>
 

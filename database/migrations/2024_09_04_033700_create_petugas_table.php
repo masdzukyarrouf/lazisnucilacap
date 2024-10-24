@@ -15,7 +15,7 @@ return new class extends Migration
             $table->integer('id_petugas')->autoIncrement()->primary();
             $table->string('no');
             $table->string('nama');
-            $table->string('bagian');
+            $table->string('bagian')->unique();
             $table->timestamps();
         });
     }

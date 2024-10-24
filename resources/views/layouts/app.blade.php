@@ -68,7 +68,7 @@
             <!-- Column 1 -->
             <div class="w-5/12 mb-4 md:mb-0">
                 <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="w-auto h-12">
-                <p class="mb-8 text-sm text-gray-700">Lazisnucilacap.com adalah situs resmi Lembaga Amil Zakat, Infaq
+                <p class="pt-4 mb-8 text-sm text-gray-700">Lazisnucilacap.com adalah situs resmi Lembaga Amil Zakat, Infaq
                     dan Shadaqah Nahdlatul Ulama (LAZISNU) Kabupaten Cilacap. Saran dan kritik :
                     nucarelazisnukabupatencilacap@gmail.com</p>
                 <ul class="flex space-x-8">
