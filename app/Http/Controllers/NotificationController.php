@@ -23,43 +23,47 @@ class NotificationController extends Controller
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
             $response = curl_exec($ch);
-
+    
             if (curl_errno($ch)) {
                 throw new Exception(curl_error($ch));
             }
-
-            // $responseInfo = curl_getinfo($ch);
-
-            // $httpResponseCode = $responseInfo['http_code'];
-            // curl_close($ch);
-            // return (int)$httpResponseCode;
-            // return 200;
-
+    
             $decoded = json_decode($response, true);
-
             curl_close($ch);
-
+    
+            // Ensure we are always returning an array
             if (isset($decoded["status"]) && $decoded['status']) {
                 return [
                     'status' => 'success',
                     'message' => null,
                 ];
             } else {
-                if ($decoded['message'] == 'The number is not registered') {
-                    return [
-                        'status' => 'error',
-                        'message' => 'Nomor HP tidak terdaftar Whatsapp'
-                    ];
-                } else if ($decoded['message'] == 'Session not found.') {
-                    return [
-                        'status' => 'error',
-                        'message' => 'Notifikasi WA sedang sibuk, coba kirim ulang lagi nanti'
-                    ];
+                if (isset($decoded['message'])) {
+                    if ($decoded['message'] == 'The number is not registered') {
+                        return [
+                            'status' => 'error',
+                            'message' => 'Nomor HP tidak terdaftar Whatsapp'
+                        ];
+                    } else if ($decoded['message'] == 'Session not found.') {
+                        return [
+                            'status' => 'error',
+                            'message' => 'Notifikasi WA sedang sibuk, coba kirim ulang lagi nanti'
+                        ];
+                    }
                 }
+                // Default case for unexpected responses
+                return [
+                    'status' => 'error',
+                    'message' => 'Unknown error occurred'
+                ];
             }
             
         } catch (\Exception $e) {
-            return $e->getMessage();
+            // Return exception message in array format
+            return [
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ];
         }
     }
 }
