@@ -6,17 +6,17 @@
             <form wire:submit="bayarFidyah">
                 <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Atas nama</div>
-                    <div class="w-4 text-gray-500 text-center">:</div>
+                    <div class="w-4 text-center text-gray-500">:</div>
                     <div>{{ $atasNama }}</div>
                 </div>
 
                 <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Hari</div>
-                    <div class="w-4 text-gray-500 text-center">:</div>
+                    <div class="w-4 text-center text-gray-500">:</div>
                     <div>{{ $hari }}</div>
                 </div>
 
-                <label class="text-md font-bold">Nominal</label>
+                <label class="font-bold text-md">Nominal</label>
                 <div class="relative flex items-center justify-center mt-2 mb-4 text-black-500">
                     <span
                         class="absolute inset-y-0 left-0 flex font-bold items-center px-3 bg-gray-300 rounded h-9 text-[14px] border border-gray-400">Rp.
@@ -62,9 +62,9 @@
                 <p class="text-[10px]  mb-4">
                     Data pribadi Anda akan digunakan untuk memproses pesanan Anda, menunjang pengalaman Anda di seluruh
                     situs web ini, dan untuk tujuan lain yang dijelaskan dalam
-                    <a href="#" class="text-blue-500 hover:underline">kebijakan privasi</a> kami.
+                    <a href="/ziwaf/KebijakanPrivasi" class="text-blue-500 hover:underline">kebijakan privasi</a> kami.
                 </p>
-                <button type="submit" class="w-full p-2 text-white font-bold bg-green-500 rounded-md">Bayar Fidyah
+                <button type="submit" class="w-full p-2 font-bold text-white bg-green-500 rounded-md">Bayar Fidyah
                     Sekarang</button>
             </form>
         </div>

@@ -901,7 +901,7 @@ class DatabaseSeeder extends Seeder
 
         Komponen_Ziwaf::factory()->create([
             'harga_emas' => 1000000,
-            'nisab' => 85000000,
+            'nisab' => 1000000,
             'nisab_kg' => 653,
             'fidyah' => 30000,
             'nominal_fitrah' => 30000
