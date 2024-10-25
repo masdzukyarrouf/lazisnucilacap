@@ -75,7 +75,7 @@
                         <img src="{{ asset('images/rekening.png') }}" alt="Image 3"
                             class="w-6 h-4 md:p-1 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
                     </div>
-                    <p class="text-[10px] mt-2 md:text-lg font-medium text-center text-gray-800">Rekening Donasi</p>
+                    <p class="text-[10px] mt-2 md:text-lg font-medium text-center text-gray-800">Rekening Lazisnu Cilacap</p>
                 </div>
             </a>
 
