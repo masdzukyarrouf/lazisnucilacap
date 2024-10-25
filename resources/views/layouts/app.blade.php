@@ -69,15 +69,15 @@
             <div class="w-5/12 mb-4 md:mb-0">
                 <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="w-auto h-12">
                 <p class="pt-4 mb-8 text-sm text-gray-700">
-    Lazisnucilacap.com adalah situs resmi Lembaga Amil Zakat, Infaq
-    dan Shadaqah Nahdlatul Ulama (LAZISNU) Kabupaten Cilacap.
-    <br>Saran dan kritik: 
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nucarelazisnukabupatencilacap@gmail.com&su=Saran%20dan%20Kritik&body=Assalamualaikum%20tim%20Lazisnu%20Cilacap" 
-        target="_blank" 
-        class="text-blue-500 hover:underline">
-        nucarelazisnukabupatencilacap@gmail.com
-    </a>
-</p>
+                    Lazisnucilacap.com adalah situs resmi Lembaga Amil Zakat, Infaq
+                    dan Shadaqah Nahdlatul Ulama (LAZISNU) Kabupaten Cilacap.
+                    <br>Saran dan kritik: 
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nucarelazisnukabupatencilacap@gmail.com&su=Saran%20dan%20Kritik&body=Assalamualaikum%20tim%20Lazisnu%20Cilacap" 
+                        target="_blank" 
+                        class="text-blue-500 hover:underline">
+                        nucarelazisnukabupatencilacap@gmail.com
+                    </a>
+                </p>
 
 
                 <ul class="flex space-x-8">

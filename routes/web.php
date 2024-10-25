@@ -119,6 +119,10 @@ Route::get('/hijau', App\Livewire\Hijau::class)->name('hijau');
 
 Route::get('/laporan', App\Livewire\Laporan::class)->name('laporan');
 
+Route::get('/rekening', App\Livewire\Rekening::class)->name('rekening');
+
+Route::get('/qr_donasi', App\Livewire\QRDonasi::class)->name('qr_donasi');
+
 Route::get('/konfirmasi', App\Livewire\UserKonfirmasi::class)->name('user-konfirmasi');
 
 Route::get('/pengajuan-mobiznu', App\Livewire\PengajuanMobiznu::class)->name('pengajuan-mobiznu');
@@ -163,14 +167,3 @@ Route::get('/pilar/{slug}', App\Livewire\PilarProgram\show::class)->name('pilarP
 
 Route::get('/forgot-password', App\Livewire\ForgotPassword::class)->name('ForgotPassword');
 Route::get('/reset-password/{token}', App\Livewire\ResetPassword::class)->name('ResetPassword');
-
-
-Route::get('/send-email', function () {
-    $data = [
-        'name' => 'Andika Bastian',
-        'body' => 'madang apa su??'
-    ];
-
-    dd(Mail::to('masdzukyarrouf16@gmail.com')->send(new SendEmail($data)));
-
-});
