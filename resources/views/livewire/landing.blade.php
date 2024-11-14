@@ -26,12 +26,12 @@
                         @if ($landing->link == '-')
                             <a class="h-auto min-w-full ">
                                 <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                                    class="h-auto min-w-full" style="aspect-ratio: 16/9;"/>
+                                    class="h-auto min-w-full" style="aspect-ratio: 15/6;"/>
                             </a>
                         @else
-                            <a href="{{ $landing->link }}" class="h-auto min-w-full ">
+                            <a href="{{ $landing->link }}" class="h-auto min-w-full">
                                 <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                                    class="h-auto min-w-full" style="aspect-ratio: 16/9;"/>
+                                    class="h-auto min-w-full" style="aspect-ratio: 15/6.5;"/>
                             </a>
                         @endif
                     @endforeach
@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div class="relative flex justify-center w-full mt-16 z-12">
+    <div class="relative flex justify-center w-full -mt-12 z-12">
         <div class="flex justify-center -mt-24 space-x-2 md:space-x-4">
             <!-- Item 1 -->
             <a
