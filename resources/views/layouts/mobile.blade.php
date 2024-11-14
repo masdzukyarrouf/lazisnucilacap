@@ -7,9 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- kirim title lewat class, default app name di env --}}
     <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
+    <link rel="icon" type="image/png" href="images\25636001732.png">
 
     @vite('resources/css/app.css')
     <style>
+        .floating-link {
+            position: fixed;
+            bottom: 90px; /* Distance from the bottom of the viewport */
+            /* right: 20px; Distance from the right of the viewport */
+            background-color: #f0fff4; /* Light green background */
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+            z-index: 1000; /* Ensures it stays on top of other elements */
+            transition: background-color 0.3s;
+        }
+        
+        .floating-link:hover {
+            background-color: #e6ffe8; /* Slightly darker on hover */
+        }
+        
         .sidebar {
             transform: translateX(-100%);
             transition: transform 0.3s ease-in-out;

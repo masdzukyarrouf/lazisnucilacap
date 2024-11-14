@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Qurban" backUrl="{{ route('landing') }}"/>
-    <div class="flex flex-col h-full min-h-screen bg-gray-100 shadow-md" style="width: 414px;">
+    <div class="flex flex-col w-screen min-h-screen pb-24 bg-white shadow-md md:w-[414px]">
         <div class="p-4 bg-[#56B44926] bg-opacity-15">
             <span class="flex flex-col mb-2 font-semibold text-green-500">
                 Tentang Qurban
@@ -25,10 +25,9 @@ Selain sebagai bentuk ibadah, qurban juga memiliki dimensi sosial dan kemanusiaa
 
 Sejarah qurban dalam agama Islam melibatkan nilai-nilai keimanan, pengorbanan, ketundukan, dan kepedulian sosial. Ibadah ini terus menjadi bagian integral dari praktik keagamaan dan budaya umat Muslim di seluruh dunia.
             </span>
-            <a href="{{route('qurban')}}" class="mt-4 text-xs font-semibold text-green-500">
+            <a href="{{route('qurban')}}" class="mt-4 text-xs font-semibold text-green-500 floating-link md:right-[580px] right-[20px]">
                 Bayar Qurban Disini ...
             </a>
         </div>
-        <div class="mb-16"></div>
     </div>
 </div>

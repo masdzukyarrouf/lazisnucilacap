@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Infak" backUrl="{{ route('landing') }}"/>
-    <div class="flex flex-col h-full min-h-screen bg-gray-100 shadow-md" style="width: 414px;">
+    <div class="flex flex-col w-screen min-h-screen pb-24 bg-white shadow-md md:w-[414px]">
         <div class="p-4 bg-[#56B44926] bg-opacity-15">
             <span class="flex flex-col mb-2 font-semibold text-green-500">
                 Tentang Infak
@@ -25,10 +25,9 @@
                 3. Allah Ganti Harta yang Diinfakkan
                 "Katakanlah: 'Sesungguhnya Tuhanku melapangkan rezeki bagi siapa yang dikehendaki-Nya di antara hamba-hamba-Nya dan menyempitkan bagi (siapa yang dikehendaki-Nya)'. Dan barang apa saja yang kamu nafkahkan (belanjakan), maka Allah akan menggantinya dan Dialah Pemberi rezeki yang sebaik-baiknya." (QS. Saba: 39). 
             </span>
-            <a href="{{route('infaq.index')}}" class="mt-4 text-xs font-semibold text-green-500">
+            <a href="{{route('infaq.index')}}" class="mt-4 text-xs font-semibold text-green-500 floating-link md:right-[580px] right-[20px]">
                 Bayar Infak Disini ...
             </a>
         </div>
-        <div class="mb-16"></div>
     </div>
 </div>

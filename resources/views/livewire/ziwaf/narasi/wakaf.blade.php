@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Wakaf" backUrl="{{ route('landing') }}"/>
-    <div class="flex flex-col h-full min-h-screen bg-gray-100 shadow-md" style="width: 414px;">
+    <div class="flex flex-col w-screen min-h-screen pb-28 bg-white shadow-md md:w-[414px]">
         <div class="p-4 bg-[#56B44926] bg-opacity-15">
             <span class="flex flex-col mb-2 font-semibold text-green-500">
                 Tentang Wakaf
@@ -22,10 +22,9 @@ Tidak hanya itu saja, wakaf juga termasuk ke dalam bentuk tolong-menolong dalam 
 
 Secara umum, wakaf dapat dilihat sebagai bentuk pengabdian terhadap Allah Swt. dalam membantu sesama umat manusia untuk meraih kebaikan dan ketakwaan.
             </span>
-            <a href="{{route('wakaf')}}" class="mt-4 text-xs font-semibold text-green-500">
+            <a href="{{route('wakaf')}}" class="mt-4 text-xs font-semibold text-green-500 floating-link md:right-[580px] right-[20px]">
                 Bayar Wakaf Disini ...
             </a>
         </div>
-        <div class="mb-16"></div>
     </div>
 </div>

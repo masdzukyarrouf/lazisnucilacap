@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Zakat Fitrah" backUrl="{{ route('landing') }}"/>
-    <div class="flex flex-col h-full min-h-screen bg-gray-100 shadow-md" style="width: 414px;">
+    <div class="flex flex-col w-screen min-h-screen pb-24 bg-white shadow-md md:w-[414px]">
         <div class="p-4 bg-[#56B44926] bg-opacity-15">
             <span class="flex flex-col mb-2 font-semibold text-green-500">
                 Tentang Zakat Fitrah
@@ -20,11 +20,10 @@
                 Zakat Fitrah ditunaikan sejak awal Ramadhan dan paling lambat dilakukan sebelum pelaksanaan Shalat Idul Fitri. Sementara itu, penyalurannya kepada mustahik (penerima zakat) paling lambat dilakukan sebelum pelaksanaan shalat Idul Fitri. 
                 (Sumber: Peraturan Menteri Agama Nomor 52 Tahun 2014, SK Ketua BAZNAS No. 10 Tahun 2024, Hadist Riwayat Bukhari Muslim, dan pendapat Shaikh Yusuf Qardawi). 
             </span>
-            <button wire:click="data" class="mt-4 text-xs font-semibold text-left text-green-500">
+            <button wire:click="data" class="mt-4 text-xs font-semibold text-green-500 floating-link md:right-[580px] right-[20px]">
                 Bayar Fitrah Disini ...
             </button>
 
         </div>
-        <div class="mb-16"></div>
     </div>
 </div>

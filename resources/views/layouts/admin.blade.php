@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- kirim title lewat class, default app name di env --}}
-    <link rel="icon" href="{{ asset('images/logo-removebg.png') }}" type="image/png">
     <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
+    <link rel="icon" type="image/svg+xml" href="images\25636001732.png">
     @vite('resources/css/app.css')
     <style>
         body {

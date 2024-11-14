@@ -26,7 +26,7 @@
                         @if ($landing->link == '-')
                             <a class="h-auto min-w-full ">
                                 <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                                    class="h-auto min-w-full" style="aspect-ratio: 5/3;"/>
+                                    class="h-auto min-w-full" style="aspect-ratio: 16/9;"/>
                             </a>
                         @else
                             <a href="{{ $landing->link }}" class="h-auto min-w-full ">
@@ -75,7 +75,7 @@
                         <img src="{{ asset('images/rekening.png') }}" alt="Image 3"
                             class="w-6 h-4 md:p-1 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
                     </div>
-                    <p class="text-[10px] mt-2 md:text-lg font-medium text-center text-gray-800">Rekening Lazisnu Cilacap</p>
+                    <p class="text-[10px] mt-2 md:text-lg font-medium text-center text-gray-800">Rekening Donasi</p>
                 </div>
             </a>
 
@@ -86,7 +86,7 @@
                         <img src="{{ asset('images/qr.png') }}" alt="Image 4"
                             class="w-6 h-4 md:p-1 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
                     </div>
-                    <p class="text-[10px] mt-2 md:text-lg font-medium text-center text-gray-800">QR Donasi</p>
+                    <p class="text-[10px] mt-2 md:text-lg font-medium text-center text-gray-800">QRIS Donasi</p>
                 </div>
             </a>
         </div>
