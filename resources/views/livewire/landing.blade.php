@@ -40,8 +40,8 @@
         </div>
     </div>
 
-    <div class="relative flex justify-center w-full -mt-12 z-12">
-        <div class="flex justify-center -mt-24 space-x-2 md:space-x-4">
+    <div class="relative flex justify-center w-full -mt-8 z-12">
+        <div class="flex justify-center space-x-2 md:-mt-24 md:space-x-4">
             <!-- Item 1 -->
             <a
                 href="https://wa.me/{{ $petugas->no }}?text={{ urlencode('Assalamualaikum, saya ingin berkonsultasi mengenai zakat') }}">
