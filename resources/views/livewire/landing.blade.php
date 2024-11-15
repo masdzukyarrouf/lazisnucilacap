@@ -26,12 +26,12 @@
                         @if ($landing->link == '-')
                             <a class="h-auto min-w-full ">
                                 <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                                    class="h-auto min-w-full" style="aspect-ratio: 15/6;"/>
+                                    class="h-auto min-w-full" style="aspect-ratio: 16/9;"/>
                             </a>
                         @else
                             <a href="{{ $landing->link }}" class="h-auto min-w-full">
                                 <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                                    class="h-auto min-w-full" style="aspect-ratio: 15/6.5;"/>
+                                    class="h-auto min-w-full" style="aspect-ratio: 16/9;"/>
                             </a>
                         @endif
                     @endforeach
@@ -40,13 +40,13 @@
         </div>
     </div>
 
-    <div class="relative flex justify-center w-full -mt-8 z-12">
-        <div class="flex justify-center space-x-2 md:-mt-24 md:space-x-4">
+    <div class="relative flex justify-center w-full mt-4 z-12">
+        <div class="flex justify-center space-x-2 md:space-x-4">
             <!-- Item 1 -->
             <a
                 href="https://wa.me/{{ $petugas->no }}?text={{ urlencode('Assalamualaikum, saya ingin berkonsultasi mengenai zakat') }}">
                 <div
-                    class="flex flex-col items-center w-20 p-4 bg-white rounded-lg shadow-2xl sm:w-36 sm:h-36 md:w-48 md:h-44 h-[110px]">
+                    class="flex flex-col items-center w-20 p-4 bg-white rounded-lg shadow-2xl sm:w-36 sm:h-36 md:w-48 md:h-44 h-[110px] border">
                     <div class="p-4 bg-green-500 rounded-full">
                         <img src="{{ asset('images/konsultasi.png') }}" alt="Image 1"
                             class="w-6 h-4 md:p-1 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
@@ -58,7 +58,7 @@
             <!-- Item 2 -->
             <a href="/zakat">
                 <div
-                    class="flex flex-col items-center w-20 p-4 bg-white rounded-lg shadow-2xl sm:w-36 sm:h-36 md:w-48 md:h-44 h-[110px]">
+                    class="flex flex-col items-center w-20 p-4 bg-white rounded-lg shadow-2xl sm:w-36 sm:h-36 md:w-48 md:h-44 h-[110px] border">
                     <div class="px-4 py-4 bg-green-500 rounded-full">
                         <img src="{{ asset('images/kalkulator.png') }}" alt="Image 2"
                             class="w-6 h-4 md:p-1 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
@@ -70,7 +70,7 @@
             <!-- Item 3 -->
             <a href="/rekening">
                 <div
-                    class="flex flex-col items-center w-20 p-4 bg-white rounded-lg shadow-2xl sm:w-36 sm:h-36 md:w-48 md:h-44 h-[110px]">
+                    class="flex flex-col items-center w-20 p-4 bg-white rounded-lg shadow-2xl sm:w-36 sm:h-36 md:w-48 md:h-44 h-[110px] border">
                     <div class="px-4 py-4 bg-green-500 rounded-full">
                         <img src="{{ asset('images/rekening.png') }}" alt="Image 3"
                             class="w-6 h-4 md:p-1 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
@@ -81,7 +81,7 @@
 
             <!-- Item 4 -->
             <a href="/qr_donasi">
-                <div class="flex flex-col items-center w-20 p-4 bg-white rounded-lg shadow-2xl sm:w-36 sm:h-36 md:w-48 md:h-44 h-[110px]">
+                <div class="flex flex-col items-center w-20 p-4 bg-white rounded-lg shadow-2xl sm:w-36 sm:h-36 md:w-48 md:h-44 h-[110px] border">
                     <div class="px-4 py-4 bg-green-500 rounded-full">
                         <img src="{{ asset('images/qr.png') }}" alt="Image 4"
                             class="w-6 h-4 md:p-1 sm:w-8 sm:h-8 md:w-16 md:h-16 lg:w-16 lg:h-16">
