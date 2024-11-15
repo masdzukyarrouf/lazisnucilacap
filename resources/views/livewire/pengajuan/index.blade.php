@@ -64,7 +64,7 @@
 
                 <!-- Tanggal Pelaksanaan -->
                 <div class="mt-3">
-                    <label class="block text-gray-700  font-bold mb-2 text-[12px]" for="tanggal-pelaksanaan">
+                    <label class="block text-gray-700 font-bold mb-2 text-[12px]" for="tanggal-pelaksanaan">
                         Tanggal Pelaksanaan
                     </label>
                     <input wire:model="tanggal_pelaksanaan"
@@ -123,5 +123,14 @@
                 value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Add dots for thousands
                 input.value = value;
             }
+            
+        // Set the min attribute to today's date
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateInput = document.getElementById('tanggal-pelaksanaan');
+            const today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
+            dateInput.setAttribute('min', today); // Disable dates after today
+        });
+
+
 </script>
 </div>

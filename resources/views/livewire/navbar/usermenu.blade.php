@@ -57,11 +57,11 @@
                 ['href' => '/pengajuan-gocap', 'text' => 'Gocap'],
             ]" isDropdown="true" />
 
-            <livewire:navbar.navlink wire:key={{ rand() }} title="Ziwaf" :links="[
+            <livewire:navbar.navlink wire:key={{ rand() }} title="Ziswaf" :links="[
                 ['href' => '/narasi/fitrah', 'text' => 'Zakat Fitrah'],
                 ['href' => '/narasi/maal', 'text' => 'Zakat Maal'],
                 ['href' => '/narasi/infaq', 'text' => 'Infaq'],
-                ['href' => '/narasi/wakaf', 'text' => 'wakaf'],
+                ['href' => '/narasi/wakaf', 'text' => 'Wakaf'],
                 ['href' => '/narasi/fidyah', 'text' => 'Fidyah'],
                 ['href' => '/narasi/qurban', 'text' => 'Qurban'],
             ]" isDropdown="true" />
@@ -107,7 +107,7 @@
                 ]"
                     isDropdown="true" />
 
-                <livewire:navbar.navlink wire:key={{ rand() }} title="Ziwaf" :links="[
+                <livewire:navbar.navlink wire:key={{ rand() }} title="Ziswaf" :links="[
                     ['href' => '/narasi/fitrah', 'text' => 'Zakat Fitrah'],
                     ['href' => '/narasi/maal', 'text' => 'Zakat Maal'],
                     ['href' => '/narasi/infaq', 'text' => 'Infaq'],

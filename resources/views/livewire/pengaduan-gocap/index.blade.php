@@ -56,22 +56,29 @@
                 </div>
                 <div class="mt-3">
                     <label class="block text-gray-700  font-bold mb-2 text-[12px]" for="kendala">
-                        Kendala
+                        Pesan/Keperluan/Kendala
                     </label>
                     <textarea wire:model="kendala"
                         class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                        id="kendala" rows="4" placeholder="kendala"></textarea>
+                        id="kendala" rows="4" placeholder="Jelaskan keperluan anda disini"></textarea>
                     @error('kendala')
                         <span class="mt-2 text-xs text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="flex flex-col pt-2">
-                    <h1 class="py-2 text-sm font-semibold">
-                        Kendala Gambar
-                    </h1>
-                    <input type="file" id="image" wire:model="image"
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded"
-                        placeholder="Isikan No Telepon anda" />
+                <div class="flex flex-col pt-2" wire:ignore>
+                    <h1 class="py-2 text-sm font-semibold">Gambar Pendukung</h1>
+
+                    <!-- Hidden file input -->
+                    <input type="file" id="image" wire:model="image" class="hidden" onchange="displayFileName(this)">
+                    
+                    <!-- Custom file upload label -->
+                    <div class="flex items-center w-full px-2 py-1 text-sm bg-white border border-gray-300 rounded">
+                        <label for="image" class="flex items-start justify-center w-32 px-3 py-1 mr-4 text-gray-700 bg-gray-200 rounded cursor-pointer">
+                            Pilih File
+                        </label>
+                        <span id="file-name" class="text-gray-500">Sertakan gambar pendukung untuk mempermudah penanganan</span>
+                    </div>
+
                     @error('image')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
@@ -86,4 +93,14 @@
         </div>
         <div class="h-[67px]"></div>
     </div>
+    <script>
+    function displayFileName(input) {
+        const fileName = document.getElementById('file-name');
+        if (input.files.length > 0) {
+            fileName.textContent = input.files[0].name;
+        } else {
+            fileName.textContent = 'harap sertakan gambar pendukung untuk mempermudah penanganan';
+        }
+    }
+</script>
 </div>

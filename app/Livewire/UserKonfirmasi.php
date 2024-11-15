@@ -72,20 +72,14 @@ class UserKonfirmasi extends Component
             'bukti' => $path, // Simpan path gambar
         ]);
 
-        $this->mount();
+        // $this->mount();
 
-        $this->dispatch('formCreated');
+        $this->dispatch('created', ['message' => 'Formulir Berhasil di kirim']);
 
         return $konfirmasi;
 
     }
     
-    #[On('formCreated')]
-    public function handleberitaCreated()
-    {
-        $this->dispatch('updated', ['message' => 'Pilar and Program updated Successfully']);
-    }
-
     public function render()
     {
         $this->loadCampaigns();

@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- kirim title lewat class, default app name di env --}}
     <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
-    <link rel="icon" type="image/svg+xml" href="images\25636001732.png">
+    <link rel="icon" type="image/png" href="images\25636001732.png">
+    
     @vite('resources/css/app.css')
     <style>
         body {
@@ -213,7 +214,7 @@
             </li>
             <li>
                 <a href="/komponen_ziwaf">
-                    <p class="{{ Request::is('komponen_ziwaf') ? 'text-green-500' : 'text-gray-600' }}">Komponen Ziwaf</p>
+                    <p class="{{ Request::is('komponen_ziwaf') ? 'text-green-500' : 'text-gray-600' }}">Komponen Ziswaf</p>
                 </a>
             </li>
             <li>

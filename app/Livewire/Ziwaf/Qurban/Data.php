@@ -15,6 +15,16 @@ class Data extends Component
         'mudhohi' => '',
         'nominal' => 0,
     ];
+    public $edit = [
+        'jenis' => '',
+        'jumlah' => '',
+        'mudhohi' => '',
+        'nominal' => 0,
+        'nama' => '',
+        'no' => '',
+        'email' => '',
+        'alamat' => '',
+    ];
     public $dataqurban;
     public $nominal;
     public $jumlah;
@@ -32,12 +42,22 @@ class Data extends Component
     public function mount()
     {
         $qurban = session('qurban', '');
+        $edit = session('edit', '');
 
         if ($qurban) {
             $this->nominal = $qurban['nominal'];
             $this->jenis = $qurban['jenis'];
             $this->mudhohi = $qurban['mudhohi'];
             $this->jumlah = $qurban['jumlah'];
+        } elseif ($edit) {
+            $this->nominal = $edit['nominal'];
+            $this->jenis = $edit['jenis'];
+            $this->mudhohi = $edit['mudhohi'];
+            $this->jumlah = $edit['jumlah'];
+            $this->nama = $edit['nama'];
+            $this->no = $edit['no'];
+            $this->email = $edit['email'];
+            $this->alamat = $edit['alamat'];
         } else {
             return redirect()->route('qurban');
         }

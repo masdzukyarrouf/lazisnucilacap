@@ -1,5 +1,5 @@
 <nav class="sticky top-0 z-30 p-4 bg-white shadow-2xl md:hidden">
-    <div class="container flex items-center justify-between px-4 mx-auto">
+    <div class="container flex items-center justify-between px-4">
         <!-- Logo -->
         <a href="/" class="flex-shrink-0">
             <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="ogo" class="w-auto h-8">

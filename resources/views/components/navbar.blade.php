@@ -51,7 +51,7 @@
                 ['href' => '/pengajuan-gocap', 'text' => 'Gocap'],
             ]" isDropdown="true" />
 
-            <x-navlink title="Ziwaf" :links="[
+            <x-navlink title="Ziswaf" :links="[
                 ['href' => '/narasi/fitrah', 'text' => 'Zakat Fitrah'],
                 ['href' => '/narasi/maal', 'text' => 'Zakat Maal'],
                 ['href' => '/narasi/infaq', 'text' => 'Infaq'],

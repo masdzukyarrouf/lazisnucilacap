@@ -25,7 +25,7 @@
                 Cara membayar fidyah puasa dengan uang versi Hanafiyah adalah memberikan nominal uang yang sebanding dengan harga kurma atau anggur seberat 3,25 kilogram untuk per hari puasa yang ditinggalkan, selebihnya mengikuti kelipatan puasanya.
                 Berdasarkan SK Ketua BAZNAS No. 07 Tahun 2023 tentang Zakat Fitrah dan Fidyah untuk wilayah Ibukota DKI Jakarta Raya dan Sekitarnya, ditetapkan bahwa nilai fidyah dalam bentuk uang sebesar Rp60.000,-/hari/jiwa  
             </span>
-            <a href="{{ route('wakaf') }}" class="mt-4 text-xs font-semibold text-green-500 floating-link md:right-[580px] right-[20px]">
+            <a href="{{ route('fidyah.index') }}" class="mt-4 text-xs font-semibold text-green-500 floating-link md:right-[580px] right-[20px]">
                 Bayar Fidyah Disini ...
             </a>
         </div>
