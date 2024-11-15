@@ -55,7 +55,7 @@
                 ['href' => '/narasi/fitrah', 'text' => 'Zakat Fitrah'],
                 ['href' => '/narasi/maal', 'text' => 'Zakat Maal'],
                 ['href' => '/narasi/infaq', 'text' => 'Infaq'],
-                ['href' => '/narasi/wakaf', 'text' => 'wakaf'],
+                ['href' => '/narasi/wakaf', 'text' => 'Wakaf'],
                 ['href' => '/narasi/fidyah', 'text' => 'Fidyah'],
                 ['href' => '/narasi/qurban', 'text' => 'Qurban'],
             ]" isDropdown="true" />
