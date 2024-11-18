@@ -19,12 +19,6 @@ class Index extends Component
     public  $keterangan = "";
     #[Rule(['required', 'date', 'after_or_equal:today'])]
     public $tanggal_pelaksanaan = "";
-    
-    protected $messages = [
-        'tanggal_pelaksanaan.after_or_equal' => 'Tanggal pelaksanaan tidak boleh sebelum hari ini.',
-    ];
-    
-    
     #[Rule(['required','string'])]
     public  $no_telp = "";
     #[Rule(['required','integer'])]
@@ -32,6 +26,25 @@ class Index extends Component
     #[Rule(['required','integer'])]
     public  $jumlah_penerima = "";
 
+
+    protected function messages()
+    {
+        return [
+            'tanggal_pelaksanaan.after_or_equal' => 'Tanggal pelaksanaan tidak boleh sebelum hari ini.',
+            'username.required' => 'Nama wajib diisi.',
+            'username.string' => 'Nama harus berupa teks.',
+            'jenis_pemohon.required' => 'Jenis pemohon wajib diisi.',
+            'jenis_pemohon.string' => 'Jenis pemohon harus berupa teks.',
+            'keterangan.required' => 'Keterangan wajib diisi.',
+            'keterangan.string' => 'Keterangan harus berupa teks.',
+            'no_telp.required' => 'Nomor telepon wajib diisi.',
+            'nominal.required' => 'Nominal wajib diisi.',
+            'nominal.integer' => 'Nominal harus berupa angka.',
+            'jumlah_penerima.required' => 'Jumlah penerima wajib diisi.',
+            'jumlah_penerima.integer' => 'Jumlah penerima harus berupa angka.',
+        ];
+    }
+        
     public function mount(){
         $user = Auth::user();
         if($user){

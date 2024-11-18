@@ -45,6 +45,17 @@ class Index extends Component
         ];
     }
 
+    protected function messages()
+    {
+        return [
+            'username.required' => 'Nama wajib diisi.',
+            'no_telp.required' => 'Nomor telepon wajib diisi.',
+            'jabatan.required' => 'Jabatan wajib diisi.',
+            'kendala.required' => 'Kendala wajib diisi.',
+            'image.required' => 'Gambar wajib diunggah.',
+        ];
+    }
+
     public function save()
     {
         // Validasi data

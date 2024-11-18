@@ -46,9 +46,24 @@ class UserKonfirmasi extends Component
             'id_user' => 'nullable|integer',
             'nama' => 'required|string',
             'no_telp' => 'required|string',
-            'email' => 'required|string',
+            'email' => 'nullable|string',
             'campaign' => 'required|string',
             'bukti' => 'required|image|', // Validasi gambar
+        ];
+    }
+
+    protected function messages()
+    {
+        return [
+            'nama.required' => 'Nama wajib diisi.',
+            'nama.string' => 'Nama harus berupa teks.',
+            'no_telp.required' => 'Nomor telepon wajib diisi.',
+            'no_telp.string' => 'Nomor telepon harus berupa teks.',
+            'email.string' => 'Email harus berupa teks.',
+            'campaign.required' => 'Campaign wajib diisi.',
+            'campaign.string' => 'Campaign harus berupa teks.',
+            'bukti.required' => 'Bukti wajib diunggah.',
+            'bukti.image' => 'Bukti harus berupa file gambar yang valid.',
         ];
     }
 
