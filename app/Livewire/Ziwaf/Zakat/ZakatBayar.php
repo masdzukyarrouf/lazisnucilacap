@@ -48,6 +48,9 @@ class ZakatBayar extends Component
     {
         return [
             'email' => 'nullable|email|regex:/@gmail\.com$/',
+            'nama' => 'required|string',
+            'no' => 'required|string',
+
         ];
     }
 
@@ -55,6 +58,8 @@ class ZakatBayar extends Component
     {
         return [
             'email.regex' => 'Email harus berupa @gmail.com',
+            'nama.required' => 'Nama wajib diisi.',
+            'no.required' => 'Nomor telepon wajib diisi.',
         ];
     }
 
@@ -128,6 +133,7 @@ class ZakatBayar extends Component
 
     public function co()
     {
+        $this->validate();
         $order_id = rand();
 
         if ($this->zakatFitrah)

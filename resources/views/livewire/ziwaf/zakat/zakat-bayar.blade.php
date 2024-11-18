@@ -107,21 +107,27 @@
                                     id="nama" 
                                     wire:model.lazy="nama" 
                                     wire:input="datadiri"
-                                    class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded md:w-[374px]" 
+                                    class="w-full px-2 py-1 mt-2 border border-gray-300 rounded md:w-[374px]" 
                                     placeholder="Isikan dengan nama anda" 
                                 />
+                                @error('nama')
+                                    <span class="text-sm text-red-500">{{ $message }}</span>
+                                @enderror
                                 
-                                <label class="font-semibold">No Telepon (WA Aktif)</label>
+                                <label class="mt-3 font-semibold">No Telepon (WA Aktif)</label>
                                 <input 
                                     type="text" 
                                     id="no" 
                                     wire:model.lazy="no" 
                                     wire:input="datadiri" 
-                                    class="w-full px-2 py-1 mt-2 mb-3 border border-gray-300 rounded md:w-[374px]" 
+                                    class="w-full px-2 py-1 mt-2 border border-gray-300 rounded md:w-[374px]" 
                                     placeholder="Isikan dengan nomor whatsapp anda" 
                                 />
+                                @error('no')
+                                    <span class="text-sm text-red-500">{{ $message }}</span>
+                                @enderror
 
-                                <label class="font-semibold">Email (Opsional)</label>
+                                <label class="mt-3 font-semibold ">Email (Opsional)</label>
                                 <input 
                                     type="text" 
                                     id="email" 

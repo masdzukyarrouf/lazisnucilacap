@@ -49,13 +49,16 @@
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-2 mt-2 mb-4 border border-gray-300 rounded md:w-96" 
+                        class="w-full px-2 py-2 mt-2 border border-gray-300 rounded md:w-96" 
                         placeholder="Isikan nama anda" 
                     />
+                    @error('atasNama')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                    @enderror
 
-                    <div class="flex flex-col space-x-4">
+                    <div class="flex flex-col mt-4 mb-4 space-x-4">
                         <label class="font-semibold">Jenis</label>
-                        <div class="flex pt-2 pb-4 space-x-6">
+                        <div class="flex pt-2 space-x-6">
                             <label class="flex items-center space-x-2">
                                 <input type="radio" name="jenis3" value="Pribadi" wire:model='jenis3'>
                                 <span>Pribadi</span>
@@ -65,6 +68,9 @@
                                 <span>Entitas</span>
                             </label>
                         </div>
+                        @error('jenis3')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     
                     <label class="font-semibold">Jumlah Emas (Dalam Gram)</label>
@@ -170,16 +176,21 @@
                             </div>
                         </div>
                         <!-- Form untuk input Zakat Maal -->
-                        <label class="font-semibold">Atas Nama</label>
+                        <div class="mb-4">
+                            <label class="font-semibold">Atas Nama</label>
                         <input 
                             type="text" 
                             id="atasNama" 
                             wire:model="atasNama" 
-                            class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded md:w-96" 
+                            class="w-full px-2 py-1 mt-2 border border-gray-300 rounded md:w-96" 
                             placeholder="Isikan nama anda" 
                         />
+                        @error('atasNama')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
+                        </div>
                     
-                        <label class="font-semibold">Pendapatan sebekum pajak (tahun)</label>
+                        <label class="font-semibold">Pendapatan sebelum pajak (tahun)</label>
                         <div class="relative flex items-center justify-center mb-4">
                             <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 rounded h-9">Rp. </span>
                             <input 
@@ -271,14 +282,19 @@
                             </div>
                         </div>
                         <!-- Form untuk input Zakat Maal -->
-                        <label class="font-semibold">Atas Nama</label>
+                        <div class="mb-4">
+                            <label class="font-semibold">Atas Nama</label>
                         <input 
                             type="text" 
                             id="atasNama" 
                             wire:model="atasNama" 
-                            class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded md:w-96" 
+                            class="w-full px-2 py-1 mt-2 border border-gray-300 rounded md:w-96" 
                             placeholder="Isikan nama anda" 
                         />
+                        @error('atasNama')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
+                        </div>
                         
                         <label class="font-semibold">Aktiva Lancar</label>
                         <input 
@@ -371,13 +387,16 @@
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded" 
+                        class="w-full px-2 py-1 mt-2 border border-gray-300 rounded" 
                         placeholder="Isikan nama anda" 
                     />
+                    @error('atasNama')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                    @enderror
 
-                    <div class="flex flex-col space-x-4">
+                    <div class="flex flex-col mt-4 mb-4 space-x-4">
                         <label class="font-semibold">Jenis</label>
-                        <div class="flex pt-2 pb-4 space-x-6">
+                        <div class="flex pt-2 space-x-6">
                             <label class="flex items-center space-x-2">
                                 <input type="radio" name="jenis3" value="pribadi" wire:model='jenis3'>
                                 <span>Pribadi</span>
@@ -387,6 +406,9 @@
                                 <span>Entitas</span>
                             </label>
                         </div>
+                        @error('jenis3')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     
                     <label class="font-semibold">Asset Lancar</label>
@@ -487,13 +509,16 @@
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded" 
+                        class="w-full px-2 py-1 mt-2 border border-gray-300 rounded" 
                         placeholder="Isikan nama anda" 
                     />
+                    @error('atasNama')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                    @enderror
 
-                    <div class="flex flex-col space-x-4">
+                    <div class="flex flex-col mt-4 mb-4 space-x-4">
                         <label class="font-semibold">Jenis</label>
-                        <div class="flex pt-2 pb-4 space-x-6">
+                        <div class="flex pt-2 space-x-6">
                             <label class="flex items-center space-x-2">
                                 <input type="radio" name="jenis3" value="pribadi" wire:model='jenis3'>
                                 <span>Pribadi</span>
@@ -503,6 +528,9 @@
                                 <span>Entitas</span>
                             </label>
                         </div>
+                        @error('jenis3')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     
                     <label class="font-semibold">Gaji Perbulan</label>
@@ -609,13 +637,16 @@
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded" 
+                        class="w-full px-2 py-1 mt-2 border border-gray-300 rounded" 
                         placeholder="Isikan nama anda" 
                     />
+                    @error('atasNama')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                    @enderror
 
-                    <div class="flex flex-col space-x-4">
+                    <div class="flex flex-col mt-4 mb-4 space-x-4">
                         <label class="font-semibold">Jenis</label>
-                        <div class="flex pt-2 pb-4 space-x-6">
+                        <div class="flex pt-2 space-x-6">
                             <label class="flex items-center space-x-2">
                                 <input type="radio" name="jenis3" value="pribadi" wire:model='jenis3'>
                                 <span>Pribadi</span>
@@ -625,6 +656,9 @@
                                 <span>Entitas</span>
                             </label>
                         </div>
+                        @error('jenis3')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     
                     <label class="font-semibold">Harga Produk Per Kg</label>
@@ -736,13 +770,16 @@
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded" 
+                        class="w-full px-2 py-1 mt-2 border border-gray-300 rounded" 
                         placeholder="Isikan nama anda" 
                     />
+                    @error('atasNama')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                    @enderror
 
-                    <div class="flex flex-col space-x-4">
+                    <div class="flex flex-col mt-4 mb-4 space-x-4">
                         <label class="font-semibold">Jenis</label>
-                        <div class="flex pt-2 pb-4 space-x-6">
+                        <div class="flex pt-2 space-x-6">
                             <label class="flex items-center space-x-2">
                                 <input type="radio" name="jenis3" value="pribadi" wire:model='jenis3'>
                                 <span>Pribadi</span>
@@ -752,6 +789,9 @@
                                 <span>Entitas</span>
                             </label>
                         </div>
+                        @error('jenis3')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     
                     <label class="font-semibold">Nominal Uang</label>
@@ -858,31 +898,42 @@
                     id="jumlah" 
                     wire:model="jumlah" 
                     wire:input.lazy="hitung" 
-                    class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded" 
+                    class="w-full px-2 py-1 mt-2 border border-gray-300 rounded" 
                     placeholder="Isikan jumlah muzakki"
                     />
-
-                    <label class="font-semibold">Nama Muzakki</label>
-                    @for ($i = 0; $i < $jumlah; $i++)
-                        <div>
-                            <input
-                                type="text"
-                                id="nama_{{ $i }}"
-                                wire:model="nama.{{ $i }}"
-                                wire:input="hitung"
-                                class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded"
-                                placeholder="Isi dengan nama lengkap"
-                            />
+                    @error('jumlah')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                    @enderror
+                    
+                    @if ($jumlah > 0)
+                        <div class="mt-4">
+                            <label class="font-semibold">Nama Muzakki</label>
+                            @for ($i = 0; $i < $jumlah; $i++)
+                                <div>   
+                                    <input
+                                        type="text"
+                                        id="nama_{{ $i }}"
+                                        wire:model="nama.{{ $i }}"
+                                        wire:input="hitung"
+                                        class="w-full px-2 py-1 mt-2 border border-gray-300 rounded"
+                                        placeholder="Isi dengan nama lengkap"
+                                    />
+                                    @error("nama.$i")
+                                        <span class="text-sm text-red-500">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            @endfor
                         </div>
-                    @endfor
-
-                    <label class="font-semibold">Total Zakat</label>
-                    <input type="text"
-                    readonly
-                    value="{{ $total }} Paket"
-                    class="w-full px-2 py-1 mt-2 mb-4 bg-gray-300 border border-gray-300 rounded" 
-                    placeholder="Isi dengan nama lengkap"
-                    />
+                    @endif
+                    <div class="mt-4">
+                        <label class="font-semibold">Total Zakat</label>
+                        <input type="text"
+                        readonly
+                        value="{{ $total }} Paket"
+                        class="w-full px-2 py-1 mt-2 mb-4 bg-gray-300 border border-gray-300 rounded" 
+                        placeholder="Isi dengan nama lengkap"
+                        />
+                    </div>
 
                     <label class="font-semibold">Jumlah Wajib Zakat Yang Harus Dibayarkan</label>
                             <div class="relative flex flex-col mb-4">

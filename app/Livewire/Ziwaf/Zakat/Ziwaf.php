@@ -70,6 +70,40 @@ class Ziwaf extends Component
     public $site = 'lakuemas'; // Default site
 
 
+    protected function rules()
+    {
+        if ($this->selectedOption2 === 'Perusahaan') {
+            return [
+                'atasNama' => 'required|string',
+            ];
+        }elseif ($this->selectedOption === 'maal') {
+            return [
+                'atasNama' => 'required|string',
+                'jenis3' => 'required|string',
+            ];
+        }elseif ($this->selectedOption === 'fitrah') {
+            $rules = [
+                'jumlah' => 'required|integer|min:1|max:10', // Validasi untuk jumlah
+            ];
+
+            for ($i = 0; $i < $this->jumlah; $i++) {
+                $rules["nama.$i"] = 'required'; // Validasi untuk setiap nama
+            }
+
+            return $rules;
+        }
+    }
+
+    protected function messages()
+    {
+        return [
+            'atasNama.required' => 'Nama wajib diisi.',
+            'jenis3.required' => 'Jenis wajib diisi.',
+            'jumlah.required' => 'Jumlah wajib diisi.',
+            'nama.*.required' => 'Nama Muzakki wajib diisi.',    
+        ];
+    }
+
     public function hitung()
     {
        $this->zakatFitrah = $this->jumlah * $this->nominal_fitrah;
@@ -290,7 +324,7 @@ class Ziwaf extends Component
         if (($hijriDate['hijri']['month']['number']) == 9) {
             $this->fitrah = 'true';
         } else {
-            $this->fitrah = 'false';
+            $this->fitrah = 'true';
         }
     }
 
@@ -327,6 +361,7 @@ class Ziwaf extends Component
         $selectedOption2 = $this->selectedOption2;
         $jenis3 = $this->jenis3;
         $atasNama = $this->atasNama;
+        $validatedData = $this->validate();
 
         // Menentukan URL redirect berdasarkan nilai parameter
         if ($zakatEmas > 0) {
@@ -337,8 +372,8 @@ class Ziwaf extends Component
                 'nominal' => $zakatEmas,
                 'jenis1' => $selectedOption,
                 'jenis2' => $selectedOption2,
-                'jenis3' => $jenis3,
-                'atasNama' => $atasNama
+                'jenis3' => $validatedData['jenis3'],
+                'atasNama' => $validatedData['atasNama'],
             ];
 
         } elseif ($zakatPenghasilan > 0) {
@@ -346,41 +381,41 @@ class Ziwaf extends Component
                 'nominal' => $zakatPenghasilan,
                 'jenis1' => $selectedOption,
                 'jenis2' => $selectedOption2,
-                'jenis3' => $jenis3,
-                'atasNama' => $atasNama
+                'jenis3' => $validatedData['jenis3'],
+                'atasNama' => $validatedData['atasNama'],
             ];
         } elseif ($zakatPertanian > 0) {
             $this->zakat = [
                 'nominal' => $zakatPertanian,
                 'jenis1' => $selectedOption,
                 'jenis2' => $selectedOption2,
-                'jenis3' => $jenis3,
-                'atasNama' => $atasNama
+                'jenis3' => $validatedData['jenis3'],
+                'atasNama' => $validatedData['atasNama'],
             ];
         } elseif ($zakatPerdagangan > 0) {
             $this->zakat = [
                 'nominal' => $zakatPerdagangan,
                 'jenis1' => $selectedOption,
                 'jenis2' => $selectedOption2,
-                'jenis3' => $jenis3,
-                'atasNama' => $atasNama
+                'jenis3' => $validatedData['jenis3'],
+                'atasNama' => $validatedData['atasNama'],
             ];
         } elseif ($zakatUang > 0) {
             $this->zakat = [
                 'nominal' => $zakatUang,
                 'jenis1' => $selectedOption,
                 'jenis2' => $selectedOption2,
-                'jenis3' => $jenis3,
-                'atasNama' => $atasNama
+                'jenis3' => $validatedData['jenis3'],
+                'atasNama' => $validatedData['atasNama'],
             ];
         } elseif ($zakatJasa > 0) {
             $this->zakat = [
                 'nominal' => $zakatJasa,
                 'jenis1' => $selectedOption,
                 'jenis2' => $selectedOption2,
-                'jenis3' => 'Entitas',
                 'jenisPerusahaan' => $this->jenisPerusahaan,
-                'atasNama' => $atasNama
+                'jenis3' => 'Entitas',
+                'atasNama' => $validatedData['atasNama'],
             ];
         } elseif ($zakatDagang > 0) {
             $this->zakat = [
@@ -389,12 +424,12 @@ class Ziwaf extends Component
                 'jenis2' => $selectedOption2,
                 'jenis3' => 'Entitas',
                 'jenisPerusahaan' => $this->jenisPerusahaan,
-                'atasNama' => $atasNama
+                'atasNama' => $validatedData['atasNama'],
             ];
         } elseif ($zakatFitrah > 0) {
             $this->muzakki = [
-                'namaMuzakki' => $this->nama,
-                'jumlah' => $this->jumlah,
+                'namaMuzakki' => $validatedData['nama'],
+                'jumlah' => $validatedData['jumlah'],
                 'zakatFitrah' => $zakatFitrah,
                 'jenis1' => $selectedOption,
 
