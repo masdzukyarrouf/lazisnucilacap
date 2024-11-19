@@ -11,19 +11,25 @@
                             <option value="{{ $item->pil_wakaf }}">{{ $item->pil_wakaf }}</option>
                         @endforeach
                     </select>
+                    @error('selectedOption')
+                        <span class="mt-2 text-sm text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
                 <label class="font-semibold">Atas Nama</label>
                     <input 
                         type="text" 
                         id="atasNama" 
                         wire:model="atasNama" 
-                        class="w-full px-2 py-1 mt-2 mb-4 border border-gray-300 rounded md:w-96" 
+                        class="w-full px-2 py-1 mt-2 border border-gray-300 rounded md:w-96" 
                         placeholder="Isikan nama anda" 
                     />
+                    @error('atasNama')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                    @enderror
 
-                    <div class="flex flex-col space-x-4">
+                    <div class="flex flex-col mt-4 space-x-4">
                         <label class="font-semibold">Jenis</label>
-                        <div class="flex pt-2 pb-4 space-x-6">
+                        <div class="flex pt-2 space-x-6">
                             <label class="flex items-center space-x-2">
                                 <input type="radio" name="jenis3" value="pribadi" wire:model='jenis3'>
                                 <span>Pribadi</span>
@@ -33,10 +39,13 @@
                                 <span>Entitas</span>
                             </label>
                         </div>
+                        @error('jenis3')    
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
-                <div class="relative w-full md:w-96">
+                <div class="relative w-full mt-4 mb-4 md:w-96">
                     <label class="font-semibold">Nominal Wakaf Anda</label>
-                    <div class="relative flex items-center justify-center mt-2 mb-4">
+                    <div class="relative flex items-center justify-center mt-2">
                         <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Rp. </span>
                         <input 
                             oninput="formatMoney(this)" 
@@ -47,6 +56,15 @@
                             placeholder="0" 
                         />
                     </div>
+                    @if ($wakaf > 0)
+                        @error('wakaf2')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
+                    @else
+                        @error('wakaf')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
+                    @endif
                 </div>
                 <div class="flex items-center justify-center mt-4">
                     <button wire:click="submitwaif" class="px-4 py-2 font-bold text-white bg-green-500 rounded w-96">

@@ -12,7 +12,7 @@
                     <div class="w-40 text-gray-500">Jenis infaq</div>
                     <div class="w-4 text-gray-500text-center">:</div>
                     <div>{{ $jenis }}</div>
-                </div>
+                </div>  
                 <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Nama program</div>
                     <div class="w-4 text-sm text-gray-500text-center">:</div>
@@ -53,7 +53,7 @@
                         class="mt-2 text-[12px] block w-full p-2 border border-border rounded-md bg-input text-foreground"
                         placeholder="Isikan nama anda" />
                     @error('username')
-                        <span class="mt-2 text-xs text-red-500">{{ $message }}</span>
+                        <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-4">
@@ -62,7 +62,7 @@
                         class="mt-2 text-[12px] block w-full p-2 border border-border rounded-md bg-input text-foreground"
                         placeholder="Isikan no whatsapp anda" />
                     @error('no_telp')
-                        <span class="mt-2 text-xs text-red-500">{{ $message }}</span>
+                        <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-6">

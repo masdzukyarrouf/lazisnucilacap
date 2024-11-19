@@ -14,7 +14,7 @@ class Data extends Component
     public $username;
     #[Rule('required|string')]
     public $no_telp;
-    #[Rule('required|string')]
+    #[Rule('regex:/@gmail\.com$/')]
     public $email;
     public $nominal;
     public $atasNama;
@@ -42,7 +42,18 @@ class Data extends Component
 
     }
 
+    public function messages()
+    {
+        return [
+            'email.regex' => 'Email harus berupa @gmail.com',
+            'username.required' => 'Nama wajib diisi.',
+            'no_telp.required' => 'Nomor telepon wajib diisi.',
+        ];
+    }
+
     public function bayarFidyah(){
+
+        $this->validate();
 
         $order_id = rand();
 

@@ -47,28 +47,34 @@
                             <span>sudah punya akun?</span>
                             <span wire:click="login" class="font-semibold text-green-500 cursor-pointer">Login</span>
                         @endif
-                            <div class="mt-2">
+                            <div class="flex flex-col mt-2">
                                 <label class="font-semibold">Nama Anda</label>
                                 <input 
                                     type="text" 
                                     id="nama" 
                                     wire:model.lazy="nama" 
                                     wire:input="datadiri"
-                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                                    class="w-full px-2 py-1 border border-gray-300 rounded" 
                                     placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
                                 />
+                                @error('nama')
+                                    <span class="text-sm text-red-500">{{ $message }}</span>
+                                @enderror
                                 
-                                <label class="font-semibold">No Telepon (WA Aktif)</label>
+                                <label class="mt-3 font-semibold">No Telepon (WA Aktif)</label>
                                 <input 
                                     type="text" 
                                     id="no" 
                                     wire:model.lazy="no" 
                                     wire:input="datadiri" 
-                                    class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" 
+                                    class="w-full px-2 py-1 border border-gray-300 rounded" 
                                     placeholder="Isikan dengan jumlah asset dalam 1 tahun" 
                                 />
+                                @error('no')
+                                    <span class="text-sm text-red-500">{{ $message }}</span>
+                                @enderror
 
-                                 <label class="font-semibold">Email (Opsional)</label>
+                                 <label class="mt-3 font-semibold">Email (Opsional)</label>
                                 <input 
                                     type="text" 
                                     id="email" 

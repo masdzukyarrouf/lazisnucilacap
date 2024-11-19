@@ -16,6 +16,30 @@ class Qurban extends Component
     public $pilihan_qurbans;
 
     
+    public function rules()
+    {
+        $rules = [
+            'mudhohi' => 'required|integer|min:1',
+            'selectedOption' => 'required',
+        ];
+        for ($i = 0; $i < $this->mudhohi; $i++) {
+            $rules["daftar.$i"] = 'required'; // Validasi untuk setiap nama
+        }
+
+        return $rules;
+    }
+
+    public function messages()
+    {
+        return [
+            'mudhohi.required' => 'Jumlah mudhohi harus diisi.',
+            'mudhohi.integer' => 'Jumlah mudhohi harus berupa angka.',
+            'mudhohi.min' => 'Jumlah mudhohi minimal adalah 1.',
+            'selectedOption.required' => 'Jenis qurban harus dipilih.',
+            'daftar.*.required' => 'Nama mudhohi harus diisi.',
+        ];
+    }
+
     public function mount()
     {
         $this->pilihan_qurbans = pilihan_qurban::all();
@@ -42,6 +66,7 @@ class Qurban extends Component
 
     public function submitqurban()
     {
+        $this->validate();
         $mudhohi = $this->mudhohi;
         $daftar = json_encode($this->daftar);
         $selectedOption = $this->selectedOption;

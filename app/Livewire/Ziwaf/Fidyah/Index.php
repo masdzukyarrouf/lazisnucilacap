@@ -13,6 +13,20 @@ class Index extends Component
     public $data;
     public $fidyah_perhari;
 
+    public function rules(){
+        return [ 
+            'nominal' => 'required|numeric',
+            'atasNama' => 'required',
+        ];
+    }
+
+    public function messages(){
+        return [
+            'nominal.required' => 'Hari harus diisi.',
+            'nominal.numeric' => 'Hari harus berupa angka.',
+            'atasNama.required' => 'Atas Nama harus diisi.',
+        ];
+    }
 
     public function mount()
     {
@@ -28,6 +42,8 @@ class Index extends Component
     }
 
     public function bayarFidyah(){
+
+        $this->validate();
         $this->data = [
             'nominal' => $this->nominal_fidyah,
             'hari' => $this->nominal,

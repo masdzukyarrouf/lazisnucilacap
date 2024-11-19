@@ -67,6 +67,8 @@ class InfaqwakafBayar extends Component
     {
         return [
             'email' => 'nullable|email|regex:/@gmail\.com$/',
+            'nama' => 'required|string',
+            'no' => 'required',
         ];
     }
 
@@ -74,6 +76,8 @@ class InfaqwakafBayar extends Component
     {
         return [
             'email.regex' => 'Email harus berupa @gmail.com',
+            'nama.required' => 'Nama wajib diisi.',
+            'no.required' => 'Nomor telepon wajib diisi.',
         ];
     }
 
@@ -86,6 +90,7 @@ class InfaqwakafBayar extends Component
 
     public function co()
     {
+        $this->validate();
         $order_id = rand();
 
         $this->transaction = Transaction::create([

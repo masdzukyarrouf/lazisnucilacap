@@ -39,6 +39,25 @@ class Data extends Component
     public $transaction;
 
 
+    public function rules()
+    {
+        return [
+            'nama' => 'required',
+            'no' => 'required|integer',
+            'alamat' => 'required',
+        ];
+    }
+    
+    public function messages()
+    {
+        return [
+            'nama.required' => 'Nama wajib diisi.',
+            'no.required' => 'Nomor telepon wajib diisi.',
+            'no.integer' => 'Nomor telepon harus berupa angka.',
+            'alamat.required' => 'Alamat wajib diisi.',
+        ];
+    }
+
     public function mount()
     {
         $qurban = session('qurban', '');
@@ -95,7 +114,7 @@ class Data extends Component
 
     public function co()
     {
-        
+        $this->validate();
 
         $order_id = rand();
 

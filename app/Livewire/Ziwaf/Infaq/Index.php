@@ -23,12 +23,16 @@ class Index extends Component
     protected $rules = [
         'nominal_infaq' => 'required|integer|min:50000',
         'jenis_ziwaf' => 'required|string',
+        'atasNama' => 'required|string',
+        'jenis3' => 'required',
     ];
 
     protected $messages = [
         'nominal_infaq.min' => 'Infaq minimal Rp 50.000',
         'nominal_infaq.required' => 'Nominal infaq wajib diisi',
         'jenis_ziwaf.required' => 'Jenis infaq wajib dipilih',
+        'atasNama.required' => 'Atas nama wajib diisi',
+        'jenis3.required' => 'Jenis wajib dipilih',
     ];
 
     public function bayarInfaq()

@@ -47,26 +47,38 @@
                     <div>
                         @if (!$users)
                             <span>sudah punya akun?</span>
-                            <span wire:click="login" class="font-semibold text-green-500 cursor-pointer">Login</span>
+                            <span wire:click="login" class="font-semibold text-green-500 cursor-pointer ">Login</span>
                         @endif
-                        <div>
+                        <div class="flex flex-col mt-4">
                             <label class="font-semibold">Nama Anda</label>
                             <input type="text" id="nama" wire:model="nama" {{-- wire:input.lazy="datamudhohi" --}}
-                                class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" />
+                                class="w-full px-2 py-1 border border-gray-300 rounded"
+                            />
+                            @error('nama')
+                                <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
 
-                            <label class="font-semibold">No Telepon (WA Aktif)</label>
+                            <label class="mt-3 font-semibold">No Telepon (WA Aktif)</label>
                             <input type="text" id="no" wire:model="no" {{-- wire:input.lazy="datamudhohi"  --}}
-                                class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" />
+                                class="w-full px-2 py-1 border border-gray-300 rounded" 
+                            />
+                            @error('no')
+                                <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
 
-                            <label class="font-semibold">Alamat Rumah</label>
+                            <label class="mt-3 font-semibold">Alamat Rumah</label>
                             <input type="text" id="alamat" wire:model="alamat" {{-- wire:input.lazy="datamudhohi"  --}}
-                                class="w-full px-2 py-1 mb-3 border border-gray-300 rounded"
-                                placeholder="Isikan dengan Alamat anda" />
+                                class="w-full px-2 py-1 border border-gray-300 rounded"
+                                placeholder="Isikan dengan Alamat anda" 
+                            />
+                            @error('alamat')
+                                <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
 
                 </div>
-                <p class="text-[10px]  mb-4">
+                <p class="text-[10px]  mb-4 mt-3">
                     Data pribadi Anda akan digunakan untuk memproses pesanan Anda, menunjang pengalaman Anda di seluruh
                     situs web ini, dan untuk tujuan lain yang dijelaskan dalam
                     <a href="/ziwaf/KebijakanPrivasi" class="text-blue-500 hover:underline">kebijakan privasi</a> kami.

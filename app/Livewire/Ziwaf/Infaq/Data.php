@@ -49,6 +49,8 @@ class Data extends Component
     {
         return [
             'email' => 'nullable|email|regex:/@gmail\.com$/',
+            'username' => 'required',
+            'no_telp' => 'required',
         ];
     }
 
@@ -56,11 +58,14 @@ class Data extends Component
     {
         return [
             'email.regex' => 'Email harus berupa @gmail.com',
+            'username.required' => 'Nama wajib diisi.',
+            'no_telp.required' => 'Nomor telepon wajib diisi.',
         ];
     }
 
     public function bayarInfaq(){
 
+        $this->validate();
         $order_id = rand();
 
         $this->transaction = Transaction::create([
@@ -109,7 +114,7 @@ class Data extends Component
             'username' => $this->username,
             'no_telp' => $this->no_telp,
             'id_transaction' => $this->transaction->id_transaction,
-            'jenis_ziwaf' => 'Infaq ' . $this->jenis_ziwaf . ' ' . '(' . $this->jenis . ')',
+            'jenis_ziwaf' => 'Infaq ' . $this->jenis_ziwaf . ' ' . '(' . $this->jenis3 . ')',
             'email' => $this->email ?? null,
             'atas_nama' => $this->atasNama,
         ]);
