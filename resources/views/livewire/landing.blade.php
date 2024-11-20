@@ -12,13 +12,58 @@
                 slideWidth: 100, // Menggeser sesuai dengan lebar satu logo
                 slideInterval: 3000, // Waktu dalam milidetik untuk setiap slide
                 interval: null,
-            }" x-init="interval = setInterval(() => {
-                if (offset < (logoCount - visibleLogos) * slideWidth) {
-                    offset += slideWidth;
-                } else {
-                    offset = 0; // Mulai dari awal lagi
+                load: false,
+                isScrolling: false, // Track manual scroll
+                updateSlideWidth() {
+                    {{-- // Adjust slideWidth based on screen size
+                    if (window.innerWidth < 640) {
+                        this.slideWidth = 100; // Value for smaller screens
+                    } else {
+                        this.slideWidth = 100; // Value for larger screens
+                    } --}}
+                },
+                startAutoSlide() {
+                    this.interval = setInterval(() => {
+                        if (!this.isScrolling) {
+                            // Move offset for auto slide
+                            if (this.offset < (this.logoCount - this.visibleLogos) * this.slideWidth) {
+                                this.offset += this.slideWidth;
+                            } else {
+                                this.offset = 0; // Restart from the beginning
+                            }
+                        }
+                    }, this.slideInterval);
+                },
+                stopAutoSlide() {
+                    clearInterval(this.interval);
+                },
+                handleScroll(event) {
+                    this.isScrolling = true; // Set manual scrolling state
+                    // Calculate new offset based on scroll position
+                    const scrollAmount = event.deltaY / 10; // Adjust scroll speed sensitivity
+                    this.offset = Math.min(
+                        Math.max(
+                            this.offset - scrollAmount, 
+                            0
+                        ),
+                        (this.logoCount - this.visibleLogos) * this.slideWidth
+                    );
+                    this.stopAutoSlide(); // Stop auto sliding while scrolling
+                    clearTimeout(window.scrollTimeout);
+                    window.scrollTimeout = setTimeout(() => {
+                        this.isScrolling = false; 
+                        this.startAutoSlide(); // Resume auto slide after scrolling
+                    }, 1000);
                 }
-            }, slideInterval);" class="relative w-full overflow-hidden">
+            }" 
+            x-init="updateSlideWidth();
+                    load = true;
+                    startAutoSlide();
+                    window.addEventListener('resize', updateSlideWidth);" 
+            x-show="load" 
+            wire:init="loadMitra"
+            class="relative w-full overflow-x-auto scrollbar-hide"
+            @wheel="handleScroll($event)"> <!-- Use wheel event for smooth scrolling -->
                 <!-- Carousel Container -->
                 <div class="flex w-full transition-transform duration-500"
                     :style="'transform: translateX(-' + offset + '%)'">
@@ -26,12 +71,12 @@
                         @if ($landing->link == '-')
                             <a class="h-auto min-w-full ">
                                 <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                                    class="h-auto min-w-full" style="aspect-ratio: 16/9;"/>
+                                    class="h-auto min-w-full" style="aspect-ratio: 16/6;"/>
                             </a>
                         @else
                             <a href="{{ $landing->link }}" class="h-auto min-w-full">
                                 <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                                    class="h-auto min-w-full" style="aspect-ratio: 16/9;"/>
+                                    class="h-auto min-w-full" style="aspect-ratio: 16/6;"/>
                             </a>
                         @endif
                     @endforeach
@@ -40,8 +85,8 @@
         </div>
     </div>
 
-    <div class="relative flex justify-center w-full mt-4 z-12">
-        <div class="flex justify-center space-x-2 md:space-x-4">
+    <div class="relative flex justify-center w-full -mt-6 z-12">
+        <div class="flex justify-center space-x-2 md:space-x-4 md:-mt-14">
             <!-- Item 1 -->
             <a
                 href="https://wa.me/{{ $petugas->no }}?text={{ urlencode('Assalamualaikum, saya ingin berkonsultasi mengenai zakat') }}">
@@ -101,7 +146,7 @@
         <div id="details-container" class="relative max-h-[325px] overflow-hidden transition-all duration-300">
             <p
                 class="mt-4 ml-4 text-[14px] md:text-[16px] font-semibold text-green-500 flex justify-center items-center">
-                Sekilas NU-Care Lazisnu Cilacap
+                Sekilas NU-Care LAZISNU Cilacap
             </p>
             <div id="details-content" class="w-full px-4 py-4 md:px-5">
                 <h2 class="w-full font-semibold text-left text-green-500">Visi</h2>
@@ -158,7 +203,7 @@
                             <!-- Modal Content -->
                             <div class="w-[414px] md:w-[500px] md:mx-4 bg-white rounded-lg shadow-lg">
                                 <div class="flex items-center justify-between p-4 bg-gray-200 rounded-t-lg">
-                                    <h3 class="text-xl font-semibold text-green-500">Sekilas NU-Care Lazisnu Cilacap
+                                    <h3 class="text-xl font-semibold text-green-500">Sekilas NU-Care LAZISNU Cilacap
                                     </h3>
                                     <div @click="isOpen=false" class="px-3 rounded-sm shadow hover:bg-red-500">
                                         <button class="text-gray-900">&times;</button>
@@ -209,8 +254,8 @@
         <!-- Title -->
         <div class="flex items-center justify-between w-full mb-8">
             <div class="relative flex flex-col justify-between px-4 mr-6">
-                <h2 class="font-semibold text-green-600 text-md md:text-lg">Campaign Lazisnu Cilacap</h2>
-                <h2 class="text-xs text-black md:text-sm">Berikut merupakan campaign terbaru Lazisnu Cilacap</h2>
+                <h2 class="font-semibold text-green-600 text-md md:text-lg">Campaign LAZISNU Cilacap</h2>
+                <h2 class="text-xs text-black md:text-sm">Berikut merupakan campaign terbaru LAZISNU Cilacap</h2>
             </div>
             <div>
                 <a href="{{ route('campaign') }}"
@@ -284,8 +329,8 @@
         <!-- Title -->
         <div class="flex items-center justify-between w-full mb-8">
             <div class="relative flex flex-col justify-between px-4 mr-6">
-                <h2 class="text-lg font-semibold text-green-600">Berita Lazisnu Cilacap</h2>
-                <h2 class="text-sm text-black">Berikut merupakan berita terbaru Lazisnu Cilacap</h2>
+                <h2 class="text-lg font-semibold text-green-600">Berita LAZISNU Cilacap</h2>
+                <h2 class="text-sm text-black">Berikut merupakan berita terbaru LAZISNU Cilacap</h2>
             </div>
             <div>
                 <a
@@ -354,7 +399,7 @@
                     <p class="mr-8 text-sm text-gray-700 md:text-md md:mr-0">
                         Terima kasih banyak kami ucapkan kepada para muzakki, munfiq, donatur atas semua zakat,
                         infaq,
-                        sedekah atas donasinya yang telah diamanatkan melalui NU Care Lazisnu Cilacap.
+                        sedekah atas donasinya yang telah diamanatkan melalui NU Care LAZISNU Cilacap.
                     </p>
                 </div>
                 <div class="flex flex-col justify-center w-full -ml-8 md:ml-0">
@@ -364,14 +409,14 @@
                             <img src="{{ asset('images/tikum.png') }}" alt="Image 1"
                                 class="relative w-8 h-8 mb-2 md:w-16 md:h-16">
                             <p class="relative text-xs font-semibold text-center text-green-600 md:text-md">41.124
-                                muzakki<br>NU Care Lazisnu Cilacap</p>
+                                muzakki<br>NU Care LAZISNU Cilacap</p>
                         </div>
                         <div class="relative flex flex-col items-center w-40 h-24 p-4 md:w-60 md:p-8">
                             <img src="{{ asset('images/tikum.png') }}" alt="Image 1"
                                 class="relative w-8 h-8 mb-2 md:w-16 md:h-16">
                             <p class="relative text-xs font-semibold text-center text-green-600 md:text-md">
                                 {{ number_format($this->banyak_donasi, 0, ',', '.') }}
-                                Munfiq<br>NU Care Lazisnu Cilacap</p>
+                                Munfiq<br>NU Care LAZISNU Cilacap</p>
                         </div>
                     </div>
                 </div>
@@ -489,7 +534,7 @@
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="flex items-center justify-center w-1/2 h-full mx-4 text-green-500">
                 <p class="text-[12px] md:text-[30px] font-bold">
-                    Lihat Video Terbaru dari NU Care Lazisnu Cilacap
+                    Lihat Video Terbaru dari NU Care LAZISNU Cilacap
                 </p>
             </div>
         </div>

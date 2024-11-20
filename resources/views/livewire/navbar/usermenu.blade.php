@@ -36,7 +36,7 @@
 
             @endif
 
-            <livewire:navbar.navlink wire:key={{ rand() }} title="Lazisnu Cilacap" :links="[
+            <livewire:navbar.navlink wire:key={{ rand() }} title="Tentang Kami" :links="[
                 ['href' => '/profil&jajaran', 'text' => 'Profil & Jajaran Pengurus'],
                 ['href' => '/sejarah', 'text' => 'Sejarah'],
                 ['href' => '/legalitas', 'text' => 'Legalitas'],
@@ -86,7 +86,7 @@
 
             <!-- Navigation Links and Buttons -->
             <div class="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0 md:ml-auto">
-                <livewire:navbar.navlink wire:key={{ rand() }} title="Lazisnu Cilacap" :links="[
+                <livewire:navbar.navlink wire:key={{ rand() }} title="Tentang Kami" :links="[
                     ['href' => '/profil&jajaran', 'text' => 'Profil & Jajaran Pengurus'],
                     ['href' => '/sejarah', 'text' => 'Sejarah'],
                     ['href' => '/legalitas', 'text' => 'Legalitas'],

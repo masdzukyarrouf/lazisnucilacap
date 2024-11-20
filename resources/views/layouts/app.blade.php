@@ -127,7 +127,7 @@
             </div>
             <!-- Column 4 -->
             <div class="w-4/12 mb-4 md:mb-0">
-                <h2 class="mb-4 text-lg font-semibold text-gray-800">NU Care-Lazisnu Cilacap</h2>
+                <h2 class="mb-4 text-lg font-semibold text-gray-800">NU Care-LAZISNU Cilacap</h2>
                 <div class="h-auto bg-white rounded-lg w-75">
                     <a href="https://maps.app.goo.gl/3ZVUjzq2MxBruu318" target="_blank">
                         <img src="{{ asset('images/map2.png') }}" alt="map">
