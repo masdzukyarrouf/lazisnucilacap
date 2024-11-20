@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2 title="Infaq Lazisnu Cilacap" backUrl="{{ route('infaq.index') }}"/>
+    <x-nav-mobile2 title="Infaq LAZISNU Cilacap" backUrl="{{ route('infaq.index') }}"/>
     <div class="flex flex-col w-full h-full min-h-screen pb-24 bg-white shadow-md md:w-[414px]">
         <div class="w-full p-6 ">
             <h2 class="text-[12px] text-gray-500 mb-4">Anda Akan Melakukan Pembayaran Untuk Infaq</h2>

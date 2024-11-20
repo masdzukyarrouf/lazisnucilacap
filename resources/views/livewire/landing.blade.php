@@ -499,7 +499,7 @@
         @if ($mitras && $mitras->isEmpty())
         @elseif($mitras)
             @foreach ($mitras as $mitra)
-                <div class="h-[50px] md:h-[150px] max-w-[120px] md:max-w-[190px] py-2 md:py-4 flex-shrink-0">
+                <div class="h-[60px] md:h-[150px] max-w-[150px] md:max-w-[190px] py-2 md:py-4 flex-shrink-0">
                     <img src="{{ asset('storage/' . $mitra->logo) }}" alt="Picture"
                          class="object-contain w-full h-full" />
                 </div>
@@ -526,7 +526,7 @@
 
 
 
-        <div class="w-full pt-8 px-4 md:px-20 h-[180px] md:h-[350px] flex mb-24 mt-20">
+        <div class="w-full pt-8 px-4 md:px-20 h-[180px] md:h-[350px] flex mb-24 mt-4">
             <iframe class="w-1/2 h-[180px] md:h-[350px] bg-black"
                 src="https://www.youtube.com/embed/IUWm95fwZHk?si=sDflST4mHtaP_N1-" title="YouTube video player"
                 frameborder="0"
@@ -538,6 +538,84 @@
                 </p>
             </div>
         </div>
+        <div class="px-4 mx-auto md:hidden">
+        <div class="flex flex-wrap ">
+            <!-- Column 1 -->
+            <div class="mb-8 md:mb-0">
+                <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="w-auto h-6">
+                <p class="pt-4 mb-4 text-sm text-gray-700">
+                    Lazisnucilacap.com adalah situs resmi Lembaga Amil Zakat, Infaq
+                    dan Shadaqah Nahdlatul Ulama (LAZISNU) Kabupaten Cilacap.
+                    <br>Saran dan kritik: 
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nucarelazisnukabupatencilacap@gmail.com&su=Saran%20dan%20Kritik&body=Assalamualaikum%20tim%20Lazisnu%20Cilacap" 
+                        target="_blank" 
+                        class="text-blue-500 hover:underline">
+                        nucarelazisnukabupatencilacap@gmail.com
+                    </a>
+                </p>
+
+
+                <ul class="flex space-x-8">
+                    <li><a href="/" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ asset('images/whatsapp.png') }}" alt="" class="hover:scale-125">
+                        </a>
+                    </li>
+                    <li><a href="https://www.youtube.com/@LazisnuCilacap" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ asset('images/youtube.png') }}" alt="" class="hover:scale-125">
+                        </a>
+                    </li>
+                    <li><a href="/" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ asset('images/facebook.png') }}" alt="" class="hover:scale-125">
+                        </a>
+                    </li>
+                    <li><a href="/" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ asset('images/instagram.png') }}" alt="" class="hover:scale-125">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            {{-- <!-- Column 2 -->
+            <div class="w-2/12 mb-4 md:mb-0">
+                <h2 class="mb-4 text-xl font-semibold text-gray-800 ">Informasi</h2>
+                <ul class="space-y-4 text-sm">
+                <x-navlink class="font-semibold text-gray-800" title="Ziswaf" url="/zakat" />
+                <x-navlink class="font-semibold text-gray-800" title="Campaign" url="/campaigns" />
+                <x-navlink class="font-semibold text-gray-800" title="Berita" url="/berita" />
+                </ul>
+            </div> --}}
+            <!-- Column 3 -->
+            <div class="w-1/2 mb-4 md:mb-0">
+                <h2 class="mb-4 text-lg font-semibold text-gray-800">Alamat</h2>
+                <p class="mb-4 text-sm text-gray-700">Jl. Masjid No. 09 Sidanegara
+                    <br>
+                    Cilacap Tengah-Cilacap
+                    <br>
+                    Kode pos : 53223
+                    <br>
+                    Telp : (0282) 539 5195
+                    <br>
+                    Hp/WA : 081228221010
+                </p>
+
+
+            </div>
+            <!-- Column 4 -->
+            <div class="w-1/2 mb-4 md:mb-0">
+                <h2 class="mb-4 text-lg font-semibold text-gray-800">NU Care-LAZISNU Cilacap</h2>
+                <div class="h-auto bg-white rounded-lg w-75">
+                    <a href="https://maps.app.goo.gl/3ZVUjzq2MxBruu318" target="_blank">
+                        <img src="{{ asset('images/map2.png') }}" alt="map">
+                    </a>
+                </div>
+            </div>
+            <div class="w-full h-px mt-8 bg-gray-300 ">
+            </div>
+            <div class="w-full mt-4 mb-20 md:mb-0">
+                <h2 class="text-sm text-center text-gray-600">Copyright © 2024 - NU Care LAZISNU     Cilacap</h2>
+            </div>
+
+        </div>
+    </div>
         <!-- Sticky Bottom -->
         <div class="fixed bottom-0 left-0 right-0 z-40 flex justify-center bg-white shadow-md md:hidden">
             <div class="flex items-center justify-between w-full max-w-lg px-4 py-2 space-x-8 bg-white"

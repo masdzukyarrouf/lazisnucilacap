@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2 title="Pembayaran Qurban Lazisnu Cilacap" backUrl="{{ route('qurban') }}"/>
+    <x-nav-mobile2 title="Pembayaran Qurban LAZISNU Cilacap" backUrl="{{ route('qurban') }}"/>
     <div class="flex flex-col w-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="shadow ">
             <div class="mx-5 mt-2">

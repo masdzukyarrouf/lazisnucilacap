@@ -11,7 +11,7 @@
         <div id="categoryModal" class="w-full max-w-[414px] bg-white shadow-lg rounded-t-lg pb-[67px]">
             <div class="p-4 border-b border-gray-200">
                 <div class="flex items-center justify-between">
-                    <h2 class="text-lg font-bold text-gray-900">Pilih Kategori Campaign</h2>
+                    <h2 class="text-lg font-bold text-gray-900">Pilih Kategori Berita</h2>
                     <button type="button" id="closeModal" class="font-extrabold text-gray-400 hover:text-gray-500">
                         <!-- Close icon -->
                         X

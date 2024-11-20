@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2 title="Berita Lazisnu Cilacap" backUrl="{{ route('landing') }}"/>
+    <x-nav-mobile2 title="Berita LAZISNU Cilacap" backUrl="{{ route('landing') }}"/>
     <div class="flex flex-col w-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="flex">
             <livewire:user-berita.kategori :nama_kategori="$this->kategori" />

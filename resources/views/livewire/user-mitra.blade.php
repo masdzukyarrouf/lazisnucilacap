@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center justify-center min-w-fit">
-    <x-nav-mobile2 title="Mitra Lazisnu Cilacap" backUrl="{{ route('landing') }}"/>
+    <x-nav-mobile2 title="Mitra LAZISNU Cilacap" backUrl="{{ route('landing') }}"/>
     <div class="flex flex-col w-full min-h-screen px-4 py-4 mb-8 bg-gray-100 shadow-md md:w-[414px]">
         <h2 class="pb-5 font-semibold text-green-500">Mitra Kami</h2>
         <div class="w-full p-4 mb-16 border-4 border-green-500 rounded-xl">

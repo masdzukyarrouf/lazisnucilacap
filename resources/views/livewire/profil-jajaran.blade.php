@@ -14,7 +14,7 @@
     <div class="flex flex-col w-full h-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div id="details-container" class="relative max-h-[1000px] overflow-hidden transition-all duration-300 shadow-lg px-4 py-4">
             <img src="{{ asset('images/profil.png')}}" alt="" class="mb-4">
-            <p class=" text-[16px] font-semibold z-50 text-green-500 items-center flex">Sekilas NU-Care Lazisnu Cilacap</p>
+            <p class=" text-[16px] font-semibold z-50 text-green-500 items-center flex">Sekilas NU-Care LAZISNU Cilacap</p>
             <div id="details-content" class="w-full py-2">
                 <p class="mb-2 text-sm">NU Care-LAZISNU adalah rebranding dari Lembaga Amil Zakat, Infak, dan Sedekah Nahdlatul Ulama (LAZISNU)  milik perkumpulan Nadhlatul Ulama (NU).</p>
                 <p class="text-sm">NU Care-LAZISNU adalah rebranding dan / atau sebagai pintu masuk agar masyarakat global mengenal Lembaga Amil Zakat, Infak</p>
@@ -26,7 +26,7 @@
         </div>
                 
         <div id="details-container" class="relative max-h-[325px] overflow-hidden transition-all duration-300  shadow-lg px-4 py-4">
-            <p class="text-[16px] font-semibold text-green-500 items-center flex">Visi & Misi NU Care Lazisnu Cilacap</p>
+            <p class="text-[16px] font-semibold text-green-500 items-center flex">Visi & Misi NU Care LAZISNU Cilacap</p>
             <div id="details-content" class="w-full py-2">
                 <h2 class="font-semibold text-left text-green-500">Visi</h2>
                 @foreach($visis as $visi)
@@ -55,7 +55,7 @@
             </a>
         </div>
             <div class="px-4 py-4 shadow-lg">
-                <h1 class=" text-[16px] font-semibold text-green-500 items-center flex">Jajaran Pengurus  NU Care Lazisnu Cilacap</h1>
+                <h1 class=" text-[16px] font-semibold text-green-500 items-center flex">Jajaran Pengurus  NU Care LAZISNU Cilacap</h1>
                 <img src="{{ asset('images/jajaran.png')}}" alt="">
             </div>
         </div>

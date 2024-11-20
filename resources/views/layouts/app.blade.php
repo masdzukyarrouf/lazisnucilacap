@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- kirim title lewat class, default app name di env --}}
     <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
-    <link rel="icon" type="image/png" href="images\25636001732.png">
+    <link rel="icon" type="image/png" img src="{{ asset('images/25636001732.png') }}">
 
     @vite('resources/css/app.css')
     <style>
@@ -137,7 +137,7 @@
             <div class="w-full h-px mt-8 bg-gray-300 ">
             </div>
             <div class="w-full mt-4 mb-20 md:mb-0">
-                <h2 class="text-sm text-center text-gray-600">Copyright © 2024 - NU Care Lazisnu Cilacap</h2>
+                <h2 class="text-sm text-center text-gray-600">Copyright © 2024 - NU Care LAZISNU     Cilacap</h2>
             </div>
 
         </div>

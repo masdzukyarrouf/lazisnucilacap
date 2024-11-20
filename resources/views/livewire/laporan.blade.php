@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full h-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="flex flex-col px-4 py-4 shadow-lg">
             <div id="details-container" class="relative max-h-[1000px] overflow-hidden transition-all duration-300">
-                <p class="text-[14px] font-semibold text-green-500 items-center flex pb-2">Laporan & Publikasi NU-Care Lazisnu Cilacap</p>
+                <p class="text-[14px] font-semibold text-green-500 items-center flex pb-2">Laporan & Publikasi NU-Care LAZISNU Cilacap</p>
                 <div class="flex flex-col gap-3 p-4 mb-6 rounded shadow-lg">
                     @foreach ($laporan->take(5) as $item)
                         <a href="{{ asset('storage/' . $item->file) }}" target="_blank">
