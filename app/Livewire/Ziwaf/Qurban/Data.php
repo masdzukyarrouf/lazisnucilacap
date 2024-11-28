@@ -43,7 +43,7 @@ class Data extends Component
     {
         return [
             'nama' => 'required',
-            'no' => 'required|integer',
+            'no' => 'required',
             'alamat' => 'required',
         ];
     }
@@ -53,7 +53,6 @@ class Data extends Component
         return [
             'nama.required' => 'Nama wajib diisi.',
             'no.required' => 'Nomor telepon wajib diisi.',
-            'no.integer' => 'Nomor telepon harus berupa angka.',
             'alamat.required' => 'Alamat wajib diisi.',
         ];
     }
