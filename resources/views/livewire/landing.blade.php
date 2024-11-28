@@ -426,10 +426,24 @@
 
     <!-- Mitra Section -->
     <div
-        class="mx-auto max-w-[1420px] flex flex-col items-center py-4 mt-8   bg-white bg-center bg-cover w-max-screen">
+        class="mx-auto max-w-[1420px] flex flex-col items-center w-full py-8 md:mt-[70px] bg-center bg-cover bg-opacity-90">
         <!-- Title -->
-        <div class="mb-8">
-            <h2 class="text-xl font-semibold text-green-600">Mitra Kami</h2>
+        <div class="flex items-center justify-between w-full mb-8">
+            <div class="relative flex flex-col justify-between px-4 mr-6">
+                <h2 class="text-lg font-semibold text-green-600">Mitra LAZISNU Cilacap</h2>
+                <h2 class="text-sm text-black">Berikut adalah mitra LAZISNU Cilacap</h2>
+            </div>
+            <div>
+                <a
+                    class="mr-4 overflow-hidden text-sm text-left text-green-500 md:hidden hover:text-green-600 hover:cursor-pointer whitespace-nowrap text-ellipsis">Selengkapnya >
+                </a>
+                <button
+                    class="relative hidden px-4 py-2 text-white bg-green-500 rounded-md md:block hover:bg-green-600">
+                    <a href="{{ route('Mitra') }}">
+                        Mitra Selengkapnya
+                    </a>
+                </button>
+            </div>
         </div>
         <div x-data="{
             offset: 0,

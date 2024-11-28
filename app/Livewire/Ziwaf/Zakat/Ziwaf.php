@@ -324,7 +324,7 @@ class Ziwaf extends Component
         if (($hijriDate['hijri']['month']['number']) == 9) {
             $this->fitrah = 'true';
         } else {
-            $this->fitrah = 'true';
+            $this->fitrah = 'false';
         }
     }
 

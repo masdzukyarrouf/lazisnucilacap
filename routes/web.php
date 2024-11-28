@@ -137,6 +137,8 @@ Route::get('/sejarah', App\Livewire\Sejarah::class)->name('sejarah');
 
 Route::get('/legalitas', App\Livewire\Legalitas::class)->name('legalitas');
 
+Route::get('/Mitra', App\Livewire\UserMitra::class)->name('Mitra');
+
 
 // Route::get('/donasi/{title}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
 // Route::get('/pembayaran/success', App\Livewire\Donasi\Success::class)->name('donasi.success');

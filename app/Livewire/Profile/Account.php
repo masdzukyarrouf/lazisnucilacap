@@ -36,7 +36,7 @@ class Account extends Component
             'last_name' => 'nullable|string',
             'no_telp' => 'required|string',
             'password' => 'nullable|string',
-            'email' => ['required', 'regex:/^[\w\.-]+@gmail\.com$/','unique:users,email,' . $this->id_user . ',id_user'],
+            'email' => ['required', 'regex:/^[\w\.-]+@gmail\.com$/'],
 
 
         ], [

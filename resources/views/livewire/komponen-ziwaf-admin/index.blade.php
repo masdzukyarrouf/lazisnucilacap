@@ -1,6 +1,6 @@
 <div class="mx-5 shadow-2xl">
     <div class="flex flex-col items-center mx-4 mt-12 mb-16">
-        <h1 class="w-full mb-4 text-2xl font-bold text-left">Komponen Ziwaf Table</h1>
+        <h1 class="w-full mb-4 text-2xl font-bold text-left">Komponen Ziswaf Table</h1>
         <div class="flex items-center">
             <form wire:submit="convert" class="p-4 border border-gray-500 rounded-lg w-[500px]">
                             <div class="mb-4">
