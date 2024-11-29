@@ -339,7 +339,158 @@ class DatabaseSeeder extends Seeder
             'image' => 'Laporan & Publikasi.svg'
         ]);
 
+        Berita::factory()->create([
+            'title_berita' => 'Hari Solidaritas Internasional bagi Rakyat Palestina: Bersatu dalam Kemanusiaan',
+            'description' => 'Hari Solidaritas Internasional bagi Rakyat Palestina adalah pengingat penting bahwa kemerdekaan belum dirasakan rakyat Palestina hingga sekarang. Di tengah agresi yang terus meningkat, penderitaan mereka menjadi sorotan dunia, termasuk serangan masif sejak Oktober 2023.
 
+Menurut data dari Palestinian Central Bureau of Statistics (23 November 2024):
+
+44.970 rakyat Palestina menjadi korban jiwa dari agresi Israel sejak 7 Oktober 2023
+110.723 warga terluka
+2.000.000 orang mengungsi
+16.900 warga Palestina ditahan, termasuk anak-anak dan remaja
+281.713 unit bangunan hancur, mencakup rumah, sekolah, rumah sakit, dan infrastruktur lainnya.
+Kerusakan ini berdampak langsung pada hak-hak dasar rakyat Palestina. Banyak sekolah di Gaza tidak dapat digunakan, sehingga anak-anak kehilangan akses terhadap pendidikan. Layanan kesehatan pun lumpuh akibat hancurnya rumah sakit dan terbatasnya pasokan medis.
+
+Dilansir dari Al Jazeera per tanggal 26 November 2024, pasukan Israel menewaskan 11 warga Palestina dalam tiga serangan di daerah utara Jalur Gaza. Seiring dengan curah hujan yang tinggi dan naiknya air laut yang menambah sulit kondisi para pengungsi yang berlindung di tenda-tenda darurat.
+
+Kondisi ini diperparah dengan habisanya pasokan medis di Rumah Sakit Al-Ahli (al-Ahli Hospital). Sementara paramedis menghadapi ancaman serangan ketika berusaha mengevakuasi korban. Banyak pasien tidak dapat bertahan karena kurangnya peralatan pertolongan pertama dasar, seperti oksigen dan obat-obatan.
+
+Serangan di Jabalia dan Zeitoun pun terjadi. Pesawat tempur Israel membom rumah-rumah warga, termasuk yang berada di dekat sekolah dasar. Banyak korban jiwa tidak dapat dievakuasi karena infrastruktur yang rusak dan bahaya lanjutan.
+
+Kenyataan ini, yang makin hari makin memprihatinkan tak selayaknya luput dari perhatian kita. Hari Solidaritas Internasional ini menjadi momentum penting untuk kembali menegaskan dukungan kepada rakyat Palestina. Sebagai makhluk sosial, kita memiliki tanggung jawab moral untuk terus peduli, baik melalui doa, edukasi, maupun aksi nyata.
+
+Sahabat Peduli dapat memberi dukungan terbaik dan aksi nyata untuk saudara di Palestina dengan memberikan donasi melalui laman NU Peduli Palestina atau transfer ke rekening berikut:
+
+BCA 0680 1926 77 An. Yay. Lembaga Amil Zakat Infaq dan Shadaqah NU
+
+BSI 7015 654 583 An. PP LAZIS NU NON ZAKAT
+
+Kemanusiaan tidak mengenal batas. Mari bersama-sama kita menjadi bagian dari perjuangan Rakyat Palestina.
+
+Penulis: Zahramaay
+Editor: Wahyu Noerhadi',
+            'picture' => 'images/berita/8.jpeg',
+            'tanggal' => '2024-11-29',
+            'id_kategori' => '1'
+        ]);
+        Berita::factory()->create([
+            'title_berita' => 'NU Care-LAZISNU Cilacap dan PLN Indonesia Power Salurkan Bantuan Listrik Gratis untuk Warga Desa Adiraja',
+            'description' => 'NU Care-LAZISNU Cilacap bersama PT PLN Indonesia Power UBP Jawa Tengah 2 Adipala kembali melaksanakan program sosial berupa pemasangan listrik gratis untuk masyarakat kurang mampu di Desa Adiraja, Kecamatan Adipala, Kabupaten Cilacap, Jawa Tengah.
+
+Program ini merupakan bagian dari tanggung jawab sosial perusahaan (CSR) yang bertujuan memberikan akses listrik kepada warga yang belum terjangkau layanan energi.
+
+Dalam pelaksanaannya, dua keluarga di Desa Adiraja menjadi penerima manfaat bantuan tersebut, yakni Joni Riyanto yang beralamat di Jl Gereja RT 002 RW 001 dan Karyo Pawiro di Gang Peci RT 006 RW 003.
+
+Kepala Cabang NU Care-LAZISNU Cilacap, Ahmad Fauzi mengharapkan program ini mampu meningkatkan kualitas hidup penerima manfaat melalui akses energi yang mendukung kebutuhan dasar seperti penerangan dan aktivitas ekonomi rumah tangga.
+
+Fauzi juga menjelaskan peran penting yang diemban oleh NU Care-LAZISNU Cilacap dalam program ini. 
+
+“LAZISNU Cilacap sebagai pengelola dana CSR untuk program ini, termasuk hingga teknis pendaftaran ke PLN dan pemasangan, menjadi tanggung jawab kami. Untuk penerima manfaat, LAZISNU Cilacap berkoordinasi dengan Pemerintah Desa Adiraja dan memastikan bahwa penerima masuk dalam Data Terpadu Kesejahteraan Sosial (DTKS) serta memiliki Surat Keterangan Tidak Mampu (SKTM)," jelas Fauzi dalam keterangannya yang diterima NU Care, Selasa (26/11/2024).
+
+Ia menambahkan bahwa komunikasi intensif dengan pihak PLN Indonesia Power UBP Jawa Tengah 2 Adipala dilakukan sejak awal program.
+
+"Sebelumnya, Indonesia Power berkoordinasi dengan LAZISNU terkait teknis pemilihan penerima manfaat, yang kemudian diteruskan dengan koordinasi bersama Pemerintah Desa Adiraja," ungkapnya.
+
+Menurut Fauzi, program pemasangan listrik gratis ini memiliki dampak positif pada peningkatan kesejahteraan masyarakat.
+
+“Dengan akses listrik, penerima manfaat dapat menikmati penerangan yang memadai, mendukung kegiatan belajar anak-anak, serta membuka peluang usaha kecil yang dapat membantu menambah penghasilan keluarga,” terangnya.
+
+Pihaknya berharap program ini tidak hanya memberikan manfaat langsung berupa akses energi tetapi juga berkontribusi pada pengurangan beban ekonomi masyarakat kurang mampu, pemerataan akses energi antara wilayah perkotaan dan pedesaan, serta peningkatan produktivitas masyarakat.
+
+“Keberhasilan program ini diharapkan dapat menciptakan dampak positif yang berkelanjutan, baik untuk masyarakat saat ini maupun generasi mendatang,” ucap Fauzi.
+
+Selain itu, sambungnya, NU Care-LAZISNU Cilacap juga mengadakan pelatihan pemberdayaan masyarakat bekerja sama dengan PT PLN Indonesia Power.
+
+“Pelatihan ini mencakup budidaya dan perawatan cabai untuk kelompok tani di Desa Wlahar, Kecamatan Adipala serta pembuatan dan pemasaran keripik tempe untuk Kelompok Wanita Tani Srikandi Jaya di desa yang sama,” papar Fauzi.
+
+“Dengan terus mendukung kegiatan seperti ini, NU Care-LAZISNU Cilacap bersama mitra strategisnya berharap dapat memperluas jangkauan bantuan dan mendorong kemajuan sosial serta ekonomi masyarakat di berbagai daerah,” pungkasnya.
+
+Kontributor : NU Care-LAZISNU Cilacap
+Editor : Putri Azmi M/Wahyu Noerhadi',
+            'picture' => 'images/berita/9.jpeg',
+            'tanggal' => '2024-11-26',
+            'id_kategori' => '1'
+        ]);
+        Berita::factory()->create([
+            'title_berita' => 'Hasil Survey World Giving Index, 7 Tahun Berturut-turut Indonesia Jadi Negara Paling Dermawan di Dunia',
+            'description' => 'NU Care-LAZISNU Cilacap Jawa Tengah menyalurkan paket berbuka puasa untuk santri yatim dan dhuafa di Pondok Pesantren Tarbiyatul Aulad Cilacap Selatan, Jumat (15/03/2024). 
+
+                                Direktur NU Care-LAZISNU Cilacap mengatakan bulan Ramadhan selalu menjadi momentum untuk berlomba-lomba dalam kebaikan.
+
+                                “Salah satu bentuk kebaikan tersebut adalah dengan berbagi kepada santri,anak yatim dan duafa,” katanya.
+
+                                Penyaluran paket berbuka puasa tersebut berupa buka puasa super Duk Duk Berbagi dari KFC Indonesia menyasar 200 penerima.
+
+                                “Kami mengucapakan terima kasih kepada KFC Indonesia yang telah mempercayai LAZISNU Cilacap untuk menjadi partner dalam kegiatan ini,” imbuh Fauzi.
+
+                                Sesuai dengan tema Ramadhan tahun ini yakni Mahabbah Ramadhan, lanjut Fauzi, NU Care-LAZISNU Cilacap juga mengadakan berbagai program ramadhan lainnya.
+
+                                “Di antaranya Paket buka puasa untuk pejuang nafkah dan iftar bersama santri.” ujarnya.
+
+                                Pengasuh Pondok Pesantren Tarbiyatul Aulad  KH Amrin Aulawi mengucapkan terima kasih atas bantuan dan program yang diberikan.
+
+                                “Semoga LAZISNU Cilacap semakin dipercaya oleh masyarakat semakin besar dan semakin bertambah manfaat untuk masyarakat,” harapnya.
+
+                                Kegiatan tersebut diawali dengan serah terima secara simbolis oleh Ketua LAZISNU Cilacap H Wasbah Samudera Fawaid dan diterima oleh KH Amrin Aulawi, dilanjutkan dengan Tausiyah singkat dan buka bersama.
+
+                                Ketua LAZISNU Cilacap, H Wasbah Samudera Fawaid mengatakan NU Care-LAZISNU Cilacap diberikan amanah untuk menyalurkan paket buka puasa Super Dukduk Berbagi sebanyak 200 paket setiap Jumat.
+
+                                “Paket tersebut untuk diberikan kepada santri, yatim, dhuafa, pejuang nafkah,” kata Wasbah.
+
+                                Pewarta: Kendi Setiawan
+
+                                Sumber : nucare.id',
+            'picture' => 'images/berita/10.jpeg',
+            'tanggal' => '2024-11-29',
+            'id_kategori' => '3'
+        ]);
+
+        Berita::factory()->create([
+            'title_berita' => 'Penguatan Program LAZ Harus Berbasis Logical Framework Analysis untuk Efektivitas dan Keberlanjutan',
+            'description' => 'Program Smart Amil Virtual NU Care-LAZISNU hadir sebagai wadah pembelajaran yang awalnya dirancang untuk internal LAZISNU, dari tingkat pusat hingga ranting. Namun, inisiatif ini kini diperluas untuk masyarakat umum, termasuk para pengikut (followers) NU Care-LAZISNU di berbagai platform.
+
+Dalam sesi yang menghadirkan Hamid Abidin, anggota Dewan Pakar Filantropi Indonesia, Jumat (22/11/2024) disampaikan materi tentang Logical Framework Analysis (LFA).
+
+Hamid memaparkan bahwa LFA merupakan alat penting dalam menyusun program yang relevan, terukur, dan berkelanjutan.
+
+Relevansi Program dengan Kebutuhan Masyarakat
+Hamid menyoroti tantangan yang dihadapi lembaga filantropi, termasuk NU Care-LAZISNU, dalam pengembangan program.
+
+"Sering kali, program tidak relevan dengan kebutuhan masyarakat atau prioritas program pemerintah. Misalnya, saat ini isu ketahanan pangan dan dampak PHK menjadi perhatian utama. Program yang kita kembangkan harus mengarah pada solusi terhadap persoalan tersebut," jelasnya.
+
+Ketua Badan Pengurus Public Interest Research and Advocacy Center (PIRAC) itu menuturkan analisis kebutuhan masyarakat dan konteks permasalahan adalah langkah awal yang krusial.
+
+Selain itu, ia menekankan pentingnya memiliki indikator keberhasilan yang jelas. "Kita harus bisa menjawab, apa tujuan program ini? Bagaimana cara mengukurnya? Apa dampak yang ingin dicapai?" tambahnya.
+
+Kerangka Logis untuk Program yang Terukur dan Berkelanjutan
+Hamid memperkenalkan LFA sebagai metode yang dapat membantu lembaga zakat menyusun program dengan kerangka yang logis, mulai dari analisis masalah, desain strategi, hingga pelaksanaan, monitoring, dan evaluasi.
+
+"LFA memungkinkan kita untuk mengidentifikasi masalah, menentukan strategi, mengenali penerima manfaat, melibatkan stakeholder, hingga merinci sumber daya yang diperlukan,” ungkapnya.
+
+Ia juga menekankan pentingnya mengaitkan kegiatan dengan tujuan dan sasaran program, serta memastikan kontribusi setiap program terhadap pencapaian tujuan strategis organisasi.
+
+Kolaborasi dan Dukungan Stakeholder
+Hamid menggarisbawahi perlunya identifikasi stakeholder yang jelas, termasuk perusahaan, pemerintah, lembaga donor, dan masyarakat.
+
+"Stakeholder harus memahami bahwa program yang kita tawarkan memberikan manfaat bagi mereka. Misalnya, perusahaan bisa mendukung program kesehatan masyarakat karena ini berdampak pada produktivitas dan kesejahteraan pekerja mereka,” ujarnya.
+
+Menjadikan LFA Alat Strategis
+Dengan menggunakan LFA, kata Hamid, NU Care-LAZISNU diharapkan dapat mengembangkan program yang:
+
+Relevan dengan kebutuhan masyarakat dan prioritas pemerintah
+Terukur, dengan tujuan dan indikator keberhasilan yang jelas
+Berorientasi hasil, untuk memberikan dampak nyata
+Berkelanjutan, dengan dukungan stakeholder
+Hamid menegaskan bahwa penerapan LFA adalah langkah strategis untuk memastikan program NU Care-LAZISNU memberikan dampak maksimal dan tetap relevan.
+
+"Mari jadikan alat ini sebagai panduan untuk mengatur pemikiran dan memastikan program kita berkontribusi nyata, seperti pada isu stunting atau ketahanan pangan," tegasnya.
+
+Editor: Kendi Setiawan/Wahyu Noerhadi',
+            'picture' => 'images/berita/11.jpeg',
+            'tanggal' => '2024-11-28',
+            'id_kategori' => '3'
+        ]);
         Berita::factory()->create([
             'title_berita' => 'Program Ramadhan 2024, Nu Care-Lazisnu Cilacap Berhasil Menyalurkan Kepada 54.000 Penerima Manfaat',
             'description' => 'NU Care-LAZISNU Cilacap telah berhasil menyalurkan dana zakat, infak, dan sedekah (ZIS) pada Ramadan 1445 H/2024 M kepada lebih dari 54.000 penerima manfaat. Dana ZIS tersebut disalurkan melalui 5 pilar program dan 12 program unggulan yang dilaksanakan selama bulan Ramadan 1445 H.
@@ -574,7 +725,7 @@ class DatabaseSeeder extends Seeder
             'tanggal' => '2024-03-21',
             'id_kategori' => '5'
         ]);
-
+        
         petugas::factory()->create([
             'nama' => 'admin mobiznu',
             'no' => '1234567890',
