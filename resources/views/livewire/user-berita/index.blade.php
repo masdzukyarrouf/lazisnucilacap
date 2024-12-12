@@ -14,7 +14,7 @@
                 @if ($kategori === 'Kategori')
                     @foreach ($Beritas->take(3) as $berita)
                         <div class="px-4 py-2 mx-2">
-                            <a href="{{ route('user-berita.show', $berita->title_berita) }}">
+                            <a href="{{ route('user-berita.show', \Illuminate\Support\Str::slug($berita->title_berita)) }}">
                                 <div class="flex flex-col bg-white rounded-lg shadow-xl">
                                     <div class="px-3 py-2">
                                         <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"

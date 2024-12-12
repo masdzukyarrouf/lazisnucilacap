@@ -162,8 +162,8 @@ Route::get('/pembayaran/{title}/{token}', App\Livewire\Donasi\Pembayaran::class)
 
 Route::get('/list_donasi/{title}', App\Livewire\Campaigns\DonasiList::class)->name('campaigns.donasiList');
 Route::get('/campaigns', App\Livewire\Campaigns\Index::class)->name('campaign');
-Route::get('/campaigns/{title}', App\Livewire\Campaigns\Show::class)->name('campaigns.show');
-Route::get('/doa/{title}', App\Livewire\Campaigns\DoaList::class)->name('campaigns.doaList');
+Route::get('/campaigns/{slug}', App\Livewire\Campaigns\Show::class)->name('campaigns.show');
+Route::get('/doa/{slug}', App\Livewire\Campaigns\DoaList::class)->name('campaigns.doaList');
 Route::get('/pilar/{slug}', App\Livewire\PilarProgram\show::class)->name('pilarProgram.show');
 
 

@@ -15,10 +15,18 @@
                 <form wire:submit="update">
                     <input type="text" hidden wire:model="id_berita">
                     <div class="mb-4">
-                        <label for="title_berita" class="block text-sm font-medium text-gray-700">judul berita</label>
+                        <label for="title_berita" class="block text-sm font-medium text-set-gray-700">judul berita</label>
                         <input type="text" id="title_berita" wire:model="title_berita" name="title_berita"
                             class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
                         @error('title_berita')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-4">
+                        <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
+                        <input type="text" id="slug" wire:model="slug" name="slug"
+                            class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                        @error('slug')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
@@ -33,7 +41,7 @@
                     <div class="mb-4">
                         <label for="id_kategori" class="block text-sm font-medium text-gray-700">Kategori</label>
                         <select id="id_kategori" wire:model="id_kategori" name="id_kategori"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 bg-gray-200 py-2 sm:text-sm">
+                            class="block w-full py-2 mt-1 bg-gray-200 border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 sm:text-sm">
                             <option value="{{null}}" selected>Select</option>
                             @foreach($kategoriList as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
@@ -41,7 +49,7 @@
                         </select>
                     
                         @error('id_kategori')
-                            <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                            <span class="mt-1 text-sm text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="mb-4">

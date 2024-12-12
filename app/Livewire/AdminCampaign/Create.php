@@ -17,6 +17,9 @@ class Create extends Component
 
     #[Rule('required|string')]
     public $title;
+
+    #[Rule('required')]
+    public $slug;
     
     #[Rule('required|string')]
     public $description;
@@ -53,6 +56,7 @@ class Create extends Component
     protected $messages = [
         'title.required' => 'Judul harus diisi.',
         'title.string' => 'Judul harus berupa teks.',
+        'slug.required' => 'Slug harus diisi.',
         'description.required' => 'Deskripsi harus diisi.',
         'description.string' => 'Deskripsi harus berupa teks.',
         'id_kategori.required' => 'Kategori harus dipilih.',
@@ -87,9 +91,11 @@ class Create extends Component
         $mainPicturePath = $this->uploadImage($this->main_picture);
         $secondPicturePath = $this->uploadImage($this->second_picture);
         $lastPicturePath = $this->uploadImage($this->last_picture);
+        $slugg = Str::slug($this->slug);
 
         $campaign = Campaign::create([
             'title' => $this->title,
+            'slug' => $slugg,
             'description' => $this->description,
             'goal' => $this->goal,
             'raised' => $this->raised ?? 0,

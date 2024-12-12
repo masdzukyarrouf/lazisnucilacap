@@ -13,70 +13,66 @@
                 slideInterval: 3000, // Waktu dalam milidetik untuk setiap slide
                 interval: null,
                 load: false,
-                isScrolling: false, // Track manual scroll
                 updateSlideWidth() {
-                    {{-- // Adjust slideWidth based on screen size
-                    if (window.innerWidth < 640) {
-                        this.slideWidth = 100; // Value for smaller screens
+                    if (window.innerWidth < 768) {
+                        this.slideWidth = 100; // Untuk layar kecil
                     } else {
-                        this.slideWidth = 100; // Value for larger screens
-                    } --}}
+                        this.slideWidth = 100; // Untuk layar besar
+                    }
                 },
                 startAutoSlide() {
                     this.interval = setInterval(() => {
-                        if (!this.isScrolling) {
-                            // Move offset for auto slide
-                            if (this.offset < (this.logoCount - this.visibleLogos) * this.slideWidth) {
-                                this.offset += this.slideWidth;
-                            } else {
-                                this.offset = 0; // Restart from the beginning
-                            }
+                        if (this.offset < (this.logoCount - this.visibleLogos) * this.slideWidth) {
+                            this.offset += this.slideWidth;
+                        } else {
+                            this.offset = 0; // Kembali ke awal
                         }
                     }, this.slideInterval);
                 },
                 stopAutoSlide() {
                     clearInterval(this.interval);
                 },
-                handleScroll(event) {
-                    this.isScrolling = true; // Set manual scrolling state
-                    // Calculate new offset based on scroll position
-                    const scrollAmount = event.deltaY / 10; // Adjust scroll speed sensitivity
-                    this.offset = Math.min(
-                        Math.max(
-                            this.offset - scrollAmount, 
-                            0
-                        ),
-                        (this.logoCount - this.visibleLogos) * this.slideWidth
-                    );
-                    this.stopAutoSlide(); // Stop auto sliding while scrolling
-                    clearTimeout(window.scrollTimeout);
-                    window.scrollTimeout = setTimeout(() => {
-                        this.isScrolling = false; 
-                        this.startAutoSlide(); // Resume auto slide after scrolling
-                    }, 1000);
+                next() {
+                    if (this.offset < (this.logoCount - this.visibleLogos) * this.slideWidth) {
+                        this.offset += this.slideWidth;
+                    }
+                },
+                prev() {
+                    if (this.offset > 0) {
+                        this.offset -= this.slideWidth;
+                    }
                 }
-            }" 
+            }"
             x-init="updateSlideWidth();
                     load = true;
                     startAutoSlide();
-                    window.addEventListener('resize', updateSlideWidth);" 
-            x-show="load" 
+                    window.addEventListener('resize', updateSlideWidth);"
+            x-show="load"
             wire:init="loadMitra"
-            class="relative w-full overflow-x-auto scrollbar-hide"
-            @wheel="handleScroll($event)"> <!-- Use wheel event for smooth scrolling -->
-                <!-- Carousel Container -->
+            class="relative w-full overflow-x-auto scrollbar-hide">
+                <!-- Tombol navigasi -->
+                <button @click="prev" 
+                    class="absolute left-0 z-10 hidden p-2 text-white -translate-y-1/2 bg-gray-800 rounded-full shadow-lg md:block top-1/2 hover:bg-gray-600">
+                    &#10094;
+                </button>
+                <button @click="next" 
+                    class="absolute right-0 z-10 hidden p-2 text-white -translate-y-1/2 bg-gray-800 rounded-full shadow-lg md:block top-1/2 hover:bg-gray-600">
+                    &#10095;
+                </button>
+
+                <!-- Kontainer Carousel -->
                 <div class="flex w-full transition-transform duration-500"
                     :style="'transform: translateX(-' + offset + '%)'">
                     @foreach ($landings as $landing)
                         @if ($landing->link == '-')
-                            <a class="h-auto min-w-full ">
+                            <a class="h-auto min-w-full">
                                 <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                                    class="h-auto min-w-full" style="aspect-ratio: 16/6;"/>
+                                    class="h-auto min-w-full" style="aspect-ratio: 16/6;" />
                             </a>
                         @else
                             <a href="{{ $landing->link }}" class="h-auto min-w-full">
                                 <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Picture"
-                                    class="h-auto min-w-full" style="aspect-ratio: 16/6;"/>
+                                    class="h-auto min-w-full" style="aspect-ratio: 16/6;" />
                             </a>
                         @endif
                     @endforeach
@@ -84,6 +80,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="relative flex justify-center w-full -mt-6 z-12">
         <div class="flex justify-center space-x-2 md:space-x-4 md:-mt-14">
@@ -598,7 +595,7 @@
                 </ul>
             </div> --}}
             <!-- Column 3 -->
-            <div class="w-1/2 mb-4 md:mb-0">
+            <div class="w-1/2 pr-2 mb-4 md:mb-0p">
                 <h2 class="mb-4 text-lg font-semibold text-gray-800">Alamat</h2>
                 <p class="mb-4 text-sm text-gray-700">Jl. Masjid No. 09 Sidanegara
                     <br>
@@ -610,8 +607,6 @@
                     <br>
                     Hp/WA : 081228221010
                 </p>
-
-
             </div>
             <!-- Column 4 -->
             <div class="w-1/2 mb-4 md:mb-0">
@@ -682,6 +677,13 @@
 
     </div>
 </div>
+<script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+        <script>
+          var wa_btnSetting = {"btnColor":"#16BE45","ctaText":"","cornerRadius":40,"marginBottom":100,"marginLeft":20,"marginRight":20,"btnPosition":"right","whatsAppNumber":"6281228221010","welcomeMessage":"Halo, Admin. Saya ingin mendapatkan informasi lebih lanjut mengenai tata cara Berdonasi / Berinfak / Zakat / Sedekah di NU-CARE LAZISNU CILACAP.  ","zIndex":999999,"btnColorScheme":"light"};
+          window.onload = () => {
+            _waEmbed(wa_btnSetting);
+          };
+        </script>
 <script>
     // Toggle User Menu visibility
     document.getElementById('user-menu-btn').addEventListener('click', function() {

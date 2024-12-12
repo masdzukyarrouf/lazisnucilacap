@@ -6,7 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- kirim title lewat class, default app name di env --}}
-    <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
+    
+    @php
+        // Ambil segment kedua dari URL (slug berita)
+        $slug = Request::segment(2);
+
+        // Cari data berita berdasarkan slug
+        $berita = null;
+        $campaign = null;
+        if ($slug) {
+            $berita = \App\Models\Berita::where('title_berita', $slug)->first();
+            $campaign = \App\Models\Campaign::where('title', $slug)->first();
+        }
+        
+    @endphp
+    
+    @if (Request::segment(1) == '')
+        <meta property="og:title" content="NU-CARE LAZISNU CILACAP" />
+        <meta name="description" content="NU Care-LAZISNU adalah rebranding dari Lembaga Amil Zakat, Infak, dan Sedekah Nahdlatul Ulama (LAZISNU) milik perkumpulan Nadhlatul Ulama (NU)." />
+        <meta property="og:url" content="https://lazisnucilacap.com/" />
+        <meta property="og:description" content="NU-CARE LAZISNU CILACAP" />
+        <meta property="og:image" content="{{ asset('images/lazisnu2.png') }}" />
+        <meta property="og:type" content="article" />
+        <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
+        
+    @elseif (Request::segment(1) == 'berita')
+        @if (Request::segment(2))
+            <meta property="og:title" content="{{ $berita->title_berita }}" />
+            <meta name="description" content="{{ $berita->title_berita }}" />
+            <meta property="og:url" content="https://lazisnucilacap.com/berita/{{ $berita->title_berita }}" />
+            <meta property="og:description" content="NU-CARE LAZISNU CILACAP" />
+            @if ($berita->picture)
+                <meta property="og:image" content="{{ asset('storage/' . $berita->picture) }}" />
+            @else
+                <meta property="og:image" content="{{ asset('images/lazisnu2.png') }}" />
+            @endif
+            <meta property="og:type" content="article" />
+            <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
+        @else    
+            <meta property="og:title" content="Berita NU-CARE LAZISNU CILACAP" />
+            <meta name="description" content="Berita NU-CARE LAZISNU CILACAP" />
+            <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
+        @endif
+        
+    @elseif (Request::segment(1) == 'zakat')
+        <meta property="og:title" content="Kalkulator Zakat NU-CARE LAZISNU CILACAP" />
+        <meta name="description" content="Kalkulator Zakat NU-CARE LAZISNU CILACAP" />
+        <meta property="og:url" content="https://lazisnucilacap.com/zakat" />
+        <meta property="og:description" content="NU-CARE LAZISNU CILACAP" />
+        <meta property="og:type" content="article" />
+        <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title
+        
+    @elseif (Request::segment(1) == 'infaq')
+        <meta property="og:title" content="infaq NU-CARE LAZISNU CILACAP" />
+        <meta name="description" content="infaq NU-CARE LAZISNU CILACAP" />
+        <meta property="og:url" content="https://lazisnucilacap.com/infaq" />
+        <meta property="og:description" content="NU-CARE LAZISNU CILACAP" />
+        <meta property="og:type" content="article" />
+        <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
+
+    @elseif (Request::segment(1) == 'wakaf')
+        <meta property="og:title" content="wakaf NU-CARE LAZISNU CILACAP" />
+        <meta name="description" content="wakaf NU-CARE LAZISNU CILACAP" />
+        <meta property="og:url" content="https://lazisnucilacap.com/wakaf" />
+        <meta property="og:description" content="NU-CARE LAZISNU CILACAP" />
+        <meta property="og:type" content="article" />
+        <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
+
+    @elseif (Request::segment(1) == 'fidyah')
+        <meta property="og:title" content="fidyah NU-CARE LAZISNU CILACAP" />
+        <meta name="description" content="fidyah NU-CARE LAZISNU CILACAP" />
+        <meta property="og:url" content="https://lazisnucilacap.com/fidyah" />
+        <meta property="og:description" content="NU-CARE LAZISNU CILACAP" />
+        <meta property="og:type" content="article" />
+        <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
+
+    @elseif (Request::segment(1) == 'qurban')
+        <meta property="og:title" content="Zakat NU-CARE LAZISNU CILACAP" />
+        <meta name="description" content="Zakat NU-CARE LAZISNU CILACAP" />
+        <meta property="og:url" content="https://lazisnucilacap.com/zakat" />
+        <meta property="og:description" content="NU-CARE LAZISNU CILACAP" />
+        <meta property="og:type" content="article" />
+        <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
+        
+    @endif
+
     <link rel="icon" type="image/png" img src="{{ asset('images/25636001732.png') }}">
 
     @vite('resources/css/app.css')

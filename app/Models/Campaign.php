@@ -22,6 +22,7 @@ class Campaign extends Authenticatable
      protected $primaryKey = 'id_campaign';
     protected $fillable = [
         'title',
+        'slug',
         'description',
         'goal',
         'raised',

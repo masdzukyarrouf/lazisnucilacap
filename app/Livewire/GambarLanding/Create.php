@@ -31,6 +31,7 @@ class Create extends Component
 
         // Simpan data ke database
         $landing = gambar_landing::create([
+            'position' => gambar_landing::max('position') + 1,
             'gambar' => $path, // Simpan path gambar
             'link' => $this->link, 
         ]);

@@ -5,7 +5,7 @@
             <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture"
                 class="object-cover w-full h-full mt-4 rounded-md">
             <div class="flex flex-col justify-between px-5">
-                <p class="pt-3 font-bold">{{ $berita->title_berita }}</p>
+                <p class="pt-3 font-bold">{{ str_replace('-', ' ', $berita->title_berita) }}</p>
                 <div class="flex items-center mt-3">
                     <img src="{{ asset('images/Calendar.png') }}" alt="jam" class="w-4 h-4">
                     <p class="pl-1 text-sm">

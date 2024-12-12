@@ -27,7 +27,15 @@
         <tbody>
             @foreach ($landings as $landing)
                 <tr class="border-t" wire:key="landing-{{ $landing->id_gambar }}">
-                    <td class="px-4 py-2">
+                    <td class="flex px-4 py-2">
+                        <div class="flex flex-col justify-center">
+                            <a wire:click="moveUp({{ $landing->id_gambar }})" class="{{ $landing->position == 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer' }}" wire:key="up-{{ $landing->id_gambar }}">
+                                🔼
+                            </a>
+                            <a wire:click="moveDown({{ $landing->id_gambar }})" class="{{ $landing->position == $maxPosition ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer' }}"wire:key="down-{{ $landing->id_gambar }}">
+                                🔽
+                            </a>
+                        </div>
                         <img src="{{ asset('storage/' . $landing->gambar) }}" alt="Main Picture"
                             class="block w-1/2 mx-auto mt-2 mb-2">
                     </td>
@@ -47,10 +55,6 @@
             @endforeach
         </tbody>
     </table>
-    <!-- Pagination Controls -->
-    <div class="py-8 mt-4 text-center">
-        {{ $landings->links('pagination::tailwind') }}
-    </div>
     <script>
         function confirmDelete(id) {
             Swal.fire({

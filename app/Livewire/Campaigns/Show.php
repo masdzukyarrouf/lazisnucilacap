@@ -19,12 +19,13 @@ class Show extends Component
     public $progress;
     public $dayLeft;
     public $title;
+    public $slug;
 
 
-    public function mount($title)
+    public function mount($slug)
     {
         Campaign::updateRaisedValues();
-        $this->title = $title;
+        $this->slug = $slug;
         $this->loadCampaign();
         
     }
@@ -52,7 +53,7 @@ class Show extends Component
     
     public function loadCampaign()
     {
-        $this->campaign = Campaign::where('title', urldecode($this->title))->firstOrFail();
+        $this->campaign = Campaign::where('slug', urldecode($this->slug))->firstOrFail();
         $this->update_campaign = update_campaign::where('id_campaign', $this->campaign->id_campaign)->latest('updated_at')->first();
 
         $this->processDescription();

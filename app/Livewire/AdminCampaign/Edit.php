@@ -21,6 +21,9 @@ class Edit extends Component
     #[Rule('required|string')]
     public $title;
 
+    #[Rule('required')]
+    public $slug;
+
     #[Rule('required|string')]
     public $description;
     #[Rule('required|integer')]
@@ -63,6 +66,7 @@ class Edit extends Component
     protected $messages = [
         'title.required' => 'Judul harus diisi.',
         'title.string' => 'Judul harus berupa teks.',
+        'slug.required' => 'Slug harus diisi.',
         'description.required' => 'Deskripsi harus diisi.',
         'description.string' => 'Deskripsi harus berupa teks.',
         'id_kategori.required' => 'Kategori harus dipilih.',
@@ -87,6 +91,7 @@ class Edit extends Component
     {
         $this->id_campaign = $campaign->id_campaign;
         $this->title = $campaign->title;
+        $this->slug = $campaign->slug;
         $this->description = $campaign->description;
         $this->start_date = $campaign->start_date;
         $this->end_date = $campaign->end_date;
@@ -138,9 +143,11 @@ class Edit extends Component
     public function update()
     {
         $this->validate();
+        $slugg = Str::slug($this->slug);
         $campaign = Campaign::find($this->id_campaign);
 
         $campaign->title = $this->title;
+        $campaign->slug = $slugg;
         $campaign->description = $this->description;
         $campaign->start_date = $this->start_date;
         $campaign->end_date = $this->end_date;
