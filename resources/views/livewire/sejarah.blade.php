@@ -1,5 +1,5 @@
-<div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Sejarah" />
+<div class="flex flex-col items-center justify-center min-w-fit">
+    <x-nav-mobile2 title="Sejarah" backUrl="{{ route('landing') }}"/>
     <div class="flex flex-col h-full min-h-screen bg-gray-100 shadow-md" style="width: 414px;">
         <div class="flex flex-col gap-3">
             <div class="p-6 bg-white">

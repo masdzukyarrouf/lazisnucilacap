@@ -25,7 +25,9 @@ class Create extends Component
         // Simpan data ke database
         $Misi = misi::create([
             'misi' => $validatedData['misi'],
+            'order' => misi::max('order') + 1,
         ]);
+        misi::reorder();
 
         $this->reset();
 

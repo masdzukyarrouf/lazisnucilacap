@@ -17,6 +17,7 @@ class Checkout extends Component
     public $alamat;
     public $dataqurban;
     public $token;
+    public $edit;
 
     public function mount()
     {
@@ -39,7 +40,7 @@ class Checkout extends Component
 
     public function back()
     {
-        $this->dataqurban = [
+        $this->edit = [
             'nominal' => $this->nominal,
             'jenis' => $this->jenis,
             'mudhohi' => $this->mudhohi,
@@ -52,12 +53,16 @@ class Checkout extends Component
 
         ];
 
-        return redirect()->route('qurban.checkout')
-            ->with('dataqurban', $this->dataqurban);
+        return redirect()->route('qurban.data')
+            ->with('edit', $this->edit);
     }
 
     public function render()
     {
-        return view('livewire.ziwaf.qurban.checkout')->layout('layouts.none');
+        $mudhohiList = json_decode($this->mudhohi, true);
+
+        return view('livewire.ziwaf.qurban.checkout', [
+            'mudhohiList' => $mudhohiList
+        ])->layout('layouts.none');
     }
 }

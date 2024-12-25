@@ -15,10 +15,20 @@ class Data extends Component
         'mudhohi' => '',
         'nominal' => 0,
     ];
+    public $edit = [
+        'jenis' => '',
+        'jumlah' => '',
+        'mudhohi' => '',
+        'nominal' => 0,
+        'nama' => '',
+        'no' => '',
+        'email' => '',
+        'alamat' => '',
+    ];
     public $dataqurban;
     public $nominal;
     public $jumlah;
-    public $mudhohi;
+    public $mudhohi = [];
     public $jenis;
     public $hewan;
     public $users;
@@ -29,28 +39,47 @@ class Data extends Component
     public $transaction;
 
 
+    public function rules()
+    {
+        return [
+            'nama' => 'required',
+            'no' => 'required',
+            'alamat' => 'required',
+        ];
+    }
+    
+    public function messages()
+    {
+        return [
+            'nama.required' => 'Nama wajib diisi.',
+            'no.required' => 'Nomor telepon wajib diisi.',
+            'alamat.required' => 'Alamat wajib diisi.',
+        ];
+    }
+
     public function mount()
     {
         $qurban = session('qurban', '');
+        $edit = session('edit', '');
 
         if ($qurban) {
             $this->nominal = $qurban['nominal'];
             $this->jenis = $qurban['jenis'];
             $this->mudhohi = $qurban['mudhohi'];
             $this->jumlah = $qurban['jumlah'];
+        } elseif ($edit) {
+            $this->nominal = $edit['nominal'];
+            $this->jenis = $edit['jenis'];
+            $this->mudhohi = $edit['mudhohi'];
+            $this->jumlah = $edit['jumlah'];
+            $this->nama = $edit['nama'];
+            $this->no = $edit['no'];
+            $this->email = $edit['email'];
+            $this->alamat = $edit['alamat'];
         } else {
             return redirect()->route('qurban');
         }
-
-        if ($this->jenis === 'Sapi') {
-            $this->hewan = '1/7 Sapi';
-        } elseif ($this->jenis === 'Kambing') {
-            $this->hewan = 'Kambing Standar';
-        } elseif ($this->jenis === 'Kambing+') {
-            $this->hewan = 'Kambing Premium';
-        } elseif ($this->jenis === 'Domba') {
-            $this->hewan = 'Domba Luar Negeri';
-        }
+        
 
         $this->users = auth::user();
         if ($this->users) {
@@ -84,7 +113,7 @@ class Data extends Component
 
     public function co()
     {
-        
+        $this->validate();
 
         $order_id = rand();
 
@@ -129,6 +158,7 @@ class Data extends Component
 
         Ziwaf::create([
             'nominal' => $this->nominal,
+            'atas_nama' => $this->mudhohi,
             'username' => $this->nama,
             'no_telp' => $this->no,
             'id_transaction' => $this->transaction->id_transaction,
@@ -156,6 +186,10 @@ class Data extends Component
 
     public function render()
     {
-        return view('livewire.ziwaf.qurban.data')->layout('layouts.none');
+        $mudhohiList = json_decode($this->mudhohi, true);
+
+        return view('livewire.ziwaf.qurban.data',[
+            'mudhohiList' => $mudhohiList
+            ])->layout('layouts.none');
     }
 }

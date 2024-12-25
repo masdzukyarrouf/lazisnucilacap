@@ -1,32 +1,56 @@
-<div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Ziwaf Lazisnu Cilacap" />
-    <div class="flex flex-col min-h-screen pb-24 bg-white rounded-lg shadow-md" style="width: 414px">
+<div class="flex flex-col items-center justify-center min-w-fit">
+    <x-nav-mobile2 title="Fidyah LAZISNU Cilacap" BackUrl="{{ route('landing') }}"/>
+    <div class="flex flex-col w-screen min-h-screen mt-12 pb-24 bg-white shadow-md md:w-[414px]">
         <livewire:ziwaf.navigation/>
-        <form wire:submit.prevent="bayarFidyah" class="mx-4">
-            <div class="mt-2 w-full flex flex-col space-y-2">
-                <label class=" font-semibold text-black mx-2">Jumlah Hari</label>
-                <div class="flex items-center mx-2 border bg-gray-400 bg-opacity-70">
-                    <p class="text-black  text-center italic mx-2 w-8">Hari</p>
-                    <input type="text"
-                        class=" ml-2 w-full p-2 focus:outline-none focus:ring-2 focus:ring-gray-500"
+        <form wire:submit.prevent="bayarFidyah">
+            <div class="flex flex-col justify-center p-4">
+                <div class="flex flex-col relativew-full md:w-96">
+                    <label class="font-semibold">Jumlah Hari</label>
+                    <div class="relative flex items-center justify-center mt-2">
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 bg-gray-300 rounded h-9">Hari </span>
+                        <input type="text"
+                        class="w-full py-1 pl-16 pr-2 border border-gray-300 rounded h-9 md:w-96" 
                         placeholder="Isi Dengan Jumlah Hari" onkeyup="formatAndSync(this)" id="formattedInput">
-                    <input type="hidden" wire:model.live="nominal" id="rawInput">
+                        <input type="hidden" wire:model.live="nominal" id="rawInput">
+                    </div>
+                    @error('nominal')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                    @enderror
                     
+                    <label class="mt-4 font-semibold">Atas Nama</label>
+                    <input 
+                    type="text" 
+                    id="atasNama" 
+                    wire:model="atasNama" 
+                    class="w-full px-2 py-1 mt-2 border border-gray-300 rounded md:w-96" 
+                    placeholder="Isikan nama anda" 
+                    />
+                    @error('atasNama')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                    @enderror
+                    
+                    <label class="mt-4 font-semibold">Nominal Fidyah</label>
+                    <div class="relative flex flex-col mb-4">
+                        <div class="flex items-center justify-center">
+                            <span class="absolute inset-y-0 left-0 flex items-center px-3 mt-2 bg-gray-300 border border-black rounded h-9">Rp. </span>
+                            <input 
+                            oninput="formatMoney(this)"
+                            type="text"   
+                            class="w-full py-1 pr-2 mt-2 bg-gray-300 border border-black rounded h-9 pl-14 md:w-96" 
+                            id="nominalFidyahDisplay" placeholder="Minimal donasi"
+                            value="{{ number_format($nominal_fidyah, 0, ',', '.') }}"
+                            readonly
+                            />
+                        </div>
                 </div>
-                <label class=" font-semibold text-black mx-2">Nominal Fidyah</label>
-                <div class="flex items-center mx-2 border bg-gray-400 bg-opacity-70">
-                    <p class="text-black  text-center italic mx-2 w-8">Rp.</p>
-                    <input type="text" disabled
-                        class=" ml-2 w-full p-2 focus:outline-none focus:ring-2 bg-white focus:ring-gray-500"
-                        id="nominalFidyahDisplay" placeholder="Minimal donasi"
-                        value="{{ number_format($nominal_fidyah, 0, ',', '.') }}">
-                </div>
-                <div class="flex items-center justify-center py-4 space-x-4 w-full">
+                    
+                <div class="flex items-center justify-center w-full py-4 space-x-4">
                     <button type="submit"
-                        class=" bg-green-600 px-16 py-2 items-center text-white rounded-lg w-full">
+                        class="items-center w-full px-16 py-2 font-bold text-white bg-green-500 rounded">
                         Bayar Sekarang
                     </button>
                 </div>
+            </div>
             </div>
         </form>
     </div>

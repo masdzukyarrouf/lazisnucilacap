@@ -13,5 +13,16 @@ class misi extends Model
     protected $primaryKey = 'id_misi';
     protected $fillable = [
         'misi',
+        'order',
     ];
+    public static function reorder()
+    {
+        $misiList = self::orderBy('order', 'asc')->get();
+        $newOrder = 1;
+        foreach ($misiList as $misi) {
+            $misi->order = $newOrder;
+            $misi->save();
+            $newOrder++;
+        }
+    }
 }

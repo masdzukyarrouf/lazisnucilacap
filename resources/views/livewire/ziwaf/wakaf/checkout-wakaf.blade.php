@@ -1,20 +1,39 @@
-<div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Pembayaran" />
-    <div class="flex flex-col bg-white shadow-md" style="width: 414px; height: 736px">
+<div class="flex flex-col items-center justify-center min-w-fit">
+    <x-nav-mobile2 title="Pembayaran Wakaf LAZISNU Cilacap" backUrl="{{ route('wakaf') }}"/>
+    <div class="flex flex-col w-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="shadow ">
             <div class="mx-5 mt-2">
                 <div class="flex flex-col">
                     <span class="text-sm text-gray-600">Anda Akan Melakukan Pembayaran Untuk Wakaf</span>
-                    <span class="text-sm text-gray-600">Untuk Program : {{ $this->jenis }}   </span>
+                </div>
+                <div class="flex flex-col mt-2">
+                    <span class="mb-2">
+                        Detail Wakaf
+                    </span>
+                    <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">Nama Program</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>{{ $jenis }}</div>
+                </div>
+                <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">Nama Muzakki</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>{{ $atasNama }}</div>
+                </div>
+                <div class="flex items-center mb-2">
+                    <div class="w-40 text-gray-500">Jenis</div>
+                    <div class="w-4 text-gray-500text-center">:</div>
+                    <div>{{ $jenis3 }}</div>
+                </div>
                 </div>
                 <label class="font-semibold">Nominal Zakat</label>
                 <div class="relative flex flex-col mb-3">
                     <div class="flex items-center justify-center">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 rounded h-9">Rp. </span>
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 text-green-500 bg-gray-300 border border-black rounded h-9">Rp. </span>
                             <input 
                                 type="text" 
                                 value="{{ number_format($nominal, 0, ',', '.') }}" 
-                                class="w-full py-1 pl-10 pr-2 text-green-500 border border-gray-300 rounded h-9" 
+                                class="w-full py-1 pr-2 text-green-500 bg-gray-300 border border-black rounded pl-14 h-9" 
                                 placeholder="Rp. 0" 
                                 readonly 
                             />
@@ -33,7 +52,7 @@
                         </svg>
                     </span>
                 </div>
-                <div class="mt-2">
+                <div class="mt-2 mb-4">
                         <div class="flex flex-col">
                             <div class="flex items-center mb-2">
                                 <span class="w-24 text-sm font-semibold text-gray-600">Nama</span>

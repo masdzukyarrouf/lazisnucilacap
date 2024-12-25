@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Fidyah" />
-    <div class="flex flex-col h-full min-h-screen bg-gray-100 shadow-md" style="width: 414px;">
+<div class="flex flex-col items-center justify-center min-w-fit">
+    <x-nav-mobile2 title="Fidyah" backUrl="{{ route('landing') }}"/>
+    <div class="flex flex-col w-screen min-h-screen pb-28 bg-white shadow-md md:w-[414px]">
         <div class="p-4 bg-[#56B44926] bg-opacity-15">
             <span class="flex flex-col mb-2 font-semibold text-green-500">
                 Tentang Fidyah
@@ -25,10 +25,9 @@
                 Cara membayar fidyah puasa dengan uang versi Hanafiyah adalah memberikan nominal uang yang sebanding dengan harga kurma atau anggur seberat 3,25 kilogram untuk per hari puasa yang ditinggalkan, selebihnya mengikuti kelipatan puasanya.
                 Berdasarkan SK Ketua BAZNAS No. 07 Tahun 2023 tentang Zakat Fitrah dan Fidyah untuk wilayah Ibukota DKI Jakarta Raya dan Sekitarnya, ditetapkan bahwa nilai fidyah dalam bentuk uang sebesar Rp60.000,-/hari/jiwa  
             </span>
-            <a href="{{Route('fidyah.index')}}" class="mt-4 text-xs font-semibold text-green-500">
+            <a href="{{ route('fidyah.index') }}" class="mt-4 text-xs font-semibold text-green-500 floating-link md:right-[580px] right-[20px]">
                 Bayar Fidyah Disini ...
             </a>
         </div>
-        <div class="mb-16"></div>
     </div>
 </div>

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckAdmin;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
 
 
 Route::get('/welcome', function () {
@@ -16,7 +18,7 @@ Route::middleware([CheckAdmin::class])->group(function () {
     Route::get('/user', App\Livewire\User\Index::class)->name('user');
     Route::get('/admin-campaign', App\Livewire\AdminCampaign\Index::class)->name('admin-campaign');
     Route::get('/update-campaign', App\Livewire\AdminUpdate\Index::class)->name('update-campaign');
-    Route::get('/user/create', App\Livewire\User\Create::class)->name('user');
+    // Route::get('/user/create', App\Livewire\User\Create::class)->name('user');
     Route::get('/admin-berita', App\Livewire\Berita\Index::class)->name('admin-berita');
     Route::get('/gambar_landing', App\Livewire\GambarLanding\Index::class)->name('gambar_landing');
     Route::get('/admin-mitra', App\Livewire\Mitra\Index::class)->name('admin-mitra');
@@ -26,6 +28,14 @@ Route::middleware([CheckAdmin::class])->group(function () {
     Route::get('/admin-kebijakan', App\Livewire\KebijakanAdmin\Index::class)->name('admin-kebijakan');
     Route::get('/admin-konfirmasi', App\Livewire\adminKonfirmasi\Index::class)->name('admin-konfirmasi');
     Route::get('/petugas', App\Livewire\Petugas\Index::class)->name('petugas');
+    Route::get('/kategori', App\Livewire\kategori\Index::class)->name('kategori');
+    Route::get('/pilihan-wakaf', App\Livewire\PilihanWakafAdmin\Index::class)->name('pilihan-wakaf');
+    Route::get('/pilihan-infaq', App\Livewire\PilihaninfaqAdmin\Index::class)->name('pilihan-infaq');
+    Route::get('/pilihan-qurban', App\Livewire\PilihanQurbanAdmin\Index::class)->name('pilihan-qurban');
+    Route::get('/pilar-Program', App\Livewire\PilarProgram\Index::class)->name(name: 'pilar-Program');
+    Route::get('/laporan-admin', App\Livewire\LaporanAdmin\Index::class)->name('laporan-admin');
+    Route::get('/notification', App\Livewire\Notification\Index::class)->name('notification');
+    Route::get('/komponen_ziwaf', App\Livewire\KomponenZiwafAdmin\Index::class)->name('komponen_ziwaf');
 
 });
 
@@ -58,14 +68,14 @@ Route::prefix('wakaf')->group(function () {
     Route::get('/data', App\Livewire\ziwaf\Wakaf\InfaqwakafBayar::class)->name('wakaf.data');
     Route::get('/pembayaran/{token}', App\Livewire\Ziwaf\Wakaf\CheckoutWakaf::class)->name('wakaf.pembayaran');
 });
- 
+
 Route::prefix('narasi')->group(function () {
-    Route::get('/fitrah', App\Livewire\Ziwaf\Narasi\Fitrah::class)->name('fitrah');
-    Route::get('/maal', App\Livewire\Ziwaf\Narasi\Maal::class)->name('maal');
-    Route::get('/infaq', App\Livewire\Ziwaf\Narasi\Infaq::class)->name('infaq');
-    Route::get('/wakaf', App\Livewire\Ziwaf\Narasi\Wakaf::class)->name('Wakaf');
-    Route::get('/fidyah', App\Livewire\Ziwaf\Narasi\Fidyah::class)->name('fidyah');
-    Route::get('/qurban', App\Livewire\Ziwaf\Narasi\Qurban::class)->name('qurban');
+    Route::get('/fitrah', App\Livewire\Ziwaf\Narasi\Fitrah::class)->name('narasi.fitrah');
+    Route::get('/maal', App\Livewire\Ziwaf\Narasi\Maal::class)->name('narasi.maal');
+    Route::get('/infaq', App\Livewire\Ziwaf\Narasi\Infaq::class)->name('narasi.infaq');
+    Route::get('/wakaf', App\Livewire\Ziwaf\Narasi\Wakaf::class)->name('narasi.Wakaf');
+    Route::get('/fidyah', App\Livewire\Ziwaf\Narasi\Fidyah::class)->name('narasi.fidyah');
+    Route::get('/qurban', App\Livewire\Ziwaf\Narasi\Qurban::class)->name('narasi.qurban');
 });
 
 Route::prefix('fidyah')->group(function () {
@@ -86,10 +96,10 @@ Route::prefix('qurban')->group(function () {
 });
 
 Route::get('/ziwaf/success', App\Livewire\Ziwaf\Success::class)->name('ziwaf.success');
+Route::get('/ziwaf/KebijakanPrivasi', App\Livewire\Ziwaf\KebijakanPrivasi::class)->name('ziwaf.KebijakanPrivasi');
 
 Route::get('/mitra', App\Livewire\UserMitra::class)->name('mitra');
 
-Route::get('/pemberitahuan', App\Livewire\ziwaf\Zakat\x::class)->name('x');
 
 Route::get('/profil&jajaran', App\Livewire\ProfilJajaran::class)->name('profil&jajaran');
 
@@ -109,6 +119,10 @@ Route::get('/hijau', App\Livewire\Hijau::class)->name('hijau');
 
 Route::get('/laporan', App\Livewire\Laporan::class)->name('laporan');
 
+Route::get('/rekening', App\Livewire\Rekening::class)->name('rekening');
+
+Route::get('/qr_donasi', App\Livewire\QRDonasi::class)->name('qr_donasi');
+
 Route::get('/konfirmasi', App\Livewire\UserKonfirmasi::class)->name('user-konfirmasi');
 
 Route::get('/pengajuan-mobiznu', App\Livewire\PengajuanMobiznu::class)->name('pengajuan-mobiznu');
@@ -122,6 +136,8 @@ Route::get('/wa_splash', App\Livewire\WaSplash::class)->name('wa_splash');
 Route::get('/sejarah', App\Livewire\Sejarah::class)->name('sejarah');
 
 Route::get('/legalitas', App\Livewire\Legalitas::class)->name('legalitas');
+
+Route::get('/Mitra', App\Livewire\UserMitra::class)->name('Mitra');
 
 
 // Route::get('/donasi/{title}', App\Livewire\Donasi\Donatur::class)->name('donasi.donatur');
@@ -146,11 +162,10 @@ Route::get('/pembayaran/{title}/{token}', App\Livewire\Donasi\Pembayaran::class)
 
 Route::get('/list_donasi/{title}', App\Livewire\Campaigns\DonasiList::class)->name('campaigns.donasiList');
 Route::get('/campaigns', App\Livewire\Campaigns\Index::class)->name('campaign');
-Route::get('/campaigns/{title}', App\Livewire\Campaigns\Show::class)->name('campaigns.show');
-Route::get('/doa/{title}', App\Livewire\Campaigns\DoaList::class)->name('campaigns.doaList');
+Route::get('/campaigns/{slug}', App\Livewire\Campaigns\Show::class)->name('campaigns.show');
+Route::get('/doa/{slug}', App\Livewire\Campaigns\DoaList::class)->name('campaigns.doaList');
+Route::get('/pilar/{slug}', App\Livewire\PilarProgram\show::class)->name('pilarProgram.show');
 
-// Custom 404 harus dibawah
-Route::get('{slug}', App\Livewire\NotFound::class)->name('404');
-Route::get('{slug}/{slug}', App\Livewire\NotFound::class)->name('404');
-Route::get('{slug}/{slug}/{slug}/{slug}', App\Livewire\NotFound::class)->name('404');
-Route::get('{slug}/{slug}/{slug}/{slug}/{slug}', App\Livewire\NotFound::class)->name('404');
+
+Route::get('/forgot-password', App\Livewire\ForgotPassword::class)->name('ForgotPassword');
+Route::get('/reset-password/{token}', App\Livewire\ResetPassword::class)->name('ResetPassword');

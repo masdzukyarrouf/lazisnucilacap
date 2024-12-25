@@ -17,13 +17,13 @@
             <!-- Kategori and Filter Buttons -->
             <div class="flex items-center justify-between">
                 <!-- Kategori Button -->
-                <livewire:campaigns.kategori />
+                <livewire:campaigns.kategori :nama_kategori="$this->kategori" />
                 <div x-data="{ open: false }" class="relative w-1/2">
                     <!-- Filter Button -->
                     <a @click.prevent="open = !open"
                         class="flex items-center justify-center  hover:cursor-pointer py-2 space-x-2 border border-transparent border-b-gray-200 border-l-gray-200">
                         <img src="{{ asset('images/filter.png') }}" alt="Filter" class="w-auto h-4">
-                        <h1 class="text-base">Filter</h1>
+                        <h1 class="text-base">{{ $filter }}</h1>
                     </a>
 
                     <!-- Dropdown Content -->
@@ -31,15 +31,15 @@
                         class="absolute z-50  w-full shadow-2xl bg-white border border-gray-200">
                         <ul class="text-sm text-gray-700 ">
                             <li>
-                                <a wire:click="saring('newest')" @click="open = false"
+                                <a wire:click="saring('Terbaru')" @click="open = false"
                                     class="block px-4 py-2 hover:bg-gray-100">Terbaru</a>
                             </li>
                             <li>
-                                <a wire:click="saring('soon')" @click="open = false"
+                                <a wire:click="saring('Segera Berakhir')" @click="open = false"
                                     class="block px-4 py-2 hover:bg-gray-100">Segera Berakhir</a>
                             </li>
                             <li>
-                                <a wire:click="saring('urgent')" @click="open = false"
+                                <a wire:click="saring('Mendesak')" @click="open = false"
                                     class="block px-4 py-2 hover:bg-gray-100">Mendesak</a>
                             </li>
                         </ul>
@@ -56,7 +56,7 @@
                     </div>
                 @elseif($this->kategori !== 'all' && $campaigns && $campaigns->isEmpty())
                     <div class="px-4 py-20  text-center">
-                        Campaign pada kategori {{ $this->kategori }} Tidak Ditemukan
+                        Campaign Yang Dicari Tidak Ditemukan pada Kategori {{ $this->kategori }} 
                     </div>
                 @else
                     @foreach ($campaigns as $campaign)

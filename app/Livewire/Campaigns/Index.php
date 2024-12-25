@@ -4,19 +4,19 @@ namespace App\Livewire\Campaigns;
 
 use Livewire\Component;
 use App\Models\Campaign;
+use App\Models\Kategori;
 
 class Index extends Component
 {
     public $kategori = "";
-    public $filter = "soon";
+    public $filter = "Mendesak";
     public $search = '';
     public $campaigns = [];
 
     public function mount()
     {
-        $this->kategori = session('kategori', 'all');
+        $this->kategori = session('kategori', 'Kategori');
         Campaign::updateRaisedValues();
-        // $this->loadCampaigns();
     }
 
     public function saring($filter)
@@ -32,28 +32,32 @@ class Index extends Component
 
     public function loadCampaign()
     {
-        $query = Campaign::query();
-        $query->where('end_date', '>', now());
-
+        $query = Campaign::with('kategori')->where('end_date', '>', now());
+    
         if (!empty($this->search)) {
             $query->where('title', 'like', '%' . $this->search . '%');
         }
-
-        if ($this->kategori !== 'all') {
-            $query->where('kategori', $this->kategori);
+    
+        if ($this->kategori !== 'Kategori') {
+            $kategori = Kategori::where('nama_kategori', $this->kategori)->first();
+            
+            if ($kategori) {
+                $query->where('id_kategori', $kategori->id);
+            }
         }
-
-        if ($this->filter == 'newest') {
+    
+        if ($this->filter == 'Terbaru') {
             $query->latest();
-        } elseif ($this->filter == 'soon') {
+        } elseif ($this->filter == 'Segera Berakhir') {
             $query->orderBy('end_date', 'asc');
-        } elseif ($this->filter == 'urgent') {
+        } elseif ($this->filter == 'Mendesak') {
             $query->orderByRaw("title LIKE '!%' DESC")
-                ->latest();
+                  ->latest();
         }
-
+    
         $this->campaigns = $query->get();
     }
+    
 
 
     public function render()

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- kirim title lewat class, default app name di env --}}
     <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
+    <link rel="icon" type="image/png" href="images\25636001732.png">
 
     @vite('resources/css/app.css')
     <style>

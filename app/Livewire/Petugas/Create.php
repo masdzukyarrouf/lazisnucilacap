@@ -15,8 +15,17 @@ class Create extends Component
     {
         return [
             'nama' => 'required|string',
-            'bagian' => 'required|string',
-            'no' => 'required|string',
+            'bagian' => 'required|string|unique:petugas,bagian',
+            'no' => 'required|string|regex:/^62[0-9]{9,}$/',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required' => ':attribute wajib diisi',
+            'unique' => ':attribute sudah ada',
+            'no.regex' => 'Nomor telepon harus dimulai dengan 62 dan hanya mengandung angka.',
         ];
     }
 

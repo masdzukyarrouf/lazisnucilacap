@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- kirim title lewat class, default app name di env --}}
     <title>{{ str_replace('_', ' ', $title ?? config('app.name')) }}</title>
+    <link rel="icon" type="image/png" img src="{{ asset('images/25636001732.png') }}">
 
     @vite('resources/css/app.css')
     <style>
@@ -55,7 +56,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     @livewireStyles
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 
 <body class="flex flex-col h-screen">
@@ -69,9 +69,18 @@
             <!-- Column 1 -->
             <div class="w-5/12 mb-4 md:mb-0">
                 <img src="{{ asset('images/cooler_logo_lazisnu.png') }}" alt="" class="w-auto h-12">
-                <p class="mb-8 text-sm text-gray-700">Lazisnucilacap.com adalah situs resmi Lembaga Amil Zakat, Infaq
-                    dan Shadaqah Nahdlatul Ulama (LAZISNU) Kabupaten Cilacap. Saran dan kritik :
-                    nucarelazisnukabupatencilacap@gmail.com</p>
+                <p class="pt-4 mb-8 text-sm text-gray-700">
+                    Lazisnucilacap.com adalah situs resmi Lembaga Amil Zakat, Infaq
+                    dan Shadaqah Nahdlatul Ulama (LAZISNU) Kabupaten Cilacap.
+                    <br>Saran dan kritik: 
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nucarelazisnukabupatencilacap@gmail.com&su=Saran%20dan%20Kritik&body=Assalamualaikum%20tim%20Lazisnu%20Cilacap" 
+                        target="_blank" 
+                        class="text-blue-500 hover:underline">
+                        nucarelazisnukabupatencilacap@gmail.com
+                    </a>
+                </p>
+
+
                 <ul class="flex space-x-8">
                     <li><a href="/" target="_blank" rel="noopener noreferrer">
                             <img src="{{ asset('images/whatsapp.png') }}" alt="" class="hover:scale-125">
@@ -118,7 +127,7 @@
             </div>
             <!-- Column 4 -->
             <div class="w-4/12 mb-4 md:mb-0">
-                <h2 class="mb-4 text-lg font-semibold text-gray-800">NU Care-Lazisnu Cilacap</h2>
+                <h2 class="mb-4 text-lg font-semibold text-gray-800">NU Care-LAZISNU Cilacap</h2>
                 <div class="h-auto bg-white rounded-lg w-75">
                     <a href="https://maps.app.goo.gl/3ZVUjzq2MxBruu318" target="_blank">
                         <img src="{{ asset('images/map2.png') }}" alt="map">
@@ -128,7 +137,7 @@
             <div class="w-full h-px mt-8 bg-gray-300 ">
             </div>
             <div class="w-full mt-4 mb-20 md:mb-0">
-                <h2 class="text-sm text-center text-gray-600">Copyright © 2024 - NU Care Lazisnu Cilacap</h2>
+                <h2 class="text-sm text-center text-gray-600">Copyright © 2024 - NU Care LAZISNU     Cilacap</h2>
             </div>
 
         </div>

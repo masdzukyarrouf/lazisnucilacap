@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title_berita');
             $table->text('description');
             $table->date('tanggal');
-            $table->string('kategori');
+            $table->string('id_kategori');
             $table->string('picture');
             $table->timestamps();
             

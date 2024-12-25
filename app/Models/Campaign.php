@@ -22,10 +22,11 @@ class Campaign extends Authenticatable
      protected $primaryKey = 'id_campaign';
     protected $fillable = [
         'title',
+        'slug',
         'description',
         'goal',
         'raised',
-        'kategori',
+        'id_kategori',
         'start_date',
         'end_date',
         'min_donation',
@@ -34,6 +35,10 @@ class Campaign extends Authenticatable
         'second_picture',
         'last_picture',
     ];
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'id_kategori', 'id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -57,7 +62,7 @@ class Campaign extends Authenticatable
     }
     public static function updateRaisedValues()
     {
-        $campaigns = self::all(); // Fetch all campaigns
+        $campaigns = self::all();
     
         foreach ($campaigns as $campaign) {
             $raisedAmount = Donasi::where('id_campaign', $campaign->id_campaign)

@@ -1,4 +1,4 @@
-<div class="mt-12 mx-4 flex flex-col justify-between">
+<div class="flex flex-col justify-between mx-4 mt-12">
 
     <div class="mt-4">
         <div>
@@ -14,22 +14,22 @@
             @endif
         </div>
 
-        <livewire:admincampaign.create />
+        <livewire:admin-campaign.create />
 
-        <table class="min-w-full bg-white border border-gray-200 mt-4">
+        <table class="min-w-full mt-4 bg-white border border-gray-200">
             <thead class="bg-gray-200">
                 <tr class="w-full text-white bg-gray-800">
                     <th class="px-4 py-2 text-left">Title</th>
                     {{-- <th class="px-4 py-2 text-left">Description</th> --}}
-                    <th class="px-4 py-2 border-b border-gray-300 text-left">Goal</th>
-                    <th class="px-4 py-2 border-b border-gray-300 text-left">Raised</th>
-                    <th class="px-4 py-2 border-b border-gray-300 text-left">Start Date</th>
-                    <th class="px-4 py-2 border-b border-gray-300 text-left">End Date</th>
-                    <th class="px-4 py-2 border-b border-gray-300 text-left">Min Donation</th>
-                    <th class="px-4 py-2 border-b border-gray-300 text-left">Lokasi</th>
-                    <th class="px-4 py-2 border-b border-gray-300 text-left">Kategori</th>
-                    <th class="px-4 py-2 border-b border-gray-300 text-left">Main Picture</th>
-                    <th class="px-4 py-2 border-b border-gray-300 text-left">Action</th>
+                    <th class="px-4 py-2 text-left border-b border-gray-300">Goal</th>
+                    <th class="px-4 py-2 text-left border-b border-gray-300">Raised</th>
+                    <th class="px-4 py-2 text-left border-b border-gray-300">Start Date</th>
+                    <th class="px-4 py-2 text-left border-b border-gray-300">End Date</th>
+                    <th class="px-4 py-2 text-left border-b border-gray-300">Min Donation</th>
+                    <th class="px-4 py-2 text-left border-b border-gray-300">Lokasi</th>
+                    <th class="px-4 py-2 text-left border-b border-gray-300">Kategori</th>
+                    <th class="px-4 py-2 text-left border-b border-gray-300">Main Picture</th>
+                    <th class="px-4 py-2 text-left border-b border-gray-300">Action</th>
                     {{-- <th class="px-4 py-2 text-left">Last Picture</th> --}}
                 </tr>
             </thead>
@@ -43,26 +43,44 @@
                         <td class="px-4 py-2">{{ $campaign->end_date }}</td>
                         <td class="px-4 py-2">{{ $campaign->min_donation }}</td>
                         <td class="px-4 py-2">{{ $campaign->lokasi }}</td>
-                        <td class="px-4 py-2">{{ $campaign->kategori }}</td>
+                        <td class="px-4 py-2">{{ $campaign->kategori->nama_kategori ?? 'No Kategori' }}</td>
                         <td class="px-4 py-2">
                             <img src="{{ asset('storage/images/campaign/' . $campaign->main_picture) }}"
-                                alt="Main Picture" class="w-16 h-16 object-cover">
+                                alt="Main Picture" class="object-cover w-16 h-16">
                         </td>
                         <td class="flex px-4 py-2 space-x-1">
-                            <livewire:admincampaign.edit :campaign="$campaign" wire:key="edit-{{ rand().$campaign->id_campaign }}" />
-                            <livewire:admincampaign.show :id_campaign="$campaign->id_campaign" wire:key="show-{{ rand().$campaign->id_campaign }}" />
-                            <button
-                                class="inline-block px-3 py-1 text-white text-center bg-red-500 rounded hover:bg-red-700"
-                                wire:click="destroy({{ $campaign->id_campaign }})" wire:confirm="Are you sure?">Delete</button>
+                            <livewire:admin-campaign.edit :campaign="$campaign" wire:key="edit-{{ rand().$campaign->id_campaign }}" />
+                            <livewire:admin-campaign.show :id_campaign="$campaign->id_campaign" wire:key="show-{{ rand().$campaign->id_campaign }}" />
+                            <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
+                                onclick="confirmDelete({{ $campaign->id_campaign }})">
+                                Delete
+                            </button>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
         <!-- Pagination Controls -->
-        <div class="mt-4 text-center py-8">
+        <div class="py-8 mt-4 text-center">
             {{ $campaigns->links('pagination::tailwind') }}
         </div>
     </div>
-
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Trigger Livewire destroy method
+                    @this.call('destroy', id);
+                }
+            })
+        }
+    </script>
 </div>

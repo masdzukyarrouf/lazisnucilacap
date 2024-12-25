@@ -4,7 +4,7 @@
 
     <!-- Modal Background -->
     <div x-show="isOpen" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-75">
-        <!-- Modal Content -->
+        <!-- Modal Content -->  
         <div class="w-1/2 bg-white rounded-lg shadow-lg">
             <!-- Modal Header -->
             <div class="flex items-center justify-between p-4 bg-gray-200 rounded-t-lg">
@@ -23,6 +23,16 @@
                         @error('gambar')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
+                    </div>
+                    <div class="mb-4">
+                        <label for="link" class="block text-sm font-medium text-gray-700">link</label>
+                        <input type="text" id="link" wire:model="link" name="link"
+                            class="block w-full py-1 mt-1 bg-gray-200 border-gray-700 rounded-md shadow-2xl focus:border-indigo-500 sm:text-sm">
+                        <span>Isi "-" jika ingin kosong</span>
+                            @error('link')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
+                        
                     </div>
                    
                     <!-- Submit Button inside the form -->

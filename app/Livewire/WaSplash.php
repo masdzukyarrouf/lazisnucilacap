@@ -13,6 +13,7 @@ class WaSplash extends Component
     {
         $petugases = petugas::where('bagian', 'mobiznu')->latest()->first();
         $this->nomorTujuan = $petugases->no;
+        
 
         $this->pesan = session('pesan', 'all');
         
@@ -21,7 +22,7 @@ class WaSplash extends Component
     
     public function redirectwithdelay()
     {
-        sleep(2);
+        // sleep(2);
         // URL untuk mengirimkan pesan WhatsApp
         $url = 'https://api.whatsapp.com/send?phone=' . $this->nomorTujuan . '&text=' . urlencode($this->pesan);
         // Redirect ke URL WhatsApp

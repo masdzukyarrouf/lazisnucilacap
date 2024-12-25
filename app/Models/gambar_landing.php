@@ -13,6 +13,19 @@ class gambar_landing extends Model
     protected $table = 'gambar_landing';
     protected $primaryKey = 'id_gambar';
     protected $fillable = [
-        'gambar'
+        'position',
+        'gambar',
+        'link'
     ];
+
+    public static function reorder()
+    {
+        $gambarList = self::orderBy('position', 'asc')->get();
+        $newPosition = 1;
+        foreach ($gambarList as $a) {
+            $a->position = $newPosition;
+            $a->save();
+            $newPosition++;
+        }
+    }
 }

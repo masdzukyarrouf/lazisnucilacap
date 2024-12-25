@@ -23,12 +23,14 @@ class UserKonfirmasi extends Component
 
     public function mount()
     {
+        $this->reset();
+        
         $users = Auth::user();
         if ($users) {
             $this->id_user = $users->id_user;
             $this->nama = $users->username;
             $this->no_telp = $users->no_telp;
-            $this->email = $users->email;
+            $this->email = $users->email ?? null;
         }
     }
 
@@ -44,9 +46,24 @@ class UserKonfirmasi extends Component
             'id_user' => 'nullable|integer',
             'nama' => 'required|string',
             'no_telp' => 'required|string',
-            'email' => 'required|string',
+            'email' => 'nullable|string',
             'campaign' => 'required|string',
             'bukti' => 'required|image|', // Validasi gambar
+        ];
+    }
+
+    protected function messages()
+    {
+        return [
+            'nama.required' => 'Nama wajib diisi.',
+            'nama.string' => 'Nama harus berupa teks.',
+            'no_telp.required' => 'Nomor telepon wajib diisi.',
+            'no_telp.string' => 'Nomor telepon harus berupa teks.',
+            'email.string' => 'Email harus berupa teks.',
+            'campaign.required' => 'Campaign wajib diisi.',
+            'campaign.string' => 'Campaign harus berupa teks.',
+            'bukti.required' => 'Bukti wajib diunggah.',
+            'bukti.image' => 'Bukti harus berupa file gambar yang valid.',
         ];
     }
 
@@ -70,20 +87,14 @@ class UserKonfirmasi extends Component
             'bukti' => $path, // Simpan path gambar
         ]);
 
-        $this->reset();
+        // $this->mount();
 
-        $this->dispatch('formCreated');
+        $this->dispatch('created', ['message' => 'Formulir Berhasil di kirim']);
 
         return $konfirmasi;
 
     }
     
-    #[On('formCreated')]
-    public function handleberitaCreated()
-    {
-        session()->flash('message', 'Form Sukses Dikirim');
-    }
-
     public function render()
     {
         $this->loadCampaigns();

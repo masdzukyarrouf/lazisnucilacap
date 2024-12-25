@@ -17,12 +17,14 @@ class Index extends Component
             if ($konfirmasi->bukti) {
                 \Storage::disk('public')->delete($konfirmasi->bukti);
             }
-
+            
             // Hapus data konfirmasi
             $konfirmasi->delete();
+            $this->dispatch('destroyed', ['message' => 'Konfirmasi deleted Successfully']);
 
             // Tampilkan pesan sukses
-            session()->flash('message', 'Konfirmasi Sukses Dihapus.');
+            // session()->flash('message', 'Konfirmasi Sukses Dihapus.');
+
         }
     }
 

@@ -25,11 +25,13 @@ class Create extends Component
         // Simpan data ke database
         $Visi = visi::create([
             'visi' => $validatedData['visi'],
+            'order' => visi::max('order') + 1,
         ]);
 
         $this->reset();
 
         $this->dispatch('visiCreated');
+        visi::reorder();
 
         return $Visi;
 

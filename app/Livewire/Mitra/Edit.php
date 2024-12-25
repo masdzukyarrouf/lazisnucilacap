@@ -25,13 +25,12 @@ class Edit extends Component
 
     public function clear($id_partner)
     {
-        $this->reset();
         $this->dispatch('refreshComponent');
         $mitra = Mitra::find($id_partner);
         if ($mitra) {
             $this->id_partner = $mitra->id_partner;
             $this->partner_name = $mitra->partner_name;
-            $this->logo = $mitra->logo; // Fetch the current logo
+            // $this->logo = $mitra->logo; // Fetch the current logo
         }
     }
 
@@ -59,7 +58,7 @@ class Edit extends Component
         if ($mitra) {
             $this->id_partner = $mitra->id_partner;
             $this->partner_name = $mitra->partner_name;
-            $this->logo = $mitra->logo; // Fetch the current logo
+            // $this->logo = $mitra->logo; // Fetch the current logo
         }
     }
 
@@ -88,7 +87,7 @@ class Edit extends Component
         }
 
         // Reset form and dispatch event
-        $this->reset();
+        $this->clear($this->id_partner);
         $this->dispatch('mitraUpdated');
     }
 

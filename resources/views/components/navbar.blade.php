@@ -31,12 +31,18 @@
                 ['href' => '/mitra', 'text' => 'Mitra'],
             ]" isDropdown="true" />
             <x-navlink title="Pilar & Program" :links="[
-                ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
-                ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
-                ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
-                ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
-                ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
-            ]" isDropdown="true" />
+                    <?php
+                        $pilars = pilar_program::all();
+                    ?>
+                        @foreach ($pilars as $items)
+                            ['href' => '/pilar/' . $items->slug, 'text' => $items->name . $items->kategori->nama],
+                        @endforeach
+                    // ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
+                    // ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
+                    // ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
+                    // ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
+                    // ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
+                ]" isDropdown="true" />
 
             <x-navlink title="Layanan" :links="[
                 ['href' => '/konfirmasi', 'text' => 'Konfirmasi Donasi'],
@@ -45,11 +51,11 @@
                 ['href' => '/pengajuan-gocap', 'text' => 'Gocap'],
             ]" isDropdown="true" />
 
-            <x-navlink title="Ziwaf" :links="[
+            <x-navlink title="Ziswaf" :links="[
                 ['href' => '/narasi/fitrah', 'text' => 'Zakat Fitrah'],
                 ['href' => '/narasi/maal', 'text' => 'Zakat Maal'],
                 ['href' => '/narasi/infaq', 'text' => 'Infaq'],
-                ['href' => '/narasi/wakaf', 'text' => 'wakaf'],
+                ['href' => '/narasi/wakaf', 'text' => 'Wakaf'],
                 ['href' => '/narasi/fidyah', 'text' => 'Fidyah'],
                 ['href' => '/narasi/qurban', 'text' => 'Qurban'],
             ]" isDropdown="true" />
@@ -64,9 +70,9 @@
                         Admin
                     </a>
                 @elseif (Auth::user()->role == 'donatur')
-                    <a href="{{route('profile.index')}}"
+                    <a href="#"
                         class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
-                        profil
+                        prfil
                     </a>
                 @endif
             @else
@@ -105,11 +111,17 @@
                 ]" isDropdown="true" />
 
                 <x-navlink title="Pilar & Program" :links="[
-                    ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
-                    ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
-                    ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
-                    ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
-                    ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
+                    <?php
+                        $pilars = pilar_program::all();
+                    ?>
+                        @foreach ($pilars as $items)
+                            ['href' => '/pilar/' . $items->slug, 'text' => $items->name . $items->kategori->nama],
+                        @endforeach
+                    // ['href' => '/berdaya', 'text' => 'NU Care Berdaya (Ekonomi)'],
+                    // ['href' => '/cerdas', 'text' => 'NU Care Cerdas (Pendidikan)'],
+                    // ['href' => '/sehat', 'text' => 'NU Care Sehat (Kesehatan)'],
+                    // ['href' => '/damai', 'text' => 'NU Care Damai (Dakwah & Kemanusiaan)'],
+                    // ['href' => 'hijau', 'text' => 'NU Care Hijau (Lingkungan Hidup & Kebencanaan)'],
                 ]" isDropdown="true" />
 
                 <x-navlink title="Layanan" :links="[
@@ -131,9 +143,9 @@
                             Admin
                         </a>
                     @elseif (Auth::user()->role == 'donatur')
-                        <a href="{{route('profile.index')}}"
+                        <a href="#"
                             class="px-6 py-2 text-white bg-green-600 border rounded-xl hover:border-green-600 hover:bg-white hover:text-green-600">
-                            profil
+                            profl
                         </a>
                     @endif
                 @else
@@ -172,20 +184,15 @@
         document.addEventListener('click', function(event) {
             const userMenu = document.getElementById('user-menu');
             const userMenuBtn = document.getElementById('user-menu-btn');
-            if (!userMenuBtn.contains(event.target) && !userMenu.contains(event.target)) {
-                userMenu.classList.add('hidden');
+            if(userMenu){
+                if (userMenuBtn.contains(event.target) == null  && userMenu.contains(event.target) == null) {
+                    userMenu.classList.add('hidden');
+                }
             }
-        });
-
-        // Toggle Sidebar visibility
-        document.getElementById('menu-btn').addEventListener('click', function() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('-translate-x-full');
-        });
-
-        // Close Sidebar
-        document.getElementById('close-btn').addEventListener('click', function() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.add('-translate-x-full');
+            if(userMenuBtn){
+                if (userMenuBtn.contains(event.target) == null  && userMenu.contains(event.target) == null) {
+                    userMenu.classList.add('hidden');
+                }
+            }
         });
     </script>

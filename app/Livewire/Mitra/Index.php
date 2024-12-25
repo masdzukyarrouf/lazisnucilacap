@@ -15,7 +15,8 @@ class Index extends Component
     #[On('mitraUpdated')]
     public function handlemitraEdited()
     {
-        session()->flash('message', 'mitra Updated Successfully ');
+            $this->dispatch('updated', ['message' => 'mitra Updated Successfully']);
+        // session()->flash('message', 'mitra Updated Successfully ');
 
     }
 
@@ -32,7 +33,8 @@ class Index extends Component
             $mitra->delete();
 
             // Tampilkan pesan sukses
-            session()->flash('message', 'mitra destroyed successfully.');
+            $this->dispatch('destroyed', ['message' => 'mitra deleted Successfully']);
+            // session()->flash('message', 'mitra destroyed successfully.');
 
         }
     }
@@ -41,7 +43,8 @@ class Index extends Component
     #[On('mitraCreated')]
     public function handlemitraCreated()
     {
-        session()->flash('message', 'mitra Created Successfully ');
+            $this->dispatch('created', ['message' => 'mitra created Successfully']);
+        // session()->flash('message', 'mitra Created Successfully ');
 
 
     }

@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
-    <x-nav-mobile2 title="Pembayaran" />
-    <div class="flex flex-col bg-white shadow-md" style="width: 414px; height: 736px">
+<div class="flex flex-col items-center justify-center min-w-fit">
+    <x-nav-mobile2 title="Pembayaran Qurban LAZISNU Cilacap" backUrl="{{ route('qurban') }}"/>
+    <div class="flex flex-col w-full min-h-screen bg-white shadow-md md:w-[414px]">
         <div class="shadow ">
             <div class="mx-5 mt-2">
                 <span class="mb-4 text-sm text-gray-500">
@@ -9,27 +9,35 @@
                 <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Jenis Hewan</div>
                     <div class="w-4 text-gray-500text-center">:</div>
-                    <div>{{ $hewan }}</div>
+                    <div>{{ $jenis }}</div>
                 </div>
                 <div class="flex items-center mb-2">
                     <div class="w-40 text-gray-500">Jumlah Mudhohi</div>
                     <div class="w-4 text-gray-500text-center">:</div>
                     <div>{{ $jumlah }}</div>
                 </div>
-                <div class="flex items-center mb-2">
-                    <div class="w-40 text-gray-500">Nama Mudhohi</div>
-                    <div class="w-4 text-gray-500text-center">:</div>
-                    <div>{{ $mudhohi }}</div>
+                <div class="flex flex-col">
+                        @if($mudhohiList)
+                            @foreach ($mudhohiList as $index => $mudhohi)
+                                <div class="flex items-center mb-2">
+                                    <div class="w-40 text-gray-500">Mudhohi {{ $index + 1 }}</div>
+                                    <div class="w-4 text-gray-500text-center">:</div>
+                                    <div>{{ $mudhohi }}</div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div>Daftar Mudhohi Kosong</div>
+                        @endif
                 </div>
 
                 <label class="mt-4 font-semibold">Nominal Qurban</label>
                 <div class="relative flex flex-col mb-3">
                     <div class="flex items-center justify-center">
-                        <span class="absolute inset-y-0 left-0 flex items-center px-3 font-semibold text-green-500 rounded h-9">Rp. </span>
+                        <span class="absolute inset-y-0 left-0 flex items-center px-3 font-semibold text-green-500 border border-black rounded h-9bg-gray-300">Rp. </span>
                             <input 
                                 type="text" 
                                 value="{{ number_format($this->nominal, 0, ',', '.') }}" 
-                                class="w-full py-1 pl-10 pr-2 font-semibold text-green-500 border border-gray-300 rounded h-9" 
+                                class="w-full py-1 pr-2 font-semibold text-green-500 bg-gray-300 border border-black rounded pl-14 h-9" 
                                 placeholder="Rp. 0" 
                                 readonly 
                             />

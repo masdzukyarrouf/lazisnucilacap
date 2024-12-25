@@ -13,5 +13,16 @@ class visi extends Model
     protected $primaryKey = 'id_visi';
     protected $fillable = [
         'visi',
+        'order',
     ];
+    public static function reorder()
+    {
+        $visiList = self::orderBy('order', 'asc')->get();
+        $newOrder = 1;
+        foreach ($visiList as $visi) {
+            $visi->order = $newOrder;
+            $visi->save();
+            $newOrder++;
+        }
+    }
 }

@@ -40,7 +40,7 @@
                             <option value="mobiznu">mobiznu</option>
                             <option value="konsultasi zakat">Konsultasi zakat</option>
                             <option value="konfirmasi donasi">konfirmasi donasi</option>
-                            <option value="Pengaduan">Pengaduan</option>
+                            <option value="Pengaduan">Pengaduan Gocap</option>
                         </select>
                         @error('bagian')
                             <span class="mt-1 text-sm text-red-500">{{ $message }}</span>
@@ -51,7 +51,7 @@
                     <div class="flex justify-end p-4 bg-gray-200 rounded-b-lg">
                         <button type="button" @click="isOpen = false"
                             class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700">Close</button>
-                        <button type="submit" @click="isOpen = false"
+                        <button type="submit" @click="isOpen = true"
                             class="px-4 py-2 ml-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">Submit</button>
                     </div>
                 </form>

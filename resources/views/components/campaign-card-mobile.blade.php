@@ -1,5 +1,5 @@
 <div class="flex flex-grow h-full bg-white z-5">
-    <a wire:navigate.hover href="{{ route('campaigns.show', $campaign->id_campaign) }}">
+    <a wire:navigate.hover href="{{ route('campaigns.show', $campaign->slug) }}">
     <div class="relative z-0 flex items-center justify-center overflow-hidden group w-44 h-28">
             <img src="{{ asset('storage/images/campaign/' . $campaign->main_picture) }}" 
                  alt="Picture"
@@ -25,7 +25,7 @@
 
             <div class="flex items-center justify-between">
                 <div class="text-xs text-left">
-                    <p class="mt-2 text-gray-700 ">Raised</p>
+                    <p class="mt-2 text-gray-700 ">Rwwwaised</p>
                     <p class="mt-2 font-bold text-green-600 ">Rp. {{ $campaign->raised }}</p>
                 </div>
                 <div class="text-xs text-left">

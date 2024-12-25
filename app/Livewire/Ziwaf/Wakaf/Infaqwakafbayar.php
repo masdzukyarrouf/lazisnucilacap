@@ -13,9 +13,13 @@ class InfaqwakafBayar extends Component
     public $data = [
         'nominal' => 0,
         'jenis' => '',
+        'atasnama' => '',
+        'jenis3' => '',
     ];
     public $nominal;
     public $jenis;
+    public $atasNama;
+    public $jenis3;
     public $nama;
     public $no;
     public $email;
@@ -30,6 +34,8 @@ class InfaqwakafBayar extends Component
         if ($data) {
             $this->nominal = $data['nominal'];
             $this->jenis = $data['jenis'];
+            $this->atasNama = $data['atasnama'];
+            $this->jenis3 = $data['jenis3'];
         } else {
             return redirect()->route('wakaf');
         }
@@ -48,6 +54,8 @@ class InfaqwakafBayar extends Component
         $this->data = [
             'nominal' => $this->nominal,
             'jenis' => $this->jenis,
+            'atasnama' => $this->atasNama,
+            'jenis3' => $this->jenis3,
 
         ];
 
@@ -55,15 +63,34 @@ class InfaqwakafBayar extends Component
             ->with('data', $this->data);
     }
 
+    public function rules()
+    {
+        return [
+            'email' => 'nullable|email|regex:/@gmail\.com$/',
+            'nama' => 'required|string',
+            'no' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'email.regex' => 'Email harus berupa @gmail.com',
+            'nama.required' => 'Nama wajib diisi.',
+            'no.required' => 'Nomor telepon wajib diisi.',
+        ];
+    }
+
     public function datadiri()
     {
         $this->nama;
         $this->no;
-        $this->email;
+        $this->validateOnly('email');
     }
 
     public function co()
     {
+        $this->validate();
         $order_id = rand();
 
         $this->transaction = Transaction::create([
@@ -110,8 +137,9 @@ class InfaqwakafBayar extends Component
             'username' => $this->nama,
             'no_telp' => $this->no,
             'id_transaction' => $this->transaction->id_transaction,
-            'jenis_ziwaf' => $this->jenis,
+            'jenis_ziwaf' => 'wakaf ' . $this->jenis . ' ' . '(' . $this->jenis3 . ')',
             'email' => $this->email,
+            'atas_nama' => $this->atasNama,
         ]);
 
         $this->datawakaf = [
@@ -120,6 +148,8 @@ class InfaqwakafBayar extends Component
             'nama' => $this->nama,
             'no' => $this->no,
             'email' => $this->email,
+            'atasNama' => $this->atasNama,
+            'jenis3' => $this->jenis3
 
         ];
 
@@ -129,6 +159,6 @@ class InfaqwakafBayar extends Component
 
     public function render()
     {
-        return view('livewire.ziwaf.infaqwakaf-bayar')->layout('layouts.none');
+        return view('livewire.ziwaf.wakaf.infaqwakafbayar')->layout('layouts.none');
     }
 }

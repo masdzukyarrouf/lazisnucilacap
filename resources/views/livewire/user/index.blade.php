@@ -40,8 +40,10 @@
                         <td class="px-6 py-4 border-b border-gray-300">{{ $user->created_at->format('d/m/Y') }}</td>
                         <td class="flex px-6 py-4 space-x-2 border-b border-gray-300">
                             <livewire:user.edit :id_user="$user->id_user" wire:key="user-{{ $user->id_user }}"/>
-                            <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700"
-                                wire:click="destroy({{ $user->id_user }})">Delete</button>
+                            <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
+                                onclick="confirmDelete({{ $user->id_user }})">
+                                Delete
+                            </button>
 
                         </td>
                     </tr>
@@ -54,6 +56,23 @@
     <div class="py-8 mt-4 text-center">
         {{ $users->links('pagination::tailwind') }}
     </div>
-
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Trigger Livewire destroy method
+                    @this.call('destroy', id);
+                }
+            })
+        }
+    </script>
 
 </div>

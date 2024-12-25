@@ -61,6 +61,20 @@ class PengajuanMobiznu extends Component
         ];
     }
 
+    protected function messages()
+    {
+        return [
+            'jenis.required' => 'Jenis layanan wajib diisi.',
+            'keperluan.required' => 'Keperluan layanan wajib diisi.',
+            'tanggal.required' => 'Tanggal wajib diisi.',
+            'jemput.required' => 'Jemput wajib diisi.',
+            'waktu_jemput.required' => 'Waktu jemput wajib diisi.',
+            'tujuan.required' => 'Tujuan wajib diisi.',
+            'nama.required' => 'Nama wajib diisi.',
+            'no_telp.required' => 'Nomor telepon wajib diisi.',
+        ];
+    }
+
     public function save()
     {
         // Validasi data

@@ -4,17 +4,18 @@ namespace App\Livewire\UserBerita;
 
 use Livewire\Component;
 use App\Models\Berita;
+use App\Models\Kategori;
 
 class Index extends Component
 {
-    public $kategori = "all"; // Add this property to manage the selected category
+    public $kategori = "Kategori"; // Add this property to manage the selected category
     public $search = ''; // Add this property for search input
     public $Beritas;
 
     public function mount()
     {
-        // Initialize category from session or default to 'all'
-        $this->kategori = session('kategori', 'all');
+        // Initialize category from session or default to 'Kategori'
+        $this->kategori = session('kategori', 'Kategori');
         $this->loadBerita();
     }
 
@@ -35,13 +36,16 @@ class Index extends Component
     {
         $query = Berita::query();
 
-        if ($this->kategori !== 'all') {
-            // Filter berita based on selected category
-            $query->where('kategori', $this->kategori);
+        
+        if ($this->kategori !== 'Kategori') {
+            $kategori = Kategori::where('nama_kategori', $this->kategori)->first();
+            
+            if ($kategori) {
+                $query->where('id_kategori', $kategori->id);
+            }
         }
 
         if (!empty($this->search)) {
-            // Filter berita based on search term
             $query->where('title_berita', 'like', '%' . $this->search . '%');
         }
 

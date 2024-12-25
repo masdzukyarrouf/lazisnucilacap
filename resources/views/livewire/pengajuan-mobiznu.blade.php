@@ -1,6 +1,6 @@
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center min-w-fit">
     <x-nav-mobile2 title="Pengajuan Mobiznu" />
-    <div class="flex flex-col min-h-screen bg-white shadow-md" style="width: 414px;">
+    <div class="flex flex-col min-h-screen bg-white shadow-md md:w-[414px] w-screen">
         <div class="flex flex-col py-4 px-[24px]">
             <div>
                 @if (session()->has('message'))
@@ -24,7 +24,7 @@
                         Nama Anda
                     </h1>
                     <input type="text" id="nama" wire:model.lazy="nama" wire:input="nama"
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" placeholder="Isikan nama anda" />
+                        class="w-full px-2 py-1 border border-gray-300 rounded" placeholder="Isikan nama anda" />
                     @error('nama')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
@@ -35,7 +35,7 @@
                         No Telepon (Whatsapp Aktif)
                     </h1>
                     <input type="text" id="no_telp" wire:model.lazy="no_telp" wire:input="no_telp"
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded"
+                        class="w-full px-2 py-1 border border-gray-300 rounded"
                         placeholder="Isikan No Telepon anda" />
                     @error('no_telp')
                         <span class="text-sm text-red-500">{{ $message }}</span>
@@ -94,7 +94,7 @@
                             Keperluan (Lainnya)
                         </h1>
                         <input type="text" id="lainnya" wire:model.lazy="lainnya" wire:input="lainnya"
-                            class="w-full px-2 py-1 mb-3 border border-gray-300 rounded"
+                            class="w-full px-2 py-1 border border-gray-300 rounded"
                             placeholder="Isikan dengan keperluan anda" />
 
                     @else
@@ -109,7 +109,7 @@
                         Tanggal layanan
                     </h1>
                     <input type="date" id="tanggal" wire:model.lazy="tanggal" min="{{ date('Y-m-d') }}"
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded"/>
+                        class="w-full px-2 py-1 border border-gray-300 rounded"/>
                     @error('tanggal')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
@@ -120,7 +120,7 @@
                         waktu Penjemputan
                     </h1>
                     <input type="time" id="waktu_jemput" wire:model.lazy="waktu_jemput" wire:input="waktu_jemput"
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded"/>
+                        class="w-full px-2 py-1 border border-gray-300 rounded"/>
                     @error('waktu_jemput')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
@@ -130,7 +130,7 @@
                         Alamat Penjemputan
                     </h1>
                     <textarea type="text" id="jemput" wire:model.lazy="jemput" wire:input="jemput"
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" rows="3"></textarea>
+                        class="w-full px-2 py-1 border border-gray-300 rounded" rows="3"></textarea>
                     @error('jemput')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror
@@ -140,7 +140,7 @@
                         Alamat tujuan
                     </h1>
                     <textarea type="text" id="tujuan" wire:model.lazy="tujuan" wire:input="tujuan"
-                        class="w-full px-2 py-1 mb-3 border border-gray-300 rounded" rows="3"></textarea>
+                        class="w-full px-2 py-1 border border-gray-300 rounded" rows="3"></textarea>
                     @error('tujuan')
                         <span class="text-sm text-red-500">{{ $message }}</span>
                     @enderror

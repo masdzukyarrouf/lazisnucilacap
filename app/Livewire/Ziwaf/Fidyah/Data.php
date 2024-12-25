@@ -14,15 +14,23 @@ class Data extends Component
     public $username;
     #[Rule('required|string')]
     public $no_telp;
-    #[Rule('required|string')]
+    #[Rule('regex:/@gmail\.com$/')]
     public $email;
     public $nominal;
+    public $atasNama;
+    public $data;
+    public $user_id;
+    public $hari;
 
 
     public function mount(){
-        $this->nominal = session('nominal', 'none');
-        if($this->nominal == 'none'){
+        $this->data = session('data', 'none');
+        if($this->data == 'none'){
             return redirect()->route('fidyah.index');
+        }else{
+            $this->nominal = $this->data['nominal'];
+            $this->hari = $this->data['hari'];
+            $this->atasNama = $this->data['atasNama'];
         }
         $user = Auth::user();
         if($user){
@@ -34,7 +42,18 @@ class Data extends Component
 
     }
 
+    public function messages()
+    {
+        return [
+            'email.regex' => 'Email harus berupa @gmail.com',
+            'username.required' => 'Nama wajib diisi.',
+            'no_telp.required' => 'Nomor telepon wajib diisi.',
+        ];
+    }
+
     public function bayarFidyah(){
+
+        $this->validate();
 
         $order_id = rand();
 
@@ -84,11 +103,14 @@ class Data extends Component
             'no_telp' => $this->no_telp,
             'id_transaction' => $this->transaction->id_transaction,
             'jenis_ziwaf' => 'fidyah',
-            'email' => 'email@email.email',
+            'email' => $this->email ?? null,
+            'atas_nama' => $this->atasNama,
         ]);
         $this->donatur = [
             'username' => $this->username,
+            'hari' => $this->hari,
             'nominal' => $this->nominal,
+            'atasNama' => $this->atasNama,
             'no_telp' => $this->no_telp,
             'email' => $this->email,
         ];

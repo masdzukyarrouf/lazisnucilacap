@@ -16,7 +16,9 @@ class Index extends Component
     #[On('beritaUpdated')]
     public function handleberitaEdited()
     {
-        session()->flash('message', 'Berita Updated Successfully');
+        // session()->flash('message', 'Berita Updated Successfully');
+        $this->dispatch('created', ['message' => 'Berita Updated Successfully']);
+
     }
 
     public function destroy($id_berita)
@@ -32,14 +34,20 @@ class Index extends Component
             $berita->delete();
 
             // Tampilkan pesan sukses
-            session()->flash('message', 'Berita destroyed successfully.');
+            // session()->flash('message', 'Berita destroyed successfully.');
+        // $this->dispatch('created', ['message' => 'Berita Created Successfully']);
+        $this->dispatch('created', ['message' => 'Berita Deleted Successfully']);
+
+
         }
     }
 
     #[On('beritaCreated')]
     public function handleberitaCreated()
     {
-        session()->flash('message', 'Berita Created Successfully');
+        // session()->flash('message', 'Berita Created Successfully');
+        $this->dispatch('created', ['message' => 'Berita Created Successfully']);
+
     }
 
     public function render()

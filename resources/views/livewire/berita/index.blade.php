@@ -35,8 +35,8 @@
                     <td class="px-4 py-2">
                         {{ \Illuminate\Support\Str::limit($berita->description, 30, '...') }}
                     </td>
-                    <td class="px-4 py-2">{{ $berita->tanggal }}</td>
-                    <td class="px-4 py-2">{{ $berita->kategori }}</td>
+                    <td class="px-4 py-2">{{ \Carbon\Carbon::parse($berita->tanggal)->locale('id')->translatedFormat('d F Y') }}</td>
+                    <td class="px-4 py-2">{{ $berita->kategori->nama_kategori ?? 'No Kategori' }}</td>
                     <td class="px-4 py-2">
                         <img src="{{ asset('storage/' . $berita->picture) }}" alt="Main Picture" class="block w-24 mx-auto mt-2 mb-2">
                     </td>
@@ -47,7 +47,9 @@
                                 <livewire:berita.form-edit :id_berita="$berita->id_berita" wire:key="edit-{{ $berita->id_berita }}" />
                             </div>
                             <button class="inline-block px-3 py-1 text-white bg-red-500 rounded hover:bg-red-700" 
-                                    wire:click="destroy({{ $berita->id_berita }})" wire:confirm="Are you sure?">Delete</button>
+                                onclick="confirmDelete({{ $berita->id_berita }})">
+                                Delete
+                            </button>
                         </div>
                     </td>
                 </tr>
@@ -58,4 +60,22 @@
     <div class="py-8 mt-4 text-center">
         {{ $beritas->links('pagination::tailwind') }}
     </div>
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Trigger Livewire destroy method
+                    @this.call('destroy', id);
+                }
+            })
+        }
+    </script>
 </div>
