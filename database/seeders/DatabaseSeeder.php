@@ -296,11 +296,13 @@ class DatabaseSeeder extends Seeder
 
         gambar_landing::factory()->create([
             'gambar' => 'images/gambar_landing/donasi.png',
+            'position' => '1',
             'link' => 'http://127.0.0.1:8000/campaigns'
         ]);
 
         gambar_landing::factory()->create([
             'gambar' => 'images/gambar_landing/berita.jpg',
+            'position' => '2',
             'link' => 'http://127.0.0.1:8000/berita'
         ]);
 
@@ -341,6 +343,7 @@ class DatabaseSeeder extends Seeder
 
         Berita::factory()->create([
             'title_berita' => 'Hari Solidaritas Internasional bagi Rakyat Palestina: Bersatu dalam Kemanusiaan',
+            'slug' => 'hari-solidaritas-internasional-bagi-rakyat-palestina-bersatu-dalam-kemanusiaan',
             'description' => 'Hari Solidaritas Internasional bagi Rakyat Palestina adalah pengingat penting bahwa kemerdekaan belum dirasakan rakyat Palestina hingga sekarang. Di tengah agresi yang terus meningkat, penderitaan mereka menjadi sorotan dunia, termasuk serangan masif sejak Oktober 2023.
 
 Menurut data dari Palestinian Central Bureau of Statistics (23 November 2024):
@@ -376,6 +379,7 @@ Editor: Wahyu Noerhadi',
         ]);
         Berita::factory()->create([
             'title_berita' => 'NU Care-LAZISNU Cilacap dan PLN Indonesia Power Salurkan Bantuan Listrik Gratis untuk Warga Desa Adiraja',
+            'slug' => 'nu-care-lazisnu-cilacap-dan-pln-indonesia-power-salurkan-bantuan-listrik-gratis-untuk-warga-desa-adiraja',
             'description' => 'NU Care-LAZISNU Cilacap bersama PT PLN Indonesia Power UBP Jawa Tengah 2 Adipala kembali melaksanakan program sosial berupa pemasangan listrik gratis untuk masyarakat kurang mampu di Desa Adiraja, Kecamatan Adipala, Kabupaten Cilacap, Jawa Tengah.
 
 Program ini merupakan bagian dari tanggung jawab sosial perusahaan (CSR) yang bertujuan memberikan akses listrik kepada warga yang belum terjangkau layanan energi.
@@ -414,6 +418,7 @@ Editor : Putri Azmi M/Wahyu Noerhadi',
         ]);
         Berita::factory()->create([
             'title_berita' => 'Hasil Survey World Giving Index, 7 Tahun Berturut-turut Indonesia Jadi Negara Paling Dermawan di Dunia',
+            'slug' => 'hasil-survey-world-giving-index-7-tahun-berturut-turut-indonesia-jadi-negara-paling-dermawan-di-dunia',
             'description' => 'NU Care-LAZISNU Cilacap Jawa Tengah menyalurkan paket berbuka puasa untuk santri yatim dan dhuafa di Pondok Pesantren Tarbiyatul Aulad Cilacap Selatan, Jumat (15/03/2024). 
 
                                 Direktur NU Care-LAZISNU Cilacap mengatakan bulan Ramadhan selalu menjadi momentum untuk berlomba-lomba dalam kebaikan.
@@ -448,6 +453,7 @@ Editor : Putri Azmi M/Wahyu Noerhadi',
 
         Berita::factory()->create([
             'title_berita' => 'Penguatan Program LAZ Harus Berbasis Logical Framework Analysis untuk Efektivitas dan Keberlanjutan',
+            'slug' => 'penguatan-program-laz-harus-berbasis-logical-framework-analysis-untuk-efektivitas-dan-keberlanjutan',
             'description' => 'Program Smart Amil Virtual NU Care-LAZISNU hadir sebagai wadah pembelajaran yang awalnya dirancang untuk internal LAZISNU, dari tingkat pusat hingga ranting. Namun, inisiatif ini kini diperluas untuk masyarakat umum, termasuk para pengikut (followers) NU Care-LAZISNU di berbagai platform.
 
 Dalam sesi yang menghadirkan Hamid Abidin, anggota Dewan Pakar Filantropi Indonesia, Jumat (22/11/2024) disampaikan materi tentang Logical Framework Analysis (LFA).
@@ -493,6 +499,7 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
         ]);
         Berita::factory()->create([
             'title_berita' => 'Program Ramadhan 2024, Nu Care-Lazisnu Cilacap Berhasil Menyalurkan Kepada 54.000 Penerima Manfaat',
+            'slug' => 'program-ramadhan-2024-nu-care-lazisnu-cilacap-berhasil-menyalurkan-kepada-54-000-penerima-manfaat',
             'description' => 'NU Care-LAZISNU Cilacap telah berhasil menyalurkan dana zakat, infak, dan sedekah (ZIS) pada Ramadan 1445 H/2024 M kepada lebih dari 54.000 penerima manfaat. Dana ZIS tersebut disalurkan melalui 5 pilar program dan 12 program unggulan yang dilaksanakan selama bulan Ramadan 1445 H.
 
                                 Program Ramadan yang telah dilaksanakan antara lain, Peningkatan Gizi dan Ketahanan Pangan, Beasiswa santri nusantara, Syiar quran, Beras santri nusantara, Belanja bersama adik juara anak yatim, Bantuan usaha untuk keluarga berdaya, Layanan Masjid Sehat, Warteg Gratis untuk Pejuang Nafkah, Sepeda Sekolah untuk yatim dhuafa, Bantuan usaha untuk difabel berdaya, Training guru Al-Quran, Gerai Ta’jil Gratis serta Bantuan Kemanusiaan untuk Palestina.
@@ -510,6 +517,7 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
 
         Berita::factory()->create([
             'title_berita' => 'Pemkab Beri Piagam Ambulance Teraktif kepada NU Care-LAZISNU Cilacap',
+            'slug' => 'pemkab-beri-piagam-ambulance-teraktif-kepada-nu-care-lazisnu-cilacap',
             'description' => 'Dinas Kesehatan Pengendalian Penduduk dan Keluarga Berencana (Dinkes PPKB) Kabupaten Cilacap memberikan Piagam Apresiasi kepada NU Care LAZISNU Cilacap sebagai Lembaga Amil Zakat dengan Program layanan ambulance rujukan kesehatan teraktif.
 
                                 dr Pramesti Griana Dewi MKes MSi selaku Kepala Dinas melalui Kepala Bidang Farmasi, alat kesehatan dan makanan minuman, Hudaefah, SKM, MKes menyampaikan apresiasi atas peran serta mobil layanan umat NU Care LAZISNU Cilacap sebagai rujukan kesehatan teraktif.
@@ -559,6 +567,7 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
 
         Berita::factory()->create([
             'title_berita' => 'Khidmah LAZISNU, Bupati Cilacap Ganjar dengan Dua Penghargaan',
+            'slug' => 'khidmah-lazisnu-bupati-cilacap-ganjar-dengan-dua-penghargaan',
             'description' => 'Lembaga Amil Zakat dan Infaq dan Sedekah Nadlatul Ulama (LAZISNU) Cilacap mendapatkan penghargaan dari Bupati Cilacap Awaluddin Muuri saat pembukaan Konferensi Cabang (Konfercab) NU Cilacap pada Sabtu (20/4/2024) di Gedung Diklat NU setempat.
 
 
@@ -594,10 +603,11 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
 
         Berita::factory()->create([
             'title_berita' => 'NU Care-LAZISNU Salurkan Bantuan 3 Truk Kontainer Paket Pangan, Tepung dan Terpal untuk Warga Gaza',
+            'slug' => 'nu-care-lazisnu-salurkan-bantuan-3-truk-kontainer-paket-pangan-tepung-dan-terpal-untuk-warga',
             'description' => 'Jakarta, NU Care
                                 Penyaluran bantuan kemanusiaan bagi rakyat Palestina terus dilakukan oleh NU Care-LAZISNU melalui sejumlah mitra, baik di dalam maupun luar negeri. Teranyar, NU Care-LAZISNU melalui Gazze Destek Dernegi (GDD) atau Asosiasi Dukungan Gaza yang bermarkas di Istanbul, Turki mengirimkan 3 (tiga) truk kontainer bantuan kemanusiaan berupa paket pangan, tepung dan terpal yang didistribusikan bagi warga Gaza, Palestina.
 
-                                Direktur Eksekutif NU Care-LAZISNU PBNU, Qohari Cholil mengungkapkan bahwa hingga saat ini warga Gaza masih membutuhkan bantuan, maka itu pihaknya berkomitmen akan terus menyalurkan bantuan melalui berbagai mitra NU Care-LAZISNU, salah satunya GDD.
+                                Direktur Eksekutif NU Care-LAZISNU PBNU, Qohari Cholil mengungkapkan bahwa hingga saat ini warga Gaza masih membutuhkan bantuan, maka itu pihaknya berkomitmen akan terus menyalurkan bantuan melalui berbagai mitra NU Care-LAZISNU, salah satunya GDD.,
 
                                 “Melalui GDD ini, proses pengiriman bantuan ke Gaza via Mesir sudah dilakukan, dengan bentuk bantuan berupa satu truk kontainer berisi paket pangan, satu truk tepung atau gandum, dan satu truk lagi berisi bantuan terpal,” kata Qohari di kantor NU Care-LAZISNU PBNU, Jakarta Pusat, Rabu (24/04/2024).
 
@@ -629,6 +639,7 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
 
         Berita::factory()->create([
             'title_berita' => 'NU Care-LAZISNU Cilacap Bentuk JPZIS Tingkat Masjid dan Mushala',
+            'slug' => 'nu-care-lazisnu-cilacap-bentuk-jpzis-tingkat-masjid-dan-mushala',
             'description' => 'Cilacap, NU Care
                                 NU Care-LAZISNU Cilacap Jawa Tengah mengadakan sosialisasi mengenai amil zakat dan manajemen pengelolaan zakat fitrah di masjid dan mushala pada Jumat (5/04/2024). Kegiatan bertempat di Gedung Majelis Wakil Cabang Nahdlatul Ulama (MWCNU) Karangpucung dan Kawunganten, Cilacap Jawa Tengah.
 
@@ -659,6 +670,7 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
 
         Berita::factory()->create([
             'title_berita' => 'Mahabbah Ramadhan, NU Care-LAZISNU Cilacap Gelar Pelatihan Baca Al-Qur’an Bahasa Isyarat dan Braille',
+            'slug' => 'mahabbah-ramadhan-nu-care-lazisnu-cilacap-gelar-pelatihan-baca-al-qur-an-bahasa-isyarat-dan-braille',
             'description' => 'NU Care-LAZISNU Cilacap meluncurkan program Training of Trainer (TOT) bagi pengajar Al-Qur’an bahasa isyarat dan Braille beserta para penyandang disabilitas pada rangkaian program Mahabbah Ramadhan 1445 H atau 2024 M.
 
                                 “Kami meluncurkan program TOT bagi para pengajar yang akan mengajari dan belajar bahasa isyarat membaca Al-Qur’an dan Al-Qur’an Braille dan para difabel,” ujar Ahmad Fauzi, Direktur NU Care LAZISNU Cilacap, Selasa (03/04/2024).
@@ -694,6 +706,7 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
 
         Berita::factory()->create([
             'title_berita' => 'NU Care-LAZISNU Cilacap Salurkan Paket Buka Puasa kepada Ratusan Santri',
+            'slug' => 'nu-care-lazisnu-cilacap-salurkan-paket-buka-puasa-kepada-ratusan-santri',
             'description' => 'NU Care-LAZISNU Cilacap Jawa Tengah menyalurkan paket berbuka puasa untuk santri yatim dan dhuafa di Pondok Pesantren Tarbiyatul Aulad Cilacap Selatan, Jumat (15/03/2024). 
 
                                 Direktur NU Care-LAZISNU Cilacap mengatakan bulan Ramadhan selalu menjadi momentum untuk berlomba-lomba dalam kebaikan.
@@ -725,7 +738,7 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
             'tanggal' => '2024-03-21',
             'id_kategori' => '5'
         ]);
-        
+
         petugas::factory()->create([
             'nama' => 'admin mobiznu',
             'no' => '1234567890',
@@ -752,6 +765,7 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
 
         Campaign::factory()->create([
             'title' => 'Donasi Palestina',
+            'slug' => 'donasi-palestina',
             'description' => 'Bantu Palestina dengan Donasi Anda
 
                                 Palestina membutuhkan kita sekarang lebih dari sebelumnya. Setiap hari, ribuan keluarga kehilangan tempat tinggal dan hidup dalam ketidakpastian akibat konflik yang berkepanjangan. Dengan donasi Anda, kita bisa memberikan harapan baru bagi mereka yang paling membutuhkan.
@@ -805,10 +819,12 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
             'main_picture' => 'Bandung.png',
             'second_picture' => 'Bandung.png',
             'last_picture' => 'Bandung.png',
+            'slug' => 'donasi-korban-gempa-bandung'
         ]);
 
         Campaign::factory()->create([
             'title' => 'Kritis! Tolong Hasna Sembuh dari Penyakit Kulit Langka',
+            'slug' => 'kritis-tolong-hasna-sembuh-dari-penyakit-kulit-langka',
             'description' => 'Bantu Hasna dengan Donasi Anda
 
                                 Sudah 3 tahun berlalu sejak Hasna mengalami kejang-kejang dan muncul bintik merah di kulitnya. Saat ini, kondisi kulit Hasna semakin memburuk karena kulitnya menjadi berlendir, terdapat sensasi seperti terbakar, bahkan hingga terkelupas.
@@ -849,6 +865,7 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
 
         Campaign::factory()->create([
             'title' => 'SEDEKAH AL QUR’AN UNTUK PARA SANTRI PENGHAFAL ALQUR’AN DI PELOSOK',
+            'slug' => 'sedekah-al-quran-untuk-para-santri-penghafal-alquran-di-pelosok',
             'description' => '#SedekahseribuQuran
 
                                 Allah Swt. memberikan kita berbagai kemudahan dalam kehidupan. Bahkan kini, kita bisa berbagi cinta-Nya kepada sesama, menebar kebaikan, dan mengundang pahala terus mengalirkan keberkahan dunia-akhirat.
@@ -878,6 +895,7 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
 
         Campaign::factory()->create([
             'title' => 'MAHABBAH QURBAN – QURBAN BARENG, BERKAH BARENG',
+            'slug' => 'mahabbah-qurban-qurban-bareng-berkah-bareng',
             'description' => '“Maka laksanakanlah sholat karena Tuhanmu, dan berkurbanlah (sebagai ibadah untuk mendekatkan diri kepada Allah).” (QS. Al-Kautsar: 2)
 
                                 Qurban merupakan salah satu ibadah yang mempunyai makna sangat penting. Qurban bukanlah sekedar sebuah ritual, namun ia juga merupakan bentuk kepedulian dan kasih sayang kita kepada sesama.
@@ -910,6 +928,7 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
 
         Campaign::factory()->create([
             'title' => 'Kacamata Gratis untuk Santri dan Guru Ngaji',
+            'slug' => 'kacamata-gratis-untuk-santri-dan-guru-ngaji',
             'description' => 'Abi Hurairah ra, bahwasannya Rasulullah saw bersabda: “Apabila seorang manusia telah meninggal dunia, maka terputuslah amal perbuatannya kecuali tiga hal; sedekah jariyah, illmu yang bermanfaat, anak shalih yang mendo’akannya.”
 
                                 Dalam rangka peduli guru ngaji dan Santri, NU Care LAZISNU Cilacap luncurkan program kaca mata gratis untuk santri dan guru ngaji.
@@ -933,6 +952,7 @@ Editor: Kendi Setiawan/Wahyu Noerhadi',
 
         Campaign::factory()->create([
             'title' => 'Ketahanan Pangan',
+            'slug' => 'ketahanan-pangan',
             'description' => 'Sahabat Peduli ?
 
                                 Sadarkah kita ? Bahwa  hari ini kita masih bisa tersenyum mekar, Bahagia, hidup dalam kecukupan, bisa membeli apa saja yang jadi keinginan.
