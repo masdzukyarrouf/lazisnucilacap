@@ -73,5 +73,4 @@ Proyek ini dikembangkan oleh tim NU Care Lazisnu Cilacap, terdiri dari:
 - [**Fajar Dwi Junianto**](https://github.com/Fajaraaja)  
 
 
-## 📜 Lisensi
-Proyek ini dilisensikan di bawah lisensi **MIT**.
+
