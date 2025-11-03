@@ -67,10 +67,10 @@ lazisnucilacap/
 
 Proyek ini dikembangkan oleh tim NU Care Lazisnu Cilacap, terdiri dari:
 
-@tekotechkotech — Faiz Abdul Ghoni
-@masdzukyarrouf — Mas Dzuky Ar-Rouf
-@AndikaBastian — Andika Bastian
-@Fajaraaja — Fajar Dwi Junianto
+- [**Faiz Abdul Ghoni**](https://github.com/tekotechkotech)  
+- [**Mas Dzuky Ar-Rouf**](https://github.com/masdzukyarrouf)  
+- [**Andika Bastian**](https://github.com/AndikaBastian)  
+- [**Fajar Dwi Junianto**](https://github.com/Fajaraaja)  
 
 
 ## 📜 Lisensi
